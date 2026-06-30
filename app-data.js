@@ -727,6 +727,141 @@
     };
   }
 
+  const guideCatalog = [
+    [
+      "goethe-a1-germany-family-reunion.html",
+      "Goethe A1 for Germany family reunion",
+      "Start here for spouse or family reunion visa",
+      "Germany A1"
+    ],
+    [
+      "goethe-a1-fees-by-country.html",
+      "Goethe A1 fees by country",
+      "Verify local fees before booking",
+      "Germany A1"
+    ],
+    [
+      "goethe-a1-speaking-topics.html",
+      "Goethe A1 speaking topics",
+      "Original practice areas, no real exam questions",
+      "Germany A1"
+    ],
+    [
+      "goethe-a1-vs-telc-a1.html",
+      "Goethe A1 vs telc A1",
+      "Compare accepted German A1 proof",
+      "Germany A1"
+    ],
+    [
+      "german-family-reunion-language-requirement.html",
+      "German family reunion language requirement",
+      "Official requirement check for family visa",
+      "Germany A1"
+    ],
+    [
+      "goethe-a1-30-day-study-plan.html",
+      "30-day Goethe A1 study plan",
+      "Beginner schedule for working adults",
+      "Germany A1"
+    ],
+    [
+      "goethe-a1-test-centers.html",
+      "Goethe A1 test centers",
+      "Find and compare booking options",
+      "Germany A1"
+    ],
+    [
+      "goethe-a1-retake-policy.html",
+      "Goethe A1 retake policy",
+      "Plan for cost and timeline risk",
+      "Germany A1"
+    ],
+    [
+      "german-a1-documents-checklist.html",
+      "German A1 documents checklist",
+      "What to prepare before your appointment",
+      "Germany A1"
+    ],
+    [
+      "goethe-a1-official-links-practice-resources.html",
+      "Official links and practice resources",
+      "Source hub for A1 preparation",
+      "Germany A1"
+    ],
+    [
+      "goethe-b1-germany-settlement-work.html",
+      "Goethe B1 for settlement and work",
+      "Permanent residence and work registration",
+      "Germany B1+"
+    ],
+    [
+      "goethe-b1-fees-and-booking.html",
+      "Goethe B1 fees and booking",
+      "Check local fees by country before paying",
+      "Germany B1+"
+    ],
+    [
+      "goethe-b1-vs-telc-b1.html",
+      "Goethe B1 vs telc B1",
+      "Which B1 certificate is accepted where",
+      "Germany B1+"
+    ],
+    [
+      "goethe-b1-study-plan.html",
+      "60-day Goethe B1 study plan",
+      "Realistic schedule for working adults",
+      "Germany B1+"
+    ],
+    [
+      "testdaf-germany-university-admissions.html",
+      "TestDaF for university admissions",
+      "German proficiency for international students",
+      "TestDaF"
+    ],
+    [
+      "testdaf-levels-and-scoring.html",
+      "TestDaF levels and scoring",
+      "TDN 3/4/5 explained with CEFR mapping",
+      "TestDaF"
+    ],
+    [
+      "testdaf-vs-goethe-dsh.html",
+      "TestDaF vs Goethe C1 vs DSH",
+      "Compare the three university entry exams",
+      "TestDaF"
+    ],
+    [
+      "testdaf-preparation-and-practice.html",
+      "TestDaF preparation and practice",
+      "Official sample tests and study timeline",
+      "TestDaF"
+    ],
+    [
+      "telc-b1-b2-germany-work-nursing.html",
+      "telc B1/B2 for work and nursing",
+      "Professional recognition and Blue Card paths",
+      "telc Deutsch"
+    ],
+    [
+      "telc-b1-b2-fees-and-test-centers.html",
+      "telc B1/B2 fees and centers",
+      "Find authorised centres and local pricing",
+      "telc Deutsch"
+    ],
+    [
+      "telc-vs-goethe-for-german-visa.html",
+      "telc vs Goethe for visa routes",
+      "Pick the right exam for your application",
+      "telc Deutsch"
+    ],
+    [
+      "telc-b1-b2-exam-format-and-preparation.html",
+      "telc B1/B2 exam format and prep",
+      "Structure, timing, and safe practice rules",
+      "telc Deutsch"
+    ]
+  ];
+
   return {
     exams,
     brand,
@@ -735,6 +870,7 @@
     pageSeeds,
     sources,
     tools,
+    guideCatalog,
     calculateExamBudget,
     recommendExamPath,
   };

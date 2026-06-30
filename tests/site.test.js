@@ -93,8 +93,8 @@ for (const file of guideFiles) {
 }
 
 assert.ok(
-  homepage.includes("guides/goethe-a1-germany-family-reunion.html"),
-  "homepage should link to Germany A1 guide pages"
+  homepage.includes('id="guide-groups"'),
+  "homepage should have the dynamic guide-groups section"
 );
 
 console.log("site data and tool logic checks passed");

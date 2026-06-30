@@ -139,6 +139,32 @@ function renderTools() {
     .join("");
 }
 
+
+function renderGuideGroups() {
+  var groups = {};
+  var catalog = window.ExamSiteData.guideCatalog || [];
+  for (var i = 0; i < catalog.length; i++) {
+    var g = catalog[i];
+    var key = g[3];
+    if (!groups[key]) groups[key] = [];
+    groups[key].push(g);
+  }
+  var order = ["Germany A1", "Germany B1+", "TestDaF", "telc Deutsch"];
+  var h = "";
+  for (var gi = 0; gi < order.length; gi++) {
+    var k = order[gi];
+    var items = groups[k] || [];
+    if (!items.length) continue;
+    h += "<div class=guide-batch-group><h2 class=guide-group-title>" + k + " (" + items.length + " guides)</h2><div class=guide-grid>";
+    for (var j = 0; j < items.length; j++) {
+      var it = items[j];
+      h += "<a href=guides/" + it[0] + "><strong>" + it[1] + "</strong><span>" + it[2] + "</span></a>";
+    }
+    h += "</div></div>";
+  }
+  var el = document.getElementById("guide-groups");
+  if (el) el.innerHTML = h;
+}
 function renderSources() {
   $("#source-list").innerHTML = sources
     .map((source) => {
@@ -281,6 +307,7 @@ function renderAll() {
   renderPageTemplate();
   renderTools();
   renderSources();
+  renderGuideGroups();
   renderBudget();
   renderPath();
   renderAiMock();
