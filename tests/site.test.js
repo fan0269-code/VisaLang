@@ -83,13 +83,13 @@ assert.ok(homepage.includes('id="waitlist-message"'), "waitlist form should expo
 assert.ok(homepage.includes('data-i18n="footerDisclaimer"'), "homepage should include a launch-safe disclaimer");
 
 const guideFiles = fs.readdirSync("guides").filter((file) => file.endsWith(".html"));
-assert.equal(guideFiles.length, 10, "Germany A1 launch batch should include 10 guide pages");
+assert.ok(guideFiles.length >= 22, `guide count should be >= 22, got ${guideFiles.length}`);
 
 for (const file of guideFiles) {
   const guide = fs.readFileSync(`guides/${file}`, "utf8");
   assert.ok(guide.includes("Last updated: 2026-06-30"), `${file} needs a Last updated date`);
   assert.ok(guide.includes("Official sources"), `${file} needs official sources`);
-  assert.ok(guide.includes("https://www.goethe.de/en/spr/prf.html"), `${file} needs Goethe source link`);
+	  assert.ok(/goethe\.de\/en\/spr\/prf|testdaf\.de|telc\.net\/en\/language-examinations/.test(guide), `${file} needs an official German exam source link`);
 }
 
 assert.ok(
