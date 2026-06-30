@@ -11,11 +11,36 @@ The first monetizable niche is **Germany A1 family-reunion**; that is why all 10
 ## Commands
 
 ```bash
-npm test                              # run node tests/site.test.js — the only check; run before finishing any change
-python3 -m http.server 4173           # local preview, then open http://127.0.0.1:4173/index.html
+npm test                              # data integrity: exams (50), pageSeeds (200), tool logic, homepage markup
+npm run launch-check                  # Definition of Ready: legal pages, guides, JSON-LD, sitemap, dead links
+python3 -m http.server 4173           # local preview → http://127.0.0.1:4173/index.html
 ```
 
-There is no lint, no build, no bundler. Open `index.html` directly in a browser to preview just the homepage.
+There is no lint, no build, no bundler.
+
+## Deployment — live at https://flowlight.me
+
+**Server**: Tencent Cloud CVM, Ubuntu 24.04, IP `43.162.126.37`, user `ubuntu`, SSH key auth.
+**GitHub**: `https://github.com/fan0269-code/VisaLang` (public, `main` branch).
+
+**Auto-update**: a system cron (`/etc/cron.d/visalang-update`) runs `/usr/local/bin/visalang-update.sh` every 15 min — `git pull origin main` + `systemctl reload nginx` if there are changes.
+
+**Update workflow** (all the user needs):
+```bash
+git add -A && git commit -m "what changed" && git push
+# Site updates within 15 min, no server access needed.
+```
+
+**Server access** (if needed):
+```bash
+ssh ubuntu@43.162.126.37
+sudo systemctl reload nginx          # manual reload
+tail /var/log/visalang-update.log    # view auto-update log
+```
+
+**Key paths on server**: site root `/var/www/flowlight.me/public/`, nginx config `/etc/nginx/sites-available/flowlight.me.conf`, SSL cert `/etc/letsencrypt/live/flowlight.me/` (auto-renew via certbot).
+
+**Pending user actions**: replace Formspree `YOUR_FORM_ID` in `index.html` line ~232; add analytics snippet to `<head>`. Both are not blocking — site works without them.
 
 ## Architecture
 
