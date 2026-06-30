@@ -18,7 +18,7 @@ const warn = (msg) => checks.push({ ok: true, warn: true, msg });
 const indexHtml = read("index.html");
 const placeholderDomain = /visalang\.example/i.test(indexHtml);
 if (placeholderDomain) {
-  warn("Domain: still a placeholder (visalang.example). Replace with your real domain before launch (canonical, sitemap, JSON-LD).");
+  warn("Domain: still a placeholder (flowlight.me). Replace with your real domain before launch (canonical, sitemap, JSON-LD).");
 } else {
   pass("Domain: real domain found in homepage (no placeholder).");
 }

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://visalang.example/sitemap.xml
+Sitemap: https://flowlight.me/sitemap.xml
