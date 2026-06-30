@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VisaLang | Language exams for visa and citizenship paths</title>
+    <meta
+      name="description"
+      content="Find official language exams, CEFR levels, fees, test formats, and practice routes for visa, residency, and citizenship applications."
+    >
+    <meta name="theme-color" content="#0f5132">
+    <link rel="canonical" href="https://visalang.example/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="VisaLang | Language exams for visa and citizenship paths">
+    <meta property="og:description" content="Find official language exams, CEFR levels, fees, test formats, and practice routes for visa, residency, and citizenship applications.">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f5132'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='16' font-weight='bold' fill='white' text-anchor='middle'%3EVL%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "VisaLang",
+      "url": "https://visalang.example/",
+      "description": "Find official language exams, CEFR levels, fees, test formats, and practice routes for visa, residency, and citizenship applications.",
+      "inLanguage": ["en", "zh"]
+    }
+    </script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand-mark" href="#top" aria-label="VisaLang home">
+        <span>VL</span>
+        <strong>VisaLang</strong>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#finder" data-i18n="navFind">Find exam</a>
+        <a href="#library" data-i18n="navLibrary">Exam library</a>
+        <a href="#sources" data-i18n="navSources">Official sources</a>
+      </nav>
+      <div class="topbar-actions">
+        <button class="language-toggle" id="language-toggle" type="button" aria-label="Switch language">中文</button>
+        <a class="source-link" href="#waitlist" data-i18n="updates">Get updates</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="eyebrow">Visa, residency, and citizenship language exams</p>
+          <h1 data-i18n="heroHeadline">Find the right language exam for your next move.</h1>
+          <p data-i18n="heroCopy">
+            Compare official exam routes, CEFR levels, fees, test formats, and practice plans for Germany,
+            Italy, the Netherlands, Portugal, the UK, and more.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-action" href="#finder" data-i18n="startRoute">Start with your route</a>
+            <a class="secondary-action" href="#library" data-i18n="browseExams">Browse exams</a>
+          </div>
+          <div class="hero-proof" aria-label="Popular exam examples">
+            <span>Goethe A1</span>
+            <span>CILS B1</span>
+            <span>Dutch Inburgering</span>
+            <span>LanguageCert SELT</span>
+          </div>
+        </div>
+        <div class="hero-finder-card" id="hero-finder">
+          <div class="finder-illustration" aria-hidden="true">
+            <svg width="100%" height="56" viewBox="0 0 320 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="28" r="8" fill="#0f5132"/>
+              <circle cx="296" cy="28" r="8" fill="#b07817"/>
+              <path d="M32 28 Q160 -12 288 28" stroke="#0f5132" stroke-width="2" stroke-dasharray="4 6" fill="none" opacity="0.5"/>
+              <rect x="140" y="14" width="40" height="28" rx="6" fill="#0f5132" opacity="0.12"/>
+              <text x="160" y="33" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#0f5132" text-anchor="middle">A1→B1</text>
+            </svg>
+          </div>
+          <div class="finder-topline">
+            <span class="route-label" data-i18n="startHere">Start here</span>
+            <span class="step-pill" data-i18n="threeFields">3 fields</span>
+          </div>
+          <h2 data-i18n="finderTitle">Find Your Exam Path</h2>
+          <p class="panel-intro" data-i18n="finderIntro">Choose your goal, country, and language. VisaLang points you to the first official route to check.</p>
+          <label><span data-i18n="goal">Goal</span>
+            <select id="goal">
+              <option value="spouse-visa" data-i18n="spouseVisa">Spouse or family reunion visa</option>
+              <option value="citizenship" data-i18n="citizenship">Citizenship or permanent residency</option>
+              <option value="work" data-i18n="work">Work or professional registration</option>
+            </select>
+          </label>
+          <div class="hero-select-row">
+            <label><span data-i18n="country">Country</span>
+              <select id="country">
+                <option>Germany</option>
+                <option>Netherlands</option>
+                <option>Italy</option>
+                <option>Portugal</option>
+                <option>United Kingdom</option>
+              </select>
+            </label>
+            <label><span data-i18n="language">Language</span>
+              <select id="language">
+                <option>German</option>
+                <option>Dutch</option>
+                <option>Italian</option>
+                <option>Portuguese</option>
+                <option>English</option>
+              </select>
+            </label>
+          </div>
+          <div class="path-result" id="path-result"></div>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="VisaLang trust points">
+        <div><span class="trust-icon">01</span><strong data-i18n="officialFirst">Official-first</strong><span data-i18n="officialFirstText">Every route links back to exam owners and government sources.</span></div>
+        <div><span class="trust-icon">02</span><strong data-i18n="goalLed">Goal-led</strong><span data-i18n="goalLedText">Start from visa, residency, citizenship, or work registration.</span></div>
+        <div><span class="trust-icon">03</span><strong data-i18n="safePrep">Safe prep</strong><span data-i18n="safePrepText">Original practice only. No leaked questions or copied exam items.</span></div>
+      </section>
+
+      <section class="stats" aria-label="VisaLang coverage">
+        <div><strong id="exam-count">0</strong><span data-i18n="examSeeds">officially sourced exam seeds</span></div>
+        <div><strong id="page-count">0</strong><span data-i18n="guidePages">high-intent guide pages</span></div>
+        <div><strong>3</strong><span data-i18n="planningTools">free planning tools</span></div>
+        <div><strong id="source-count">0</strong><span data-i18n="sourceGroups">official source groups</span></div>
+      </section>
+
+      <section class="tool-grid" id="finder">
+        <div class="tool-panel">
+          <h2><span class="section-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><span data-i18n="costTitle">Total Cost Calculator</span></h2>
+          <p class="panel-intro" data-i18n="costIntro">Estimate exam fee, prep budget, and retake risk before you book.</p>
+          <label><span data-i18n="examFee">Official exam fee</span> <input id="exam-fee" type="number" min="0" value="130"></label>
+          <label><span data-i18n="prepBudget">Prep budget</span> <input id="prep-budget" type="number" min="0" value="49"></label>
+          <label><span data-i18n="retakes">Expected retakes</span> <input id="retakes" type="number" min="0" value="1"></label>
+          <div class="result"><span id="budget-result">$0</span><p id="budget-note"></p></div>
+        </div>
+
+        <div class="tool-panel">
+          <h2><span class="section-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></svg></span><span data-i18n="mockTitle">Speaking Mock Entry</span></h2>
+          <p class="panel-intro" data-i18n="mockIntro">Practice with original prompts, structured rubrics, and safe preparation notes.</p>
+          <label><span data-i18n="exam">Exam</span> <input id="mock-exam" value="Goethe-Zertifikat A1"></label>
+          <label><span data-i18n="practiceType">Practice type</span>
+            <select id="mock-skill">
+              <option>speaking</option>
+              <option>writing</option>
+              <option>roleplay</option>
+            </select>
+          </label>
+          <div class="path-result" id="mock-result"></div>
+        </div>
+      </section>
+
+      <section class="map-section">
+        <div class="section-title">
+          <h2 data-i18n="popularRoutes">Popular routes</h2>
+          <span data-i18n="popularRoutesHint">Choose by outcome first, exam second.</span>
+        </div>
+        <div class="market-map" aria-label="Popular language exam routes">
+          <div class="map-node primary">
+            <span class="route-chip" data-i18n="familyVisa">Family visa</span>
+            <strong data-i18n="germanyFamily">Germany family visa</strong>
+            <span data-i18n="germanyFamilyText">Goethe A1, telc, and official German exam options</span>
+          </div>
+          <div class="map-node">
+            <span class="route-chip" data-i18n="citizenship">Citizenship</span>
+            <strong data-i18n="europeanCitizenship">European citizenship</strong>
+            <span data-i18n="europeanCitizenshipText">CILS B1, Dutch Inburgering, YKI Finnish, CIPLE</span>
+          </div>
+          <div class="map-node">
+            <span class="route-chip" data-i18n="ukviEnglish">UKVI English</span>
+            <strong data-i18n="ukviEnglish">UK visa English</strong>
+            <span data-i18n="ukviEnglishText">IELTS UKVI, PTE Home, LanguageCert SELT</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-batch" id="germany-a1">
+        <div class="section-title">
+          <h2>Germany family reunion / Goethe A1 launch guides</h2>
+          <span>First 10 official-source pages for the focused MVP niche.</span>
+        </div>
+        <div class="guide-grid">
+          <a href="guides/goethe-a1-germany-family-reunion.html"><strong>Goethe A1 for Germany family reunion</strong><span>Start here</span></a>
+          <a href="guides/goethe-a1-fees-by-country.html"><strong>Goethe A1 fees by country</strong><span>Verify local fees</span></a>
+          <a href="guides/goethe-a1-speaking-topics.html"><strong>Goethe A1 speaking topics</strong><span>Original practice only</span></a>
+          <a href="guides/goethe-a1-vs-telc-a1.html"><strong>Goethe A1 vs telc A1</strong><span>Compare accepted proof</span></a>
+          <a href="guides/german-family-reunion-language-requirement.html"><strong>German family reunion language requirement</strong><span>Official requirement check</span></a>
+          <a href="guides/goethe-a1-30-day-study-plan.html"><strong>30-day Goethe A1 study plan</strong><span>Beginner schedule</span></a>
+          <a href="guides/goethe-a1-test-centers.html"><strong>Goethe A1 test centers</strong><span>Find booking options</span></a>
+          <a href="guides/goethe-a1-retake-policy.html"><strong>Goethe A1 retake policy</strong><span>Plan for risk</span></a>
+          <a href="guides/german-a1-documents-checklist.html"><strong>German A1 documents checklist</strong><span>Before appointment</span></a>
+          <a href="guides/goethe-a1-official-links-practice-resources.html"><strong>Official links and practice resources</strong><span>Source hub</span></a>
+        </div>
+      </section>
+
+      <section id="library">
+        <div class="section-title">
+          <h2><span class="section-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 9h16M9 4v16"/></svg></span><span data-i18n="examLibrary">Exam library</span></h2>
+          <span><b id="visible-count">0</b> <span class="inline-i18n" data-i18n="matchingRoutes">matching official routes</span></span>
+        </div>
+        <div class="controls">
+          <div id="category-tabs" class="tabs"></div>
+          <input id="search" type="search" placeholder="Search country, language, exam, or prep route" data-i18n-placeholder="searchPlaceholder">
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th data-i18n="exam">Exam</th>
+                <th data-i18n="market">Market</th>
+                <th data-i18n="whyItMatters">Why it matters</th>
+                <th data-i18n="prepRoute">Preparation route</th>
+                <th data-i18n="officialSource">Official source</th>
+              </tr>
+            </thead>
+            <tbody id="exam-table"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="split">
+        <div>
+          <h2 data-i18n="guideStructure">Every guide follows the same trusted structure</h2>
+          <ol id="page-sections" class="section-list"></ol>
+        </div>
+        <div>
+          <h2 data-i18n="helpfulTools">Helpful tools before paid prep</h2>
+          <div id="tool-list" class="tool-list"></div>
+        </div>
+      </section>
+
+      <section class="compliance">
+        <h2 data-i18n="safePreparation">Built for safe preparation</h2>
+        <p data-i18n="safePreparationText">VisaLang links back to official exam owners and uses original practice prompts only. We do not publish leaked questions, copied real exam items, fake authorization claims, or official-looking assets.</p>
+      </section>
+
+      <section id="sources">
+        <h2><span class="section-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg></span><span data-i18n="sourceMap">Official source map</span></h2>
+        <ul id="source-list" class="source-list"></ul>
+      </section>
+
+      <section class="lead-box" id="waitlist">
+        <div>
+          <h2 data-i18n="routeUpdates">Get route updates before you book</h2>
+          <p data-i18n="routeUpdatesText">Receive fee changes, registration windows, official source updates, and new mock practice openings.</p>
+        </div>
+        <form id="waitlist-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+          <input type="email" name="email" placeholder="you@example.com" aria-label="Email" data-i18n-placeholder="emailPlaceholder" required>
+          <input type="hidden" name="_subject" value="VisaLang waitlist signup">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+          <button type="submit" data-i18n="joinWaitlist">Join waitlist</button>
+        </form>
+        <p class="form-message" id="waitlist-message" role="status" aria-live="polite"></p>
+      </section>
+
+      <footer class="site-footer">
+        <div class="footer-brand">
+          <span class="brand-mark" aria-hidden="true">
+            <span>VL</span>
+            <strong>VisaLang</strong>
+          </span>
+          <p data-i18n="footerDisclaimer">VisaLang is an independent guide. Always confirm requirements, fees, dates, and accepted exams with the official exam owner or government authority before booking.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="editorial-policy.html">Editorial Policy</a>
+          <a href="affiliate-disclosure.html">Affiliates</a>
+          <a href="privacy-policy.html">Privacy</a>
+          <a href="cookie-policy.html">Cookies</a>
+          <a href="terms.html">Terms</a>
+        </nav>
+        <span data-i18n="footerStatus">Project status: pre-launch MVP for validation.</span>
+      </footer>
+    </main>
+
+    <script src="app-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

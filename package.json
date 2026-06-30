@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "test": "node tests/site.test.js",
+    "launch-check": "node scripts/launch-check.js"
+  }
+}

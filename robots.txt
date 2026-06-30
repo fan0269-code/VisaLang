@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://visalang.example/sitemap.xml
