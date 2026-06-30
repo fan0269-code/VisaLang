@@ -226,10 +226,8 @@
           <h2 data-i18n="routeUpdates">Get route updates before you book</h2>
           <p data-i18n="routeUpdatesText">Receive fee changes, registration windows, official source updates, and new mock practice openings.</p>
         </div>
-        <form id="waitlist-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <form id="waitlist-form" novalidate>
           <input type="email" name="email" placeholder="you@example.com" aria-label="Email" data-i18n-placeholder="emailPlaceholder" required>
-          <input type="hidden" name="_subject" value="VisaLang waitlist signup">
-          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
           <button type="submit" data-i18n="joinWaitlist">Join waitlist</button>
         </form>
         <p class="form-message" id="waitlist-message" role="status" aria-live="polite"></p>

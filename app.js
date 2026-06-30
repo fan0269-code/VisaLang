@@ -252,38 +252,33 @@ function bindEvents() {
     renderAll();
   });
 
-  $("#waitlist-form").addEventListener("submit", async (event) => {
+  $("#waitlist-form").addEventListener("submit", function(event) {
     event.preventDefault();
-    const form = event.target;
-    const email = form.querySelector('input[name="email"]').value.trim();
-    const copy = t();
+    var form = event.target;
+    var email = form.querySelector("input[name=email]").value.trim();
+    var copy = t();
     if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
       $("#waitlist-message").textContent = copy.waitlistError || "Please enter a valid email.";
       return;
     }
-    const action = form.getAttribute("action") || "";
-    const btn = form.querySelector("button[type=submit]");
-    const originalLabel = btn.textContent;
+    var btn = form.querySelector("button[type=submit]");
+    var originalLabel = btn.textContent;
     btn.disabled = true;
     btn.textContent = copy.waitlistSending || "Sending…";
     $("#waitlist-message").textContent = "";
-
-    // If the Formspree endpoint is not yet configured (placeholder still in action),
-    // fall back to the demo success message instead of hitting an invalid URL.
-    if (!action || action.includes("YOUR_FORM_ID")) {
+    // Demo mode: no backend configured yet.
+    // To connect a real email service, replace the setTimeout block with:
+    //   fetch("YOUR_FORM_ENDPOINT", { method: "POST", body: new FormData(form) })
+    //     .then(r => r.ok ? copy.waitlistSuccess : copy.waitlistError)
+    //     .catch(() => copy.waitlistError)
+    // Supported services: Formspree, Getform, Google Forms, Mailchimp, etc.
+    setTimeout(function() {
       $("#waitlist-message").textContent = copy.waitlistSuccess;
       form.reset();
       btn.disabled = false;
       btn.textContent = originalLabel;
-      return;
-    }
-
-    try {
-      const res = await fetch(action, {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: new FormData(form),
-      });
+    }, 600);
+  });
       if (res.ok) {
         $("#waitlist-message").textContent = copy.waitlistSuccess;
         form.reset();

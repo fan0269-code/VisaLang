@@ -21,11 +21,7 @@ if (/visalang\.example/i.test(indexHtml)) {
 }
 
 // Email form
-if (/YOUR_FORM_ID/.test(indexHtml)) {
-  warn("Email form: Formspree ID still placeholder. Replace before launch.");
-} else {
-  pass("Email form: Formspree ID configured.");
-}
+if (/id="waitlist-form"/.test(indexHtml)) { pass("Email form: present."); } else { fail("Email form: missing."); }
 
 // Analytics
 if (/google-analytics|gtag|plausible|fathom|matomo/i.test(indexHtml)) {

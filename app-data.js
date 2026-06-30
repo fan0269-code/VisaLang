@@ -87,7 +87,7 @@
       joinWaitlist: "Join waitlist",
       emailPlaceholder: "you@example.com",
       waitlistSending: "Sending…",
-      waitlistSuccess: "Thanks — you're on the list. We'll only email official route updates before you book.",
+      waitlistSuccess: "Thanks! We'll send official route updates as soon as email is configured.",
       waitlistError: "Something went wrong. Please try again or email us directly.",
       footerDisclaimer:
         "VisaLang is an independent guide. Always confirm requirements, fees, dates, and accepted exams with the official exam owner or government authority before booking.",
@@ -185,7 +185,7 @@
       joinWaitlist: "加入等待名单",
       emailPlaceholder: "you@example.com",
       waitlistSending: "发送中…",
-      waitlistSuccess: "已加入名单。我们只会在你报名前，发送官方路径更新邮件。",
+      waitlistSuccess: "感谢加入！邮件系统配置完成后，我们会发送官方路径更新。",
       waitlistError: "出了点问题，请重试或直接给我们发邮件。",
       footerDisclaimer:
         "VisaLang 是独立指南网站。报名之前，请务必到考试主办方或政府机构官网确认要求、费用、日期和认可考试。",
