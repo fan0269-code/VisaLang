@@ -1321,6 +1321,34 @@ td a:hover { text-decoration: underline; }
   font-weight: 600;
 }
 
+.guide-cta {
+  margin-top: 24px;
+  padding: 22px 24px;
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--brand-600);
+  border-radius: var(--radius);
+  background: linear-gradient(120deg, var(--brand-tint), #ffffff);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+.guide-cta h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  color: var(--ink);
+}
+.guide-cta p {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.guide-cta .primary-action {
+  font-size: 15px;
+  padding: 10px 24px;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
   .hero,
