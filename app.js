@@ -310,7 +310,8 @@ function renderAll() {
   $("#waitlist-message").textContent = "";
 }
 
-function init() {
+function init() { if (document.readyState==="loading") { document.addEventListener("DOMContentLoaded",_init); } else { _init(); } }
+function _init() {
   renderAll();
   bindEvents();
 }
