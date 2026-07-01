@@ -41,12 +41,12 @@ for (var pi = 0; pi < requiredPages.length; pi++) {
 // Guide pages
 var guideDir = path.join(root, "guides");
 var guideFiles = fs.readdirSync(guideDir).filter(function(f) { return f.endsWith(".html"); });
-if (guideFiles.length < 32) {
+if (guideFiles.length < 38) {
   fail("Guide count: " + guideFiles.length + " (need >= 22)");
 } else {
-  pass("Guide pages: " + guideFiles.length + " (>= 32)");
+  pass("Guide pages: " + guideFiles.length + " (>= 38)");
 }
-var srcRe = /goethe.de|testdaf.de|telc.net|cils.unistrasi.it|cvcl.it|dante.global|inburgeren.nl|cve.nl|caple.letras.ulisboa.pt|cervantes.es|siele.org|ielts.org|languagecert.org|gov.uk/;
+var srcRe = /goethe.de|testdaf.de|telc.net|cils.unistrasi.it|cvcl.it|dante.global|inburgeren.nl|cve.nl|caple.letras.ulisboa.pt|cervantes.es|siele.org|ielts.org|languagecert.org|gov.uk|oph.fi|migri.fi|lefrancaisdesaffaires.fr|france-education-international/;
 for (var gi = 0; gi < guideFiles.length; gi++) {
   var gf = guideFiles[gi];
   var gc = fs.readFileSync(path.join(guideDir, gf), "utf8");
