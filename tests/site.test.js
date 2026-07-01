@@ -83,13 +83,13 @@ assert.ok(homepage.includes('id="waitlist-message"'), "waitlist form should expo
 assert.ok(homepage.includes('data-i18n="footerDisclaimer"'), "homepage should include a launch-safe disclaimer");
 
 const guideFiles = fs.readdirSync("guides").filter((file) => file.endsWith(".html"));
-assert.ok(guideFiles.length >= 22, `guide count should be >= 22, got ${guideFiles.length}`);
+assert.ok(guideFiles.length >= 28, `guide count should be >= 22, got ${guideFiles.length}`);
 
 for (const file of guideFiles) {
   const guide = fs.readFileSync(`guides/${file}`, "utf8");
-  assert.ok(guide.includes("Last updated: 2026-06-30"), `${file} needs a Last updated date`);
+  assert.ok(/Last updated:\s*\d{4}-\d{2}-\d{2}/.test(guide), `${file} needs a Last updated date`);
   assert.ok(guide.includes("Official sources"), `${file} needs official sources`);
-	  assert.ok(/goethe\.de\/en\/spr\/prf|testdaf\.de|telc\.net\/en\/language-examinations/.test(guide), `${file} needs an official German exam source link`);
+	  assert.ok(/goethe.de|testdaf.de|telc.net|cils.unistrasi.it|cvcl.it|dante.global|inburgeren.nl|cve.nl|caple.letras.ulisboa.pt/.test(guide), `${file} needs an official German exam source link`);
 }
 
 assert.ok(

@@ -41,12 +41,12 @@ for (var pi = 0; pi < requiredPages.length; pi++) {
 // Guide pages
 var guideDir = path.join(root, "guides");
 var guideFiles = fs.readdirSync(guideDir).filter(function(f) { return f.endsWith(".html"); });
-if (guideFiles.length < 22) {
+if (guideFiles.length < 28) {
   fail("Guide count: " + guideFiles.length + " (need >= 22)");
 } else {
-  pass("Guide pages: " + guideFiles.length + " (>= 22)");
+  pass("Guide pages: " + guideFiles.length + " (>= 28)");
 }
-var srcRe = /goethe\.de\/en\/spr\/prf|testdaf\.de|telc\.net\/en\/language-examinations/;
+var srcRe = /goethe.de|testdaf.de|telc.net|cils.unistrasi.it|cvcl.it|dante.global|inburgeren.nl|cve.nl|caple.letras.ulisboa.pt/;
 for (var gi = 0; gi < guideFiles.length; gi++) {
   var gf = guideFiles[gi];
   var gc = fs.readFileSync(path.join(guideDir, gf), "utf8");
