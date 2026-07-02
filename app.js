@@ -279,19 +279,6 @@ function bindEvents() {
       btn.textContent = originalLabel;
     }, 600);
   });
-      if (res.ok) {
-        $("#waitlist-message").textContent = copy.waitlistSuccess;
-        form.reset();
-      } else {
-        $("#waitlist-message").textContent = copy.waitlistError;
-      }
-    } catch (err) {
-      $("#waitlist-message").textContent = copy.waitlistError;
-    } finally {
-      btn.disabled = false;
-      btn.textContent = originalLabel;
-    }
-  });
 }
 
 function renderAll() {

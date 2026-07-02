@@ -37,6 +37,12 @@ for (var pi = 0; pi < requiredPages.length; pi++) {
   if (exists(pn)) pass("Legal page: " + pn);
   else fail("Legal page missing: " + pn);
 }
+var topicPages = ["germany-family-reunion-a1.html"];
+for (var ti = 0; ti < topicPages.length; ti++) {
+  var tn = topicPages[ti];
+  if (exists(tn)) pass("Topic page: " + tn);
+  else fail("Topic page missing: " + tn);
+}
 
 // Guide pages
 var guideDir = path.join(root, "guides");
@@ -72,13 +78,17 @@ function checkJsonLd(file, label) {
   if (!found) fail("No JSON-LD: " + label);
 }
 checkJsonLd(indexHtml, "index.html");
+for (var tj = 0; tj < topicPages.length; tj++) {
+  var tm = topicPages[tj];
+  if (exists(tm)) checkJsonLd(read(tm), tm);
+}
 for (var gj = 0; gj < guideFiles.length; gj++) {
   var gk = guideFiles[gj];
   checkJsonLd(fs.readFileSync(path.join(guideDir, gk), "utf8"), "guides/" + gk);
 }
 
 // Dead links
-var allHtml = ["index.html"].concat(requiredPages.filter(exists)).concat(guideFiles.map(function(f) { return "guides/" + f; }));
+var allHtml = ["index.html"].concat(requiredPages.filter(exists)).concat(topicPages.filter(exists)).concat(guideFiles.map(function(f) { return "guides/" + f; }));
 var linkRe = /href="([^"]+)"/g;
 var broken = [];
 for (var ai = 0; ai < allHtml.length; ai++) {

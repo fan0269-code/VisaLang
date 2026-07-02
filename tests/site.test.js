@@ -67,6 +67,9 @@ assert.ok(recommendation.nextSteps.length >= 3);
 assert.ok(!recommendation.warning.toLowerCase().includes("dump"));
 
 const homepage = fs.readFileSync("index.html", "utf8");
+const appScript = fs.readFileSync("app.js", "utf8");
+
+assert.doesNotThrow(() => new Function(appScript), "app.js should parse without syntax errors");
 const heroStart = homepage.indexOf('<section class="hero">');
 const heroEnd = homepage.indexOf("</section>", heroStart);
 const heroMarkup = homepage.slice(heroStart, heroEnd);
@@ -81,6 +84,34 @@ assert.ok(homepage.includes('id="language-toggle"'), "homepage should expose a l
 assert.ok(homepage.includes('data-i18n="heroHeadline"'), "hero headline should be translatable");
 assert.ok(homepage.includes('id="waitlist-message"'), "waitlist form should expose user feedback");
 assert.ok(homepage.includes('data-i18n="footerDisclaimer"'), "homepage should include a launch-safe disclaimer");
+assert.ok(
+  homepage.includes('href="germany-family-reunion-a1.html"'),
+  "homepage should link to the Germany family reunion A1 topic hub"
+);
+assert.ok(
+  homepage.includes('id="germany-a1"'),
+  "homepage should expose a Germany A1 anchor for guide backlinks"
+);
+
+const germanyHub = fs.readFileSync("germany-family-reunion-a1.html", "utf8");
+assert.ok(
+  germanyHub.includes("Germany family reunion Goethe A1"),
+  "Germany hub should state the focused launch route"
+);
+assert.ok(germanyHub.includes('rel="canonical"'), "Germany hub should include a canonical URL");
+assert.ok(germanyHub.includes("Official sources"), "Germany hub should include official sources");
+assert.ok(
+  germanyHub.includes("guides/goethe-a1-germany-family-reunion.html"),
+  "Germany hub should link to the main Goethe A1 guide"
+);
+assert.ok(
+  germanyHub.includes("guides/german-family-reunion-language-requirement.html"),
+  "Germany hub should link to the language-requirement guide"
+);
+assert.ok(
+  fs.readFileSync("sitemap.xml", "utf8").includes("https://flowlight.me/germany-family-reunion-a1.html"),
+  "sitemap should include the Germany A1 topic hub"
+);
 
 const guideFiles = fs.readdirSync("guides").filter((file) => file.endsWith(".html"));
 assert.ok(guideFiles.length >= 38, `guide count should be >= 22, got ${guideFiles.length}`);
