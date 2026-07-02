@@ -163,4 +163,21 @@ assert.ok(
   "homepage should have the dynamic guide-groups section"
 );
 
+const readme = fs.readFileSync("README.md", "utf8");
+const monetizationPlan = fs.readFileSync("docs/MONETIZATION_ROADMAP.md", "utf8");
+assert.ok(readme.includes("docs/MONETIZATION_ROADMAP.md"), "README should link to the monetization roadmap");
+[
+  "Affiliate and referral revenue",
+  "Lead generation",
+  "Paid digital products",
+  "Paid mock practice",
+  "Newsletter sponsorship",
+  "B2B partnerships",
+  "Data-backed expansion",
+].forEach((route) => {
+  assert.ok(monetizationPlan.includes(route), `monetization roadmap should include ${route}`);
+});
+assert.ok(monetizationPlan.includes("Do not monetize by selling certainty"), "monetization roadmap should preserve trust boundaries");
+assert.ok(monetizationPlan.includes("Germany A1 first"), "monetization roadmap should keep Germany A1 as the first commercial test");
+
 console.log("site data and tool logic checks passed");

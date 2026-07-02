@@ -32,6 +32,13 @@ npm test
 
 The test checks the core data shape, brand, bilingual setup, hero route finder, and launch-safe page elements.
 
+## Planning Docs
+
+- `docs/PM_AUDIT.md`: launch-readiness audit and staged product plan.
+- `docs/LAUNCH_CHECKLIST.md`: operational go/no-go checklist.
+- `docs/CONTENT_WORKFLOW.md`: source-backed guide publishing rules.
+- `docs/MONETIZATION_ROADMAP.md`: phased revenue plan and trust boundaries.
+
 ## Main Files
 
 - `index.html`: page structure and translatable text hooks.
