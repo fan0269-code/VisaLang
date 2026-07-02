@@ -98,6 +98,9 @@ assert.ok(
 );
 
 const germanyHub = fs.readFileSync("germany-family-reunion-a1.html", "utf8");
+const germanyHubJsonLd = [...germanyHub.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((match) =>
+  JSON.parse(match[1].trim())
+);
 assert.ok(
   germanyHub.includes("Germany family reunion Goethe A1"),
   "Germany hub should state the focused launch route"
@@ -126,6 +129,20 @@ assert.ok(
 ].forEach((section) => {
   assert.ok(germanyHub.includes(section), `Germany route template should include ${section}`);
 });
+assert.ok(germanyHub.includes("Germany A1 FAQ"), "Germany hub should include a reader-facing FAQ section");
+assert.ok(germanyHub.includes("Can I use VisaLang instead of official sources?"), "Germany FAQ should reinforce official-source use");
+const faqSchema = germanyHubJsonLd.find((item) => item["@type"] === "FAQPage");
+assert.ok(faqSchema, "Germany hub should include FAQPage structured data");
+assert.equal(faqSchema.mainEntity.length, 4, "Germany FAQPage should include four focused questions");
+assert.ok(
+  faqSchema.mainEntity.some((item) => item.name === "Can I use VisaLang instead of official sources?"),
+  "FAQPage should include the official-source safety question"
+);
+assert.ok(germanyHub.includes("Last updated: 2026-07-02"), "Germany hub should show the current update date");
+assert.ok(
+  fs.readFileSync("sitemap.xml", "utf8").includes("<loc>https://flowlight.me/germany-family-reunion-a1.html</loc>\n    <lastmod>2026-07-02</lastmod>"),
+  "sitemap should update the Germany hub lastmod date"
+);
 assert.ok(
   fs.readFileSync("sitemap.xml", "utf8").includes("https://flowlight.me/germany-family-reunion-a1.html"),
   "sitemap should include the Germany A1 topic hub"
