@@ -1,0 +1,14 @@
+---
+interface RelatedGuide { title: string; slug: string; }
+export interface Props { guides: RelatedGuide[]; }
+const { guides } = Astro.props;
+---
+
+{guides.length > 0 && (
+  <section class="guide-related" aria-label="Related guides">
+    <h2>Related guides</h2>
+    <div class="guide-related-grid">
+      {guides.map(g => (<a href={`/guides/${g.slug}/`}>{g.title}</a>))}
+    </div>
+  </section>
+)}

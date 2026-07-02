@@ -17,3 +17,11 @@ Thumbs.db
 # env
 .env
 .env.local
+
+# astro build output
+dist/
+
+# astro internals
+.astro/
+.agents/
+skills-lock.json

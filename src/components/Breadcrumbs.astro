@@ -1,0 +1,15 @@
+---
+export interface Props {
+  path: { label: string; href?: string }[];
+}
+const { path } = Astro.props;
+---
+
+<nav class="guide-breadcrumb" aria-label="Breadcrumb">
+  {path.map((crumb, i) => (
+    <Fragment>
+      {i > 0 && <span class="sep">/</span>}
+      {crumb.href ? <a href={crumb.href}>{crumb.label}</a> : <span class="current">{crumb.label}</span>}
+    </Fragment>
+  ))}
+</nav>
