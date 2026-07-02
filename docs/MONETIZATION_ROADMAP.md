@@ -12,6 +12,8 @@ Do not monetize by selling certainty. VisaLang is not an immigration authority, 
 
 VisaLang can become a language-exam decision layer for visa, residency, citizenship, work-registration, and study paths.
 
+For the traffic-first version of this strategy, use `docs/TRAFFIC_SITE_ROADMAP.md`. For display-ad setup, use `docs/AD_NETWORK_ONBOARDING.md`.
+
 The business model should start narrow:
 
 - Germany A1 first: family reunion applicants who need to verify language proof and prepare safely.

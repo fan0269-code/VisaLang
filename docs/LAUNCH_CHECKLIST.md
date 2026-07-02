@@ -59,10 +59,14 @@
 ## 8. Monetization Readiness
 
 - [x] Write monetization roadmap. — `docs/MONETIZATION_ROADMAP.md`
+- [x] Write traffic-site roadmap. — `docs/TRAFFIC_SITE_ROADMAP.md`
+- [x] Write ad network onboarding guide. — `docs/AD_NETWORK_ONBOARDING.md`
 - [x] Pick first commercial test route. — Germany A1 first
 - [ ] Add route-intent fields to waitlist. — prep, tutor, consultant, updates
 - [ ] Create first free lead magnet. — Germany A1 checklist before paid product
 - [ ] Choose first revenue experiment. — paid prep pack or qualified partner lead after signup data
+- [ ] Apply to Google AdSense. — only after real domain, legal pages, original content, Search Console, and traffic signals
+- [ ] Add real `ads.txt`. — only after AdSense provides the actual publisher ID
 - [ ] Review monetization copy against trust rules. — no guaranteed outcomes, no fake official claims, no real exam questions
 
 ## 9. Go/No-Go Review

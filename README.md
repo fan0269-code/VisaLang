@@ -38,6 +38,8 @@ The test checks the core data shape, brand, bilingual setup, hero route finder, 
 - `docs/LAUNCH_CHECKLIST.md`: operational go/no-go checklist.
 - `docs/CONTENT_WORKFLOW.md`: source-backed guide publishing rules.
 - `docs/MONETIZATION_ROADMAP.md`: phased revenue plan and trust boundaries.
+- `docs/TRAFFIC_SITE_ROADMAP.md`: SEO-first traffic-site plan.
+- `docs/AD_NETWORK_ONBOARDING.md`: AdSense-first ad network onboarding checklist.
 
 ## Main Files
 

@@ -165,7 +165,11 @@ assert.ok(
 
 const readme = fs.readFileSync("README.md", "utf8");
 const monetizationPlan = fs.readFileSync("docs/MONETIZATION_ROADMAP.md", "utf8");
+const trafficPlan = fs.readFileSync("docs/TRAFFIC_SITE_ROADMAP.md", "utf8");
+const adNetworkGuide = fs.readFileSync("docs/AD_NETWORK_ONBOARDING.md", "utf8");
 assert.ok(readme.includes("docs/MONETIZATION_ROADMAP.md"), "README should link to the monetization roadmap");
+assert.ok(readme.includes("docs/TRAFFIC_SITE_ROADMAP.md"), "README should link to the traffic-site roadmap");
+assert.ok(readme.includes("docs/AD_NETWORK_ONBOARDING.md"), "README should link to the ad network onboarding guide");
 [
   "Affiliate and referral revenue",
   "Lead generation",
@@ -179,5 +183,26 @@ assert.ok(readme.includes("docs/MONETIZATION_ROADMAP.md"), "README should link t
 });
 assert.ok(monetizationPlan.includes("Do not monetize by selling certainty"), "monetization roadmap should preserve trust boundaries");
 assert.ok(monetizationPlan.includes("Germany A1 first"), "monetization roadmap should keep Germany A1 as the first commercial test");
+[
+  "Traffic-site thesis",
+  "Germany A1 SEO sample route",
+  "UK SELT route",
+  "Canada TEF/TCF route",
+  "100-page long-tail plan",
+  "Ad network timing",
+].forEach((section) => {
+  assert.ok(trafficPlan.includes(section), `traffic-site roadmap should include ${section}`);
+});
+[
+  "Google AdSense first",
+  "Before applying",
+  "Apply to AdSense",
+  "Add ads.txt",
+  "Ad placement rules",
+  "Premium network later",
+].forEach((section) => {
+  assert.ok(adNetworkGuide.includes(section), `ad network guide should include ${section}`);
+});
+assert.ok(adNetworkGuide.includes("Do not click your own ads"), "ad network guide should warn against invalid clicks");
 
 console.log("site data and tool logic checks passed");
