@@ -1,6 +1,6 @@
 ---
 title: "German A1 documents checklist"
-description: "German A1 documents checklist"
+description: "What documents you need to register for the Goethe A1 exam and bring on test day, with official source verification."
 category: "germany-a1"
 slug: "german-a1-documents-checklist"
 publishedDate: "2026-06-30"

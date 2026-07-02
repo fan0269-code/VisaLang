@@ -1,6 +1,6 @@
 ---
 title: "Goethe A1 test centers"
-description: "Goethe A1 test centers"
+description: "How to find an official Goethe A1 test centre, what to check before booking, and why partner-centre status matters."
 category: "germany-a1"
 slug: "goethe-a1-test-centers"
 publishedDate: "2026-06-30"

@@ -1,6 +1,6 @@
 ---
 title: "Goethe A1 vs telc A1"
-description: "Goethe A1 vs telc A1"
+description: "Goethe A1 vs telc A1 for the German family reunion visa: acceptance, format differences, fees, and how to choose."
 category: "germany-a1"
 slug: "goethe-a1-vs-telc-a1"
 publishedDate: "2026-06-30"

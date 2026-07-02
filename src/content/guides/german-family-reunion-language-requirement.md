@@ -1,6 +1,6 @@
 ---
 title: "German family reunion language requirement"
-description: "German family reunion language requirement"
+description: "Who needs to prove basic German for a family reunion visa to Germany, which exemptions apply, and where to verify the rule."
 category: "germany-a1"
 slug: "german-family-reunion-language-requirement"
 publishedDate: "2026-06-30"

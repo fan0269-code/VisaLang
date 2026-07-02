@@ -1,6 +1,6 @@
 ---
 title: "Goethe A1 for Germany family reunion"
-description: "Goethe A1 for Germany family reunion"
+description: "How Goethe-Zertifikat A1 works as language proof for the Germany family reunion visa, with official sources and next steps."
 category: "germany-a1"
 slug: "goethe-a1-germany-family-reunion"
 publishedDate: "2026-06-30"

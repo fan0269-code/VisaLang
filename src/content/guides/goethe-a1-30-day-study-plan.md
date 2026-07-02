@@ -1,6 +1,6 @@
 ---
 title: "30-day Goethe A1 study plan"
-description: "30-day Goethe A1 study plan"
+description: "A focused 30-day Goethe A1 study plan covering all four skills, daily tasks, and free official practice materials."
 category: "germany-a1"
 slug: "goethe-a1-30-day-study-plan"
 publishedDate: "2026-06-30"

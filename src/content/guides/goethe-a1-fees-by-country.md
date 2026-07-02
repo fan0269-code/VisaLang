@@ -1,6 +1,6 @@
 ---
 title: "Goethe A1 fees by country"
-description: "Goethe A1 fees by country"
+description: "How Goethe A1 exam fees vary by country and test centre, what affects the price, and how to confirm the exact fee before booking."
 category: "germany-a1"
 slug: "goethe-a1-fees-by-country"
 publishedDate: "2026-06-30"

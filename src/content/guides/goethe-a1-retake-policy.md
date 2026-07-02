@@ -1,6 +1,6 @@
 ---
 title: "Goethe A1 retake policy"
-description: "Goethe A1 retake policy"
+description: "Goethe A1 retake rules: which modules you can retake, waiting periods, and how to confirm the policy at your test centre."
 category: "germany-a1"
 slug: "goethe-a1-retake-policy"
 publishedDate: "2026-06-30"

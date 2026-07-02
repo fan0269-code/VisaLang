@@ -1,6 +1,6 @@
 ---
 title: "Goethe A1 speaking topics"
-description: "Goethe A1 speaking topics"
+description: "How the Goethe A1 speaking section works, the three task types, and how to prepare using original practice prompts."
 category: "germany-a1"
 slug: "goethe-a1-speaking-topics"
 publishedDate: "2026-06-30"

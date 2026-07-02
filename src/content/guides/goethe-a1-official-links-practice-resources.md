@@ -1,6 +1,6 @@
 ---
 title: "Goethe A1 official links and practice resources"
-description: "Goethe A1 official links and practice resources"
+description: "Official Goethe A1 practice materials, sample exams, and verified resources for safe preparation."
 category: "germany-a1"
 slug: "goethe-a1-official-links-practice-resources"
 publishedDate: "2026-06-30"

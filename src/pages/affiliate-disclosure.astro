@@ -1,15 +1,34 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const updated = '2026-07-02';
 ---
 
-<BaseLayout title="Affiliate Aisclosure" noindex={true}>
+<BaseLayout title="Affiliate Disclosure" description="How VisaLang handles affiliate links and commercial recommendations." noindex={true}>
   <main class="guide-page">
     <div class="guide-layout" style="grid-template-columns: 1fr">
       <article class="guide-article" style="max-width:680px;margin:0 auto">
-        <h1>Affiliate Aisclosure</h1>
-        <p>This page describes VisaLang policies regarding Affiliate Aisclosure. VisaLang is an independent language-exam navigation site. Content is for informational purposes only.</p>
-        <p class="compliance-line">Always verify requirements, fees, dates, and accepted exams with the official exam owner or government authority.</p>
-        <p class="last-updated">Last updated: 2026-07-02</p>
+        <p class="eyebrow">Legal</p>
+        <h1>Affiliate Disclosure</h1>
+        <p class="guide-summary">Last updated: {updated}</p>
+
+        <h2>What affiliate links are</h2>
+        <p>Some links on VisaLang to preparation courses, textbooks, or tutoring services may be affiliate links. If you buy through them, we may earn a commission at no additional cost to you.</p>
+
+        <h2>How we use them</h2>
+        <ul>
+          <li>Affiliate links appear only <strong>after</strong> the official-source section on a guide page.</li>
+          <li>They are clearly labeled as "Advertisement", "Sponsored", or "Affiliate link".</li>
+          <li>We only recommend products relevant to the route and language level.</li>
+          <li>We never imply a paid product is required by the exam owner or government.</li>
+        </ul>
+
+        <h2>Independence</h2>
+        <p>Affiliate relationships do not influence our official-source guidance or our guide rankings. We prioritize official information over commercial recommendations.</p>
+
+        <h2>Your trust</h2>
+        <p>If an affiliate recommendation seems misleading or inaccurate, please <a href="/contact/">contact us</a>. We review and remove partners that violate our editorial standards.</p>
+
+        <p class="last-updated">Last updated: {updated}</p>
       </article>
     </div>
   </main>

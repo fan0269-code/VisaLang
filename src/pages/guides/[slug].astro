@@ -19,6 +19,10 @@ const relatedGuides = frontmatter.related
   .map(slug => allGuides.find(g => g.data.slug === slug))
   .filter(Boolean)
   .map(g => ({ title: g!.data.title, slug: g!.data.slug }));
+
+const routeLabel = frontmatter.route
+  ? frontmatter.route.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase())
+  : '';
 ---
 
 <GuideLayout
@@ -30,19 +34,11 @@ const relatedGuides = frontmatter.related
   eyebrow={frontmatter.eyebrow}
   breadcrumbs={[
     { label: 'Home', href: '/' },
-    ...(frontmatter.route
-      ? [{ label: frontmatter.route.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase()), href: `/#${frontmatter.route}` }]
-      : []),
+    ...(routeLabel ? [{ label: routeLabel, href: `/#${frontmatter.route}` }] : []),
     { label: frontmatter.title },
   ]}
   related={relatedGuides}
   headings={headings}
 >
   <Content />
-  <section class="official-sources">
-    <h2>Official sources</h2>
-    <p>Always verify requirements, fees, dates, and accepted exams with the official exam owner or government authority before booking.</p>
-  </section>
-  <p class="compliance-line">Fees, dates, requirements, and accepted exams change — always confirm with the official exam owner or government authority before booking.</p>
-  <p class="last-updated">Last updated: {frontmatter.updatedDate}</p>
 </GuideLayout>

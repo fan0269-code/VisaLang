@@ -1,15 +1,36 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const updated = '2026-07-02';
 ---
 
-<BaseLayout title="Cookie Colicy" noindex={true}>
+<BaseLayout title="Cookie Policy" description="How VisaLang uses cookies." noindex={true}>
   <main class="guide-page">
     <div class="guide-layout" style="grid-template-columns: 1fr">
       <article class="guide-article" style="max-width:680px;margin:0 auto">
-        <h1>Cookie Colicy</h1>
-        <p>This page describes VisaLang policies regarding Cookie Colicy. VisaLang is an independent language-exam navigation site. Content is for informational purposes only.</p>
-        <p class="compliance-line">Always verify requirements, fees, dates, and accepted exams with the official exam owner or government authority.</p>
-        <p class="last-updated">Last updated: 2026-07-02</p>
+        <p class="eyebrow">Legal</p>
+        <h1>Cookie Policy</h1>
+        <p class="guide-summary">Last updated: {updated}</p>
+
+        <h2>What are cookies</h2>
+        <p>Cookies are small text files stored in your browser. VisaLang uses them sparingly.</p>
+
+        <h2>Cookies we use</h2>
+        <ul>
+          <li><strong>Analytics cookies:</strong> Plausible Analytics uses a privacy-friendly cookie to count visits. No cross-site tracking.</li>
+          <li><strong>Preference cookies:</strong> if you switch the site language, your choice may be remembered locally.</li>
+        </ul>
+
+        <h2>Cookies we do not use</h2>
+        <p>We do not currently use advertising cookies, retargeting cookies, or third-party social-media tracking cookies. If we add display advertising in the future, we will update this policy and provide a consent mechanism where required.</p>
+
+        <h2>Managing cookies</h2>
+        <p>You can clear or block cookies in your browser settings. Disabling cookies may affect some site features.</p>
+
+        <h2>Third-party embeds</h2>
+        <p>If we embed official videos or resources from external providers, those providers may set their own cookies.</p>
+
+        <p class="compliance-line">See also our <a href="/privacy-policy/">Privacy Policy</a>.</p>
+        <p class="last-updated">Last updated: {updated}</p>
       </article>
     </div>
   </main>

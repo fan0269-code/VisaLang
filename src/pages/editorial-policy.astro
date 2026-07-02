@@ -1,15 +1,47 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const updated = '2026-07-02';
 ---
 
-<BaseLayout title="Editorial Eolicy" noindex={true}>
+<BaseLayout title="Editorial Policy" description="How VisaLang researches, writes, and maintains guides." noindex={true}>
   <main class="guide-page">
     <div class="guide-layout" style="grid-template-columns: 1fr">
       <article class="guide-article" style="max-width:680px;margin:0 auto">
-        <h1>Editorial Eolicy</h1>
-        <p>This page describes VisaLang policies regarding Editorial Eolicy. VisaLang is an independent language-exam navigation site. Content is for informational purposes only.</p>
-        <p class="compliance-line">Always verify requirements, fees, dates, and accepted exams with the official exam owner or government authority.</p>
-        <p class="last-updated">Last updated: 2026-07-02</p>
+        <p class="eyebrow">Editorial</p>
+        <h1>Editorial Policy</h1>
+        <p class="guide-summary">Last updated: {updated}</p>
+
+        <h2>Our mission</h2>
+        <p>VisaLang helps users find the right official language exam for visa, residency, citizenship, and work-registration paths. We point users to official sources rather than replacing them.</p>
+
+        <h2>Official-first sourcing</h2>
+        <ul>
+          <li>Every guide cites the official exam owner or government authority.</li>
+          <li>We use blogs, forums, and third-party materials only for user-language context, never for factual requirements.</li>
+          <li>We never invent fees, dates, accepted exams, or policy details.</li>
+        </ul>
+
+        <h2>What we do not publish</h2>
+        <ul>
+          <li>Leaked exam questions or copied real exam items.</li>
+          <li>Official logos presented in ways that imply endorsement.</li>
+          <li>Guaranteed outcomes ("pass for sure", "visa approved").li>
+          <li>Specific fees, dates, or policy numbers without an official source.</li>
+        </ul>
+
+        <h2>Updates and accuracy</h2>
+        <p>Every guide shows a Last Updated date. When official requirements change, we update guides and note the revision. If you spot an error, <a href="/contact/">tell us</a>.</p>
+
+        <h2>Safe preparation</h2>
+        <p>We only recommend original practice materials. We do not link to sites selling leaked questions or "guaranteed pass" shortcuts.</p>
+
+        <h2>Commercial content</h2>
+        <p>Affiliate links and sponsored prep recommendations appear only <em>after</em> the official-source section on a page, and are clearly labeled. See our <a href="/affiliate-disclosure/">Affiliate Disclosure</a>.</p>
+
+        <h2>Independence</h2>
+        <p>Editorial decisions are independent of any exam provider, school, or advertiser. No partner can edit our official-source guidance.</p>
+
+        <p class="last-updated">Last updated: {updated}</p>
       </article>
     </div>
   </main>
