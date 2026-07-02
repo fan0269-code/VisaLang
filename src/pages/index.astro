@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const guides = await getCollection('guides');
+const featured = guides.filter(g => g.data.featured).slice(0, 3);
+const latest = guides
+  .sort((a, b) => b.data.publishedDate.localeCompare(a.data.publishedDate))
+  .slice(0, 6);
+
+const categories = [
+  { name: 'Germany A1', slug: 'germany-a1', desc: 'Family reunion language proof' },
+  { name: 'Germany B1+', slug: 'germany-b1', desc: 'Settlement, work, citizenship' },
+  { name: 'TestDaF', slug: 'germany-testdaf', desc: 'University admissions' },
+  { name: 'telc Deutsch', slug: 'germany-telc', desc: 'Work & nursing registration' },
+  { name: 'United Kingdom', slug: 'uk', desc: 'UK visa & citizenship English' },
+  { name: 'Canada', slug: 'canada', desc: 'TEF/TCF French immigration' },
+  { name: 'Italy', slug: 'italy', desc: 'CILS/CELI/PLIDA citizenship' },
+  { name: 'Spain', slug: 'spain', desc: 'DELE & CCSE citizenship' },
+  { name: 'France', slug: 'france', desc: 'DELF/DALF work & study' },
+  { name: 'Finland', slug: 'finland', desc: 'YKI citizenship' },
+  { name: 'Netherlands', slug: 'netherlands', desc: 'Inburgering & NT2' },
+  { name: 'Portugal', slug: 'portugal', desc: 'CIPLE A2 & Golden Visa' },
+];
+---
+
+<BaseLayout title="Find the right language exam for your next move">
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <h1>Find the right language exam for your next move</h1>
+      <p>Official-first guides for German, English, French, Italian, Spanish, Dutch, Portuguese, and Finnish language exams — built for visa, residency, citizenship, and work-registration paths.</p>
+      <a class="primary-action" href="#guides">Browse exam guides</a>
+    </section>
+
+    <!-- Featured Guides -->
+    {featured.length > 0 && (
+      <section class="container" style="padding: 0 24px 48px">
+        <h2 style="text-align:center;font-size:1.3rem;margin-bottom:24px">Featured guides</h2>
+        <div class="guide-related-grid">
+          {featured.map(g => (
+            <a href={`/guides/${g.data.slug}/`} class="article-card">
+              <p class="card-category">{g.data.category.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}</p>
+              <h3>{g.data.title}</h3>
+              <p class="card-meta">{g.data.description}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Categories -->
+    <section id="guides" class="container" style="padding: 0 24px 48px">
+      <h2 style="text-align:center;font-size:1.3rem;margin-bottom:24px">Browse by route</h2>
+      <div class="guide-related-grid">
+        {categories.map(cat => {
+          const count = guides.filter(g => g.data.category === cat.slug).length;
+          return (
+            <a href={`/#${cat.slug}`} class="article-card">
+              <p class="card-category">{cat.name}</p>
+              <h3>{cat.desc}</h3>
+              <p class="card-meta">{count} guide{count !== 1 ? 's' : ''}</p>
+            </a>
+          );
+        })}
+      </div>
+    </section>
+
+    <!-- Latest Articles -->
+    <section class="container" style="padding: 0 24px 64px">
+      <h2 style="text-align:center;font-size:1.3rem;margin-bottom:24px">Latest guides</h2>
+      <div class="guide-related-grid">
+        {latest.map(g => (
+          <a href={`/guides/${g.data.slug}/`} class="article-card">
+            <p class="card-category">{g.data.category.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}</p>
+            <h3>{g.data.title}</h3>
+            <p class="card-meta">{g.data.updatedDate}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

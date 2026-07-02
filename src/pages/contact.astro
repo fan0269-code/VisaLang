@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const jsonLD = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact VisaLang',
+  description: 'How to reach VisaLang with corrections, suggestions, or partnership inquiries.',
+};
+---
+
+<BaseLayout title="Contact" description="Get in touch with VisaLang" jsonLD={jsonLD}>
+  <main class="guide-page">
+    <div class="guide-layout" style="grid-template-columns: 1fr">
+      <article class="guide-article" style="max-width:680px;margin:0 auto">
+        <h1>Contact VisaLang</h1>
+        <p>We welcome corrections, content suggestions, and partnership inquiries. Before reaching out, please check whether your question is already answered on our site.</p>
+
+        <h2>Content corrections</h2>
+        <p>If you find an outdated fee, broken link, or incorrect requirement, email us with the page URL and the official source that has the correct information. We update quickly.</p>
+
+        <h2>Partnership inquiries</h2>
+        <p>If you offer language tutoring, exam preparation, or visa consultation services and would like to discuss a partnership, please reach out with details about your service and the language-exam routes you cover.</p>
+
+        <h2>What we cannot help with</h2>
+        <ul>
+          <li>We are not an exam booking service — please book through the official exam provider.</li>
+          <li>We are not immigration lawyers — we cannot assess your visa eligibility or provide legal advice.</li>
+          <li>We are not exam authorities — we cannot issue, verify, or replace certificates.</li>
+        </ul>
+
+        <p><strong>Email:</strong> hello@flowlight.me</p>
+        <p class="last-updated">Last updated: 2026-07-02</p>
+      </article>
+    </div>
+  </main>
+</BaseLayout>

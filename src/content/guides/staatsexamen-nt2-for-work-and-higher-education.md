@@ -1,0 +1,28 @@
+---
+title: "Staatsexamen NT2 for Dutch Work and Study"
+description: "Staatsexamen NT2 Programme I and II for Dutch work and study"
+category: "netherlands"
+slug: "staatsexamen-nt2-for-work-and-higher-education"
+publishedDate: "2026-07-01"
+updatedDate: "2026-07-01"
+author: "VisaLang"
+readingTime: "5"
+featured: false
+eyebrow: "Netherlands · Work & Study"
+route: "netherlands"
+related: []
+---
+
+## NT2 Programme I vs II
+
+- **Programme I (B1):** For vocational education (MBO) and jobs. Tests reading, listening, writing, and speaking.
+- **Programme II (B2):** For higher education (HBO/university) and professional registration.
+
+## NT2 vs Inburgering
+
+Inburgering is for integration/citizenship. NT2 is for education and career. If you need Dutch for university or a regulated profession, NT2 is the one — Inburgering alone may not be enough.
+
+## Official sources
+
+- [DUO Inburgeren](https://www.inburgeren.nl/en/)
+- [College voor Toetsen en Examens](https://www.cve.nl/)

@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allGuides = await getCollection('guides');
+const germanyA1Guides = allGuides.filter(g => g.data.category === 'germany-a1');
+
+const jsonLD = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Do I need a German A1 certificate for a family reunion visa?', acceptedAnswer: { '@type': 'Answer', text: 'Most spouse and family reunion visa applicants need to prove basic German skills at the A1 CEFR level. Goethe-Zertifikat A1 is widely accepted. Always verify with the German mission handling your case.' }},
+    { '@type': 'Question', name: 'Which exams are accepted for German family reunion?', acceptedAnswer: { '@type': 'Answer', text: 'Goethe-Zertifikat A1 and telc Deutsch A1 are the most common accepted exams. Both are officially recognized. Check with your local German embassy or Auslanderbehorde.' }},
+    { '@type': 'Question', name: 'How much does the Goethe A1 exam cost?', acceptedAnswer: { '@type': 'Answer', text: 'Fees vary by country and test centre. As a rough guide, internal Goethe fees are typically lower than external fees. Always check the local Goethe-Institut or exam centre for your exact fee.' }},
+    { '@type': 'Question', name: 'How long does it take to prepare for Goethe A1?', acceptedAnswer: { '@type': 'Answer', text: 'A 30-day focused study plan can work for motivated learners with some prior exposure to German. Working adults may need an 8-week plan with 1-2 hours of daily study.' }},
+    { '@type': 'Question', name: 'Can I retake the Goethe A1 exam if I fail?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Goethe allows retakes. You can retake individual modules or the complete exam. Check the retake policy of your local test centre for specifics on waiting periods and partial retake rules.' }},
+  ],
+};
+---
+
+<BaseLayout title="Germany A1 Family Reunion — Language Exam Route" description="Complete guide to the German A1 language exam route for family reunion visa applicants. FAQs, accepted exams, fees, and preparation." jsonLD={jsonLD}>
+  <main class="guide-page">
+    <div class="guide-layout" style="grid-template-columns: 1fr">
+      <article class="guide-article" style="max-width:720px;margin:0 auto">
+        <p class="eyebrow">Germany · Family Reunion</p>
+        <h1>Germany A1 — Your complete family reunion language route</h1>
+        <p class="guide-summary">If you need to prove basic German for a spouse or family reunion visa, start here. We have organized the official requirements, exam choices, fees, preparation, documents, and FAQs into one clear path.</p>
+
+        <h2>What this route covers</h2>
+        <ul>
+          <li>Whether your visa path needs German A1 at all</li>
+          <li>Goethe-Zertifikat A1 vs telc Deutsch A1</li>
+          <li>Fees, test centres, and booking rules by country</li>
+          <li>Required documents and what to bring on exam day</li>
+          <li>Study plans for different schedules</li>
+          <li>Retake rules and what happens if you don not pass</li>
+        </ul>
+
+        <h2>Germany A1 guides</h2>
+        <div class="guide-related-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))">
+          {germanyA1Guides.map(g => (
+            <a href={`/guides/${g.data.slug}/`} class="article-card">
+              <h3>{g.data.title}</h3>
+              <p class="card-meta">{g.data.description}</p>
+            </a>
+          ))}
+        </div>
+
+        <section style="margin-top: 32px">
+          <h2>Quick answers</h2>
+          <h3>Do I need German A1 for a family reunion visa?</h3>
+          <p>Most applicants for a spouse or family reunion visa to Germany need to prove basic German language skills at the A1 CEFR level. The most commonly accepted proof is the Goethe-Zertifikat A1: Start Deutsch 1. Always verify with the German mission or Auslanderbehorde handling your case — some exceptions exist.</p>
+
+          <h3>Which exam should I take — Goethe A1 or telc A1?</h3>
+          <p>Both are officially recognized for German family reunion. Goethe is more widely known internationally and may have more test centre locations outside Germany. telc is well-recognized within Germany and may be more accessible if you are already in the country.</p>
+
+          <h3>How long does Goethe A1 preparation take?</h3>
+          <p>With consistent daily practice (1-2 hours), a committed learner can prepare in 30-60 days. If you work full-time, plan for 8 weeks. Focus on speaking, listening, and basic reading comprehension — these are the core A1 test areas.</p>
+        </section>
+
+        <section class="official-sources">
+          <h2>Official sources</h2>
+          <ul>
+            <li><a href="https://www.goethe.de/en/spr/prf.html">Goethe-Institut German examinations</a></li>
+            <li><a href="https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html">BAMF — family reunification</a></li>
+            <li><a href="https://www.telc.net/en/language-examinations/certificate-exams/german/a1.html">telc Deutsch A1</a></li>
+          </ul>
+        </section>
+
+        <p class="compliance-line">Fees, dates, requirements, and accepted exams change. Always verify with the official source before booking.</p>
+        <p class="last-updated">Last updated: 2026-07-02</p>
+      </article>
+    </div>
+  </main>
+</BaseLayout>

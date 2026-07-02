@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const jsonLD = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'About VisaLang',
+  description: 'VisaLang is a language-exam navigation site built for visa, residency, citizenship, and work-registration paths.',
+};
+---
+
+<BaseLayout title="About" description="About VisaLang — your independent language-exam navigation site" jsonLD={jsonLD}>
+  <main class="guide-page">
+    <div class="guide-layout" style="grid-template-columns: 1fr">
+      <article class="guide-article" style="max-width:680px;margin:0 auto">
+        <h1>About VisaLang</h1>
+        <p>VisaLang is a bilingual (English / Chinese) language-exam navigation site built for the moment when a visa, residency, citizenship, or work-registration path requires proof of language skill.</p>
+        <p>We do not own exams, issue certificates, provide legal advice, or speak for any government. We research official sources, organize the information, add safe preparation guidance, and help you verify what you actually need before you pay.</p>
+
+        <h2>What we cover</h2>
+        <ul>
+          <li>German family reunion, settlement, work, and university exams (Goethe, telc, TestDaF)</li>
+          <li>UK visa and citizenship English tests (IELTS UKVI, LanguageCert SELT)</li>
+          <li>Canada French immigration exams (TEF Canada, TCF Canada, TCF IRN)</li>
+          <li>Italian, Spanish, Portuguese, Dutch, Finnish and French citizenship and residence language exams</li>
+        </ul>
+
+        <h2>Our approach</h2>
+        <ul>
+          <li><strong>Official-first.</strong> Every guide links to the official exam owner or government authority.</li>
+          <li><strong>Safe preparation.</strong> We publish original practice guidance, never leaked questions or real exam items.</li>
+          <li><strong>Up-to-date.</strong> Every guide shows a Last Updated date. Requirements change — we keep content current.</li>
+          <li><strong>Transparent.</strong> Affiliate relationships and commercial recommendations are clearly labeled. We never imply official endorsement.</li>
+        </ul>
+
+        <p class="compliance-line">VisaLang is an independent publication. We are not a government authority, exam owner, immigration lawyer, or visa agency.</p>
+        <p class="last-updated">Last updated: 2026-07-02</p>
+      </article>
+    </div>
+  </main>
+</BaseLayout>

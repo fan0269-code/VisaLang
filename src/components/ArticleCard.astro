@@ -1,0 +1,13 @@
+---
+export interface Props {
+  title: string; slug: string; category?: string; readingTime?: string; description?: string;
+}
+const { title, slug, category, readingTime, description } = Astro.props;
+---
+
+<a href={`/guides/${slug}/`} class="article-card">
+  {category && <p class="card-category">{category}</p>}
+  <h3>{title}</h3>
+  {description && <p class="card-meta">{description}</p>}
+  {readingTime && <span class="card-meta">{readingTime} min read</span>}
+</a>

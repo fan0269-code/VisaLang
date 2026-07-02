@@ -1,0 +1,22 @@
+---
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/germany-family-reunion-a1/', label: 'Germany A1' },
+  { href: '/#guides', label: 'Guides' },
+  { href: '/about/', label: 'About' },
+];
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">VisaLang</a>
+    <nav class="header-nav" aria-label="Main navigation">
+      {navLinks.map(link => (
+        <a href={link.href} class:list={[{ active: Astro.url.pathname === link.href }]}>
+          {link.label}
+        </a>
+      ))}
+      <a href="/?lang=zh" class="lang-switch" aria-label="Switch to Chinese" title="切換中文">中文</a>
+    </nav>
+  </div>
+</header>

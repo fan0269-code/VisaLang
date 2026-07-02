@@ -1,0 +1,17 @@
+---
+export interface Props {
+  title?: string; text?: string; buttonLabel?: string; buttonHref?: string;
+}
+const {
+  title = 'Need help picking the right exam?',
+  text = 'Join our waitlist for personalised exam-path recommendations and preparation guides.',
+  buttonLabel = 'Join waitlist',
+  buttonHref = '/#waitlist',
+} = Astro.props;
+---
+
+<section class="guide-cta" aria-label="Get updates">
+  <h2>{title}</h2>
+  <p>{text}</p>
+  <a class="primary-action" href={buttonHref}>{buttonLabel}</a>
+</section>
