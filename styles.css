@@ -872,6 +872,40 @@ select:focus {
   font-weight: 750;
 }
 
+.route-template {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, #fff, var(--brand-tint));
+  box-shadow: var(--shadow-sm);
+}
+
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.template-grid article {
+  min-height: 168px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+
+.template-grid h3 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.template-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13.5px;
+}
+
 /* ---------- Exam library ---------- */
 .controls {
   display: grid;
@@ -1437,6 +1471,7 @@ td a:hover { text-decoration: underline; }
   .guide-grid,
   .guide-layout,
   .topic-grid,
+  .template-grid,
   .focus-path {
     grid-template-columns: 1fr;
   }
@@ -1487,8 +1522,10 @@ td a:hover { text-decoration: underline; }
   .guide-grid a { min-height: auto; padding: 14px 40px 14px 14px; }
   .focus-path,
   .topic-hero,
-  .topic-grid > div { padding: 18px; }
-  .topic-grid > div { min-height: auto; }
+  .topic-grid > div,
+  .route-template { padding: 18px; }
+  .topic-grid > div,
+  .template-grid article { min-height: auto; }
   .map-section { padding: 18px; }
   .lead-box { padding: 18px; }
   .guide-article { padding: 20px; }

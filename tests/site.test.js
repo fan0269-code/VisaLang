@@ -89,6 +89,10 @@ assert.ok(
   "homepage should link to the Germany family reunion A1 topic hub"
 );
 assert.ok(
+  homepage.includes("first reusable route template"),
+  "homepage should frame Germany A1 as the reusable route template"
+);
+assert.ok(
   homepage.includes('id="germany-a1"'),
   "homepage should expose a Germany A1 anchor for guide backlinks"
 );
@@ -108,6 +112,20 @@ assert.ok(
   germanyHub.includes("guides/german-family-reunion-language-requirement.html"),
   "Germany hub should link to the language-requirement guide"
 );
+assert.ok(
+  germanyHub.includes("Reusable route template"),
+  "Germany hub should include a reusable route template section"
+);
+[
+  "Audience and outcome",
+  "Official rule check",
+  "Accepted exam map",
+  "Booking and document plan",
+  "Safe preparation path",
+  "Update and expansion rule",
+].forEach((section) => {
+  assert.ok(germanyHub.includes(section), `Germany route template should include ${section}`);
+});
 assert.ok(
   fs.readFileSync("sitemap.xml", "utf8").includes("https://flowlight.me/germany-family-reunion-a1.html"),
   "sitemap should include the Germany A1 topic hub"
