@@ -4,9 +4,9 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://flowlight.me',
   integrations: [sitemap()],
-  trailingSlash: 'never',
+  trailingSlash: 'always',
   build: {
-    format: 'file',
+    format: 'directory',
   },
   markdown: {
     shikiConfig: {
