@@ -16,8 +16,8 @@ const {
 assert.equal(brand.name, "VisaLang");
 assert.ok(brand.tagline.includes("visa"));
 assert.ok(brand.headline.includes("language exam"));
-assert.equal(i18n.en.heroHeadline, "Find the right language exam for your next move.");
-assert.equal(i18n.zh.heroHeadline, "找到适合签证、永居或入籍的语言考试。");
+assert.equal(i18n.en.heroHeadline, "Find the right language exam for your visa, residency, citizenship, or work path");
+assert.equal(i18n.zh.heroHeadline, "根据签证、永居、入籍、留学或职业注册需求，找到正确的语言考试路径");
 assert.equal(i18n.zh.languageToggle, "EN");
 
 assert.equal(exams.length, 50, "VisaLang should include 50 sourced exam page seeds");
@@ -77,11 +77,13 @@ const heroMarkup = homepage.slice(heroStart, heroEnd);
 assert.ok(heroMarkup.includes('id="hero-finder"'), "hero should contain the route finder card");
 assert.ok(heroMarkup.includes('id="path-result"'), "route recommendation result should render above the fold");
 assert.ok(
-  homepage.indexOf('id="hero-finder"') < homepage.indexOf('id="exam-count"'),
-  "route finder should appear before coverage stats"
+  homepage.indexOf('id="hero-finder"') < homepage.indexOf('id="guide-count"'),
+  "route finder should appear before coverage metrics"
 );
 assert.ok(homepage.includes('id="language-toggle"'), "homepage should expose a language toggle");
 assert.ok(homepage.includes('data-i18n="heroHeadline"'), "hero headline should be translatable");
+assert.ok(homepage.includes('hreflang="zh-CN"'), "homepage should link to the Chinese version with hreflang");
+assert.ok(homepage.includes('id="hero-search"'), "homepage should include a hero search box");
 assert.ok(homepage.includes('id="waitlist-message"'), "waitlist form should expose user feedback");
 assert.ok(homepage.includes('data-i18n="footerDisclaimer"'), "homepage should include a launch-safe disclaimer");
 assert.ok(
@@ -98,6 +100,10 @@ assert.ok(
 );
 
 const germanyHub = fs.readFileSync("germany-family-reunion-a1.html", "utf8");
+const zhHomepage = fs.readFileSync("zh/index.html", "utf8");
+assert.ok(zhHomepage.includes('lang="zh-CN"'), "Chinese homepage should use zh-CN lang");
+assert.ok(zhHomepage.includes("VisaLang 帮助用户"), "Chinese homepage should have native Chinese positioning copy");
+assert.ok(zhHomepage.includes('hreflang="en"'), "Chinese homepage should link back to English with hreflang");
 const germanyHubJsonLd = [...germanyHub.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((match) =>
   JSON.parse(match[1].trim())
 );

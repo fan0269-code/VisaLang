@@ -259,6 +259,27 @@ h2 .section-icon + span,
 
 .hero-copy { max-width: 780px; }
 
+.hero-search {
+  display: grid;
+  gap: 8px;
+  width: min(660px, 100%);
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.hero-search input {
+  min-height: 56px;
+  margin: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--ink);
+  font-size: 17px;
+}
+
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -546,6 +567,41 @@ td span,
   justify-content: space-between;
   gap: 16px;
   margin-bottom: 16px;
+}
+
+/* ---------- Entry cards ---------- */
+.entry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.entry-grid a {
+  display: grid;
+  gap: 8px;
+  min-height: 132px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.12s ease;
+}
+
+.entry-grid a:hover {
+  border-color: rgba(47, 101, 167, 0.35);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.entry-grid strong {
+  color: var(--ink);
+  font-size: 18px;
+}
+
+.entry-grid span {
+  color: var(--muted);
+  font-size: 14px;
 }
 
 /* ---------- Tool grid ---------- */
@@ -1168,12 +1224,16 @@ td a:hover { text-decoration: underline; }
 }
 
 .lead-box form {
-  display: flex;
-  width: min(520px, 100%);
+  display: grid;
+  grid-template-columns: minmax(180px, 1.3fr) minmax(150px, 1fr) minmax(150px, 1fr) auto;
+  width: min(920px, 100%);
   gap: 10px;
 }
 
-.lead-box form input { margin: 0; }
+.lead-box form input,
+.lead-box form select {
+  margin: 0;
+}
 
 .lead-box button {
   min-width: 130px;
@@ -1502,6 +1562,7 @@ td a:hover { text-decoration: underline; }
   .source-list,
   .trust-strip,
   .guide-grid,
+  .entry-grid,
   .guide-layout,
   .topic-grid,
   .template-grid,

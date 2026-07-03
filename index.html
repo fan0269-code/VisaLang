@@ -10,6 +10,9 @@
     >
     <meta name="theme-color" content="#0f5132">
     <link rel="canonical" href="https://flowlight.me/">
+    <link rel="alternate" hreflang="en" href="https://flowlight.me/">
+    <link rel="alternate" hreflang="zh-CN" href="https://flowlight.me/zh/">
+    <link rel="alternate" hreflang="x-default" href="https://flowlight.me/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="VisaLang | Language exams for visa and citizenship paths">
     <meta property="og:description" content="Find official language exams, CEFR levels, fees, test formats, and practice routes for visa, residency, and citizenship applications.">
@@ -35,9 +38,10 @@
         <strong>VisaLang</strong>
       </a>
       <nav aria-label="Primary navigation">
-        <a href="#finder" data-i18n="navFind">Find exam</a>
-        <a href="germany-family-reunion-a1.html">Germany A1</a>
-        <a href="#library" data-i18n="navLibrary">Exam library</a>
+        <a href="#countries" data-i18n="navCountries">Countries</a>
+        <a href="#library" data-i18n="navExams">Exams</a>
+        <a href="#germany-a1" data-i18n="navGuides">Guides</a>
+        <a href="#finder" data-i18n="navFind">Exam Finder</a>
         <a href="#sources" data-i18n="navSources">Official sources</a>
       </nav>
       <div class="topbar-actions">
@@ -50,11 +54,15 @@
       <section class="hero">
         <div class="hero-copy">
           <p class="eyebrow" data-i18n="eyebrow">Visa, residency, and citizenship language exams</p>
-          <h1 data-i18n="heroHeadline">Find the right language exam for your next move.</h1>
+          <h1 data-i18n="heroHeadline">Find the right language exam for your visa, residency, citizenship, or work path</h1>
           <p data-i18n="heroCopy">
             Compare official exam routes, CEFR levels, fees, test formats, and practice plans for Germany,
             Italy, the Netherlands, Portugal, the UK, and more.
           </p>
+          <label class="hero-search">
+            <span data-i18n="heroSearchLabel">Search country, exam, or visa route</span>
+            <input id="hero-search" type="search" placeholder="Search country, exam, or visa route" data-i18n-placeholder="heroSearchPlaceholder">
+          </label>
           <div class="hero-actions">
             <a class="primary-action" href="#finder" data-i18n="startRoute">Start with your route</a>
             <a class="secondary-action" href="#library" data-i18n="browseExams">Browse exams</a>
@@ -132,10 +140,31 @@
       </section>
 
       <section class="stats" aria-label="VisaLang coverage">
-        <div><strong id="exam-count">0</strong><span data-i18n="examSeeds">officially sourced exam seeds</span></div>
-        <div><strong id="page-count">0</strong><span data-i18n="guidePages">high-intent guide pages</span></div>
-        <div><strong>3</strong><span data-i18n="planningTools">free planning tools</span></div>
+        <div><strong id="guide-count">38</strong><span data-i18n="guideMetric">high-trust guides</span></div>
+        <div><strong>12</strong><span data-i18n="routeMetric">exam-route clusters</span></div>
+        <div><strong>11</strong><span data-i18n="countryMetric">country pathways</span></div>
         <div><strong id="source-count">0</strong><span data-i18n="sourceGroups">official source groups</span></div>
+      </section>
+
+      <section class="entry-cards" id="countries" aria-labelledby="entry-title">
+        <div class="section-title">
+          <h2 id="entry-title" data-i18n="startByTitle">Start from the way you think</h2>
+          <span data-i18n="startByHint">Country, exam, or goal — each path leads back to official sources.</span>
+        </div>
+        <div class="entry-grid">
+          <a href="#library" data-search="Germany">
+            <strong data-i18n="startCountry">Start with your country</strong>
+            <span data-i18n="startCountryText">Germany, UK, Canada, Italy, Netherlands, Portugal, Finland, and more.</span>
+          </a>
+          <a href="#library" data-search="Goethe">
+            <strong data-i18n="startExam">Start with your exam</strong>
+            <span data-i18n="startExamText">Goethe, IELTS, LanguageCert, CILS, DELE, YKI, TEF, TCF and more.</span>
+          </a>
+          <a href="#finder" data-search="family visa">
+            <strong data-i18n="startGoal">Start with your goal</strong>
+            <span data-i18n="startGoalText">Visa, residency, citizenship, study, or professional registration.</span>
+          </a>
+        </div>
       </section>
 
       <section class="tool-grid" id="finder">
@@ -244,6 +273,19 @@
         </div>
         <form id="waitlist-form" novalidate>
           <input type="email" name="email" placeholder="you@example.com" aria-label="Email" data-i18n-placeholder="emailPlaceholder" required>
+          <select name="route" aria-label="Route interest">
+            <option value="germany-a1" data-i18n="routeGermanyA1">Germany A1 family reunion</option>
+            <option value="germany-b1" data-i18n="routeGermanyB1">Germany B1 settlement/work</option>
+            <option value="uk-selt" data-i18n="routeUkSelt">UK SELT visa English</option>
+            <option value="canada-french" data-i18n="routeCanadaFrench">Canada TEF/TCF French</option>
+            <option value="not-sure" data-i18n="routeNotSure">Not sure yet</option>
+          </select>
+          <select name="stage" aria-label="Current stage">
+            <option value="checking-requirement" data-i18n="stageChecking">Checking requirement</option>
+            <option value="choosing-exam" data-i18n="stageChoosing">Choosing exam</option>
+            <option value="booking-soon" data-i18n="stageBooking">Booking soon</option>
+            <option value="preparing" data-i18n="stagePreparing">Already preparing</option>
+          </select>
           <button type="submit" data-i18n="joinWaitlist">Join waitlist</button>
         </form>
         <p class="form-message" id="waitlist-message" role="status" aria-live="polite"></p>

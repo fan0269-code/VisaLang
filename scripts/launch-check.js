@@ -14,6 +14,7 @@ const warn = (msg) => checks.push({ ok: true, warn: true, msg });
 
 // Domain
 const indexHtml = read("index.html");
+const zhIndexHtml = exists("zh/index.html") ? read("zh/index.html") : "";
 if (/visalang\.example/i.test(indexHtml)) {
   warn("Domain: still a placeholder. Replace with your real domain.");
 } else {
@@ -28,6 +29,12 @@ if (/google-analytics|gtag|plausible|fathom|matomo/i.test(indexHtml)) {
   pass("Analytics: snippet detected.");
 } else {
   warn("Analytics: no snippet yet.");
+}
+
+if (zhIndexHtml && /hreflang="en"/.test(zhIndexHtml) && /hreflang="zh-CN"/.test(indexHtml)) {
+  pass("Multilingual: English and Chinese hreflang present.");
+} else {
+  fail("Multilingual: missing English/Chinese hreflang.");
 }
 
 // Legal pages
@@ -66,6 +73,8 @@ if (exists("robots.txt")) pass("robots.txt exists."); else fail("robots.txt miss
 if (exists("sitemap.xml")) pass("sitemap.xml exists."); else fail("sitemap.xml missing.");
 if (/Sitemap:\s*\S+\/sitemap\.xml/.test(read("robots.txt"))) pass("robots.txt references sitemap.");
 else fail("robots.txt missing sitemap reference.");
+if (read("sitemap.xml").includes("https://flowlight.me/zh/")) pass("sitemap: Chinese homepage included.");
+else fail("sitemap missing Chinese homepage.");
 
 // JSON-LD
 function checkJsonLd(file, label) {
@@ -78,6 +87,7 @@ function checkJsonLd(file, label) {
   if (!found) fail("No JSON-LD: " + label);
 }
 checkJsonLd(indexHtml, "index.html");
+if (zhIndexHtml) checkJsonLd(zhIndexHtml, "zh/index.html");
 for (var tj = 0; tj < topicPages.length; tj++) {
   var tm = topicPages[tj];
   if (exists(tm)) checkJsonLd(read(tm), tm);
@@ -88,7 +98,7 @@ for (var gj = 0; gj < guideFiles.length; gj++) {
 }
 
 // Dead links
-var allHtml = ["index.html"].concat(requiredPages.filter(exists)).concat(topicPages.filter(exists)).concat(guideFiles.map(function(f) { return "guides/" + f; }));
+var allHtml = ["index.html"].concat(zhIndexHtml ? ["zh/index.html"] : []).concat(requiredPages.filter(exists)).concat(topicPages.filter(exists)).concat(guideFiles.map(function(f) { return "guides/" + f; }));
 var linkRe = /href="([^"]+)"/g;
 var broken = [];
 for (var ai = 0; ai < allHtml.length; ai++) {

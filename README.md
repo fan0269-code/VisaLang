@@ -40,6 +40,11 @@ The test checks the core data shape, brand, bilingual setup, hero route finder, 
 - `docs/MONETIZATION_ROADMAP.md`: phased revenue plan and trust boundaries.
 - `docs/TRAFFIC_SITE_ROADMAP.md`: SEO-first traffic-site plan.
 - `docs/AD_NETWORK_ONBOARDING.md`: AdSense-first ad network onboarding checklist.
+- `docs/DAILY_TRAFFIC_MONITORING_PROMPT.md`: daily Search Console / Analytics analysis prompt.
+- `docs/CONTENT_UPDATE_PROMPT.md`: high-quality source-backed content prompt.
+- `docs/CEO_OPERATING_AUDIT_PROMPT.md`: CEO-level operating audit prompt.
+- `docs/COO_OPERATING_PLAYBOOK_PROMPT.md`: COO-level weekly execution prompt.
+- `docs/WEEKLY_OPERATING_REVIEW.md`: weekly operating review template.
 
 ## Main Files
 

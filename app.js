@@ -14,7 +14,7 @@ document.title = `${brand.name} | ${brand.tagline}`;
 
 const state = {
   category: "All",
-  locale: "en",
+  locale: location.pathname.indexOf("/zh/") !== -1 || /\/zh\/?index\.html$/.test(location.pathname) ? "zh" : "en",
   search: "",
   examLimit: 18,
 };
@@ -51,8 +51,12 @@ function renderStaticText() {
 }
 
 function renderStats() {
-  $("#exam-count").textContent = exams.length;
-  $("#page-count").textContent = pageSeeds.length;
+  var examCount = $("#exam-count");
+  var pageCount = $("#page-count");
+  var guideCount = $("#guide-count");
+  if (examCount) examCount.textContent = exams.length;
+  if (pageCount) pageCount.textContent = pageSeeds.length;
+  if (guideCount) guideCount.textContent = (window.ExamSiteData.guideCatalog || []).length || 38;
   $("#source-count").textContent = sources.length;
 }
 
@@ -248,14 +252,34 @@ function bindEvents() {
   });
 
   $("#language-toggle").addEventListener("click", () => {
-    state.locale = state.locale === "en" ? "zh" : "en";
-    renderAll();
+    if (state.locale === "en") {
+      window.location.href = location.protocol === "file:" ? "zh/index.html" : "/zh/";
+    } else {
+      window.location.href = location.protocol === "file:" ? "../index.html" : "/";
+    }
+  });
+
+  var heroSearch = $("#hero-search");
+  if (heroSearch) heroSearch.addEventListener("search", syncHeroSearch);
+  if (heroSearch) heroSearch.addEventListener("change", syncHeroSearch);
+  if (heroSearch) heroSearch.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") syncHeroSearch(event);
+  });
+  document.querySelectorAll("[data-search]").forEach(function(link) {
+    link.addEventListener("click", function() {
+      state.search = link.dataset.search || "";
+      $("#search").value = state.search;
+      state.examLimit = EXAM_PAGE_SIZE;
+      renderExamTable();
+    });
   });
 
   $("#waitlist-form").addEventListener("submit", function(event) {
     event.preventDefault();
     var form = event.target;
     var email = form.querySelector("input[name=email]").value.trim();
+    var route = form.querySelector("select[name=route]").value;
+    var stage = form.querySelector("select[name=stage]").value;
     var copy = t();
     if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
       $("#waitlist-message").textContent = copy.waitlistError || "Please enter a valid email.";
@@ -266,6 +290,7 @@ function bindEvents() {
     btn.disabled = true;
     btn.textContent = copy.waitlistSending || "Sending…";
     $("#waitlist-message").textContent = "";
+    var signup = { email: email, route: route, stage: stage, createdAt: new Date().toISOString() };
     // Demo mode: no backend configured yet.
     // To connect a real email service, replace the setTimeout block with:
     //   fetch("YOUR_FORM_ENDPOINT", { method: "POST", body: new FormData(form) })
@@ -273,12 +298,25 @@ function bindEvents() {
     //     .catch(() => copy.waitlistError)
     // Supported services: Formspree, Getform, Google Forms, Mailchimp, etc.
     setTimeout(function() {
+      try {
+        localStorage.setItem("visalangWaitlistIntent", JSON.stringify(signup));
+      } catch (error) {}
       $("#waitlist-message").textContent = copy.waitlistSuccess;
       form.reset();
       btn.disabled = false;
       btn.textContent = originalLabel;
     }, 600);
   });
+}
+
+function syncHeroSearch(event) {
+  var value = event.target.value.trim();
+  if (!value) return;
+  state.search = value;
+  $("#search").value = value;
+  state.examLimit = EXAM_PAGE_SIZE;
+  renderExamTable();
+  $("#library").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function renderAll() {

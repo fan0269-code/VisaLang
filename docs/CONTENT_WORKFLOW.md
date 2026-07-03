@@ -4,6 +4,16 @@
 
 Publish useful exam guides that are accurate, source-backed, and safe.
 
+## Operating Prompts
+
+Use these copyable prompts when running VisaLang as a traffic site:
+
+- `docs/DAILY_TRAFFIC_MONITORING_PROMPT.md`: daily Search Console / Analytics review that turns real data into no more than 3 actions.
+- `docs/CONTENT_UPDATE_PROMPT.md`: source-safe content update and new-page planning prompt, with Germany A1 as the first route.
+- `docs/CEO_OPERATING_AUDIT_PROMPT.md`: CEO-level operating review for priorities, gaps, growth, conversion, and monetization readiness.
+- `docs/COO_OPERATING_PLAYBOOK_PROMPT.md`: COO-level operating review that turns content, SEO, conversion, data, trust, and monetization ideas into weekly execution.
+- `docs/WEEKLY_OPERATING_REVIEW.md`: weekly review template for traffic, content, conversion, trust, monetization, and next-week tasks.
+
 ## Page Template
 
 Each guide page should include:
