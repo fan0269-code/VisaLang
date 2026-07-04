@@ -77,3 +77,17 @@ When extending `app-data.js`, keep both export paths working (browser global + N
 
 - Bilingual copy: add an English string under `i18n.en` and its Chinese counterpart under `i18n.zh` with the same key. The toggle just swaps `state.locale`.
 - Guide filenames are kebab-case and topic-specific (e.g. `goethe-a1-fees-by-country.html`). New guides should match the existing Germany A1 page structure so the shared assertions keep passing.
+
+## Agent skills
+
+### Issue tracker
+
+Issues tracked in GitHub (`fan0269-code/VisaLang`); external PRs are not a triage surface. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default five-label vocabulary (needs-triage / needs-info / ready-for-agent / ready-for-human / wontfix). See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context layout — one `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
