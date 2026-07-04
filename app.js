@@ -56,7 +56,7 @@ function renderStats() {
   var guideCount = $("#guide-count");
   if (examCount) examCount.textContent = exams.length;
   if (pageCount) pageCount.textContent = pageSeeds.length;
-  if (guideCount) guideCount.textContent = (window.ExamSiteData.guideCatalog || []).length || 38;
+  if (guideCount) guideCount.textContent = (window.ExamSiteData.guideCatalog || []).length || 43;
   $("#source-count").textContent = sources.length;
 }
 

@@ -863,6 +863,36 @@
       "Germany B1+"
     ],
     [
+      "goethe-b1-listening-deep-dive.html",
+      "Goethe B1 listening deep dive",
+      "Traps, once-only strategy, 4-week drill",
+      "Germany B1+"
+    ],
+    [
+      "goethe-b1-speaking-topics.html",
+      "Goethe B1 speaking topics",
+      "Teil 1/2/3 frames, topic bank, self-recording",
+      "Germany B1+"
+    ],
+    [
+      "goethe-b1-writing-assessment.html",
+      "Goethe B1 writing assessment",
+      "Scoring dimensions, point-loss patterns, templates",
+      "Germany B1+"
+    ],
+    [
+      "goethe-b1-mock-exam-routine.html",
+      "Goethe B1 mock exam routine",
+      "Timed papers, error log, weak-module repair",
+      "Germany B1+"
+    ],
+    [
+      "goethe-b1-difficulty-analysis.html",
+      "Goethe B1 difficulty analysis",
+      "A2→B1 jump, high-loss modules, targeting",
+      "Germany B1+"
+    ],
+    [
       "testdaf-germany-university-admissions.html",
       "TestDaF for university admissions",
       "German proficiency for international students",
