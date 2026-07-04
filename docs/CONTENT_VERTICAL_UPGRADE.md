@@ -1,135 +1,205 @@
-# VisaLang 内容垂直度升级规划
+# VisaLang 站点升级规划 v2
 
-> 目标：把 VisaLang 从"广覆盖目录站"升级为"按语种/目的深度垂直的决策站"。
-> 本文档固化 2026-07-04 会话中给出的规划，作为后续内容生产的执行依据。
-> 状态：5 篇样板已落地（A1 study plan + B1 集群 4 篇），其余按 §6 执行顺序推进。
-
----
-
-## 1. 现状盘点（2026-07-04）
-
-| 维度 | 现状 | 评估 |
-|---|---|---|
-| 指南页数 | 38 篇 | 数量达标（测试断言 ≥38） |
-| 覆盖范围 | 9 国/语种（德/法/西/葡/意/荷/芬/英/加） | 广度够，深度参差 |
-| 深度旗舰 | Goethe A1 系列 12 篇 + Goethe B1 3 篇 | A1/B1 集群已深化 |
-| 单页字数 | 升级前 ~360–490 词；升级后 1500–2150 词 | 5 篇已达标，其余待升级 |
-| 章节结构 | 升级前 3 节 h2；升级后 9 节 h2 + h3 分层 + 表格/模板 | 模板已对齐 |
-| 数据资产 | 50 exams / 200 pageSeeds | 后端数据充足，前端未充分呈现 |
-| 测试约束 | 38 篇指南需含 Last updated + Official sources + 官方域名白名单 | 硬约束，改动需保绿 |
-| 中文版 | 仅 `zh/index.html` 首页 | 指南页未中文化 |
-
-**核心问题**：38 篇中多数仍是"目录式薄页"（300–500 词）。A1 study plan + B1 集群已做深度样板，其余集群需按同模板推进。
+> v2 合并 2026-07-04 用户给的系统性优化规格（首页工具化 + 中文站 + 文章模板 + Pillar + SEO/AdSense）。
+> v1 的内容深度工作（5 篇样板 + 9 节模板 + B1 集群 9 篇）作为原料接入，不浪费。
+> 定位：签证/永居/入籍/留学/职业注册的**语言考试路径导航工具站**，流量站模型，垂直深度形成壁垒。
 
 ---
 
-## 2. 升级目标（三层）
+## 0. 核心定位（统一表述）
 
-| 层 | 目标 | 指标 |
-|---|---|---|
-| L1 单页深度 | 每页从 ~400 词 → 1500–2000 词，含模板/检查清单/案例/表格 | 单页字数×3–5 |
-| L2 集群厚度 | 每个语种从 2–4 篇 → 6–12 篇支柱集群 | 38 → 90+ 篇 |
-| L3 信任工程 | 实测样例、官方链接核实日期、更新日志、对照表 | 100% 页面含核实日期 + changelog |
+- **EN**：VisaLang helps users find the right language exam for visa, residency, citizenship, study, or professional registration pathways.
+- **ZH**：VisaLang 帮助用户根据签证、永居、入籍、留学或职业注册需求，找到正确的语言考试路径、官方要求、报名材料和备考方向。
 
----
+用户进入网站必须 3 秒内回答：① 我该考哪个语言考试？② 我要准备什么材料？③ 下一步点哪里？
 
-## 3. 单页深度升级模板（L1，已验证样板）
-
-每个指南页强制升级到以下 9 节结构（参考已落地的 `goethe-a1-30-day-study-plan.html` 与 `goethe-b1-study-plan.html`）：
-
-1. **TL;DR verdict** — 一句话定性 + 适用人群 + 关键前置条件（2–3 句）
-2. **Who this is for / Who should skip** — 各 3 个具体场景（任务级，非人群标签）
-3. **官方规格速查表** — 模块/级别/CEFR 对标/费用范围/时长/通过线/出成绩周期（带官方链接）
-4. **完整工作流/学习计划** — 分阶段，每阶段含目标 + 任务 + 检查点 + 资源（用表格）
-5. **可复制模板** — 提示词模板 / 口语话题清单 / 文档检查清单 / 写作框架（`<pre>` 代码块）
-6. **费用与流程实操** — 报名步骤、所需文档、考试中心选择、补考政策（含"以官方为准"提醒）
-7. **常见失败与排错** — 5 个高频失败点 + 触发条件 + 规避方法（表格）
-8. **对比与替代** — 同类考试对照表（并排表格，非并列段落）
-9. **官方来源 + 更新日志** — ≥3 条官方链接带 `verified YYYY-MM-DD` + Last updated 真实日期 + changelog
-
-**已落地样板字数对照**：
-
-| 指南页 | 升级前 | 升级后 | 倍数 |
-|---|---|---|---|
-| goethe-a1-30-day-study-plan | 361 | 1964 | 5.4× |
-| goethe-b1-study-plan | 444 | 2154 | 4.9× |
-| goethe-b1-fees-and-booking | 450 | 1794 | 4.0× |
-| goethe-b1-germany-settlement-work | 493 | 1569 | 3.2× |
-| goethe-b1-vs-telc-b1 | 461 | 1514 | 3.3× |
+**不是博客，不是考试资讯站，是路径导航工具站。**
 
 ---
 
-## 4. 集群厚度规划（L2）
+## 1. 五步交付顺序
 
-把现有 38 篇按"语种 × 目的"重组成 9 个支柱集群，每个集群补到 6–12 篇：
-
-| 集群 | 现有 | 补齐缺口（示例） | 目标篇数 | 状态 |
+| 步 | 内容 | 风险 | 产出 | 状态 |
 |---|---|---|---|---|
-| **German A1（家庭团聚）** | 12 | 已饱和，做深度刷新（A1 study plan 已做） | 12 | 🟡 1/12 深化 |
-| **German B1（定居/工作）** | 4 | +B1 听力专项 / 口语题型 / 写作评分标准 / 模考资源 / 真题难度分析 | 8 | 🟢 4/8 深化，待补 5 篇 |
-| **TestDaF（留学）** | 4 | +TestDaF 口语录音流程 / 评分等级详解 / 大学认可清单 / 模考时间表 | 8 | ⚪ 待刷新 |
-| **French（加拿大/法国）** | 3 | +TEF Canada 口语题型 / TCF Canada 写作评分 / DELF B1 vs B2 / 法语 A2 备考 | 8 | ⚪ 待刷新 |
-| **Spanish（DELE/CCSE）** | 2 | +DELE A2 口语真题 / CCSE 公民考试大纲 / SIELE vs DELE / 西语学习路径 | 6 | ⚪ 待刷新 |
-| **Italian（CILS/CELI/PLIDA）** | 3 | +CILS B1 公民考试细节 / PLIDA vs CELI / 意大利语 A2 备考 | 6 | ⚪ 待刷新 |
-| **Portuguese（CIPLE/A2）** | 2 | +CIPLE 考试中心 / 葡语 A2 学习计划 / 黄金签证语言要求 | 5 | ⚪ 待刷新 |
-| **Dutch（Inburgering）** | 1 | +A2 听力题型 / Inburgering 考试中心 / 融入考试大纲 | 4 | ⚪ 待刷新 |
-| **Finnish（YKI）** | 2 | +YKI 中级口语 / 芬兰语学习资源 | 3 | ⚪ 待刷新 |
-| **UK（IELTS UKVI/LanguageCert）** | 2 | +IELTS UKVI A1 vs B1 / LanguageCert SELT 报名流程 | 4 | ⚪ 待刷新 |
+| 1 | 修复中文站 | 低 | /zh/guides/ + hreflang + i18n keys 全补 | ⏳ |
+| 2 | 首页改版 | 高 | Exam Finder + Hero search + trust metrics + 视觉重制 | ⏳ 用户指定先做 |
+| 3 | 文章页模板升级 | 中 | 9 节→12 节（加 Quick answer / Official card / FAQPage / BreadcrumbList JSON-LD） | 🟡 5 篇已 9 节，待补 3 组件 |
+| 4 | Germany A1 Pillar 样板 | 中 | Pillar Page + Cluster 内链网 | ⏳ A1 集群 12 篇已有 |
+| 5 | SEO + AdSense 占位 | 低 | 结构化数据全站 + AdSlot 组件 | ⏳ |
 
-**优先级**：German B1 集群先做（已深 4 篇，待补 5 篇缺口）→ A1 集群刷新 → TestDaF → 其他语种。
+**用户指定实施起点：步骤 2（首页重制）+ 全站视觉重制。**
+**先固化本 v2 文档，再开始步骤 2。**
 
 ---
 
-## 5. 信任工程（L3，贯穿全程）
+## 2. 步骤 1 — 修复中文站
 
-- **核实日期**：所有官方链接旁加 `· verified YYYY-MM-DD`，每月批量复核
-- **真实更新日志**：每页底部加 changelog（最近 2–3 次改动）
-- **对照表优先**：所有"对比"内容用并排表格，不用并列段落
-- **成本透明**：费用一律带"本币 + 查证日期 + 官方链接"，禁止裸数字
-- **JSON-LD 升级**：指南页在 Article 之外加 HowTo（学习计划类）或 FAQPage（费用/对比类）
-- **中文版扩展**：旗舰页（Goethe A1/B1、TestDaF）先做 zh 译本
+### 现状（已核对）
+- `zh/index.html` 静态 HTML 已是中文（title/H1/各节标题中文化，带 `data-i18n`）
+- `app.js:17` 已检测 `/zh/` 设 `state.locale="zh"`
+- **真实缺口**：
+  1. 43 篇指南页无 `/zh/guides/` 中文版
+  2. `i18n.zh` 在 app-data.js 可能 keys 不全（考试表/分类/工具卡回退英文）
+  3. 无 hreflang
+  4. Article/FAQPage/BreadcrumbList JSON-LD 多数指南页缺失
 
----
-
-## 6. 执行顺序（滚动）
-
-**已完成**
-- ✅ Week 1 样板：A1 study plan + B1 study plan（9 节模板对齐）
-- ✅ B1 集群刷新：fees-and-booking / settlement-work / vs-telc-b1 三篇深化的 9 节模板落地
-- ✅ 已 push 到 GitHub（`a27c3df`），cron 15 分钟自动上线
-
-**进行中 / 下一步**
-1. **新建 German B1 缺口 5 篇**：听力专项 / 口语题型 / 写作评分 / 模考资源 / 真题难度 → B1 集群达 8 篇
-2. **刷新 A1 集群其余 11 篇**到 9 节模板（A1 study plan 已是样板）
-3. **TestDaF 集群刷新**（4 篇 + 补 4 篇）
-4. **第二集群 + 信任工程**：补 French 集群 + 全站批量加核实日期/changelog + 旗舰页中文化
-
-之后每两周推进一个新语种集群，直到 9 个集群全部达标。
+### 交付清单
+- [ ] 建 `/zh/guides/<slug>.html` 中文版（先做 A1/B1 旗舰 9 篇，其余批量）
+- [ ] 全站 `<link rel="alternate" hreflang="en|x-default|zh">`
+- [ ] app-data.js `i18n.zh` keys 全补全（与 en 对齐）
+- [ ] 中文文案自然，避免机翻腔；符合中文用户理解习惯
+- [ ] 每个中文页独立 title/description/H1/JSON-LD
+- [ ] 语言切换 EN↔ZH 双向一致
 
 ---
 
-## 7. 风险与约束
+## 3. 步骤 2 — 首页改版（用户先做）
 
-- **测试硬约束**（`tests/site.test.js`）：每篇指南必须有 `Last updated: YYYY-MM-DD` + `Official sources` 节 + 命中官方域名白名单（goethe.de / testdaf.de / telc.net / cils.unistrasi.it / cvcl.it / dante.global / inburgeren.nl / cve.nl / caple.letras.ulisboa.pt / cervantes.es / siele.org / ielts.org / languagecert.org / gov.uk / oph.fi / migri.fi / lefrancaisdesaffaires.fr / france-education-international）。新增指南须命中白名单域名，否则测试红。
-- **指南数断言**：`>= 38`，新增不改数量即可；若减需同步改测试。
-- **静态站无构建**：改动即发布，cron 15 分钟自动拉取上线——**每个集群改完立即 push**，避免本地堆积。
-- **内容合规**：不伪造费用/政策/日期，"以官方为准"提醒必须保留；指南页底部 `compliance-line` 与 `last-updated` 类不可删。
+### 首屏信息结构
+1. **Sticky header**：Logo / Countries / Exams / Guides / Exam Finder / 中文
+2. **Hero**：大标题 + 副标题 + **大搜索框**（Search country, exam, or visa route）
+3. **Exam Finder 模块**：Country → Purpose → Level → Exam 四级选择器
+4. **Trust metrics**：43 guides / 12 routes / 11 countries（做成 trust badge，非普通文字）
+5. **三入口**：Start with your country / exam / goal
+6. **Featured guides / Browse by route / Latest guides**（视觉优先级低于 Finder）
+7. **AdSense 横幅**（Browse by route 后，非 Hero 首屏）
+
+### 视觉规范（immigration-tech）
+- 主色 `#2563EB` / 辅助 `#0F766E` / 背景 `#F8FAFC` / 正文 `#0F172A` / 弱文本 `#64748B` / 边框 `#E2E8F0` / 提示 `#F59E0B`
+- 字体：Inter（英）/ Noto Sans SC（中）/ Inter（数字标签）
+- 关键词：clean / official-first / immigration-tech / soft blue / large search / route cards / trust badges / mobile-first / low-noise
+
+### 13 个 UI 组件
+Sticky header / Hero search / Exam Finder / Route cards / Trust metrics / Country cards / Exam cards / Official source card / Quick answer card / FAQ accordion / Related guides card / Waitlist CTA / AdSense-safe ad placeholder
+
+### 改制范围
+- `index.html`（EN）+ `zh/index.html`（ZH）信息架构重排
+- `styles.css` 全站换色 + 新组件样式
+- `app.js` 加 Exam Finder 选择器逻辑 + Hero 搜索接线
 
 ---
 
-## 8. 验收清单（每页发布前自检）
+## 4. 步骤 3 — 文章页模板（9 节→12 节）
 
-- [ ] 9 节齐全（详情页/对比页/指南页通用）
-- [ ] 至少 1 张表格或 1 段可复制模板
-- [ ] 官方链接带 `verified YYYY-MM-DD`
-- [ ] "Last updated" 为真实日期
-- [ ] changelog 至少 1 条
-- [ ] 决策闭环：谁该用 / 谁跳过 / 替代方案
-- [ ] 无一句话章节（每段 3–5 句）
-- [ ] 命中官方域名白名单
+v1 的 9 节模板保留，补 3 个组件：
+
+| # | 节 | v1 | v2 补充 |
+|---|---|---|---|
+| 1 | Quick answer 结论卡 | TL;DR verdict | 改名为 Quick answer，置顶，独立卡片样式 |
+| 2 | Who this is for / skip | ✅ | — |
+| 3 | 官方规格速查表 | ✅ | — |
+| 4 | 工作流/学习计划 | ✅ | — |
+| 5 | 可复制模板 | ✅ | — |
+| 6 | 费用与流程 | ✅ | — |
+| 7 | 常见失败 | ✅ | — |
+| 8 | 对比与替代 | ✅ | — |
+| 9 | Official sources + changelog | ✅ | 升级为 **Official source card**（name / used for / last checked / link） |
+| 10 | **FAQ accordion** | ❌ | 新增 + FAQPage JSON-LD |
+| 11 | **Related guides card** | 有但弱 | 强化结构 |
+| 12 | **Breadcrumb + JSON-LD** | 有面包屑 | 加 BreadcrumbList JSON-LD |
+
+### 已完成 5 篇回填
+A1 study plan / B1 study plan / B1 fees / B1 settlement / B1 vs telc —— 回填 Quick answer 卡样式 + Official source card + FAQPage JSON-LD + BreadcrumbList JSON-LD。
+
+---
+
+## 5. 步骤 4 — Germany A1 Pillar 样板
+
+### Pillar Page
+`germany-family-reunion-a1.html`（已存在，升级为 Pillar）
+- 完整覆盖：路线定位 / 谁需要 / 接受考试清单 / 材料 / 费用 / 流程 / 豁免 / 失败补救 / FAQ
+- 指向所有 Cluster Guides
+
+### Cluster Guides（A1 集群 12 篇已深化 1 篇，待深化 11 篇）
+- german-family-reunion-language-requirement
+- goethe-a1-germany-family-reunion
+- goethe-a1-documents-checklist
+- goethe-a1-fees-by-country
+- goethe-a1-30-day-study-plan ✅
+- goethe-a1-speaking-topics
+- goethe-a1-test-centers
+- goethe-a1-retake-policy
+- goethe-a1-official-links-practice-resources
+- goethe-a1-vs-telc-a1
+- + 新建：booking-mistakes / listening-practice / exemptions / what-if-fail
+
+### 内链规则
+- Pillar → 所有 Cluster
+- 每个 Cluster → 回链 Pillar + 横链 2-3 相关 Cluster
+- 底部"Related routes"推荐
+
+---
+
+## 6. 步骤 5 — SEO + AdSense
+
+### SEO 技术清单
+- [ ] 每页唯一 H1
+- [ ] title/description 含 country + exam + purpose
+- [ ] BreadcrumbList JSON-LD（全站）
+- [ ] Article JSON-LD（指南页，已有部分）
+- [ ] FAQPage JSON-LD（有 FAQ 的页）
+- [ ] hreflang（EN/ZH 互指）
+- [ ] last updated / last checked 显示
+- [ ] 图片 alt
+- [ ] 移动端优先 + 轻量加载
+- [ ] 不堆关键词、不模板化
+
+### AdSense-safe 广告位（AdSlot 组件）
+**首页**：Browse by route 后横幅 / Latest guides 前后原生
+**文章页**：第一大节后 in-article / 正文中段 / Related guides 前 / 桌面右侧 sticky（不遮目录）/ 移动端间距充足
+**禁止**：Quick answer 后立刻放 / 像按钮 / 诱导误点 / 压主内容 / 薄页堆广告 / 核心判断区
+
+---
+
+## 7. 去 AI 味 9 条禁止项
+
+1. 空泛总结
+2. 模板化段落
+3. "in today's world" / "it is important to note" 反复
+4. 无信息长篇介绍
+5. 过度承诺
+6. 政策信息不加来源
+7. 所有文章结构完全一样
+8. FAQ 像机器人生成
+9. 泛泛形容词无实际信息
+
+**写作原则**：先答用户最关心 / 每节有实际帮助 / 能用表格清单步骤就用 / 不确定明确提醒查官方 / 不假装知道 / 每篇有具体场景+对象+下一步。
+
+---
+
+## 8. 集群厚度规划（继承 v1 §4）
+
+9 集群 38→90+ 篇目标不变。当前 43 篇（含 B1 新增 5 篇）。优先级：
+- German A1（12 篇，1 篇深化，待 11 篇）→ 步骤 4 样板
+- German B1（9 篇，4 篇深化，待补内链）✅ 集群达标
+- TestDaF / French / Spanish / Italian / Portuguese / Dutch / Finnish / UK → 后续滚动
+
+---
+
+## 9. 风险与约束（继承 v1 §7）
+
+- 测试硬约束：每篇指南含 Last updated + Official sources + 官方域名白名单
+- 指南数断言 `>= 38`（当前 43）
+- 静态站无构建，cron 15 分钟自动上线，每步完成立即 push
+- 内容合规：不伪造费用/政策/日期，"以官方为准"提醒保留
+- **v2 新增风险**：首页重制动 app.js/index.html/styles.css 三件，需先备份当前首页结构，分块改，每步 npm test 保绿
+
+---
+
+## 10. 验收清单（v2）
+
+每页发布前自检（v1 10 项 + v2 5 项）：
+- [ ] 12 节齐全（文章页）
+- [ ] Quick answer 卡置顶
+- [ ] Official source card（name/used-for/last-checked/link）
+- [ ] FAQPage + BreadcrumbList + Article JSON-LD
+- [ ] hreflang（中英互指）
+- [ ] trust metrics 显示
+- [ ] AdSlot 占位（非核心判断区）
+- [ ] 移动端 375px 无横向滚动
 - [ ] `npm test` 全绿
-- [ ] 已 `git push`（cron 15 分钟上线）
+- [ ] 已 git push
 
 ---
 
-*本规划为活文档，随推进迭代。最后更新：2026-07-04。*
+*v2 固化于 2026-07-04。实施起点：步骤 2 首页重制 + 全站视觉重制。*
