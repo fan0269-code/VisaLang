@@ -108,11 +108,14 @@ const germanyHubJsonLd = [...germanyHub.matchAll(/<script type="application\/ld\
   JSON.parse(match[1].trim())
 );
 assert.ok(
-  germanyHub.includes("Germany family reunion Goethe A1"),
+  germanyHub.includes("Germany A1 for family reunion: complete route guide"),
   "Germany hub should state the focused launch route"
 );
 assert.ok(germanyHub.includes('rel="canonical"'), "Germany hub should include a canonical URL");
 assert.ok(germanyHub.includes("Official sources"), "Germany hub should include official sources");
+assert.ok(germanyHub.includes("Quick answer"), "Germany hub should include a quick answer card");
+assert.ok(germanyHub.includes("Official source checked"), "Germany hub should include official-source cards");
+assert.ok(germanyHub.includes("Germany A1 pillar and cluster guides"), "Germany hub should frame guides as pillar and cluster content");
 assert.ok(
   germanyHub.includes("guides/goethe-a1-germany-family-reunion.html"),
   "Germany hub should link to the main Goethe A1 guide"
@@ -144,9 +147,9 @@ assert.ok(
   faqSchema.mainEntity.some((item) => item.name === "Can I use VisaLang instead of official sources?"),
   "FAQPage should include the official-source safety question"
 );
-assert.ok(germanyHub.includes("Last updated: 2026-07-02"), "Germany hub should show the current update date");
+assert.ok(germanyHub.includes("Last updated: 2026-07-04"), "Germany hub should show the current update date");
 assert.ok(
-  fs.readFileSync("sitemap.xml", "utf8").includes("<loc>https://flowlight.me/germany-family-reunion-a1.html</loc>\n    <lastmod>2026-07-02</lastmod>"),
+  fs.readFileSync("sitemap.xml", "utf8").includes("<loc>https://flowlight.me/germany-family-reunion-a1.html</loc>\n    <lastmod>2026-07-04</lastmod>"),
   "sitemap should update the Germany hub lastmod date"
 );
 assert.ok(

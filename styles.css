@@ -1465,6 +1465,71 @@ td a:hover { text-decoration: underline; }
   margin-bottom: 10px;
 }
 
+.quick-answer,
+.source-card {
+  border: 1px solid rgba(47, 101, 167, 0.22);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, #ffffff, var(--info-tint));
+  box-shadow: var(--shadow-sm);
+}
+
+.quick-answer {
+  padding: 24px;
+}
+
+.quick-answer h2 {
+  max-width: 880px;
+  margin: 10px 0 8px;
+  font-size: clamp(24px, 2.6vw, 34px);
+}
+
+.quick-answer p {
+  max-width: 920px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.source-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.source-card {
+  padding: 20px;
+}
+
+.source-card span {
+  display: block;
+  color: var(--info);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.source-card h2 {
+  margin: 8px 0;
+  font-size: 20px;
+}
+
+.source-card p {
+  margin: 0 0 10px;
+  color: var(--muted);
+}
+
+.source-card strong {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.source-card a {
+  color: var(--info);
+  font-weight: 800;
+}
+
 .compliance-line {
   margin: 18px 0 0;
   padding: 12px 14px;
@@ -1563,6 +1628,7 @@ td a:hover { text-decoration: underline; }
   .trust-strip,
   .guide-grid,
   .entry-grid,
+  .source-card-grid,
   .guide-layout,
   .topic-grid,
   .template-grid,
