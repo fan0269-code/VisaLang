@@ -1593,6 +1593,51 @@ td a:hover { text-decoration: underline; }
   font-weight: 600;
 }
 
+/* AdSense-safe ad slot placeholders — pure CSS, no real ad code yet.
+   Variant by class: .ad-slot--top, --in-article, --sidebar, --bottom. */
+.ad-slot {
+  margin: 28px 0;
+  padding: 0;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.03) 0,
+    rgba(37, 99, 235, 0.03) 8px,
+    rgba(37, 99, 235, 0.06) 8px,
+    rgba(37, 99, 235, 0.06) 16px
+  );
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90px;
+  position: relative;
+}
+.ad-slot::before {
+  content: "Advertisement";
+  display: block;
+  width: 100%;
+  padding: 14px 12px;
+}
+.ad-slot--top { min-height: 100px; }
+.ad-slot--in-article { min-height: 250px; margin: 32px 0; }
+.ad-slot--bottom { min-height: 120px; }
+.ad-slot--sidebar {
+  min-height: 600px;
+  position: sticky;
+  top: 24px;
+  margin: 0;
+}
+@media (max-width: 1024px) {
+  .ad-slot--sidebar { display: none; }
+}
+
 .guide-cta {
   margin-top: 24px;
   padding: 22px 24px;
