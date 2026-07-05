@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+
+const guides = await getCollection('guides');
+const sortedGuides = guides.sort((a, b) => b.data.publishedDate.localeCompare(a.data.publishedDate));
+
+const categories = [
+  { name: 'Germany A1', slug: 'germany-a1', desc: 'Family reunion language proof' },
+  { name: 'Germany B1+', slug: 'germany-b1', desc: 'Settlement, work, citizenship' },
+  { name: 'TestDaF', slug: 'germany-testdaf', desc: 'University admissions' },
+  { name: 'telc Deutsch', slug: 'germany-telc', desc: 'Work & nursing registration' },
+  { name: 'United Kingdom', slug: 'uk', desc: 'UK visa & citizenship English' },
+  { name: 'Canada', slug: 'canada', desc: 'TEF/TCF French immigration' },
+  { name: 'Italy', slug: 'italy', desc: 'CILS/CELI/PLIDA citizenship' },
+  { name: 'Spain', slug: 'spain', desc: 'DELE & CCSE citizenship' },
+  { name: 'France', slug: 'france', desc: 'DELF/DALF work & study' },
+  { name: 'Finland', slug: 'finland', desc: 'YKI citizenship' },
+  { name: 'Netherlands', slug: 'netherlands', desc: 'Inburgering & NT2' },
+  { name: 'Portugal', slug: 'portugal', desc: 'CIPLE A2 & Golden Visa' },
+];
+
+const categoryMap = Object.fromEntries(categories.map(c => [c.slug, c]));
+
+const jsonLD = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'VisaLang exam guides',
+  url: 'https://flowlight.me/guides/',
+  description: 'Browse all VisaLang language exam guides by country, exam, or visa route.',
+  inLanguage: 'en',
+};
+---
+
+<BaseLayout
+  title="Browse exam guides | VisaLang"
+  description="Browse all VisaLang language exam guides by country, exam, or visa route — Germany A1, B1, TestDaF, telc, UK, Canada, Italy, Spain, France, Finland, Netherlands, Portugal."
+  canonicalURL="https://flowlight.me/guides/"
+  jsonLD={jsonLD}
+>
+  <main class="container" style="padding: 48px 24px;">
+    <header style="margin-bottom: 32px;">
+      <h1 style="font-size: 2rem; margin: 0 0 8px;">Browse exam guides</h1>
+      <p style="color: var(--muted, #6b7280); margin: 0;">
+        All {sortedGuides.length} VisaLang guides. Filter by route, or search the list below.
+      </p>
+    </header>
+
+    <nav class="category-filter" aria-label="Filter by route" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
+      <a href="/guides/" class="filter-pill" data-filter="all">All</a>
+      {categories.map(cat => (
+        <a href={`/guides/?category=${cat.slug}`} class="filter-pill" data-filter={cat.slug}>
+          {cat.name}
+        </a>
+      ))}
+    </nav>
+
+    <p class="filter-status" style="color: var(--muted, #6b7280); margin: 0 0 16px; font-size: 0.9rem;">
+      Showing all {sortedGuides.length} guides.
+    </p>
+
+    <div class="guide-related-grid" id="guide-grid">
+      {sortedGuides.map(g => (
+        <div class="guide-card-wrap" data-category={g.data.category}>
+          <ArticleCard
+            title={g.data.title}
+            slug={g.data.slug}
+            category={g.data.eyebrow ?? (categoryMap[g.data.category]?.name ?? g.data.category)}
+            description={g.data.description}
+            readingTime={g.data.readingTime}
+          />
+        </div>
+      ))}
+    </div>
+  </main>
+
+  <script is:inline>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const cat = params.get('category');
+      const cards = document.querySelectorAll('.guide-card-wrap');
+      const status = document.querySelector('.filter-status');
+      const pills = document.querySelectorAll('.filter-pill');
+
+      function setActive(slug) {
+        pills.forEach(p => {
+          const isActive = p.dataset.filter === slug || (!slug && p.dataset.filter === 'all');
+          p.classList.toggle('active', isActive);
+        });
+      }
+
+      if (!cat) {
+        setActive(null);
+        return;
+      }
+
+      let visible = 0;
+      cards.forEach(card => {
+        const match = card.dataset.category === cat;
+        card.style.display = match ? '' : 'none';
+        if (match) visible++;
+      });
+
+      const label = document.querySelector(`.filter-pill[data-filter="${cat}"]`)?.textContent ?? cat;
+      if (status) {
+        status.textContent = `Showing ${visible} guide${visible === 1 ? '' : 's'} in ${label}.`;
+      }
+      setActive(cat);
+
+      if (visible === 0) {
+        const grid = document.getElementById('guide-grid');
+        if (grid) {
+          const empty = document.createElement('p');
+          empty.textContent = 'No guides in this route yet. Check back soon.';
+          empty.style.color = 'var(--muted, #6b7280)';
+          grid.after(empty);
+        }
+      }
+    })();
+  </script>
+</BaseLayout>
+
+<style>
+  .filter-pill {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid var(--line, #e5e7eb);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    color: var(--text, #24302a);
+    text-decoration: none;
+    background: #fff;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .filter-pill:hover {
+    border-color: var(--accent, #2563EB);
+  }
+  .filter-pill.active {
+    background: var(--accent, #2563EB);
+    border-color: var(--accent, #2563EB);
+    color: #fff;
+  }
+</style>
