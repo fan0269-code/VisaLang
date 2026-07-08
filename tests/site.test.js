@@ -240,6 +240,45 @@ assert.ok(
   fs.readFileSync("sitemap.xml", "utf8").includes("<loc>https://flowlight.me/guides/goethe-a1-retake-policy.html</loc>\n    <lastmod>2026-07-08</lastmod>"),
   "sitemap should update the Goethe A1 retake policy lastmod date"
 );
+const goetheOfficialResources = fs.readFileSync("guides/goethe-a1-official-links-practice-resources.html", "utf8");
+assert.ok(goetheOfficialResources.includes("Source map"), "Goethe A1 resources guide should include a source map");
+assert.ok(goetheOfficialResources.includes("Resource checklist"), "Goethe A1 resources guide should include a resource checklist");
+assert.ok(goetheOfficialResources.includes("Red flags"), "Goethe A1 resources guide should include red flags");
+assert.ok(goetheOfficialResources.includes("leaked questions"), "Goethe A1 resources guide should warn against leaked questions");
+assert.ok(goetheOfficialResources.includes("https://www.goethe.de/en/spr/prf/gzsd1/ueb.html"), "Goethe A1 resources guide should link official A1 practice source");
+assert.ok(goetheOfficialResources.includes("Official sources last checked: 2026-07-08"), "Goethe A1 resources guide should show official source check date");
+assert.ok(
+  fs.readFileSync("sitemap.xml", "utf8").includes("<loc>https://flowlight.me/guides/goethe-a1-official-links-practice-resources.html</loc>\n    <lastmod>2026-07-08</lastmod>"),
+  "sitemap should update the Goethe A1 official resources lastmod date"
+);
+const goetheA1FamilyReunion = fs.readFileSync("guides/goethe-a1-germany-family-reunion.html", "utf8");
+assert.ok(goetheA1FamilyReunion.includes("Decision path"), "Goethe A1 family reunion guide should include a decision path");
+assert.ok(goetheA1FamilyReunion.includes("Booking plan"), "Goethe A1 family reunion guide should include a booking plan");
+assert.ok(goetheA1FamilyReunion.includes("Preparation plan"), "Goethe A1 family reunion guide should include a preparation plan");
+assert.ok(goetheA1FamilyReunion.includes("../do-i-need-german-a1.html"), "Goethe A1 family reunion guide should link to the A1 decision helper");
+assert.ok(goetheA1FamilyReunion.includes("german-a1-exam-booking-timeline.html"), "Goethe A1 family reunion guide should link to the booking timeline");
+assert.ok(goetheA1FamilyReunion.includes("Official sources last checked: 2026-07-08"), "Goethe A1 family reunion guide should show official source check date");
+assert.ok(
+  fs.readFileSync("sitemap.xml", "utf8").includes("<loc>https://flowlight.me/guides/goethe-a1-germany-family-reunion.html</loc>\n    <lastmod>2026-07-08</lastmod>"),
+  "sitemap should update the Goethe A1 family reunion lastmod date"
+);
+const zhGoetheA1FamilyReunion = fs.readFileSync("zh/guides/goethe-a1-germany-family-reunion.html", "utf8");
+assert.ok(zhGoetheA1FamilyReunion.includes("决策路径"), "Chinese Goethe A1 family reunion guide should include a decision path");
+assert.ok(zhGoetheA1FamilyReunion.includes("报名计划"), "Chinese Goethe A1 family reunion guide should include a booking plan");
+assert.ok(zhGoetheA1FamilyReunion.includes("官方来源最近核查：2026-07-08"), "Chinese Goethe A1 family reunion guide should show source check date");
+const zhGoetheOfficialResources = fs.readFileSync("zh/guides/goethe-a1-official-links-practice-resources.html", "utf8");
+assert.ok(zhGoetheOfficialResources.includes("来源地图"), "Chinese Goethe A1 resources guide should include a source map");
+assert.ok(zhGoetheOfficialResources.includes("资源核查清单"), "Chinese Goethe A1 resources guide should include a resource checklist");
+assert.ok(zhGoetheOfficialResources.includes("泄题"), "Chinese Goethe A1 resources guide should warn against leaked questions");
+assert.ok(zhGoetheOfficialResources.includes("官方来源最近核查：2026-07-08"), "Chinese Goethe A1 resources guide should show source check date");
+const zhGoetheVsTelc = fs.readFileSync("zh/guides/goethe-a1-vs-telc-a1.html", "utf8");
+assert.ok(zhGoetheVsTelc.includes("选择对比表"), "Chinese Goethe vs telc guide should include a decision table");
+assert.ok(zhGoetheVsTelc.includes("报名风险清单"), "Chinese Goethe vs telc guide should include booking risk checks");
+assert.ok(zhGoetheVsTelc.includes("官方来源最近核查：2026-07-08"), "Chinese Goethe vs telc guide should show source check date");
+const zhGermanA1Documents = fs.readFileSync("zh/guides/german-a1-documents-checklist.html", "utf8");
+assert.ok(zhGermanA1Documents.includes("可打印德语 A1 清单"), "Chinese German A1 documents guide should include a printable checklist");
+assert.ok(zhGermanA1Documents.includes("签证材料"), "Chinese German A1 documents guide should include visa-file checks");
+assert.ok(zhGermanA1Documents.includes("官方来源最近核查：2026-07-08"), "Chinese German A1 documents guide should show source check date");
 
 const guideFiles = fs.readdirSync("guides").filter((file) => file.endsWith(".html"));
 assert.ok(guideFiles.length >= 38, `guide count should be >= 22, got ${guideFiles.length}`);
