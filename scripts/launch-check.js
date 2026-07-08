@@ -44,7 +44,7 @@ for (var pi = 0; pi < requiredPages.length; pi++) {
   if (exists(pn)) pass("Legal page: " + pn);
   else fail("Legal page missing: " + pn);
 }
-var topicPages = ["germany-family-reunion-a1.html"];
+var topicPages = ["germany-family-reunion-a1.html", "do-i-need-german-a1.html"];
 for (var ti = 0; ti < topicPages.length; ti++) {
   var tn = topicPages[ti];
   if (exists(tn)) pass("Topic page: " + tn);

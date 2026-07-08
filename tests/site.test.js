@@ -100,6 +100,7 @@ assert.ok(
 );
 
 const germanyHub = fs.readFileSync("germany-family-reunion-a1.html", "utf8");
+const germanA1DecisionHelper = fs.readFileSync("do-i-need-german-a1.html", "utf8");
 const zhHomepage = fs.readFileSync("zh/index.html", "utf8");
 assert.ok(zhHomepage.includes('lang="zh-CN"'), "Chinese homepage should use zh-CN lang");
 assert.ok(zhHomepage.includes("VisaLang 帮助用户"), "Chinese homepage should have native Chinese positioning copy");
@@ -123,6 +124,10 @@ assert.ok(
 assert.ok(
   germanyHub.includes("guides/german-family-reunion-language-requirement.html"),
   "Germany hub should link to the language-requirement guide"
+);
+assert.ok(
+  germanyHub.includes("do-i-need-german-a1.html"),
+  "Germany hub should link to the German A1 decision helper"
 );
 assert.ok(
   germanyHub.includes("Reusable route template"),
@@ -155,6 +160,53 @@ assert.ok(
 assert.ok(
   fs.readFileSync("sitemap.xml", "utf8").includes("https://flowlight.me/germany-family-reunion-a1.html"),
   "sitemap should include the Germany A1 topic hub"
+);
+assert.ok(germanA1DecisionHelper.includes('id="a1-decision-helper"'), "German A1 decision helper should expose the interactive helper");
+assert.ok(germanA1DecisionHelper.includes("Official verification table"), "German A1 decision helper should include an official verification table");
+assert.ok(germanA1DecisionHelper.includes("Hypothetical scenario"), "German A1 decision helper should label scenarios as hypothetical");
+assert.ok(germanA1DecisionHelper.includes("BAMF family reunification"), "German A1 decision helper should cite BAMF");
+assert.ok(germanA1DecisionHelper.includes("Goethe-Institut German examinations"), "German A1 decision helper should cite Goethe");
+assert.ok(germanA1DecisionHelper.includes("Last updated: 2026-07-07"), "German A1 decision helper should show the current update date");
+assert.ok(
+  fs.readFileSync("sitemap.xml", "utf8").includes("<loc>https://flowlight.me/do-i-need-german-a1.html</loc>\n    <lastmod>2026-07-07</lastmod>"),
+  "sitemap should include the German A1 decision helper"
+);
+const goetheVsTelc = fs.readFileSync("guides/goethe-a1-vs-telc-a1.html", "utf8");
+assert.ok(goetheVsTelc.includes("Decision table"), "Goethe vs telc guide should include a decision table");
+assert.ok(goetheVsTelc.includes("Hypothetical scenario"), "Goethe vs telc guide should label scenarios as hypothetical");
+assert.ok(goetheVsTelc.includes("Official sources last checked: 2026-07-08"), "Goethe vs telc guide should show official source check date");
+assert.ok(goetheVsTelc.includes("../do-i-need-german-a1.html"), "Goethe vs telc guide should link to the A1 decision helper");
+assert.ok(
+  fs.readFileSync("sitemap.xml", "utf8").includes("<loc>https://flowlight.me/guides/goethe-a1-vs-telc-a1.html</loc>\n    <lastmod>2026-07-08</lastmod>"),
+  "sitemap should update the Goethe vs telc lastmod date"
+);
+const germanA1Documents = fs.readFileSync("guides/german-a1-documents-checklist.html", "utf8");
+assert.ok(germanA1Documents.includes("Printable German A1 checklist"), "German A1 documents guide should include a printable checklist");
+assert.ok(germanA1Documents.includes("window.print()"), "German A1 documents guide should include a print action");
+assert.ok(germanA1Documents.includes("Visa file checklist"), "German A1 documents guide should include a visa-file checklist");
+assert.ok(germanA1Documents.includes("Official sources last checked: 2026-07-08"), "German A1 documents guide should show official source check date");
+assert.ok(germanA1Documents.includes("../do-i-need-german-a1.html"), "German A1 documents guide should link to the A1 decision helper");
+assert.ok(
+  fs.readFileSync("sitemap.xml", "utf8").includes("<loc>https://flowlight.me/guides/german-a1-documents-checklist.html</loc>\n    <lastmod>2026-07-08</lastmod>"),
+  "sitemap should update the German A1 documents checklist lastmod date"
+);
+const goetheSpeakingTopics = fs.readFileSync("guides/goethe-a1-speaking-topics.html", "utf8");
+assert.ok(goetheSpeakingTopics.includes("Original practice prompts"), "Goethe A1 speaking guide should include original practice prompts");
+assert.ok(goetheSpeakingTopics.includes("not real exam questions"), "Goethe A1 speaking guide should avoid copied real exam questions");
+assert.ok(goetheSpeakingTopics.includes("Official sources last checked: 2026-07-08"), "Goethe A1 speaking guide should show official source check date");
+assert.ok(goetheSpeakingTopics.includes("https://www.goethe.de/en/spr/prf/gzsd1/ueb.html"), "Goethe A1 speaking guide should link official A1 practice source");
+const goetheStudyPlan = fs.readFileSync("guides/goethe-a1-30-day-study-plan.html", "utf8");
+assert.ok(goetheStudyPlan.includes("Weekly plan"), "Goethe A1 study plan should include a weekly plan");
+assert.ok(goetheStudyPlan.includes("Daily routine"), "Goethe A1 study plan should include a daily routine");
+assert.ok(goetheStudyPlan.includes("Risk checks"), "Goethe A1 study plan should include risk checks");
+assert.ok(goetheStudyPlan.includes("Official sources last checked: 2026-07-08"), "Goethe A1 study plan should show official source check date");
+assert.ok(
+  fs.readFileSync("sitemap.xml", "utf8").includes("<loc>https://flowlight.me/guides/goethe-a1-speaking-topics.html</loc>\n    <lastmod>2026-07-08</lastmod>"),
+  "sitemap should update the Goethe A1 speaking topics lastmod date"
+);
+assert.ok(
+  fs.readFileSync("sitemap.xml", "utf8").includes("<loc>https://flowlight.me/guides/goethe-a1-30-day-study-plan.html</loc>\n    <lastmod>2026-07-08</lastmod>"),
+  "sitemap should update the Goethe A1 study plan lastmod date"
 );
 
 const guideFiles = fs.readdirSync("guides").filter((file) => file.endsWith(".html"));
