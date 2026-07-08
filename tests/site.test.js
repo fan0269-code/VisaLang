@@ -208,6 +208,38 @@ assert.ok(
   fs.readFileSync("sitemap.xml", "utf8").includes("<loc>https://flowlight.me/guides/goethe-a1-30-day-study-plan.html</loc>\n    <lastmod>2026-07-08</lastmod>"),
   "sitemap should update the Goethe A1 study plan lastmod date"
 );
+const germanA1Timeline = fs.readFileSync("guides/german-a1-exam-booking-timeline.html", "utf8");
+assert.ok(germanA1Timeline.includes('id="a1-timeline-helper"'), "German A1 timeline guide should include a timeline helper");
+assert.ok(germanA1Timeline.includes("Timeline map"), "German A1 timeline guide should include a timeline map");
+assert.ok(germanA1Timeline.includes("Risk table"), "German A1 timeline guide should include a risk table");
+assert.ok(germanA1Timeline.includes("Hypothetical scenario"), "German A1 timeline guide should label scenarios as hypothetical");
+assert.ok(germanA1Timeline.includes("Official sources last checked: 2026-07-08"), "German A1 timeline guide should show official source check date");
+assert.ok(germanyHub.includes("guides/german-a1-exam-booking-timeline.html"), "Germany hub should link to the booking timeline guide");
+assert.ok(
+  fs.readFileSync("sitemap.xml", "utf8").includes("<loc>https://flowlight.me/guides/german-a1-exam-booking-timeline.html</loc>\n    <lastmod>2026-07-08</lastmod>"),
+  "sitemap should include the German A1 booking timeline guide"
+);
+const goetheTestCenters = fs.readFileSync("guides/goethe-a1-test-centers.html", "utf8");
+assert.ok(goetheTestCenters.includes("Center checklist"), "Goethe A1 test centers guide should include a center checklist");
+assert.ok(goetheTestCenters.includes("Compare centers"), "Goethe A1 test centers guide should include center comparison guidance");
+assert.ok(goetheTestCenters.includes("Red flags"), "Goethe A1 test centers guide should include red flags");
+assert.ok(goetheTestCenters.includes("Hypothetical scenario"), "Goethe A1 test centers guide should label scenarios as hypothetical");
+assert.ok(goetheTestCenters.includes("Official sources last checked: 2026-07-08"), "Goethe A1 test centers guide should show official source check date");
+assert.ok(goetheTestCenters.includes("german-a1-exam-booking-timeline.html"), "Goethe A1 test centers guide should link to the booking timeline guide");
+assert.ok(
+  fs.readFileSync("sitemap.xml", "utf8").includes("<loc>https://flowlight.me/guides/goethe-a1-test-centers.html</loc>\n    <lastmod>2026-07-08</lastmod>"),
+  "sitemap should update the Goethe A1 test centers lastmod date"
+);
+const goetheRetakePolicy = fs.readFileSync("guides/goethe-a1-retake-policy.html", "utf8");
+assert.ok(goetheRetakePolicy.includes("Timeline risk"), "Goethe A1 retake policy should include timeline risk planning");
+assert.ok(goetheRetakePolicy.includes("Retake budget table"), "Goethe A1 retake policy should include a retake budget table");
+assert.ok(goetheRetakePolicy.includes("Hypothetical scenario"), "Goethe A1 retake policy should label scenarios as hypothetical");
+assert.ok(goetheRetakePolicy.includes("Official sources last checked: 2026-07-08"), "Goethe A1 retake policy should show official source check date");
+assert.ok(goetheRetakePolicy.includes("german-a1-exam-booking-timeline.html"), "Goethe A1 retake policy should link to the booking timeline guide");
+assert.ok(
+  fs.readFileSync("sitemap.xml", "utf8").includes("<loc>https://flowlight.me/guides/goethe-a1-retake-policy.html</loc>\n    <lastmod>2026-07-08</lastmod>"),
+  "sitemap should update the Goethe A1 retake policy lastmod date"
+);
 
 const guideFiles = fs.readdirSync("guides").filter((file) => file.endsWith(".html"));
 assert.ok(guideFiles.length >= 38, `guide count should be >= 22, got ${guideFiles.length}`);

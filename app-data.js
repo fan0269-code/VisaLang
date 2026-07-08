@@ -821,6 +821,12 @@
       "Germany A1"
     ],
     [
+      "german-a1-exam-booking-timeline.html",
+      "German A1 exam booking timeline",
+      "Plan exam, result, certificate, and retake dates",
+      "Germany A1"
+    ],
+    [
       "goethe-a1-retake-policy.html",
       "Goethe A1 retake policy",
       "Plan for cost and timeline risk",
