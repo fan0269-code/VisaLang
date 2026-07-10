@@ -37,6 +37,12 @@ Keep the original certificate and a clear copy together. Check the certificate n
 
 Before submitting anything, check whether the responsible German mission accepts that certificate for your specific family reunion case and whether it asks for originals, copies, translations, or additional documents. Requirements can differ by location and individual circumstances.
 
+## Keep a private document record
+
+Keep the official booking email, centre instructions, certificate details, and official mission checklist together in a private folder. Record where each requirement came from and when you checked it.
+
+Do not send passport images, certificate scans, or booking codes to an unverified agent or group chat just to ask a general question. Ask the official centre or mission through its published contact route when a document rule is unclear.
+
 ## Common mistakes
 
 - A booking name that does not match the passport.

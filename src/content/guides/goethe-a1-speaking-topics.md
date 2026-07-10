@@ -31,6 +31,12 @@ Start with a brief self-introduction using only details you can pronounce and sp
 
 Add timed speaking and recording. Listen back for unclear numbers, time words, pronunciation that hides meaning, and answers that are too long. Correct one recurring issue at a time.
 
+## A ten-minute daily drill
+
+Spend two minutes introducing yourself, two minutes spelling details and numbers, three minutes answering short questions, and three minutes making one simple request. Record the final minute twice a week.
+
+The drill should feel manageable enough to repeat. Stop adding new scripts when your basic answers are not yet clear, short, and responsive.
+
 ## Common mistakes
 
 - Memorising a long introduction but freezing on a simple follow-up question.

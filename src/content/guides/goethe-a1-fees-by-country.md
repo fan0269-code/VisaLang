@@ -27,7 +27,7 @@ Course fees are separate from examination fees. A language school may sell prepa
 
 ## How to verify a local fee
 
-1. Start from the [Goethe examinations page](https://www.goethe.de/en/spr/prf.html) or the [telc Deutsch A1 page](https://www.telc.net/en/language-examinations/certificate-exams/german/a1.html), not a search snippet or social post.
+1. Start from the [Goethe examinations page](https://www.goethe.de/en/spr/prf.html) or the [telc Deutsch A1 page](https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/), not a search snippet or social post.
 2. Select your country or contact the centre named by the official provider.
 3. Match the exam name, level, delivery format, and date to your actual plan.
 4. Save the official page or confirmation email with the amount and the date you checked it.
@@ -37,6 +37,12 @@ Course fees are separate from examination fees. A language school may sell prepa
 Confirm the exam name and level, test centre, test date, payment deadline, and result-delivery process. Then read the centre's refund and rescheduling rules before completing payment.
 
 If your visa appointment has a deadline, add space for results, certificate delivery, and the possibility that you may need to book again. This page cannot tell you that a particular timeline will work.
+
+## Make one fee record before comparing options
+
+For each real booking option, write down the centre name, exact exam, date, fee, payment deadline, refund link, rescheduling link, result timing, and the date you checked it. This prevents a cheaper-looking option from hiding a rule that does not fit your route.
+
+If two pages disagree, do not average the prices or choose the lower one. Contact the official centre and ask which current listing applies to your intended booking.
 
 ## Common ways people lose money
 
@@ -53,4 +59,4 @@ Find the official centre first in [Goethe A1 test centers](/guides/goethe-a1-tes
 ## Official sources
 
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [telc Deutsch A1](https://www.telc.net/en/language-examinations/certificate-exams/german/a1.html)
+- [telc Deutsch A1](https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/)

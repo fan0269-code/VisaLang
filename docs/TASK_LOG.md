@@ -929,6 +929,114 @@ Recommended next module:
 
 - Proceed to the final quality-check window for generated-page copy, heading hierarchy, metadata, internal-link targets, and mobile rendering. A separate UI window is still not required.
 
+## Germany A1 Thin-Page Maintenance Window - 2026-07-10
+
+Role: Germany A1 practical-route content owner.
+
+Scope completed:
+
+- Maintained six Germany A1 guides only: fees, test centres, retake, documents, speaking, and the 30-day plan.
+- Kept the existing shared trust and disclaimer structure; no UI, route, Chinese, legal, deployment, or non-Germany files were changed.
+
+Practical depth added:
+
+- Fees: a comparable personal fee record and a safe response when two local listings disagree.
+- Test centres: a concise official-centre enquiry path when a local page is unclear.
+- Retake: a decision rule for choosing a shorter or longer recovery period instead of automatically booking the earliest date.
+- Documents: a private record-keeping step and a warning against sharing sensitive scans through unverified channels.
+- Speaking: a repeatable ten-minute drill alongside the existing seven-day reset.
+- 30-day plan: replaced the thin four-week outline with daily minimum practice, four staged date ranges, a weekly review, a realistic extension rule, and explicit speaking/listening/retake next steps.
+
+Internal links strengthened:
+
+- The 30-day plan now points to speaking, listening, retake, and the Germany A1 hub.
+- The existing fee, centre, retake, documents, and speaking progression remains intact.
+
+Fact-risk assessment:
+
+- No fees, dates, test-centre lists, retake entitlement, certificate-acceptance promise, or pass guarantee was added.
+- Local conditions and visa requirements continue to require official-source verification.
+
+Remaining thinner Germany A1 guides:
+
+- `goethe-a1-germany-family-reunion`, `goethe-a1-vs-telc-a1`, `goethe-a1-booking-mistakes`, `goethe-a1-pre-booking-checklist`, and `german-a1-exam-booking-timeline` remain suitable candidates for a later content-only window.
+
+Recommended next module:
+
+- Run final quality checks on the completed six-page route, then decide whether the next content window should deepen exam-choice or booking-timeline pages.
+
+## Germany A1 Exam Choice And Booking Window - 2026-07-10
+
+Role: Germany A1 route-decision and booking-risk content owner.
+
+Scope completed:
+
+- Deepened five Germany A1 guides only: Goethe A1 route, Goethe vs telc, booking mistakes, pre-booking checklist, and booking timeline.
+- Connected the route as requirement -> acceptance and provider choice -> official centre -> payment checks -> document and timing plan.
+
+Pages enhanced:
+
+- `goethe-a1-germany-family-reunion`: separates the stable Goethe exam description from case-specific mission acceptance and sends users to the requirement, comparison, and pre-booking decisions in order.
+- `goethe-a1-vs-telc-a1`: replaces brand preference with four checks: acceptance, availability, process, and total cost.
+- `goethe-a1-booking-mistakes`: removes unsupported claims about centre frequency, universal ID practice, fixed lead times, and modular scheduling; adds a factual stop-and-check record and local-resolution path.
+- `goethe-a1-pre-booking-checklist`: adds hard stop conditions and one evidence record while keeping certificate acceptance, centre, payment, ID, and preparation checks separate.
+- `german-a1-exam-booking-timeline`: adds backward planning from the document deadline and an explicit rule for unknown timings rather than assuming later submission or a usable retake date.
+
+Internal links strengthened:
+
+- Goethe route -> requirement -> Goethe vs telc -> pre-booking checklist.
+- Goethe vs telc -> test centres -> booking mistakes -> documents.
+- Booking mistakes and pre-booking checklist -> documents, centres, and timeline.
+- Timeline -> fees, centres, documents, retake, and requirement check.
+
+Fact-risk assessment:
+
+- No universal booking lead time, centre schedule, ID list, result date, acceptance promise, refund entitlement, modular resit claim, fee, or visa outcome was added.
+- Goethe/telc product descriptions use official overview pages; every local or case-specific point remains an official-centre or mission verification task.
+
+Remaining Germany A1 content candidates:
+
+- The central cluster is now materially deeper. A later page-specific pass could refine the FAQ, listening practice, official practice resources, and working-adult study plan, but no additional route page is currently thin enough to require immediate expansion.
+
+Recommended next module:
+
+- Run final quality checks on the complete Germany A1 cluster, including generated-page heading order, metadata, internal links, and narrow/mobile reading surfaces.
+
+## Germany A1 Support Guides Window - 2026-07-10
+
+Role: Germany A1 preparation and source-navigation content owner.
+
+Scope completed:
+
+- Maintained four Germany A1 support guides only: FAQ, listening practice, official resources, and working-adult study plan.
+- Kept the existing shared guide structure and did not touch UI, route generation, Chinese pages, non-Germany content, legal pages, or deployment configuration.
+
+Pages enhanced:
+
+- `german-a1-family-reunion-faq`: replaces generic or overcertain answers with safe routing to requirement, provider choice, centre, timeline, documents, and preparation pages.
+- `goethe-a1-listening-practice`: replaces unsupported fixed exam-format claims with a three-pass daily drill, error diagnosis, official-format-first practice, and a weekly checkpoint.
+- `goethe-a1-official-links-practice-resources`: maps each reader question to the authority, provider, local centre, or practice source that owns the answer.
+- `goethe-a1-study-plan-working-adults`: replaces fixed daily workload and outcome claims with flexible weekday/review blocks, an eight-week progression, and a clear extension rule.
+
+Fact-risk cleanup:
+
+- Removed fixed result-time, study-hour, study-duration, partial-resit, provider-acceptance, and listening-procedure claims where they were not safe as universal statements.
+- Retained official Goethe, BAMF, telc, and German Federal Foreign Office links; country-, case-, and centre-specific details remain official verification tasks.
+
+Internal links strengthened:
+
+- FAQ now routes to requirement, exam choice, centre, fee, timeline, documents, 30-day plan, working-adult plan, and the hub.
+- Listening, official resources, and working-adult plan now cross-link to speaking, 30-day preparation, retake, and pre-booking decisions.
+
+Cluster status:
+
+- The English Germany A1 content cluster is now internally connected and has route-specific depth across requirement, provider choice, booking, documents, fees, timing, preparation, retake, and FAQ support.
+- Remaining work is quality assurance and manual official-source review rather than another broad content-expansion window.
+
+Recommended next module:
+
+- Run the final Germany A1 quality-check window, including generated metadata, internal links, mobile reading, and the official-source review list.
+
 ## Manual Confirmation Needed
 
 - Real waitlist provider and destination.

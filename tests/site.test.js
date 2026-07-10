@@ -127,6 +127,15 @@ const goetheA1TestCentersGuide = fs.readFileSync("src/content/guides/goethe-a1-t
 const goetheA1RetakeGuide = fs.readFileSync("src/content/guides/goethe-a1-retake-policy.md", "utf8");
 const germanA1DocumentsGuide = fs.readFileSync("src/content/guides/german-a1-documents-checklist.md", "utf8");
 const goetheA1SpeakingGuide = fs.readFileSync("src/content/guides/goethe-a1-speaking-topics.md", "utf8");
+const goetheA1StudyPlanGuide = fs.readFileSync("src/content/guides/goethe-a1-30-day-study-plan.md", "utf8");
+const goetheA1RouteGuide = fs.readFileSync("src/content/guides/goethe-a1-germany-family-reunion.md", "utf8");
+const goetheA1VsTelcGuide = fs.readFileSync("src/content/guides/goethe-a1-vs-telc-a1.md", "utf8");
+const goetheA1BookingMistakesGuide = fs.readFileSync("src/content/guides/goethe-a1-booking-mistakes.md", "utf8");
+const goetheA1PreBookingGuide = fs.readFileSync("src/content/guides/goethe-a1-pre-booking-checklist.md", "utf8");
+const germanyA1FaqGuide = fs.readFileSync("src/content/guides/german-a1-family-reunion-faq.md", "utf8");
+const goetheA1ListeningGuide = fs.readFileSync("src/content/guides/goethe-a1-listening-practice.md", "utf8");
+const goetheA1OfficialResourcesGuide = fs.readFileSync("src/content/guides/goethe-a1-official-links-practice-resources.md", "utf8");
+const goetheA1WorkingAdultsGuide = fs.readFileSync("src/content/guides/goethe-a1-study-plan-working-adults.md", "utf8");
 const astroTcfCanadaVsTef = fs.readFileSync("src/content/guides/tcf-canada-vs-tef.md", "utf8");
 const astroTcfIrn = fs.readFileSync("src/content/guides/tcf-irn-french-residence.md", "utf8");
 const astroGoetheB1DepthSlugs = [
@@ -300,7 +309,7 @@ assert.ok(
   "Astro guide breadcrumbs should not link to missing homepage route anchors"
 );
 assert.ok(astroGermanA1Timeline.includes('slug: "german-a1-exam-booking-timeline"'), "Astro should include the German A1 booking timeline guide");
-assert.ok(astroGermanA1Timeline.includes("Official sources last checked: 2026-07-08"), "German A1 timeline content should show source check date");
+assert.ok(astroGermanA1Timeline.includes("Official sources last checked: 2026-07-10"), "German A1 timeline content should show source check date");
 assert.ok(
   astroGermanyA1GuidePage.includes("frontmatter.category === 'germany-a1'"),
   "Germany A1 guides should receive the route-support module only inside the Germany A1 cluster"
@@ -335,20 +344,49 @@ assert.ok(goetheA1FeesGuide.includes("The useful answer is not one number"), "Go
 assert.ok(goetheA1FeesGuide.includes('title: "Goethe A1 exam fees: check your local price"'), "Goethe A1 fees should use a decision-focused search title");
 assert.ok(goetheA1FeesGuide.includes("refund and rescheduling rules"), "Goethe A1 fees should cover payment-policy checks");
 assert.ok(goetheA1FeesGuide.includes("/guides/goethe-a1-test-centers/"), "Goethe A1 fees should lead to test-centre verification");
+assert.ok(goetheA1FeesGuide.includes("Make one fee record before comparing options"), "Goethe A1 fees should provide a comparable local-fee record");
 assert.ok(goetheA1TestCentersGuide.includes("Centre-selection checklist"), "Goethe A1 test centres should provide a selection checklist");
 assert.ok(goetheA1TestCentersGuide.includes('title: "Goethe A1 test centers: verify an official exam centre"'), "Goethe A1 test centres should use an official-centre search title");
 assert.ok(goetheA1TestCentersGuide.includes("/guides/german-a1-documents-checklist/"), "Goethe A1 test centres should lead to document checks");
+assert.ok(goetheA1TestCentersGuide.includes("When the centre page is unclear"), "Goethe A1 test centres should explain how to resolve unclear local listings");
 assert.ok(goetheA1RetakeGuide.includes("Five things to check first"), "Goethe A1 retake should start with score and local-policy checks");
 assert.ok(goetheA1RetakeGuide.includes('title: "Goethe A1 retake: plan your next attempt"'), "Goethe A1 retake should use an action-focused search title");
 assert.ok(goetheA1RetakeGuide.includes("Two weeks:"), "Goethe A1 retake should include a short recovery plan");
 assert.ok(goetheA1RetakeGuide.includes("/guides/goethe-a1-speaking-topics/"), "Goethe A1 retake should lead to targeted speaking practice");
+assert.ok(goetheA1RetakeGuide.includes("Choose the recovery length"), "Goethe A1 retake should distinguish short and longer recovery plans");
 assert.ok(germanA1DocumentsGuide.includes("Keep three document moments separate"), "German A1 documents should distinguish booking, test-day, and visa stages");
 assert.ok(germanA1DocumentsGuide.includes('title: "German A1 documents checklist: booking, test day, visa"'), "German A1 documents should use a stage-specific search title");
 assert.ok(germanA1DocumentsGuide.includes("/guides/german-family-reunion-language-requirement/"), "German A1 documents should return readers to the requirement check");
+assert.ok(germanA1DocumentsGuide.includes("Keep a private document record"), "German A1 documents should include a safe record-keeping step");
 assert.ok(goetheA1SpeakingGuide.includes("Practise abilities, not predicted questions"), "Goethe A1 speaking should avoid question prediction");
 assert.ok(goetheA1SpeakingGuide.includes('title: "Goethe A1 speaking topics: safe practice plan"'), "Goethe A1 speaking should use a safe-practice search title");
 assert.ok(goetheA1SpeakingGuide.includes("Seven-day speaking reset"), "Goethe A1 speaking should include a focused practice plan");
 assert.ok(goetheA1SpeakingGuide.includes("/guides/goethe-a1-retake-policy/"), "Goethe A1 speaking should support retake planning");
+assert.ok(goetheA1SpeakingGuide.includes("A ten-minute daily drill"), "Goethe A1 speaking should include a repeatable daily drill");
+assert.ok(goetheA1StudyPlanGuide.includes("Days 1 to 7: make personal information reliable"), "Goethe A1 study plan should start with usable personal information");
+assert.ok(goetheA1StudyPlanGuide.includes("Days 22 to 30: repair and rehearse"), "Goethe A1 study plan should end with repair and rehearsal");
+assert.ok(goetheA1StudyPlanGuide.includes("When this plan is not enough"), "Goethe A1 study plan should explain when to extend the plan");
+assert.ok(goetheA1StudyPlanGuide.includes("/guides/goethe-a1-retake-policy/"), "Goethe A1 study plan should support a post-result recovery path");
+assert.ok(goetheA1RouteGuide.includes("Start with the route, not the brand"), "Goethe A1 route guide should start with the visa-route decision");
+assert.ok(goetheA1RouteGuide.includes("/guides/goethe-a1-vs-telc-a1/"), "Goethe A1 route guide should lead to the exam-choice guide");
+assert.ok(goetheA1VsTelcGuide.includes("The first comparison is acceptance"), "Goethe vs telc should start with official acceptance rather than brand preference");
+assert.ok(goetheA1VsTelcGuide.includes("Use four decision checks"), "Goethe vs telc should provide a practical decision framework");
+assert.ok(goetheA1BookingMistakesGuide.includes("Stop-and-check list"), "Goethe booking mistakes should provide a pre-payment record");
+assert.ok(!goetheA1BookingMistakesGuide.includes("4-6 weeks ahead"), "Goethe booking mistakes should not invent a universal booking lead time");
+assert.ok(!goetheA1BookingMistakesGuide.includes("monthly exams"), "Goethe booking mistakes should not invent centre schedules");
+assert.ok(goetheA1PreBookingGuide.includes("Stop if one of these is missing"), "Goethe pre-booking checklist should include clear stop conditions");
+assert.ok(goetheA1PreBookingGuide.includes("Keep one booking record"), "Goethe pre-booking checklist should preserve local verification evidence");
+assert.ok(astroGermanA1Timeline.includes("Plan backward from the document deadline"), "German A1 timeline should work backward from the document deadline");
+assert.ok(astroGermanA1Timeline.includes("If the timeline does not work"), "German A1 timeline should explain what to do with unresolved timing");
+assert.ok(germanyA1FaqGuide.includes("Where should I start now?"), "Germany A1 FAQ should route readers to their next decision");
+assert.ok(!germanyA1FaqGuide.includes("Expect 2-4 weeks"), "Germany A1 FAQ should not invent a universal result timeline");
+assert.ok(!germanyA1FaqGuide.includes("60-80 hours"), "Germany A1 FAQ should not promise a universal study duration");
+assert.ok(goetheA1ListeningGuide.includes("A three-pass daily routine"), "Goethe A1 listening should provide a repeatable daily routine");
+assert.ok(!goetheA1ListeningGuide.includes("audio is played twice"), "Goethe A1 listening should not assert a fixed local exam procedure");
+assert.ok(goetheA1OfficialResourcesGuide.includes("Match each question to its source"), "Goethe A1 resources should map questions to their official owners");
+assert.ok(goetheA1OfficialResourcesGuide.includes("Safe preparation boundary"), "Goethe A1 resources should keep a safe-preparation boundary");
+assert.ok(goetheA1WorkingAdultsGuide.includes("When to extend the plan"), "Working-adult plan should explain when to extend study time");
+assert.ok(!goetheA1WorkingAdultsGuide.includes("15-20 new words per day"), "Working-adult plan should not impose a fixed vocabulary quota");
 assert.ok(astroGermanyA1Hub.includes("Five core decision guides"), "Germany A1 hub should expose the five core decision guides near the route overview");
 [
   "/guides/goethe-a1-fees-by-country/",

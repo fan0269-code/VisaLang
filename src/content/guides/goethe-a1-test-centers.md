@@ -37,6 +37,12 @@ Before booking, record:
 
 Check these from the local centre, not from a general international overview. Availability and procedure can differ locally.
 
+## When the centre page is unclear
+
+Ask the centre one precise question at a time: whether it offers the adult A1 exam, the next bookable date, whether speaking is separate, the registration deadline, and how results or certificates are issued.
+
+Keep the reply with your booking record. A vague answer about a German course, an A1 class, or an enquiry list is not the same as confirmation of an examination place.
+
 ## Common booking mistakes
 
 - Enrolling in a German course when you need an examination booking.
@@ -52,4 +58,4 @@ Use [Goethe A1 vs telc A1](/guides/goethe-a1-vs-telc-a1/) before choosing a prov
 ## Official sources
 
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [telc Deutsch A1](https://www.telc.net/en/language-examinations/certificate-exams/german/a1.html)
+- [telc Deutsch A1](https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/)

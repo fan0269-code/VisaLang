@@ -33,6 +33,12 @@ Separate the problem before starting another study cycle. Listening may need mor
 
 Common causes are underprepared speaking, difficulty following short listening items, unfamiliar writing formats, test-day nerves, too little timed practice, or assuming A1 is automatically easy. The right response is targeted practice, not a larger pile of materials.
 
+## Choose the recovery length
+
+Use a shorter reset only when you can name the narrow skill that went wrong and your timed practice is now stable. Use a longer reset when several skills break down, the format is still unfamiliar, or the next available date leaves room to rebuild calmly.
+
+Do not choose the date only because it is the earliest one. A rushed booking can repeat the same weak pattern and add avoidable cost.
+
 ## A short recovery plan
 
 **Two weeks:** choose one or two weak skills, practise them daily in short timed blocks, and use official sample material to check the format. Keep a small error list for numbers, spelling, time, instructions, and recurring vocabulary.
