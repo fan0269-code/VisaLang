@@ -78,6 +78,14 @@ const jsonLD = {
         <span>最后更新：<time datetime={updatedDate}>{updatedDate}</time></span>
         <span>政策、考位、费用和证书接受范围可能变化，请以官方最新要求为准。</span>
       </div>
+      <section class="guide-template-box" id="who-this-guide-is-for">
+        <h2>这篇适合谁</h2>
+        <p>适合已经在规划德国配偶团聚或家庭团聚、需要把“是否需要 A1、该考什么、何时报名、材料怎么准备”拆成可核验步骤的中文用户。</p>
+      </section>
+      <section class="guide-template-box" id="who-this-guide-is-not-for">
+        <h2>这篇不替你判断什么</h2>
+        <p>它不替代德国使领馆、BAMF、Goethe、telc、当地考点或个案审核人员的决定；也不能据此判断你一定豁免、一定被接受或一定能按时出证。</p>
+      </section>
       <slot />
       <section class="guide-template-box" id="official-verification">
         <h2>最后一定要核对官方来源</h2>
@@ -87,6 +95,14 @@ const jsonLD = {
             <li><a href={source.href}>{source.name}</a></li>
           ))}
         </ul>
+      </section>
+      <section class="guide-template-box" id="step-by-step-next-action">
+        <h2>下一步怎么做</h2>
+        <ol>
+          <li>先把自己的申请地、签证节点和护照姓名拼写记下来。</li>
+          <li>回到本页引用的官方来源，保存与你个案有关的当前页面和查看日期。</li>
+          <li>再从下方“下一步可以看”进入相邻的报名、材料或备考问题。</li>
+        </ol>
       </section>
       <section class="guide-disclaimer" id="disclaimer">
         <h2>合规提醒</h2>

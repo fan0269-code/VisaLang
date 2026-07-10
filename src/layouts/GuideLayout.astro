@@ -30,6 +30,7 @@ const {
   publishedDate,
   updatedDate,
   slug,
+  category,
   eyebrow,
   breadcrumbs = [
     { label: 'Home', href: '/' },
@@ -44,13 +45,82 @@ const {
   headings = [],
 } = Astro.props;
 
+const routeDecisionSupport = {
+  'germany-a1': {
+    decision: 'whether A1 applies to your own family-reunion case, which proof the responsible authority accepts, and whether a local booking can fit your document timeline.',
+    checks: ['Confirm the requirement or any exemption with the responsible German mission or authority.', 'Match the exact adult A1 certificate, local centre, ID rule, fee, result timing, and cancellation rule before payment.', 'Keep your booking record and visa-document checklist separate.'],
+    next: { href: '/germany-family-reunion-a1/', label: 'Open the Germany A1 route and work through the decisions in order.' },
+  },
+  'germany-b1': {
+    decision: 'whether B1 is the level your settlement, work, citizenship, or employer route actually needs, and whether Goethe or telc fits the named requirement.',
+    checks: ['Ask the authority, employer, or professional body for the exact level and accepted certificate—not a general Germany rule.', 'Compare the named exam version, local centre, fee, result timing, and retake policy.', 'Treat B1 as a different risk from A1: independent reading, timed writing, and sustained speaking need a realistic study window.'],
+    next: { href: '/guides/category/germany-b1/', label: 'Continue with the Germany B1+ guide cluster.' },
+  },
+  'germany-testdaf': {
+    decision: 'whether TestDaF, DSH, or another certificate meets the language condition for your specific German university programme and application intake.',
+    checks: ['Read the target programme and university language-requirements page, not a general admissions summary.', 'Check what TDN level or alternative proof the programme names for your intake.', 'Work backward from application, result, and document deadlines before choosing an exam date.'],
+    next: { href: '/guides/testdaf-germany-university-admissions/', label: 'Check the TestDaF university-admissions decision path.' },
+  },
+  'germany-telc': {
+    decision: 'whether the exact telc Deutsch variant—not simply the telc brand—matches your work, residence, nursing, or professional route.',
+    checks: ['Confirm the exact exam name and level with the authority, employer, or professional body handling your case.', 'Do not confuse telc Deutsch with telc Pflege, telc Medizin, or a course certificate.', 'Use the telc centre search, then verify the local date, fee, ID rule, and result process with that authorised centre.'],
+    next: { href: '/guides/category/germany-telc/', label: 'Continue with the telc Deutsch decision guides.' },
+  },
+  uk: {
+    decision: 'which approved UK test route and exact test location match the visa or citizenship application you are making.',
+    checks: ['Start with the current UK government route page for your application type.', 'Confirm the named test, level, provider, and location before booking.', 'Check the provider’s current ID, date, fee, cancellation, and result rules locally.'],
+    next: { href: '/guides/category/uk/', label: 'Compare the UK starter guides before booking.' },
+  },
+  canada: {
+    decision: 'whether TEF Canada or TCF Canada fits the named immigration or citizenship process and the timeline you are planning around.',
+    checks: ['Use the current IRCC information for your programme, not another applicant’s score target.', 'Confirm the accepted test version, score reporting, date, and results process with the official provider.', 'Plan for the application window and a possible retake instead of assuming the first available date is safe.'],
+    next: { href: '/guides/category/canada/', label: 'Compare the Canada starter guides.' },
+  },
+  italy: {
+    decision: 'which Italian certificate, level, and route-specific proof to verify before building a citizenship or residence plan around it.',
+    checks: ['Check the current authority or consular requirement for your own procedure.', 'Confirm the exact CILS, CELI, or PLIDA exam and local centre with its official provider.', 'Do not turn a guide overview into a conclusion about eligibility or document acceptance.'],
+    next: { href: '/guides/category/italy/', label: 'Use the Italy starter guides as a comparison set.' },
+  },
+  spain: {
+    decision: 'which Spanish-language and civic proof, if any, the responsible Spanish authority requires for your own citizenship route.',
+    checks: ['Check the current official requirement and any exemption before registering.', 'Confirm the exact DELE or CCSE version, local centre, date, and ID rules.', 'Keep exam planning separate from the legal assessment of your nationality application.'],
+    next: { href: '/guides/category/spain/', label: 'Continue with the Spain starter guides.' },
+  },
+  france: {
+    decision: 'whether a DELF, TCF IRN, or another French proof is relevant to your specific residence, work, study, or citizenship process.',
+    checks: ['Read the current requirement from the authority or institution that will receive your file.', 'Confirm the exact test version, level, centre, fee, and result timing with the provider.', 'Do not infer a national rule from a school, employer, or another applicant’s experience.'],
+    next: { href: '/guides/category/france/', label: 'Continue with the France starter guides.' },
+  },
+  finland: {
+    decision: 'whether YKI or another Finnish-language path is relevant to the exact citizenship, work, or study process you are pursuing.',
+    checks: ['Start with the Finnish authority or institution that names the language condition.', 'Check the exact test, level, local availability, and result process with the official provider.', 'Use this overview to prepare questions, not to decide a legal outcome.'],
+    next: { href: '/guides/category/finland/', label: 'Continue with the Finland starter guides.' },
+  },
+  netherlands: {
+    decision: 'whether inburgering, Staatsexamen NT2, or another Dutch proof matches the exact integration, work, or education route.',
+    checks: ['Confirm the route and level with DUO, the receiving institution, or the responsible authority.', 'Check the exact exam module, centre, date, fee, and results information officially.', 'Do not assume a work or study requirement is identical to an integration requirement.'],
+    next: { href: '/guides/category/netherlands/', label: 'Continue with the Netherlands starter guides.' },
+  },
+  portugal: {
+    decision: 'which Portuguese-language proof, level, and authority requirement to verify before treating an exam as part of a residence or citizenship plan.',
+    checks: ['Check the current requirement with the responsible Portuguese authority or consular process.', 'Confirm the exact CIPLE or other proof, local centre, date, fee, and result process.', 'Do not rely on old golden-visa or citizenship summaries for a current individual decision.'],
+    next: { href: '/guides/category/portugal/', label: 'Continue with the Portugal starter guides.' },
+  },
+}[category ?? ''] ?? {
+  decision: 'which official requirement, exact exam, and local booking process apply to your own route.',
+  checks: ['Confirm the rule with the authority that receives your application.', 'Verify the exact exam and local centre before paying.', 'Keep official links and dated confirmations with your records.'],
+  next: { href: '/guides/', label: 'Return to the guide library and choose a route.' },
+};
+
 const standardHeadings = [
   { text: 'Summary', id: 'summary' },
   { text: 'Who this guide is for', id: 'who-this-guide-is-for' },
   { text: 'Who this guide is not for', id: 'who-this-guide-is-not-for' },
+  { text: 'What this guide helps you decide', id: 'what-this-guide-helps-you-decide' },
   ...headings.map(h => ({ text: h.text, id: h.slug })),
   { text: 'Official verification', id: 'official-verification' },
   { text: 'Common mistakes', id: 'common-mistakes' },
+  { text: 'Step-by-step next action', id: 'step-by-step-next-action' },
   { text: 'Last updated', id: 'last-updated' },
   { text: 'Disclaimer', id: 'disclaimer' },
 ];
@@ -156,6 +226,13 @@ const jsonLD = {
             employer, professional body, or official exam provider decision.
           </p>
         </section>
+        <section class="guide-template-box" id="what-this-guide-helps-you-decide">
+          <h2>What this guide helps you decide</h2>
+          <p>This page helps you decide {routeDecisionSupport.decision}</p>
+          <ol>
+            {routeDecisionSupport.checks.map((check) => <li>{check}</li>)}
+          </ol>
+        </section>
         <slot />
         <section class="guide-template-box" id="official-verification">
           <h2>Official verification</h2>
@@ -172,6 +249,14 @@ const jsonLD = {
             <li>Using old fee, date, or test-centre information without checking the official page.</li>
             <li>Relying on copied real exam questions, leaked materials, or guaranteed-pass claims.</li>
           </ul>
+        </section>
+        <section class="guide-template-box" id="step-by-step-next-action">
+          <h2>Step-by-step next action</h2>
+          <ol>
+            <li>Write down the exact route, authority or institution, and deadline that apply to you.</li>
+            <li>Open the official sources in this guide and record the date you checked them.</li>
+            <li><a href={routeDecisionSupport.next.href}>{routeDecisionSupport.next.label}</a></li>
+          </ol>
         </section>
         <section class="guide-template-box" id="last-updated">
           <h2>Last updated</h2>

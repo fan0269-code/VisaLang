@@ -1037,6 +1037,71 @@ Recommended next module:
 
 - Run the final Germany A1 quality-check window, including generated metadata, internal links, mobile reading, and the official-source review list.
 
+## Sitewide Content-Depth Window - 2026-07-10
+
+Role: route-decision content owner.
+
+Scope completed:
+
+- Deepened the live Astro content layer only. No deployment configuration, source-of-truth decision, package configuration, sitemap/canonical behavior, or CSS/UI system was changed.
+- Repositioned the site from an exam-description library toward a route-decision product: readers now start with the receiving authority, exact proof, local booking conditions, and document timeline rather than an assumed exam choice.
+- Added a shared, route-specific decision layer to every English guide: what the page helps decide, three official-first checks tailored to its route, and a concrete next action into the relevant route cluster.
+- Added the equivalent audience boundary and next-action sequence to all five Chinese core guides.
+
+Homepage and library result:
+
+- `/` now states the route-decision proposition in the hero, explains how to use VisaLang, distinguishes Germany A1 as the full route from non-Germany starter routes, adds a five-point pre-payment verification checklist, a Chinese route entry, and a correction path.
+- `/guides/` and every indexable category page now explain that the library is for route selection, identify Germany A1 as the deepest route, label other categories as starter overviews, and send no-result searches back to an authority-first decision.
+
+Germany A1 route result:
+
+- `/germany-family-reunion-a1/` now follows a clear eight-step decision sequence: confirm A1 applicability; choose accepted proof; compare Goethe and telc; check fees and official centres; book safely; prepare documents; build a study plan; and retain a retake buffer.
+- The existing five core guides remain the route’s concrete actions: local fees, official centre verification, retake planning, three-stage documents, and safe speaking practice. Their existing detailed sections already cover the required local-fee, centre, retake, materials, and no-leak practice constraints; this window makes their role in the route explicit on every generated page.
+
+Non-Germany route result:
+
+- Germany B1+ guides now frame settlement/work/citizenship decisions as authority-specific, distinguish B1 risk from A1, and route readers into the B1 cluster.
+- TestDaF guides now lead with target programme and university language requirements, TDN/alternative-proof verification, and backward planning from application deadlines.
+- telc Deutsch guides now distinguish exact telc variants, require authority/employer/professional-body confirmation, and direct readers to authorised-centre checks.
+- UK, Canada, Italy, Spain, France, Finland, Netherlands, and Portugal guides now explicitly operate as starter routes, with the relevant authority, exact test, local centre, and time-sensitive official check in the decision sequence.
+
+Chinese and trust-page result:
+
+- `/zh/` and `/zh/germany-family-reunion-a1/` now explain the Chinese Germany A1 decision order, who should check an exemption first, and why Chinese readers should preserve official evidence rather than rely on agency or community claims.
+- About, Contact, Editorial Policy, Privacy, Cookie, Terms, and Affiliate pages now state the official-source hierarchy, correction evidence and priority, Chinese coverage boundary, sensitive-document boundary, and no-leak/no-guarantee boundaries more clearly without changing their underlying legal role.
+
+Content-depth assessment:
+
+| Cluster | Grade | Assessment |
+|---|---|---|
+| Germany A1 hub and core guides | A | Model route: requirement, acceptance, fee, centre, documents, preparation, retake, official checks, and connected next actions. |
+| Remaining Germany A1 support guides | A | Shared decision layer plus established cluster links; retained as route-support pages. |
+| Germany B1+ | B | Decision framing, authority check, provider choice, local fee/centre/retake risks are now explicit; individual pages can later gain more case studies. |
+| TestDaF | B | University/TDN/application-timeline decision checks are explicit; target-programme pages remain the human verification point. |
+| telc Deutsch | B | Exact-variant, authorised-centre, employer/authority checks and next actions are explicit. |
+| UK / Canada / Italy / Spain / France / Finland / Netherlands / Portugal | B | Clear starter-guide boundary, route-specific decision checklist, official verification, and cluster next action; not represented as full country dossiers. |
+| Chinese homepage and Germany A1 core guides | A | Chinese-intent route path with official-source boundary and actionable sequence; deliberately not a machine-translated full site. |
+| About / Contact / Editorial / Legal | A | Clear trust, correction, commercial, sensitive-data, and no-guarantee boundaries; legal meaning not materially expanded. |
+
+Risk and human verification list:
+
+- Re-check the current German mission or authority rule and possible exemptions for each individual family-reunion case.
+- Re-check local official centre status, fees, dates, ID rules, cancellation terms, result timing, and certificate delivery before every booking.
+- Re-check university programme language requirements and TDN/alternative-proof conditions for each TestDaF applicant and intake.
+- Re-check exact certificate acceptance with the relevant authority, employer, or professional body for Germany B1/telc, UK, Canada, and other country routes.
+- Legal/privacy text is clearer but should receive counsel review before any jurisdiction-specific claim, data processor, cookie banner, or monetisation change.
+
+Verification completed:
+
+- `npm test`: passed.
+- `npm run build`: passed; 79 static pages generated.
+- `npm run launch-check`: passed; 55 checks, READY.
+- `git diff --check`: passed.
+
+Recommended next module:
+
+- Perform a human official-source spot-check of the high-risk route pages (Germany A1, B1/telc, TestDaF, Canada, UK) in the live deployment, then deepen individual non-Germany starter-guide bodies only where real authority-specific scenarios warrant it.
+
 ## Manual Confirmation Needed
 
 - Real waitlist provider and destination.

@@ -55,8 +55,8 @@ const jsonLD = {
   <main class="site-main">
     <section class="hero">
       <p class="eyebrow">Language exam route finder</p>
-      <h1>Find the right language exam for your next move</h1>
-      <p>Official-first guides for German, English, French, Italian, Spanish, Dutch, Portuguese, and Finnish language exams — built for visa, residency, citizenship, and work-registration paths.</p>
+      <h1>Choose the language-exam route before you pay for a test</h1>
+      <p>VisaLang is a route-decision site, not a generic exam blog. Start with your country, purpose, and level; then verify the accepted proof, local centre, fee, date, and document timing from official sources.</p>
       <div class="action-row">
         <a class="primary-action" href="#route-finder">Start with route finder</a>
         <a class="secondary-action" href="/guides/">Browse guide library</a>
@@ -73,7 +73,7 @@ const jsonLD = {
         <div class="finder-copy">
           <p class="eyebrow">Exam Route Finder</p>
           <h2>Choose by country, purpose, and certificate level.</h2>
-          <p>Start with the route, then verify the accepted certificate and booking rules before you spend money on an exam.</p>
+          <p>If you are deciding between two exams, do not start with “which is easier?” Start with the authority that will receive your document. The Finder turns that requirement into a safe booking and study sequence.</p>
           <div class="action-row left">
             <a class="primary-action" href="/germany-family-reunion-a1/">Open Germany A1 route</a>
             <a class="secondary-action" href="/guides/">Search all guides</a>
@@ -92,7 +92,7 @@ const jsonLD = {
         <div>
           <p class="eyebrow">Primary route</p>
           <h2>Germany A1 family reunion</h2>
-          <p>The clearest model route on VisaLang: requirement check, Goethe vs telc, booking risk, documents, study plan, retake planning, FAQ, and official verification.</p>
+          <p>Our most complete route is built for the real fork in the road: first confirm whether A1 applies, then choose accepted proof, centre, booking timing, documents, study plan, and retake buffer. Start here if family reunion is your goal—not with a payment page.</p>
           <div class="badge-row">
             <span class="badge strong">{germanyA1Count} guides</span>
             <span class="badge">Family reunion</span>
@@ -110,7 +110,7 @@ const jsonLD = {
     <section id="guides" class="section-inner content-section">
       <div class="section-header centered">
         <h2>Browse by route</h2>
-        <p>Each route groups guides by the decision a reader needs to make before booking or submitting documents.</p>
+        <p>Germany A1 is a full decision route. The other routes are starter overviews: use them to identify the authority, exam family, and next official check before you book.</p>
       </div>
       <div class="route-grid">
         {categories.map(cat => {
@@ -130,7 +130,7 @@ const jsonLD = {
       <section class="section-inner content-section">
         <div class="section-header">
           <h2>Featured guides</h2>
-          <p>Selected starting points for high-intent routes. These support the route finder rather than replacing it.</p>
+          <p>These are chosen because they answer an early, expensive decision: whether a proof applies, what a provider comparison really means, or how to protect a deadline.</p>
         </div>
         <div class="guide-related-grid">
           {featured.map(g => (
@@ -147,7 +147,7 @@ const jsonLD = {
     <section class="section-inner content-section">
       <div class="section-header">
         <h2>Latest updates</h2>
-        <p>Recent guide updates stay available, but the main homepage path is route selection first.</p>
+        <p>Updates are useful for returning readers; route selection remains the first step for a new decision.</p>
       </div>
       <div class="guide-related-grid">
         {latest.map(g => (
@@ -157,6 +157,37 @@ const jsonLD = {
             <p class="card-meta">{g.data.updatedDate}</p>
           </a>
         ))}
+      </div>
+    </section>
+
+    <section class="section-inner content-section compact">
+      <div class="route-finder">
+        <div class="finder-copy">
+          <p class="eyebrow">How to use VisaLang</p>
+          <h2>Use a guide to prepare a decision, not replace the decision-maker.</h2>
+          <p>Read the quick answer, identify what does and does not fit your case, then open the official source before booking or submitting a document. Each route links forward to the next practical decision.</p>
+          <p><a class="secondary-action" href="/editorial-policy/">See our editorial and correction process</a></p>
+        </div>
+        <ol class="finder-steps">
+          <li><span class="step-number">01</span><span><strong>Match the authority.</strong><br />A mission, university, employer, or professional body can set a different requirement.</span></li>
+          <li><span class="step-number">02</span><span><strong>Match the exact proof.</strong><br />Do not confuse a course, test brand, or nearby level with the named certificate.</span></li>
+          <li><span class="step-number">03</span><span><strong>Keep evidence.</strong><br />Save the official page, centre reply, and booking confirmation with the date checked.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section-inner content-section compact">
+      <div class="feature-route">
+        <p class="eyebrow">Before you pay for an exam</p>
+        <h2>Verify these five things first</h2>
+        <ol>
+          <li>The current rule applies to your exact route and application location.</li>
+          <li>The named certificate and level are accepted by the receiving authority.</li>
+          <li>The centre is official or authorised for that exact exam.</li>
+          <li>The current fee, date, ID, cancellation, and result process work for your timeline.</li>
+          <li>Your passport name and document plan match the booking details.</li>
+        </ol>
+        <p>Chinese reader? Start with the <a href="/zh/germany-family-reunion-a1/">Germany A1 Chinese route</a>. Found an outdated official link or rule? <a href="/contact/">Send a correction with the page URL and source</a>.</p>
       </div>
     </section>
   </main>

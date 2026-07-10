@@ -59,9 +59,7 @@ const jsonLD = {
       <header class="library-header">
         <p class="eyebrow">Guide library</p>
         <h1>Browse exam guides</h1>
-        <p>
-        All {sortedGuides.length} VisaLang guides. Filter by country, route, exam, level, or search the library below.
-        </p>
+        <p>Use this as a decision library, not a chronological blog. Start with your country and purpose, then filter by the exact exam or level. Germany A1 is the fullest route; other categories are starter guides that help you prepare the next official check.</p>
       </header>
 
       <div class="library-panel">
@@ -139,12 +137,15 @@ const jsonLD = {
         <p class="filter-fallback">
           Route filters and search use a small browser script. If filtering is unavailable, all guides remain listed below.
         </p>
+        <p class="filter-fallback">
+          Each card tells you the route it supports. Before booking, open the guide, identify the receiving authority, and verify the exact certificate, local centre, fee, date, ID, and result timing.
+        </p>
       </div>
 
       <section class="route-overview content-section compact" aria-labelledby="route-overview-title">
         <div class="section-header">
           <h2 id="route-overview-title">Route overview</h2>
-          <p>Use these route pages when you already know the country or exam family.</p>
+          <p>Use these route pages when you know the country or exam family. Start with Germany A1 for a full decision sequence; treat the remaining country routes as focused starter overviews until the authority and exact proof are clear.</p>
         </div>
         <div class="route-overview-grid">
           {categoriesWithCounts.map(cat => (
@@ -238,7 +239,7 @@ const jsonLD = {
           if (!empty && grid) {
             empty = document.createElement('p');
             empty.className = 'guide-empty-state';
-            empty.textContent = 'No matching guides yet. Try another exam, country, or route.';
+            empty.textContent = 'No matching guide yet. Try the country or route first, then remove a narrow exam or level filter. If you still cannot find a match, verify the requirement with the receiving authority before choosing a test.';
             empty.style.color = 'var(--muted, #6b7280)';
             grid.after(empty);
           }
