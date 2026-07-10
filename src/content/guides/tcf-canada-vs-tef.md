@@ -24,5 +24,5 @@ Both tests give equivalent CLB scores for IRCC purposes. Pick the one with the e
 
 ## Official sources
 
-- [TEF Canada — CCI Paris](https://www.lefrancaisdesaffaires.fr/en/diplomas-tests/test-evaluation-french-canada-tef-canada)
-- [TCF Canada — France Education International](https://www.france-education-international.fr/diplome/tcf-canada)
+- [TEF Canada — Le français des affaires](https://www.lefrancaisdesaffaires.fr/en/)
+- [TCF Canada — France Education International](https://www.france-education-international.fr/en/test/tcf-canada)

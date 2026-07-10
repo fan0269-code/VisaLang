@@ -40,5 +40,5 @@ export const zhCoreOfficialSources = [
   { name: '德国驻外使领馆 / Auswaertiges Amt', href: 'https://www.auswaertiges-amt.de/' },
   { name: 'BAMF 家庭团聚信息', href: 'https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html' },
   { name: 'Goethe-Institut 德语考试', href: 'https://www.goethe.de/en/spr/prf.html' },
-  { name: 'telc Deutsch A1', href: 'https://www.telc.net/en/language-examinations/certificate-exams/german/a1.html' },
+  { name: 'telc Deutsch A1', href: 'https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/' },
 ];

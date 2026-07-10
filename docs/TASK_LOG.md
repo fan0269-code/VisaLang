@@ -4,6 +4,178 @@ Updated: 2026-07-10
 
 This log records current project-map findings, known issues, and recommended next-window boundaries for flowlight.me / VisaLang.
 
+## Final QA Refresh / Deployment Gate - 2026-07-10
+
+Role: final quality check, build/link/mobile/SEO risk gate, and small-fix owner.
+
+Overall conclusion:
+
+- Can deploy, with manual official-source review still recommended for time-sensitive policy, fee, date, test-center, certificate-acceptance, exemption, retake, and result-timing claims.
+- No blocking install, build, route, internal-link, sitemap, robots, canonical, CTA, security-cleanup, or mobile-overflow issue remains after this pass.
+
+Package manager / scripts:
+
+- Used npm because `package-lock.json` is present and no `pnpm-lock.yaml`, `yarn.lock`, or `bun.lockb` was found.
+- `package.json` provides `dev`, `build`, `preview`, `test`, and `launch-check`.
+- `package.json` does not provide `lint` or `typecheck`, so those commands were not run.
+
+Commands run:
+
+- `npm install`: passed.
+- `npm test`: passed.
+- `npm run build`: passed; 79 pages generated.
+- `npm run launch-check`: passed; 55 checks, 0 warnings, 0 failures, `READY`.
+- `npm run dev -- --host 127.0.0.1 --port 4321`: sandbox attempt failed with local listen permission; passed after local-server permission, and checked dev routes returned `200`.
+- `npm run preview -- --host 127.0.0.1 --port 4322`: passed after local-server permission; checked preview routes returned `200`.
+- `git diff --check`: passed.
+
+Pages checked:
+
+- `/`
+- `/guides/`
+- `/guides/?category=germany-a1`
+- `/germany-family-reunion-a1/`
+- `/guides/goethe-a1-fees-by-country/`
+- `/guides/goethe-a1-test-centers/`
+- `/guides/goethe-a1-retake-policy/`
+- `/guides/german-a1-documents-checklist/`
+- `/guides/goethe-a1-speaking-topics/`
+- `/guides/german-a1-family-reunion-faq/`
+- `/guides/goethe-a1-vs-telc-a1/`
+- `/guides/german-family-reunion-language-requirement/`
+- `/guides/goethe-a1-booking-mistakes/`
+- `/guides/goethe-a1-30-day-study-plan/`
+- `/about/`
+- `/editorial-policy/`
+- `/privacy-policy/`
+- `/cookie-policy/`
+- `/terms/`
+- `/affiliate-disclosure/`
+- `/zh/`
+- `/zh/germany-family-reunion-a1/`
+
+Fixes completed:
+
+- Replaced stale telc Deutsch A1 links with the current `start-german1-telc-german-a1` telc page in the English Germany A1 hub, shared Germany A1 support component, Chinese Germany A1 source data, and relevant guides.
+- Replaced stale official-source links that returned 404 in generated output: France Education International DELF/DALF/TCF links, Goethe B1 deep link, OPH YKI link, TEF Canada deep link, IRCC Express Entry language-criteria deep link, and Dutch NT2/CvE entry.
+- Updated the source test assertion so Goethe B1 depth pages still require a Goethe official source while using the reachable Goethe examinations page.
+
+Link / navigation result:
+
+- Internal links passed `launch-check`.
+- Header, Footer, breadcrumbs, Related guides, Germany A1 route links, CTA/contact links, and language-switch links were present in checked generated pages.
+- Checked generated pages had one H1, title, meta description, canonical URL, footer links, and no empty `href`, `href="#"`, or `javascript:` links.
+- A stale-link scan of generated output found 0 occurrences of the old known-bad official URLs after the fix.
+- External link checker still reports some official sites as bot-blocked, redirected, or timeout-prone, especially BAMF, Canada.ca, IELTS, Migri, and CAPLE. These are not treated as confirmed dead links, but should be manually spot-checked in a real browser.
+
+SEO / sitemap result:
+
+- `launch-check` confirmed generated sitemap, robots, guide `lastmod`, canonical URLs, Article/BreadcrumbList JSON-LD, CollectionPage/ItemList JSON-LD, guide category pages, Chinese pages, and legal noindex handling.
+- Duplicate title scan found 0 duplicate generated titles.
+- Duplicate meta-description scan found 0 duplicate generated descriptions.
+- `/guides/?category=germany-a1` remains an intentionally client-filtered view canonicalizing to `/guides/`; indexable category pages remain under `/guides/category/{category}/`.
+
+UI / mobile / security result:
+
+- Existing generated CSS includes protection for long links, guide tables, card grids, responsive grids, and `min-width: 0` layout constraints.
+- No obvious hard-coded wide layout blocker was found in the checked generated pages.
+- Security cleanup scan found no empty href, `javascript:` links, public `YOUR_FORM_ENDPOINT`, API key/secret placeholders, `debugger`, or frontend `console.log` matches in the checked source/static areas.
+- Legal pages use the shared shell and narrow article layout, not raw default templates.
+
+Content / compliance result:
+
+- Risk-term scan found no recommended guaranteed-pass, leaked-material, copied-answer, or official-authority claims. Matches were in prohibitions, disclaimers, or official-source warnings.
+- Thin-content scan still shows several non-core starter pages under roughly 150 body words, but they have updated dates and official-source/disclaimer cues.
+- Germany A1 content continues to avoid fixed fee/date/test-center promises and keeps official-source, test-center, embassy, or consulate verification language.
+
+Remaining risks / manual review:
+
+- No `lint` or `typecheck` scripts exist; add them only in a separate engineering hardening window.
+- External official links should be spot-checked in a normal browser because some official sites block automated checks or redirect through protection pages.
+- BAMF migration overview links timed out or returned bot-protection behavior during automated checking; keep them as manual official-source review items.
+- Legacy root static files still coexist with Astro source/output; do not reconcile or delete them without a separate source-of-truth/deploy task.
+- The actual server deploy path still needs host access/source-of-truth confirmation if deployment is not Git-based.
+
+Recommended next module:
+
+- Proceed with deployment from the current build if the hosting flow builds from the pushed Astro source.
+- After deployment, check production 404s, Search Console sitemap status, and CTA/contact clicks.
+- Next content window should deepen remaining thin non-core guides or continue Germany A1 official-source refreshes; content expansion should happen in a new window.
+
+## Guides + SEO Review Window - 2026-07-10
+
+Role: Guides list, guide template, Germany A1 internal-link, and technical SEO owner.
+
+Scope completed:
+
+- Re-read `docs/PROJECT_CONTEXT.md`, `docs/CONTENT_MAP.md`, and this task log before making changes.
+- Re-checked `/guides/`, `/guides/?category=xxx`, static guide category pages, `/guides/[slug]/`, `/germany-family-reunion-a1/`, Germany A1 core guides, metadata, canonical URLs, structured data, sitemap, robots, and launch checks.
+- Kept the work narrow: no guide-body rewrite, no UI design-system changes, no Header/Footer structure changes, no deploy config changes, and no new fee/date/policy/test-center claims.
+
+Files changed:
+
+- `src/content/guides/german-family-reunion-language-requirement.md`
+- `src/content/guides/goethe-a1-vs-telc-a1.md`
+- `docs/TASK_LOG.md`
+
+Guides list result:
+
+- `/guides/` is currently a guide library rather than a chronological blog: it shows all 49 English guides, has Popular routes, route overview, search, category pills, country / route / exam / level facets, result count, empty state, and guide cards with title, summary, country, route, exam, level, last updated, related route, and CTA.
+- Germany A1 is a visible core route in Popular routes and the route overview.
+- Latest guides do not dominate the page.
+
+Category / filter SEO result:
+
+- `/guides/?category=xxx` remains a client-side filtered view and canonicalizes to `/guides/`, so parameter combinations are not treated as separate indexable pages.
+- Static pages under `/guides/category/{category}/` are the indexable category aggregation pages with route-specific H1, title, meta description, canonical URL, CollectionPage JSON-LD, and ItemList JSON-LD.
+- User wording `telc-deutsch` maps to the existing project slug `germany-telc`; no duplicate category slug was added.
+- Sitemap handling is appropriate: generated sitemap includes static category pages, not query-parameter variants.
+
+Guide template result:
+
+- Guide detail pages share `GuideLayout.astro` with Breadcrumb, H1, one-line summary, route metadata box, audience fit, non-fit, decision support, TOC, main content, official verification, common mistakes, next action, Related guides, Last updated, Disclaimer, CTA, and route backlink.
+- Guide detail SEO includes canonical, Open Graph article type, Article JSON-LD with published/modified dates, and BreadcrumbList JSON-LD.
+
+Germany A1 related-guide changes:
+
+- `german-family-reunion-language-requirement` now points readers to `goethe-a1-vs-telc-a1`, `german-a1-documents-checklist`, and `goethe-a1-germany-family-reunion`, matching the requirement-check -> exam choice -> documents flow.
+- `goethe-a1-vs-telc-a1` now points readers to `goethe-a1-test-centers`, `goethe-a1-fees-by-country`, and `goethe-a1-booking-mistakes`, matching the provider comparison -> centre / price / booking-risk flow.
+- Germany A1 shared route support still links every Germany A1 guide back to `/germany-family-reunion-a1/` and exposes the core guide set, including FAQ.
+
+SEO metadata result:
+
+- Germany A1 title and description improvements from the prior SEO follow-up are still in place.
+- No keyword-stuffed titles were added.
+- No page claims that VisaLang is an official authority.
+- No ratings, reviews, prices, Course schema, or fake FAQPage schema were added.
+
+Sitemap / robots / canonical result:
+
+- Generated sitemap includes `/germany-family-reunion-a1/`, English guides, guide category pages, and generated Chinese pages.
+- Generated sitemap excludes configured noindex legal pages.
+- `public/robots.txt` points to `https://flowlight.me/sitemap-index.xml`.
+- Guide pages canonicalize to `/guides/{slug}/`.
+- Static category pages canonicalize to `/guides/category/{category}/`.
+- Query-filtered `/guides/?category=...` URLs remain non-canonical duplicate views.
+
+Still needs content window:
+
+- Germany A1 short-body pages still worth deepening without changing the current SEO shell: `goethe-a1-test-centers`, `goethe-a1-retake-policy`, `german-a1-documents-checklist`, `goethe-a1-speaking-topics`, `goethe-a1-30-day-study-plan`, `goethe-a1-vs-telc-a1`, and `german-family-reunion-language-requirement`.
+- Non-Germany thin starter guides remain content-window work, especially Portugal, Netherlands, Italy, Canada/French, and some TestDaF/telc pages listed in the earlier follow-up section.
+
+Still needs UI window:
+
+- No UI window is required before final QA. A UI sitewide unity pass has already run.
+- Optional human screenshot review remains useful for `/guides/`, `/guides/category/germany-a1/`, a representative guide detail page, `/germany-family-reunion-a1/`, and mobile filters.
+
+Verification:
+
+- `npm test`: passed.
+- `npm run build`: passed, 79 pages generated.
+- `npm run launch-check`: passed, 55 checks, READY.
+- `npm run lint`: not available in `package.json`, so not run.
+- `npm run typecheck`: not available in `package.json`, so not run.
+
 ## Final QA / Deployment Check Window - 2026-07-10
 
 Role: final quality check and deployment readiness owner.

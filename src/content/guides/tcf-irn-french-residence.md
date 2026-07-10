@@ -32,4 +32,4 @@ TCF IRN is a French language proficiency test designed for people applying for F
 
 ## Official sources
 
-- [TCF — France Education International](https://www.france-education-international.fr/diplome/tcf)
+- [TCF IRN — France Education International](https://www.france-education-international.fr/en/test/tcf-irn)

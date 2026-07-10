@@ -41,5 +41,5 @@ Both TEF Canada and TCF Canada are IRCC-approved. The choice often comes down to
 
 ## Official sources
 
-- [TEF Canada — CCI Paris Ile-de-France](https://www.lefrancaisdesaffaires.fr/en/diplomas-tests/test-evaluation-french-canada-tef-canada)
-- [IRCC — Express Entry language criteria](https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/criteria/first-nation-language.html)
+- [TEF Canada — Le français des affaires](https://www.lefrancaisdesaffaires.fr/en/)
+- [IRCC — Express Entry eligibility](https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility.html)

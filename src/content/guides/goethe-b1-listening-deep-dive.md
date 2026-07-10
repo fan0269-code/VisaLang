@@ -83,7 +83,7 @@ Do not assume one listening test is easier from anecdotes. Compare official samp
 
 ## Official sources
 
-- [Goethe-Zertifikat B1 official exam page](https://www.goethe.de/en/spr/prf/prf/zb1.html)
+- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
 - [Goethe-Institut German examinations overview](https://www.goethe.de/en/spr/prf.html)
 
 ## Revision history

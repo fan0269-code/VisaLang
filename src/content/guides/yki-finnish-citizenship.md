@@ -36,4 +36,4 @@ YKI tests reading, writing, listening, and speaking at the chosen level. Free pr
 
 ## Official sources
 
-- [YKI — Finnish National Agency for Education (Opetushallitus)](https://www.oph.fi/en/education-and-qualifications/national-certificate-language-proficiency-yki)
+- [YKI — Finnish National Agency for Education (Opetushallitus)](https://www.oph.fi/en/national-certificates-language-proficiency-yki)

@@ -45,7 +45,7 @@ export const exams: Exam[] = [
   { name: 'TCF IRN', officialSource: 'https://www.france-education-international.fr/', lastUpdated: '2026-07-01', category: 'Language Visa', country: 'France' },
   { name: 'TEF Canada', officialSource: 'https://www.lefrancaisdesaffaires.fr/', lastUpdated: '2026-07-01', category: 'Language Visa', country: 'Canada' },
   { name: 'TCF Canada', officialSource: 'https://www.france-education-international.fr/', lastUpdated: '2026-07-01', category: 'Language Visa', country: 'Canada' },
-  { name: 'YKI Finnish', officialSource: 'https://www.oph.fi/en/education-and-qualifications/national-certificate-language-proficiency-yki', lastUpdated: '2026-07-01', category: 'Language Visa', country: 'Finland' },
+  { name: 'YKI Finnish', officialSource: 'https://www.oph.fi/en/national-certificates-language-proficiency-yki', lastUpdated: '2026-07-01', category: 'Language Visa', country: 'Finland' },
   { name: 'IELTS UKVI', officialSource: 'https://ielts.org/', lastUpdated: '2026-07-01', category: 'Language Visa', country: 'United Kingdom' },
   { name: 'LanguageCert SELT', officialSource: 'https://www.languagecert.org/', lastUpdated: '2026-07-01', category: 'Language Visa', country: 'United Kingdom' },
   { name: 'OET', officialSource: 'https://www.occupationalenglishtest.org/', lastUpdated: '2026-06-30', category: 'Medical Language', country: 'Global' },

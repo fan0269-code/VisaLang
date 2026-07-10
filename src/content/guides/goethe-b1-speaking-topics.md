@@ -88,7 +88,7 @@ The best choice is the accepted and available exam for your route. Compare offic
 
 ## Official sources
 
-- [Goethe-Zertifikat B1 official exam page](https://www.goethe.de/en/spr/prf/prf/zb1.html)
+- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
 - [Goethe-Institut German examinations overview](https://www.goethe.de/en/spr/prf.html)
 
 ## Revision history

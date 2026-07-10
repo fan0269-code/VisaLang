@@ -407,7 +407,7 @@ assert.ok(fs.readFileSync("src/content/guides/ielts-ukvi-uk-visa.md", "utf8").in
 for (const slug of astroGoetheB1DepthSlugs) {
   const guide = fs.readFileSync(`src/content/guides/${slug}.md`, "utf8");
   assert.ok(guide.includes(`slug: "${slug}"`), `Astro should include ${slug}`);
-  assert.ok(guide.includes("Goethe-Zertifikat B1 official exam page"), `${slug} should cite the official Goethe B1 source`);
+  assert.ok(guide.includes("Goethe-Institut German examinations"), `${slug} should cite the official Goethe B1 source`);
   assert.ok(guide.includes("Official sources last checked: 2026-07-04"), `${slug} should show source check date`);
 }
 const heroStart = homepage.indexOf('<section class="hero">');

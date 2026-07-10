@@ -28,4 +28,5 @@ For citizenship by naturalisation, confirm with the prefecture whether DELF B1 i
 
 ## Official sources
 
-- [DELF and DALF — France Education International](https://www.france-education-international.fr/diplome/delf-dalf)
+- [DELF tout public — France Education International](https://www.france-education-international.fr/en/diplome/delf-tout-public)
+- [DALF — France Education International](https://www.france-education-international.fr/en/diplome/dalf)

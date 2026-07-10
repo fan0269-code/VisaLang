@@ -10,7 +10,7 @@ readingTime: "5"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["goethe-a1-germany-family-reunion", "goethe-a1-vs-telc-a1", "german-a1-family-reunion-faq"]
+related: ["goethe-a1-vs-telc-a1", "german-a1-documents-checklist", "goethe-a1-germany-family-reunion"]
 ---
 
 ## What BAMF says

@@ -10,7 +10,7 @@ readingTime: "8"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["goethe-a1-booking-mistakes", "goethe-a1-test-centers", "german-a1-documents-checklist"]
+related: ["goethe-a1-test-centers", "goethe-a1-fees-by-country", "goethe-a1-booking-mistakes"]
 ---
 
 ## The first comparison is acceptance

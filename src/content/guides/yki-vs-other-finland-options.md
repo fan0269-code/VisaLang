@@ -27,5 +27,5 @@ Always confirm with Migri which proof they accept for your specific application.
 
 ## Official sources
 
-- [YKI — Opetushallitus](https://www.oph.fi/en/education-and-qualifications/national-certificate-language-proficiency-yki)
+- [YKI — Opetushallitus](https://www.oph.fi/en/national-certificates-language-proficiency-yki)
 - [Finnish Immigration Service (Migri) — Citizenship](https://migri.fi/en/citizenship-application)

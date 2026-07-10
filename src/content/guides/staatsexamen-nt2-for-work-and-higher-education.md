@@ -25,4 +25,4 @@ Inburgering is for integration/citizenship. NT2 is for education and career. If 
 ## Official sources
 
 - [DUO Inburgeren](https://www.inburgeren.nl/en/)
-- [College voor Toetsen en Examens](https://www.cve.nl/)
+- [Staatsexamens NT2](https://www.staatsexamensnt2.nl/)
