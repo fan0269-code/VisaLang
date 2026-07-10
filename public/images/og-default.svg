@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f1f8f3"/>
-      <stop offset="100%" stop-color="#e6f1ea"/>
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="100" cy="80" r="200" fill="#0f5132" opacity="0.05"/>
-  <circle cx="1100" cy="550" r="180" fill="#b07817" opacity="0.05"/>
-  <text x="600" y="280" font-family="Georgia, serif" font-size="96" font-weight="700" fill="#0f5132" text-anchor="middle">VisaLang</text>
-  <text x="600" y="360" font-family="system-ui, sans-serif" font-size="32" fill="#5a6b62" text-anchor="middle">Find the right language exam</text>
-  <text x="600" y="410" font-family="system-ui, sans-serif" font-size="32" fill="#5a6b62" text-anchor="middle">for your next move</text>
+  <circle cx="100" cy="80" r="200" fill="#2563eb" opacity="0.08"/>
+  <circle cx="1100" cy="550" r="180" fill="#0f766e" opacity="0.08"/>
+  <text x="600" y="280" font-family="Georgia, serif" font-size="96" font-weight="700" fill="#1d4ed8" text-anchor="middle">VisaLang</text>
+  <text x="600" y="360" font-family="system-ui, sans-serif" font-size="32" fill="#475569" text-anchor="middle">Find the right language exam</text>
+  <text x="600" y="410" font-family="system-ui, sans-serif" font-size="32" fill="#475569" text-anchor="middle">for your next move</text>
 </svg>

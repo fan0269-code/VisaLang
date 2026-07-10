@@ -4,7 +4,7 @@ description: "How to prepare for the listening section of the Goethe A1 exam, wi
 category: "germany-a1"
 slug: "goethe-a1-listening-practice"
 publishedDate: "2026-07-02"
-updatedDate: "2026-07-02"
+updatedDate: "2026-07-09"
 author: "VisaLang"
 readingTime: "6"
 featured: false

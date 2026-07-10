@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { zhGermanyA1Guides, zhCoreOfficialSources } from '../data/zh-germany-a1';
+
+export interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  updatedDate?: string;
+  englishHref?: string;
+  related?: string[];
+}
+
+const {
+  title,
+  description,
+  slug,
+  updatedDate = '2026-07-09',
+  englishHref = `/guides/${slug}/`,
+  related = [],
+} = Astro.props;
+
+const canonicalURL = `https://flowlight.me/zh/guides/${slug}/`;
+const englishURL = new URL(englishHref, 'https://flowlight.me').href;
+const relatedGuides = related
+  .map((relatedSlug) => zhGermanyA1Guides.find((guide) => guide.slug === relatedSlug))
+  .filter(Boolean);
+
+const jsonLD = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  url: canonicalURL,
+  datePublished: '2026-07-09',
+  dateModified: updatedDate,
+  author: { '@type': 'Organization', name: 'VisaLang' },
+  publisher: { '@type': 'Organization', name: 'VisaLang', url: 'https://flowlight.me/' },
+  inLanguage: 'zh-CN',
+  mainEntityOfPage: canonicalURL,
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalURL={canonicalURL}
+  ogType="article"
+  lang="zh-CN"
+  alternates={[
+    { lang: 'zh-CN', href: canonicalURL },
+    { lang: 'en', href: englishURL },
+    { lang: 'x-default', href: englishURL },
+  ]}
+  jsonLD={jsonLD}
+>
+  <main class="guide-page">
+    <nav class="guide-breadcrumb" aria-label="Breadcrumb">
+      <a href="/zh/">中文首页</a>
+      <span class="sep" aria-hidden="true">/</span>
+      <a href="/zh/germany-family-reunion-a1/">德国 A1 家庭团聚</a>
+      <span class="sep" aria-hidden="true">/</span>
+      <span class="current">{title}</span>
+    </nav>
+    <article class="guide-article narrow-page">
+      <p class="eyebrow">德国 A1 · 中文指南</p>
+      <h1>{title}</h1>
+      <section class="guide-summary-box" id="summary" aria-label="指南摘要">
+        <p class="guide-summary">{description}</p>
+        <dl>
+          <dt>适用路线</dt>
+          <dd>德国配偶团聚 / 家庭团聚 A1 语言证明</dd>
+          <dt>核验原则</dt>
+          <dd>先看德国使领馆、BAMF、Goethe、telc 官方信息</dd>
+        </dl>
+      </section>
+      <div class="guide-trustbar" aria-label="指南可靠性提示">
+        <span>最后更新：<time datetime={updatedDate}>{updatedDate}</time></span>
+        <span>政策、考位、费用和证书接受范围可能变化，请以官方最新要求为准。</span>
+      </div>
+      <slot />
+      <section class="guide-template-box" id="official-verification">
+        <h2>最后一定要核对官方来源</h2>
+        <p>本文只帮你整理判断顺序，不替代签证政策、考试报名页面或个案审核结果。提交材料或付款报名前，请核对当前德国使领馆、BAMF、Goethe-Institut、telc 和当地考点页面。</p>
+        <ul>
+          {zhCoreOfficialSources.map((source) => (
+            <li><a href={source.href}>{source.name}</a></li>
+          ))}
+        </ul>
+      </section>
+      <section class="guide-disclaimer" id="disclaimer">
+        <h2>合规提醒</h2>
+        <p>VisaLang 不提供签证法律意见，不承诺通过考试或签证，不提供泄题、真题答案或任何违规材料。遇到费用、考试日期、豁免条件、证书有效期和接受范围，请以官方最新要求为准。</p>
+      </section>
+    </article>
+    {relatedGuides.length > 0 && (
+      <section class="guide-related" aria-labelledby="related-title">
+        <h2 id="related-title">下一步可以看</h2>
+        <div class="guide-related-grid">
+          {relatedGuides.map((guide) => guide && (
+            <a class="article-card" href={guide.href}>
+              <p class="card-category">德国 A1 中文指南</p>
+              <h3>{guide.title}</h3>
+              <p class="card-meta">{guide.description}</p>
+            </a>
+          ))}
+        </div>
+        <p><a class="route-backlink" href="/zh/germany-family-reunion-a1/">返回德国 A1 中文专题</a></p>
+      </section>
+    )}
+  </main>
+</BaseLayout>

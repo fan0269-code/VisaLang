@@ -10,7 +10,7 @@ readingTime: "5"
 featured: false
 eyebrow: "Italy · Citizenship"
 route: "italy"
-related: []
+related: ["cils-b1-cittadinanza-for-italian-citizenship"]
 ---
 
 ## Quick comparison

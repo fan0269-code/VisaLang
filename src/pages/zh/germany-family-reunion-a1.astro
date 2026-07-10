@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { zhGermanyA1Guides, zhCoreOfficialSources } from '../../data/zh-germany-a1';
+
+const canonicalURL = 'https://flowlight.me/zh/germany-family-reunion-a1/';
+const jsonLD = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: 'zh-CN',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '德国配偶团聚一定要 A1 吗？',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: '很多配偶团聚申请会涉及基础德语 A1 证明，但是否适用、是否有豁免、接受哪种证书，要以负责你个案的德国使领馆或主管机关最新要求为准。',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Goethe A1 和 telc A1 哪个更稳？',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: '更稳的不是品牌本身，而是你的主管机关明确接受、你能按时拿到结果、材料名称和证件规则都符合要求的那一个。',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="德国 A1 家庭团聚中文专题"
+  description="面向中文用户的德国配偶团聚 A1 路线：是否需要 A1、Goethe A1 vs telc A1、报名避坑、材料清单、备考计划和官方核验。"
+  canonicalURL={canonicalURL}
+  lang="zh-CN"
+  alternates={[
+    { lang: 'zh-CN', href: canonicalURL },
+    { lang: 'en', href: 'https://flowlight.me/germany-family-reunion-a1/' },
+    { lang: 'x-default', href: 'https://flowlight.me/germany-family-reunion-a1/' },
+  ]}
+  jsonLD={jsonLD}
+>
+  <main class="page-shell">
+    <article class="guide-article route-hub-page">
+      <p class="eyebrow">德国 · 配偶团聚 · A1</p>
+      <h1>德国 A1 家庭团聚中文专题</h1>
+      <p class="guide-summary">如果你正在准备德国配偶团聚或家庭团聚，先别急着报名考试。正确顺序是：确认自己是否需要 A1，确认哪些证书被接受，再看报名、材料、备考和重考风险。</p>
+
+      <div class="guide-trustbar" aria-label="官方核验提示">
+        <span>最后更新：<time datetime="2026-07-09">2026-07-09</time></span>
+        <span>本文不替代德国使领馆、BAMF、Goethe、telc 官方页面；不确定处请以官方最新要求为准。</span>
+      </div>
+
+      <h2>先回答中文用户最常见的几个问题</h2>
+      <h3>德国配偶团聚到底要不要 A1？</h3>
+      <p>很多配偶团聚路径会要求申请人证明基础德语能力，但不能只听“别人也这么办”。是否需要 A1、是否符合豁免、需要哪种证明，取决于你的关系类型、申请地、德国一方身份、当地使领馆文件清单和当前政策。先看官方清单，再决定考试。</p>
+
+      <h3>Goethe A1 和 telc A1 哪个更稳？</h3>
+      <p>对签证材料来说，“更稳”通常意味着：主管机关接受、证书名称清楚、考试等级和技能覆盖符合要求、出分时间能赶上预约、考点规则和证件要求你能满足。不要只用“哪个更容易”做决定。</p>
+
+      <h3>人在中国怎么报名？</h3>
+      <p>先找 Goethe-Institut 或对应官方考点页面，查看当前城市、日期、费用、证件、报名方式、退改规则和出分时间。本文不会编造费用或考试日期，因为这些信息最容易变化。</p>
+
+      <h3>证书多久有效？如果没通过怎么办？</h3>
+      <p>证书有效期、是否要求近期成绩、是否接受旧证书、没通过后的重考间隔和能否赶上签证预约，都要以使领馆、考试主办方和当地考点最新规则为准。备考时要给自己留出重考和补材料时间。</p>
+
+      <h2 id="zh-guides">中文核心指南</h2>
+      <div class="guide-related-grid">
+        {zhGermanyA1Guides.map((guide) => (
+          <a class="article-card" href={guide.href}>
+            <p class="card-category">德国 A1 中文指南</p>
+            <h3>{guide.title}</h3>
+            <p class="card-meta">{guide.description}</p>
+          </a>
+        ))}
+      </div>
+
+      <h2>哪些信息不能只信中介或经验帖</h2>
+      <ul>
+        <li>当前是否需要 A1，以及你的个案是否可能豁免。</li>
+        <li>Goethe A1、telc A1 或其他证书是否被你的主管机关接受。</li>
+        <li>考试费用、日期、考点名额、证件规则、退改规则和出分时间。</li>
+        <li>签证材料清单里对语言证明原件、复印件、翻译件或有效期的要求。</li>
+      </ul>
+
+      <h2>官方核验入口</h2>
+      <p>这组中文内容的作用是帮你组织问题，不是替你判断政策。每次报名或递签前，都要重新核验官方信息。</p>
+      <ul>
+        {zhCoreOfficialSources.map((source) => (
+          <li><a href={source.href}>{source.name}</a></li>
+        ))}
+      </ul>
+
+      <p><a class="primary-action" href="/zh/guides/german-family-reunion-language-requirement/">从“是否需要 A1”开始</a></p>
+    </article>
+  </main>
+</BaseLayout>

@@ -1,14 +1,23 @@
 ---
 interface RelatedGuide { title: string; slug: string; }
-export interface Props { guides: RelatedGuide[]; }
-const { guides } = Astro.props;
+export interface Props {
+  guides: RelatedGuide[];
+  routeHref?: string;
+  routeLabel?: string;
+}
+const { guides, routeHref, routeLabel = 'this route' } = Astro.props;
 ---
 
-{guides.length > 0 && (
+{(guides.length > 0 || routeHref) && (
   <section class="guide-related" aria-label="Related guides">
     <h2>Related guides</h2>
-    <div class="guide-related-grid">
-      {guides.map(g => (<a href={`/guides/${g.slug}/`}>{g.title}</a>))}
-    </div>
+    {guides.length > 0 && (
+      <div class="guide-related-grid">
+        {guides.map(g => (<a href={`/guides/${g.slug}/`}>{g.title}</a>))}
+      </div>
+    )}
+    {routeHref && (
+      <a class="route-backlink" href={routeHref}>Browse all guides in {routeLabel}</a>
+    )}
   </section>
 )}

@@ -10,7 +10,7 @@ readingTime: "5"
 featured: false
 eyebrow: "Italy · Citizenship"
 route: "italy"
-related: []
+related: ["cils-vs-celi-vs-plida-for-italian-citizenship"]
 ---
 
 ## What it is

@@ -1,7 +1,7 @@
 ---
 title: "TCF IRN for French Residence and Citizenship"
 description: "How TCF IRN works for French residence permits and citizenship language proof."
-category: "canada-france"
+category: "france"
 slug: "tcf-irn-french-residence"
 publishedDate: "2026-07-01"
 updatedDate: "2026-07-01"
@@ -9,8 +9,8 @@ author: "VisaLang"
 readingTime: "5"
 featured: false
 eyebrow: "France · Residence"
-route: "canada-france"
-related: ["cils-b1-cittadinanza-for-italian-citizenship", "dele-a2-ccse-spanish-citizenship", "dutch-inburgering-a2-b1-for-integration-and-citize"]
+route: "france"
+related: ["delf-b1-b2-french-work-study"]
 ---
 
 ## What TCF IRN is

@@ -1,16 +1,16 @@
 ---
-title: "German A1 Family Reunion FAQ"
-description: "Answers to the most common questions about the German A1 language requirement for family reunion visas."
+title: "German A1 family reunion FAQ: language proof questions"
+description: "Common questions about German A1 language proof for family reunion, including who may need it, exemptions, certificates, and official checks."
 category: "germany-a1"
 slug: "german-a1-family-reunion-faq"
 publishedDate: "2026-07-02"
-updatedDate: "2026-07-02"
+updatedDate: "2026-07-10"
 author: "VisaLang"
 readingTime: "7"
 featured: false
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["goethe-a1-germany-family-reunion", "german-family-reunion-language-requirement", "goethe-a1-vs-telc-a1"]
+related: ["german-family-reunion-language-requirement", "goethe-a1-vs-telc-a1", "german-a1-documents-checklist"]
 ---
 Here are the most common questions about the German A1 language requirement for family reunion visas, answered with what we know from official sources.
 

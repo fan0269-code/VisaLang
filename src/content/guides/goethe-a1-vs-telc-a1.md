@@ -1,16 +1,16 @@
 ---
-title: "Goethe A1 vs telc A1"
-description: "Goethe A1 vs telc A1 for the German family reunion visa: acceptance, format differences, fees, and how to choose."
+title: "Goethe A1 vs telc A1 for German family reunion"
+description: "Compare Goethe A1 and telc A1 for German family reunion planning, including acceptance checks, format differences, fees, centres, and booking risk."
 category: "germany-a1"
 slug: "goethe-a1-vs-telc-a1"
 publishedDate: "2026-06-30"
-updatedDate: "2026-06-30"
+updatedDate: "2026-07-10"
 author: "VisaLang"
 readingTime: "5"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["german-a1-documents-checklist", "german-family-reunion-language-requirement", "goethe-a1-30-day-study-plan"]
+related: ["goethe-a1-booking-mistakes", "goethe-a1-test-centers", "german-a1-documents-checklist"]
 ---
 
 ## Compare before booking

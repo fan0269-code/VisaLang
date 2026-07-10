@@ -4,13 +4,13 @@ description: "A step-by-step checklist of what to verify before you pay for and 
 category: "germany-a1"
 slug: "goethe-a1-pre-booking-checklist"
 publishedDate: "2026-07-02"
-updatedDate: "2026-07-02"
+updatedDate: "2026-07-09"
 author: "VisaLang"
 readingTime: "5"
 featured: false
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["goethe-a1-booking-mistakes", "goethe-a1-fees-by-country", "german-a1-documents-checklist"]
+related: ["goethe-a1-booking-mistakes", "german-a1-documents-checklist", "german-a1-exam-booking-timeline"]
 ---
 Before you pay for and book your Goethe A1 exam, work through this checklist. Catching issues now saves time, money, and the stress of a rejected application later.
 

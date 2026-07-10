@@ -10,7 +10,7 @@ readingTime: "5"
 featured: false
 eyebrow: "UK · Visa"
 route: "uk"
-related: ["cils-b1-cittadinanza-for-italian-citizenship", "dutch-inburgering-a2-b1-for-integration-and-citize", "portuguese-ciple-a2-for-citizenship-and-residence"]
+related: ["languagecert-selt-uk-visa"]
 ---
 
 ## What IELTS UKVI is

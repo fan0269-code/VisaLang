@@ -10,7 +10,7 @@ readingTime: "5"
 featured: false
 eyebrow: "Netherlands · Integration"
 route: "netherlands"
-related: []
+related: ["staatsexamen-nt2-for-work-and-higher-education"]
 ---
 
 ## What it covers

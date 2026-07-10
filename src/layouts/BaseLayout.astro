@@ -8,7 +8,10 @@ export interface Props {
   description?: string;
   canonicalURL?: string;
   ogImage?: string;
+  ogType?: string;
   noindex?: boolean;
+  lang?: string;
+  alternates?: { lang: string; href: string }[];
   jsonLD?: Record<string, unknown>;
 }
 
@@ -16,28 +19,36 @@ const {
   title,
   description = 'Find the right language exam for your visa, residency, citizenship, or work-registration path.',
   canonicalURL = Astro.url.href,
-  ogImage = '/images/og-default.png',
+  ogImage = '/images/og-default.svg',
+  ogType = 'website',
   noindex = false,
+  lang = 'en',
+  alternates = [],
   jsonLD,
 } = Astro.props;
+
+const pageTitle = /(^|\s|\|)VisaLang($|\s)/i.test(title) ? title : `${title} | VisaLang`;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{title} | VisaLang</title>
+  <title>{pageTitle}</title>
   <meta name="description" content={description}>
   {noindex && <meta name="robots" content="noindex,follow">}
   <link rel="canonical" href={canonicalURL}>
-  <meta property="og:title" content={`${title} | VisaLang`}>
+  {alternates.map((alternate) => (
+    <link rel="alternate" hreflang={alternate.lang} href={alternate.href}>
+  ))}
+  <meta property="og:title" content={pageTitle}>
   <meta property="og:description" content={description}>
   <meta property="og:url" content={canonicalURL}>
-  <meta property="og:type" content="website">
+  <meta property="og:type" content={ogType}>
   <meta property="og:image" content={ogImage}>
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content={`${title} | VisaLang`}>
+  <meta name="twitter:title" content={pageTitle}>
   <meta name="twitter:description" content={description}>
   {jsonLD && (
     <script type="application/ld+json" set:html={JSON.stringify(jsonLD)}></script>

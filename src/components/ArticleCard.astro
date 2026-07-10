@@ -1,13 +1,55 @@
 ---
 export interface Props {
-  title: string; slug: string; category?: string; readingTime?: string; description?: string;
+  title: string;
+  slug: string;
+  category?: string;
+  readingTime?: string;
+  description?: string;
+  country?: string;
+  route?: string;
+  exam?: string;
+  level?: string;
+  updatedDate?: string;
+  relatedRouteHref?: string;
+  ctaLabel?: string;
 }
-const { title, slug, category, readingTime, description } = Astro.props;
+const {
+  title,
+  slug,
+  category,
+  readingTime,
+  description,
+  country,
+  route,
+  exam,
+  level,
+  updatedDate,
+  relatedRouteHref,
+  ctaLabel = 'Read guide',
+} = Astro.props;
+const tags = [
+  country && { label: country },
+  route && { label: route },
+  exam && { label: exam },
+  level && { label: level },
+].filter(Boolean) as { label: string }[];
 ---
 
-<a href={`/guides/${slug}/`} class="article-card">
+<article class="article-card">
   {category && <p class="card-category">{category}</p>}
-  <h3>{title}</h3>
+  <h3><a href={`/guides/${slug}/`}>{title}</a></h3>
   {description && <p class="card-meta">{description}</p>}
-  {readingTime && <span class="card-meta">{readingTime} min read</span>}
-</a>
+  {tags.length > 0 && (
+    <ul class="card-tags" aria-label="Guide tags">
+      {tags.map((tag) => <li>{tag.label}</li>)}
+    </ul>
+  )}
+  <div class="card-footer">
+    {updatedDate && <span>Updated {updatedDate}</span>}
+    {readingTime && <span>{readingTime} min read</span>}
+  </div>
+  <div class="card-actions">
+    {relatedRouteHref && <a href={relatedRouteHref}>Related route</a>}
+    <a href={`/guides/${slug}/`}>{ctaLabel}</a>
+  </div>
+</article>

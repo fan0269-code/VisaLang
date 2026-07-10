@@ -5,9 +5,8 @@ const updated = '2026-07-02';
 ---
 
 <BaseLayout title="Terms & Disclaimer" description="Terms of use and disclaimer for VisaLang." jsonLD={jsonLD} noindex={true}>
-  <main class="guide-page">
-    <div class="guide-layout" style="grid-template-columns: 1fr">
-      <article class="guide-article" style="max-width:680px;margin:0 auto">
+  <main class="page-shell">
+    <article class="guide-article narrow-page">
         <p class="eyebrow">Legal</p>
         <h1>Terms &amp; Disclaimer</h1>
         <p class="guide-summary">Last updated: {updated}</p>
@@ -38,7 +37,6 @@ const updated = '2026-07-02';
 
         <p class="compliance-line">VisaLang is an independent publication. Always confirm requirements with the official source before booking.</p>
         <p class="last-updated">Last updated: {updated}</p>
-      </article>
-    </div>
+    </article>
   </main>
 </BaseLayout>

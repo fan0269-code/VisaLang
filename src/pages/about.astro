@@ -7,9 +7,8 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'AboutPage', name: '
 ---
 
 <BaseLayout title="About" description="About VisaLang — your independent language-exam navigation site." jsonLD={jsonLD}>
-  <main class="guide-page">
-    <div class="guide-layout" style="grid-template-columns: 1fr">
-      <article class="guide-article" style="max-width:680px;margin:0 auto">
+  <main class="page-shell">
+    <article class="guide-article narrow-page">
         <p class="eyebrow">About</p>
         <h1>About VisaLang</h1>
         <p class="guide-summary">VisaLang is a bilingual (English / Chinese) language-exam navigation site built for the moment when a visa, residency, citizenship, or work-registration path requires proof of language skill.</p>
@@ -49,7 +48,6 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'AboutPage', name: '
 
         <p class="compliance-line">VisaLang is an independent publication. We are not a government authority, exam owner, immigration lawyer, or visa agency.</p>
         <p class="last-updated">Last updated: {updated}</p>
-      </article>
-    </div>
+    </article>
   </main>
 </BaseLayout>

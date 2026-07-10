@@ -3,10 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const updated = '2026-07-02';
 ---
 
-<BaseLayout title="Cookie Policy" description="How VisaLang uses cookies." noindex={true}>
-  <main class="guide-page">
-    <div class="guide-layout" style="grid-template-columns: 1fr">
-      <article class="guide-article" style="max-width:680px;margin:0 auto">
+<BaseLayout title="Cookie Policy" description="How VisaLang uses analytics, preference cookies, and third-party embeds while keeping language-exam route guidance privacy-conscious." noindex={true}>
+  <main class="page-shell">
+    <article class="guide-article narrow-page">
         <p class="eyebrow">Legal</p>
         <h1>Cookie Policy</h1>
         <p class="guide-summary">Last updated: {updated}</p>
@@ -31,7 +30,6 @@ const updated = '2026-07-02';
 
         <p class="compliance-line">See also our <a href="/privacy-policy/">Privacy Policy</a>.</p>
         <p class="last-updated">Last updated: {updated}</p>
-      </article>
-    </div>
+    </article>
   </main>
 </BaseLayout>

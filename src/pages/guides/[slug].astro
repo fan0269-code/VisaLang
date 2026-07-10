@@ -1,6 +1,8 @@
 ---
 import { getCollection, render } from 'astro:content';
 import GuideLayout from '../../layouts/GuideLayout.astro';
+import GermanyA1RouteSupport from '../../components/GermanyA1RouteSupport.astro';
+import { formatRouteLabel, inferGuideMeta } from '../../data/guide-taxonomy';
 
 export async function getStaticPaths() {
   const guides = await getCollection('guides');
@@ -20,9 +22,9 @@ const relatedGuides = frontmatter.related
   .filter(Boolean)
   .map(g => ({ title: g!.data.title, slug: g!.data.slug }));
 
-const routeLabel = frontmatter.route
-  ? frontmatter.route.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase())
-  : '';
+const guideMeta = inferGuideMeta(frontmatter);
+const routeLabel = formatRouteLabel(frontmatter.route, frontmatter.category);
+const routeHref = frontmatter.category ? `/guides/category/${frontmatter.category}/` : undefined;
 ---
 
 <GuideLayout
@@ -34,11 +36,19 @@ const routeLabel = frontmatter.route
   eyebrow={frontmatter.eyebrow}
   breadcrumbs={[
     { label: 'Home', href: '/' },
-    ...(routeLabel ? [{ label: routeLabel, href: `/#${frontmatter.route}` }] : []),
+    ...(routeLabel && routeHref ? [{ label: routeLabel, href: routeHref }] : []),
     { label: frontmatter.title },
   ]}
   related={relatedGuides}
+  routeHref={routeHref}
+  routeLabel={routeLabel}
+  country={guideMeta.country}
+  exam={guideMeta.exam}
+  level={guideMeta.level}
   headings={headings}
 >
   <Content />
+  {frontmatter.category === 'germany-a1' && (
+    <GermanyA1RouteSupport updatedDate={frontmatter.updatedDate} />
+  )}
 </GuideLayout>

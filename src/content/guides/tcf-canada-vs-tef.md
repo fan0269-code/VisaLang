@@ -1,7 +1,7 @@
 ---
 title: "TCF Canada vs TEF Canada — Which to Take"
 description: "Side-by-side comparison of the two IRCC-approved French language tests for Canadian immigration."
-category: "canada-france"
+category: "canada"
 slug: "tcf-canada-vs-tef"
 publishedDate: "2026-07-01"
 updatedDate: "2026-07-01"
@@ -9,8 +9,8 @@ author: "VisaLang"
 readingTime: "5"
 featured: false
 eyebrow: "Canada · Immigration"
-route: "canada-france"
-related: ["cils-b1-cittadinanza-for-italian-citizenship", "dele-a2-ccse-spanish-citizenship", "dutch-inburgering-a2-b1-for-integration-and-citize"]
+route: "canada"
+related: ["tef-canada-immigration"]
 ---
 
 ## Quick comparison

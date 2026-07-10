@@ -1,16 +1,16 @@
 ---
-title: "30-day Goethe A1 study plan"
-description: "A focused 30-day Goethe A1 study plan covering all four skills, daily tasks, and free official practice materials."
+title: "30-day Goethe A1 study plan for family reunion"
+description: "A focused 30-day Goethe A1 study plan for family reunion applicants, covering four skills, daily practice, official materials, and risk checks."
 category: "germany-a1"
 slug: "goethe-a1-30-day-study-plan"
 publishedDate: "2026-06-30"
-updatedDate: "2026-06-30"
+updatedDate: "2026-07-10"
 author: "VisaLang"
 readingTime: "5"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["german-a1-documents-checklist", "german-family-reunion-language-requirement", "goethe-a1-fees-by-country"]
+related: ["goethe-a1-speaking-topics", "goethe-a1-listening-practice", "goethe-a1-official-links-practice-resources"]
 ---
 
 ## Weekly structure

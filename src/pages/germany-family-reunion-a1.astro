@@ -9,35 +9,113 @@ const jsonLD = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: 'Do I need a German A1 certificate for a family reunion visa?', acceptedAnswer: { '@type': 'Answer', text: 'Most spouse and family reunion visa applicants need to prove basic German skills at the A1 CEFR level. Goethe-Zertifikat A1 is widely accepted. Always verify with the German mission handling your case.' }},
-    { '@type': 'Question', name: 'Which exams are accepted for German family reunion?', acceptedAnswer: { '@type': 'Answer', text: 'Goethe-Zertifikat A1 and telc Deutsch A1 are the most common accepted exams. Both are officially recognized. Check with your local German embassy or Auslanderbehorde.' }},
-    { '@type': 'Question', name: 'How much does the Goethe A1 exam cost?', acceptedAnswer: { '@type': 'Answer', text: 'Fees vary by country and test centre. As a rough guide, internal Goethe fees are typically lower than external fees. Always check the local Goethe-Institut or exam centre for your exact fee.' }},
-    { '@type': 'Question', name: 'How long does it take to prepare for Goethe A1?', acceptedAnswer: { '@type': 'Answer', text: 'A 30-day focused study plan can work for motivated learners with some prior exposure to German. Working adults may need an 8-week plan with 1-2 hours of daily study.' }},
-    { '@type': 'Question', name: 'Can I retake the Goethe A1 exam if I fail?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Goethe allows retakes. You can retake individual modules or the complete exam. Check the retake policy of your local test centre for specifics on waiting periods and partial retake rules.' }},
+    { '@type': 'Question', name: 'Do I need a German A1 certificate for a family reunion visa?', acceptedAnswer: { '@type': 'Answer', text: 'Many spouse and family reunion applicants need to show basic German skills at A1 level, but exceptions and document rules depend on the case. Verify with the German mission or authority handling your application before booking an exam.' }},
+    { '@type': 'Question', name: 'Which exams are commonly used for German family reunion A1?', acceptedAnswer: { '@type': 'Answer', text: 'Goethe-Zertifikat A1: Start Deutsch 1 and telc Deutsch A1 are commonly discussed options. Acceptance can depend on the authority, location, certificate version, and your case, so confirm officially before paying.' }},
+    { '@type': 'Question', name: 'Should I start with booking or with the requirement check?', acceptedAnswer: { '@type': 'Answer', text: 'Start with the requirement check. Once you know whether A1 applies and which proof is accepted, compare exam providers, centers, fees, result timing, documents, and retake risk.' }},
+    { '@type': 'Question', name: 'Can I use VisaLang instead of official sources?', acceptedAnswer: { '@type': 'Answer', text: 'No. VisaLang is a navigation guide. Use it to organize the route, then verify current requirements, fees, dates, accepted certificates, and document rules with official sources.' }},
   ],
 };
 ---
 
-<BaseLayout title="Germany A1 Family Reunion — Language Exam Route" description="Complete guide to the German A1 language exam route for family reunion visa applicants. FAQs, accepted exams, fees, and preparation." jsonLD={jsonLD}>
-  <main class="guide-page">
-    <div class="guide-layout" style="grid-template-columns: 1fr">
-      <article class="guide-article" style="max-width:720px;margin:0 auto">
+<BaseLayout title="Germany A1 family reunion: requirements, exam, booking, and documents" description="Germany A1 family reunion route: verify the requirement, choose an exam, check fees and test centres, prepare documents, study, and plan a retake with official sources." jsonLD={jsonLD}>
+  <main class="page-shell">
+    <article class="guide-article route-hub-page">
         <p class="eyebrow">Germany · Family Reunion</p>
-        <h1>Germany A1 — Your complete family reunion language route</h1>
-        <p class="guide-summary">If you need to prove basic German for a spouse or family reunion visa, start here. We have organized the official requirements, exam choices, fees, preparation, documents, and FAQs into one clear path.</p>
+        <h1>Germany A1 for family reunion: complete route guide</h1>
+        <p class="guide-summary">If you may need basic German proof for a spouse or family reunion route, start here. This hub organizes the requirement check, exam choice, booking risk, documents, preparation, retake planning, and official verification into one route.</p>
 
-        <h2>What this route covers</h2>
+        <h2>Germany A1 route overview</h2>
+        <p>Use this page as the Germany A1 route index. It does not replace BAMF, the German mission, Goethe-Institut, telc, or your local test center. It helps you move through the right questions in the right order before you pay for an exam or submit documents.</p>
+
+        <h2>Five core decision guides</h2>
+        <p>Use these pages when the route has moved from a general requirement question to a decision you need to make now.</p>
+        <div class="guide-related-grid">
+          <a class="article-card" href="/guides/goethe-a1-fees-by-country/">
+            <p class="card-category">Fees</p>
+            <h3>Goethe A1 exam fees: check your local price</h3>
+          </a>
+          <a class="article-card" href="/guides/goethe-a1-test-centers/">
+            <p class="card-category">Test centers</p>
+            <h3>Goethe A1 test centers: verify an official exam centre</h3>
+          </a>
+          <a class="article-card" href="/guides/goethe-a1-retake-policy/">
+            <p class="card-category">Retake</p>
+            <h3>Goethe A1 retake: plan your next attempt</h3>
+          </a>
+          <a class="article-card" href="/guides/german-a1-documents-checklist/">
+            <p class="card-category">Documents</p>
+            <h3>German A1 documents checklist: booking, test day, visa</h3>
+          </a>
+          <a class="article-card" href="/guides/goethe-a1-speaking-topics/">
+            <p class="card-category">Speaking</p>
+            <h3>Goethe A1 speaking topics: safe practice plan</h3>
+          </a>
+        </div>
+
+        <h2>Who needs A1</h2>
+        <p>Many spouse applicants are asked to show basic German at A1 level, but exemptions and document rules depend on the relationship category, the person in Germany, the responsible German mission, and the current rule applied to your case.</p>
         <ul>
-          <li>Whether your visa path needs German A1 at all</li>
-          <li>Goethe-Zertifikat A1 vs telc Deutsch A1</li>
-          <li>Fees, test centres, and booking rules by country</li>
-          <li>Required documents and what to bring on exam day</li>
-          <li>Study plans for different schedules</li>
-          <li>Retake rules and what happens if you don not pass</li>
+          <li>Start with the <a href="/guides/german-family-reunion-language-requirement/">German family reunion language requirement</a>.</li>
+          <li>If you are unsure, use the <a href="/guides/german-family-reunion-language-requirement/">language requirement guide</a> and <a href="/guides/german-a1-family-reunion-faq/">Germany A1 FAQ</a> as checklists, then verify with the official authority.</li>
+          <li>Do not book an exam only because another applicant had the same route. Your responsible authority decides your case.</li>
         </ul>
 
-        <h2>Germany A1 guides</h2>
-        <div class="guide-related-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))">
+        <h2>Which exams are commonly used</h2>
+        <p>For Germany A1 family reunion planning, the most common comparison is Goethe-Zertifikat A1: Start Deutsch 1 versus telc Deutsch A1. The useful question is not which brand is famous; it is which certificate your authority accepts, which center you can book, and whether the result timing fits your document deadline.</p>
+        <p><a href="/guides/goethe-a1-germany-family-reunion/">Start with the Goethe A1 route guide</a>, then compare providers in <a href="/guides/goethe-a1-vs-telc-a1/">Goethe A1 vs telc A1</a>.</p>
+
+        <h2>Goethe A1 vs telc A1</h2>
+        <ul>
+          <li>Confirm accepted proof before comparing centers or fees.</li>
+          <li>Check the exact adult A1 certificate name and whether all four skills are covered.</li>
+          <li>Compare result timing, retake options, ID rules, cancellation rules, and certificate delivery.</li>
+        </ul>
+
+        <h2>Booking and test center guidance</h2>
+        <p>Once the accepted proof is clear, move from exam choice to booking risk. Do not assume every center offers the same dates, fees, ID rules, or result timeline.</p>
+        <ul>
+          <li><a href="/guides/goethe-a1-booking-mistakes/">Goethe A1 booking mistakes</a></li>
+          <li><a href="/guides/goethe-a1-pre-booking-checklist/">Goethe A1 pre-booking checklist</a></li>
+          <li><a href="/guides/goethe-a1-test-centers/">Goethe A1 test centers</a></li>
+          <li><a href="/guides/goethe-a1-fees-by-country/">Goethe A1 fees by country</a></li>
+          <li><a href="/guides/german-a1-exam-booking-timeline/">German A1 exam booking timeline</a></li>
+        </ul>
+
+        <h2>Documents checklist</h2>
+        <p>Separate exam-day documents from visa-file documents. Your test center controls exam-day ID and booking proof; the German mission or authority controls visa-file requirements.</p>
+        <p>Use the <a href="/guides/german-a1-documents-checklist/">German A1 documents checklist</a> after you have selected the accepted exam path.</p>
+
+        <h2>Study plan</h2>
+        <p>Preparation should stay legal and practical: official sample materials, original practice prompts, daily listening, and realistic speaking practice. Do not use leaked questions, copied real exam answers, or any service promising guaranteed passing.</p>
+        <ul>
+          <li><a href="/guides/goethe-a1-30-day-study-plan/">30-day Goethe A1 study plan</a></li>
+          <li><a href="/guides/goethe-a1-study-plan-working-adults/">Goethe A1 study plan for working adults</a></li>
+          <li><a href="/guides/goethe-a1-speaking-topics/">Goethe A1 speaking</a></li>
+          <li><a href="/guides/goethe-a1-listening-practice/">Goethe A1 listening</a></li>
+          <li><a href="/guides/goethe-a1-official-links-practice-resources/">Official links and practice resources</a></li>
+        </ul>
+
+        <h2>Retake rules</h2>
+        <p>Retake planning is a timeline and budget risk, not a failure prediction. Check the local center rule before assuming you can retake quickly, retake only one module, or receive a new certificate before your appointment.</p>
+        <p><a href="/guides/goethe-a1-retake-policy/">Read the Goethe A1 retake policy guide</a>.</p>
+
+        <h2>FAQ</h2>
+        <h3>Do I need German A1 for family reunion?</h3>
+        <p>Possibly. Many spouse routes require basic German proof, but exceptions and local document rules matter. Verify your route officially before booking.</p>
+
+        <h3>Is Goethe A1 always better than telc A1?</h3>
+        <p>No single answer fits every applicant. The safer choice is the certificate your authority accepts and the center whose date, ID rule, result timing, and certificate process fit your case.</p>
+
+        <h3>Can I rely on fee tables from blogs?</h3>
+        <p>No. Fees can change by country and center. Use third-party pages only as planning prompts, then check the official local page before paying.</p>
+
+        <h3>Can I study from real leaked exam questions?</h3>
+        <p>No. Use official practice materials and original prompts. Avoid leaked materials, copied answers, and guaranteed-pass claims.</p>
+
+        <p><a href="/guides/german-a1-family-reunion-faq/">Open the full Germany A1 FAQ</a>.</p>
+
+        <h2>All Germany A1 guides</h2>
+        <div class="guide-related-grid">
           {germanyA1Guides.map(g => (
             <a href={`/guides/${g.data.slug}/`} class="article-card">
               <h3>{g.data.title}</h3>
@@ -46,17 +124,10 @@ const jsonLD = {
           ))}
         </div>
 
-        <section style="margin-top: 32px">
-          <h2>Quick answers</h2>
-          <h3>Do I need German A1 for a family reunion visa?</h3>
-          <p>Most applicants for a spouse or family reunion visa to Germany need to prove basic German language skills at the A1 CEFR level. The most commonly accepted proof is the Goethe-Zertifikat A1: Start Deutsch 1. Always verify with the German mission or Auslanderbehorde handling your case — some exceptions exist.</p>
+        <h2>Official verification reminder</h2>
+        <p>Before you book or submit documents, verify four things with official sources: whether A1 applies to your case, which certificate is accepted, the exact local exam fee/date/result process, and the document rule for your appointment.</p>
 
-          <h3>Which exam should I take — Goethe A1 or telc A1?</h3>
-          <p>Both are officially recognized for German family reunion. Goethe is more widely known internationally and may have more test centre locations outside Germany. telc is well-recognized within Germany and may be more accessible if you are already in the country.</p>
-
-          <h3>How long does Goethe A1 preparation take?</h3>
-          <p>With consistent daily practice (1-2 hours), a committed learner can prepare in 30-60 days. If you work full-time, plan for 8 weeks. Focus on speaking, listening, and basic reading comprehension — these are the core A1 test areas.</p>
-        </section>
+        <p><a class="primary-action" href="/guides/german-family-reunion-language-requirement/">Start Germany A1 route</a></p>
 
         <section class="official-sources">
           <h2>Official sources</h2>
@@ -68,8 +139,7 @@ const jsonLD = {
         </section>
 
         <p class="compliance-line">Fees, dates, requirements, and accepted exams change. Always verify with the official source before booking.</p>
-        <p class="last-updated">Last updated: 2026-07-02</p>
-      </article>
-    </div>
+        <p class="last-updated">Last updated: 2026-07-10</p>
+    </article>
   </main>
 </BaseLayout>

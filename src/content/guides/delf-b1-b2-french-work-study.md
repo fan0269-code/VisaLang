@@ -10,7 +10,7 @@ readingTime: "5"
 featured: false
 eyebrow: "France · Work & Study"
 route: "france"
-related: ["cils-b1-cittadinanza-for-italian-citizenship", "dele-a2-ccse-spanish-citizenship", "dutch-inburgering-a2-b1-for-integration-and-citize"]
+related: ["tcf-irn-french-residence"]
 ---
 
 ## DELF vs TCF IRN

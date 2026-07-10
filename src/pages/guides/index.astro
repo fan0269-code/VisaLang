@@ -2,86 +2,203 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import { getCollection } from 'astro:content';
+import { guideCategories, guideCategoryMap, inferGuideMeta } from '../../data/guide-taxonomy';
 
 const guides = await getCollection('guides');
-const sortedGuides = guides.sort((a, b) => b.data.publishedDate.localeCompare(a.data.publishedDate));
+const sortedGuides = guides
+  .map((guide) => ({ ...guide, meta: inferGuideMeta(guide.data) }))
+  .sort((a, b) => b.data.publishedDate.localeCompare(a.data.publishedDate));
 
-const categories = [
-  { name: 'Germany A1', slug: 'germany-a1', desc: 'Family reunion language proof' },
-  { name: 'Germany B1+', slug: 'germany-b1', desc: 'Settlement, work, citizenship' },
-  { name: 'TestDaF', slug: 'germany-testdaf', desc: 'University admissions' },
-  { name: 'telc Deutsch', slug: 'germany-telc', desc: 'Work & nursing registration' },
-  { name: 'United Kingdom', slug: 'uk', desc: 'UK visa & citizenship English' },
-  { name: 'Canada', slug: 'canada', desc: 'TEF/TCF French immigration' },
-  { name: 'Italy', slug: 'italy', desc: 'CILS/CELI/PLIDA citizenship' },
-  { name: 'Spain', slug: 'spain', desc: 'DELE & CCSE citizenship' },
-  { name: 'France', slug: 'france', desc: 'DELF/DALF work & study' },
-  { name: 'Finland', slug: 'finland', desc: 'YKI citizenship' },
-  { name: 'Netherlands', slug: 'netherlands', desc: 'Inburgering & NT2' },
-  { name: 'Portugal', slug: 'portugal', desc: 'CIPLE A2 & Golden Visa' },
-];
-
-const categoryMap = Object.fromEntries(categories.map(c => [c.slug, c]));
+const categoriesWithCounts = guideCategories.map(cat => ({
+  ...cat,
+  count: sortedGuides.filter(guide => guide.data.category === cat.slug).length,
+}));
+const popularRoutes = categoriesWithCounts.filter((category) => category.popular);
+const countries = Array.from(new Set(sortedGuides.map((guide) => guide.meta.country))).sort();
+const exams = Array.from(new Set(sortedGuides.flatMap((guide) => guide.meta.exam.split(' / ')))).sort();
+const levels = Array.from(new Set(sortedGuides.map((guide) => guide.meta.level))).sort();
 
 const jsonLD = {
   '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  name: 'VisaLang exam guides',
-  url: 'https://flowlight.me/guides/',
-  description: 'Browse all VisaLang language exam guides by country, exam, or visa route.',
-  inLanguage: 'en',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      '@id': 'https://flowlight.me/guides/#collection',
+      name: 'VisaLang exam guides',
+      url: 'https://flowlight.me/guides/',
+      description: 'Browse all VisaLang language exam guides by country, exam, or visa route.',
+      inLanguage: 'en',
+      isPartOf: { '@type': 'WebSite', name: 'VisaLang', url: 'https://flowlight.me/' },
+      mainEntity: { '@id': 'https://flowlight.me/guides/#item-list' },
+    },
+    {
+      '@type': 'ItemList',
+      '@id': 'https://flowlight.me/guides/#item-list',
+      name: 'VisaLang guide index',
+      numberOfItems: sortedGuides.length,
+      itemListElement: sortedGuides.map((guide, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: `https://flowlight.me/guides/${guide.data.slug}/`,
+        name: guide.data.title,
+        description: guide.data.description,
+      })),
+    },
+  ],
 };
 ---
 
 <BaseLayout
-  title="Browse exam guides | VisaLang"
+  title="Browse exam guides"
   description="Browse all VisaLang language exam guides by country, exam, or visa route — Germany A1, B1, TestDaF, telc, UK, Canada, Italy, Spain, France, Finland, Netherlands, Portugal."
   canonicalURL="https://flowlight.me/guides/"
   jsonLD={jsonLD}
 >
-  <main class="container" style="padding: 48px 24px;">
-    <header style="margin-bottom: 32px;">
-      <h1 style="font-size: 2rem; margin: 0 0 8px;">Browse exam guides</h1>
-      <p style="color: var(--muted, #6b7280); margin: 0;">
-        All {sortedGuides.length} VisaLang guides. Filter by route, or search the list below.
-      </p>
-    </header>
+  <main class="site-main">
+    <section class="section-inner">
+      <header class="library-header">
+        <p class="eyebrow">Guide library</p>
+        <h1>Browse exam guides</h1>
+        <p>
+        All {sortedGuides.length} VisaLang guides. Filter by country, route, exam, level, or search the library below.
+        </p>
+      </header>
 
-    <nav class="category-filter" aria-label="Filter by route" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;">
-      <a href="/guides/" class="filter-pill" data-filter="all">All</a>
-      {categories.map(cat => (
-        <a href={`/guides/?category=${cat.slug}`} class="filter-pill" data-filter={cat.slug}>
-          {cat.name}
-        </a>
-      ))}
-    </nav>
+      <div class="library-panel">
+        <section class="popular-routes" aria-labelledby="popular-routes-title">
+          <h2 id="popular-routes-title">Popular routes</h2>
+          <div class="popular-route-grid">
+            {popularRoutes.map((cat) => (
+              <a href={`/guides/category/${cat.slug}/`} data-popular-route={cat.slug}>
+                <span>{cat.country}</span>
+                <strong>{cat.name}</strong>
+                <small>{cat.desc}</small>
+              </a>
+            ))}
+          </div>
+        </section>
 
-    <p class="filter-status" style="color: var(--muted, #6b7280); margin: 0 0 16px; font-size: 0.9rem;">
-      Showing all {sortedGuides.length} guides.
-    </p>
+        <nav class="category-filter" aria-label="Filter by route">
+          <a href="/guides/" class="filter-pill" data-filter="all">All</a>
+          {categoriesWithCounts.map(cat => (
+            <a href={`/guides/?category=${cat.slug}`} class="filter-pill" data-filter={cat.slug}>
+              {cat.name} ({cat.count})
+            </a>
+          ))}
+        </nav>
 
-    <div class="guide-related-grid" id="guide-grid">
-      {sortedGuides.map(g => (
-        <div class="guide-card-wrap" data-category={g.data.category}>
-          <ArticleCard
-            title={g.data.title}
-            slug={g.data.slug}
-            category={g.data.eyebrow ?? (categoryMap[g.data.category]?.name ?? g.data.category)}
-            description={g.data.description}
-            readingTime={g.data.readingTime}
-          />
+        <form class="guide-facets" action="/guides/" method="get" aria-label="Filter guide library">
+          <label>
+            <span>Country</span>
+            <select name="country" data-facet="country">
+              <option value="">All countries</option>
+              {countries.map((country) => <option value={country}>{country}</option>)}
+            </select>
+          </label>
+          <label>
+            <span>Route</span>
+            <select name="category" data-facet="category">
+              <option value="">All routes</option>
+              {categoriesWithCounts.map((cat) => <option value={cat.slug}>{cat.name}</option>)}
+            </select>
+          </label>
+          <label>
+            <span>Exam</span>
+            <select name="exam" data-facet="exam">
+              <option value="">All exams</option>
+              {exams.map((exam) => <option value={exam}>{exam}</option>)}
+            </select>
+          </label>
+          <label>
+            <span>Level</span>
+            <select name="level" data-facet="level">
+              <option value="">All levels</option>
+              {levels.map((level) => <option value={level}>{level}</option>)}
+            </select>
+          </label>
+          <button type="reset">Reset</button>
+        </form>
+
+        <form class="guide-search" action="/guides/" method="get" role="search">
+          <label for="guide-search-input">Search guides</label>
+          <div class="guide-search-row">
+            <input
+              id="guide-search-input"
+              name="q"
+              type="search"
+              placeholder="Search by exam, country, visa route, or skill"
+              autocomplete="off"
+            />
+            <button type="submit">Search</button>
+          </div>
+        </form>
+
+        <p class="filter-status">
+          Showing all {sortedGuides.length} guides.
+        </p>
+        <p class="filter-fallback">
+          Route filters and search use a small browser script. If filtering is unavailable, all guides remain listed below.
+        </p>
+      </div>
+
+      <section class="route-overview content-section compact" aria-labelledby="route-overview-title">
+        <div class="section-header">
+          <h2 id="route-overview-title">Route overview</h2>
+          <p>Use these route pages when you already know the country or exam family.</p>
         </div>
-      ))}
-    </div>
+        <div class="route-overview-grid">
+          {categoriesWithCounts.map(cat => (
+            <a href={`/guides/category/${cat.slug}/`} class="route-overview-card" data-route-card={cat.slug}>
+              <span>{cat.name}</span>
+              <strong>{cat.desc}</strong>
+              <small>{cat.count} guide{cat.count !== 1 ? 's' : ''}</small>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section class="content-section compact" aria-label="Guide results">
+        <div class="guide-related-grid" id="guide-grid">
+          {sortedGuides.map(g => (
+            <div
+              class="guide-card-wrap"
+              data-category={g.data.category}
+              data-country={g.meta.country}
+              data-exam={g.meta.exam}
+              data-level={g.meta.level}
+              data-search={`${g.data.title} ${g.data.description} ${g.data.eyebrow ?? ''} ${g.data.category} ${g.meta.country} ${g.meta.route} ${g.meta.exam} ${g.meta.level}`.toLowerCase()}
+            >
+              <ArticleCard
+                title={g.data.title}
+                slug={g.data.slug}
+                category={g.data.eyebrow ?? (guideCategoryMap[g.data.category]?.name ?? g.data.category)}
+                description={g.data.description}
+                readingTime={g.data.readingTime}
+                country={g.meta.country}
+                route={g.meta.route}
+                exam={g.meta.exam}
+                level={g.meta.level}
+                updatedDate={g.data.updatedDate}
+                relatedRouteHref={`/guides/category/${g.data.category}/`}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+    </section>
   </main>
 
   <script is:inline>
     (function () {
       const params = new URLSearchParams(window.location.search);
-      const cat = params.get('category');
       const cards = document.querySelectorAll('.guide-card-wrap');
       const status = document.querySelector('.filter-status');
       const pills = document.querySelectorAll('.filter-pill');
+      const fallback = document.querySelector('.filter-fallback');
+      const search = document.getElementById('guide-search-input');
+      const facets = document.querySelectorAll('[data-facet]');
+      const facetForm = document.querySelector('.guide-facets');
+      if (fallback) fallback.setAttribute('hidden', '');
 
       function setActive(slug) {
         pills.forEach(p => {
@@ -90,55 +207,77 @@ const jsonLD = {
         });
       }
 
-      if (!cat) {
-        setActive(null);
-        return;
-      }
+      function applyFilters() {
+        const current = new URLSearchParams(window.location.search);
+        const cat = current.get('category') || '';
+        const country = current.get('country') || '';
+        const exam = current.get('exam') || '';
+        const level = current.get('level') || '';
+        const query = search ? search.value.trim().toLowerCase() : '';
+        let visible = 0;
+        cards.forEach(card => {
+          const categoryMatch = !cat || card.dataset.category === cat;
+          const countryMatch = !country || card.dataset.country === country;
+          const examMatch = !exam || (card.dataset.exam || '').split(' / ').includes(exam);
+          const levelMatch = !level || card.dataset.level === level;
+          const searchMatch = !query || (card.dataset.search || '').includes(query);
+          const match = categoryMatch && countryMatch && examMatch && levelMatch && searchMatch;
+          card.style.display = match ? '' : 'none';
+          if (match) visible++;
+        });
 
-      let visible = 0;
-      cards.forEach(card => {
-        const match = card.dataset.category === cat;
-        card.style.display = match ? '' : 'none';
-        if (match) visible++;
-      });
+        const label = cat ? (document.querySelector(`.filter-pill[data-filter="${cat}"]`)?.textContent ?? cat) : 'all routes';
+        if (status) {
+          const searchText = query ? ` matching "${query}"` : '';
+          status.textContent = `Showing ${visible} guide${visible === 1 ? '' : 's'} in ${label}${searchText}.`;
+        }
 
-      const label = document.querySelector(`.filter-pill[data-filter="${cat}"]`)?.textContent ?? cat;
-      if (status) {
-        status.textContent = `Showing ${visible} guide${visible === 1 ? '' : 's'} in ${label}.`;
-      }
-      setActive(cat);
-
-      if (visible === 0) {
-        const grid = document.getElementById('guide-grid');
-        if (grid) {
-          const empty = document.createElement('p');
-          empty.textContent = 'No guides in this route yet. Check back soon.';
-          empty.style.color = 'var(--muted, #6b7280)';
-          grid.after(empty);
+        let empty = document.querySelector('.guide-empty-state');
+        if (visible === 0) {
+          const grid = document.getElementById('guide-grid');
+          if (!empty && grid) {
+            empty = document.createElement('p');
+            empty.className = 'guide-empty-state';
+            empty.textContent = 'No matching guides yet. Try another exam, country, or route.';
+            empty.style.color = 'var(--muted, #6b7280)';
+            grid.after(empty);
+          }
+        } else if (empty) {
+          empty.remove();
         }
       }
+
+      const initialQuery = params.get('q');
+      if (search && initialQuery) search.value = initialQuery;
+      facets.forEach(select => {
+        const value = params.get(select.name);
+        if (value) select.value = value;
+        select.addEventListener('change', () => {
+          const next = new URLSearchParams(window.location.search);
+          if (select.value) next.set(select.name, select.value);
+          else next.delete(select.name);
+          if (select.name === 'category') setActive(select.value);
+          window.history.replaceState(null, '', next.toString() ? `/guides/?${next.toString()}` : '/guides/');
+          applyFilters();
+        });
+      });
+      if (search) search.addEventListener('input', () => {
+        const next = new URLSearchParams(window.location.search);
+        if (search.value.trim()) next.set('q', search.value.trim());
+        else next.delete('q');
+        window.history.replaceState(null, '', next.toString() ? `/guides/?${next.toString()}` : '/guides/');
+        applyFilters();
+      });
+      if (facetForm) facetForm.addEventListener('reset', () => {
+        window.history.replaceState(null, '', '/guides/');
+        if (search) search.value = '';
+        window.setTimeout(() => {
+          setActive('');
+          applyFilters();
+        }, 0);
+      });
+      setActive(params.get('category'));
+      applyFilters();
     })();
   </script>
 </BaseLayout>
-
-<style>
-  .filter-pill {
-    display: inline-block;
-    padding: 6px 14px;
-    border: 1px solid var(--line, #e5e7eb);
-    border-radius: 999px;
-    font-size: 0.85rem;
-    color: var(--text, #24302a);
-    text-decoration: none;
-    background: #fff;
-    transition: background 0.15s, border-color 0.15s;
-  }
-  .filter-pill:hover {
-    border-color: var(--accent, #2563EB);
-  }
-  .filter-pill.active {
-    background: var(--accent, #2563EB);
-    border-color: var(--accent, #2563EB);
-    color: #fff;
-  }
-</style>

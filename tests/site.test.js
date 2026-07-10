@@ -29,6 +29,37 @@ for (const exam of exams) {
   assert.ok(exam.lastUpdated, `${exam.name} needs Last Updated`);
 }
 
+const contentGuideFiles = fs.readdirSync("src/content/guides").filter((file) => file.endsWith(".md"));
+const contentGuideSlugs = contentGuideFiles.map((file) => {
+  const guide = fs.readFileSync(`src/content/guides/${file}`, "utf8");
+  const match = guide.match(/^slug:\s*"([^"]+)"/m);
+  assert.ok(match, `${file} needs a slug`);
+  return match[1];
+});
+assert.equal(new Set(contentGuideSlugs).size, contentGuideSlugs.length, "Astro content guide slugs should be unique");
+const guideBySlug = new Map(contentGuideFiles.map((file) => {
+  const guide = fs.readFileSync(`src/content/guides/${file}`, "utf8");
+  return [guide.match(/^slug:\s*"([^"]+)"/m)[1], guide];
+}));
+for (const [slug, guide] of guideBySlug) {
+  const related = [...(guide.match(/^related:\s*\[([^\]]*)\]/m)?.[1] ?? "").matchAll(/"([^"]+)"/g)].map((match) => match[1]);
+  for (const relatedSlug of related) {
+    assert.ok(guideBySlug.has(relatedSlug), `${slug} related guide should exist: ${relatedSlug}`);
+  }
+}
+const categoryCounts = new Map();
+for (const guide of guideBySlug.values()) {
+  const category = guide.match(/^category:\s*"([^"]+)"/m)[1];
+  categoryCounts.set(category, (categoryCounts.get(category) ?? 0) + 1);
+}
+for (const [slug, guide] of guideBySlug) {
+  const category = guide.match(/^category:\s*"([^"]+)"/m)[1];
+  const related = [...(guide.match(/^related:\s*\[([^\]]*)\]/m)?.[1] ?? "").matchAll(/"([^"]+)"/g)].map((match) => match[1]);
+  if (categoryCounts.get(category) > 1) {
+    assert.ok(related.length > 0, `${slug} should link to a related guide in its multi-guide route`);
+  }
+}
+
 assert.deepEqual(pageSections, [
   "Exam Overview",
   "Eligibility",
@@ -68,8 +99,279 @@ assert.ok(!recommendation.warning.toLowerCase().includes("dump"));
 
 const homepage = fs.readFileSync("index.html", "utf8");
 const appScript = fs.readFileSync("app.js", "utf8");
+const packageJson = JSON.parse(fs.readFileSync("package.json", "utf8"));
+const publicRobots = fs.readFileSync("public/robots.txt", "utf8");
+const astroConfig = fs.readFileSync("astro.config.mjs", "utf8");
+const astroGlobalCss = fs.readFileSync("src/styles/global.css", "utf8");
+const guideLayoutSource = fs.readFileSync("src/layouts/GuideLayout.astro", "utf8");
+const headerSource = fs.readFileSync("src/components/Header.astro", "utf8");
+const guideCtaSource = fs.readFileSync("src/components/GuideCTA.astro", "utf8");
+const baseLayoutSource = fs.readFileSync("src/layouts/BaseLayout.astro", "utf8");
+const editorialPolicySource = fs.readFileSync("src/pages/editorial-policy.astro", "utf8");
+const contactSource = fs.readFileSync("src/pages/contact.astro", "utf8");
+const cookiePolicySource = fs.readFileSync("src/pages/cookie-policy.astro", "utf8");
+const astroHomepage = fs.readFileSync("src/pages/index.astro", "utf8");
+const astroGuidesIndex = fs.readFileSync("src/pages/guides/index.astro", "utf8");
+const guideCategoryPage = fs.readFileSync("src/pages/guides/category/[category].astro", "utf8");
+const guideTaxonomy = fs.readFileSync("src/data/guide-taxonomy.ts", "utf8");
+const astroZhHomepage = fs.readFileSync("src/pages/zh/index.astro", "utf8");
+const zhGermanyA1Data = fs.readFileSync("src/data/zh-germany-a1.ts", "utf8");
+const zhGermanyA1Hub = fs.readFileSync("src/pages/zh/germany-family-reunion-a1.astro", "utf8");
+const astroGermanyA1Hub = fs.readFileSync("src/pages/germany-family-reunion-a1.astro", "utf8");
+const zhGuideLayout = fs.readFileSync("src/components/ZhGuideLayout.astro", "utf8");
+const astroGermanA1Timeline = fs.readFileSync("src/content/guides/german-a1-exam-booking-timeline.md", "utf8");
+const astroGermanyA1GuidePage = fs.readFileSync("src/pages/guides/[slug].astro", "utf8");
+const germanyA1RouteSupport = fs.readFileSync("src/components/GermanyA1RouteSupport.astro", "utf8");
+const goetheA1FeesGuide = fs.readFileSync("src/content/guides/goethe-a1-fees-by-country.md", "utf8");
+const goetheA1TestCentersGuide = fs.readFileSync("src/content/guides/goethe-a1-test-centers.md", "utf8");
+const goetheA1RetakeGuide = fs.readFileSync("src/content/guides/goethe-a1-retake-policy.md", "utf8");
+const germanA1DocumentsGuide = fs.readFileSync("src/content/guides/german-a1-documents-checklist.md", "utf8");
+const goetheA1SpeakingGuide = fs.readFileSync("src/content/guides/goethe-a1-speaking-topics.md", "utf8");
+const astroTcfCanadaVsTef = fs.readFileSync("src/content/guides/tcf-canada-vs-tef.md", "utf8");
+const astroTcfIrn = fs.readFileSync("src/content/guides/tcf-irn-french-residence.md", "utf8");
+const astroGoetheB1DepthSlugs = [
+  "goethe-b1-difficulty-analysis",
+  "goethe-b1-listening-deep-dive",
+  "goethe-b1-mock-exam-routine",
+  "goethe-b1-speaking-topics",
+  "goethe-b1-writing-assessment",
+];
 
 assert.doesNotThrow(() => new Function(appScript), "app.js should parse without syntax errors");
+assert.equal(
+  packageJson.scripts["prelaunch-check"],
+  "npm run build",
+  "launch-check should build fresh Astro output before inspecting dist/"
+);
+assert.equal(
+  packageJson.scripts["prebuild"],
+  "npm run clean:astro",
+  "Astro builds should clear stale content cache before syncing content"
+);
+assert.equal(
+  packageJson.scripts["postbuild"],
+  "node scripts/enrich-sitemap-lastmod.js",
+  "Astro builds should enrich the generated sitemap with guide updatedDate values"
+);
+assert.ok(
+  packageJson.scripts["clean:astro"].includes("node_modules/.astro"),
+  "Astro cache cleanup should include node_modules/.astro content cache"
+);
+assert.ok(
+  fs.readFileSync("scripts/enrich-sitemap-lastmod.js", "utf8").includes("updatedDate"),
+  "Sitemap enrichment script should read guide updatedDate metadata"
+);
+assert.ok(
+  fs.readFileSync("scripts/enrich-sitemap-lastmod.js", "utf8").includes("<lastmod>${lastmod}</lastmod>"),
+  "Sitemap enrichment script should write lastmod entries"
+);
+assert.ok(
+  publicRobots.includes("https://flowlight.me/sitemap-index.xml"),
+  "Astro public robots.txt should point search engines to the generated sitemap index"
+);
+assert.ok(astroConfig.includes("noindexSitemapPaths"), "Astro sitemap should define noindex paths to exclude");
+assert.ok(astroConfig.includes("filter: (page)"), "Astro sitemap should filter generated URLs");
+for (const noindexPath of [
+  "/affiliate-disclosure/",
+  "/cookie-policy/",
+  "/editorial-policy/",
+  "/privacy-policy/",
+  "/terms/",
+]) {
+  assert.ok(astroConfig.includes(`'${noindexPath}'`), `Astro sitemap filter should exclude ${noindexPath}`);
+}
+assert.ok(
+  guideLayoutSource.includes("<h1>{title}</h1>"),
+  "Astro guide layout should render the article title as the page H1"
+);
+assert.ok(guideLayoutSource.includes("'@graph'"), "Astro guide layout should emit JSON-LD as a graph");
+assert.ok(guideLayoutSource.includes("'@type': 'Article'"), "Astro guide layout should emit Article structured data");
+assert.ok(guideLayoutSource.includes("'@type': 'BreadcrumbList'"), "Astro guide layout should emit BreadcrumbList structured data");
+assert.ok(guideLayoutSource.includes("itemListElement: breadcrumbs.map"), "Astro guide breadcrumbs should be reflected in JSON-LD");
+assert.ok(guideLayoutSource.includes("routeHref?: string"), "Astro guide layout should accept a route index link");
+assert.ok(guideLayoutSource.includes("routeHref={routeHref}"), "Astro guide layout should pass the route index link to related guides");
+assert.ok(guideLayoutSource.includes('class="guide-trustbar"'), "Astro guide layout should show a trust bar near the title");
+assert.ok(guideLayoutSource.includes("Last updated:"), "Astro guide trust bar should show the updated date");
+assert.ok(guideLayoutSource.includes("Official sources are linked below"), "Astro guide trust bar should point readers to official sources");
+assert.ok(guideLayoutSource.includes('id="summary"'), "Astro guide layout should include a summary box anchor");
+assert.ok(guideLayoutSource.includes("Who this guide is for"), "Astro guide layout should include an audience section");
+assert.ok(guideLayoutSource.includes("Who this guide is not for"), "Astro guide layout should include a non-audience section");
+assert.ok(guideLayoutSource.includes("Official verification"), "Astro guide layout should include an official verification box");
+assert.ok(guideLayoutSource.includes("Common mistakes"), "Astro guide layout should include a common mistakes box");
+assert.ok(guideLayoutSource.includes("Disclaimer"), "Astro guide layout should include a disclaimer section");
+assert.ok(guideLayoutSource.includes('ogType="article"'), "Astro guide pages should use article Open Graph type");
+assert.ok(
+  headerSource.indexOf("</nav>") < headerSource.indexOf('class="lang-switch"'),
+  "Astro mobile header should keep the language switch outside the navigation row"
+);
+assert.ok(!headerSource.includes("?lang=zh"), "Astro language switch should use a real /zh/ route");
+assert.ok(!headerSource.includes("#guides"), "Astro header should link to the guide index instead of a homepage anchor");
+assert.ok(headerSource.includes("{ href: '/guides/', label: 'Guides' }"), "Astro English header should link to the guide index");
+assert.ok(headerSource.includes("{ href: '/zh/germany-family-reunion-a1/', label: '德国 A1' }"), "Astro Chinese header should link to the Chinese Germany A1 hub");
+assert.ok(headerSource.includes("{ href: '/zh/#zh-guides', label: '中文指南' }"), "Astro Chinese header should link to Chinese core guides");
+assert.ok(headerSource.includes("Astro.url.pathname.startsWith('/guides/')"), "Astro guide nav should stay active on guide pages");
+assert.ok(headerSource.includes("const isEnglishHome"), "Astro header should distinguish homepage language switch context");
+assert.ok(headerSource.includes("zhTranslationMap"), "Astro header should route available Chinese translations directly");
+assert.ok(headerSource.includes("label: '中文首页'"), "Astro non-home English pages should label the link as Chinese homepage");
+assert.ok(headerSource.includes("Open Chinese homepage"), "Astro non-home English pages should avoid implying a page-level translation");
+assert.ok(baseLayoutSource.includes("<html lang={lang}>"), "Astro pages should be able to set their document language");
+assert.ok(baseLayoutSource.includes("ogImage = '/images/og-default.svg'"), "Astro layout should reference the existing default OG image");
+assert.ok(baseLayoutSource.includes("const pageTitle"), "Astro layout should centralize the rendered page title");
+assert.ok(baseLayoutSource.includes("content={pageTitle}"), "Astro Open Graph and Twitter titles should reuse the deduplicated page title");
+assert.ok(!editorialPolicySource.includes(".li>"), "Astro editorial policy should not contain malformed list tags");
+assert.ok(contactSource.includes("official-source updates"), "Astro contact page should have a specific meta description");
+assert.ok(guideCtaSource.includes("buttonHref = '/contact/'"), "guide CTA should point to the real contact page");
+assert.ok(!guideCtaSource.includes("/#waitlist"), "guide CTA should not point to a missing waitlist anchor");
+assert.ok(cookiePolicySource.includes("privacy-conscious"), "Astro cookie policy should have a specific meta description");
+assert.ok(/\.guide-article table[\s\S]*overflow-x:\s*auto/.test(astroGlobalCss), "Astro guide tables should scroll horizontally on small screens");
+assert.ok(/\.guide-article a[\s\S]*overflow-wrap:\s*anywhere/.test(astroGlobalCss), "Astro guide long links should wrap on small screens");
+assert.ok(/\.guide-article pre[\s\S]*overflow-x:\s*auto/.test(astroGlobalCss), "Astro guide code blocks should scroll horizontally on small screens");
+assert.ok(astroGlobalCss.includes(".guide-trustbar"), "Astro guide trust bar should have a stable style hook");
+assert.ok(astroHomepage.includes('canonicalURL="https://flowlight.me/"'), "Astro English homepage should set a stable canonical URL");
+assert.ok(astroHomepage.includes("https://flowlight.me/zh/"), "Astro English homepage should link to the Chinese alternate");
+assert.ok(!astroGuidesIndex.includes('title="Browse exam guides | VisaLang"'), "Astro guide index title should not duplicate the brand suffix");
+assert.ok(astroGuidesIndex.includes("'@type': 'CollectionPage'"), "Astro guides index should emit CollectionPage structured data");
+assert.ok(astroGuidesIndex.includes("'@type': 'ItemList'"), "Astro guides index should emit ItemList structured data");
+assert.ok(astroGuidesIndex.includes("numberOfItems: sortedGuides.length"), "Astro guides ItemList should count all guides");
+assert.ok(astroGuidesIndex.includes("itemListElement: sortedGuides.map"), "Astro guides ItemList should include every guide URL");
+assert.ok(astroGuidesIndex.includes("categoriesWithCounts"), "Astro guides index should compute route guide counts");
+assert.ok(astroGuidesIndex.includes('id="route-overview-title"'), "Astro guides index should include a route overview heading");
+assert.ok(astroGuidesIndex.includes('data-route-card={cat.slug}'), "Astro guides index should expose one overview card per route");
+assert.ok(guideTaxonomy.includes("Family reunion language proof"), "Astro guide taxonomy should explain the Germany A1 route");
+assert.ok(astroGuidesIndex.includes('role="search"'), "Astro guides index should include a real guide search form");
+assert.ok(astroGuidesIndex.includes('id="guide-search-input"'), "Astro guides index should expose a search input");
+assert.ok(astroGuidesIndex.includes('class="popular-routes"'), "Astro guides index should include popular route links");
+assert.ok(astroGuidesIndex.includes('class="guide-facets"'), "Astro guides index should include faceted filters");
+assert.ok(astroGuidesIndex.includes('data-facet="country"'), "Astro guides index should filter by country");
+assert.ok(astroGuidesIndex.includes('data-facet="exam"'), "Astro guides index should filter by exam");
+assert.ok(astroGuidesIndex.includes('data-facet="level"'), "Astro guides index should filter by level");
+assert.ok(astroGuidesIndex.includes("data-country={g.meta.country}"), "Astro guides cards should expose country metadata");
+assert.ok(astroGuidesIndex.includes("data-exam={g.meta.exam}"), "Astro guides cards should expose exam metadata");
+assert.ok(astroGuidesIndex.includes("data-level={g.meta.level}"), "Astro guides cards should expose level metadata");
+assert.ok(guideCategoryPage.includes("getStaticPaths"), "Astro should generate static guide category pages");
+assert.ok(guideCategoryPage.includes("CollectionPage"), "Astro guide category pages should emit CollectionPage structured data");
+assert.ok(guideCategoryPage.includes("canonicalURL={canonicalURL}"), "Astro guide category pages should set canonical URLs");
+assert.ok(astroGuidesIndex.includes("params.get('q')"), "Astro guides search should read a query parameter");
+assert.ok(astroGuidesIndex.includes("search.addEventListener('input'"), "Astro guides search should listen as users type");
+assert.ok(astroGuidesIndex.includes("applyFilters();"), "Astro guides search should apply filters from browser state");
+assert.ok(astroGuidesIndex.includes("data-search="), "Astro guide cards should expose searchable text");
+assert.ok(astroGuidesIndex.includes('class="filter-fallback"'), "Astro guides index should explain filter fallback behavior");
+assert.ok(astroGuidesIndex.includes("all guides remain listed below"), "Astro guides filter fallback should keep all content available");
+assert.ok(astroGuidesIndex.includes("fallback.setAttribute('hidden', '')"), "Astro guides filter fallback should hide when JavaScript runs");
+assert.ok(astroZhHomepage.includes('lang="zh-CN"'), "Astro should include a real Chinese homepage route");
+assert.ok(astroZhHomepage.includes("https://flowlight.me/"), "Astro Chinese homepage should link back to the English alternate");
+assert.ok(astroZhHomepage.includes("德国配偶团聚"), "Astro Chinese homepage should prioritize the Germany A1 route");
+assert.ok(astroZhHomepage.includes("zhGermanyA1Guides"), "Astro Chinese homepage should use Chinese guide data");
+assert.ok(!astroZhHomepage.includes("featured.map"), "Astro Chinese homepage should not pull English featured cards into the core Chinese path");
+assert.ok(zhGermanyA1Hub.includes('canonicalURL={canonicalURL}'), "Chinese Germany A1 hub should set a stable canonical URL");
+assert.ok(zhGermanyA1Hub.includes("Goethe A1 和 telc A1 哪个更稳"), "Chinese Germany A1 hub should answer core Chinese user questions");
+assert.ok(zhGuideLayout.includes('lang="zh-CN"'), "Chinese guide layout should set zh-CN document language");
+assert.ok(zhGuideLayout.includes("政策、考位、费用和证书接受范围可能变化"), "Chinese guide layout should warn that changing requirements need official checks");
+[
+  "german-family-reunion-language-requirement",
+  "goethe-a1-vs-telc-a1",
+  "goethe-a1-booking-mistakes",
+  "german-a1-documents-checklist",
+  "goethe-a1-30-day-study-plan",
+].forEach((slug) => {
+  assert.ok(zhGermanyA1Data.includes(`slug: '${slug}'`), `Chinese Germany A1 guide data should include ${slug}`);
+  const page = fs.readFileSync(`src/pages/zh/guides/${slug}.astro`, "utf8");
+  assert.ok(page.includes(`slug="${slug}"`), `Chinese guide page should set slug ${slug}`);
+  assert.ok(page.includes("ZhGuideLayout"), `${slug} should use the Chinese guide layout`);
+});
+assert.ok(
+  fs.readFileSync("src/pages/guides/[slug].astro", "utf8").includes("const routeHref = frontmatter.category ? `/guides/category/${frontmatter.category}/` : undefined"),
+  "Astro guide pages should build a static guide category link"
+);
+assert.ok(
+  fs.readFileSync("src/pages/guides/[slug].astro", "utf8").includes("routeHref={routeHref}"),
+  "Astro guide pages should link readers back to the same route index"
+);
+assert.ok(
+  fs.readFileSync("src/components/RelatedGuides.astro", "utf8").includes("Browse all guides in {routeLabel}"),
+  "Related guides should include a same-route index link"
+);
+assert.ok(
+  astroGlobalCss.includes(".route-backlink"),
+  "Same-route guide index link should have a stable style hook"
+);
+assert.ok(
+  !fs.readFileSync("src/pages/guides/[slug].astro", "utf8").includes("href: `/#${frontmatter.route}`"),
+  "Astro guide breadcrumbs should not link to missing homepage route anchors"
+);
+assert.ok(astroGermanA1Timeline.includes('slug: "german-a1-exam-booking-timeline"'), "Astro should include the German A1 booking timeline guide");
+assert.ok(astroGermanA1Timeline.includes("Official sources last checked: 2026-07-08"), "German A1 timeline content should show source check date");
+assert.ok(
+  astroGermanyA1GuidePage.includes("frontmatter.category === 'germany-a1'"),
+  "Germany A1 guides should receive the route-support module only inside the Germany A1 cluster"
+);
+[
+  "Quick answer",
+  "Who this guide is for",
+  "Who this guide is not for",
+  "What to verify officially",
+  "Common mistakes",
+  "Step-by-step next action",
+  "Related guides",
+  "Official sources",
+  "Last updated",
+  "Disclaimer",
+].forEach((section) => {
+  assert.ok(germanyA1RouteSupport.includes(section), `Germany A1 route support should include ${section}`);
+});
+[
+  "/germany-family-reunion-a1/",
+  "/guides/german-family-reunion-language-requirement/",
+  "/guides/goethe-a1-vs-telc-a1/",
+  "/guides/goethe-a1-booking-mistakes/",
+  "/guides/german-a1-documents-checklist/",
+  "/guides/goethe-a1-speaking-topics/",
+  "/guides/goethe-a1-listening-practice/",
+  "/guides/german-a1-family-reunion-faq/",
+].forEach((href) => {
+  assert.ok(germanyA1RouteSupport.includes(href), `Germany A1 route support should link to ${href}`);
+});
+assert.ok(goetheA1FeesGuide.includes("The useful answer is not one number"), "Goethe A1 fees should teach readers to verify the live local fee");
+assert.ok(goetheA1FeesGuide.includes('title: "Goethe A1 exam fees: check your local price"'), "Goethe A1 fees should use a decision-focused search title");
+assert.ok(goetheA1FeesGuide.includes("refund and rescheduling rules"), "Goethe A1 fees should cover payment-policy checks");
+assert.ok(goetheA1FeesGuide.includes("/guides/goethe-a1-test-centers/"), "Goethe A1 fees should lead to test-centre verification");
+assert.ok(goetheA1TestCentersGuide.includes("Centre-selection checklist"), "Goethe A1 test centres should provide a selection checklist");
+assert.ok(goetheA1TestCentersGuide.includes('title: "Goethe A1 test centers: verify an official exam centre"'), "Goethe A1 test centres should use an official-centre search title");
+assert.ok(goetheA1TestCentersGuide.includes("/guides/german-a1-documents-checklist/"), "Goethe A1 test centres should lead to document checks");
+assert.ok(goetheA1RetakeGuide.includes("Five things to check first"), "Goethe A1 retake should start with score and local-policy checks");
+assert.ok(goetheA1RetakeGuide.includes('title: "Goethe A1 retake: plan your next attempt"'), "Goethe A1 retake should use an action-focused search title");
+assert.ok(goetheA1RetakeGuide.includes("Two weeks:"), "Goethe A1 retake should include a short recovery plan");
+assert.ok(goetheA1RetakeGuide.includes("/guides/goethe-a1-speaking-topics/"), "Goethe A1 retake should lead to targeted speaking practice");
+assert.ok(germanA1DocumentsGuide.includes("Keep three document moments separate"), "German A1 documents should distinguish booking, test-day, and visa stages");
+assert.ok(germanA1DocumentsGuide.includes('title: "German A1 documents checklist: booking, test day, visa"'), "German A1 documents should use a stage-specific search title");
+assert.ok(germanA1DocumentsGuide.includes("/guides/german-family-reunion-language-requirement/"), "German A1 documents should return readers to the requirement check");
+assert.ok(goetheA1SpeakingGuide.includes("Practise abilities, not predicted questions"), "Goethe A1 speaking should avoid question prediction");
+assert.ok(goetheA1SpeakingGuide.includes('title: "Goethe A1 speaking topics: safe practice plan"'), "Goethe A1 speaking should use a safe-practice search title");
+assert.ok(goetheA1SpeakingGuide.includes("Seven-day speaking reset"), "Goethe A1 speaking should include a focused practice plan");
+assert.ok(goetheA1SpeakingGuide.includes("/guides/goethe-a1-retake-policy/"), "Goethe A1 speaking should support retake planning");
+assert.ok(astroGermanyA1Hub.includes("Five core decision guides"), "Germany A1 hub should expose the five core decision guides near the route overview");
+[
+  "/guides/goethe-a1-fees-by-country/",
+  "/guides/goethe-a1-test-centers/",
+  "/guides/goethe-a1-retake-policy/",
+  "/guides/german-a1-documents-checklist/",
+  "/guides/goethe-a1-speaking-topics/",
+].forEach((href) => {
+  assert.ok(astroGermanyA1Hub.includes(href), `Germany A1 hub should link to core decision guide ${href}`);
+});
+assert.ok(astroTcfCanadaVsTef.includes('category: "canada"'), "TCF Canada vs TEF should appear in the Canada filter");
+assert.ok(astroTcfIrn.includes('category: "france"'), "TCF IRN should appear in the France filter");
+assert.ok(!astroTcfCanadaVsTef.includes("canada-france"), "TCF Canada vs TEF should not use the old mixed category");
+assert.ok(!astroTcfIrn.includes("canada-france"), "TCF IRN should not use the old mixed category");
+assert.ok(astroTcfCanadaVsTef.includes('related: ["tef-canada-immigration"]'), "TCF Canada vs TEF should link to TEF Canada");
+assert.ok(astroTcfIrn.includes('related: ["delf-b1-b2-french-work-study"]'), "TCF IRN should link to the French DELF guide");
+assert.ok(fs.readFileSync("src/content/guides/ielts-ukvi-uk-visa.md", "utf8").includes('related: ["languagecert-selt-uk-visa"]'), "IELTS UKVI should link to LanguageCert SELT");
+for (const slug of astroGoetheB1DepthSlugs) {
+  const guide = fs.readFileSync(`src/content/guides/${slug}.md`, "utf8");
+  assert.ok(guide.includes(`slug: "${slug}"`), `Astro should include ${slug}`);
+  assert.ok(guide.includes("Goethe-Zertifikat B1 official exam page"), `${slug} should cite the official Goethe B1 source`);
+  assert.ok(guide.includes("Official sources last checked: 2026-07-04"), `${slug} should show source check date`);
+}
 const heroStart = homepage.indexOf('<section class="hero">');
 const heroEnd = homepage.indexOf("</section>", heroStart);
 const heroMarkup = homepage.slice(heroStart, heroEnd);

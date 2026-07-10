@@ -4,13 +4,13 @@ description: "An 8-week Goethe A1 study plan designed for people with full-time 
 category: "germany-a1"
 slug: "goethe-a1-study-plan-working-adults"
 publishedDate: "2026-07-02"
-updatedDate: "2026-07-02"
+updatedDate: "2026-07-09"
 author: "VisaLang"
 readingTime: "8"
 featured: false
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["goethe-a1-30-day-study-plan", "goethe-a1-speaking-topics", "goethe-a1-official-links-practice-resources"]
+related: ["goethe-a1-30-day-study-plan", "goethe-a1-speaking-topics", "goethe-a1-listening-practice"]
 ---
 If you work full-time and need to prepare for the Goethe A1 exam, this 8-week study plan is designed for you. It assumes 1-2 hours of study per day on weekdays and slightly longer sessions on weekends.
 

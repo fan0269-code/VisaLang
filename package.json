@@ -1,9 +1,13 @@
 {
   "scripts": {
     "dev": "astro dev",
+    "clean:astro": "rm -rf .astro node_modules/.astro",
+    "prebuild": "npm run clean:astro",
     "build": "astro build",
+    "postbuild": "node scripts/enrich-sitemap-lastmod.js",
     "preview": "astro preview",
     "test": "node tests/site.test.js",
+    "prelaunch-check": "npm run build",
     "launch-check": "node scripts/launch-check.js"
   },
   "dependencies": {

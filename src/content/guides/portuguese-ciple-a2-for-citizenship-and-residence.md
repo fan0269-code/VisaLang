@@ -10,7 +10,7 @@ readingTime: "5"
 featured: false
 eyebrow: "Portugal · Citizenship"
 route: "portugal"
-related: []
+related: ["portuguese-language-for-golden-visa-and-citizenshi"]
 ---
 
 ## What CIPLE A2 covers

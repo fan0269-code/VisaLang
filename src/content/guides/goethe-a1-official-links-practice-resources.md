@@ -4,13 +4,13 @@ description: "Official Goethe A1 practice materials, sample exams, and verified 
 category: "germany-a1"
 slug: "goethe-a1-official-links-practice-resources"
 publishedDate: "2026-06-30"
-updatedDate: "2026-06-30"
+updatedDate: "2026-07-09"
 author: "VisaLang"
 readingTime: "5"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["german-a1-documents-checklist", "german-family-reunion-language-requirement", "goethe-a1-30-day-study-plan"]
+related: ["goethe-a1-30-day-study-plan", "goethe-a1-speaking-topics", "goethe-a1-listening-practice"]
 ---
 
 ## Official links to start with

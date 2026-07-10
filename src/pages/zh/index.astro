@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { zhGermanyA1Guides } from '../../data/zh-germany-a1';
+
+const guides = await getCollection('guides');
+
+const categories = [
+  { name: '德国 A1', slug: 'germany-a1', desc: '家庭团聚与配偶团聚语言证明' },
+  { name: '德国 B1+', slug: 'germany-b1', desc: '永居、工作与入籍路径' },
+  { name: 'TestDaF', slug: 'germany-testdaf', desc: '德国大学申请语言考试' },
+  { name: '英国签证英语', slug: 'uk', desc: 'UKVI、SELT 与入籍英语' },
+  { name: '意大利入籍', slug: 'italy', desc: 'CILS、CELI、PLIDA 选择' },
+  { name: '西班牙入籍', slug: 'spain', desc: 'DELE 与 CCSE 路线' },
+];
+
+const jsonLD = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'VisaLang',
+  url: 'https://flowlight.me/zh/',
+  description: 'VisaLang 帮助用户根据签证、永居、入籍、留学或职业注册需求，找到正确的语言考试路径。',
+  inLanguage: 'zh-CN',
+};
+---
+
+<BaseLayout
+  title="签证、永居、入籍语言考试路径导航"
+  description="VisaLang 帮助用户根据签证、永居、入籍、留学或职业注册需求，找到正确的语言考试路径、官方要求、报名材料和备考方向。"
+  canonicalURL="https://flowlight.me/zh/"
+  lang="zh-CN"
+  alternates={[
+    { lang: 'en', href: 'https://flowlight.me/' },
+    { lang: 'zh-CN', href: 'https://flowlight.me/zh/' },
+    { lang: 'x-default', href: 'https://flowlight.me/' },
+  ]}
+  jsonLD={jsonLD}
+>
+  <main class="site-main">
+    <section class="hero">
+      <p class="eyebrow">签证、永居与入籍语言考试</p>
+      <h1>根据你的移民、签证或职业路径，找到正确的语言考试</h1>
+      <p>VisaLang 先从德国 A1 家庭团聚路线做深：帮你确认是否需要语言证明、该看哪些官方来源、如何准备报名材料，以及如何规划备考。</p>
+      <div class="action-row">
+        <a class="primary-action" href="/zh/germany-family-reunion-a1/">先看德国 A1 中文路线</a>
+        <a class="secondary-action" href="#zh-guides">浏览中文核心指南</a>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-card"><span class="stat-value">{guides.length}</span><span class="stat-label">指南</span></div>
+        <div class="stat-card"><span class="stat-value">12</span><span class="stat-label">路线</span></div>
+        <div class="stat-card"><span class="stat-value">官方优先</span><span class="stat-label">内容原则</span></div>
+      </div>
+    </section>
+
+    <section class="section-inner content-section compact">
+      <div class="feature-route feature-route-grid" aria-labelledby="zh-focus-title">
+      <div>
+        <p class="eyebrow">当前优先方向</p>
+        <h2 id="zh-focus-title">德国配偶团聚 / 家庭团聚 A1</h2>
+        <p>这条路线最适合先做成深度内容站样板：用户需求明确、搜索意图清楚、官方核验要求高，也适合后续扩展到费用、考点、报名材料、重考风险和备考计划。</p>
+      </div>
+      <div class="stacked-actions">
+        <a class="primary-action" href="/zh/germany-family-reunion-a1/">进入中文专题</a>
+        <a class="secondary-action" href="/zh/guides/goethe-a1-30-day-study-plan/">查看 30 天备考计划</a>
+      </div>
+      </div>
+    </section>
+
+    <section class="section-inner content-section" id="zh-guides">
+      <div class="section-header">
+        <h2>德国 A1 中文核心指南</h2>
+        <p>先覆盖中文用户最需要的 5 个问题：是否需要 A1、Goethe vs telc、报名、材料和备考。</p>
+      </div>
+      <div class="guide-related-grid">
+        {zhGermanyA1Guides.map(g => (
+          <a href={g.href} class="article-card">
+            <p class="card-category">德国 A1 中文指南</p>
+            <h3>{g.title}</h3>
+            <p class="card-meta">{g.description}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="section-inner content-section">
+      <div class="section-header">
+        <h2>按路线浏览</h2>
+        <p>除德国 A1 中文核心路径外，其它路线暂时仍进入英文资料库，后续按优先级逐步中文化。</p>
+      </div>
+      <div class="route-grid">
+        {categories.map(cat => {
+          const count = guides.filter(g => g.data.category === cat.slug).length;
+          return (
+            <a href={`/guides/category/${cat.slug}/`} class="route-card">
+              <span>{cat.name}</span>
+              <strong>{cat.desc}</strong>
+              <small>{count} 篇指南</small>
+            </a>
+          );
+        })}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

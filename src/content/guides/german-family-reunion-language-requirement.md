@@ -1,16 +1,16 @@
 ---
-title: "German family reunion language requirement"
-description: "Who needs to prove basic German for a family reunion visa to Germany, which exemptions apply, and where to verify the rule."
+title: "German family reunion language requirement guide"
+description: "Check who may need basic German proof for family reunion in Germany, what exemptions may apply, and which official source to verify before applying."
 category: "germany-a1"
 slug: "german-family-reunion-language-requirement"
 publishedDate: "2026-06-30"
-updatedDate: "2026-06-30"
+updatedDate: "2026-07-10"
 author: "VisaLang"
 readingTime: "5"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["german-a1-documents-checklist", "goethe-a1-30-day-study-plan", "goethe-a1-fees-by-country"]
+related: ["goethe-a1-germany-family-reunion", "goethe-a1-vs-telc-a1", "german-a1-family-reunion-faq"]
 ---
 
 ## What BAMF says

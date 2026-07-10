@@ -1,0 +1,94 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+import { guideCategories, guideCategoryMap, inferGuideMeta } from '../../../data/guide-taxonomy';
+
+export function getStaticPaths() {
+  return guideCategories.map((category) => ({
+    params: { category: category.slug },
+    props: { category },
+  }));
+}
+
+const { category } = Astro.props;
+const guides = await getCollection('guides');
+const categoryGuides = guides
+  .filter((guide) => guide.data.category === category.slug)
+  .map((guide) => ({ ...guide, meta: inferGuideMeta(guide.data) }))
+  .sort((a, b) => b.data.publishedDate.localeCompare(a.data.publishedDate));
+
+const canonicalURL = `https://flowlight.me/guides/category/${category.slug}/`;
+const jsonLD = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      '@id': `${canonicalURL}#collection`,
+      name: `${category.name} guides`,
+      url: canonicalURL,
+      description: `VisaLang guides for ${category.desc}.`,
+      inLanguage: 'en',
+      isPartOf: { '@type': 'WebSite', name: 'VisaLang', url: 'https://flowlight.me/' },
+      mainEntity: { '@id': `${canonicalURL}#item-list` },
+    },
+    {
+      '@type': 'ItemList',
+      '@id': `${canonicalURL}#item-list`,
+      name: `${category.name} guide list`,
+      numberOfItems: categoryGuides.length,
+      itemListElement: categoryGuides.map((guide, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: `https://flowlight.me/guides/${guide.data.slug}/`,
+        name: guide.data.title,
+        description: guide.data.description,
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={`${category.name} guides`}
+  description={`Browse VisaLang ${category.name} guides for ${category.desc}. Compare exams, levels, route checks, official sources, and next steps.`}
+  canonicalURL={canonicalURL}
+  jsonLD={jsonLD}
+>
+  <main class="site-main">
+    <section class="section-inner">
+      <header class="library-header">
+        <p class="eyebrow">Guide category</p>
+        <h1>{category.name} guides</h1>
+        <p>
+          {categoryGuides.length} guide{categoryGuides.length === 1 ? '' : 's'} for {category.desc}.
+        </p>
+        <div class="action-row left">
+          <a class="secondary-action" href="/guides/">Browse all guides</a>
+        </div>
+      </header>
+
+      {categoryGuides.length > 0 ? (
+        <div class="guide-related-grid">
+          {categoryGuides.map((guide) => (
+            <ArticleCard
+              title={guide.data.title}
+              slug={guide.data.slug}
+              category={guide.data.eyebrow ?? (guideCategoryMap[guide.data.category]?.name ?? guide.data.category)}
+              description={guide.data.description}
+              readingTime={guide.data.readingTime}
+              country={guide.meta.country}
+              route={guide.meta.route}
+              exam={guide.meta.exam}
+              level={guide.meta.level}
+              updatedDate={guide.data.updatedDate}
+              relatedRouteHref="/guides/"
+            />
+          ))}
+        </div>
+      ) : (
+        <p class="guide-empty-state">No guides in this category yet. Browse all guides or check another route.</p>
+      )}
+    </section>
+  </main>
+</BaseLayout>

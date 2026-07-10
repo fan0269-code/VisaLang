@@ -10,7 +10,7 @@ readingTime: "5"
 featured: false
 eyebrow: "Portugal · Citizenship"
 route: "portugal"
-related: []
+related: ["portuguese-ciple-a2-for-citizenship-and-residence"]
 ---
 
 ## CIPLE A2 vs alternatives

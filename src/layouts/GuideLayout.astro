@@ -16,6 +16,11 @@ export interface Props {
   eyebrow?: string;
   breadcrumbs?: { label: string; href?: string }[];
   related?: { title: string; slug: string }[];
+  routeHref?: string;
+  routeLabel?: string;
+  country?: string;
+  exam?: string;
+  level?: string;
   headings?: { slug: string; text: string }[];
 }
 
@@ -31,23 +36,57 @@ const {
     { label: title },
   ],
   related = [],
+  routeHref,
+  routeLabel,
+  country,
+  exam,
+  level,
   headings = [],
 } = Astro.props;
 
-const tocHeadings = headings.map(h => ({ text: h.text, id: h.slug }));
+const standardHeadings = [
+  { text: 'Summary', id: 'summary' },
+  { text: 'Who this guide is for', id: 'who-this-guide-is-for' },
+  { text: 'Who this guide is not for', id: 'who-this-guide-is-not-for' },
+  ...headings.map(h => ({ text: h.text, id: h.slug })),
+  { text: 'Official verification', id: 'official-verification' },
+  { text: 'Common mistakes', id: 'common-mistakes' },
+  { text: 'Last updated', id: 'last-updated' },
+  { text: 'Disclaimer', id: 'disclaimer' },
+];
+const tocHeadings = standardHeadings.filter((heading, index, list) => (
+  list.findIndex((item) => item.id === heading.id) === index
+));
 
 const canonicalURL = `https://flowlight.me/guides/${slug}/`;
+const absoluteUrl = (href: string) => new URL(href, 'https://flowlight.me').href;
+const audienceLabel = [country, routeLabel, exam, level].filter(Boolean).join(' - ');
 
 const jsonLD = {
   '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: title,
-  url: canonicalURL,
-  datePublished: publishedDate,
-  dateModified: updatedDate,
-  publisher: { '@type': 'Organization', name: 'VisaLang', url: 'https://flowlight.me/' },
-  about: description,
-  inLanguage: 'en',
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: title,
+      url: canonicalURL,
+      datePublished: publishedDate,
+      dateModified: updatedDate,
+      author: { '@type': 'Organization', name: 'VisaLang' },
+      publisher: { '@type': 'Organization', name: 'VisaLang', url: 'https://flowlight.me/' },
+      about: description,
+      inLanguage: 'en',
+      mainEntityOfPage: canonicalURL,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbs.map((crumb, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: crumb.label,
+        item: crumb.href ? absoluteUrl(crumb.href) : canonicalURL,
+      })),
+    },
+  ],
 };
 ---
 
@@ -55,6 +94,7 @@ const jsonLD = {
   title={title}
   description={description}
   canonicalURL={canonicalURL}
+  ogType="article"
   jsonLD={jsonLD}
 >
   <main class="guide-page">
@@ -68,11 +108,86 @@ const jsonLD = {
           </svg>
         </div>
         {eyebrow && <p class="eyebrow">{eyebrow}</p>}
-        <p class="guide-summary">{description}</p>
+        <h1>{title}</h1>
+        <section class="guide-summary-box" id="summary" aria-label="Guide summary">
+          <p class="guide-summary">{description}</p>
+          <dl>
+            {country && (
+              <>
+                <dt>Country</dt>
+                <dd>{country}</dd>
+              </>
+            )}
+            {routeLabel && (
+              <>
+                <dt>Route</dt>
+                <dd>{routeLabel}</dd>
+              </>
+            )}
+            {exam && (
+              <>
+                <dt>Exam</dt>
+                <dd>{exam}</dd>
+              </>
+            )}
+            {level && (
+              <>
+                <dt>Level</dt>
+                <dd>{level}</dd>
+              </>
+            )}
+          </dl>
+        </section>
+        <div class="guide-trustbar" aria-label="Guide reliability information">
+          <span>Last updated: <time datetime={updatedDate}>{updatedDate}</time></span>
+          <span>Official sources are linked below. Verify rules with the test centre or authority before booking or submitting documents.</span>
+        </div>
+        <section class="guide-template-box" id="who-this-guide-is-for">
+          <h2>Who this guide is for</h2>
+          <p>
+            Readers checking {audienceLabel || 'a language-exam route'} before booking an exam,
+            choosing a preparation path, or preparing documents for an official process.
+          </p>
+        </section>
+        <section class="guide-template-box" id="who-this-guide-is-not-for">
+          <h2>Who this guide is not for</h2>
+          <p>
+            This guide is not a substitute for a consulate, immigration authority, university,
+            employer, professional body, or official exam provider decision.
+          </p>
+        </section>
         <slot />
+        <section class="guide-template-box" id="official-verification">
+          <h2>Official verification</h2>
+          <p>
+            Before acting, verify the current rule, accepted certificate, fee, date, location,
+            ID requirement, cancellation policy, and result timeline with the official authority
+            or test centre linked in this guide.
+          </p>
+        </section>
+        <section class="guide-template-box" id="common-mistakes">
+          <h2>Common mistakes</h2>
+          <ul>
+            <li>Booking an exam before confirming it is accepted for the exact route.</li>
+            <li>Using old fee, date, or test-centre information without checking the official page.</li>
+            <li>Relying on copied real exam questions, leaked materials, or guaranteed-pass claims.</li>
+          </ul>
+        </section>
+        <section class="guide-template-box" id="last-updated">
+          <h2>Last updated</h2>
+          <p><time datetime={updatedDate}>{updatedDate}</time>. Re-check official pages before booking or submitting documents.</p>
+        </section>
+        <section class="guide-disclaimer" id="disclaimer">
+          <h2>Disclaimer</h2>
+          <p>
+            VisaLang explains language-exam routes for planning purposes only. It does not provide
+            legal advice, immigration advice, official exam registration, or a guarantee of visa,
+            residence, citizenship, university, or work-registration outcomes.
+          </p>
+        </section>
       </article>
     </div>
-    <RelatedGuides guides={related} />
+    <RelatedGuides guides={related} routeHref={routeHref} routeLabel={routeLabel} />
     <GuideCTA />
   </main>
 </BaseLayout>

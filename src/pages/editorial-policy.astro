@@ -4,9 +4,8 @@ const updated = '2026-07-02';
 ---
 
 <BaseLayout title="Editorial Policy" description="How VisaLang researches, writes, and maintains guides." noindex={true}>
-  <main class="guide-page">
-    <div class="guide-layout" style="grid-template-columns: 1fr">
-      <article class="guide-article" style="max-width:680px;margin:0 auto">
+  <main class="page-shell">
+    <article class="guide-article narrow-page">
         <p class="eyebrow">Editorial</p>
         <h1>Editorial Policy</h1>
         <p class="guide-summary">Last updated: {updated}</p>
@@ -25,7 +24,7 @@ const updated = '2026-07-02';
         <ul>
           <li>Leaked exam questions or copied real exam items.</li>
           <li>Official logos presented in ways that imply endorsement.</li>
-          <li>Guaranteed outcomes ("pass for sure", "visa approved").li>
+          <li>Guaranteed outcomes ("pass for sure", "visa approved").</li>
           <li>Specific fees, dates, or policy numbers without an official source.</li>
         </ul>
 
@@ -42,7 +41,6 @@ const updated = '2026-07-02';
         <p>Editorial decisions are independent of any exam provider, school, or advertiser. No partner can edit our official-source guidance.</p>
 
         <p class="last-updated">Last updated: {updated}</p>
-      </article>
-    </div>
+    </article>
   </main>
 </BaseLayout>

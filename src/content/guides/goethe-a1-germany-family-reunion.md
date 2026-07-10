@@ -1,16 +1,16 @@
 ---
-title: "Goethe A1 for Germany family reunion"
-description: "How Goethe-Zertifikat A1 works as language proof for the Germany family reunion visa, with official sources and next steps."
+title: "Goethe A1 for Germany family reunion visa proof"
+description: "How Goethe-Zertifikat A1 can fit Germany family reunion visa planning, what to verify officially, and which booking and document steps come next."
 category: "germany-a1"
 slug: "goethe-a1-germany-family-reunion"
 publishedDate: "2026-06-30"
-updatedDate: "2026-06-30"
+updatedDate: "2026-07-10"
 author: "VisaLang"
 readingTime: "5"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["german-a1-documents-checklist", "german-family-reunion-language-requirement", "goethe-a1-30-day-study-plan"]
+related: ["german-family-reunion-language-requirement", "goethe-a1-vs-telc-a1", "goethe-a1-pre-booking-checklist"]
 ---
 
 ## What to verify first

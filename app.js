@@ -292,11 +292,6 @@ function bindEvents() {
     $("#waitlist-message").textContent = "";
     var signup = { email: email, route: route, stage: stage, createdAt: new Date().toISOString() };
     // Demo mode: no backend configured yet.
-    // To connect a real email service, replace the setTimeout block with:
-    //   fetch("YOUR_FORM_ENDPOINT", { method: "POST", body: new FormData(form) })
-    //     .then(r => r.ok ? copy.waitlistSuccess : copy.waitlistError)
-    //     .catch(() => copy.waitlistError)
-    // Supported services: Formspree, Getform, Google Forms, Mailchimp, etc.
     setTimeout(function() {
       try {
         localStorage.setItem("visalangWaitlistIntent", JSON.stringify(signup));

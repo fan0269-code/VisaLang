@@ -1,16 +1,16 @@
 ---
-title: "Goethe A1 Booking Mistakes to Avoid"
-description: "Common mistakes people make when booking the Goethe A1 exam and how to avoid them."
+title: "Goethe A1 booking mistakes for family reunion"
+description: "Avoid common Goethe A1 booking mistakes by checking the exam version, official centre, ID rules, dates, fees, and cancellation terms before paying."
 category: "germany-a1"
 slug: "goethe-a1-booking-mistakes"
 publishedDate: "2026-07-02"
-updatedDate: "2026-07-02"
+updatedDate: "2026-07-10"
 author: "VisaLang"
 readingTime: "6"
 featured: false
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["goethe-a1-fees-by-country", "goethe-a1-test-centers", "german-a1-documents-checklist"]
+related: ["german-a1-documents-checklist", "goethe-a1-pre-booking-checklist", "goethe-a1-test-centers"]
 ---
 ## Common Goethe A1 booking mistakes
 

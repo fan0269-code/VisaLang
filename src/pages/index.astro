@@ -6,7 +6,7 @@ const guides = await getCollection('guides');
 const featured = guides.filter(g => g.data.featured).slice(0, 3);
 const latest = guides
   .sort((a, b) => b.data.publishedDate.localeCompare(a.data.publishedDate))
-  .slice(0, 6);
+  .slice(0, 3);
 
 const categories = [
   { name: 'Germany A1', slug: 'germany-a1', desc: 'Family reunion language proof' },
@@ -29,6 +29,8 @@ const stats = [
   { label: 'Countries', value: 11 },
 ];
 
+const germanyA1Count = guides.filter(g => g.data.category === 'germany-a1').length;
+
 const jsonLD = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -38,22 +40,98 @@ const jsonLD = {
 };
 ---
 
-<BaseLayout title="Find the right language exam for your next move" description="Official-first guides for German, English, French, Italian, Spanish, Dutch, Portuguese, and Finnish language exams — built for visa, residency, citizenship, and work-registration paths." jsonLD={jsonLD}>
-  <main>
+<BaseLayout
+  title="Find the right language exam for your next move"
+  description="Official-first guides for German, English, French, Italian, Spanish, Dutch, Portuguese, and Finnish language exams — built for visa, residency, citizenship, and work-registration paths."
+  canonicalURL="https://flowlight.me/"
+  lang="en"
+  alternates={[
+    { lang: 'en', href: 'https://flowlight.me/' },
+    { lang: 'zh-CN', href: 'https://flowlight.me/zh/' },
+    { lang: 'x-default', href: 'https://flowlight.me/' },
+  ]}
+  jsonLD={jsonLD}
+>
+  <main class="site-main">
     <section class="hero">
+      <p class="eyebrow">Language exam route finder</p>
       <h1>Find the right language exam for your next move</h1>
       <p>Official-first guides for German, English, French, Italian, Spanish, Dutch, Portuguese, and Finnish language exams — built for visa, residency, citizenship, and work-registration paths.</p>
-      <a class="primary-action" href="#guides">Browse exam guides</a>
-      <div class="hero-stats">
+      <div class="action-row">
+        <a class="primary-action" href="#route-finder">Start with route finder</a>
+        <a class="secondary-action" href="/guides/">Browse guide library</a>
+      </div>
+      <div class="stat-grid" aria-label="VisaLang coverage">
         {stats.map(s => (
-          <div class="stat"><span class="stat-value">{s.value}</span><span class="stat-label">{s.label}</span></div>
+          <div class="stat-card"><span class="stat-value">{s.value}</span><span class="stat-label">{s.label}</span></div>
         ))}
       </div>
     </section>
 
+    <section id="route-finder" class="section-inner content-section compact">
+      <div class="route-finder">
+        <div class="finder-copy">
+          <p class="eyebrow">Exam Route Finder</p>
+          <h2>Choose by country, purpose, and certificate level.</h2>
+          <p>Start with the route, then verify the accepted certificate and booking rules before you spend money on an exam.</p>
+          <div class="action-row left">
+            <a class="primary-action" href="/germany-family-reunion-a1/">Open Germany A1 route</a>
+            <a class="secondary-action" href="/guides/">Search all guides</a>
+          </div>
+        </div>
+        <ol class="finder-steps">
+          <li><span class="step-number">01</span><span><strong>Pick your country route.</strong><br />Germany, UK, Canada, Italy, Spain, France, Finland, Netherlands, or Portugal.</span></li>
+          <li><span class="step-number">02</span><span><strong>Match the purpose.</strong><br />Family reunion, settlement, citizenship, study, work, or professional registration.</span></li>
+          <li><span class="step-number">03</span><span><strong>Verify the exam.</strong><br />Check the official authority, test centre, fee, date, ID rule, and result timing.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section-inner content-section compact">
+      <div class="feature-route feature-route-grid">
+        <div>
+          <p class="eyebrow">Primary route</p>
+          <h2>Germany A1 family reunion</h2>
+          <p>The clearest model route on VisaLang: requirement check, Goethe vs telc, booking risk, documents, study plan, retake planning, FAQ, and official verification.</p>
+          <div class="badge-row">
+            <span class="badge strong">{germanyA1Count} guides</span>
+            <span class="badge">Family reunion</span>
+            <span class="badge">A1 proof</span>
+            <span class="badge">Official-first</span>
+          </div>
+        </div>
+        <div class="stacked-actions">
+          <a class="primary-action" href="/germany-family-reunion-a1/">Start Germany A1 route</a>
+          <a class="secondary-action" href="/guides/category/germany-a1/">View all Germany A1 guides</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="guides" class="section-inner content-section">
+      <div class="section-header centered">
+        <h2>Browse by route</h2>
+        <p>Each route groups guides by the decision a reader needs to make before booking or submitting documents.</p>
+      </div>
+      <div class="route-grid">
+        {categories.map(cat => {
+          const count = guides.filter(g => g.data.category === cat.slug).length;
+          return (
+            <a href={`/guides/category/${cat.slug}/`} class="route-card">
+              <span>{cat.name}</span>
+              <strong>{cat.desc}</strong>
+              <small>{count} guide{count !== 1 ? 's' : ''}</small>
+            </a>
+          );
+        })}
+      </div>
+    </section>
+
     {featured.length > 0 && (
-      <section class="container" style="padding: 0 24px 48px">
-        <h2 class="section-title">Featured guides</h2>
+      <section class="section-inner content-section">
+        <div class="section-header">
+          <h2>Featured guides</h2>
+          <p>Selected starting points for high-intent routes. These support the route finder rather than replacing it.</p>
+        </div>
         <div class="guide-related-grid">
           {featured.map(g => (
             <a href={`/guides/${g.data.slug}/`} class="article-card">
@@ -66,24 +144,11 @@ const jsonLD = {
       </section>
     )}
 
-    <section id="guides" class="container" style="padding: 0 24px 48px">
-      <h2 class="section-title">Browse by route</h2>
-      <div class="guide-related-grid">
-        {categories.map(cat => {
-          const count = guides.filter(g => g.data.category === cat.slug).length;
-          return (
-            <a href={`/guides/?category=${cat.slug}`} class="article-card">
-              <p class="card-category">{cat.name}</p>
-              <h3>{cat.desc}</h3>
-              <p class="card-meta">{count} guide{count !== 1 ? 's' : ''}</p>
-            </a>
-          );
-        })}
+    <section class="section-inner content-section">
+      <div class="section-header">
+        <h2>Latest updates</h2>
+        <p>Recent guide updates stay available, but the main homepage path is route selection first.</p>
       </div>
-    </section>
-
-    <section class="container" style="padding: 0 24px 64px">
-      <h2 class="section-title">Latest guides</h2>
       <div class="guide-related-grid">
         {latest.map(g => (
           <a href={`/guides/${g.data.slug}/`} class="article-card">
@@ -96,12 +161,3 @@ const jsonLD = {
     </section>
   </main>
 </BaseLayout>
-
-<style>
-  .section-title { text-align: center; font-size: 1.3rem; margin-bottom: 24px; font-family: var(--font-display); color: var(--ink); }
-  .hero-stats { display: flex; gap: 32px; justify-content: center; margin-top: 32px; }
-  .stat { display: flex; flex-direction: column; align-items: center; }
-  .stat-value { font-size: 2rem; font-weight: 700; color: var(--brand); font-family: var(--font-display); }
-  .stat-label { font-size: 0.85rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
-  @media (max-width: 680px) { .hero-stats { gap: 20px; } .stat-value { font-size: 1.5rem; } }
-</style>
