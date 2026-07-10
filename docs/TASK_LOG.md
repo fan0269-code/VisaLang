@@ -4,6 +4,28 @@ Updated: 2026-07-10
 
 This log records current project-map findings, known issues, and recommended next-window boundaries for flowlight.me / VisaLang.
 
+## Google AdSense Script Install - 2026-07-10
+
+Role: monetization script integration owner.
+
+Scope completed:
+
+- Added the Google AdSense publisher script for `ca-pub-3018617123550799` to the shared Astro page head in `src/layouts/BaseLayout.astro`.
+- Kept the change narrow: no ad units, no layout changes, no content changes, no route changes, no package/deploy config changes.
+- Verified generated pages include the script, including `/`, `/guides/`, `/zh/`, and `/germany-family-reunion-a1/`.
+
+Verification:
+
+- `npm test`: passed.
+- `npm run build`: passed, 79 pages generated.
+- `npm run launch-check`: passed, 55 checks, READY.
+- `git diff --check`: passed.
+
+Remaining follow-up:
+
+- Add visible ad placements only after Google AdSense approval and a separate UX/compliance pass.
+- Review cookie/privacy consent requirements for display advertising in a separate legal/compliance window if ads are activated beyond the loader script.
+
 ## Final QA Refresh / Deployment Gate - 2026-07-10
 
 Role: final quality check, build/link/mobile/SEO risk gate, and small-fix owner.
