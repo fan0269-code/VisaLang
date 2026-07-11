@@ -17,8 +17,8 @@ echo "  ✓ $PRETTY_NAME"
 echo "==> 更新系统包索引"
 apt update -y
 
-echo "==> 安装 Nginx + Certbot + Git + UFW"
-DEBIAN_FRONTEND=noninteractive apt install -y nginx certbot python3-certbot-nginx git ufw curl
+echo "==> 安装 Nginx + Certbot + Git + Node.js + npm + UFW"
+DEBIAN_FRONTEND=noninteractive apt install -y nginx certbot python3-certbot-nginx git nodejs npm ufw curl
 
 echo "==> 启动并开机自启 Nginx"
 systemctl enable --now nginx

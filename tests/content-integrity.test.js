@@ -37,4 +37,10 @@ for (const legacy of ['index.html', 'about.html', 'contact.html', 'privacy-polic
   assert.ok(fs.existsSync(legacy), `legacy file remains available until hosting source-of-truth is confirmed: ${legacy}`);
 }
 
-console.log('guide sources, related links, compliance, app data, and legacy handoff checks passed');
+const deployScript = fs.readFileSync('deploy/deploy.sh', 'utf8');
+assert.match(deployScript, /SOURCE_DIR=.*\/source/, 'deployment keeps source and served files in separate directories');
+assert.match(deployScript, /npm run build/, 'deployment builds Astro before publishing');
+assert.match(deployScript, /SOURCE_DIR\/dist\/index\.html/, 'deployment blocks publication without the Astro root entry');
+assert.match(deployScript, /cp -a \"\$SOURCE_DIR\/dist\//, 'deployment publishes the complete Astro dist output');
+
+console.log('guide sources, related links, compliance, app data, legacy handoff, and deployment checks passed');

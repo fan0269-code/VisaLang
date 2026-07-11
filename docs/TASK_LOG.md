@@ -4,6 +4,27 @@ Updated: 2026-07-11
 
 This log records current project-map findings, known issues, and recommended next-window boundaries for flowlight.me / VisaLang.
 
+## Production 403 Incident - 2026-07-11
+
+Observed online with a reproducible check:
+
+- `https://flowlight.me/` returned Nginx `403` with the native `403 Forbidden` body.
+- `https://flowlight.me/index.html` returned `404`, while `/about/` returned the new Astro page with `200`.
+- This means the Nginx document root contained partial Astro output but no root `index.html`; it was not an application-route or content error.
+
+Root cause and repository fix:
+
+- The checked-in deployment script pulled the repository into the Nginx document root, never ran `npm run build`, and never verified or copied `dist/`.
+- `deploy/deploy.sh` now keeps source in `/var/www/flowlight.me/source`, installs Node/npm when missing, runs `npm ci` and `npm run build`, blocks publication unless `source/dist/index.html` exists, and synchronizes the complete `dist/` into `/var/www/flowlight.me/public`.
+- `deploy/server-init.sh`, `deploy/README.md`, and deployment regression assertions were updated to match this contract.
+
+Verification:
+
+- `npm test`: passed, including deployment-contract assertions.
+- `npm run launch-check`: passed, 24 checks, `READY`.
+- `bash -n deploy/deploy.sh deploy/server-init.sh`: passed.
+- The remote fix could not be applied from this session because the configured `aliyun` SSH host key changed and was correctly rejected by SSH. Confirm the new fingerprint `SHA256:yFIeAuRfz70RkuQc+pcY2imBex745Z2IjqQOyZfWNGA` with the server owner before connecting and running the deployment script.
+
 ## Decision Product UI Refactor - 2026-07-11
 
 Role: senior product design, UX architecture, frontend implementation, migration, and release verification.
