@@ -1514,3 +1514,41 @@ Role: final release owner for scope audit, functional acceptance, fact-risk revi
 - Created `01536f4 feat: complete VisaLang product upgrade` and pushed it together with the two pre-existing local A1 commits to `origin/main`.
 - Post-push Git state was clean and synchronized: `HEAD` and `origin/main` both resolved to `01536f4205effe3844607e13445217c1db7ec12f` before this final handoff note.
 - A post-push production check still showed the legacy homepage inventory: 43 guides, 15 Germany A1 guides, and 4 Germany B1 guides. That does not match the validated 95-page Astro build, so production deployment remains unconfirmed and blocked on the hosting source-of-truth decision above.
+
+## UI reference refinement — 2026-07-11
+
+Scope: presentation-only refinement inspired by the high-level visual principles of NextNation (clear blue primary action, expressive editorial display type, generous whitespace, and contained information panels). No routes, copy, SEO/schema, data, CTA targets, tool rules, commercial claims, or deployment files changed.
+
+Completed:
+
+- Updated the shared visual tokens in `src/styles/global.css` for a calmer blue, lower-noise surfaces, stronger type hierarchy, restrained shadows, and a more precise header treatment.
+- Added the shared `hero--home` presentation wrapper to the English and Chinese homepages. It creates an elevated but still information-first entry surface without changing either homepage's content or actions.
+- Refined common decision panels, numbered verification steps, cards, and primary actions so they read as one coherent, international product system on desktop and mobile.
+
+Verification:
+
+- `npm test` — passed.
+- `npm run build` — passed; 95 static pages generated.
+- `git diff --check` — passed.
+- Rendered QA at `http://127.0.0.1:4321/`: homepage loaded with no relevant console warnings/errors at desktop and 390px mobile; mobile document width stayed within the viewport.
+- Interaction QA: homepage primary CTA -> `/tools/route-finder/`; Route Finder rendered correctly at 390px with no horizontal overflow or relevant console warnings/errors.
+
+## Figma export visual-system adoption — 2026-07-11
+
+Input reviewed: `/Users/fanlw/Downloads/Optimize Flowlight UI`, the exported implementation for the `Optimize Flowlight UI` Figma design.
+
+Scope: visual-only. Existing page copy, routes, canonical/SEO/schema output, data, CTA targets, tool behavior, commercial boundary, and deployment configuration remain unchanged. Reference-only photography and replacement text from the export were intentionally not imported.
+
+Completed:
+
+- Reworked the shared visual system around the export's warm white, deep-navy, and restrained-gold palette; Poppins body typography; Italiana display hierarchy; soft ambient backgrounds; and translucent glass surfaces.
+- Converted the global header into a floating, blurred navigation surface and restyled shared cards, route steps, panels, buttons, guide CTA, and tool surfaces so the site reads as one coherent system.
+- Applied the homepage layout treatment to both English and Chinese entry pages by adding presentation-only `site-main--home` classes; no visible copy or behavior changed.
+
+Verification:
+
+- `npm test` — passed.
+- `npm run build` — passed; 95 static pages generated.
+- `git diff --check` — passed.
+- Rendered QA: desktop homepage and a configured 390px mobile viewport loaded with the expected title/hero, no relevant console warnings/errors, and no horizontal document overflow.
+- Interaction QA: the unique homepage primary CTA continued to navigate to `/tools/route-finder/`; the resulting mobile Route Finder page rendered with no horizontal overflow or relevant console warnings/errors.
