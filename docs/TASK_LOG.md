@@ -1305,3 +1305,206 @@ Recommended next module:
 - Whether category filtering should stay client-side or become real route pages.
 - Whether to formalize `country`, `exam`, and `level` in guide frontmatter.
 - Which layer the live deployment currently serves: Astro `dist/` or legacy root static files.
+
+## Window 0: Product-Upgrade Scan And Workstream Boundary — 2026-07-11
+
+Role: flowlight.me total coordinator.
+
+Scope completed:
+
+- Performed a read-only scan of the live Astro source, legacy compatibility layer, project documentation, route/content inventory, shared components, style system, automated test status, and the supplied Window 1–7 briefs.
+- No product, content, UI, SEO, deployment, or dependency code was changed. This entry records the delivery boundary for the follow-on windows.
+
+Current-state decision:
+
+- The active source of truth is `src/` (Astro). The root HTML/JS/CSS layer remains a legacy compatibility surface and must not be used as the primary place for new product work unless the deployment layer is confirmed.
+- The Germany A1 cluster is already the deepest English route (16 guides) and should be reused rather than recreated. Germany B1 has nine supporting guides, but lacks the requested settlement/citizenship pillar and route-level hub.
+- Homepage “Route Finder” is currently explanatory UI, not an interactive decision tool. There are no dedicated tool, pricing, product, route-review, or partners routes; there is no real email capture destination.
+
+Recommended non-overlapping window order:
+
+1. Window 1: shared information architecture and compliance surfaces, including the navigation/footer contract and an Astro homepage handoff point for tools.
+2. Window 4: build the shared, configurable tool engine plus dedicated tool routes. This must own client-side logic and any new tool-specific components only.
+3. Window 6: add pricing, product, route-review, partners, and email-capture UI after the tool CTA targets are settled. A payment provider and email destination still need owner confirmation.
+4. Window 2: map existing A1 guides to the required cluster and fill only the factual/content gaps after the tool/product URLs exist.
+5. Window 3: create the B1 settlement/citizenship pillar and requested supporting route pages, using the same shared tool/product links.
+6. Window 5: complete cross-cluster SEO, structured-data, and internal-link audit after the new routes exist.
+7. Window 7: perform the final UI-only visual/mobile unification pass after structural work is stable.
+
+Protected areas:
+
+- Do not hand-edit `dist/`, alter deploy configuration, delete legacy pages, or change canonical/sitemap behavior without a dedicated verified scope.
+- Do not add claims about certificate acceptance, exemptions, fees, dates, visa outcomes, official affiliation, or legal advice without current authoritative-source verification.
+- Do not create competing global navigation, footer, CTA, or style systems in downstream windows; extend the shared Astro components and `src/styles/global.css`.
+
+Verification:
+
+- `npm test`: passed (`site data and tool logic checks passed`).
+
+## Window Prompt Refinement — 2026-07-11
+
+Role: total-dispatch documentation owner.
+
+Scope completed:
+
+- Converted the supplied Window 0–7 briefs into executable, non-overlapping prompts in `docs/PRODUCT_UPGRADE_WINDOW_PROMPTS.md`.
+- Added shared guardrails, dependency order, per-window file ownership, explicit allowed/prohibited changes, deliverables, acceptance checks, human-decision gates, and a single handoff format.
+- No application, content, CSS, route, SEO, deployment, or dependency code was changed.
+
+Key coordination decisions:
+
+- Run information architecture before the tool engine; run products after tool URLs exist; run A1/B1 content after shared CTA URLs exist; run SEO after URLs are frozen; run UI only after structure is stable.
+- The A1 window must map and deepen the existing 16-guide cluster rather than recreate a parallel 12-page cluster.
+- Real email, payment, delivery, and Route Review service promises remain blocked on owner-confirmed providers and operations.
+
+Verification:
+
+- `git diff --check`: passed.
+
+## Window 0: Dispatch Verification And Release Gate — 2026-07-11
+
+Role: flowlight.me total coordinator.
+
+Scope completed:
+
+- Re-scanned `src/pages`, `src/components`, `src/layouts`, `src/content/guides`, `src/styles`, `tests`, `scripts`, Git state, the product-upgrade prompt, deployment files, and the reachable production homepage.
+- Updated `docs/PROJECT_CONTEXT.md` with the current functional matrix, exclusive file ownership, acceptance/return rule, execution order, and business-risk register.
+- No product, content, CSS, route, deployment, or dependency file was changed.
+
+Release-gate finding:
+
+- Production is **not verified to serve the Astro output**. The current live homepage showed 43 guides, 15 Germany A1 guides, and 4 Germany B1 guides; the current local Astro source has 49, 16, and 9 respectively.
+- The checked-in CVM deployment script clones/pulls the repository into the Nginx document root and reloads Nginx, but does not build Astro or serve `dist/`. Therefore no Astro-window handoff may claim an online release until the hosting owner confirms and implements a build-and-publish contract.
+
+Functional status:
+
+- Existing: Astro foundation, A1 cluster, B1 supporting guides, SEO baseline, shared visual system.
+- Partial: homepage/navigation/trust surfaces and B1 route structure.
+- Missing: five interactive tools, product/pricing pages, Route Review, Partners, real email capture, payment, and fulfilment.
+- Business confirmation required: deployment contract; email provider/data flow/retention; payment/delivery/refund/tax/support owner; Route Review reviewer/SLA/capacity/secure-intake policy; current official facts; AdSense CSP/consent posture.
+
+Dispatch decision:
+
+1. Keep the established execution order: Window 1 → 4 → 6 → (2 and 3 in parallel) → 5 → 7.
+2. Treat deployment as an owner decision gate alongside, not inside, the code windows.
+3. Do not permit concurrent edits to shared `index.astro`, Header, Footer, layouts, or `global.css`; the detailed exclusive ownership contract is in `docs/PROJECT_CONTEXT.md` and `docs/PRODUCT_UPGRADE_WINDOW_PROMPTS.md`.
+4. Return any handoff that crosses its file boundary, lacks proportional verification, or claims unconfigured email/payment/review service behavior to the originating window.
+
+Verification:
+
+- `git diff --check`: passed before this documentation update.
+- Production homepage was read on 2026-07-11 and compared with the current source inventory.
+
+Scope not touched:
+
+- All application code, guide bodies, CSS, build output, hosting configuration, email/payment integrations, and server state.
+
+## Window 5: SEO, Schema And Internal-Link Audit — 2026-07-11
+
+Role: search structure and cluster-connection owner.
+
+URL freeze decision:
+
+- Audited the actual Astro route set after Window 1, 2, 3, 4, and 6 pages were present. No renamed, temporary, or unresolved target URL was found in the new A1, B1, tool, pricing, product, Route Review, or partner routes.
+- Treated the following as the frozen SEO contract for this window: `/germany-family-reunion-a1/`, `/germany-b1-settlement-citizenship/`, `/tools/{route-finder,checklist-generator,timeline-calculator,exam-comparison,email-reminders}/`, `/pricing/`, `/products/{a1-family-reunion-pack,a1-practice-pack}/`, `/route-review/`, and `/partners/`.
+
+SEO matrix:
+
+| URL / page role | One primary search intent | Next step CTA | Structured-data decision |
+| --- | --- | --- | --- |
+| `/germany-family-reunion-a1/` | Germany A1 family-reunion route | Requirement guide → tools → proposed A1 packs / Route Review | FAQPage retained because the page exposes the matching FAQ visibly. |
+| A1 requirement, provider-comparison, booking, timing, documents, retake, and preparation guides | One decision per guide: requirement, accepted proof, provider choice, booking risk, timeline, documents, retake, or practice | Back to A1 hub plus the relevant planning tool / proposed support | Article + BreadcrumbList retained on every generated guide. |
+| `/germany-b1-settlement-citizenship/` | Germany B1 language proof for settlement permits and citizenship | B1 checklist/timeline/comparison → free tools → pricing / Route Review | No FAQ schema: the page does not present a FAQ section. |
+| B1 settlement, citizenship, Leben in Deutschland, checklist, timeline, and exam-comparison guides | One B1 proof or planning question per page, distinct from A1 family reunion | B1 hub → planning tool → Route Review | Article + BreadcrumbList retained. |
+| `/tools/*` | Route finding, checklist creation, timeline planning, exam-comparison questions, or local reminder drafting | A1/B1 hub → proposed packs / Route Review | No HowTo schema: these are interactive planning utilities, not step-by-step instructional articles. |
+| `/pricing/`, `/products/*`, `/route-review/`, `/partners/` | Transparent support scope, not a claim of a purchasable product or accepted service | Free tools → relevant route hub → contact intent | No Product schema: price, delivery, availability, and service acceptance are not confirmed. |
+
+Search / link changes:
+
+- Replaced A1 hub and tool-result shortcuts that went directly to contact-intent query URLs with the real product-scope and Route Review pages. Those pages still make the contact-intent boundary explicit.
+- Added the A1 Practice Pack to the A1 route’s next-step set.
+- Connected every tool result to both the A1 and B1 hubs, both proposed A1 product-scope pages, and the Route Review boundary.
+- Added both route hubs to the commercial-page boundary and added Pricing to the B1 hub’s conversion path. This removes the prior one-link-only entry condition for each proposed product page without changing a tool calculation, commercial promise, or page fact.
+- Extended `launch-check` to enforce unique rendered titles/descriptions, visible-FAQ-only FAQPage use, retained homepage WebSite and guide Article/BreadcrumbList schemas, the complete core sitemap set, and the required A1/B1/tool/product cross-links.
+
+Audit result:
+
+- Generated output has 95 pages, each with exactly one H1, a title, a useful meta description, and a `flowlight.me` canonical URL.
+- No duplicate rendered title or meta description, no broken generated internal link, and no generated-page orphan was found.
+- All indexable A1, B1, tool, pricing, product, Route Review, and partner URLs are in the generated sitemap. Noindex legal pages retain `noindex,follow` and are excluded from the sitemap.
+
+Human official review still required:
+
+- Germany A1: the receiving authority’s current requirement/exemption handling; accepted certificate; local centre status, fees, dates, ID, cancellation, result, and document rules.
+- Germany B1: the competent authority’s current settlement/naturalisation requirements and exact accepted language/civic evidence; no VisaLang page decides individual eligibility.
+- Any product or Route Review launch: price, tax, refund, delivery, reviewer qualifications, secure intake, capacity, and contact-data handling before the page can become a real sale or service.
+
+Verification:
+
+- `npm test` — passed.
+- `npm run build` — passed; 95 pages generated.
+- `npm run launch-check` — passed; 60 checks, READY.
+- `git diff --check` — passed.
+
+## Window 5 handoff
+
+### Completed
+
+- Search intents are separated between A1 family reunion, B1 settlement/citizenship, tools, and proposed products; no competing primary page was added.
+- Schema stays conservative: WebSite, Article, BreadcrumbList, and visible FAQPage are retained; no unsupported HowTo or Product schema was introduced.
+- Cross-cluster links and sitemap/indexing contracts are now regression-checked.
+
+### Files changed
+
+- `src/data/route-tools.ts`, `src/components/tools/ToolResultSupport.astro`, `src/components/products/CommercialBoundary.astro`, `src/pages/germany-family-reunion-a1.astro`, `src/pages/germany-b1-settlement-citizenship.astro`, `tests/route-tools.test.js`, and `scripts/launch-check.js`.
+
+### Decisions/interfaces for next window
+
+- Keep the frozen URL set above. Window 7 may change presentation only; it must not change these routes, their primary search intent, schema strategy, or CTA destinations.
+- Proposed packs and Route Review remain informational, non-purchasable/contact-intent pages and intentionally do not use Product schema.
+
+### Human confirmation still required
+
+- The current official facts and all real commercial-operation decisions listed above; deployment remains a separate owner gate.
+
+## Window 8: Final Release Closure — 2026-07-11
+
+Role: final release owner for scope audit, functional acceptance, fact-risk review, SEO, accessibility/mobile checks, build verification, narrow defect repair, Git delivery, and deployment handoff.
+
+### Start-state audit
+
+- Branch: `main`; upstream: `origin/main`; remote: `https://github.com/fan0269-code/VisaLang.git`.
+- The branch started two commits ahead of `origin/main`: `897c5e2 content: complete Germany A1 decision cluster` and `265e4d5 content: add Germany A1 writing route`.
+- The Window 8 baseline had 23 modified tracked files and 17 untracked status entries representing 23 untracked files. No staged file was present.
+- All baseline changes predated Window 8. Git could identify the two committed A1 changes, but could not identify authorship for the uncommitted Window 0–7 files. The task log contained explicit Window 0 and Window 5 handoffs, while separate Window 1, 2, 3, 4, 6, and 7 handoffs were not present. Window 8 therefore treated those files as provenance-incomplete until their diff, ownership boundary, rendered behavior, and tests were checked.
+- The real release scope is limited to the documented Window 0–7 source set plus the narrow Window 8 fixes below: shared navigation/footer/home/trust pages; A1 and B1 route content; five client-side tools; proposed/contact-intent commercial pages; shared tool/product components and data; shared CSS; tests; launch checks; and coordination docs.
+- Protected areas remained untouched: `deploy/**`, `astro.config.mjs`, `public/_headers`, `public/_redirects`, `public/robots.txt`, legacy root pages, dependency manifests/lockfiles, and generated `dist/**` were not edited or staged.
+
+### Acceptance result
+
+- Functional: Route Finder, Checklist, Timeline Calculator, Exam Comparison, and Reminder Planner were exercised in a rendered browser. The configured A1 result, checklist completion state, calculated dates, six-row comparison, and explicit local-only reminder result all appeared correctly.
+- Commercial boundary: pricing, proposed packs, Route Review, and Partners remain informational/contact-intent surfaces. No false purchase, email-send, delivery, or review-acceptance state was found.
+- Content and fact risk: new A1/B1 content consistently sends acceptance, exemption, fee, date, result, retake, document, settlement, and citizenship decisions back to the responsible authority or official provider. BAMF DTZ/Leben in Deutschland and settlement guidance, the current Nationality Act B1 rule, Goethe A1, and telc A1 sources were checked against official first-party pages.
+- SEO: generated titles and descriptions are unique; every generated page has one H1, a useful description, a `flowlight.me` canonical URL, and resolved internal links. Required A1/B1/tool/product URLs are generated and included in the sitemap; noindex legal pages remain excluded.
+- Accessibility/mobile: checked desktop and 390px pages had labelled controls, named buttons, no application console errors, and no horizontal overflow. This is a focused release check, not a full WCAG conformance audit across every browser and assistive technology.
+
+### Window 8 defects fixed
+
+1. `tests/germany-a1-cluster.test.js` was committed but not executed by `npm test`, and its hub assertions still expected pre-Window-5 contact URLs. Added it to the main test entry and split guide contact-intent links from the frozen hub product/Route Review links.
+2. Four new B1 surfaces used a superseded BMI naturalisation URL. Replaced it with the current German Government naturalisation guidance and added a regression assertion.
+
+### Verification
+
+- `npm test`: passed; route tools, commercial pages, Germany A1 cluster, and the site suite all ran.
+- `npm run build`: passed; 95 static pages generated.
+- `npm run launch-check`: passed; 60 checks, 0 warnings, 0 failures, `READY`.
+- `git diff --check`: passed.
+- Rendered browser QA: desktop key pages and 390px mobile key pages passed HTTP/title/H1/overflow/control-name/console checks; all five tools passed their primary interaction.
+- `lint` and `typecheck`: not run because `package.json` defines neither script.
+
+### Release and deployment handoff
+
+- The source is acceptable to commit and push on the current branch after one final post-document verification.
+- Push success must not be reported as live deployment success.
+- Production remains blocked on the documented source-of-truth decision: the checked-in CVM flow pulls the repository root and reloads Nginx but does not build Astro or publish `dist/`.
+- After the hosting owner implements and verifies the chosen build/publish contract, confirm the live route count and spot-check `/`, both Germany hubs, all five tools, pricing/products/Route Review/Partners, sitemap, robots, and production 404s.

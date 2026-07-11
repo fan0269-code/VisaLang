@@ -1,0 +1,31 @@
+---
+import { toolLinks } from '../../data/route-tools';
+
+export interface Props {
+  eyebrow: string;
+  title: string;
+  description: string;
+  current: 'finder' | 'checklist' | 'timeline' | 'comparison' | 'reminders';
+}
+
+const { eyebrow, title, description, current } = Astro.props;
+const toolNav = [
+  { id: 'finder', label: 'Route Finder', href: toolLinks.finder },
+  { id: 'checklist', label: 'Checklist', href: toolLinks.checklist },
+  { id: 'timeline', label: 'Timeline', href: toolLinks.timeline },
+  { id: 'comparison', label: 'Compare exams', href: toolLinks.comparison },
+  { id: 'reminders', label: 'Reminders', href: toolLinks.reminders },
+];
+---
+
+<main class="page-shell tool-page">
+  <header class="tool-page-header">
+    <p class="eyebrow">{eyebrow}</p>
+    <h1>{title}</h1>
+    <p>{description}</p>
+  </header>
+  <nav class="tool-nav" aria-label="Decision tools">
+    {toolNav.map((tool) => <a class:list={[{ active: tool.id === current }]} href={tool.href}>{tool.label}</a>)}
+  </nav>
+  <slot />
+</main>

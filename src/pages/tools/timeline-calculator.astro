@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ToolShell from '../../components/tools/ToolShell.astro';
+import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
+---
+
+<BaseLayout title="Timeline Calculator" description="Calculate planning dates from the buffers you enter for results, a retake, and translation or certification.">
+  <ToolShell eyebrow="Step 3 · plan backwards" title="Timeline Calculator" description="Work backwards from your target submission date using only the buffers you enter. This is a planning estimate, not a statement about a real test centre’s dates or result cycle.">
+    <div class="tool-workspace">
+      <form id="timeline-form" class="tool-form" novalidate>
+        <div class="tool-form-heading"><h2>Enter your own planning buffers</h2><p>Use current official centre information for every input. The calculator does not know local availability.</p></div>
+        <div class="tool-field-grid">
+          <label>Target submission date<input name="targetDate" type="date" required /></label>
+          <label>Exam type<select name="examType" required><option value="">Select an exam type</option><option>Goethe-Zertifikat A1</option><option>telc Deutsch A1</option><option>Another exam</option></select></label>
+          <label>Result waiting time (days)<input name="resultWaitDays" type="number" min="0" value="21" required inputmode="numeric" /></label>
+          <label>Retake buffer (days)<input name="retakeBufferDays" type="number" min="0" value="28" required inputmode="numeric" /></label>
+          <label>Translation / certification time (days)<input name="translationDays" type="number" min="0" value="7" required inputmode="numeric" /></label>
+        </div>
+        <p class="tool-error" id="timeline-error" aria-live="assertive"></p>
+        <button class="primary-action" type="submit">Calculate planning dates</button>
+      </form>
+      <section id="timeline-result" class="tool-result" hidden aria-live="polite" tabindex="-1">
+        <div id="timeline-summary"></div>
+        <ToolResultSupport resultId="timeline-summary" />
+      </section>
+    </div>
+  </ToolShell>
+</BaseLayout>
+
+<script>
+  import { calculateTimeline } from '../../data/route-tools';
+
+  const form = document.querySelector<HTMLFormElement>('#timeline-form');
+  const error = document.querySelector<HTMLElement>('#timeline-error');
+  const resultPanel = document.querySelector<HTMLElement>('#timeline-result');
+  const summary = document.querySelector<HTMLElement>('#timeline-summary');
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const firstInvalid = [...form.querySelectorAll<HTMLInputElement | HTMLSelectElement>('[required]')].find((field) => !field.value || (field instanceof HTMLInputElement && Number(field.value) < 0));
+    if (firstInvalid) {
+      if (error) error.textContent = 'Enter a target date, exam type, and zero or positive planning buffers.';
+      firstInvalid.focus();
+      return;
+    }
+    const input = Object.fromEntries(new FormData(form).entries());
+    const plan = calculateTimeline(input);
+    if (!plan || !summary || !resultPanel) {
+      if (error) error.textContent = 'Enter a valid target date.';
+      return;
+    }
+    if (error) error.textContent = '';
+    history.replaceState({}, '', `${location.pathname}?${new URLSearchParams(input as Record<string, string>).toString()}`);
+    summary.replaceChildren();
+    const heading = document.createElement('h2');
+    heading.textContent = 'Your planning estimate';
+    const intro = document.createElement('p');
+    intro.textContent = `For ${String(input.examType)}, these dates are calculated only from the ${plan.totalPlanningDays} days you entered.`;
+    const list = document.createElement('dl');
+    list.className = 'tool-timeline-list';
+    [['Target submission', plan.targetDate], ['Latest test date without retake buffer', plan.latestTestDate], ['Cautious test date with your retake buffer', plan.cautiousTestDate]].forEach(([label, date]) => {
+      const term = document.createElement('dt'); term.textContent = label;
+      const detail = document.createElement('dd'); detail.textContent = date;
+      list.append(term, detail);
+    });
+    const notice = document.createElement('p');
+    notice.textContent = 'Planning estimate: confirm actual booking availability, result timing, retake rules, and document handling with the official centre and receiving authority.';
+    summary.append(heading, intro, list, notice);
+    resultPanel.hidden = false;
+    resultPanel.focus();
+  });
+</script>

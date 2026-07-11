@@ -1,6 +1,10 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 
+require("./route-tools.test.js");
+require("./commercial-pages.test.js");
+require("./germany-a1-cluster.test.js");
+
 const {
   brand,
   i18n,
@@ -105,6 +109,7 @@ const astroConfig = fs.readFileSync("astro.config.mjs", "utf8");
 const astroGlobalCss = fs.readFileSync("src/styles/global.css", "utf8");
 const guideLayoutSource = fs.readFileSync("src/layouts/GuideLayout.astro", "utf8");
 const headerSource = fs.readFileSync("src/components/Header.astro", "utf8");
+const footerSource = fs.readFileSync("src/components/Footer.astro", "utf8");
 const guideCtaSource = fs.readFileSync("src/components/GuideCTA.astro", "utf8");
 const baseLayoutSource = fs.readFileSync("src/layouts/BaseLayout.astro", "utf8");
 const editorialPolicySource = fs.readFileSync("src/pages/editorial-policy.astro", "utf8");
@@ -118,6 +123,7 @@ const astroZhHomepage = fs.readFileSync("src/pages/zh/index.astro", "utf8");
 const zhGermanyA1Data = fs.readFileSync("src/data/zh-germany-a1.ts", "utf8");
 const zhGermanyA1Hub = fs.readFileSync("src/pages/zh/germany-family-reunion-a1.astro", "utf8");
 const astroGermanyA1Hub = fs.readFileSync("src/pages/germany-family-reunion-a1.astro", "utf8");
+const astroGermanyB1Hub = fs.readFileSync("src/pages/germany-b1-settlement-citizenship.astro", "utf8");
 const zhGuideLayout = fs.readFileSync("src/components/ZhGuideLayout.astro", "utf8");
 const astroGermanA1Timeline = fs.readFileSync("src/content/guides/german-a1-exam-booking-timeline.md", "utf8");
 const astroGermanyA1GuidePage = fs.readFileSync("src/pages/guides/[slug].astro", "utf8");
@@ -145,6 +151,15 @@ const astroGoetheB1DepthSlugs = [
   "goethe-b1-speaking-topics",
   "goethe-b1-writing-assessment",
 ];
+
+assert.ok(
+  astroGermanyB1Hub.includes("https://www.einbuergerung.de/service.php?l=en"),
+  "Germany B1 hub should link to the current German Government naturalisation guidance"
+);
+assert.ok(
+  !astroGermanyB1Hub.includes("bmi.bund.de/EN/topics/migration/naturalization"),
+  "Germany B1 hub should not retain the superseded BMI naturalisation URL"
+);
 
 assert.doesNotThrow(() => new Function(appScript), "app.js should parse without syntax errors");
 assert.equal(
@@ -216,6 +231,12 @@ assert.ok(
 assert.ok(!headerSource.includes("?lang=zh"), "Astro language switch should use a real /zh/ route");
 assert.ok(!headerSource.includes("#guides"), "Astro header should link to the guide index instead of a homepage anchor");
 assert.ok(headerSource.includes("{ href: '/guides/', label: 'Guides' }"), "Astro English header should link to the guide index");
+for (const label of ["Home", "Germany", "Exams", "Tools", "Guides", "Pricing", "Partners", "About"]) {
+  assert.ok(headerSource.includes(`label: '${label}'`), `Astro English header should include ${label}`);
+}
+assert.ok(headerSource.includes("/tools/route-finder/"), "Astro header should use the agreed Route Finder URL");
+assert.ok(headerSource.includes("/pricing/"), "Astro header should use the agreed future pricing URL");
+assert.ok(headerSource.includes("/partners/"), "Astro header should use the agreed future partners URL");
 assert.ok(headerSource.includes("{ href: '/zh/germany-family-reunion-a1/', label: '德国 A1' }"), "Astro Chinese header should link to the Chinese Germany A1 hub");
 assert.ok(headerSource.includes("{ href: '/zh/#zh-guides', label: '中文指南' }"), "Astro Chinese header should link to Chinese core guides");
 assert.ok(headerSource.includes("Astro.url.pathname.startsWith('/guides/')"), "Astro guide nav should stay active on guide pages");
@@ -238,6 +259,19 @@ assert.ok(/\.guide-article pre[\s\S]*overflow-x:\s*auto/.test(astroGlobalCss), "
 assert.ok(astroGlobalCss.includes(".guide-trustbar"), "Astro guide trust bar should have a stable style hook");
 assert.ok(astroHomepage.includes('canonicalURL="https://flowlight.me/"'), "Astro English homepage should set a stable canonical URL");
 assert.ok(astroHomepage.includes("https://flowlight.me/zh/"), "Astro English homepage should link to the Chinese alternate");
+assert.ok(astroHomepage.includes("Find the right German language proof before you book an exam."), "Astro homepage should state its German proof positioning in the hero");
+for (const route of ["family reunion", "work", "Ausbildung", "nursing", "university", "settlement", "citizenship"]) {
+  assert.ok(astroHomepage.includes(route), `Astro homepage should name ${route} in its route positioning`);
+}
+for (const href of ["/tools/route-finder/", "/tools/checklist-generator/", "/tools/timeline-calculator/", "/pricing/", "/route-review/"]) {
+  assert.ok(astroHomepage.includes(href), `Astro homepage should expose the agreed CTA URL ${href}`);
+}
+for (const phrase of ["independent and non-official", "not an exam owner, German authority, law firm, or immigration adviser", "local German mission or competent German authority", "school, university, employer", "exam owner and authorised local test centre"]) {
+  assert.ok(astroHomepage.includes(phrase), `Astro homepage should retain the required verification boundary: ${phrase}`);
+}
+for (const href of ["/about/", "/editorial-policy/", "/terms/", "/affiliate-disclosure/", "/privacy-policy/", "/contact/", "/guides/category/germany-a1/", "/tools/route-finder/", "/guides/#popular-routes-title"]) {
+  assert.ok(footerSource.includes(href), `Astro footer should include ${href}`);
+}
 assert.ok(!astroGuidesIndex.includes('title="Browse exam guides | VisaLang"'), "Astro guide index title should not duplicate the brand suffix");
 assert.ok(astroGuidesIndex.includes("'@type': 'CollectionPage'"), "Astro guides index should emit CollectionPage structured data");
 assert.ok(astroGuidesIndex.includes("'@type': 'ItemList'"), "Astro guides index should emit ItemList structured data");
@@ -409,6 +443,58 @@ for (const slug of astroGoetheB1DepthSlugs) {
   assert.ok(guide.includes(`slug: "${slug}"`), `Astro should include ${slug}`);
   assert.ok(guide.includes("Goethe-Institut German examinations"), `${slug} should cite the official Goethe B1 source`);
   assert.ok(guide.includes("Official sources last checked: 2026-07-04"), `${slug} should show source check date`);
+}
+const germanyB1GuideSlugs = [
+  "goethe-b1-germany-settlement-work",
+  "germany-b1-citizenship-language-proof",
+  "goethe-b1-vs-telc-b1",
+  "germany-b1-leben-in-deutschland-and-language-proof",
+  "germany-b1-settlement-citizenship-timeline",
+  "germany-b1-settlement-citizenship-checklist",
+  "goethe-b1-speaking-topics",
+  "goethe-b1-writing-assessment",
+];
+const germanyB1RouteLinks = [
+  "/germany-b1-settlement-citizenship/",
+  "/tools/route-finder/",
+  "/guides/germany-b1-settlement-citizenship-checklist/",
+  "/guides/germany-b1-settlement-citizenship-timeline/",
+  "/guides/goethe-b1-vs-telc-b1/",
+  "/route-review/",
+];
+const germanyB1Guides = [...guideBySlug.entries()]
+  .filter(([, guide]) => guide.includes('category: "germany-b1"'));
+assert.equal(germanyB1Guides.length, 13, "Germany B1 should retain nine support guides and add four decision guides");
+for (const slug of germanyB1GuideSlugs) {
+  assert.ok(guideBySlug.has(slug), `Germany B1 high-intent guide should exist: ${slug}`);
+}
+for (const [slug, guide] of germanyB1Guides) {
+  for (const href of germanyB1RouteLinks) {
+    assert.ok(guide.includes(href), `${slug} should link to the shared B1 decision path: ${href}`);
+  }
+  assert.match(guide, /income/i, `${slug} should distinguish language proof from income evidence`);
+  assert.match(guide, /insurance/i, `${slug} should distinguish language proof from insurance evidence`);
+  assert.match(guide, /housing/i, `${slug} should distinguish language proof from housing evidence`);
+  assert.match(guide, /competent authority|cannot|does not/i, `${slug} should direct individual eligibility questions to the competent authority`);
+}
+for (const slug of [
+  "goethe-b1-difficulty-analysis",
+  "goethe-b1-listening-deep-dive",
+  "goethe-b1-mock-exam-routine",
+  "goethe-b1-speaking-topics",
+  "goethe-b1-study-plan",
+  "goethe-b1-writing-assessment",
+]) {
+  assert.ok(guideBySlug.get(slug).includes("/contact/?interest=b1-practice-pack"), `${slug} should expose the proposed B1 practice-pack interest path`);
+}
+for (const phrase of [
+  "B1 certificate is language evidence",
+  "DTZ vs Goethe B1 vs telc B1",
+  "/guides/germany-b1-settlement-citizenship-checklist/",
+  "/guides/germany-b1-settlement-citizenship-timeline/",
+  "/route-review/",
+]) {
+  assert.ok(astroGermanyB1Hub.includes(phrase), `Germany B1 hub should include ${phrase}`);
 }
 const heroStart = homepage.indexOf('<section class="hero">');
 const heroEnd = homepage.indexOf("</section>", heroStart);

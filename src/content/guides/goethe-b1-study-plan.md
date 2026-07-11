@@ -39,3 +39,15 @@ Before following any plan, compare it with Goethe's current official information
 ## Official sources
 
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
+
+## Continue your B1 decision route
+
+Study planning is not a finding that B1 is accepted or that a settlement/citizenship file is eligible. Verify language proof, residence, income, insurance, housing and procedure separately with the competent authority.
+
+- [B1 settlement and citizenship hub](/germany-b1-settlement-citizenship/)
+- [Route Finder](/tools/route-finder/)
+- [B1 checklist](/guides/germany-b1-settlement-citizenship-checklist/)
+- [B1 timeline](/guides/germany-b1-settlement-citizenship-timeline/)
+- [DTZ vs Goethe B1 vs telc B1](/guides/goethe-b1-vs-telc-b1/)
+- [Route Review boundary](/route-review/)
+- [Proposed B1 practice pack interest](/contact/?interest=b1-practice-pack)

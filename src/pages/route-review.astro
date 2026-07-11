@@ -1,0 +1,36 @@
+---
+import CommercialPageShell from '../components/products/CommercialPageShell.astro';
+import CommercialBoundary from '../components/products/CommercialBoundary.astro';
+import IntentCTA from '../components/products/IntentCTA.astro';
+import { commercialLinks } from '../data/commercial-offers';
+---
+
+<CommercialPageShell
+  eyebrow="Proposed human service · request access"
+  title="Informational Route Review"
+  description="Proposed human informational review for language-proof route questions. It is not legal, immigration, admissions, or exam-acceptance advice."
+  summary="A Route Review is proposed as a human, informational reading of the route questions you have already identified. It is not currently accepting submissions and it will never decide an application or replace an official or legal assessment."
+>
+  <h2>What an informational review could help organise</h2>
+  <ul>
+    <li>The receiving authority or organisation you need to verify with.</li>
+    <li>The exact language-proof question still unresolved in your official evidence.</li>
+    <li>A clear sequence for checking the certificate, official provider, local centre, documents, and timeline.</li>
+    <li>Relevant VisaLang guides and official-source starting points for your own verification.</li>
+  </ul>
+
+  <h2>What input would be needed if the service opens</h2>
+  <p>A short route summary, country and application location, purpose, target date, the exact question you need to verify, and links or quotations from the official pages you have already checked. Do not send passports, identity numbers, full visa files, payment details, medical information, or other sensitive documents through an unconfirmed contact channel.</p>
+
+  <h2>Output boundary</h2>
+  <p><strong>This is not legal advice.</strong> Any future output would be a written list of questions, source owners, and next verification steps. It would not provide legal conclusions, interpret personal eligibility, contact authorities for you, book an exam, submit documents, approve a route, or guarantee acceptance of a certificate.</p>
+
+  <h2>When to speak with a qualified lawyer</h2>
+  <p>Seek a qualified lawyer licensed for the relevant jurisdiction when your question depends on legal eligibility, an exemption, a refusal, an appeal, family or immigration status, a deadline with legal consequences, conflicting official instructions, or how a rule applies to your individual facts. The responsible authority remains the source for what it currently requires.</p>
+
+  <h2>Availability and price</h2>
+  <p>Reviewer qualifications, capacity, service level, secure intake, price, and delivery terms have not been confirmed. This page is not a submission form and does not create a review request or client relationship.</p>
+
+  <IntentCTA href={commercialLinks.routeReviewIntent} title="Ask about future Route Review access" description="This opens the contact page only. It does not submit case information, create a client relationship, or mean a human reviewer has accepted your request." label="Request Route Review access" />
+  <CommercialBoundary includeLegalBoundary={true} />
+</CommercialPageShell>

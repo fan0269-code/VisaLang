@@ -1,0 +1,41 @@
+---
+import CommercialPageShell from '../components/products/CommercialPageShell.astro';
+import CommercialBoundary from '../components/products/CommercialBoundary.astro';
+import IntentCTA from '../components/products/IntentCTA.astro';
+import { commercialLinks } from '../data/commercial-offers';
+---
+
+<CommercialPageShell
+  eyebrow="Partners and B2B"
+  title="Partner with clear boundaries"
+  description="Partner information for relevant education, exam-preparation, and route-support organisations, with disclosure and editorial-independence commitments."
+  summary="VisaLang may consider transparent partnerships that help readers find relevant support. A commercial relationship never makes a provider official, required, or preferred over an official source."
+>
+  <h2>Partnership categories we may consider</h2>
+  <ul>
+    <li>Original language tutoring and preparation services relevant to a clearly defined route or level.</li>
+    <li>Officially verifiable exam-preparation resources, publishers, or learning tools.</li>
+    <li>Research, employer, school, or community partnerships that improve access to reliable route information.</li>
+    <li>Clearly labelled sponsorship, referral, affiliate, or B2B content-support arrangements.</li>
+  </ul>
+
+  <h2>Transparency and disclosure</h2>
+  <p>Any paid placement, sponsorship, referral, or affiliate relationship must be clearly labelled near the relevant link or content. An affiliate link is a commercial link; it is not an official recommendation, government endorsement, exam-owner approval, or statement that a service is required. See the <a href="/affiliate-disclosure/">Affiliate Disclosure</a> for the current reader-facing standard.</p>
+
+  <h2>Editorial independence</h2>
+  <ul>
+    <li>Official-source guidance, route conclusions, and corrections are not sold to partners.</li>
+    <li>Partners cannot change language-proof requirements, certificate-acceptance boundaries, or risk warnings.</li>
+    <li>Commercial support does not buy a claim of ranking, approval, acceptance, or outcome.</li>
+    <li>We may decline or remove a partnership that conflicts with reader safety, clear disclosure, or editorial standards.</li>
+  </ul>
+
+  <h2>What to include when you contact us</h2>
+  <p>Include your organisation name, website, relevant routes and countries, product or service type, pricing model, any proposed commercial relationship, and evidence for any official-status claim. Do not send confidential customer data. Contacting us does not create a partnership or a listing.</p>
+
+  <h2>Current status</h2>
+  <p>There is no public partner application, approved-provider directory, or affiliate programme intake on this page. Terms, eligibility, pricing, and response process require business confirmation.</p>
+
+  <IntentCTA href={commercialLinks.partnersIntent} title="Start a partnership conversation" description="This opens the contact page only. It does not create a partnership, listing, referral, or official recommendation." label="Contact VisaLang about partnerships" />
+  <CommercialBoundary includeLegalBoundary={true} />
+</CommercialPageShell>

@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ToolShell from '../../components/tools/ToolShell.astro';
+import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
+---
+
+<BaseLayout title="Route Finder" description="Find a safe starting point for your language-proof route before you book an exam or submit an application.">
+  <ToolShell eyebrow="Step 1 · decision route" title="Route Finder" description="Answer six planning questions to get a safe starting route. Germany family reunion A1 is the only fully configured route in this first release.">
+    <div class="tool-workspace">
+      <form id="route-finder-form" class="tool-form" novalidate>
+        <div class="tool-form-heading"><h2>Tell us what you are planning</h2><p>All fields are required so the result can state the right verification boundary.</p></div>
+        <div class="tool-field-grid">
+          <label>Country<select name="country" required><option value="">Select a country</option><option value="germany">Germany</option><option value="other">Another country</option></select></label>
+          <label>Purpose<select name="purpose" required><option value="">Select a purpose</option><option value="family-reunion">Family reunion</option><option value="b1">Settlement or citizenship / B1</option><option value="ausbildung">Ausbildung</option><option value="nursing">Nursing</option><option value="university">University</option><option value="other">Another purpose</option></select></label>
+          <label>Application location<input name="location" required placeholder="e.g. German mission in your country" autocomplete="address-level1" /></label>
+          <label>Current language level<select name="level" required><option value="">Select your current level</option><option>Not sure</option><option>Beginner / A0</option><option>A1</option><option>A2 or above</option></select></label>
+          <label>Existing certificate<select name="certificate" required><option value="">Select one option</option><option value="none">No certificate yet</option><option value="a1">I have an A1 certificate</option><option value="other">I have another certificate</option></select></label>
+          <label>Target submission date<input name="targetDate" type="date" required /></label>
+        </div>
+        <p class="tool-error" id="route-finder-error" aria-live="assertive"></p>
+        <button class="primary-action" type="submit">Find my starting route</button>
+      </form>
+
+      <section id="route-finder-result" class="tool-result" hidden aria-live="polite" tabindex="-1">
+        <div id="route-finder-summary"></div>
+        <ToolResultSupport resultId="route-finder-summary" />
+      </section>
+    </div>
+  </ToolShell>
+</BaseLayout>
+
+<script>
+  import { findRoute } from '../../data/route-tools';
+
+  const form = document.querySelector<HTMLFormElement>('#route-finder-form');
+  const error = document.querySelector<HTMLElement>('#route-finder-error');
+  const resultPanel = document.querySelector<HTMLElement>('#route-finder-result');
+  const summary = document.querySelector<HTMLElement>('#route-finder-summary');
+
+  const addText = (parent: HTMLElement, tag: string, text: string) => {
+    const element = document.createElement(tag);
+    element.textContent = text;
+    parent.append(element);
+    return element;
+  };
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const firstInvalid = [...form.querySelectorAll<HTMLInputElement | HTMLSelectElement>('[required]')].find((field) => !field.value);
+    if (firstInvalid) {
+      const fieldName = firstInvalid.closest('label')?.firstChild?.textContent?.trim() || 'the required field';
+      if (error) error.textContent = `Please complete: ${fieldName}.`;
+      firstInvalid.focus();
+      return;
+    }
+
+    const input = Object.fromEntries(new FormData(form).entries());
+    const route = findRoute(input);
+    const params = new URLSearchParams(input as Record<string, string>);
+    history.replaceState({}, '', `${location.pathname}?${params.toString()}`);
+    if (error) error.textContent = '';
+    if (!summary || !resultPanel) return;
+
+    summary.replaceChildren();
+    addText(summary, 'p', route.availability === 'configured' ? 'Configured route' : 'Safe fallback');
+    addText(summary, 'h2', route.title);
+    addText(summary, 'p', route.officialAction);
+    const list = document.createElement('ol');
+    route.nextSteps.forEach((step: string) => addText(list, 'li', step));
+    summary.append(list);
+    const details = document.createElement('p');
+    details.textContent = `Application location recorded: ${String(input.location)}. Target submission date: ${String(input.targetDate)}.`;
+    summary.append(details);
+    resultPanel.hidden = false;
+    resultPanel.focus();
+  });
+</script>

@@ -344,6 +344,25 @@ if (exists("dist/index.html")) {
     }).join(", "));
   }
 
+  function duplicateRenderedMetadata(pattern) {
+    var grouped = {};
+    distHtmlFiles.forEach(function(filePath) {
+      var value = (fs.readFileSync(filePath, "utf8").match(pattern) || [])[1];
+      if (!value) return;
+      if (!grouped[value]) grouped[value] = [];
+      grouped[value].push(filePath);
+    });
+    return Object.keys(grouped).filter(function(value) { return grouped[value].length > 1; });
+  }
+
+  var duplicateRenderedTitles = duplicateRenderedMetadata(/<title>([^<]+)<\/title>/i);
+  var duplicateRenderedDescriptions = duplicateRenderedMetadata(/<meta name="description" content="([^"]+)"/i);
+  if (duplicateRenderedTitles.length === 0 && duplicateRenderedDescriptions.length === 0) {
+    pass("Astro: generated titles and meta descriptions are unique.");
+  } else {
+    fail("Astro: duplicate generated metadata: titles=" + duplicateRenderedTitles.slice(0, 2).join(" | ") + "; descriptions=" + duplicateRenderedDescriptions.slice(0, 2).join(" | "));
+  }
+
   var malformedListTagFiles = distHtmlFiles.filter(function(filePath) {
     return /\.li>/.test(fs.readFileSync(filePath, "utf8"));
   });
@@ -424,6 +443,18 @@ if (exists("dist/index.html")) {
     fail("Astro: guide pages missing Article/BreadcrumbList JSON-LD: " + guideJsonLdGaps.slice(0, 3).map(function(filePath) {
       return path.relative(root, filePath);
     }).join(", "));
+  }
+
+  var distA1Hub = exists("dist/germany-family-reunion-a1/index.html") ? read("dist/germany-family-reunion-a1/index.html") : "";
+  if (/"@type":"FAQPage"/.test(distA1Hub) && /<h2>FAQ<\/h2>/.test(distA1Hub)) {
+    pass("Astro: Germany A1 hub uses FAQPage only for visible FAQ content.");
+  } else {
+    fail("Astro: Germany A1 hub FAQPage schema is missing or not supported by visible FAQ content.");
+  }
+  if (/"@type":"WebSite"/.test(distIndexHtml)) {
+    pass("Astro: homepage retains WebSite JSON-LD.");
+  } else {
+    fail("Astro: homepage missing WebSite JSON-LD.");
   }
 
   var guideBreadcrumbAnchorGaps = generatedGuideFiles.filter(function(filePath) {
@@ -583,6 +614,63 @@ if (exists("dist/index.html")) {
     pass("Astro: generated sitemap index points to an existing sitemap file.");
   } else {
     fail("Astro: generated sitemap index does not resolve to sitemap-0.xml.");
+  }
+
+  var seoCoreRoutes = [
+    "/germany-family-reunion-a1/",
+    "/germany-b1-settlement-citizenship/",
+    "/tools/route-finder/",
+    "/tools/checklist-generator/",
+    "/tools/timeline-calculator/",
+    "/tools/exam-comparison/",
+    "/tools/email-reminders/",
+    "/pricing/",
+    "/products/a1-family-reunion-pack/",
+    "/products/a1-practice-pack/",
+    "/route-review/",
+    "/partners/",
+  ];
+  var sitemapCoreGaps = seoCoreRoutes.filter(function(route) {
+    return !distSitemap0.includes("https://flowlight.me" + route);
+  });
+  var missingCorePages = seoCoreRoutes.filter(function(route) {
+    return !exists("dist" + route + "index.html");
+  });
+  if (sitemapCoreGaps.length === 0 && missingCorePages.length === 0) {
+    pass("Astro: every indexable A1, B1, tool, and product route is generated and in the sitemap.");
+  } else {
+    fail("Astro: core route output/sitemap gaps: " + missingCorePages.concat(sitemapCoreGaps).join(", "));
+  }
+
+  var seoLinkRequirements = [
+    {
+      route: "/germany-family-reunion-a1/",
+      links: ["/tools/route-finder/", "/tools/checklist-generator/", "/tools/timeline-calculator/", "/tools/exam-comparison/", "/products/a1-family-reunion-pack/", "/products/a1-practice-pack/", "/route-review/"],
+    },
+    {
+      route: "/germany-b1-settlement-citizenship/",
+      links: ["/tools/route-finder/", "/tools/checklist-generator/", "/tools/timeline-calculator/", "/tools/exam-comparison/", "/pricing/", "/route-review/"],
+    },
+  ].concat([
+    "/tools/route-finder/", "/tools/checklist-generator/", "/tools/timeline-calculator/", "/tools/exam-comparison/", "/tools/email-reminders/",
+  ].map(function(route) {
+    return { route: route, links: ["/germany-family-reunion-a1/", "/germany-b1-settlement-citizenship/", "/products/a1-family-reunion-pack/", "/products/a1-practice-pack/", "/route-review/"] };
+  })).concat([
+    "/pricing/", "/products/a1-family-reunion-pack/", "/products/a1-practice-pack/", "/route-review/", "/partners/",
+  ].map(function(route) {
+    return { route: route, links: ["/tools/route-finder/", "/germany-family-reunion-a1/", "/germany-b1-settlement-citizenship/"] };
+  }));
+  var seoLinkGaps = [];
+  seoLinkRequirements.forEach(function(requirement) {
+    var html = exists("dist" + requirement.route + "index.html") ? read("dist" + requirement.route + "index.html") : "";
+    requirement.links.forEach(function(link) {
+      if (html.indexOf('href="' + link + '"') === -1) seoLinkGaps.push(requirement.route + " -> " + link);
+    });
+  });
+  if (seoLinkGaps.length === 0) {
+    pass("Astro: A1, B1, tools, and product pages keep their required two-way internal links.");
+  } else {
+    fail("Astro: cross-cluster internal-link gaps: " + seoLinkGaps.slice(0, 5).join(", "));
   }
 } else {
   warn("Astro: dist/ not found; run npm run build for build-output checks.");

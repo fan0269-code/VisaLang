@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ToolShell from '../../components/tools/ToolShell.astro';
+import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
+---
+
+<BaseLayout title="Reminder Planner" description="Create a local reminder intention for a language-proof planning check. No email service is connected.">
+  <ToolShell eyebrow="Optional · local planning only" title="Reminder Planner" description="Create a reminder intention for your own calendar or notes. This page does not send email, save addresses, or connect to a mailing service.">
+    <div class="tool-workspace">
+      <form id="reminder-form" class="tool-form" novalidate>
+        <div class="tool-form-heading"><h2>Draft a personal reminder</h2><p>Your address is used only for this browser-side form validation. Nothing is sent or stored.</p></div>
+        <div class="tool-field-grid">
+          <label>Email address<input name="email" type="email" required placeholder="you@example.com" autocomplete="email" /></label>
+          <label>Reminder topic<select name="topic" required><option value="">Select a topic</option><option>Confirm the language requirement</option><option>Check an official test centre</option><option>Review my checklist</option><option>Recalculate my timeline</option></select></label>
+        </div>
+        <p class="tool-error" id="reminder-error" aria-live="assertive"></p>
+        <button class="primary-action" type="submit">Create local reminder note</button>
+      </form>
+      <section id="reminder-result" class="tool-result" hidden aria-live="polite" tabindex="-1">
+        <div id="reminder-summary"></div>
+        <ToolResultSupport resultId="reminder-summary" />
+      </section>
+    </div>
+  </ToolShell>
+</BaseLayout>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('#reminder-form');
+  const error = document.querySelector<HTMLElement>('#reminder-error');
+  const resultPanel = document.querySelector<HTMLElement>('#reminder-result');
+  const summary = document.querySelector<HTMLElement>('#reminder-summary');
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const email = form.querySelector<HTMLInputElement>('[name="email"]');
+    const topic = form.querySelector<HTMLSelectElement>('[name="topic"]');
+    if (!email?.value || !email.validity.valid || !topic?.value) {
+      if (error) error.textContent = 'Enter a valid email address and choose a reminder topic.';
+      (!email?.validity.valid ? email : topic)?.focus();
+      return;
+    }
+    if (!summary || !resultPanel) return;
+    if (error) error.textContent = '';
+    history.replaceState({}, '', `${location.pathname}?topic=${encodeURIComponent(topic.value)}`);
+    summary.replaceChildren();
+    const heading = document.createElement('h2'); heading.textContent = 'Local reminder note created';
+    const note = document.createElement('p'); note.textContent = `Reminder topic: ${topic.value}. Add this to your own calendar or notes when you are ready.`;
+    const boundary = document.createElement('p'); boundary.textContent = 'No email was sent, no address was stored, and no sending service is connected to this page.';
+    summary.append(heading, note, boundary);
+    resultPanel.hidden = false;
+    resultPanel.focus();
+  });
+</script>

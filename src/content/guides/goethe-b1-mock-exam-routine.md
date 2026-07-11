@@ -83,6 +83,18 @@ Mock routines must match the exact exam you will take. If you switch between Goe
 ## Official sources
 
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
+
+## Continue your B1 decision route
+
+A mock score does not establish accepted language proof or settlement/citizenship eligibility. Verify the authority's language rule separately from residence, income, insurance, housing and all other procedural conditions.
+
+- [B1 settlement and citizenship hub](/germany-b1-settlement-citizenship/)
+- [Route Finder](/tools/route-finder/)
+- [B1 checklist](/guides/germany-b1-settlement-citizenship-checklist/)
+- [B1 timeline](/guides/germany-b1-settlement-citizenship-timeline/)
+- [DTZ vs Goethe B1 vs telc B1](/guides/goethe-b1-vs-telc-b1/)
+- [Route Review boundary](/route-review/)
+- [Proposed B1 practice pack interest](/contact/?interest=b1-practice-pack)
 - [Goethe-Institut German examinations overview](https://www.goethe.de/en/spr/prf.html)
 
 ## Revision history

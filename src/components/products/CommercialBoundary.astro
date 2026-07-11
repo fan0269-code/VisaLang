@@ -1,0 +1,16 @@
+---
+import { commercialLinks } from '../../data/commercial-offers';
+
+export interface Props {
+  includeLegalBoundary?: boolean;
+}
+
+const { includeLegalBoundary = false } = Astro.props;
+---
+
+<section class="guide-disclaimer" aria-labelledby="commercial-boundary-title">
+  <h2 id="commercial-boundary-title">Before you act</h2>
+  <p><strong>Official verification comes first.</strong> VisaLang is independent and informational. Confirm the exact language-proof requirement, any exemption, accepted certificate, local centre status, dates, fees, documents, and submission rules with the authority or official provider that receives your file.</p>
+  {includeLegalBoundary && <p><strong>Not legal advice.</strong> Nothing on this page assesses your visa, immigration, residence, citizenship, university, employment, or exam-acceptance outcome. For legal advice or a case-specific rights assessment, consult a qualified lawyer licensed for the relevant jurisdiction.</p>}
+  <p><a href={commercialLinks.tools}>Use the free tools</a> · <a href={commercialLinks.germanyA1Guide}>Read the Germany A1 route guide</a> · <a href="/germany-b1-settlement-citizenship/">Read the Germany B1 settlement and citizenship route</a> · <a href={commercialLinks.guides}>Browse route guides</a></p>
+</section>

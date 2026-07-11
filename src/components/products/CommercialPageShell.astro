@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  eyebrow: string;
+  summary: string;
+  updated?: string;
+}
+
+const { title, description, eyebrow, summary, updated = '2026-07-11' } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <main class="page-shell">
+    <article class="guide-article narrow-page">
+      <p class="eyebrow">{eyebrow}</p>
+      <h1>{title}</h1>
+      <p class="guide-summary">{summary}</p>
+      <div class="guide-trustbar">
+        <span>Current status: contact intent only.</span>
+        <span>No checkout, payment collection, file delivery, email confirmation, or human-review acceptance is active on these pages.</span>
+      </div>
+      <slot />
+      <p class="last-updated">Last updated: {updated}</p>
+    </article>
+  </main>
+</BaseLayout>

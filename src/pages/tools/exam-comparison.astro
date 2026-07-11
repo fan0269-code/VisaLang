@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ToolShell from '../../components/tools/ToolShell.astro';
+import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
+import { examComparisonOptions } from '../../data/route-tools';
+---
+
+<BaseLayout title="Exam Comparison" description="Compare only the configured planning questions for two A1 exam options, then verify every local fact with official sources.">
+  <ToolShell eyebrow="Planning aid · not an acceptance decision" title="Exam Comparison" description="Compare configured verification questions for two A1 exam options. This tool does not rank providers or decide which certificate an authority will accept.">
+    <div class="tool-workspace">
+      <form id="comparison-form" class="tool-form" novalidate>
+        <div class="tool-form-heading"><h2>Choose two configured exams</h2><p>Fees, result timing, centre coverage, and acceptance are always local checks—not comparison claims.</p></div>
+        <div class="tool-field-grid">
+          <label>First exam<select name="first" required><option value="">Select an exam</option>{examComparisonOptions.map((exam) => <option value={exam.id}>{exam.label}</option>)}</select></label>
+          <label>Second exam<select name="second" required><option value="">Select an exam</option>{examComparisonOptions.map((exam) => <option value={exam.id}>{exam.label}</option>)}</select></label>
+        </div>
+        <p class="tool-error" id="comparison-error" aria-live="assertive"></p>
+        <button class="primary-action" type="submit">Compare verification questions</button>
+      </form>
+      <section id="comparison-result" class="tool-result" hidden aria-live="polite" tabindex="-1">
+        <div id="comparison-summary"></div>
+        <ToolResultSupport resultId="comparison-summary" />
+      </section>
+    </div>
+  </ToolShell>
+</BaseLayout>
+
+<script>
+  import { examComparisonDimensions, examComparisonOptions } from '../../data/route-tools';
+
+  const form = document.querySelector<HTMLFormElement>('#comparison-form');
+  const error = document.querySelector<HTMLElement>('#comparison-error');
+  const resultPanel = document.querySelector<HTMLElement>('#comparison-result');
+  const summary = document.querySelector<HTMLElement>('#comparison-summary');
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const data = Object.fromEntries(new FormData(form).entries());
+    if (!data.first || !data.second) {
+      if (error) error.textContent = 'Choose two exams to compare.';
+      return;
+    }
+    if (data.first === data.second) {
+      if (error) error.textContent = 'Choose two different exams.';
+      return;
+    }
+    const first = examComparisonOptions.find((exam) => exam.id === data.first);
+    const second = examComparisonOptions.find((exam) => exam.id === data.second);
+    if (!first || !second || !summary || !resultPanel) return;
+    if (error) error.textContent = '';
+    history.replaceState({}, '', `${location.pathname}?${new URLSearchParams(data as Record<string, string>).toString()}`);
+    summary.replaceChildren();
+    const heading = document.createElement('h2');
+    heading.textContent = `${first.label} and ${second.label}`;
+    const intro = document.createElement('p');
+    intro.textContent = 'This is a structured official-check list, not a recommendation or a statement of acceptance.';
+    const tableWrap = document.createElement('div');
+    tableWrap.className = 'tool-table-wrap';
+    const table = document.createElement('table');
+    const header = document.createElement('tr');
+    ['Configured dimension', first.label, second.label].forEach((label) => { const cell = document.createElement('th'); cell.scope = 'col'; cell.textContent = label; header.append(cell); });
+    const head = document.createElement('thead'); head.append(header); table.append(head);
+    const body = document.createElement('tbody');
+    examComparisonDimensions.forEach((dimension) => {
+      const row = document.createElement('tr');
+      const dimensionCell = document.createElement('th'); dimensionCell.scope = 'row'; dimensionCell.textContent = dimension.label;
+      const firstCell = document.createElement('td'); firstCell.textContent = dimension.value;
+      const secondCell = document.createElement('td'); secondCell.textContent = dimension.value;
+      row.append(dimensionCell, firstCell, secondCell); body.append(row);
+    });
+    table.append(body); tableWrap.append(table);
+    const sources = document.createElement('p');
+    sources.append('Official exam pages: ');
+    [first, second].forEach((exam, index) => {
+      if (index) sources.append(' · ');
+      const link = document.createElement('a'); link.href = exam.officialUrl; link.textContent = exam.label; link.rel = 'noreferrer'; link.target = '_blank'; sources.append(link);
+    });
+    summary.append(heading, intro, tableWrap, sources);
+    resultPanel.hidden = false;
+    resultPanel.focus();
+  });
+</script>

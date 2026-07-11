@@ -39,3 +39,14 @@ Use Goethe's exam-centre finder for your country, record the fee and the date yo
 ## Official sources
 
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
+
+## Continue your B1 decision route
+
+Booking availability or a certificate fee does not establish settlement-permit or citizenship eligibility. Verify language acceptance separately from residence, income, insurance, housing and every other procedural condition with the competent authority.
+
+- [B1 settlement and citizenship hub](/germany-b1-settlement-citizenship/)
+- [Route Finder](/tools/route-finder/)
+- [B1 checklist](/guides/germany-b1-settlement-citizenship-checklist/)
+- [B1 timeline](/guides/germany-b1-settlement-citizenship-timeline/)
+- [DTZ vs Goethe B1 vs telc B1](/guides/goethe-b1-vs-telc-b1/)
+- [Route Review boundary](/route-review/)

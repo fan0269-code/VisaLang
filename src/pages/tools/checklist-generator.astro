@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ToolShell from '../../components/tools/ToolShell.astro';
+import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
+import { routeRegistry } from '../../data/route-tools';
+---
+
+<BaseLayout title="Checklist Generator" description="Create an official-source-first checklist for your language-proof route and mark your planning progress.">
+  <ToolShell eyebrow="Step 2 · organise evidence" title="Checklist Generator" description="Create a working checklist with clear priority, completion status, and the next official check. It is not an authority document list.">
+    <div class="tool-workspace">
+      <form id="checklist-form" class="tool-form" novalidate>
+        <div class="tool-form-heading"><h2>Choose a route</h2><p>Only Germany family reunion A1 has a configured route checklist. Other selections remain a safe verification checklist.</p></div>
+        <label class="tool-field-single">Route<select name="route" required><option value="">Select your route</option>{routeRegistry.map((route) => <option value={route.id}>{route.shortTitle}{route.availability === 'configured' ? ' — configured' : ' — verify first'}</option>)}</select></label>
+        <p class="tool-error" id="checklist-error" aria-live="assertive"></p>
+        <button class="primary-action" type="submit">Build my checklist</button>
+      </form>
+
+      <section id="checklist-result" class="tool-result" hidden aria-live="polite" tabindex="-1">
+        <div id="checklist-summary"></div>
+        <ToolResultSupport resultId="checklist-summary" />
+      </section>
+    </div>
+  </ToolShell>
+</BaseLayout>
+
+<script>
+  import { getChecklist, routeRegistry } from '../../data/route-tools';
+
+  const form = document.querySelector<HTMLFormElement>('#checklist-form');
+  const error = document.querySelector<HTMLElement>('#checklist-error');
+  const resultPanel = document.querySelector<HTMLElement>('#checklist-result');
+  const summary = document.querySelector<HTMLElement>('#checklist-summary');
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const routeId = String(new FormData(form).get('route') || '');
+    if (!routeId) {
+      if (error) error.textContent = 'Please choose a route.';
+      form.querySelector<HTMLSelectElement>('select')?.focus();
+      return;
+    }
+    if (error) error.textContent = '';
+    history.replaceState({}, '', `${location.pathname}?route=${encodeURIComponent(routeId)}`);
+    if (!summary || !resultPanel) return;
+    const route = routeRegistry.find((item) => item.id === routeId);
+    const items = getChecklist(routeId);
+    summary.replaceChildren();
+    const heading = document.createElement('h2');
+    heading.textContent = `${route?.shortTitle || 'Route'} checklist`;
+    summary.append(heading);
+    const intro = document.createElement('p');
+    intro.textContent = route?.availability === 'configured'
+      ? 'Mark each item when you have completed your own official check.'
+      : 'This route is not configured as a decision rule. Use this list to prepare an official check with the receiving organisation.';
+    summary.append(intro);
+    const list = document.createElement('ol');
+    list.className = 'tool-checklist';
+    items.forEach((entry: { priority: string; item: string }, index: number) => {
+      const item = document.createElement('li');
+      const label = document.createElement('label');
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.name = `check-${index}`;
+      const text = document.createElement('span');
+      text.textContent = `${entry.priority}: ${entry.item}`;
+      label.append(checkbox, text);
+      item.append(label);
+      list.append(item);
+    });
+    const completion = document.createElement('p');
+    completion.className = 'tool-completion-status';
+    const updateCompletion = () => {
+      const completed = list.querySelectorAll<HTMLInputElement>('input:checked').length;
+      completion.textContent = `Completion status: ${completed} of ${items.length} marked complete.`;
+    };
+    list.addEventListener('change', updateCompletion);
+    updateCompletion();
+    summary.append(list, completion);
+    resultPanel.hidden = false;
+    resultPanel.focus();
+  });
+</script>

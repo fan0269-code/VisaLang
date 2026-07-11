@@ -1,0 +1,57 @@
+---
+import { toolLinks } from '../../data/route-tools';
+
+export interface Props {
+  resultId: string;
+  guideHref?: string;
+  guideLabel?: string;
+}
+
+const {
+  resultId,
+  guideHref = '/germany-family-reunion-a1/',
+  guideLabel = 'Germany A1 family reunion guide',
+} = Astro.props;
+---
+
+<div class="tool-result-support">
+  <div class="tool-notice">
+    <strong>Informational guidance only.</strong> This tool organises planning questions; it does not decide visa eligibility, certificate acceptance, exam availability, or an individual application outcome.
+  </div>
+  <div class="tool-support-grid">
+    <section>
+      <h2>Official check before you act</h2>
+      <p>Confirm the exact requirement, accepted certificate, documents, date, fee, result process, and local centre rules with the authority or official centre that receives your file.</p>
+    </section>
+    <section>
+      <h2>Continue your plan</h2>
+      <p><a href={guideHref}>{guideLabel}</a></p>
+      <p><a href="/germany-b1-settlement-citizenship/">Germany B1 settlement and citizenship route</a></p>
+      <p><a href={toolLinks.checklist}>Open Checklist</a> · <a href={toolLinks.timeline}>Open Timeline</a></p>
+    </section>
+  </div>
+  <div class="tool-cta-row">
+    <a class="secondary-action" href={toolLinks.a1Pack}>Explore the A1 Family Reunion Pack</a>
+    <a class="secondary-action" href={toolLinks.a1PracticePack}>Explore the A1 Practice Pack</a>
+    <a class="primary-action" href={toolLinks.routeReview}>Read the informational Route Review boundary</a>
+  </div>
+  <button class="tool-copy-button" type="button" data-copy-summary data-summary-source={resultId}>Copy this summary</button>
+  <p class="tool-copy-status" aria-live="polite" data-copy-status></p>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-copy-summary]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const source = document.getElementById(button.dataset.summarySource || '');
+      const status = button.parentElement?.querySelector<HTMLElement>('[data-copy-status]');
+      if (!source) return;
+      const summary = source.innerText.trim();
+      try {
+        await navigator.clipboard.writeText(`${summary}\n\nShared from VisaLang — informational guidance only.`);
+        if (status) status.textContent = 'Summary copied.';
+      } catch {
+        if (status) status.textContent = 'Copy is unavailable in this browser. Select the summary text to copy it manually.';
+      }
+    });
+  });
+</script>

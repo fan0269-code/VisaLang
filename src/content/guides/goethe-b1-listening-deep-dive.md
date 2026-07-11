@@ -84,6 +84,18 @@ Do not assume one listening test is easier from anecdotes. Compare official samp
 ## Official sources
 
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
+
+## Continue your B1 decision route
+
+Practice readiness is different from proof acceptance and wider settlement or citizenship conditions. Verify language, residence, income, insurance, housing and procedure separately with the competent authority.
+
+- [B1 settlement and citizenship hub](/germany-b1-settlement-citizenship/)
+- [Route Finder](/tools/route-finder/)
+- [B1 checklist](/guides/germany-b1-settlement-citizenship-checklist/)
+- [B1 timeline](/guides/germany-b1-settlement-citizenship-timeline/)
+- [DTZ vs Goethe B1 vs telc B1](/guides/goethe-b1-vs-telc-b1/)
+- [Route Review boundary](/route-review/)
+- [Proposed B1 practice pack interest](/contact/?interest=b1-practice-pack)
 - [Goethe-Institut German examinations overview](https://www.goethe.de/en/spr/prf.html)
 
 ## Revision history

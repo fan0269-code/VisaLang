@@ -1,0 +1,41 @@
+---
+import CommercialPageShell from '../../components/products/CommercialPageShell.astro';
+import CommercialBoundary from '../../components/products/CommercialBoundary.astro';
+import IntentCTA from '../../components/products/IntentCTA.astro';
+import { commercialLinks } from '../../data/commercial-offers';
+---
+
+<CommercialPageShell
+  eyebrow="Proposed low-cost pack · request access"
+  title="A1 Family Reunion Pack"
+  description="Proposed route-planning pack for Germany A1 family reunion applicants. This page describes the intended scope and its strict informational boundaries."
+  summary="This is not yet a purchasable product. It describes a proposed planning pack for readers who want a structured way to track an A1 family-reunion decision without treating a guide as an official decision."
+>
+  <h2>Who it is for</h2>
+  <p>Readers preparing for a Germany family-reunion language-proof decision who need to organise official questions, certificate checks, local-centre research, documents, and a personal timeline before booking.</p>
+
+  <h2>Proposed contents</h2>
+  <ul>
+    <li>A route-planning checklist for recording the receiving authority, the question asked, the official source, and the date checked.</li>
+    <li>Decision prompts for matching the exact adult A1 certificate to the authority’s written instruction.</li>
+    <li>Planning worksheets for local centre, booking, document, and timeline questions.</li>
+    <li>Links back to the relevant VisaLang guides and official-source starting points.</li>
+  </ul>
+
+  <h2>What it would not include</h2>
+  <ul>
+    <li>No legal, immigration, visa, or embassy advice.</li>
+    <li>No statement that a particular certificate will be accepted, that an exception applies, or that an application will succeed.</li>
+    <li>No exam booking, centre reservation, document submission, leaked questions, real exam answers, or individual case decision.</li>
+    <li>No replacement for current local instructions from the German mission, competent authority, exam owner, or authorised centre.</li>
+  </ul>
+
+  <h2>How it would be used</h2>
+  <p>Use it alongside—not instead of—official pages and written replies. Record the exact product name, authority or centre, page URL, date checked, and unresolved question. Stop before paying or filing when the official answer is unclear.</p>
+
+  <h2>Availability and price</h2>
+  <p>The price, delivery format, support channel, refund terms, and launch date have not been confirmed. This page cannot take payment or deliver a pack.</p>
+
+  <IntentCTA href={commercialLinks.a1FamilyReunionPackIntent} label="Request access to the proposed pack" />
+  <CommercialBoundary includeLegalBoundary={true} />
+</CommercialPageShell>

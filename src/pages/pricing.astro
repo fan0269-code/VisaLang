@@ -1,0 +1,37 @@
+---
+import CommercialPageShell from '../components/products/CommercialPageShell.astro';
+import CommercialBoundary from '../components/products/CommercialBoundary.astro';
+import IntentCTA from '../components/products/IntentCTA.astro';
+import { commercialLinks, commercialOffers } from '../data/commercial-offers';
+---
+
+<CommercialPageShell
+  eyebrow="Offers and access"
+  title="Choose the level of help you need"
+  description="Compare VisaLang free tools, proposed A1 packs, a proposed informational Route Review, future AI correction, and partner contact options."
+  summary="Start with free, self-serve planning. Proposed paid packs and human review are shown transparently as request-access options until their price, delivery, and service operations are confirmed."
+>
+  <h2>What is available today</h2>
+  <p><strong>Free Tools</strong> are available now. They help you organise questions, check a route, compare official-provider details, and plan a timeline. They do not decide a visa, certificate acceptance, exam availability, or individual outcome.</p>
+
+  <h2>Offer comparison</h2>
+  <table>
+    <thead><tr><th>Option</th><th>Access and price</th><th>What it is</th><th>Next step</th></tr></thead>
+    <tbody>
+      {commercialOffers.map((offer) => (
+        <tr>
+          <td><strong>{offer.name}</strong><br />{offer.status}</td>
+          <td>{offer.price}</td>
+          <td>{offer.summary}</td>
+          <td><a href={offer.href}>{offer.action}</a></td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+
+  <h2>Why some prices are not shown</h2>
+  <p>VisaLang does not display a paid price until the business owner has confirmed the price, currency, tax and refund treatment, exact delivery method, support route, and availability. “Request access” means contact intent only; it is not a purchase, reservation, or service acceptance.</p>
+
+  <IntentCTA href={commercialLinks.tools} title="Start with the free route tools" description="Use a free tool to organise your next decision before considering any future paid material or human review." label="Open Route Finder" />
+  <CommercialBoundary includeLegalBoundary={true} />
+</CommercialPageShell>

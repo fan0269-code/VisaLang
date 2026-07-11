@@ -251,6 +251,54 @@ Important behavior:
 
 ## 当前构建和部署脚本
 
+## Product-upgrade dispatch status (verified 2026-07-11)
+
+This section governs the flowlight.me product-upgrade windows. It separates the intended Astro source from the site currently reached by visitors; downstream windows must not collapse those two facts into one claim.
+
+### Deployment source-of-truth: release blocker
+
+- **Astro is the approved development target:** current product work belongs in `src/` and is built into `dist/`. The local Astro build has 49 English guides, 16 Germany A1 guides, and 9 Germany B1 guides.
+- **Production is still serving the legacy static layer:** a live check of `https://flowlight.me/` on 2026-07-11 showed 43 guides, 15 Germany A1 guides, and 4 Germany B1 guides, which does not match the current Astro output.
+- **The checked-in CVM deployment script confirms the risk:** `deploy/deploy.sh` clones/pulls the repository into `/var/www/flowlight.me/public` and reloads Nginx; it does not run `npm run build` or publish `dist/`. The Nginx template roots directly at that repository directory.
+- **Decision required before any Astro release:** the deployment owner must choose and verify one production contract: (a) build on the server and serve `dist/`; (b) build in CI and publish only `dist/`; or (c) deliberately keep the legacy layer, in which case these Astro upgrade windows must not be treated as production work. Do not hand-edit `dist/` as a workaround.
+
+### Window 8 source release candidate — 2026-07-11
+
+- The Window 0–7 source set is accepted as a **Git source release candidate** after source tests, a 95-page Astro build, the 60-check launch gate, desktop interaction checks, and 390px mobile checks passed.
+- Window 8 fixed two release defects only: the committed Germany A1 cluster regression test is now part of `npm test` and follows the frozen hub/product URL contract; four new Germany B1 pages now use the current German Government naturalisation guidance instead of the superseded BMI URL.
+- The commercial pages remain contact-intent only. No checkout, payment, delivery, email sending, human-review acceptance, or confirmed paid price is represented as active.
+- This status does **not** clear the deployment blocker above. A successful commit and push prove that GitHub received the source; they do not prove that `flowlight.me` built or serves the Astro `dist/` output.
+
+### Product-upgrade functional matrix
+
+| Requirement | Status | Evidence / dispatch decision |
+|---|---|---|
+| Astro page/layout/component foundation | Exists, not yet production-serving | `src/pages`, `src/layouts`, shared components and `global.css` are established; live site remains legacy. |
+| Germany A1 decision cluster | Exists | 16 guides plus `/germany-family-reunion-a1/`; deepen and connect it, do not recreate it. |
+| Germany B1 settlement/citizenship route | Partly exists | Nine B1 guides exist, including comparison and study support; there is no dedicated B1 hub or complete settlement/citizenship decision path. |
+| Homepage positioning / navigation / footer | Partly exists | Current Astro homepage has explanatory Route Finder content; Header only exposes Home, Germany A1, Guides, About, and Footer is legal/trust-only. |
+| Interactive Route Finder, checklist, timeline, comparison, reminders | Missing | `src/data/app-data.ts` has seed tool data, but no `/tools/` routes or functioning tool flow exists. |
+| Pricing, packs, Route Review, Partners | Missing | No corresponding Astro routes or product data exist. |
+| Email capture and privacy data flow | Needs business confirmation | Contact page exposes `hello@flowlight.me`; legacy waitlist is local/demo mode, while Privacy Policy describes waitlist storage. No provider, processor, retention/deletion process, consent basis, or real destination is verified. |
+| Payment and digital delivery | Needs business confirmation | No payment integration, confirmed price, fulfilment method, refund policy, tax handling, or support owner is present. UI may only use clear contact/request-access states until confirmed. |
+| Route Review human service | Needs business confirmation | No intake workflow, reviewer identity/qualification, coverage, SLA, capacity, escalation rule, or secure-document policy is present. It must not claim submission, acceptance, or a response time. |
+| SEO/schema/internal-link baseline | Exists, follow-up required | Canonical/sitemap/Article/Breadcrumb infrastructure exists; Window 5 owns changes only after final new URLs are frozen. |
+| Visual system/mobile baseline | Exists, final pass required | Shared `src/styles/global.css` is the sole system anchor; Window 7 runs only after information architecture and routes are frozen. |
+| Advertising / consent compatibility | Needs separate confirmation | The Astro shared head includes an AdSense loader, while current CSP allows only same-origin scripts and production is legacy. Any activated advertising needs a verified CSP, consent/privacy, and deployment review. |
+
+### Locked work order and exclusive ownership
+
+1. **Window 0 — dispatch:** documentation only: `docs/PROJECT_CONTEXT.md`, `docs/TASK_LOG.md`, and roadmap/prompt documents. It verifies handoffs; it never repairs another window's code.
+2. **Deployment decision gate:** no code owner. The hosting owner must resolve the release contract above before Astro work is described as live.
+3. **Window 1 — information architecture:** exclusively owns `src/pages/index.astro`, `src/components/Header.astro`, `src/components/Footer.astro`, and the named trust pages. It may link only to existing or pre-agreed future URLs; it does not implement tools or commerce.
+4. **Window 4 — tools:** exclusively owns `src/pages/tools/**`, `src/components/tools/**`, `src/data/route-tools.ts`, and tool tests. It must not edit Header/Footer or commercial policy; any homepage insertion uses a Window-1-defined slot.
+5. **Window 6 — products and intent:** exclusively owns `src/pages/pricing.astro`, `src/pages/products/**`, `src/pages/route-review.astro`, `src/pages/partners.astro`, `src/components/products/**`, product data, and related tests. It cannot connect real email or payment without the business confirmations above.
+6. **Windows 2 and 3 — content clusters:** may run in parallel after shared URLs are frozen. Window 2 owns only the A1 hub and `category: germany-a1` Markdown; Window 3 owns only the B1 hub/new B1 routes and `category: germany-b1` Markdown. Neither edits shared navigation, layouts, tools, or global CSS.
+7. **Window 5 — SEO and linking:** exclusively owns cross-site metadata/schema/layout contracts, sitemap/check scripts, and link audits after all URLs are frozen. It must not rewrite guide bodies or redesign UI.
+8. **Window 7 — UI finalization:** exclusively owns `src/styles/global.css` and narrowly necessary presentational component/layout changes. It cannot change URLs, factual copy, tool rules, commercial terms, or deployment.
+
+Every handoff must list changed files, verification, final URL/data contracts, remaining human decisions, and protected areas untouched. If it changes a file owned by another window, lacks its required test/build evidence, or presents an unconfirmed external service as real, Window 0 returns it to that window rather than patching it.
+
 Build scripts:
 
 - `prebuild`: `npm run clean:astro`.

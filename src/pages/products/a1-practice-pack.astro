@@ -1,0 +1,41 @@
+---
+import CommercialPageShell from '../../components/products/CommercialPageShell.astro';
+import CommercialBoundary from '../../components/products/CommercialBoundary.astro';
+import IntentCTA from '../../components/products/IntentCTA.astro';
+import { commercialLinks } from '../../data/commercial-offers';
+---
+
+<CommercialPageShell
+  eyebrow="Proposed low-cost pack · request access"
+  title="A1 Practice Pack"
+  description="Proposed original-practice companion for A1 learners. This page states the intended scope, non-inclusions, and official verification boundary."
+  summary="This is not yet a purchasable product. It describes a proposed original-practice companion for learners who have already verified the right certificate and need a simple practice routine."
+>
+  <h2>Who it is for</h2>
+  <p>Adults preparing for an A1 exam who want structured original practice after confirming with the receiving authority which exact certificate is relevant to their own route.</p>
+
+  <h2>Proposed contents</h2>
+  <ul>
+    <li>Original, clearly labelled practice prompts and self-check routines.</li>
+    <li>Short listening, speaking, reading, and writing practice plans that point back to official format information.</li>
+    <li>A simple study-record template for noting weak areas and questions to verify with an official provider or authorised centre.</li>
+    <li>Safe links to VisaLang preparation guides and official-provider practice resources.</li>
+  </ul>
+
+  <h2>What it would not include</h2>
+  <ul>
+    <li>No leaked exam material, copied real questions, real exam answers, or content designed to bypass exam rules.</li>
+    <li>No claim that its exercises match a current local exam session or that completing them will produce a pass.</li>
+    <li>No exam booking, score assessment by an exam authority, certificate, or acceptance decision.</li>
+    <li>No guarantee of an exam pass, visa result, certificate acceptance, or application outcome.</li>
+  </ul>
+
+  <h2>How it would be used</h2>
+  <p>Use it as a personal practice routine, then check the current format and local rules with the official exam owner and authorised centre. If the receiving authority has not confirmed the exact certificate you need, return to route verification before investing in preparation.</p>
+
+  <h2>Availability and price</h2>
+  <p>The price, delivery format, support channel, refund terms, and launch date have not been confirmed. This page cannot take payment or deliver practice material.</p>
+
+  <IntentCTA href={commercialLinks.a1PracticePackIntent} label="Request access to the proposed practice pack" />
+  <CommercialBoundary includeLegalBoundary={true} />
+</CommercialPageShell>

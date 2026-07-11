@@ -1,0 +1,21 @@
+---
+export interface Props {
+  href: string;
+  title?: string;
+  description?: string;
+  label: string;
+}
+
+const {
+  href,
+  title = 'Interested in this option?',
+  description = 'Requesting access opens our contact page. It does not place an order, send a message, reserve a place, or start a review.',
+  label,
+} = Astro.props;
+---
+
+<section class="guide-cta" aria-label={title}>
+  <h2>{title}</h2>
+  <p>{description}</p>
+  <a class="primary-action" href={href}>{label}</a>
+</section>

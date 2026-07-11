@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allGuides = await getCollection('guides');
+const b1Guides = allGuides.filter((guide) => guide.data.category === 'germany-b1');
+---
+
+<BaseLayout title="Germany B1 for settlement permits and citizenship: verify before you choose proof" description="A Germany B1 planning route for settlement permits and citizenship: verify the competent authority's requirements, compare language proof, then organise checklist, timeline, and a non-legal Route Review." canonicalURL="https://flowlight.me/germany-b1-settlement-citizenship/">
+  <main class="page-shell">
+    <article class="guide-article route-hub-page">
+      <p class="eyebrow">Germany · B1 · settlement and citizenship</p>
+      <h1>Germany B1 for settlement permits and citizenship</h1>
+      <p class="guide-summary">Use this route to organise a B1 language-proof question. It cannot tell you whether you qualify for a settlement permit or German citizenship. The competent authority must assess your individual application and all non-language conditions.</p>
+
+      <div class="guide-trustbar" aria-label="Verification boundary">
+        <span>Start with the authority that will receive your application.</span>
+        <span>A B1 certificate is language evidence, not a decision on residence or citizenship eligibility.</span>
+      </div>
+
+      <h2>What B1 can—and cannot—answer</h2>
+      <p>A language certificate may be one item in a settlement-permit or naturalisation file. It does not itself establish residence duration, identity, secure livelihood or income, pension position, health insurance, housing, civic-knowledge evidence, criminal-history treatment, document validity, or procedural eligibility. Those questions can vary by route and authority. VisaLang cannot decide them for an individual case.</p>
+
+      <h2>Use this decision order</h2>
+      <ol>
+        <li><strong>Verify the receiving authority and your route.</strong> Ask which current language and non-language documents it requires for your own application.</li>
+        <li><strong>Separate language proof from the rest of the file.</strong> Record the exact accepted proof, while maintaining a separate list for residence history, income, insurance, housing, and procedure.</li>
+        <li><strong>Compare only accepted language proof.</strong> Use the <a href="/guides/goethe-b1-vs-telc-b1/">DTZ, Goethe B1 and telc B1 comparison</a> after the authority has named what it accepts.</li>
+        <li><strong>Plan the evidence window.</strong> Work backwards with the <a href="/guides/germany-b1-settlement-citizenship-timeline/">B1 timeline</a>; confirm local appointments, exam results, document currency, and any retake buffer yourself.</li>
+        <li><strong>Review your questions, not your eligibility.</strong> Use <a href="/route-review/">Route Review</a> only as a proposed non-legal service boundary and return to the competent authority for answers.</li>
+      </ol>
+
+      <h2>Core decision pages</h2>
+      <div class="guide-related-grid">
+        <a class="article-card" href="/guides/goethe-b1-germany-settlement-work/"><p class="card-category">Settlement permit</p><h3>Separate B1 proof from all other permit conditions</h3></a>
+        <a class="article-card" href="/guides/germany-b1-citizenship-language-proof/"><p class="card-category">Citizenship</p><h3>Verify B1 and the wider naturalisation file</h3></a>
+        <a class="article-card" href="/guides/goethe-b1-vs-telc-b1/"><p class="card-category">Exam comparison</p><h3>DTZ vs Goethe B1 vs telc B1</h3></a>
+        <a class="article-card" href="/guides/germany-b1-leben-in-deutschland-and-language-proof/"><p class="card-category">Civic knowledge</p><h3>Leben in Deutschland and B1 are different evidence</h3></a>
+        <a class="article-card" href="/guides/germany-b1-settlement-citizenship-checklist/"><p class="card-category">Checklist</p><h3>Prepare authority questions and evidence categories</h3></a>
+        <a class="article-card" href="/guides/germany-b1-settlement-citizenship-timeline/"><p class="card-category">Timeline</p><h3>Plan verification, certificate, and appointment buffers</h3></a>
+      </div>
+
+      <h2>Content map and internal-link matrix</h2>
+      <table>
+        <thead><tr><th>Need</th><th>Start page</th><th>Next decision</th></tr></thead>
+        <tbody>
+          <tr><td>Settlement permit question</td><td><a href="/guides/goethe-b1-germany-settlement-work/">Settlement permit</a></td><td>Checklist → Timeline → Route Review</td></tr>
+          <tr><td>Citizenship question</td><td><a href="/guides/germany-b1-citizenship-language-proof/">Citizenship</a></td><td>Leben in Deutschland → Comparison → Checklist</td></tr>
+          <tr><td>Which language proof?</td><td><a href="/guides/goethe-b1-vs-telc-b1/">Exam comparison</a></td><td>Authority confirmation → Timeline</td></tr>
+          <tr><td>Preparation confidence</td><td><a href="/guides/goethe-b1-speaking-topics/">Speaking</a> or <a href="/guides/goethe-b1-writing-assessment/">Writing</a></td><td>Practice pack interest → Timeline</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Existing B1 guide audit</h2>
+      <table>
+        <thead><tr><th>Existing guide</th><th>Cluster role after this update</th></tr></thead>
+        <tbody>
+          <tr><td><a href="/guides/goethe-b1-germany-settlement-work/">Goethe B1 for settlement and work</a></td><td>Reworked as the settlement-permit support page; separates language evidence from the whole file.</td></tr>
+          <tr><td><a href="/guides/goethe-b1-vs-telc-b1/">Goethe B1 vs telc B1</a></td><td>Reworked as the DTZ vs Goethe B1 vs telc B1 comparison page.</td></tr>
+          <tr><td><a href="/guides/goethe-b1-speaking-topics/">Speaking topics</a></td><td>Speaking preparation support, linked back to the authority-first route.</td></tr>
+          <tr><td><a href="/guides/goethe-b1-writing-assessment/">Writing assessment</a></td><td>Writing preparation support; no new writing page was needed.</td></tr>
+          <tr><td><a href="/guides/goethe-b1-study-plan/">60-day study plan</a> and <a href="/guides/goethe-b1-mock-exam-routine/">mock routine</a></td><td>Timeline-preparation support; a separate authority/document timeline was added.</td></tr>
+          <tr><td><a href="/guides/goethe-b1-difficulty-analysis/">Difficulty analysis</a> and <a href="/guides/goethe-b1-listening-deep-dive/">listening deep dive</a></td><td>Readiness diagnostics and module practice.</td></tr>
+          <tr><td><a href="/guides/goethe-b1-fees-and-booking/">Fees and booking</a></td><td>Local booking-risk support after accepted proof is confirmed.</td></tr>
+          <tr><td>Citizenship and Leben in Deutschland</td><td>Genuinely missing decision pages, added above rather than inferred from exam-preparation content.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Tools and conversion paths</h2>
+      <p><a href="/tools/route-finder/">Route Finder</a> helps you phrase the authority question. The <a href="/tools/checklist-generator/">Checklist tool</a>, <a href="/tools/timeline-calculator/">Timeline calculator</a>, and <a href="/tools/exam-comparison/">Exam Comparison tool</a> are planning aids only. They do not verify acceptance or eligibility.</p>
+      <p><a href="/pricing/">Compare free tools and proposed support options</a>, then <a href="/route-review/">read the Route Review boundary</a> before using any proposed human-service contact path.</p>
+
+      <h2>Existing B1 support pages</h2>
+      <div class="guide-related-grid">
+        {b1Guides.map((guide) => <a href={`/guides/${guide.data.slug}/`} class="article-card"><h3>{guide.data.title}</h3><p class="card-meta">{guide.data.description}</p></a>)}
+      </div>
+
+      <section class="official-sources">
+        <h2>Official verification starting points</h2>
+        <ul>
+          <li><a href="https://www.bamf.de/EN/Themen/MigrationAufenthalt/migration-node.html">BAMF migration and residence information</a></li>
+          <li><a href="https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse/Abschlusspruefung/abschlusspruefung-node.html">BAMF integration-course final examinations</a></li>
+          <li><a href="https://www.einbuergerung.de/service.php?l=en">German Government: key questions about naturalisation</a></li>
+        </ul>
+      </section>
+      <p class="compliance-line">Requirements and procedures can change. Verify them with the competent authority for your location and case before booking, applying, or relying on a certificate.</p>
+      <p class="last-updated">Last updated: 2026-07-11</p>
+    </article>
+  </main>
+</BaseLayout>
