@@ -1,180 +1,50 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageHero from '../components/PageHero.astro';
+import RouteProgress from '../components/RouteProgress.astro';
+import VerificationAlert from '../components/VerificationAlert.astro';
+import LastCheckedBadge from '../components/LastCheckedBadge.astro';
+import SourceCard from '../components/SourceCard.astro';
+import ReportOutdatedInfo from '../components/ReportOutdatedInfo.astro';
 import { getCollection } from 'astro:content';
 
-const allGuides = await getCollection('guides');
-const germanyA1Guides = allGuides.filter(g => g.data.category === 'germany-a1');
-
-const jsonLD = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    { '@type': 'Question', name: 'Do I need a German A1 certificate for a family reunion visa?', acceptedAnswer: { '@type': 'Answer', text: 'Many spouse and family reunion applicants need to show basic German skills at A1 level, but exceptions and document rules depend on the case. Verify with the German mission or authority handling your application before booking an exam.' }},
-    { '@type': 'Question', name: 'Which exams are commonly used for German family reunion A1?', acceptedAnswer: { '@type': 'Answer', text: 'Goethe-Zertifikat A1: Start Deutsch 1 and telc Deutsch A1 are commonly discussed options. Acceptance can depend on the authority, location, certificate version, and your case, so confirm officially before paying.' }},
-    { '@type': 'Question', name: 'Should I start with booking or with the requirement check?', acceptedAnswer: { '@type': 'Answer', text: 'Start with the requirement check. Once you know whether A1 applies and which proof is accepted, compare exam providers, centers, fees, result timing, documents, and retake risk.' }},
-    { '@type': 'Question', name: 'Can I use VisaLang instead of official sources?', acceptedAnswer: { '@type': 'Answer', text: 'No. VisaLang is a navigation guide. Use it to organize the route, then verify current requirements, fees, dates, accepted certificates, and document rules with official sources.' }},
-  ],
-};
+const guides = (await getCollection('guides')).filter((guide) => guide.data.category === 'germany-a1');
+const updatedDate = guides.reduce((latest, guide) => guide.data.updatedDate > latest ? guide.data.updatedDate : latest, '2026-07-11');
+const steps = [
+  { title: 'Confirm whether A1 applies', status: 'current', preparation: 'Your application location, family-reunion category, receiving German mission or authority, and any exemption question.', guide: { href: '/guides/german-family-reunion-language-requirement/', label: 'Requirement guide' }, tool: { href: '/tools/route-finder/', label: 'Route Finder' } },
+  { title: 'Confirm the accepted proof', status: 'next', preparation: 'The exact adult certificate, level, exam version, and document format named by the responsible authority.', guide: { href: '/guides/goethe-a1-germany-family-reunion/', label: 'Accepted proof guide' }, tool: { href: '/tools/checklist-generator/', label: 'Requirement Checklist' } },
+  { title: 'Compare exam options', status: 'next', preparation: 'Goethe A1 and telc A1 as verification options, not as assumed acceptance or provider rankings.', guide: { href: '/guides/goethe-a1-vs-telc-a1/', label: 'Goethe vs telc' }, tool: { href: '/tools/exam-comparison/', label: 'Exam Comparison' } },
+  { title: 'Verify centre and booking', status: 'next', preparation: 'Authorised centre status, exact exam, ID, fee, date, cancellation, result, and certificate delivery.', guide: { href: '/guides/goethe-a1-booking-mistakes/', label: 'Booking checks' }, tool: { href: '/tools/checklist-generator/', label: 'Booking checklist' } },
+  { title: 'Build the timeline', status: 'next', preparation: 'Only use result, delivery, translation, and retake buffers confirmed for the local route.', guide: { href: '/guides/german-a1-exam-booking-timeline/', label: 'Timeline guide' }, tool: { href: '/tools/timeline-calculator/', label: 'Timeline Planner' } },
+  { title: 'Prepare documents and exam', status: 'next', preparation: 'Keep exam-day ID and booking evidence separate from the visa-file language certificate requirements.', guide: { href: '/guides/german-a1-documents-checklist/', label: 'Documents guide' }, tool: { href: '/tools/checklist-generator/', label: 'Document checklist' } },
+  { title: 'Recheck before submission', status: 'next', preparation: 'Confirm the receiving authority still accepts the proof and that every required document format is current.', guide: { href: '/guides/german-a1-family-reunion-faq/', label: 'Route FAQ' }, tool: { href: '/tools/email-reminders/', label: 'Reminder Planner' } },
+] as const;
+const jsonLD = { '@context': 'https://schema.org', '@graph': [
+  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://flowlight.me/' }, { '@type': 'ListItem', position: 2, name: 'Routes', item: 'https://flowlight.me/routes/' }, { '@type': 'ListItem', position: 3, name: 'Germany A1 family reunion', item: 'https://flowlight.me/germany-family-reunion-a1/' }] },
+  { '@type': 'FAQPage', mainEntity: [
+    { '@type': 'Question', name: 'Do I need German A1 for family reunion?', acceptedAnswer: { '@type': 'Answer', text: 'The requirement and any exemption depend on the individual route and responsible authority. Confirm before booking.' } },
+    { '@type': 'Question', name: 'Should I choose an exam before checking the requirement?', acceptedAnswer: { '@type': 'Answer', text: 'No. Confirm whether proof is required and which exact certificate is accepted first.' } },
+  ] },
+] };
 ---
 
-<BaseLayout title="Germany A1 family reunion: requirements, exam, booking, and documents" description="Germany A1 family reunion route: verify the requirement, choose an exam, check fees and test centres, prepare documents, study, and plan a retake with official sources." jsonLD={jsonLD}>
-  <main class="page-shell">
-    <article class="guide-article route-hub-page">
-        <p class="eyebrow">Germany · Family Reunion</p>
-        <h1>Germany A1 for family reunion: complete route guide</h1>
-        <p class="guide-summary">If you may need basic German proof for a spouse or family reunion route, start here. This hub organizes the requirement check, exam choice, booking risk, documents, preparation, retake planning, and official verification into one route.</p>
+<BaseLayout title="Germany A1 family reunion route" description="Confirm the Germany family-reunion A1 requirement, accepted proof, exam option, booking, timeline, documents, and official submission checks." canonicalURL="https://flowlight.me/germany-family-reunion-a1/" alternates={[{ lang: 'en', href: 'https://flowlight.me/germany-family-reunion-a1/' }, { lang: 'zh-CN', href: 'https://flowlight.me/zh/germany-family-reunion-a1/' }, { lang: 'x-default', href: 'https://flowlight.me/germany-family-reunion-a1/' }]} jsonLD={jsonLD}>
+  <main class="site-main">
+    <Breadcrumbs path={[{ label: 'Home', href: '/' }, { label: 'Routes', href: '/routes/' }, { label: 'Germany A1 family reunion' }]} />
+    <PageHero compact eyebrow="Germany / Family reunion" title="Germany A1 family reunion route" description="Confirm whether A1 applies, then move through proof, exam, booking, timing, documents, and submission checks." primary={{ href: '#route-progress', label: 'Start the route' }} secondary={{ href: '/tools/route-finder/', label: 'Check my starting point' }} />
+    <div class="card-footer"><LastCheckedBadge date={updatedDate} label="Route content updated" /><span class="last-checked">Official verification date not separately recorded</span><span>{guides.length} supporting guides</span></div>
+    <VerificationAlert title="Who this route is for"><p>Use this route if you are preparing a German spouse or family-reunion application and still need to organise the language-proof decision. It cannot determine whether an exemption or certificate applies to your individual case.</p></VerificationAlert>
 
-        <div class="guide-trustbar" aria-label="Route decision reminder">
-          <span>Quick route answer: confirm whether A1 applies before you compare providers or dates.</span>
-          <span>Requirements, exemptions, fees, test centres, and certificate treatment must be checked with current official sources.</span>
-        </div>
+    <section id="route-progress" class="content-section" aria-labelledby="progress-title"><div class="section-header"><h2 id="progress-title">Your 7-step route</h2><p>Your current step is stored in this browser. Move forward only when the responsible source gives you enough information for the next decision.</p></div><RouteProgress steps={steps} current={0} routeId="germany-family-reunion-a1" /></section>
 
-        <h2>Who should start here</h2>
-        <p>Start here if you are planning a German spouse or family-reunion application and have not yet confirmed the language-proof requirement, accepted certificate, or booking timeline. If you already have a written instruction from the responsible mission, use this route to check the practical decisions it creates.</p>
+    <section class="content-section" aria-labelledby="recommended-tools"><div class="section-header"><h2 id="recommended-tools">Recommended tools</h2><p>Tools save your planning work locally and never turn an unsupported route into a result.</p></div><div class="tool-grid"><a class="article-card" href="/tools/route-finder/"><h3>Route Finder</h3><p class="card-meta">Start with the requirement and receiving authority.</p></a><a class="article-card" href="/tools/checklist-generator/"><h3>Requirement Checklist</h3><p class="card-meta">Track confirmed evidence and unresolved checks.</p></a><a class="article-card" href="/tools/timeline-calculator/"><h3>Timeline Planner</h3><p class="card-meta">Use only locally verified timing inputs.</p></a><a class="article-card" href="/tools/email-reminders/"><h3>Reminder Planner</h3><p class="card-meta">Create a calendar or printable recheck reminder.</p></a></div></section>
 
-        <h2>Who should verify an exemption first</h2>
-        <p>Do not register because an online checklist says “everyone needs A1.” If your route, the person in Germany, your application location, or your circumstances may affect the requirement, take the official mission or authority page as the starting point. This site cannot determine an exemption or outcome for an individual case.</p>
+    <section class="content-section" aria-labelledby="route-guides"><div class="section-header"><h2 id="route-guides">Related guides</h2><p>Read in route order, not as a random article list.</p></div><div class="guide-related-grid">{guides.sort((a, b) => b.data.updatedDate.localeCompare(a.data.updatedDate)).slice(0, 8).map((guide) => <a class="article-card" href={`/guides/${guide.data.slug}/`}><h3>{guide.data.title}</h3><p class="card-meta">{guide.data.description}</p><LastCheckedBadge date={guide.data.updatedDate} /></a>)}</div><div class="button-row"><a class="button button--secondary" href="/guides/category/germany-a1/">View all Germany A1 guides</a></div></section>
 
-        <h2>Germany A1 route overview</h2>
-        <p>Use this page as the Germany A1 route index. It does not replace BAMF, the German mission, Goethe-Institut, telc, or your local test center. It helps you move through the right questions in the right order before you pay for an exam or submit documents.</p>
+    <section class="content-section" aria-labelledby="official-entry"><div class="section-header"><h2 id="official-entry">Official verification entry points</h2><p>Start with the authority for the route, then use exam-owner and authorised-centre information for the booking. This route does not currently record a separate source-check date.</p></div><div class="guide-related-grid"><SourceCard name="BAMF family reunification" href="https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html" /><SourceCard name="German Federal Foreign Office" href="https://www.auswaertiges-amt.de/en" /><SourceCard name="Goethe-Institut examinations" href="https://www.goethe.de/en/spr/prf.html" /><SourceCard name="telc Deutsch A1" href="https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/" /></div></section>
 
-        <h2>Five core decision guides</h2>
-        <p>Use these pages when the route has moved from a general requirement question to a decision you need to make now.</p>
-        <div class="guide-related-grid">
-          <a class="article-card" href="/guides/goethe-a1-fees-by-country/">
-            <p class="card-category">Fees</p>
-            <h3>Goethe A1 exam fees: check your local price</h3>
-          </a>
-          <a class="article-card" href="/guides/goethe-a1-test-centers/">
-            <p class="card-category">Test centers</p>
-            <h3>Goethe A1 test centers: verify an official exam centre</h3>
-          </a>
-          <a class="article-card" href="/guides/goethe-a1-retake-policy/">
-            <p class="card-category">Retake</p>
-            <h3>Goethe A1 retake: plan your next attempt</h3>
-          </a>
-          <a class="article-card" href="/guides/german-a1-documents-checklist/">
-            <p class="card-category">Documents</p>
-            <h3>German A1 documents checklist: booking, test day, visa</h3>
-          </a>
-          <a class="article-card" href="/guides/goethe-a1-speaking-topics/">
-            <p class="card-category">Speaking</p>
-            <h3>Goethe A1 speaking topics: safe practice plan</h3>
-          </a>
-        </div>
-
-        <h2>Step 1: Confirm whether A1 applies</h2>
-        <p>Many spouse applicants are asked to show basic German at A1 level, but exemptions and document rules depend on the relationship category, the person in Germany, the responsible German mission, and the current rule applied to your case.</p>
-        <ul>
-          <li>Start with the <a href="/guides/german-family-reunion-language-requirement/">German family reunion language requirement</a>.</li>
-          <li>If you are unsure, use the <a href="/guides/german-family-reunion-language-requirement/">language requirement guide</a> and <a href="/guides/german-a1-family-reunion-faq/">Germany A1 FAQ</a> as checklists, then verify with the official authority.</li>
-          <li>Do not book an exam only because another applicant had the same route. Your responsible authority decides your case.</li>
-        </ul>
-
-        <h2>Step 2: Confirm accepted proof</h2>
-        <p>For Germany A1 family reunion planning, the most common comparison is Goethe-Zertifikat A1: Start Deutsch 1 versus telc Deutsch A1. The useful question is not which brand is famous; it is which certificate your authority accepts, which center you can book, and whether the result timing fits your document deadline.</p>
-        <p><a href="/guides/goethe-a1-germany-family-reunion/">Start with the Goethe A1 route guide</a>, then compare providers in <a href="/guides/goethe-a1-vs-telc-a1/">Goethe A1 vs telc A1</a>.</p>
-
-        <h2>Step 3: Compare providers</h2>
-        <ul>
-          <li>Confirm accepted proof before comparing centers or fees.</li>
-          <li>Check the exact adult A1 certificate name and whether all four skills are covered.</li>
-          <li>Compare result timing, retake options, ID rules, cancellation rules, and certificate delivery.</li>
-        </ul>
-
-        <h2>Step 4: Verify centre and booking terms</h2>
-        <p>Once the accepted proof is clear, move from exam choice to booking risk. Do not assume every center offers the same dates, fees, ID rules, cancellation terms, or result timeline.</p>
-        <ul>
-          <li><a href="/guides/goethe-a1-booking-mistakes/">Goethe A1 booking mistakes</a></li>
-          <li><a href="/guides/goethe-a1-pre-booking-checklist/">Goethe A1 pre-booking checklist</a></li>
-          <li><a href="/guides/goethe-a1-test-centers/">Goethe A1 test centers</a></li>
-          <li><a href="/guides/goethe-a1-fees-by-country/">Goethe A1 fees by country</a></li>
-          <li><a href="/guides/german-a1-exam-booking-timeline/">German A1 exam booking timeline</a></li>
-        </ul>
-
-        <p>Only book when the exact exam, adult level, centre status, passport name, payment deadline, cancellation rule, result process, and your route requirement align. Keep the official listing, centre reply, payment record, and booking confirmation together.</p>
-
-        <h2>Step 5: Plan results and a retake buffer</h2>
-        <p>Plan backwards from the document deadline using only timing that the official centre has confirmed for your exact exam. Add a personal retake buffer only after checking whether another official seat and a new result could still fit. Do not assume a universal result cycle, quick retake, or module retake option.</p>
-        <p><a href="/guides/german-a1-exam-booking-timeline/">Build the booking timeline</a> and review the <a href="/guides/goethe-a1-retake-policy/">retake planning guide</a> before payment.</p>
-
-        <h2>Step 6: Organise documents</h2>
-        <p>Separate exam-day documents from visa-file documents. Your test center controls exam-day ID and booking proof; the German mission or authority controls visa-file requirements.</p>
-        <p>Use the <a href="/guides/german-a1-documents-checklist/">German A1 documents checklist</a> after you have selected the accepted exam path.</p>
-
-        <h2>Step 7: Prepare for the exam</h2>
-        <p>Preparation should stay legal and practical: official sample materials, original practice prompts, daily listening, and realistic speaking practice. Do not use leaked questions, copied real exam answers, or any service promising guaranteed passing.</p>
-        <ul>
-          <li><a href="/guides/goethe-a1-30-day-study-plan/">30-day Goethe A1 study plan</a></li>
-          <li><a href="/guides/goethe-a1-study-plan-working-adults/">Goethe A1 study plan for working adults</a></li>
-          <li><a href="/guides/goethe-a1-speaking-topics/">Goethe A1 speaking</a></li>
-          <li><a href="/guides/goethe-a1-writing-practice/">Goethe A1 writing</a></li>
-          <li><a href="/guides/goethe-a1-listening-practice/">Goethe A1 listening</a></li>
-          <li><a href="/guides/goethe-a1-official-links-practice-resources/">Official links and practice resources</a></li>
-        </ul>
-
-        <h2>Use A1 planning tools and choose a next step</h2>
-        <p>Use these tools to organise official questions and your own planning inputs. None decides an exemption, certificate acceptance, fee, result timing, or individual route.</p>
-        <div class="guide-related-grid">
-          <a class="article-card" href="/tools/route-finder/"><p class="card-category">Tool</p><h3>Route Finder</h3><p class="card-meta">Start when the requirement or exemption question is unresolved.</p></a>
-          <a class="article-card" href="/tools/checklist-generator/"><p class="card-category">Tool</p><h3>Checklist Generator</h3><p class="card-meta">Record the authority, source, question, and date checked.</p></a>
-          <a class="article-card" href="/tools/timeline-calculator/"><p class="card-category">Tool</p><h3>Timeline Calculator</h3><p class="card-meta">Plan only with locally confirmed result and retake buffers.</p></a>
-          <a class="article-card" href="/tools/exam-comparison/"><p class="card-category">Tool</p><h3>Exam Comparison</h3><p class="card-meta">Compare verification questions, not provider rankings.</p></a>
-          <a class="article-card" href="/products/a1-family-reunion-pack/"><p class="card-category">Proposed pack</p><h3>A1 Family Reunion Pack</h3><p class="card-meta">Review the intended scope before opening the contact-intent path; no pack is currently purchasable.</p></a>
-          <a class="article-card" href="/products/a1-practice-pack/"><p class="card-category">Proposed pack</p><h3>A1 Practice Pack</h3><p class="card-meta">Review the original-practice boundary after you have confirmed the certificate you need.</p></a>
-          <a class="article-card" href="/route-review/"><p class="card-category">Proposed support</p><h3>Route Review</h3><p class="card-meta">Read the informational-support boundary before opening the contact-intent path.</p></a>
-        </div>
-
-        <h2>Common mistakes across the route</h2>
-        <ul>
-          <li>Starting from a local course advert, old price table, or another applicant’s outcome instead of the current official requirement.</li>
-          <li>Choosing the soonest date before checking result delivery, visa timing, and a possible retake.</li>
-          <li>Mixing exam-day ID requirements with visa-file document requirements.</li>
-          <li>Assuming the well-known provider is automatically accepted without checking the exact certificate and local route.</li>
-        </ul>
-
-        <h2>FAQ</h2>
-        <h3>Do I need German A1 for family reunion?</h3>
-        <p>Possibly. Many spouse routes require basic German proof, but exceptions and local document rules matter. Verify your route officially before booking.</p>
-
-        <h3>Is Goethe A1 always better than telc A1?</h3>
-        <p>No single answer fits every applicant. The safer choice is the certificate your authority accepts and the center whose date, ID rule, result timing, and certificate process fit your case.</p>
-
-        <h3>Can I rely on fee tables from blogs?</h3>
-        <p>No. Fees can change by country and center. Use third-party pages only as planning prompts, then check the official local page before paying.</p>
-
-        <h3>Can I study from real leaked exam questions?</h3>
-        <p>No. Use official practice materials and original prompts. Avoid leaked materials, copied answers, and guaranteed-pass claims.</p>
-
-        <p><a href="/guides/german-a1-family-reunion-faq/">Open the full Germany A1 FAQ</a>.</p>
-
-        <h2>All Germany A1 guides</h2>
-        <div class="guide-related-grid">
-          {germanyA1Guides.map(g => (
-            <a href={`/guides/${g.data.slug}/`} class="article-card">
-              <h3>{g.data.title}</h3>
-              <p class="card-meta">{g.data.description}</p>
-            </a>
-          ))}
-        </div>
-
-        <h2>Official verification checklist</h2>
-        <p>Before you book or submit documents, verify these with official sources: whether A1 applies to your case; any exemption conditions; which certificate is accepted; the exact local fee, date, and result process; the local centre’s ID and cancellation rules; and the document rule for your appointment.</p>
-
-        <p><a class="primary-action" href="/guides/german-family-reunion-language-requirement/">Start Germany A1 route</a></p>
-        <p><a class="secondary-action" href="/contact/">Report an official-source correction or route issue</a></p>
-
-        <section class="official-sources">
-          <h2>Official sources</h2>
-          <ul>
-            <li><a href="https://www.goethe.de/en/spr/prf.html">Goethe-Institut German examinations</a></li>
-            <li><a href="https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html">BAMF — family reunification</a></li>
-            <li><a href="https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/">telc Deutsch A1</a></li>
-          </ul>
-        </section>
-
-        <p class="compliance-line">Fees, dates, requirements, and accepted exams change. Always verify with the official source before booking.</p>
-        <p class="last-updated">Last updated: 2026-07-11</p>
-    </article>
+    <section class="content-section" aria-labelledby="route-faq"><div class="section-header"><h2 id="route-faq">Route FAQ</h2></div><details><summary>Do I need German A1 for family reunion?</summary><p>The requirement and any exemption depend on the individual route and responsible authority. Confirm before booking.</p></details><details><summary>Should I choose an exam before checking the requirement?</summary><p>No. Confirm whether proof is required and which exact certificate is accepted first.</p></details></section>
+    <ReportOutdatedInfo pageTitle="Germany A1 family reunion route" />
   </main>
 </BaseLayout>

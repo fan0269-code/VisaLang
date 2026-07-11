@@ -1,0 +1,18 @@
+---
+import { navItems, site, ui, type Locale } from '../data/site';
+export interface Props { locale: Locale; switchHref: string; }
+const { locale, switchHref } = Astro.props;
+const labels = ui[locale];
+const isZh = locale === 'zh-CN';
+---
+
+<details class="mobile-navigation">
+  <summary>{labels.menu}</summary>
+  <nav aria-label={isZh ? '移动端导航' : 'Mobile navigation'}>
+    {navItems.map((item) => <a href={isZh && item.href === '/' ? '/zh/' : item.href}>{labels[item.key]}{isZh && item.key !== 'home' ? '（英文）' : ''}</a>)}
+    <div class="mobile-navigation__routes">
+      {site.routes.map((route) => <a href={isZh && route.id === 'family-reunion' ? '/zh/germany-family-reunion-a1/' : route.href}>{isZh ? `${route.zh}${route.id === 'family-reunion' ? '' : '（英文）'}` : route.label}</a>)}
+    </div>
+    <a href={switchHref} hreflang={isZh ? 'en' : 'zh-CN'}>{isZh ? 'English' : '中文'}</a>
+  </nav>
+</details>

@@ -1,0 +1,6 @@
+---
+export interface Props { label?: string; }
+const { label = 'Print' } = Astro.props;
+---
+<button class="button button--secondary" type="button" data-print-button>{label}</button>
+<script>document.querySelectorAll('[data-print-button]').forEach((button) => button.addEventListener('click', () => window.print()));</script>

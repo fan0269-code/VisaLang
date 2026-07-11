@@ -12,13 +12,13 @@ assert.equal(germanyA1Guides.length, 17, 'Germany A1 cluster should retain its 1
 assert.ok(germanyA1Guides.includes('goethe-a1-writing-practice.md'), 'Germany A1 cluster should cover the unique writing-practice intent');
 
 const requiredHubSteps = [
-  'Step 1: Confirm whether A1 applies',
-  'Step 2: Confirm accepted proof',
-  'Step 3: Compare providers',
-  'Step 4: Verify centre and booking terms',
-  'Step 5: Plan results and a retake buffer',
-  'Step 6: Organise documents',
-  'Step 7: Prepare for the exam',
+  "title: 'Confirm whether A1 applies'",
+  "title: 'Confirm the accepted proof'",
+  "title: 'Compare exam options'",
+  "title: 'Verify centre and booking'",
+  "title: 'Build the timeline'",
+  "title: 'Prepare documents and exam'",
+  "title: 'Recheck before submission'",
 ];
 let previousStepIndex = -1;
 for (const step of requiredHubSteps) {
@@ -42,9 +42,7 @@ const hubNextStepLinks = [
   '/tools/checklist-generator/',
   '/tools/timeline-calculator/',
   '/tools/exam-comparison/',
-  '/products/a1-family-reunion-pack/',
-  '/products/a1-practice-pack/',
-  '/route-review/',
+  '/tools/email-reminders/',
 ];
 
 for (const file of germanyA1Guides) {

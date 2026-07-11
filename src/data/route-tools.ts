@@ -46,13 +46,11 @@ export const routeRegistry = [
 
 export const safeRouteResult = {
   id: 'official-verification-required',
-  availability: 'verify-only',
-  title: 'Official verification required before choosing an exam',
+  availability: 'coming-soon',
+  title: 'This route is not configured yet',
   officialAction: 'Ask the authority, university, employer, training provider, regulator, or other organisation receiving your application which language proof it requires and accepts.',
   nextSteps: [
     'Identify the organisation that receives your application or document.',
-    'Ask for the exact accepted certificate, level, date, and document format in writing where possible.',
-    'Only then compare official exam owners and authorised local test centres.',
   ],
   guide: { href: '/guides/', label: 'Browse route guides' },
 };
@@ -77,13 +75,7 @@ export function findRoute(input) {
 
 export function getChecklist(routeId) {
   const route = routeRegistry.find((item) => item.id === routeId && item.availability === 'configured');
-  if (!route) {
-    return [
-      { priority: 'First', item: 'Identify the receiving authority and request its current language-proof instructions.' },
-      { priority: 'Before booking', item: 'Confirm the exact accepted certificate, local centre rules, timing, and documents with official sources.' },
-      { priority: 'Before submission', item: 'Check the receiving authority’s current document format, translation, and certification instructions.' },
-    ];
-  }
+  if (!route) return [];
   return route.checklist;
 }
 

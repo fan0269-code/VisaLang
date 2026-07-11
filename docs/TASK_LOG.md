@@ -1,8 +1,43 @@
 # VisaLang Task Log
 
-Updated: 2026-07-10
+Updated: 2026-07-11
 
 This log records current project-map findings, known issues, and recommended next-window boundaries for flowlight.me / VisaLang.
+
+## Decision Product UI Refactor - 2026-07-11
+
+Role: senior product design, UX architecture, frontend implementation, migration, and release verification.
+
+Completed:
+
+- Kept the Astro and Markdown stack; did not rewrite policy, visa, fee, exam-acceptance, or legal conclusions for UI reasons.
+- Added `/routes/`, `/exams/`, and `/tools/` centres and rebuilt the homepage around the route decision task.
+- Replaced the old primary navigation with Home, Routes, Exams, Tools, Guides, About, and a route-aware language switch. Pricing and Partners moved under About and footer surfaces.
+- Added the shared component and token system documented in `docs/UI_REFACTOR_REPORT.md`.
+- Migrated English guides to one conditional article layout, removed the duplicate Germany A1 support shell, and kept one TOC and one disclaimer per generated guide.
+- Rebuilt the Germany A1 hub as a seven-step route centre with guide, tool, official-source, last-checked, FAQ, and correction-reporting surfaces.
+- Rebuilt Guides as a task library with seven filters, sorting, URL state, mobile drawer, result count, and empty state.
+- Unified the library across 54 English and 5 Chinese guide entries and added a working Language filter.
+- Added a shared tool layout with WebApplication schema, local progress, restart, copy, print, text export, and clear unsupported-route boundaries.
+- Removed the Reminder Planner email field and added local reminder, ICS, copy, print, and text export paths.
+- Standardised commercial page states and removed request-access purchase language from unavailable products.
+- Corrected two truncated guide slugs and added 301 redirects for them and the legacy static layer.
+- After two-axis review, changed unsupported route/checklist output to a hard coming-soon stop, removed default timeline buffers, separated update and official-verification dates, added persistent per-step route progress, labelled all Chinese-to-English transitions, expanded legacy legal redirects, and hardened JSON-LD parsing checks.
+- Added a build-time Markdown sectioner so all 54 English articles render the eight required sections once and in a fixed order without rewriting the underlying policy or exam content; added previous/next and next-tool navigation to both English and Chinese guide bottoms.
+
+Verification:
+
+- Pre-change backup: `/tmp/visalang-pre-ui-refactor-20260711.tgz`.
+- `npm test`: passed.
+- `npm run build`: passed, 98 generated HTML routes.
+- Browser checks: 1440×900, 768×1024, and 390×844; no horizontal overflow on checked pages; menu, filters, URL state, Route Finder result, and restart passed; console clean.
+- Full final `launch-check` and `git diff --check` recorded in the final handoff after the last documentation pass.
+
+Remaining boundaries:
+
+- Chinese remains a focused Germany A1 path rather than a full-site translation.
+- Legacy root static files remain until deployment source-of-truth is independently confirmed; redirects prevent route competition.
+- No payment, delivery, email-sending, Route Review intake, or partner-application backend is active.
 
 ## Google AdSense Script Install - 2026-07-10
 

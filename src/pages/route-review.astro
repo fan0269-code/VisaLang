@@ -6,7 +6,8 @@ import { commercialLinks } from '../data/commercial-offers';
 ---
 
 <CommercialPageShell
-  eyebrow="Proposed human service · request access"
+  status="unavailable"
+  eyebrow="Proposed human service"
   title="Informational Route Review"
   description="Proposed human informational review for language-proof route questions. It is not legal, immigration, admissions, or exam-acceptance advice."
   summary="A Route Review is proposed as a human, informational reading of the route questions you have already identified. It is not currently accepting submissions and it will never decide an application or replace an official or legal assessment."
@@ -31,6 +32,6 @@ import { commercialLinks } from '../data/commercial-offers';
   <h2>Availability and price</h2>
   <p>Reviewer qualifications, capacity, service level, secure intake, price, and delivery terms have not been confirmed. This page is not a submission form and does not create a review request or client relationship.</p>
 
-  <IntentCTA href={commercialLinks.routeReviewIntent} title="Ask about future Route Review access" description="This opens the contact page only. It does not submit case information, create a client relationship, or mean a human reviewer has accepted your request." label="Request Route Review access" />
+  <IntentCTA href={commercialLinks.tools} title="Use the free route tools" description="Route Review is not currently offered. Continue with the free route and checklist tools." label="View free routes" />
   <CommercialBoundary includeLegalBoundary={true} />
 </CommercialPageShell>

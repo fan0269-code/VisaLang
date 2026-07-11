@@ -6,7 +6,8 @@ import { commercialLinks } from '../../data/commercial-offers';
 ---
 
 <CommercialPageShell
-  eyebrow="Proposed low-cost pack · request access"
+  status="coming-soon"
+  eyebrow="Proposed practice pack"
   title="A1 Practice Pack"
   description="Proposed original-practice companion for A1 learners. This page states the intended scope, non-inclusions, and official verification boundary."
   summary="This is not yet a purchasable product. It describes a proposed original-practice companion for learners who have already verified the right certificate and need a simple practice routine."
@@ -36,6 +37,6 @@ import { commercialLinks } from '../../data/commercial-offers';
   <h2>Availability and price</h2>
   <p>The price, delivery format, support channel, refund terms, and launch date have not been confirmed. This page cannot take payment or deliver practice material.</p>
 
-  <IntentCTA href={commercialLinks.a1PracticePackIntent} label="Request access to the proposed practice pack" />
+  <IntentCTA href={commercialLinks.contact} title="Get product updates" description="The pack is not available to buy. Contact the team only if you want a future availability update." label="Get updates" />
   <CommercialBoundary includeLegalBoundary={true} />
 </CommercialPageShell>

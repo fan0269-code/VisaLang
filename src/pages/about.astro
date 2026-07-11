@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { zhGermanyA1Guides } from '../data/zh-germany-a1';
 const guides = await getCollection('guides');
+const totalGuideCount = guides.length + zhGermanyA1Guides.length;
 const updated = '2026-07-02';
 const jsonLD = { '@context': 'https://schema.org', '@type': 'AboutPage', name: 'About VisaLang' };
 ---
@@ -14,7 +16,7 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'AboutPage', name: '
         <p class="guide-summary">VisaLang is a bilingual (English / Chinese) language-exam navigation site for the moment before you book an exam or submit a document that may require language proof.</p>
 
         <h2>What we do</h2>
-        <p>We research official sources, organize the information, add safe preparation guidance, and help you identify what to verify before you pay for an exam. We currently cover <strong>{guides.length} guides</strong> across 11 country routes.</p>
+        <p>We research official sources, organize the information, add safe preparation guidance, and help you identify what to verify before you pay for an exam. We currently cover <strong>{totalGuideCount} English and Chinese guides</strong> across 11 country routes.</p>
 
         <h2>What we do not do</h2>
         <ul>

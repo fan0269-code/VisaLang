@@ -1,53 +1,49 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import ToolShell from '../../components/tools/ToolShell.astro';
+import ToolLayout from '../../layouts/ToolLayout.astro';
 import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
+import ToolResultPanel from '../../components/ToolResultPanel.astro';
 ---
-
-<BaseLayout title="Reminder Planner" description="Create a local reminder intention for a language-proof planning check. No email service is connected.">
-  <ToolShell eyebrow="Optional · local planning only" title="Reminder Planner" description="Create a reminder intention for your own calendar or notes. This page does not send email, save addresses, or connect to a mailing service.">
-    <div class="tool-workspace">
-      <form id="reminder-form" class="tool-form" novalidate>
-        <div class="tool-form-heading"><h2>Draft a personal reminder</h2><p>Your address is used only for this browser-side form validation. Nothing is sent or stored.</p></div>
-        <div class="tool-field-grid">
-          <label>Email address<input name="email" type="email" required placeholder="you@example.com" autocomplete="email" /></label>
-          <label>Reminder topic<select name="topic" required><option value="">Select a topic</option><option>Confirm the language requirement</option><option>Check an official test centre</option><option>Review my checklist</option><option>Recalculate my timeline</option></select></label>
-        </div>
-        <p class="tool-error" id="reminder-error" aria-live="assertive"></p>
-        <button class="primary-action" type="submit">Create local reminder note</button>
-      </form>
-      <section id="reminder-result" class="tool-result" hidden aria-live="polite" tabindex="-1">
-        <div id="reminder-summary"></div>
-        <ToolResultSupport resultId="reminder-summary" />
-      </section>
-    </div>
-  </ToolShell>
-</BaseLayout>
-
+<ToolLayout eyebrow="Local planning only" title="Reminder Planner" description="Create a reminder plan for your own calendar, local storage, notes, or printer. No email service is connected." current="reminders">
+  <div class="tool-workspace">
+    <form id="reminder-form" class="tool-form" novalidate>
+      <div class="tool-form-heading"><h2>Create a verification reminder</h2><p>The plan stays in this browser unless you download or copy it.</p></div>
+      <div class="tool-field-grid">
+        <label>Reminder topic<select name="topic" required><option value="">Select a topic</option><option>Confirm the language requirement</option><option>Check an official test centre</option><option>Review my requirement checklist</option><option>Recalculate my timeline</option></select></label>
+        <label>Reminder date<input name="date" type="date" required /></label>
+        <label>Route or authority<input name="route" required placeholder="Example: Germany family reunion / local German mission" /></label>
+        <label>Official source to recheck<input name="source" type="url" placeholder="https://" /></label>
+      </div>
+      <p class="tool-error" id="reminder-error" aria-live="assertive"></p>
+      <button class="button button--primary" type="submit">Create reminder plan</button>
+    </form>
+    <ToolResultPanel id="reminder-result" title="Your reminder plan"><div id="reminder-summary"></div><div class="button-row"><button class="button button--primary" type="button" data-download-ics>Download ICS</button></div><ToolResultSupport resultId="reminder-summary" /></ToolResultPanel>
+  </div>
+</ToolLayout>
 <script>
   const form = document.querySelector<HTMLFormElement>('#reminder-form');
   const error = document.querySelector<HTMLElement>('#reminder-error');
-  const resultPanel = document.querySelector<HTMLElement>('#reminder-result');
+  const panel = document.querySelector<HTMLElement>('#reminder-result');
   const summary = document.querySelector<HTMLElement>('#reminder-summary');
-
+  let reminder = { topic: '', date: '', route: '', source: '' };
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
-    const email = form.querySelector<HTMLInputElement>('[name="email"]');
-    const topic = form.querySelector<HTMLSelectElement>('[name="topic"]');
-    if (!email?.value || !email.validity.valid || !topic?.value) {
-      if (error) error.textContent = 'Enter a valid email address and choose a reminder topic.';
-      (!email?.validity.valid ? email : topic)?.focus();
-      return;
-    }
-    if (!summary || !resultPanel) return;
+    reminder = Object.fromEntries(new FormData(form).entries()) as typeof reminder;
+    const invalid = [...form.querySelectorAll<HTMLInputElement | HTMLSelectElement>('[required]')].find((field) => !field.value);
+    if (invalid) { if (error) error.textContent = 'Complete the topic, date, and route or authority.'; invalid.focus(); return; }
     if (error) error.textContent = '';
-    history.replaceState({}, '', `${location.pathname}?topic=${encodeURIComponent(topic.value)}`);
+    if (!summary || !panel) return;
     summary.replaceChildren();
-    const heading = document.createElement('h2'); heading.textContent = 'Local reminder note created';
-    const note = document.createElement('p'); note.textContent = `Reminder topic: ${topic.value}. Add this to your own calendar or notes when you are ready.`;
-    const boundary = document.createElement('p'); boundary.textContent = 'No email was sent, no address was stored, and no sending service is connected to this page.';
-    summary.append(heading, note, boundary);
-    resultPanel.hidden = false;
-    resultPanel.focus();
+    const heading = document.createElement('h2'); heading.textContent = reminder.topic;
+    const date = document.createElement('p'); date.textContent = `Reminder date: ${reminder.date}`;
+    const route = document.createElement('p'); route.textContent = `Route or authority: ${reminder.route}`;
+    const source = document.createElement('p'); source.textContent = reminder.source ? `Official source to recheck: ${reminder.source}` : 'Official source: add the responsible authority or provider page before acting.';
+    summary.append(heading, date, route, source); panel.hidden = false; panel.focus();
+  });
+  document.querySelector('[data-download-ics]')?.addEventListener('click', () => {
+    if (!reminder.date) return;
+    const stamp = reminder.date.replaceAll('-', '');
+    const escapeIcs = (value: string) => value.replace(/[\\,;]/g, (match) => `\\${match}`).replace(/\n/g, '\\n');
+    const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//VisaLang//Reminder Planner//EN','BEGIN:VEVENT',`UID:${Date.now()}@flowlight.me`,`DTSTART;VALUE=DATE:${stamp}`,`SUMMARY:${escapeIcs(reminder.topic)}`,`DESCRIPTION:${escapeIcs(`Route or authority: ${reminder.route}. Recheck: ${reminder.source || 'responsible official source'}.`)}`,'END:VEVENT','END:VCALENDAR'].join('\r\n');
+    const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' }); const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = 'visalang-reminder.ics'; link.click(); URL.revokeObjectURL(link.href);
   });
 </script>

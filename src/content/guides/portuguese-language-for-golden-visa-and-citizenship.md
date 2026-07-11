@@ -2,7 +2,7 @@
 title: "Portuguese Golden Visa Language"
 description: "Portuguese Golden Visa language requirement for citizenship"
 category: "portugal"
-slug: "portuguese-language-for-golden-visa-and-citizenshi"
+slug: "portuguese-language-for-golden-visa-and-citizenship"
 publishedDate: "2026-07-01"
 updatedDate: "2026-07-01"
 author: "VisaLang"

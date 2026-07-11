@@ -1,12 +1,10 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import ToolShell from '../../components/tools/ToolShell.astro';
+import ToolLayout from '../../layouts/ToolLayout.astro';
 import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
 import { examComparisonOptions } from '../../data/route-tools';
 ---
 
-<BaseLayout title="Exam Comparison" description="Compare only the configured planning questions for two A1 exam options, then verify every local fact with official sources.">
-  <ToolShell eyebrow="Planning aid · not an acceptance decision" title="Exam Comparison" description="Compare configured verification questions for two A1 exam options. This tool does not rank providers or decide which certificate an authority will accept.">
+<ToolLayout eyebrow="Planning aid, not an acceptance decision" title="Exam Comparison" description="Compare configured verification questions for two A1 exam options. This tool does not rank providers or decide which certificate an authority will accept." current="comparison">
     <div class="tool-workspace">
       <form id="comparison-form" class="tool-form" novalidate>
         <div class="tool-form-heading"><h2>Choose two configured exams</h2><p>Fees, result timing, centre coverage, and acceptance are always local checks—not comparison claims.</p></div>
@@ -22,8 +20,7 @@ import { examComparisonOptions } from '../../data/route-tools';
         <ToolResultSupport resultId="comparison-summary" />
       </section>
     </div>
-  </ToolShell>
-</BaseLayout>
+</ToolLayout>
 
 <script>
   import { examComparisonDimensions, examComparisonOptions } from '../../data/route-tools';

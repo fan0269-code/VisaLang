@@ -1,21 +1,20 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import ToolShell from '../../components/tools/ToolShell.astro';
+import ToolLayout from '../../layouts/ToolLayout.astro';
 import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
 ---
 
-<BaseLayout title="Timeline Calculator" description="Calculate planning dates from the buffers you enter for results, a retake, and translation or certification.">
-  <ToolShell eyebrow="Step 3 · plan backwards" title="Timeline Calculator" description="Work backwards from your target submission date using only the buffers you enter. This is a planning estimate, not a statement about a real test centre’s dates or result cycle.">
+<ToolLayout eyebrow="Plan backwards" title="Timeline Planner" description="Work backwards from your target submission date using only the buffers you enter. This is a planning estimate, not a statement about a real test centre's dates or result cycle." current="timeline">
     <div class="tool-workspace">
       <form id="timeline-form" class="tool-form" novalidate>
         <div class="tool-form-heading"><h2>Enter your own planning buffers</h2><p>Use current official centre information for every input. The calculator does not know local availability.</p></div>
         <div class="tool-field-grid">
           <label>Target submission date<input name="targetDate" type="date" required /></label>
           <label>Exam type<select name="examType" required><option value="">Select an exam type</option><option>Goethe-Zertifikat A1</option><option>telc Deutsch A1</option><option>Another exam</option></select></label>
-          <label>Result waiting time (days)<input name="resultWaitDays" type="number" min="0" value="21" required inputmode="numeric" /></label>
-          <label>Retake buffer (days)<input name="retakeBufferDays" type="number" min="0" value="28" required inputmode="numeric" /></label>
-          <label>Translation / certification time (days)<input name="translationDays" type="number" min="0" value="7" required inputmode="numeric" /></label>
+          <label>Result waiting time (days)<input name="resultWaitDays" type="number" min="0" required inputmode="numeric" aria-describedby="timeline-input-help" /></label>
+          <label>Retake buffer (days)<input name="retakeBufferDays" type="number" min="0" required inputmode="numeric" aria-describedby="timeline-input-help" /></label>
+          <label>Translation / certification time (days)<input name="translationDays" type="number" min="0" required inputmode="numeric" aria-describedby="timeline-input-help" /></label>
         </div>
+        <p id="timeline-input-help">Enter only values you confirmed for your own centre and document process. No default timing is assumed.</p>
         <p class="tool-error" id="timeline-error" aria-live="assertive"></p>
         <button class="primary-action" type="submit">Calculate planning dates</button>
       </form>
@@ -24,8 +23,7 @@ import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
         <ToolResultSupport resultId="timeline-summary" />
       </section>
     </div>
-  </ToolShell>
-</BaseLayout>
+</ToolLayout>
 
 <script>
   import { calculateTimeline } from '../../data/route-tools';

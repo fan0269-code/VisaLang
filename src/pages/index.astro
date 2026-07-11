@@ -1,130 +1,61 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import RouteSelector from '../components/RouteSelector.astro';
+import TrustNotice from '../components/TrustNotice.astro';
+import LastCheckedBadge from '../components/LastCheckedBadge.astro';
 import { getCollection } from 'astro:content';
+import { guideCategories } from '../data/guide-taxonomy';
+import { site } from '../data/site';
+import { zhGermanyA1Guides } from '../data/zh-germany-a1';
 
 const guides = await getCollection('guides');
-const germanyA1Count = guides.filter(g => g.data.category === 'germany-a1').length;
-const jsonLD = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'VisaLang',
-  url: 'https://flowlight.me/',
-  description: 'Independent, informational guidance for choosing and verifying German language proof before an exam booking or application.',
-};
+const updated = [...guides].sort((a, b) => b.data.updatedDate.localeCompare(a.data.updatedDate)).slice(0, 3);
+const latestReview = updated[0]?.data.updatedDate || site.lastSystemReview;
+const totalGuideCount = guides.length + zhGermanyA1Guides.length;
+const jsonLD = { '@context': 'https://schema.org', '@type': 'WebSite', name: site.name, url: `${site.url}/`, description: 'Official-source-first language-proof route decisions.' };
 ---
 
-<BaseLayout
-  title="Find the right German language proof before you book an exam"
-  description="Independent, official-source-first guidance for choosing German language proof before an exam booking or application."
-  canonicalURL="https://flowlight.me/"
-  lang="en"
-  alternates={[
-    { lang: 'en', href: 'https://flowlight.me/' },
-    { lang: 'zh-CN', href: 'https://flowlight.me/zh/' },
-    { lang: 'x-default', href: 'https://flowlight.me/' },
-  ]}
-  jsonLD={jsonLD}
->
+<BaseLayout title="Find the language proof required for your route" description="Choose a route, identify the language proof to verify, compare exams, and plan your next official check." canonicalURL="https://flowlight.me/" alternates={[{ lang: 'en', href: 'https://flowlight.me/' }, { lang: 'zh-CN', href: 'https://flowlight.me/zh/' }, { lang: 'x-default', href: 'https://flowlight.me/' }]} jsonLD={jsonLD}>
   <main class="site-main site-main--home">
-    <section class="hero hero--home">
-      <p class="eyebrow">Independent German language-proof guidance</p>
-      <h1>Find the right German language proof before you book an exam.</h1>
-      <p>Start with your purpose—family reunion, work, Ausbildung, nursing, university, settlement, or citizenship—then identify the proof to verify before you pay, apply, or submit a document.</p>
-      <div class="action-row">
-        <a class="primary-action" href="/tools/route-finder/">Find my starting route</a>
-        <a class="secondary-action" href="#verification">How to verify a requirement</a>
+    <PageHero title="Find the language proof required for your route." description="Choose your purpose, then verify the exact proof before booking." primary={{ href: '/tools/route-finder/', label: 'Find my route' }} secondary={{ href: '/routes/', label: 'Browse all routes' }} />
+    <TrustNotice />
+
+    <section class="content-section" aria-labelledby="purpose-title">
+      <div class="section-header"><h2 id="purpose-title">What are you trying to do?</h2><p>Start with the decision that brings you here. The receiving authority or institution sets the rule.</p></div>
+      <RouteSelector />
+    </section>
+
+    <section class="content-section" aria-labelledby="popular-title">
+      <div class="section-header"><h2 id="popular-title">Popular routes</h2><p>These are the most developed decision paths. Each route keeps official verification separate from planning guidance.</p></div>
+      <div class="card-grid">
+        <a class="route-card" href="/germany-family-reunion-a1/"><span>Family reunion</span><strong>Germany A1</strong><small>Requirement, accepted proof, booking, documents, preparation, and submission.</small></a>
+        <a class="route-card" href="/germany-b1-settlement-citizenship/"><span>Settlement and citizenship</span><strong>Germany B1</strong><small>Confirm the competent authority, level, certificate, and route-specific evidence.</small></a>
       </div>
     </section>
 
-    <section class="section-inner content-section compact" aria-labelledby="route-finder-title">
-      <div class="route-finder">
-        <div class="finder-copy">
-          <p class="eyebrow">First step</p>
-          <h2 id="route-finder-title">Route Finder</h2>
-          <p>Use the Route Finder for an initial direction based on your purpose. It helps you frame the right questions before you choose a test—not confirm that a certificate will be accepted.</p>
-          <div class="action-row left">
-            <a class="primary-action" href="/tools/route-finder/">Open Route Finder</a>
-            <a class="secondary-action" href="/guides/">Browse exam guides</a>
-          </div>
-        </div>
-        <ol class="finder-steps">
-          <li><span class="step-number">01</span><span><strong>Name the receiving authority.</strong><br />A German mission, authority, school, employer, or professional body may set the relevant rule.</span></li>
-          <li><span class="step-number">02</span><span><strong>Match the exact proof.</strong><br />Check the named certificate and level, not just a familiar exam brand.</span></li>
-          <li><span class="step-number">03</span><span><strong>Verify before booking.</strong><br />Confirm current acceptance, local centre, timing, fees, ID, and documents with official sources.</span></li>
-        </ol>
+    <section class="content-section" aria-labelledby="tools-title">
+      <div class="section-header"><h2 id="tools-title">Core tools</h2><p>Use tools to organise facts you have verified. Unsupported routes stop at a clear official-check boundary.</p></div>
+      <div class="tool-grid">
+        {site.tools.slice(0, 4).map((tool) => <a class="route-card" href={tool.href}><strong>{tool.label}</strong><small>{tool.description}</small></a>)}
       </div>
+      <div class="button-row"><a class="button button--secondary" href="/tools/">View all tools</a></div>
     </section>
 
-    <section class="section-inner content-section" aria-labelledby="germany-routes-title">
-      <div class="section-header">
-        <p class="eyebrow">Germany routes</p>
-        <h2 id="germany-routes-title">Start with the decision you need to make</h2>
-        <p>These guides explain a route and its official checks. They do not replace a decision by the authority receiving your application or document.</p>
-      </div>
-      <div class="guide-related-grid">
-        <a href="/germany-family-reunion-a1/" class="article-card">
-          <p class="card-category">Family reunion</p>
-          <h3>Germany A1 family reunion</h3>
-          <p class="card-meta">Check whether A1 applies, then verify the accepted proof, centre, booking timing, and documents.</p>
-        </a>
-        <a href="/guides/telc-b1-b2-germany-work-nursing/" class="article-card">
-          <p class="card-category">Work, Ausbildung &amp; nursing</p>
-          <h3>German proof for professional routes</h3>
-          <p class="card-meta">Start with the employer, training provider, regulator, or recognition body that will receive your evidence.</p>
-        </a>
-        <a href="/guides/testdaf-germany-university-admissions/" class="article-card">
-          <p class="card-category">University, settlement &amp; citizenship</p>
-          <h3>Choose the authority first</h3>
-          <p class="card-meta">University admissions and residence routes can require different evidence; check the exact receiving institution or authority.</p>
-        </a>
-      </div>
-      <p class="action-row"><a class="secondary-action" href="/guides/category/germany-a1/">View Germany guides ({germanyA1Count} A1 guides)</a></p>
+    <section class="content-section" aria-labelledby="how-title">
+      <div class="section-header"><h2 id="how-title">How to use VisaLang</h2></div>
+      <ol class="route-progress">
+        <li class="route-progress__item"><div class="route-progress__number">1</div><div><h3>Identify the receiving organisation</h3><p>Start with the mission, authority, university, employer, regulator, or other organisation that receives your proof.</p></div></li>
+        <li class="route-progress__item"><div class="route-progress__number">2</div><div><h3>Confirm the exact proof</h3><p>Verify the certificate, level, exam version, document format, and any exemption before comparing providers.</p></div></li>
+        <li class="route-progress__item"><div class="route-progress__number">3</div><div><h3>Plan and verify again</h3><p>Use official centre details for dates, fees, ID, results, and cancellation. Recheck before payment and submission.</p></div></li>
+      </ol>
     </section>
 
-    <section class="section-inner content-section compact" aria-labelledby="tools-title">
-      <div class="feature-route feature-route-grid">
-        <div>
-          <p class="eyebrow">Free tools</p>
-          <h2 id="tools-title">Use a tool to prepare your official check</h2>
-          <p>Route Finder, checklists, timelines, and comparisons are being added as informational tools. Their result is a starting point—not an official decision, legal advice, or immigration advice.</p>
-        </div>
-        <div class="stacked-actions">
-          <a class="primary-action" href="/tools/route-finder/">Route Finder</a>
-          <a class="secondary-action" href="/tools/checklist-generator/">Pre-booking checklist</a>
-          <a class="secondary-action" href="/tools/timeline-calculator/">Timeline planner</a>
-        </div>
-      </div>
+    <section class="content-section" aria-labelledby="updated-title">
+      <div class="section-header"><h2 id="updated-title">Recently updated</h2><p>{totalGuideCount} English and Chinese guides across {guideCategories.length} route categories. Counts and dates come from the guide data sources.</p><LastCheckedBadge date={latestReview} /></div>
+      <div class="guide-related-grid">{updated.map((guide) => <a class="article-card" href={`/guides/${guide.data.slug}/`}><h3>{guide.data.title}</h3><p class="card-meta">{guide.data.description}</p><span class="last-checked">Updated {guide.data.updatedDate}</span></a>)}</div>
     </section>
 
-    <section id="verification" class="section-inner content-section compact" aria-labelledby="verification-title">
-      <div class="route-finder">
-        <div class="finder-copy">
-          <p class="eyebrow">Independent, informational guidance</p>
-          <h2 id="verification-title">Trust the source that receives your file</h2>
-          <p>VisaLang is independent and non-official. We explain a safe order for checking language proof, but we are not an exam owner, German authority, law firm, or immigration adviser.</p>
-          <p><a class="secondary-action" href="/editorial-policy/">Read our editorial policy</a></p>
-        </div>
-        <ol class="finder-steps">
-          <li><span class="step-number">01</span><span><strong>For visa and residence cases:</strong><br />verify with the local German mission or competent German authority.</span></li>
-          <li><span class="step-number">02</span><span><strong>For study and work:</strong><br />verify with the school, university, employer, regulator, or professional body.</span></li>
-          <li><span class="step-number">03</span><span><strong>For the exam itself:</strong><br />verify with the exam owner and authorised local test centre before booking.</span></li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section-inner content-section compact" aria-labelledby="next-step-title">
-      <div class="feature-route feature-route-grid">
-        <div>
-          <p class="eyebrow">Next step</p>
-          <h2 id="next-step-title">Choose your level of support transparently</h2>
-          <p>Free guidance comes first. Product packs and an informational Route Review will be clearly labelled when available; neither can promise an exam, visa, admission, or acceptance outcome.</p>
-        </div>
-        <div class="stacked-actions">
-          <a class="secondary-action" href="/pricing/">See support options</a>
-          <a class="secondary-action" href="/route-review/">About Route Review</a>
-          <a class="secondary-action" href="/contact/">Report a correction or ask about partnerships</a>
-        </div>
-      </div>
-    </section>
+    <section class="content-section verification-alert verification-alert--success" aria-labelledby="principle-title"><strong id="principle-title">Our verification principle</strong><div><p>VisaLang explains how to check a route. It does not replace the decision of an authority, institution, exam owner, or authorised centre.</p><p><a href="/editorial-policy/">Read the editorial and correction policy</a></p></div></section>
   </main>
 </BaseLayout>

@@ -1,0 +1,5 @@
+---
+export interface Props { id: string; title?: string; hidden?: boolean; }
+const { id, title = 'Your result', hidden = true } = Astro.props;
+---
+<section class="tool-result-panel" id={id} hidden={hidden} tabindex="-1" aria-live="polite"><h2>{title}</h2><slot /></section>

@@ -1,278 +1,87 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import TOC from '../components/TOC.astro';
+import ArticleLayout from './ArticleLayout.astro';
 import RelatedGuides from '../components/RelatedGuides.astro';
-import GuideCTA from '../components/GuideCTA.astro';
+import GuideStatusBadge from '../components/GuideStatusBadge.astro';
+import LastCheckedBadge from '../components/LastCheckedBadge.astro';
+import VerificationAlert from '../components/VerificationAlert.astro';
+import ReportOutdatedInfo from '../components/ReportOutdatedInfo.astro';
+import CopyButton from '../components/CopyButton.astro';
+import PrintButton from '../components/PrintButton.astro';
+import { translatedPaths } from '../data/site';
+import type { ArticleSections } from '../data/article-sections';
 
 export interface Props {
-  title: string;
-  description: string;
-  publishedDate: string;
-  updatedDate: string;
-  slug: string;
-  category?: string;
-  route?: string;
-  eyebrow?: string;
-  breadcrumbs?: { label: string; href?: string }[];
-  related?: { title: string; slug: string }[];
-  routeHref?: string;
-  routeLabel?: string;
-  country?: string;
-  exam?: string;
-  level?: string;
-  headings?: { slug: string; text: string }[];
+  title: string; description: string; publishedDate: string; updatedDate: string; slug: string;
+  category?: string; route?: string; eyebrow?: string; readingTime?: string; verifiedDate?: string;
+  breadcrumbs?: { label: string; href?: string }[]; related?: { title: string; slug: string }[];
+  previous?: { title: string; slug: string }; next?: { title: string; slug: string };
+  routeHref?: string; routeLabel?: string; country?: string; exam?: string; level?: string;
+  headings?: { slug: string; text: string; depth?: number }[];
+  sections?: ArticleSections;
 }
 
-const {
-  title,
-  description,
-  publishedDate,
-  updatedDate,
-  slug,
-  category,
-  eyebrow,
-  breadcrumbs = [
-    { label: 'Home', href: '/' },
-    { label: title },
-  ],
-  related = [],
-  routeHref,
-  routeLabel,
-  country,
-  exam,
-  level,
-  headings = [],
-} = Astro.props;
-
-const routeDecisionSupport = {
-  'germany-a1': {
-    decision: 'whether A1 applies to your own family-reunion case, which proof the responsible authority accepts, and whether a local booking can fit your document timeline.',
-    checks: ['Confirm the requirement or any exemption with the responsible German mission or authority.', 'Match the exact adult A1 certificate, local centre, ID rule, fee, result timing, and cancellation rule before payment.', 'Keep your booking record and visa-document checklist separate.'],
-    next: { href: '/germany-family-reunion-a1/', label: 'Open the Germany A1 route and work through the decisions in order.' },
-  },
-  'germany-b1': {
-    decision: 'whether B1 is the level your settlement, work, citizenship, or employer route actually needs, and whether Goethe or telc fits the named requirement.',
-    checks: ['Ask the authority, employer, or professional body for the exact level and accepted certificate—not a general Germany rule.', 'Compare the named exam version, local centre, fee, result timing, and retake policy.', 'Treat B1 as a different risk from A1: independent reading, timed writing, and sustained speaking need a realistic study window.'],
-    next: { href: '/guides/category/germany-b1/', label: 'Continue with the Germany B1+ guide cluster.' },
-  },
-  'germany-testdaf': {
-    decision: 'whether TestDaF, DSH, or another certificate meets the language condition for your specific German university programme and application intake.',
-    checks: ['Read the target programme and university language-requirements page, not a general admissions summary.', 'Check what TDN level or alternative proof the programme names for your intake.', 'Work backward from application, result, and document deadlines before choosing an exam date.'],
-    next: { href: '/guides/testdaf-germany-university-admissions/', label: 'Check the TestDaF university-admissions decision path.' },
-  },
-  'germany-telc': {
-    decision: 'whether the exact telc Deutsch variant—not simply the telc brand—matches your work, residence, nursing, or professional route.',
-    checks: ['Confirm the exact exam name and level with the authority, employer, or professional body handling your case.', 'Do not confuse telc Deutsch with telc Pflege, telc Medizin, or a course certificate.', 'Use the telc centre search, then verify the local date, fee, ID rule, and result process with that authorised centre.'],
-    next: { href: '/guides/category/germany-telc/', label: 'Continue with the telc Deutsch decision guides.' },
-  },
-  uk: {
-    decision: 'which approved UK test route and exact test location match the visa or citizenship application you are making.',
-    checks: ['Start with the current UK government route page for your application type.', 'Confirm the named test, level, provider, and location before booking.', 'Check the provider’s current ID, date, fee, cancellation, and result rules locally.'],
-    next: { href: '/guides/category/uk/', label: 'Compare the UK starter guides before booking.' },
-  },
-  canada: {
-    decision: 'whether TEF Canada or TCF Canada fits the named immigration or citizenship process and the timeline you are planning around.',
-    checks: ['Use the current IRCC information for your programme, not another applicant’s score target.', 'Confirm the accepted test version, score reporting, date, and results process with the official provider.', 'Plan for the application window and a possible retake instead of assuming the first available date is safe.'],
-    next: { href: '/guides/category/canada/', label: 'Compare the Canada starter guides.' },
-  },
-  italy: {
-    decision: 'which Italian certificate, level, and route-specific proof to verify before building a citizenship or residence plan around it.',
-    checks: ['Check the current authority or consular requirement for your own procedure.', 'Confirm the exact CILS, CELI, or PLIDA exam and local centre with its official provider.', 'Do not turn a guide overview into a conclusion about eligibility or document acceptance.'],
-    next: { href: '/guides/category/italy/', label: 'Use the Italy starter guides as a comparison set.' },
-  },
-  spain: {
-    decision: 'which Spanish-language and civic proof, if any, the responsible Spanish authority requires for your own citizenship route.',
-    checks: ['Check the current official requirement and any exemption before registering.', 'Confirm the exact DELE or CCSE version, local centre, date, and ID rules.', 'Keep exam planning separate from the legal assessment of your nationality application.'],
-    next: { href: '/guides/category/spain/', label: 'Continue with the Spain starter guides.' },
-  },
-  france: {
-    decision: 'whether a DELF, TCF IRN, or another French proof is relevant to your specific residence, work, study, or citizenship process.',
-    checks: ['Read the current requirement from the authority or institution that will receive your file.', 'Confirm the exact test version, level, centre, fee, and result timing with the provider.', 'Do not infer a national rule from a school, employer, or another applicant’s experience.'],
-    next: { href: '/guides/category/france/', label: 'Continue with the France starter guides.' },
-  },
-  finland: {
-    decision: 'whether YKI or another Finnish-language path is relevant to the exact citizenship, work, or study process you are pursuing.',
-    checks: ['Start with the Finnish authority or institution that names the language condition.', 'Check the exact test, level, local availability, and result process with the official provider.', 'Use this overview to prepare questions, not to decide a legal outcome.'],
-    next: { href: '/guides/category/finland/', label: 'Continue with the Finland starter guides.' },
-  },
-  netherlands: {
-    decision: 'whether inburgering, Staatsexamen NT2, or another Dutch proof matches the exact integration, work, or education route.',
-    checks: ['Confirm the route and level with DUO, the receiving institution, or the responsible authority.', 'Check the exact exam module, centre, date, fee, and results information officially.', 'Do not assume a work or study requirement is identical to an integration requirement.'],
-    next: { href: '/guides/category/netherlands/', label: 'Continue with the Netherlands starter guides.' },
-  },
-  portugal: {
-    decision: 'which Portuguese-language proof, level, and authority requirement to verify before treating an exam as part of a residence or citizenship plan.',
-    checks: ['Check the current requirement with the responsible Portuguese authority or consular process.', 'Confirm the exact CIPLE or other proof, local centre, date, fee, and result process.', 'Do not rely on old golden-visa or citizenship summaries for a current individual decision.'],
-    next: { href: '/guides/category/portugal/', label: 'Continue with the Portugal starter guides.' },
-  },
-}[category ?? ''] ?? {
-  decision: 'which official requirement, exact exam, and local booking process apply to your own route.',
-  checks: ['Confirm the rule with the authority that receives your application.', 'Verify the exact exam and local centre before paying.', 'Keep official links and dated confirmations with your records.'],
-  next: { href: '/guides/', label: 'Return to the guide library and choose a route.' },
-};
-
-const standardHeadings = [
-  { text: 'Summary', id: 'summary' },
-  { text: 'Who this guide is for', id: 'who-this-guide-is-for' },
-  { text: 'Who this guide is not for', id: 'who-this-guide-is-not-for' },
-  { text: 'What this guide helps you decide', id: 'what-this-guide-helps-you-decide' },
-  ...headings.map(h => ({ text: h.text, id: h.slug })),
-  { text: 'Official verification', id: 'official-verification' },
-  { text: 'Common mistakes', id: 'common-mistakes' },
-  { text: 'Step-by-step next action', id: 'step-by-step-next-action' },
-  { text: 'Last updated', id: 'last-updated' },
-  { text: 'Disclaimer', id: 'disclaimer' },
-];
-const tocHeadings = standardHeadings.filter((heading, index, list) => (
-  list.findIndex((item) => item.id === heading.id) === index
-));
-
+const { title, description, publishedDate, updatedDate, verifiedDate, slug, category, eyebrow, readingTime = '5', breadcrumbs = [{ label: 'Home', href: '/' }, { label: title }], related = [], previous, next, routeHref, routeLabel, country, exam, level, headings = [], sections } = Astro.props;
+const status = category === 'germany-a1' ? 'deep-guide' : 'starter';
 const canonicalURL = `https://flowlight.me/guides/${slug}/`;
+const translatedPath = translatedPaths[`/guides/${slug}/`];
+const alternates = translatedPath ? [
+  { lang: 'en', href: canonicalURL },
+  { lang: 'zh-CN', href: `https://flowlight.me${translatedPath}` },
+  { lang: 'x-default', href: canonicalURL },
+] : [];
 const absoluteUrl = (href: string) => new URL(href, 'https://flowlight.me').href;
-const audienceLabel = [country, routeLabel, exam, level].filter(Boolean).join(' - ');
-
+const tocHeadings = [
+  { text: 'Direct answer', id: 'direct-answer', depth: 2 },
+  { text: 'Who this applies to', id: 'who-this-applies-to', depth: 2 },
+  { text: 'Key decisions', id: 'key-decisions', depth: 2 },
+  { text: 'Detailed explanation', id: 'detailed-explanation', depth: 2 },
+  ...headings.map((heading) => ({ text: heading.text, id: heading.slug, depth: heading.depth })),
+  { text: 'What to verify officially', id: 'what-to-verify-officially', depth: 2 },
+  { text: 'Common mistakes', id: 'common-mistakes', depth: 2 },
+  { text: 'Next action', id: 'next-action', depth: 2 },
+  { text: 'Official sources', id: 'official-sources', depth: 2 },
+].filter((heading, index, list) => list.findIndex((item) => item.id === heading.id) === index);
 const jsonLD = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'Article',
-      headline: title,
-      url: canonicalURL,
-      datePublished: publishedDate,
-      dateModified: updatedDate,
-      author: { '@type': 'Organization', name: 'VisaLang' },
-      publisher: { '@type': 'Organization', name: 'VisaLang', url: 'https://flowlight.me/' },
-      about: description,
-      inLanguage: 'en',
-      mainEntityOfPage: canonicalURL,
-    },
-    {
-      '@type': 'BreadcrumbList',
-      itemListElement: breadcrumbs.map((crumb, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        name: crumb.label,
-        item: crumb.href ? absoluteUrl(crumb.href) : canonicalURL,
-      })),
-    },
+  '@context': 'https://schema.org', '@graph': [
+    { '@type': 'Article', headline: title, description, url: canonicalURL, datePublished: publishedDate, dateModified: updatedDate, author: { '@type': 'Organization', name: 'VisaLang' }, publisher: { '@type': 'Organization', name: 'VisaLang', url: 'https://flowlight.me/' }, inLanguage: 'en', mainEntityOfPage: canonicalURL },
+    { '@type': 'BreadcrumbList', itemListElement: breadcrumbs.map((crumb, index) => ({ '@type': 'ListItem', position: index + 1, name: crumb.label, item: crumb.href ? absoluteUrl(crumb.href) : canonicalURL })) },
   ],
 };
 ---
 
-<BaseLayout
-  title={title}
-  description={description}
-  canonicalURL={canonicalURL}
-  ogType="article"
-  jsonLD={jsonLD}
->
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} ogType="article" alternates={alternates} jsonLD={jsonLD}>
   <main class="guide-page">
     <Breadcrumbs path={breadcrumbs} />
-    <div class="guide-layout">
-      <TOC headings={tocHeadings} />
-      <article class="guide-article">
-        <div class="guide-hero-icon" aria-hidden="true">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="9" r="5"/><path d="M9 13.5 8 22l4-2 4 2-1-8.5"/>
-          </svg>
-        </div>
-        {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+    <ArticleLayout articleId="guide-content" headings={tocHeadings}>
+        {eyebrow && <p class="page-kicker">{eyebrow}</p>}
+        <div class="card-footer"><GuideStatusBadge status={status} /><span>Updated <time datetime={updatedDate}>{updatedDate}</time></span>{verifiedDate ? <LastCheckedBadge date={verifiedDate} /> : <span class="last-checked">Official verification date not separately recorded</span>}<span>{readingTime} min read</span></div>
         <h1>{title}</h1>
-        <section class="guide-summary-box" id="summary" aria-label="Guide summary">
+        <div class="guide-summary-box" id="direct-answer">
+          <h2>Direct answer</h2>
           <p class="guide-summary">{description}</p>
           <dl>
-            {country && (
-              <>
-                <dt>Country</dt>
-                <dd>{country}</dd>
-              </>
-            )}
-            {routeLabel && (
-              <>
-                <dt>Route</dt>
-                <dd>{routeLabel}</dd>
-              </>
-            )}
-            {exam && (
-              <>
-                <dt>Exam</dt>
-                <dd>{exam}</dd>
-              </>
-            )}
-            {level && (
-              <>
-                <dt>Level</dt>
-                <dd>{level}</dd>
-              </>
-            )}
+            {country && <div><dt>Country</dt><dd>{country}</dd></div>}
+            {routeLabel && <div><dt>Route</dt><dd>{routeLabel}</dd></div>}
+            {exam && <div><dt>Exam</dt><dd>{exam}</dd></div>}
+            {level && <div><dt>Level</dt><dd>{level}</dd></div>}
           </dl>
-        </section>
-        <div class="guide-trustbar" aria-label="Guide reliability information">
-          <span>Last updated: <time datetime={updatedDate}>{updatedDate}</time></span>
-          <span>Official sources are linked below. Verify rules with the test centre or authority before booking or submitting documents.</span>
         </div>
-        <section class="guide-template-box" id="who-this-guide-is-for">
-          <h2>Who this guide is for</h2>
-          <p>
-            Readers checking {audienceLabel || 'a language-exam route'} before booking an exam,
-            choosing a preparation path, or preparing documents for an official process.
-          </p>
-        </section>
-        <section class="guide-template-box" id="who-this-guide-is-not-for">
-          <h2>Who this guide is not for</h2>
-          <p>
-            This guide is not a substitute for a consulate, immigration authority, university,
-            employer, professional body, or official exam provider decision.
-          </p>
-        </section>
-        <section class="guide-template-box" id="what-this-guide-helps-you-decide">
-          <h2>What this guide helps you decide</h2>
-          <p>This page helps you decide {routeDecisionSupport.decision}</p>
-          <ol>
-            {routeDecisionSupport.checks.map((check) => <li>{check}</li>)}
-          </ol>
-        </section>
-        <slot />
-        <section class="guide-template-box" id="official-verification">
-          <h2>Official verification</h2>
-          <p>
-            Before acting, verify the current rule, accepted certificate, fee, date, location,
-            ID requirement, cancellation policy, and result timeline with the official authority
-            or test centre linked in this guide.
-          </p>
-        </section>
-        <section class="guide-template-box" id="common-mistakes">
-          <h2>Common mistakes</h2>
-          <ul>
-            <li>Booking an exam before confirming it is accepted for the exact route.</li>
-            <li>Using old fee, date, or test-centre information without checking the official page.</li>
-            <li>Relying on copied real exam questions, leaked materials, or guaranteed-pass claims.</li>
-          </ul>
-        </section>
-        <section class="guide-template-box" id="step-by-step-next-action">
-          <h2>Step-by-step next action</h2>
-          <ol>
-            <li>Write down the exact route, authority or institution, and deadline that apply to you.</li>
-            <li>Open the official sources in this guide and record the date you checked them.</li>
-            <li><a href={routeDecisionSupport.next.href}>{routeDecisionSupport.next.label}</a></li>
-          </ol>
-        </section>
-        <section class="guide-template-box" id="last-updated">
-          <h2>Last updated</h2>
-          <p><time datetime={updatedDate}>{updatedDate}</time>. Re-check official pages before booking or submitting documents.</p>
-        </section>
-        <section class="guide-disclaimer" id="disclaimer">
-          <h2>Disclaimer</h2>
-          <p>
-            VisaLang explains language-exam routes for planning purposes only. It does not provide
-            legal advice, immigration advice, official exam registration, or a guarantee of visa,
-            residence, citizenship, university, or work-registration outcomes.
-          </p>
-        </section>
-      </article>
-    </div>
-    <RelatedGuides guides={related} routeHref={routeHref} routeLabel={routeLabel} />
-    <GuideCTA />
+        <VerificationAlert><p>Requirements, exemptions, accepted certificates, fees, dates, centres, and document rules can change. Verify with the organisation receiving your proof before acting.</p></VerificationAlert>
+
+        <section id="who-this-applies-to"><h2>Who this applies to</h2>{sections?.who ? <div set:html={sections.who}></div> : <p>Use this guide if you are checking {routeLabel || 'a language-proof route'} before choosing an exam, paying a centre, or submitting a document. It does not decide eligibility, an exemption, or certificate acceptance for an individual case.</p>}</section>
+        <section id="key-decisions"><h2>Key decisions</h2><ol><li>Identify the authority or institution receiving your proof.</li><li>Confirm the exact certificate, level, exam version, and document format it accepts.</li><li>Verify local booking, ID, fee, result, cancellation, and timing details with official sources.</li></ol></section>
+        <section id="detailed-explanation"><h2>Detailed explanation</h2>{sections ? <div set:html={sections.detailed}></div> : <slot />}</section>
+        <section id="what-to-verify-officially"><h2>What to verify officially</h2><p>Confirm the current rule, accepted proof, local centre status, fee, date, ID requirement, cancellation policy, result timing, and document format with the responsible authority or official provider.</p></section>
+        <section id="common-mistakes"><h2>Common mistakes</h2>{sections?.commonMistakes ? <div set:html={sections.commonMistakes}></div> : <ul><li>Booking before confirming the exact proof for the route.</li><li>Using an old price, date, or centre listing without checking the official page.</li><li>Assuming another applicant's outcome applies to your own case.</li></ul>}</section>
+        <section id="next-action"><h2>Next action</h2>{sections?.nextAction ? <div set:html={sections.nextAction}></div> : <ol><li>Write down the receiving organisation and your deadline.</li><li>Open the official sources named in this guide and record the date checked.</li><li>{routeHref ? <a href={routeHref}>Continue with {routeLabel || 'the related route'}</a> : <a href="/tools/route-finder/">Use Route Finder</a>}.</li></ol>}</section>
+        <section id="official-sources"><h2>Official sources</h2>{sections?.officialSources ? <div set:html={sections.officialSources}></div> : <p>No separate official-source list is recorded in this guide. Use the responsible authority and official exam-owner pages before acting.</p>}</section>
+        <aside class="guide-disclaimer" aria-label="Disclaimer"><strong>Planning information only.</strong><p>VisaLang does not provide legal or immigration advice, issue certificates, register exams, or guarantee an application or exam outcome.</p></aside>
+        <div class="button-row"><CopyButton target="#guide-content" label="Copy guide" /><PrintButton label="Print guide" /></div>
+    </ArticleLayout>
+    <section class="guide-related" aria-labelledby="next-tool-title"><h2 id="next-tool-title">Next tool</h2><div class="button-row"><a class="button button--primary" href="/tools/route-finder/">Check a route</a><a class="button button--secondary" href="/tools/checklist-generator/">Build a requirement checklist</a></div></section>
+    <RelatedGuides guides={related} routeHref={routeHref} routeLabel={routeLabel} previous={previous} next={next} />
+    <ReportOutdatedInfo pageTitle={title} />
   </main>
 </BaseLayout>

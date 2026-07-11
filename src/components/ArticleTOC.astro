@@ -1,0 +1,10 @@
+---
+export interface Props { headings: { text: string; id: string; depth?: number }[]; locale?: 'en' | 'zh-CN'; }
+const { headings, locale = 'en' } = Astro.props;
+---
+{headings.length > 0 && <details class="article-toc" open><summary>{locale === 'zh-CN' ? '本页目录' : 'On this page'}</summary><nav aria-label={locale === 'zh-CN' ? '文章目录' : 'Table of contents'}><ol>{headings.filter((heading) => !heading.depth || heading.depth <= 3).map((heading) => <li class:list={[{ nested: heading.depth === 3 }]}><a href={`#${heading.id}`}>{heading.text}</a></li>)}</ol></nav></details>}
+<script>
+  if (matchMedia('(max-width: 900px)').matches) {
+    document.querySelectorAll<HTMLDetailsElement>('.article-toc').forEach((toc) => toc.removeAttribute('open'));
+  }
+</script>

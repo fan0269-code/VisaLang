@@ -10,7 +10,7 @@ readingTime: "5"
 featured: false
 eyebrow: "Finland · Citizenship"
 route: "finland"
-related: ["cils-b1-cittadinanza-for-italian-citizenship", "dele-a2-ccse-spanish-citizenship", "dutch-inburgering-a2-b1-for-integration-and-citize"]
+related: ["cils-b1-cittadinanza-for-italian-citizenship", "dele-a2-ccse-spanish-citizenship", "dutch-inburgering-a2-b1-for-integration-and-citizenship"]
 ---
 
 ## Why YKI is the default

@@ -1,0 +1,5 @@
+---
+export interface Props { title?: string; tone?: 'warning' | 'risk' | 'success'; }
+const { title = 'Verify before you act', tone = 'warning' } = Astro.props;
+---
+<aside class:list={['verification-alert', `verification-alert--${tone}`]}><strong>{title}</strong><div><slot /></div></aside>

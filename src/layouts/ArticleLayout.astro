@@ -1,0 +1,9 @@
+---
+import ArticleTOC from '../components/ArticleTOC.astro';
+export interface Props { articleId: string; headings: { text: string; id: string; depth?: number }[]; locale?: 'en' | 'zh-CN'; }
+const { articleId, headings, locale = 'en' } = Astro.props;
+---
+<div class="guide-layout">
+  <article class="guide-article" id={articleId}><slot /></article>
+  <ArticleTOC headings={headings} locale={locale} />
+</div>

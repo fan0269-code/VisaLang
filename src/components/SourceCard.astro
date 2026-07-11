@@ -1,0 +1,5 @@
+---
+export interface Props { name: string; href: string; description?: string; checked?: string; }
+const { name, href, description, checked } = Astro.props;
+---
+<article class="source-card"><div><p class="source-card__label">Official source</p><h3>{name}</h3>{description && <p>{description}</p>}{checked && <p class="source-card__date">Checked {checked}</p>}</div><a class="text-link" href={href} rel="noreferrer">Open official source</a></article>

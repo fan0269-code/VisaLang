@@ -1,0 +1,7 @@
+---
+export interface Option { value: string; label: string; }
+export interface Filter { name: string; label: string; options: Option[]; }
+export interface Props { filters: Filter[]; }
+const { filters } = Astro.props;
+---
+<details class="filter-drawer" open><summary>Filters</summary><form class="filter-bar" data-filter-form>{filters.map((filter) => <label><span>{filter.label}</span><select name={filter.name} data-guide-filter><option value="">All</option>{filter.options.map((option) => <option value={option.value}>{option.label}</option>)}</select></label>)}<button class="button button--secondary" type="reset">Clear filters</button></form></details>

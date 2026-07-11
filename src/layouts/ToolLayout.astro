@@ -1,0 +1,11 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import ToolShell from '../components/tools/ToolShell.astro';
+export interface Props { title: string; description: string; eyebrow: string; current: 'finder' | 'checklist' | 'timeline' | 'comparison' | 'reminders'; }
+const { title, description, eyebrow, current } = Astro.props;
+const canonicalURL = `https://flowlight.me${Astro.url.pathname}`;
+const jsonLD = { '@context': 'https://schema.org', '@type': 'WebApplication', name: title, description, url: canonicalURL, applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } };
+---
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} jsonLD={jsonLD}>
+  <ToolShell eyebrow={eyebrow} title={title} description={description} current={current}><slot /></ToolShell>
+</BaseLayout>

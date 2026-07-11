@@ -1,0 +1,5 @@
+---
+export interface Props { current: number; labels: string[]; }
+const { current, labels } = Astro.props;
+---
+<ol class="tool-stepper" aria-label="Tool progress">{labels.map((label, index) => <li class:list={[{ current: index === current, complete: index < current }]} aria-current={index === current ? 'step' : undefined}><span>{index + 1}</span>{label}</li>)}</ol>

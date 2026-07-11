@@ -6,7 +6,8 @@ import { commercialLinks } from '../../data/commercial-offers';
 ---
 
 <CommercialPageShell
-  eyebrow="Proposed low-cost pack · request access"
+  status="coming-soon"
+  eyebrow="Proposed planning pack"
   title="A1 Family Reunion Pack"
   description="Proposed route-planning pack for Germany A1 family reunion applicants. This page describes the intended scope and its strict informational boundaries."
   summary="This is not yet a purchasable product. It describes a proposed planning pack for readers who want a structured way to track an A1 family-reunion decision without treating a guide as an official decision."
@@ -36,6 +37,6 @@ import { commercialLinks } from '../../data/commercial-offers';
   <h2>Availability and price</h2>
   <p>The price, delivery format, support channel, refund terms, and launch date have not been confirmed. This page cannot take payment or deliver a pack.</p>
 
-  <IntentCTA href={commercialLinks.a1FamilyReunionPackIntent} label="Request access to the proposed pack" />
+  <IntentCTA href={commercialLinks.contact} title="Get product updates" description="The pack is not available to buy. Contact the team only if you want a future availability update." label="Get updates" />
   <CommercialBoundary includeLegalBoundary={true} />
 </CommercialPageShell>

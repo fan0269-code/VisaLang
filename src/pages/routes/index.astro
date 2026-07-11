@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import RouteSelector from '../../components/RouteSelector.astro';
+import VerificationAlert from '../../components/VerificationAlert.astro';
+import { site } from '../../data/site';
+import DecisionTable from '../../components/DecisionTable.astro';
+---
+<BaseLayout title="Language-proof routes" description="Choose a purpose before comparing exams or booking a language test." canonicalURL="https://flowlight.me/routes/">
+  <main class="site-main">
+    <PageHero compact title="Choose your route before you choose an exam." description="Your purpose and receiving organisation determine which proof must be verified." primary={{ href: '/tools/route-finder/', label: 'Find my route' }} />
+    <RouteSelector />
+    <VerificationAlert title="A route is not a legal conclusion"><p>Only Germany family reunion A1 has a fully configured decision path. Other routes take you to focused guides or an official-verification fallback.</p></VerificationAlert>
+    <section class="content-section" aria-labelledby="decision-order-title"><div class="section-header"><h2 id="decision-order-title">Use this decision order</h2></div><DecisionTable rows={[{ question: 'What is your purpose?', action: 'Name the family, study, work, settlement, or citizenship route.', source: 'Your application or programme category' }, { question: 'Who receives the proof?', action: 'Identify the responsible authority, mission, institution, employer, or regulator.', source: 'The receiving organisation' }, { question: 'What exact proof is accepted?', action: 'Confirm the certificate, level, version, format, and timing before booking.', source: 'Written official instructions' }]} /></section>
+    <section class="content-section" aria-labelledby="route-tools-title"><div class="section-header"><h2 id="route-tools-title">Continue with a planning tool</h2><p>After you identify the organisation receiving your proof, use a checklist or timeline to record what it confirms.</p></div><div class="tool-grid">{site.tools.slice(0, 3).map((tool) => <a class="route-card" href={tool.href}><strong>{tool.label}</strong><small>{tool.description}</small></a>)}</div></section>
+  </main>
+</BaseLayout>

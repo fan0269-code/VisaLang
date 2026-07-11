@@ -1,8 +1,8 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { getCollection } from 'astro:content';
 import GuideLayout from '../../layouts/GuideLayout.astro';
-import GermanyA1RouteSupport from '../../components/GermanyA1RouteSupport.astro';
 import { formatRouteLabel, inferGuideMeta } from '../../data/guide-taxonomy';
+import { buildArticleSections } from '../../data/article-sections';
 
 export async function getStaticPaths() {
   const guides = await getCollection('guides');
@@ -13,16 +13,21 @@ export async function getStaticPaths() {
 }
 
 const { guide } = Astro.props;
-const { Content, headings } = await render(guide);
 const frontmatter = guide.data;
+const articleSections = await buildArticleSections(guide.body);
 
 const allGuides = await getCollection('guides');
 const relatedGuides = frontmatter.related
   .map(slug => allGuides.find(g => g.data.slug === slug))
   .filter(Boolean)
   .map(g => ({ title: g!.data.title, slug: g!.data.slug }));
+const routeGuides = allGuides.filter((item) => item.data.category === frontmatter.category).sort((a, b) => a.data.title.localeCompare(b.data.title));
+const routeIndex = routeGuides.findIndex((item) => item.data.slug === frontmatter.slug);
+const previousGuide = routeIndex > 0 ? { title: routeGuides[routeIndex - 1].data.title, slug: routeGuides[routeIndex - 1].data.slug } : undefined;
+const nextGuide = routeIndex >= 0 && routeIndex < routeGuides.length - 1 ? { title: routeGuides[routeIndex + 1].data.title, slug: routeGuides[routeIndex + 1].data.slug } : undefined;
 
 const guideMeta = inferGuideMeta(frontmatter);
+const verifiedDate = guide.body.match(/Official sources last checked:\s*(\d{4}-\d{2}-\d{2})/i)?.[1];
 const routeLabel = formatRouteLabel(frontmatter.route, frontmatter.category);
 const routeHref = frontmatter.category ? `/guides/category/${frontmatter.category}/` : undefined;
 ---
@@ -34,21 +39,23 @@ const routeHref = frontmatter.category ? `/guides/category/${frontmatter.categor
   updatedDate={frontmatter.updatedDate}
   slug={frontmatter.slug}
   eyebrow={frontmatter.eyebrow}
+  category={frontmatter.category}
+  readingTime={frontmatter.readingTime}
+  verifiedDate={verifiedDate}
   breadcrumbs={[
     { label: 'Home', href: '/' },
     ...(routeLabel && routeHref ? [{ label: routeLabel, href: routeHref }] : []),
     { label: frontmatter.title },
   ]}
   related={relatedGuides}
+  previous={previousGuide}
+  next={nextGuide}
   routeHref={routeHref}
   routeLabel={routeLabel}
   country={guideMeta.country}
   exam={guideMeta.exam}
   level={guideMeta.level}
-  headings={headings}
+  headings={articleSections.detailedHeadings}
+  sections={articleSections}
 >
-  <Content />
-  {frontmatter.category === 'germany-a1' && (
-    <GermanyA1RouteSupport updatedDate={frontmatter.updatedDate} />
-  )}
 </GuideLayout>

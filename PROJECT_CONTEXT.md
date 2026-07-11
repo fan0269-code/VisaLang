@@ -56,7 +56,7 @@ Historical/static layer still present:
 - `src/pages/zh/index.astro`: real Chinese homepage route.
 - `src/layouts/`: shared page layouts.
 - `src/components/`: reusable Astro components.
-- `src/content/guides/`: Markdown source for guide pages. There are currently 49 guide Markdown files.
+- `src/content/guides/`: Markdown source for guide pages. There are currently 54 guide Markdown files.
 - `src/content.config.ts`: Astro content collection schema for guides.
 - `src/data/app-data.ts`: Astro-era data, brand, i18n, exam list, tools, source list, and planner helpers.
 - `src/styles/global.css`: primary design system and shared styles for Astro pages.
@@ -87,18 +87,23 @@ Important existing static pages:
 
 ## 5. 公共组件
 
-- `Header.astro`: site logo, main navigation, route-aware active state, and language switch.
-- `Footer.astro`: legal/trust links and disclaimer.
+- `GlobalHeader.astro`: site logo, purpose-based Routes menu, unified primary navigation, and route-aware language switch.
+- `MobileNavigation.astro`: expandable mobile navigation.
+- `GlobalFooter.astro`: route, legal/trust links, and disclaimer.
 - `Breadcrumbs.astro`: guide breadcrumb navigation.
-- `TOC.astro`: generated table of contents for guide headings.
+- `ArticleTOC.astro`: responsive generated table of contents for guide headings.
 - `RelatedGuides.astro`: related guide links and same-route guide index backlink.
-- `GuideCTA.astro`: reusable waitlist/update CTA on guide pages.
-- `ArticleCard.astro`: guide card used in index and listing surfaces.
+- `GuideCard.astro`: task-oriented guide card used by the guide library.
+- `RouteSelector.astro`, `RouteProgress.astro`: route choice and seven-step route progress.
+- `TrustNotice.astro`, `VerificationAlert.astro`, `SourceCard.astro`, `LastCheckedBadge.astro`: shared trust hierarchy.
+- `FilterBar.astro`, `SearchInput.astro`: URL-backed guide filtering controls.
+- `ToolStepper.astro`, `ToolResultPanel.astro`, `CopyButton.astro`, `PrintButton.astro`, `ExportButton.astro`: shared tool interaction system.
 
 Shared layouts:
 
 - `BaseLayout.astro`: HTML shell, title normalization, meta description, canonical, hreflang alternates, Open Graph/Twitter tags, optional noindex, optional JSON-LD, shared header/footer.
-- `GuideLayout.astro`: article page shell, breadcrumbs, TOC, trust bar, Article JSON-LD, BreadcrumbList JSON-LD, related guides, CTA.
+- `GuideLayout.astro`: conditional single article shell, breadcrumbs, one TOC, trust hierarchy, Article/BreadcrumbList JSON-LD, related guides, and correction reporting.
+- `ToolLayout.astro`: shared WebApplication shell for the five real planning tools.
 
 ## 6. 样式系统
 
@@ -196,8 +201,9 @@ Be cautious with SEO/layout primitives because they affect many pages:
 
 - `src/layouts/BaseLayout.astro`
 - `src/layouts/GuideLayout.astro`
-- `src/components/Header.astro`
-- `src/components/Footer.astro`
+- `src/components/GlobalHeader.astro`
+- `src/components/GlobalFooter.astro`
+- `src/components/MobileNavigation.astro`
 - `src/pages/guides/[slug].astro`
 - `src/pages/guides/index.astro`
 - `src/styles/global.css`

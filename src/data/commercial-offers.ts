@@ -29,7 +29,7 @@ export const commercialOffers = [
   {
     id: 'a1-family-reunion-pack',
     name: 'A1 Family Reunion Pack',
-    status: 'Request access',
+    status: 'Coming soon',
     price: 'Price to be confirmed',
     href: commercialLinks.a1FamilyReunionPack,
     action: 'View proposed scope',
@@ -38,7 +38,7 @@ export const commercialOffers = [
   {
     id: 'a1-practice-pack',
     name: 'A1 Practice Pack',
-    status: 'Request access',
+    status: 'Coming soon',
     price: 'Price to be confirmed',
     href: commercialLinks.a1PracticePack,
     action: 'View proposed scope',
@@ -47,10 +47,10 @@ export const commercialOffers = [
   {
     id: 'route-review',
     name: 'Informational Route Review',
-    status: 'Request access',
+    status: 'Not currently offered',
     price: 'Price to be confirmed',
     href: commercialLinks.routeReview,
-    action: 'Review service boundary',
+    action: 'View free routes',
     summary: 'A proposed human informational review of a reader’s route questions, not legal, immigration, or admissions advice.',
   },
   {
@@ -65,7 +65,7 @@ export const commercialOffers = [
   {
     id: 'partners',
     name: 'Partners / B2B',
-    status: 'Contact',
+    status: 'Contact only',
     price: 'Scope and pricing to be confirmed',
     href: commercialLinks.partners,
     action: 'Partner information',

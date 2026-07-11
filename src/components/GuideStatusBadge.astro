@@ -1,0 +1,6 @@
+---
+export interface Props { status?: 'complete-route' | 'deep-guide' | 'starter'; locale?: 'en' | 'zh-CN'; }
+const { status = 'starter', locale = 'en' } = Astro.props;
+const labels = locale === 'zh-CN' ? { 'complete-route': '完整路线', 'deep-guide': '深度指南', starter: '入门概览' } : { 'complete-route': 'Complete route', 'deep-guide': 'In-depth guide', starter: 'Starter overview' };
+---
+<span class:list={['status-badge', `status-badge--${status}`]}>{labels[status]}</span>

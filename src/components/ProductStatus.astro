@@ -1,0 +1,6 @@
+---
+import { productStatuses, type Locale } from '../data/site';
+export interface Props { status: keyof typeof productStatuses; locale?: Locale; }
+const { status, locale = 'en' } = Astro.props;
+---
+<span class:list={['product-status', `product-status--${status}`]}>{productStatuses[status][locale === 'zh-CN' ? 'zh' : 'en']}</span>

@@ -1,5 +1,6 @@
 ---
 import { toolLinks } from '../../data/route-tools';
+import ToolStepper from '../ToolStepper.astro';
 
 export interface Props {
   eyebrow: string;
@@ -27,5 +28,33 @@ const toolNav = [
   <nav class="tool-nav" aria-label="Decision tools">
     {toolNav.map((tool) => <a class:list={[{ active: tool.id === current }]} href={tool.href}>{tool.label}</a>)}
   </nav>
+  <ToolStepper current={1} labels={['Understand the scope', 'Enter verified facts', 'Review and export']} />
   <slot />
+  <div class="button-row"><button class="button button--secondary" type="button" data-tool-restart>Restart this tool</button></div>
 </main>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('.tool-form');
+  const restart = document.querySelector<HTMLButtonElement>('[data-tool-restart]');
+  const storageKey = `visalang-tool:${location.pathname}`;
+  if (form) {
+    try {
+      const saved = JSON.parse(localStorage.getItem(storageKey) || '{}');
+      Object.entries(saved).forEach(([name, value]) => {
+        const field = form.elements.namedItem(name);
+        if (field instanceof HTMLInputElement || field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement) field.value = String(value);
+      });
+    } catch {}
+    form.addEventListener('input', () => {
+      const values = Object.fromEntries(new FormData(form).entries());
+      localStorage.setItem(storageKey, JSON.stringify(values));
+    });
+  }
+  restart?.addEventListener('click', () => {
+    localStorage.removeItem(storageKey);
+    form?.reset();
+    document.querySelectorAll<HTMLElement>('.tool-result, .tool-result-panel').forEach((result) => result.hidden = true);
+    history.replaceState(null, '', location.pathname);
+    form?.querySelector<HTMLElement>('input, select, textarea')?.focus();
+  });
+</script>

@@ -2,7 +2,7 @@
 title: "Dutch Inburgering A2/B1"
 description: "How the Dutch Inburgering civic integration exam works"
 category: "netherlands"
-slug: "dutch-inburgering-a2-b1-for-integration-and-citize"
+slug: "dutch-inburgering-a2-b1-for-integration-and-citizenship"
 publishedDate: "2026-07-01"
 updatedDate: "2026-07-01"
 author: "VisaLang"

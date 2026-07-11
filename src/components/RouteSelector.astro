@@ -1,0 +1,6 @@
+---
+import { site } from '../data/site';
+export interface Props { locale?: 'en' | 'zh-CN'; }
+const { locale = 'en' } = Astro.props;
+---
+<div class="route-selector">{site.routes.map((route) => <a href={locale === 'zh-CN' && route.id === 'family-reunion' ? '/zh/germany-family-reunion-a1/' : route.href}><span>{locale === 'zh-CN' ? `${route.zh}${route.id === 'family-reunion' ? '' : '（英文）'}` : route.label}</span><small>{route.status === 'available' ? (locale === 'zh-CN' ? '可用路线' : 'Route available') : (locale === 'zh-CN' ? '指南入口' : 'Guide entry')}</small></a>)}</div>

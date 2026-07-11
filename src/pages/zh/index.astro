@@ -2,6 +2,10 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { zhGermanyA1Guides } from '../../data/zh-germany-a1';
+import { guideCategories } from '../../data/guide-taxonomy';
+import PageHero from '../../components/PageHero.astro';
+import TrustNotice from '../../components/TrustNotice.astro';
+import RouteSelector from '../../components/RouteSelector.astro';
 
 const guides = await getCollection('guides');
 
@@ -37,20 +41,10 @@ const jsonLD = {
   jsonLD={jsonLD}
 >
   <main class="site-main site-main--home">
-    <section class="hero hero--home">
-      <p class="eyebrow">签证、永居与入籍语言考试</p>
-      <h1>先判断路线，再决定报哪一场语言考试</h1>
-      <p>VisaLang 不是普通考试资料站。我们先从德国 A1 家庭团聚路线做深：帮助你确认是否需要语言证明、哪种证书可能适用、报名和材料要核对什么，再进入备考。</p>
-      <div class="action-row">
-        <a class="primary-action" href="/zh/germany-family-reunion-a1/">先看德国 A1 中文路线</a>
-        <a class="secondary-action" href="#zh-guides">浏览中文核心指南</a>
-      </div>
-      <div class="stat-grid">
-        <div class="stat-card"><span class="stat-value">{guides.length}</span><span class="stat-label">指南</span></div>
-        <div class="stat-card"><span class="stat-value">12</span><span class="stat-label">路线</span></div>
-        <div class="stat-card"><span class="stat-value">官方优先</span><span class="stat-label">内容原则</span></div>
-      </div>
-    </section>
+    <PageHero eyebrow="签证、永居与入籍语言考试" title="先判断路线，再决定报哪一场语言考试" description="确认目的与接收材料的机构，再核验准确的语言证明。" primary={{ href: '/zh/germany-family-reunion-a1/', label: '先看德国 A1 中文路线' }} secondary={{ href: '#zh-guides', label: '浏览中文核心指南' }} />
+    <TrustNotice items={['官方来源优先', '要求因路线而异', '报名前务必再次核验']} />
+    <section class="content-section" aria-labelledby="zh-purpose-title"><div class="section-header"><h2 id="zh-purpose-title">你准备办理什么？</h2><p>目前德国 A1 家庭团聚有完整中文路径，其余入口会明确进入英文页面。</p></div><RouteSelector locale="zh-CN" /></section>
+    <div class="stat-grid"><div class="stat-card"><span class="stat-value">{guides.length + zhGermanyA1Guides.length}</span><span class="stat-label">中英文指南</span></div><div class="stat-card"><span class="stat-value">{guideCategories.length}</span><span class="stat-label">路线分类</span></div><div class="stat-card"><span class="stat-value">官方优先</span><span class="stat-label">内容原则</span></div></div>
 
     <section class="section-inner content-section compact">
       <div class="feature-route feature-route-grid" aria-labelledby="zh-focus-title">
@@ -75,7 +69,7 @@ const jsonLD = {
         </div>
         <ol class="finder-steps">
           <li><span class="step-number">01</span><span><strong>先看是否适用。</strong><br />不要因为别人需要 A1，就跳过自己的使领馆或主管机关清单。</span></li>
-          <li><span class="step-number">02</span><span><strong>再比证书与考点。</strong><br />确认 exact exam、报名姓名、费用、出分和退改规则。</span></li>
+          <li><span class="step-number">02</span><span><strong>再比证书与考点。</strong><br />确认准确的考试名称、报名姓名、费用、出分和退改规则。</span></li>
           <li><span class="step-number">03</span><span><strong>保存官方记录。</strong><br />保留网页、咨询回复、报名确认和查看日期。</span></li>
         </ol>
       </div>

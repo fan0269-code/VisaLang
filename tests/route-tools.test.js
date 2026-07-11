@@ -22,11 +22,11 @@ assert.ok(a1Result.nextSteps.some((step) => step.includes('accepted A1 certifica
 
 const unsupportedResult = routeTools.findRoute({ country: 'Germany', purpose: 'university' });
 assert.equal(unsupportedResult.id, 'official-verification-required');
-assert.equal(unsupportedResult.availability, 'verify-only');
+assert.equal(unsupportedResult.availability, 'coming-soon');
 assert.ok(unsupportedResult.officialAction.includes('receiving your application'));
 
 assert.equal(routeTools.getChecklist('germany-family-reunion-a1').length, 3);
-assert.ok(routeTools.getChecklist('unknown-route').every((entry) => entry.item.includes('official') || entry.item.includes('receiving authority')));
+assert.deepEqual(routeTools.getChecklist('unknown-route'), [], 'Unsupported routes must not generate a pseudo-checklist');
 
 assert.deepEqual(
   routeTools.calculateTimeline({ targetDate: '2026-12-31', resultWaitDays: 21, retakeBufferDays: 28, translationDays: 7 }),

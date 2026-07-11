@@ -1,0 +1,5 @@
+---
+export interface Props { items?: string[]; }
+const { items = ['Official sources first', 'Requirements vary by route', 'Always verify before booking'] } = Astro.props;
+---
+<aside class="trust-notice" aria-label="Trust and verification principles">{items.map((item) => <span>{item}</span>)}</aside>

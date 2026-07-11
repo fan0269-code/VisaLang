@@ -1,12 +1,10 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import ToolShell from '../../components/tools/ToolShell.astro';
+import ToolLayout from '../../layouts/ToolLayout.astro';
 import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
 import { routeRegistry } from '../../data/route-tools';
 ---
 
-<BaseLayout title="Checklist Generator" description="Create an official-source-first checklist for your language-proof route and mark your planning progress.">
-  <ToolShell eyebrow="Step 2 · organise evidence" title="Checklist Generator" description="Create a working checklist with clear priority, completion status, and the next official check. It is not an authority document list.">
+<ToolLayout eyebrow="Organise evidence" title="Requirement Checklist" description="Create a working checklist with clear priority, completion status, and the next official check. It is not an authority document list." current="checklist">
     <div class="tool-workspace">
       <form id="checklist-form" class="tool-form" novalidate>
         <div class="tool-form-heading"><h2>Choose a route</h2><p>Only Germany family reunion A1 has a configured route checklist. Other selections remain a safe verification checklist.</p></div>
@@ -20,8 +18,7 @@ import { routeRegistry } from '../../data/route-tools';
         <ToolResultSupport resultId="checklist-summary" />
       </section>
     </div>
-  </ToolShell>
-</BaseLayout>
+</ToolLayout>
 
 <script>
   import { getChecklist, routeRegistry } from '../../data/route-tools';
@@ -46,13 +43,21 @@ import { routeRegistry } from '../../data/route-tools';
     const items = getChecklist(routeId);
     summary.replaceChildren();
     const heading = document.createElement('h2');
-    heading.textContent = `${route?.shortTitle || 'Route'} checklist`;
+    heading.textContent = items.length ? `${route?.shortTitle || 'Route'} checklist` : 'Checklist coming soon';
     summary.append(heading);
     const intro = document.createElement('p');
     intro.textContent = route?.availability === 'configured'
       ? 'Mark each item when you have completed your own official check.'
-      : 'This route is not configured as a decision rule. Use this list to prepare an official check with the receiving organisation.';
+      : 'This route is not configured. VisaLang will not generate a checklist that could look like an official or complete result.';
     summary.append(intro);
+    if (!items.length) {
+      const next = document.createElement('p');
+      next.textContent = 'Identify the organisation receiving your proof and use its current instructions before choosing an exam.';
+      summary.append(next);
+      resultPanel.hidden = false;
+      resultPanel.focus();
+      return;
+    }
     const list = document.createElement('ol');
     list.className = 'tool-checklist';
     items.forEach((entry: { priority: string; item: string }, index: number) => {

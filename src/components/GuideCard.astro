@@ -1,0 +1,14 @@
+---
+import GuideStatusBadge from './GuideStatusBadge.astro';
+import LastCheckedBadge from './LastCheckedBadge.astro';
+export interface Props { title: string; href: string; value: string; country: string; purpose: string; exam: string; level: string; status?: 'complete-route' | 'deep-guide' | 'starter'; checked: string; readingTime: string; language?: string; }
+const { title, href, value, country, purpose, exam, level, status = 'starter', checked, readingTime, language = 'English' } = Astro.props;
+---
+<article class="article-card guide-card">
+  <div class="card-footer"><GuideStatusBadge status={status} /><span>{language}</span></div>
+  <h3><a href={href}>{title}</a></h3>
+  <p class="card-meta">{value}</p>
+  <ul class="card-tags" aria-label="Guide metadata"><li>{country}</li><li>{purpose}</li><li>{exam}</li><li>{level}</li></ul>
+  <div class="card-footer"><LastCheckedBadge date={checked} /><span>{readingTime} min read</span></div>
+  <a class="text-link" href={href}>Read guide</a>
+</article>

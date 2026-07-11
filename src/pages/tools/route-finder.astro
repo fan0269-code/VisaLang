@@ -1,11 +1,9 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import ToolShell from '../../components/tools/ToolShell.astro';
+import ToolLayout from '../../layouts/ToolLayout.astro';
 import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
 ---
 
-<BaseLayout title="Route Finder" description="Find a safe starting point for your language-proof route before you book an exam or submit an application.">
-  <ToolShell eyebrow="Step 1 · decision route" title="Route Finder" description="Answer six planning questions to get a safe starting route. Germany family reunion A1 is the only fully configured route in this first release.">
+<ToolLayout eyebrow="Decision route" title="Route Finder" description="Answer six planning questions to get a safe starting route. Germany family reunion A1 is the only fully configured route." current="finder">
     <div class="tool-workspace">
       <form id="route-finder-form" class="tool-form" novalidate>
         <div class="tool-form-heading"><h2>Tell us what you are planning</h2><p>All fields are required so the result can state the right verification boundary.</p></div>
@@ -26,8 +24,7 @@ import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
         <ToolResultSupport resultId="route-finder-summary" />
       </section>
     </div>
-  </ToolShell>
-</BaseLayout>
+</ToolLayout>
 
 <script>
   import { findRoute } from '../../data/route-tools';
@@ -62,12 +59,16 @@ import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
     if (!summary || !resultPanel) return;
 
     summary.replaceChildren();
-    addText(summary, 'p', route.availability === 'configured' ? 'Configured route' : 'Safe fallback');
+    addText(summary, 'p', route.availability === 'configured' ? 'Configured route' : 'Coming soon');
     addText(summary, 'h2', route.title);
     addText(summary, 'p', route.officialAction);
-    const list = document.createElement('ol');
-    route.nextSteps.forEach((step: string) => addText(list, 'li', step));
-    summary.append(list);
+    if (route.availability === 'configured') {
+      const list = document.createElement('ol');
+      route.nextSteps.forEach((step: string) => addText(list, 'li', step));
+      summary.append(list);
+    } else {
+      addText(summary, 'p', 'VisaLang will not generate a route result for this selection. Use the receiving organisation as the official starting point.');
+    }
     const details = document.createElement('p');
     details.textContent = `Application location recorded: ${String(input.location)}. Target submission date: ${String(input.targetDate)}.`;
     summary.append(details);

@@ -1,0 +1,5 @@
+---
+export interface Props { date: string; label?: string; }
+const { date, label = 'Official sources last checked' } = Astro.props;
+---
+<span class="last-checked">{label}: <time datetime={date}>{date}</time></span>

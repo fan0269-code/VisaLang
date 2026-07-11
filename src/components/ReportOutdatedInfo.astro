@@ -1,0 +1,6 @@
+---
+export interface Props { pageTitle?: string; locale?: 'en' | 'zh-CN'; }
+const { pageTitle = '', locale = 'en' } = Astro.props;
+const href = `/contact/?type=correction&page=${encodeURIComponent(pageTitle)}`;
+---
+<aside class="report-outdated"><div><strong>{locale === 'zh-CN' ? '发现信息可能过期？' : 'Found information that may be outdated?'}</strong><p>{locale === 'zh-CN' ? '请提供页面、具体内容、官方来源和核验日期。' : 'Send the page, exact statement, official source, and date checked.'}</p></div><a class="button button--secondary" href={href}>{locale === 'zh-CN' ? '报告过期信息' : 'Report outdated information'}</a></aside>

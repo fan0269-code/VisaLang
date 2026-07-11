@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import LastCheckedBadge from '../../components/LastCheckedBadge.astro';
+import { exams } from '../../data/app-data';
+const grouped = Object.groupBy(exams, (exam) => exam.country);
+---
+<BaseLayout title="Language exams" description="Browse exam families, then verify the exact certificate against your route before booking." canonicalURL="https://flowlight.me/exams/">
+  <main class="site-main">
+    <PageHero compact title="Compare exams only after you know the route." description="An exam brand is not proof of acceptance. Match the exact certificate and level to the receiving organisation." primary={{ href: '/tools/exam-comparison/', label: 'Compare configured exams' }} secondary={{ href: '/guides/', label: 'Browse exam guides' }} />
+    <section class="content-section" aria-labelledby="exam-list-title"><div class="section-header"><h2 id="exam-list-title">Exam directory</h2><p>This directory provides official starting points. It does not state that every listed exam applies to an immigration or study route.</p></div>{Object.entries(grouped).map(([country, items]) => <section><h3>{country}</h3><div class="guide-related-grid">{items?.map((exam) => <a class="source-card" href={exam.officialSource}><div><h3>{exam.name}</h3><p>{exam.category}</p><LastCheckedBadge date={exam.lastUpdated} /></div><span>Official source</span></a>)}</div></section>)}</section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,31 @@
+---
+import { site, ui } from '../data/site';
+const isZh = Astro.url.pathname.startsWith('/zh');
+const labels = ui[isZh ? 'zh-CN' : 'en'];
+---
+
+<footer class="global-footer">
+  <div class="global-footer__grid">
+    <section>
+      <a class="global-footer__brand" href={isZh ? '/zh/' : '/'}>{site.name}</a>
+      <p>{isZh ? '帮助你确认语言证明路线，并在行动前回到官方来源核验。' : 'Plan a language-proof route, then verify it with the authority or institution receiving your file.'}</p>
+    </section>
+    <nav aria-label={isZh ? '路线导航' : 'Route navigation'}>
+      <strong>{labels.routes}</strong>
+      <a href={isZh ? '/zh/germany-family-reunion-a1/' : '/germany-family-reunion-a1/'}>{isZh ? '德国 A1' : 'Germany A1'}</a>
+      <a href="/germany-b1-settlement-citizenship/">{isZh ? '德国 B1（英文）' : 'Germany B1'}</a>
+      <a href="/routes/">{labels.routes}{isZh ? '（英文）' : ''}</a>
+      <a href="/tools/">{labels.tools}{isZh ? '（英文）' : ''}</a>
+      <a href="/pricing/">{isZh ? '价格与服务状态（英文）' : 'Pricing'}</a>
+      <a href="/partners/">{isZh ? '合作伙伴（英文）' : 'Partners'}</a>
+    </nav>
+    <nav aria-label={isZh ? '网站政策' : 'Site policies'}>
+      <strong>{labels.about}</strong>
+      <a href="/editorial-policy/">{isZh ? '编辑政策（英文）' : 'Editorial policy'}</a>
+      <a href="/privacy-policy/">{isZh ? '隐私政策（英文）' : 'Privacy'}</a>
+      <a href="/terms/">{isZh ? '条款与免责声明（英文）' : 'Terms'}</a>
+      <a href="/contact/">{isZh ? '联系团队（英文）' : 'Contact'}</a>
+    </nav>
+  </div>
+  <p class="global-footer__disclaimer">{isZh ? 'VisaLang 是独立的信息导航产品，不是政府机关、考试主办方、律师事务所或移民顾问。报考或提交材料前，请向负责你个案的官方机构核验。' : 'VisaLang is independent and informational. We are not a government authority, exam owner, law firm, or immigration adviser. Verify with the responsible authority, institution, exam owner, and authorised centre before acting.'}</p>
+</footer>

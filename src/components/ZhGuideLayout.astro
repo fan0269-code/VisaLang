@@ -1,6 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { zhGermanyA1Guides, zhCoreOfficialSources } from '../data/zh-germany-a1';
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import GuideStatusBadge from './GuideStatusBadge.astro';
+import VerificationAlert from './VerificationAlert.astro';
+import ReportOutdatedInfo from './ReportOutdatedInfo.astro';
+import CopyButton from './CopyButton.astro';
+import PrintButton from './PrintButton.astro';
 
 export interface Props {
   title: string;
@@ -25,6 +31,19 @@ const englishURL = new URL(englishHref, 'https://flowlight.me').href;
 const relatedGuides = related
   .map((relatedSlug) => zhGermanyA1Guides.find((guide) => guide.slug === relatedSlug))
   .filter(Boolean);
+const currentIndex = zhGermanyA1Guides.findIndex((guide) => guide.slug === slug);
+const previousGuide = currentIndex > 0 ? zhGermanyA1Guides[currentIndex - 1] : undefined;
+const nextGuide = currentIndex >= 0 && currentIndex < zhGermanyA1Guides.length - 1 ? zhGermanyA1Guides[currentIndex + 1] : undefined;
+const tocHeadings = [
+  { text: '直接答案', id: 'direct-answer', depth: 2 },
+  { text: '适用对象', id: 'who-this-applies-to', depth: 2 },
+  { text: '关键决策', id: 'key-decisions', depth: 2 },
+  { text: '详细说明', id: 'detailed-explanation', depth: 2 },
+  { text: '需要向官方核验什么', id: 'what-to-verify-officially', depth: 2 },
+  { text: '常见错误', id: 'common-mistakes', depth: 2 },
+  { text: '下一步行动', id: 'next-action', depth: 2 },
+  { text: '官方来源', id: 'official-sources', depth: 2 },
+];
 
 const jsonLD = {
   '@context': 'https://schema.org',
@@ -62,10 +81,12 @@ const jsonLD = {
       <span class="sep" aria-hidden="true">/</span>
       <span class="current">{title}</span>
     </nav>
-    <article class="guide-article narrow-page">
-      <p class="eyebrow">德国 A1 · 中文指南</p>
+    <ArticleLayout articleId="zh-guide-content" headings={tocHeadings} locale="zh-CN">
+      <p class="eyebrow">德国 A1 / 中文指南</p>
+      <div class="card-footer"><GuideStatusBadge status="deep-guide" locale="zh-CN" /><span>最近更新：<time datetime={updatedDate}>{updatedDate}</time></span><span class="last-checked">官方核验日期：未单独记录</span></div>
       <h1>{title}</h1>
-      <section class="guide-summary-box" id="summary" aria-label="指南摘要">
+      <section class="guide-summary-box" id="direct-answer" aria-label="指南摘要">
+        <h2>直接答案</h2>
         <p class="guide-summary">{description}</p>
         <dl>
           <dt>适用路线</dt>
@@ -74,41 +95,33 @@ const jsonLD = {
           <dd>先看德国使领馆、BAMF、Goethe、telc 官方信息</dd>
         </dl>
       </section>
-      <div class="guide-trustbar" aria-label="指南可靠性提示">
-        <span>最后更新：<time datetime={updatedDate}>{updatedDate}</time></span>
-        <span>政策、考位、费用和证书接受范围可能变化，请以官方最新要求为准。</span>
-      </div>
-      <section class="guide-template-box" id="who-this-guide-is-for">
-        <h2>这篇适合谁</h2>
+      <VerificationAlert title="行动前再次核验"><p>政策、考位、费用和证书接受范围可能变化，请以官方最新要求为准。</p></VerificationAlert>
+      <section class="guide-template-box" id="who-this-applies-to">
+        <h2>适用对象</h2>
         <p>适合已经在规划德国配偶团聚或家庭团聚、需要把“是否需要 A1、该考什么、何时报名、材料怎么准备”拆成可核验步骤的中文用户。</p>
+        <p><strong>不适用边界：</strong>它不替代德国使领馆、BAMF、Goethe、telc、当地考点或个案审核人员的决定，也不能据此判断你一定豁免、一定被接受或一定能按时出证。</p>
       </section>
-      <section class="guide-template-box" id="who-this-guide-is-not-for">
-        <h2>这篇不替你判断什么</h2>
-        <p>它不替代德国使领馆、BAMF、Goethe、telc、当地考点或个案审核人员的决定；也不能据此判断你一定豁免、一定被接受或一定能按时出证。</p>
-      </section>
-      <slot />
-      <section class="guide-template-box" id="official-verification">
-        <h2>最后一定要核对官方来源</h2>
-        <p>本文只帮你整理判断顺序，不替代签证政策、考试报名页面或个案审核结果。提交材料或付款报名前，请核对当前德国使领馆、BAMF、Goethe-Institut、telc 和当地考点页面。</p>
-        <ul>
-          {zhCoreOfficialSources.map((source) => (
-            <li><a href={source.href}>{source.name}</a></li>
-          ))}
-        </ul>
-      </section>
-      <section class="guide-template-box" id="step-by-step-next-action">
-        <h2>下一步怎么做</h2>
+      <section id="key-decisions"><h2>关键决策</h2><ol><li>先确认负责接收语言证明的机构。</li><li>确认准确的证书、等级、考试版本和材料形式。</li><li>再核验当地报名、证件、费用、出分、退改和时间安排。</li></ol></section>
+      <section id="detailed-explanation"><h2>详细说明</h2><slot /></section>
+      <section id="what-to-verify-officially"><h2>需要向官方核验什么</h2><p>核验当前要求、可接受证明、考点授权状态、费用、日期、证件、退改、出分和材料形式。本文只帮你整理判断顺序，不替代签证政策、考试报名页面或个案审核结果。</p></section>
+      <section id="common-mistakes"><h2>常见错误</h2><ul><li>没有确认个案要求就先报名。</li><li>把旧费用、旧考位或他人经验当作当前规则。</li><li>只比较考试品牌，不核对准确证书与材料形式。</li></ul></section>
+      <section class="guide-template-box" id="next-action">
+        <h2>下一步行动</h2>
         <ol>
           <li>先把自己的申请地、签证节点和护照姓名拼写记下来。</li>
           <li>回到本页引用的官方来源，保存与你个案有关的当前页面和查看日期。</li>
           <li>再从下方“下一步可以看”进入相邻的报名、材料或备考问题。</li>
         </ol>
       </section>
+      <section class="guide-template-box" id="official-sources"><h2>官方来源</h2><p>提交材料或付款报名前，请核对当前德国使领馆、BAMF、Goethe-Institut、telc 和当地考点页面。</p><ul>{zhCoreOfficialSources.map((source) => <li><a href={source.href}>{source.name}</a></li>)}</ul></section>
       <section class="guide-disclaimer" id="disclaimer">
         <h2>合规提醒</h2>
         <p>VisaLang 不提供签证法律意见，不承诺通过考试或签证，不提供泄题、真题答案或任何违规材料。遇到费用、考试日期、豁免条件、证书有效期和接受范围，请以官方最新要求为准。</p>
       </section>
-    </article>
+      <div class="button-row"><CopyButton target="#zh-guide-content" label="复制指南" /><PrintButton label="打印指南" /></div>
+    </ArticleLayout>
+    <section class="guide-related" aria-labelledby="zh-next-tool-title"><h2 id="zh-next-tool-title">下一步工具（英文）</h2><p>工具页面目前只有英文界面，结果仍会明确要求回到官方来源核验。</p><div class="button-row"><a class="button button--primary" href="/tools/route-finder/">路线查找器（英文）</a><a class="button button--secondary" href="/tools/checklist-generator/">要求核对清单（英文）</a></div></section>
+    {(previousGuide || nextGuide) && <nav class="guide-related guide-sequence" aria-label="上一篇和下一篇指南">{previousGuide && <a href={previousGuide.href}><small>上一篇指南</small><strong>{previousGuide.title}</strong></a>}{nextGuide && <a href={nextGuide.href}><small>下一篇指南</small><strong>{nextGuide.title}</strong></a>}</nav>}
     {relatedGuides.length > 0 && (
       <section class="guide-related" aria-labelledby="related-title">
         <h2 id="related-title">下一步可以看</h2>
@@ -124,5 +137,6 @@ const jsonLD = {
         <p><a class="route-backlink" href="/zh/germany-family-reunion-a1/">返回德国 A1 中文专题</a></p>
       </section>
     )}
+    <ReportOutdatedInfo pageTitle={title} locale="zh-CN" />
   </main>
 </BaseLayout>

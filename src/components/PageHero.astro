@@ -1,0 +1,10 @@
+---
+export interface Props { title: string; description: string; eyebrow?: string; primary?: { href: string; label: string }; secondary?: { href: string; label: string }; compact?: boolean; }
+const { title, description, eyebrow, primary, secondary, compact = false } = Astro.props;
+---
+<header class:list={['page-hero', { 'page-hero--compact': compact }]}>
+  {eyebrow && <p class="page-kicker">{eyebrow}</p>}
+  <h1>{title}</h1>
+  <p>{description}</p>
+  {(primary || secondary) && <div class="button-row">{primary && <a class="button button--primary" href={primary.href}>{primary.label}</a>}{secondary && <a class="button button--secondary" href={secondary.href}>{secondary.label}</a>}</div>}
+</header>

@@ -10,7 +10,7 @@ readingTime: "5"
 featured: false
 eyebrow: "Spain · Citizenship"
 route: "spain"
-related: ["cils-b1-cittadinanza-for-italian-citizenship", "dutch-inburgering-a2-b1-for-integration-and-citize", "portuguese-ciple-a2-for-citizenship-and-residence"]
+related: ["cils-b1-cittadinanza-for-italian-citizenship", "dutch-inburgering-a2-b1-for-integration-and-citizenship", "portuguese-ciple-a2-for-citizenship-and-residence"]
 ---
 
 ## The A2 minimum

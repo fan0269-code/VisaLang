@@ -1,0 +1,5 @@
+---
+export interface Props { rows: { question: string; action: string; source?: string }[]; }
+const { rows } = Astro.props;
+---
+<dl class="decision-table">{rows.map((row) => <div><dt>{row.question}</dt><dd>{row.action}{row.source && <small>{row.source}</small>}</dd></div>)}</dl>

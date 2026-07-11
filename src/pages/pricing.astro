@@ -3,34 +3,25 @@ import CommercialPageShell from '../components/products/CommercialPageShell.astr
 import CommercialBoundary from '../components/products/CommercialBoundary.astro';
 import IntentCTA from '../components/products/IntentCTA.astro';
 import { commercialLinks, commercialOffers } from '../data/commercial-offers';
+import ComparisonTable from '../components/ComparisonTable.astro';
 ---
 
 <CommercialPageShell
+  status="available"
   eyebrow="Offers and access"
   title="Choose the level of help you need"
   description="Compare VisaLang free tools, proposed A1 packs, a proposed informational Route Review, future AI correction, and partner contact options."
-  summary="Start with free, self-serve planning. Proposed paid packs and human review are shown transparently as request-access options until their price, delivery, and service operations are confirmed."
+  summary="Start with free, self-serve planning. Paid packs and human review remain marked as coming soon or not currently offered until delivery operations are real."
 >
   <h2>What is available today</h2>
   <p><strong>Free Tools</strong> are available now. They help you organise questions, check a route, compare official-provider details, and plan a timeline. They do not decide a visa, certificate acceptance, exam availability, or individual outcome.</p>
 
   <h2>Offer comparison</h2>
-  <table>
-    <thead><tr><th>Option</th><th>Access and price</th><th>What it is</th><th>Next step</th></tr></thead>
-    <tbody>
-      {commercialOffers.map((offer) => (
-        <tr>
-          <td><strong>{offer.name}</strong><br />{offer.status}</td>
-          <td>{offer.price}</td>
-          <td>{offer.summary}</td>
-          <td><a href={offer.href}>{offer.action}</a></td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
+  <ComparisonTable caption="VisaLang offer status" columns={['Status', 'Access and price', 'What it is']} rows={commercialOffers.map((offer) => ({ label: offer.name, values: [offer.status, offer.price, offer.summary] }))} />
+  <p>Use the <a href={commercialLinks.tools}>free tools</a> now. For future products, read the status page before using a contact path.</p>
 
   <h2>Why some prices are not shown</h2>
-  <p>VisaLang does not display a paid price until the business owner has confirmed the price, currency, tax and refund treatment, exact delivery method, support route, and availability. “Request access” means contact intent only; it is not a purchase, reservation, or service acceptance.</p>
+  <p>VisaLang does not display a paid price until the price, currency, tax and refund treatment, exact delivery method, support route, and availability are confirmed. No page creates a purchase, reservation, or service acceptance.</p>
 
   <IntentCTA href={commercialLinks.tools} title="Start with the free route tools" description="Use a free tool to organise your next decision before considering any future paid material or human review." label="Open Route Finder" />
   <CommercialBoundary includeLegalBoundary={true} />

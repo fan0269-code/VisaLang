@@ -1,0 +1,14 @@
+---
+export interface Props { target: string; label?: string; }
+const { target, label = 'Copy result' } = Astro.props;
+---
+<button class="button button--secondary" type="button" data-copy-target={target}>{label}</button><span class="sr-only" aria-live="polite" data-copy-feedback></span>
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-copy-target]').forEach((button) => button.addEventListener('click', async () => {
+    const source = document.querySelector<HTMLElement>(button.dataset.copyTarget || '');
+    const feedback = button.nextElementSibling;
+    if (!source) return;
+    try { await navigator.clipboard.writeText(source.innerText.trim()); if (feedback) feedback.textContent = 'Copied.'; }
+    catch { if (feedback) feedback.textContent = 'Copy unavailable. Select the result text manually.'; }
+  }));
+</script>

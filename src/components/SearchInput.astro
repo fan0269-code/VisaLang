@@ -1,0 +1,5 @@
+---
+export interface Props { id?: string; label?: string; placeholder?: string; }
+const { id = 'guide-search-input', label = 'Search guides', placeholder = 'Search by task, route, country, exam, or level' } = Astro.props;
+---
+<label class="search-input" for={id}><span>{label}</span><input id={id} name="q" type="search" placeholder={placeholder} autocomplete="off" data-guide-search /></label>

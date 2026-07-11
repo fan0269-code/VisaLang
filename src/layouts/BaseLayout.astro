@@ -1,6 +1,7 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import GlobalHeader from '../components/GlobalHeader.astro';
+import GlobalFooter from '../components/GlobalFooter.astro';
+import { organisationJsonLD, site, ui } from '../data/site';
 import '../styles/global.css';
 
 export interface Props {
@@ -12,7 +13,7 @@ export interface Props {
   noindex?: boolean;
   lang?: string;
   alternates?: { lang: string; href: string }[];
-  jsonLD?: Record<string, unknown>;
+  jsonLD?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
@@ -28,6 +29,12 @@ const {
 } = Astro.props;
 
 const pageTitle = /(^|\s|\|)VisaLang($|\s)/i.test(title) ? title : `${title} | VisaLang`;
+const absoluteOgImage = new URL(ogImage, site.url).href;
+const locale = lang.startsWith('zh') ? 'zh-CN' : 'en';
+const structuredData = [
+  { '@context': 'https://schema.org', ...organisationJsonLD },
+  ...(Array.isArray(jsonLD) ? jsonLD : jsonLD ? [jsonLD] : []),
+];
 ---
 
 <!doctype html>
@@ -46,18 +53,25 @@ const pageTitle = /(^|\s|\|)VisaLang($|\s)/i.test(title) ? title : `${title} | V
   <meta property="og:description" content={description}>
   <meta property="og:url" content={canonicalURL}>
   <meta property="og:type" content={ogType}>
-  <meta property="og:image" content={ogImage}>
+  <meta property="og:image" content={absoluteOgImage}>
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content={pageTitle}>
   <meta name="twitter:description" content={description}>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3018617123550799" crossorigin="anonymous"></script>
-  {jsonLD && (
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLD)}></script>
-  )}
+  {structuredData.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)}></script>)}
 </head>
 <body>
-  <Header />
-  <slot />
-  <Footer />
+  <a class="skip-link" href="#main-content">{ui[locale].skip}</a>
+  <GlobalHeader />
+  <div id="main-content" tabindex="-1"><slot /></div>
+  <GlobalFooter />
+  <script is:inline>
+    document.querySelectorAll('.nav-menu').forEach((menu) => {
+      menu.addEventListener('toggle', () => {
+        if (!menu.open) return;
+        document.querySelectorAll('.nav-menu[open]').forEach((other) => { if (other !== menu) other.removeAttribute('open'); });
+      });
+    });
+  </script>
 </body>
 </html>

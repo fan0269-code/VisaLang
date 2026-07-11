@@ -1,10 +1,10 @@
 # VisaLang Content Map
 
-Updated: 2026-07-10
+Updated: 2026-07-11
 
 Source scanned: `src/content/guides/*.md`
 
-Current guide count: 49
+Current guide count: 54
 
 Notes:
 
@@ -16,8 +16,8 @@ Notes:
 
 | category | count |
 |---|---:|
-| germany-a1 | 16 |
-| germany-b1 | 9 |
+| germany-a1 | 17 |
+| germany-b1 | 13 |
 | germany-testdaf | 4 |
 | germany-telc | 4 |
 | uk | 2 |
@@ -38,7 +38,7 @@ Notes:
 | dele-a2-ccse-spanish-citizenship | DELE A2 and CCSE for Spanish Citizenship | spain | Spain | spain | DELE/CCSE | A2 | 2026-07-01 |  |  |  |  |  |  |  | yes |  |  |  |  |
 | dele-levels-spanish-citizenship | DELE Levels for Spanish Citizenship | spain | Spain | spain | DELE |  | 2026-07-01 |  |  |  |  |  |  |  | yes |  |  |  |  |
 | delf-b1-b2-french-work-study | DELF B1/B2 for French Work and Study | france | France | france | DELF | B1/B2 | 2026-07-01 |  |  |  |  |  |  |  |  | yes |  |  |  |
-| dutch-inburgering-a2-b1-for-integration-and-citize | Dutch Inburgering A2/B1 | netherlands | Netherlands | netherlands | Inburgering | A2/B1 | 2026-07-01 |  |  |  |  |  |  |  |  |  |  | yes |  |
+| dutch-inburgering-a2-b1-for-integration-and-citizenship | Dutch Inburgering A2/B1 | netherlands | Netherlands | netherlands | Inburgering | A2/B1 | 2026-07-01 |  |  |  |  |  |  |  |  |  |  | yes |  |
 | german-a1-documents-checklist | German A1 documents checklist | germany-a1 | Germany | germany-a1 | German A1 proof | A1 | 2026-06-30 | yes |  |  |  |  |  |  |  |  |  |  |  |
 | german-a1-exam-booking-timeline | German A1 exam booking timeline | germany-a1 | Germany | germany-a1 | German A1 proof | A1 | 2026-07-08 | yes |  |  |  |  |  |  |  |  |  |  |  |
 | german-a1-family-reunion-faq | German A1 family reunion FAQ: language proof questions | germany-a1 | Germany | germany-a1 | German A1 proof | A1 | 2026-07-10 | yes |  |  |  |  |  |  |  |  |  |  |  |
@@ -67,7 +67,7 @@ Notes:
 | ielts-ukvi-uk-visa | IELTS UKVI for UK Visa and Immigration | uk | United Kingdom | uk | IELTS UKVI |  | 2026-07-01 |  |  |  |  | yes |  |  |  |  |  |  |  |
 | languagecert-selt-uk-visa | LanguageCert SELT for UK Visa | uk | United Kingdom | uk | LanguageCert SELT |  | 2026-07-01 |  |  |  |  | yes |  |  |  |  |  |  |  |
 | portuguese-ciple-a2-for-citizenship-and-residence | CIPLE A2 Portuguese Citizenship | portugal | Portugal | portugal | CIPLE | A2 | 2026-07-01 |  |  |  |  |  |  |  |  |  |  |  | yes |
-| portuguese-language-for-golden-visa-and-citizenshi | Portuguese Golden Visa Language | portugal | Portugal | portugal | Portuguese proof |  | 2026-07-01 |  |  |  |  |  |  |  |  |  |  |  | yes |
+| portuguese-language-for-golden-visa-and-citizenship | Portuguese Golden Visa Language | portugal | Portugal | portugal | Portuguese proof |  | 2026-07-01 |  |  |  |  |  |  |  |  |  |  |  | yes |
 | staatsexamen-nt2-for-work-and-higher-education | Staatsexamen NT2 for Dutch Work and Study | netherlands | Netherlands | netherlands | Staatsexamen NT2 |  | 2026-07-01 |  |  |  |  |  |  |  |  |  |  | yes |  |
 | tcf-canada-vs-tef | TCF Canada vs TEF Canada - Which to Take | canada | Canada | canada | TCF Canada/TEF Canada |  | 2026-07-01 |  |  |  |  |  | yes |  |  |  |  |  |  |
 | tcf-irn-french-residence | TCF IRN for French Residence and Citizenship | france | France | france | TCF IRN |  | 2026-07-01 |  |  |  |  |  |  |  |  | yes |  |  |  |

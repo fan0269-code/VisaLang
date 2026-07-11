@@ -1,0 +1,31 @@
+---
+export interface RouteStep { title: string; status: 'current' | 'next' | 'complete'; preparation: string; guide?: { href: string; label: string }; tool?: { href: string; label: string }; }
+export interface Props { steps: readonly RouteStep[]; current?: number; routeId?: string; locale?: 'en' | 'zh-CN'; }
+const { steps, current = 0, routeId = 'route', locale = 'en' } = Astro.props;
+const labels = locale === 'zh-CN' ? { current: '当前步骤', complete: '已完成', next: '下一步', action: '标记完成并继续' } : { current: 'Current step', complete: 'Completed', next: 'Next', action: 'Mark complete and continue' };
+---
+<ol class="route-progress" aria-label={locale === 'zh-CN' ? '路线进度' : 'Route progress'} data-route-progress={routeId} data-initial-step={current} data-label-current={labels.current} data-label-complete={labels.complete} data-label-next={labels.next}>{steps.map((step, index) => <li class:list={[`route-progress__item route-progress__item--${step.status}`, { 'is-current': index === current }]} data-route-step={index} tabindex="-1" aria-current={index === current ? 'step' : undefined}><div class="route-progress__number">{index + 1}</div><div><p class="route-progress__status">{index === current ? labels.current : index < current ? labels.complete : labels.next}</p><h3>{step.title}</h3><p>{step.preparation}</p><div class="route-progress__actions">{step.guide && <a href={step.guide.href}>{step.guide.label}</a>}{step.tool && <a href={step.tool.href}>{step.tool.label}</a>}{index < steps.length - 1 && <button class="button button--secondary" type="button" data-route-next={index}>{labels.action}</button>}</div></div></li>)}</ol>
+<script>
+  document.querySelectorAll<HTMLOListElement>('[data-route-progress]').forEach((progress) => {
+    const key = `visalang-route:${progress.dataset.routeProgress}`;
+    const initial = Number(progress.dataset.initialStep || 0);
+    const saved = Math.max(0, Math.min(progress.children.length - 1, Number(localStorage.getItem(key) || initial)));
+    const render = (current: number) => {
+      progress.querySelectorAll<HTMLElement>('[data-route-step]').forEach((item) => {
+        const index = Number(item.dataset.routeStep);
+        item.classList.toggle('is-current', index === current);
+        if (index === current) item.setAttribute('aria-current', 'step'); else item.removeAttribute('aria-current');
+        const status = item.querySelector<HTMLElement>('.route-progress__status');
+        if (status) status.textContent = index < current ? progress.dataset.labelComplete || 'Completed' : index === current ? progress.dataset.labelCurrent || 'Current step' : progress.dataset.labelNext || 'Next';
+      });
+    };
+    render(saved);
+    progress.querySelectorAll<HTMLButtonElement>('[data-route-next]').forEach((button) => button.addEventListener('click', () => {
+      const next = Math.min(progress.children.length - 1, Number(button.dataset.routeNext) + 1);
+      localStorage.setItem(key, String(next));
+      render(next);
+      progress.querySelector<HTMLElement>(`[data-route-step="${next}"]`)?.focus({ preventScroll: true });
+      progress.querySelector<HTMLElement>(`[data-route-step="${next}"]`)?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    }));
+  });
+</script>

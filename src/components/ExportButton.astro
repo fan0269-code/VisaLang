@@ -1,0 +1,12 @@
+---
+export interface Props { label?: string; filename?: string; target: string; }
+const { label = 'Export text file', filename = 'visalang-plan.txt', target } = Astro.props;
+---
+<button class="button button--secondary" type="button" data-export-target={target} data-export-filename={filename}>{label}</button>
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-export-target]').forEach((button) => button.addEventListener('click', () => {
+    const source = document.querySelector<HTMLElement>(button.dataset.exportTarget || ''); if (!source) return;
+    const blob = new Blob([source.innerText.trim()], { type: 'text/plain;charset=utf-8' });
+    const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = button.dataset.exportFilename || 'visalang-plan.txt'; link.click(); URL.revokeObjectURL(link.href);
+  }));
+</script>

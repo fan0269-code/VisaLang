@@ -10,7 +10,7 @@ readingTime: "5"
 featured: false
 eyebrow: "Netherlands · Work & Study"
 route: "netherlands"
-related: ["dutch-inburgering-a2-b1-for-integration-and-citize"]
+related: ["dutch-inburgering-a2-b1-for-integration-and-citizenship"]
 ---
 
 ## NT2 Programme I vs II
