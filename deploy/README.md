@@ -110,7 +110,7 @@ curl -fsSL -o /tmp/deploy.sh https://raw.githubusercontent.com/fan0269-code/Visa
 bash /tmp/deploy.sh
 ```
 
-部署脚本会把仓库保存在 `/var/www/flowlight.me/source`，在服务器上执行 Astro 构建，并把完整 `dist/` 同步到 Nginx 的 `/var/www/flowlight.me/public`。发布前会强制检查 `dist/index.html`，避免根目录缺少入口时再次出现 403。
+部署脚本会把仓库保存在 `/var/www/flowlight.me/source`，在服务器上执行 Astro 构建，并把完整 `dist/` 同步到 Nginx 的 `/var/www/flowlight.me/public/dist`。发布前会强制检查 `dist/index.html`，避免根目录缺少入口时再次出现 403。
 
 ## 加新域名（同台机器跑第二个站）
 ```bash

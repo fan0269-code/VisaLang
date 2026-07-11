@@ -17,12 +17,14 @@ Root cause and repository fix:
 - The checked-in deployment script pulled the repository into the Nginx document root, never ran `npm run build`, and never verified or copied `dist/`.
 - `deploy/deploy.sh` now keeps source in `/var/www/flowlight.me/source`, installs Node/npm when missing, runs `npm ci` and `npm run build`, blocks publication unless `source/dist/index.html` exists, and synchronizes the complete `dist/` into `/var/www/flowlight.me/public`.
 - `deploy/server-init.sh`, `deploy/README.md`, and deployment regression assertions were updated to match this contract.
+- The first server build exposed a Node 20 compatibility issue in `/exams/`: `Object.groupBy` was replaced with a reducer, and the deployment target was aligned with the actual Nginx root `/var/www/flowlight.me/public/dist`.
 
 Verification:
 
 - `npm test`: passed, including deployment-contract assertions.
 - `npm run launch-check`: passed, 24 checks, `READY`.
 - `bash -n deploy/deploy.sh deploy/server-init.sh`: passed.
+- Server build after the compatibility fix: 98 pages generated successfully; `dist/index.html` exists and Nginx config validation passed.
 - The remote fix could not be applied from this session because the configured `aliyun` SSH host key changed and was correctly rejected by SSH. Confirm the new fingerprint `SHA256:yFIeAuRfz70RkuQc+pcY2imBex745Z2IjqQOyZfWNGA` with the server owner before connecting and running the deployment script.
 
 ## Decision Product UI Refactor - 2026-07-11

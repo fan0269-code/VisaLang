@@ -3,7 +3,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import LastCheckedBadge from '../../components/LastCheckedBadge.astro';
 import { exams } from '../../data/app-data';
-const grouped = Object.groupBy(exams, (exam) => exam.country);
+const grouped = exams.reduce<Record<string, typeof exams>>((result, exam) => {
+  (result[exam.country] ||= []).push(exam);
+  return result;
+}, {});
 ---
 <BaseLayout title="Language exams" description="Browse exam families, then verify the exact certificate against your route before booking." canonicalURL="https://flowlight.me/exams/">
   <main class="site-main">

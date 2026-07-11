@@ -7,10 +7,11 @@ set -euo pipefail
 DOMAIN="flowlight.me"
 SITE_DIR="/var/www/$DOMAIN"
 PUBLIC_DIR="$SITE_DIR/public"
+SERVE_DIR="$PUBLIC_DIR/dist"
 SOURCE_DIR="$SITE_DIR/source"
 REPO="https://github.com/fan0269-code/VisaLang.git"
 
-echo "==> 部署目标：$PUBLIC_DIR"
+echo "==> 部署目标：$SERVE_DIR"
 echo "==> 仓库：$REPO"
 echo ""
 
@@ -48,16 +49,16 @@ if [ ! -f "$SOURCE_DIR/dist/index.html" ]; then
 fi
 
 echo "==> 更新静态发布目录"
-mkdir -p "$PUBLIC_DIR"
-find "$PUBLIC_DIR" -mindepth 1 -maxdepth 1 -exec rm -rf {} +
-cp -a "$SOURCE_DIR/dist/." "$PUBLIC_DIR/"
+mkdir -p "$SERVE_DIR"
+find "$SERVE_DIR" -mindepth 1 -maxdepth 1 -exec rm -rf {} +
+cp -a "$SOURCE_DIR/dist/." "$SERVE_DIR/"
 
 echo "==> 修正权限"
-chown -R www-data:www-data "$PUBLIC_DIR"
-chmod -R 755 "$PUBLIC_DIR"
+chown -R www-data:www-data "$SERVE_DIR"
+chmod -R 755 "$SERVE_DIR"
 
 echo "==> 验证文件"
-ls -la "$PUBLIC_DIR" | head -15
+ls -la "$SERVE_DIR" | head -15
 
 echo ""
 echo "==> 重新加载 Nginx"

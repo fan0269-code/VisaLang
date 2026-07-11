@@ -73,6 +73,7 @@ assert.ok(src.home.includes('guideCategories.length'), 'homepage route count is 
 for (const file of ['src/pages/routes/index.astro', 'src/pages/exams/index.astro', 'src/pages/tools/index.astro']) {
   assert.ok(exists(file), `top-level centre page should exist: ${file}`);
 }
+assert.doesNotMatch(read('src/pages/exams/index.astro'), /Object\.groupBy/, 'exam directory remains compatible with the server Node 20 runtime');
 assert.ok(src.tools.includes('site.tools.map'), 'tools centre is data-driven');
 assert.ok(src.tool.includes("'@type': 'WebApplication'"), 'real tools emit WebApplication structured data');
 assert.ok(read('src/components/tools/ToolShell.astro').includes('localStorage'), 'tool progress is saved locally');

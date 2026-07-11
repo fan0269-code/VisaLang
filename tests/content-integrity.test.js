@@ -39,6 +39,7 @@ for (const legacy of ['index.html', 'about.html', 'contact.html', 'privacy-polic
 
 const deployScript = fs.readFileSync('deploy/deploy.sh', 'utf8');
 assert.match(deployScript, /SOURCE_DIR=.*\/source/, 'deployment keeps source and served files in separate directories');
+assert.match(deployScript, /SERVE_DIR="\$PUBLIC_DIR\/dist"/, 'deployment target matches the Nginx Astro root');
 assert.match(deployScript, /npm run build/, 'deployment builds Astro before publishing');
 assert.match(deployScript, /SOURCE_DIR\/dist\/index\.html/, 'deployment blocks publication without the Astro root entry');
 assert.match(deployScript, /cp -a \"\$SOURCE_DIR\/dist\//, 'deployment publishes the complete Astro dist output');
