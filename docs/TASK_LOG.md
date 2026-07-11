@@ -1508,3 +1508,9 @@ Role: final release owner for scope audit, functional acceptance, fact-risk revi
 - Push success must not be reported as live deployment success.
 - Production remains blocked on the documented source-of-truth decision: the checked-in CVM flow pulls the repository root and reloads Nginx but does not build Astro or publish `dist/`.
 - After the hosting owner implements and verifies the chosen build/publish contract, confirm the live route count and spot-check `/`, both Germany hubs, all five tools, pricing/products/Route Review/Partners, sitemap, robots, and production 404s.
+
+### Git delivery result
+
+- Created `01536f4 feat: complete VisaLang product upgrade` and pushed it together with the two pre-existing local A1 commits to `origin/main`.
+- Post-push Git state was clean and synchronized: `HEAD` and `origin/main` both resolved to `01536f4205effe3844607e13445217c1db7ec12f` before this final handoff note.
+- A post-push production check still showed the legacy homepage inventory: 43 guides, 15 Germany A1 guides, and 4 Germany B1 guides. That does not match the validated 95-page Astro build, so production deployment remains unconfirmed and blocked on the hosting source-of-truth decision above.
