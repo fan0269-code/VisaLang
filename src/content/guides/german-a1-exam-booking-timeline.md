@@ -4,7 +4,7 @@ description: "Plan your German A1 exam booking timeline for Germany family reuni
 category: "germany-a1"
 slug: "german-a1-exam-booking-timeline"
 publishedDate: "2026-07-08"
-updatedDate: "2026-07-10"
+updatedDate: "2026-07-11"
 author: "VisaLang"
 readingTime: "7"
 featured: true
@@ -84,4 +84,26 @@ Write down your document deadline, planned exam date, expected result date, and 
 - 2026-07-08: Published the German A1 booking timeline and risk checklist.
 - 2026-07-10: Added backward planning and an explicit unknown-timing rule.
 
-Last updated: 2026-07-10. Official sources last checked: 2026-07-10.
+Last updated: 2026-07-11. Official sources last checked: 2026-07-10.
+
+## A1 route FAQ
+
+### Can this page confirm the timing for my case?
+
+No. It separates the questions you need to ask; the official centre and the German mission or authority decide their current document instructions.
+
+### What if local instructions conflict?
+
+Pause, save the official links or written replies, and ask the responsible source which instruction applies before booking or submitting documents.
+
+## A1 decision tools and next steps
+
+These planning aids organise questions; they do not decide an exemption, certificate acceptance, fees, result timing, or your individual case.
+
+- Return to the [Germany A1 family reunion hub](/germany-family-reunion-a1/) to see the full decision order.
+- Start with [Route Finder](/tools/route-finder/) if the requirement or exemption question is still open.
+- Turn your official checks into a working list with the [Checklist Generator](/tools/checklist-generator/).
+- Enter only locally confirmed buffers in the [Timeline Calculator](/tools/timeline-calculator/).
+- Compare the questions—not provider rankings—in [Exam Comparison](/tools/exam-comparison/).
+- The [A1 Family Reunion Pack](/contact/?interest=a1-family-reunion-pack) is a proposed planning pack; requesting access only opens a contact-intent path.
+- [Route Review](/contact/?interest=route-review) is proposed informational support, not legal, visa, or acceptance advice.
