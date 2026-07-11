@@ -8,7 +8,8 @@ const germanyA1Guides = fs.readdirSync(guideDirectory)
   .filter((file) => fs.readFileSync(path.join(guideDirectory, file), 'utf8').includes('category: "germany-a1"'));
 const hub = fs.readFileSync('src/pages/germany-family-reunion-a1.astro', 'utf8');
 
-assert.equal(germanyA1Guides.length, 16, 'Germany A1 cluster should retain its 16 existing guides');
+assert.equal(germanyA1Guides.length, 17, 'Germany A1 cluster should retain its 16 guides and add only the missing writing intent');
+assert.ok(germanyA1Guides.includes('goethe-a1-writing-practice.md'), 'Germany A1 cluster should cover the unique writing-practice intent');
 
 const requiredHubSteps = [
   'Step 1: Confirm whether A1 applies',
