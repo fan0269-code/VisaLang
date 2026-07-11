@@ -105,9 +105,9 @@ bash /tmp/deploy.sh
 
 ## 改代码后重新部署
 ```bash
-ssh root@你的服务器IP
+ssh ubuntu@你的服务器IP
 curl -fsSL -o /tmp/deploy.sh https://raw.githubusercontent.com/fan0269-code/VisaLang/main/deploy/deploy.sh
-bash /tmp/deploy.sh
+sudo bash /tmp/deploy.sh
 ```
 
 部署脚本会把仓库保存在 `/var/www/flowlight.me/source`，在服务器上执行 Astro 构建，并把完整 `dist/` 同步到 Nginx 的 `/var/www/flowlight.me/public/dist`。发布前会强制检查 `dist/index.html`，避免根目录缺少入口时再次出现 403。
