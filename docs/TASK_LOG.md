@@ -25,6 +25,8 @@ Verification:
 - `npm run launch-check`: passed, 24 checks, `READY`.
 - `bash -n deploy/deploy.sh deploy/server-init.sh`: passed.
 - Server build after the compatibility fix: 98 pages generated successfully; `dist/index.html` exists and Nginx config validation passed.
+- Final production verification: `/`, `/about/`, `/routes/`, `/exams/`, `/tools/`, `/guides/`, `/tools/route-finder/`, `/germany-family-reunion-a1/`, and `/zh/` all returned HTTP 200; homepage title is `Find the language proof required for your route | VisaLang`.
+- Server source is synchronized to commit `8fd3174`; the live static output was built from `e31665e` and contains the same application content. The final commit only hardens the future deployment script for `ubuntu + sudo` execution.
 - The remote fix could not be applied from this session because the configured `aliyun` SSH host key changed and was correctly rejected by SSH. Confirm the new fingerprint `SHA256:yFIeAuRfz70RkuQc+pcY2imBex745Z2IjqQOyZfWNGA` with the server owner before connecting and running the deployment script.
 
 ## Decision Product UI Refactor - 2026-07-11
