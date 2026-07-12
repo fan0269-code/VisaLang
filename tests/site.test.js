@@ -62,12 +62,12 @@ assert.ok(src.css.includes('@media (max-width: 680px)'), 'design system defines 
 assert.ok(src.css.includes('min-height: 44px'), 'interactive controls use a reasonable hit area');
 assert.ok(src.css.includes('overflow-x: auto'), 'wide tables and tool navigation can scroll safely');
 
-assert.ok(src.home.includes('Find the right language proof before you book an exam.'), 'homepage has the selected route-planning task');
-assert.ok(src.home.includes('VisaLang check'), 'homepage includes the route-check visual panel');
-assert.ok(src.home.includes('href="/tools/route-finder/">Find my starting route'), 'homepage has the required primary action');
-assert.ok(src.home.includes('href="#principle-title">How to verify a requirement</a>'), 'homepage has the required secondary action');
+assert.ok(src.home.includes('Find the right language proof <em>before</em> you book an exam.'), 'homepage has the selected route-planning task');
+assert.ok(src.home.includes('od-route-finder'), 'homepage includes the Open Design route-finder panel');
+assert.ok(src.home.includes('href="/tools/route-finder/">Find my route'), 'homepage has the required primary action');
+assert.ok(src.home.includes('href="/guides/">Browse guides</a>'), 'homepage has the Open Design secondary action');
 assert.ok(src.home.includes('<RouteSelector'), 'homepage uses the shared purpose selector');
-assert.ok(src.home.includes('<TrustNotice'), 'homepage uses the shared trust strip');
+assert.ok(src.home.includes('od-trust-strip'), 'homepage uses the Open Design trust strip');
 assert.ok(src.home.includes('guides.length'), 'homepage guide count is data-driven');
 assert.ok(src.home.includes('guideCategories.length'), 'homepage route count is data-driven');
 

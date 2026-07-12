@@ -45,6 +45,7 @@ const navLabel = (key: keyof typeof labels) => `${labels[key]}${isZh && key !== 
       })}
     </nav>
     <a class="language-switch" href={switchHref} hreflang={isZh ? 'en' : 'zh-CN'}>{isZh ? 'English' : '中文'}</a>
+    <a class="header-route-cta" href="/tools/route-finder/">{isZh ? '查找路线' : 'Find my route'} <span aria-hidden="true">→</span></a>
     <MobileNavigation locale={locale} switchHref={switchHref} />
   </div>
 </header>
