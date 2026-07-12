@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const jsonLD = { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Privacy Policy' };
-const updated = '2026-07-02';
+const updated = '2026-07-13';
 ---
 
 <BaseLayout title="Privacy Policy" description="How VisaLang handles visitor data, cookies, and analytics." jsonLD={jsonLD} noindex={true}>
@@ -14,9 +14,11 @@ const updated = '2026-07-02';
         <h2>Overview</h2>
         <p>VisaLang (flowlight.me) is a static informational website. We do not require you to create an account, and we do not collect sensitive personal data such as passport numbers, immigration documents, or payment details.</p>
 
-        <h2>Information we collect</h2>
+        <h2>Services and information we use</h2>
         <ul>
-          <li><strong>Analytics data:</strong> aggregate, privacy-friendly metrics such as page views, country, and referrer, collected via Plausible Analytics. We do not use cross-site tracking cookies.</li>
+          <li><strong>Advertising:</strong> VisaLang loads Google AdSense to support display advertising. Where a consent choice is required, we use the choice made through the applicable consent message before treating advertising as consented. Google’s own privacy information applies to its advertising services.</li>
+          <li><strong>Analytics:</strong> Plausible Analytics is not enabled on the current Astro site. If we enable it, we will use it only for aggregate page, referrer, route, tool-completion, official-link, guide-CTA, and contact-intent measurement. We will not send tool answers, free text, email addresses, document details, or other user-provided identifiers.</li>
+          <li><strong>Local tool progress:</strong> route and tool interfaces may store progress in your browser’s local storage. This stays in your browser unless you choose to send us a message.</li>
           <li><strong>Direct contact:</strong> if you email us, your email provider and ours process the address, message, and any information you choose to include.</li>
           <li><strong>Server logs:</strong> standard web server logs (IP address, user agent, timestamp) retained for security and debugging purposes.</li>
         </ul>
@@ -31,14 +33,15 @@ const updated = '2026-07-02';
           <li>To maintain site security and prevent abuse.</li>
         </ul>
 
-        <h2>Cookies</h2>
-        <p>VisaLang uses minimal cookies. See our <a href="/cookie-policy/">Cookie Policy</a> for details. We do not sell data to advertisers.</p>
+        <h2>Cookies and privacy choices</h2>
+        <p>Google AdSense and the related consent message may use cookies or local storage for advertising, consent and measurement where permitted by your choices and applicable requirements. See our <a href="/cookie-policy/">Cookie Policy</a> for details. Plausible Analytics, if enabled later, is configured without analytics cookies.</p>
+        <p>Where the European consent message is shown, use its controls to accept, reject, or manage advertising choices. You can also clear or block cookies and local storage in your browser settings; doing so may reset saved progress or consent preferences.</p>
 
         <h2>Third-party links</h2>
         <p>Our guides link to official exam providers and government authorities. Once you leave flowlight.me, their privacy policies apply. We are not responsible for practices on external sites.</p>
 
         <h2>Advertising</h2>
-        <p>If we add display advertising in the future, we will update this policy and clearly label ads. We will not place ads inside official-source sections, forms, or navigation.</p>
+        <p>VisaLang uses Google AdSense for display advertising. We do not present advertising as official information or as an endorsement by a government authority, exam owner, school, or other organisation. We do not place ads inside official-source sections, forms, or navigation.</p>
 
         <h2>Your rights</h2>
         <p>If you contacted us and want your message or email address removed where applicable, contact <a href="/contact/">us</a>. Residents of the EU, UK, and California may have additional rights under GDPR or CCPA.</p>
@@ -47,7 +50,7 @@ const updated = '2026-07-02';
         <p>VisaLang is not directed at children under 16 and we do not knowingly collect their data.</p>
 
         <h2>Changes</h2>
-        <p>We may update this policy. The Last Updated date above reflects the most recent revision. For a particular service such as analytics, an email form, or an external provider, the current service notice controls where applicable.</p>
+        <p>We may update this policy when our services, consent choices, or data practices change. The Last Updated date above reflects the most recent revision.</p>
 
         <h2>Contact</h2>
         <p>Questions about privacy? See our <a href="/contact/">contact page</a>.</p>
