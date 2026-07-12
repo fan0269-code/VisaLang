@@ -49,7 +49,7 @@ Neither plan guarantees a pass. Extend it when your practice still shows uncerta
 
 ## Protect the visa timeline
 
-Compare only the locally confirmed next-seat, result, and certificate information with your appointment timeline before paying. Do not assume another attempt will fit; confirm the current centre information and the visa requirements with the responsible mission.
+Compare only the locally confirmed next-seat, result, and certificate information with your appointment timeline before paying. When planning a retake, confirm with the local test centre when it issues and delivers certificates. Do not assume another attempt will fit; confirm the current centre information and the visa requirements with the responsible mission.
 
 ## Next action
 
