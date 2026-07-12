@@ -1,6 +1,38 @@
 # VisaLang Task Log
 
-Updated: 2026-07-11
+Updated: 2026-07-13
+
+## Phase 2 Germany A1 content close-out — 2026-07-13
+
+Scope: final evidence and release-gate record for the seven English Germany A1 family-reunion guides. No route, layout, tool, navigation, Chinese page, commercial surface, analytics, advertising, deployment, or legacy-file change was made in this close-out.
+
+Completed editorial files:
+
+- `src/content/guides/german-family-reunion-language-requirement.md`
+- `src/content/guides/goethe-a1-vs-telc-a1.md`
+- `src/content/guides/goethe-a1-test-centers.md`
+- `src/content/guides/goethe-a1-fees-by-country.md`
+- `src/content/guides/goethe-a1-retake-policy.md`
+- `src/content/guides/german-a1-documents-checklist.md`
+- `src/content/guides/german-a1-exam-booking-timeline.md`
+
+Evidence boundary:
+
+- The audit in `docs/PHASE_2_A1_CONTENT_AUDIT.md` records current BAMF, Federal Foreign Office, Goethe-Institut, and telc sources only within their stated scope. The Federal Foreign Office FAQ remained a manual official-source verification link because automated access was blocked.
+- The responsible German mission remains the source of current local visa/document instructions and proof acceptance; the selected official local test centre remains the source of current exam product, seat, fee, registration, identification, result, certificate, cancellation, rescheduling, and retake terms. No individual eligibility, acceptance, price, availability, timing, or visa outcome is concluded here.
+
+Release evidence:
+
+- `node tests/germany-a1-cluster.test.js`: passed (`Germany A1 cluster rules passed`).
+- `npm test`: passed, including Germany A1, guide-source/compliance, deployment, UI, route, SEO, accessibility, and migration checks.
+- `npm run build`: passed; 98 static pages generated.
+- `npm run launch-check`: passed; 24 checks passed, 0 failed, `READY`.
+- `git diff --check`: passed with no output.
+
+Remaining manual checks:
+
+- Before a reader books, pays, changes an appointment, or submits a visa file, manually check the responsible German mission's current family-reunion instruction and the selected official local centre's current terms.
+- Treat any locally unavailable, time-sensitive, or conflicting instruction as a verification stop, not an inferred answer.
 
 This log records current project-map findings, known issues, and recommended next-window boundaries for flowlight.me / VisaLang.
 
