@@ -1,6 +1,6 @@
 ---
 title: "German A1 exam booking timeline"
-description: "Plan your German A1 exam booking timeline for Germany family reunion: exam seat, result timing, certificate delivery, retake buffer, and document deadline."
+description: "Plan your German A1 exam booking timeline for Germany family reunion: exam seat, result timing, certificate delivery, reader-confirmed backup attempt options, and document deadline."
 category: "germany-a1"
 slug: "german-a1-exam-booking-timeline"
 publishedDate: "2026-07-08"
