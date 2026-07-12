@@ -4,7 +4,7 @@ description: "Plan your German A1 exam booking timeline for Germany family reuni
 category: "germany-a1"
 slug: "german-a1-exam-booking-timeline"
 publishedDate: "2026-07-08"
-updatedDate: "2026-07-11"
+updatedDate: "2026-07-13"
 author: "VisaLang"
 readingTime: "7"
 featured: true
@@ -15,46 +15,46 @@ related: ["goethe-a1-test-centers", "goethe-a1-retake-policy", "german-a1-docume
 
 ## Quick answer
 
-Your German A1 booking timeline is not just the exam date. Plan around five dates:
+Your German A1 booking timeline is not just the exam date. Enter only dates you hold yourself or dates the selected local test centre or responsible German mission has currently confirmed for your case:
 
-- The visa appointment or document deadline.
-- The planned exam date.
-- The expected result date.
-- The certificate delivery or access date.
-- The last realistic retake date.
+- Your visa appointment or document deadline, if the responsible mission has confirmed it.
+- Your planned exam date, if the selected centre has confirmed the seat.
+- A result-publication date only if the centre's current process confirms it.
+- A certificate issue or delivery date only if the centre's current process confirms it.
+- A reader-entered backup date only after the centre confirms the next-seat process.
 
-If any of those dates are unknown, treat the plan as incomplete and verify the missing item with the official test center or responsible authority before paying.
+If any date is unknown, keep it unknown in the plan and verify the missing item with the official test centre or responsible mission before paying or changing an appointment.
 
 ## Timeline map
 
 | Stage | What to confirm | Proof to save |
 | --- | --- | --- |
-| Requirement check | Whether your exact route needs A1 and which certificates are accepted. | Official page, appointment instruction, or authority message. |
+| Requirement check | Whether your exact route needs A1 and which certificates are accepted. | Official page, appointment instruction, or mission message. |
 | Seat search | Available exam dates, location, fee, ID rule, payment deadline, and cancellation rule. | Official test-center URL and screenshot with checked date. |
 | Exam booking | Exact exam name, registration spelling, payment confirmation, and arrival instructions. | Booking confirmation and payment receipt. |
-| Result and certificate | Expected result date, certificate issue method, and whether an original is needed. | Test-center result timing note and certificate copy. |
-| Retake plan | Next possible seat, fee, and whether a retake result can arrive before the deadline. | Backup date and budget note. |
+| Result and certificate | The centre's current result-publication process, certificate issue or delivery process, and whether it requires an original for its own process. | Dated centre instruction or written reply. |
+| Backup attempt | The centre's current next-seat process, fee, and any locally confirmed dates the reader chooses to enter. | Dated centre instruction and reader-entered plan note. |
 
 ## Plan backward from the document deadline
 
-Start with the appointment or document deadline, then work backward through certificate delivery, result timing, the exam date, the registration deadline, and a possible backup attempt. Mark every item that comes from an official source rather than an estimate.
+Start with the appointment or document deadline only after the responsible mission has confirmed its current instruction. Work backward through the reader-entered or locally confirmed certificate, result, exam, registration, and backup-attempt dates. Mark each date with its source and checked date.
 
-If the centre cannot confirm a key timing, leave that part of the plan marked as unknown. Do not turn an assumption into a visa commitment.
+The selected centre's current process determines result publication, certificate issue or delivery, and next-seat timing. The responsible mission determines what those dates mean for the current document deadline. If either source cannot confirm a key date, leave that part of the plan marked as unknown. Do not turn an assumption into a visa commitment.
 
 ## Risk table
 
 | Risk | Why it matters | Action |
 | --- | --- | --- |
-| No confirmed result date | You may pass the exam but receive proof too late for the appointment. | Ask the test center how results and certificates are issued. |
-| No retake buffer | A failed first attempt can break the document timeline. | Check the next available official seat before booking. |
+| No confirmed result date | You may pass the exam but lack proof when the mission's current instruction requires it. | Ask the test centre about its current result-publication and certificate issue or delivery process. |
+| No reader-entered backup option | A failed first attempt can leave no confirmed next step in the plan. | Ask the centre about its current next-seat process before booking. |
 | Wrong certificate assumption | A convenient exam is not useful if the authority does not accept it. | Confirm accepted proof before comparing fees or dates. |
 | Name or ID mismatch | Different spelling can create exam-day or appointment-day problems. | Use passport spelling for registration and keep records. |
 
 ## Hypothetical scenarios
 
-### Appointment in 20 days, no certificate yet
+### Appointment is close, no certificate yet
 
-Do not assume an available seat solves the problem. Check result timing, certificate delivery, and the responsible authority's current document instruction before changing any appointment plan.
+Do not assume an available seat solves the problem. Check the centre's current result-publication and certificate issue or delivery process, then check the responsible mission's current document instruction before changing any appointment plan.
 
 ### Exam seat is far away
 
@@ -66,13 +66,13 @@ Do not start with booking. Use the requirement guide first, then choose an accep
 
 ## If the timeline does not work
 
-Do not solve a short timeline by lowering the verification standard. Ask the official centre what it can confirm about its own process and ask the responsible authority what current document timing applies to your case.
+Do not solve a short timeline by lowering the verification standard. Ask the official centre what it can confirm about its current result, certificate, and next-seat process, and ask the responsible mission what its current document instruction means for your case.
 
 If you need another attempt, return to [Goethe A1 retake](/guides/goethe-a1-retake-policy/) before choosing a new date. If the route itself is uncertain, return to [German family reunion language requirement](/guides/german-family-reunion-language-requirement/).
 
 ## Next action
 
-Write down your document deadline, planned exam date, expected result date, and backup date. Then use [Goethe A1 fees](/guides/goethe-a1-fees-by-country/), [Goethe A1 test centers](/guides/goethe-a1-test-centers/), and [German A1 documents checklist](/guides/german-a1-documents-checklist/) before paying.
+Write down only a mission-confirmed document deadline and the dates you have entered or the local centre has currently confirmed. Then use [Goethe A1 fees](/guides/goethe-a1-fees-by-country/), [Goethe A1 test centers](/guides/goethe-a1-test-centers/), and [German A1 documents checklist](/guides/german-a1-documents-checklist/) before paying.
 
 ## Official sources
 
@@ -83,8 +83,9 @@ Write down your document deadline, planned exam date, expected result date, and 
 
 - 2026-07-08: Published the German A1 booking timeline and risk checklist.
 - 2026-07-10: Added backward planning and an explicit unknown-timing rule.
+- 2026-07-13: Limited the plan to reader-entered or locally confirmed dates and separated centre timing from mission deadline instructions.
 
-Last updated: 2026-07-11. Official sources last checked: 2026-07-10.
+Last updated: 2026-07-13. Official sources last checked: 2026-07-13.
 
 ## A1 route FAQ
 

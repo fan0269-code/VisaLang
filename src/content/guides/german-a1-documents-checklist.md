@@ -4,7 +4,7 @@ description: "A three-stage German A1 checklist for exam booking, test day, and 
 category: "germany-a1"
 slug: "german-a1-documents-checklist"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-11"
+updatedDate: "2026-07-13"
 author: "VisaLang"
 readingTime: "8"
 featured: true
@@ -17,11 +17,11 @@ related: ["goethe-a1-booking-mistakes", "german-family-reunion-language-requirem
 
 Exam booking, test day, and a family reunion visa file are different stages. A document that helps you register is not automatically sufficient for the examination, and a course completion record is not the same as an official language certificate.
 
-Use the local test centre's current instructions for the first two stages. Use the responsible German mission's current visa checklist for the third. This page is a planning aid, not a legal opinion on what your case requires.
+The selected local test centre controls its current booking and test-day document instructions. The responsible German mission controls the current visa-file checklist, including any original, copy, translation, or additional-document instruction. This page is a planning aid, not a legal opinion or a decision on what your case requires.
 
 ## Before booking
 
-Confirm your legal name exactly as shown on the identity document you will use, the accepted passport or ID type, a working email and phone number, payment method, and the booking confirmation process.
+Confirm your legal name exactly as shown on the identity document you will use, the accepted passport or ID type, a working email and phone number, payment method, and the booking confirmation process. The centre's current booking instructions decide which documents or records it needs for registration.
 
 Match the correct exam to your plan, then save the confirmation email and the centre's cancellation or rescheduling policy. Ask the centre before paying if the name in your booking will not match your passport.
 
@@ -35,7 +35,7 @@ Do not assume a photocopy will replace the original ID, or that a rule at anothe
 
 Keep the original certificate and a clear copy together. Check the certificate name against the applicant's identity details, and note its examination date and issuing institution.
 
-Before submitting anything, check whether the responsible German mission accepts that certificate for your specific family reunion case and whether it asks for originals, copies, translations, or additional documents. Requirements can differ by location and individual circumstances.
+Before submitting anything, check whether the responsible German mission accepts that certificate for your specific family reunion case and whether its current checklist asks for originals, copies, translations, or additional documents. Requirements can differ by location and individual circumstances.
 
 ## Keep a private document record
 
@@ -59,7 +59,7 @@ Read [German family reunion language requirement](/guides/german-family-reunion-
 
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
 - [BAMF family reunification](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html)
-- [German Federal Foreign Office](https://www.auswaertiges-amt.de/en)
+- [German Federal Foreign Office: proof of German language skills FAQ](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse/606682) — manual official-source verification only; use the responsible mission's current checklist for the visa file.
 
 ## A1 route FAQ
 
