@@ -51,7 +51,7 @@ If two pages disagree, do not average the prices or choose the lower one. Contac
 
 ## Next action
 
-Find the official centre first in [Goethe A1 test centers](/guides/goethe-a1-test-centers/), then use [Goethe A1 booking mistakes](/guides/goethe-a1-booking-mistakes/) to check the booking before you pay. Keep the fee, policy link, and date checked in one personal record.
+Find the official centre first in [Goethe A1 test centers](/guides/goethe-a1-test-centers/), then use the [Germany A1 exam booking timeline](/guides/german-a1-exam-booking-timeline/) to plan the booking before you pay. Keep the fee, policy link, and date checked in one personal record.
 
 ## Official sources
 
