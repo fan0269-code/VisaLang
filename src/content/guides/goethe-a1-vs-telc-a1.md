@@ -4,7 +4,7 @@ description: "How to compare Goethe A1 and telc A1 for Germany family reunion wi
 category: "germany-a1"
 slug: "goethe-a1-vs-telc-a1"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-11"
+updatedDate: "2026-07-13"
 author: "VisaLang"
 readingTime: "8"
 featured: true
@@ -25,12 +25,12 @@ For Goethe, identify the adult **Goethe-Zertifikat A1: Start Deutsch 1**. telc o
 
 An A1 course, youth exam, practice product, or centre advertisement is not automatically the exam proof you need. Match the product name to the authority's instruction and the official provider page.
 
-## Use four decision checks
+## Follow the decision sequence
 
-1. **Acceptance:** confirm the exact certificate with the responsible authority.
-2. **Availability:** confirm that an official local centre offers that exact exam and a workable date.
-3. **Process:** check ID rules, booking deadline, result timing, certificate delivery, and any local cancellation or rescheduling rule.
-4. **Total cost:** compare the exam fee together with travel, document timing, and a possible later attempt.
+1. **Authority acceptance:** confirm the exact certificate with the responsible German mission or authority. A provider comparison cannot substitute for that instruction.
+2. **Exact adult product:** for Goethe, use **Goethe-Zertifikat A1: Start Deutsch 1**; for telc, identify the exact local A1 product named by the authority and the centre.
+3. **Official centre:** use the Goethe examination route or the [telc examination-centre finder](https://www.telc.net/en/language-examinations/find-a-telc-examination-centre/) to reach an official centre for that exact product.
+4. **Local terms:** obtain the selected centre's current date, fee, registration, ID, result, certificate, cancellation, and rescheduling terms before paying.
 
 The best option is the one that clears all four checks for your case. A famous provider or a cheaper first price is not enough by itself.
 
@@ -40,12 +40,12 @@ Do not infer acceptance from another applicant, assume two A1 labels are interch
 
 ## Next action
 
-Use [Goethe A1 test centers](/guides/goethe-a1-test-centers/) to verify local availability, then use [Goethe A1 booking mistakes](/guides/goethe-a1-booking-mistakes/) and [German A1 documents checklist](/guides/german-a1-documents-checklist/) before paying.
+Use [Goethe A1 test centers](/guides/goethe-a1-test-centers/) to verify an official local centre and its terms, then use [Goethe A1 booking mistakes](/guides/goethe-a1-booking-mistakes/) and [German A1 documents checklist](/guides/german-a1-documents-checklist/) before paying.
 
 ## Official sources
 
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [telc German certificate exams](https://www.telc.net/en/language-examinations/certificate-exams/german/)
+- [telc: find an examination centre](https://www.telc.net/en/language-examinations/find-a-telc-examination-centre/)
 
 ## A1 route FAQ
 

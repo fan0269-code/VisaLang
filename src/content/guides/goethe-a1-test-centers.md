@@ -4,7 +4,7 @@ description: "How to verify an official Goethe A1 or telc A1 exam centre, confir
 category: "germany-a1"
 slug: "goethe-a1-test-centers"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-11"
+updatedDate: "2026-07-13"
 author: "VisaLang"
 readingTime: "8"
 featured: true
@@ -15,27 +15,34 @@ related: ["german-a1-documents-checklist", "goethe-a1-vs-telc-a1", "goethe-a1-fe
 
 ## What "official test centre" means
 
-An official centre is a Goethe-Institut or a centre shown or confirmed through the official Goethe route, or a telc examination centre confirmed through telc. A German class provider is not automatically an official exam provider.
+An official centre is a Goethe-Institut or exam partner shown or confirmed through the official Goethe route, or a telc examination centre reached through the official [telc centre finder](https://www.telc.net/en/language-examinations/find-a-telc-examination-centre/). A German class provider is not automatically an official exam provider.
 
-Goethe says its German examinations are offered at Goethe-Instituts and exam partners. Use the official provider's country or centre route, then check the local centre's own exam listing. Do not rely on a copied address, an old directory, or a course advert.
+Goethe says its German examinations are offered through Goethe-Instituts and exam partners. Use the official provider's route, then check the selected local centre's own exam listing. Do not rely on a copied address, an old directory, or a course advert.
 
 ## Verify the exact examination
 
 For the adult Goethe route, look for **Goethe-Zertifikat A1: Start Deutsch 1**. Do not assume that every A1 listing, youth version, course, or mock test is the certificate you need.
 
-For telc, check the exact A1 product and ask the responsible authority whether that certificate is suitable for your own family reunion case. This guide does not decide certificate acceptance for an embassy or visa file.
+For telc, use the finder to reach a centre, check the exact local A1 product, and ask the responsible authority whether that certificate is suitable for your own family reunion case. This guide does not decide telc acceptance for an embassy or visa file.
+
+## Use the checks in order
+
+1. Confirm the authority's accepted proof for your case.
+2. Match it to the exact adult product; for Goethe this is **Goethe-Zertifikat A1: Start Deutsch 1**.
+3. Reach an official Goethe-Institut/exam partner or telc centre through the provider's official route.
+4. Get the local terms directly from that selected centre.
 
 ## Centre-selection checklist
 
-Before booking, record:
+Before booking, get the following directly from the selected local centre:
 
 - Whether the centre offers the correct A1 exam and is confirmed through the official provider.
-- The exam date and registration deadline.
+- The current exam date and registration deadline.
 - Whether speaking is held on the same day or arranged separately.
 - The stated result timing and certificate collection or delivery process.
 - ID requirements, the spelling of your name, payment rules, and the centre's test-day instructions.
 
-Check these from the local centre, not from a general international overview. Availability and procedure can differ locally.
+The local centre controls its current date, fee, registration, ID, result, and certificate process, as well as its other booking terms. Check these from the local centre, not from a general international overview.
 
 ## When the centre page is unclear
 
@@ -58,7 +65,7 @@ Use [Goethe A1 vs telc A1](/guides/goethe-a1-vs-telc-a1/) before choosing a prov
 ## Official sources
 
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [telc Deutsch A1](https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/)
+- [telc: find an examination centre](https://www.telc.net/en/language-examinations/find-a-telc-examination-centre/)
 
 ## A1 route FAQ
 
