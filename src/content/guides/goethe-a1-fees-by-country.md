@@ -1,10 +1,10 @@
 ---
 title: "Goethe A1 exam fees: check your local price"
-description: "How to check the current local Goethe A1 or telc A1 exam fee, understand what changes the total, and verify the terms before payment."
+description: "How to record and compare the current local Goethe A1 exam fee and terms before payment."
 category: "germany-a1"
 slug: "goethe-a1-fees-by-country"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-11"
+updatedDate: "2026-07-13"
 author: "VisaLang"
 readingTime: "7"
 featured: true
@@ -15,32 +15,29 @@ related: ["goethe-a1-test-centers", "goethe-a1-booking-mistakes", "german-a1-exa
 
 ## The useful answer is not one number
 
-Do not use an old blog price as your Germany A1 budget. The usable fee is the price shown by the official local test centre for the exact exam, date, and booking route you plan to use.
+Do not use an old blog price as your Germany A1 budget. The usable fee is the one the official local test centre publishes for the exact exam, date, and booking route you plan to use.
 
-For an adult Goethe route, check that the listing says **Goethe-Zertifikat A1: Start Deutsch 1**. If you are considering telc, start with the official telc centre search and confirm the local centre's A1 offer before treating any listed price as relevant.
+For an adult Goethe route, check that the listing says **Goethe-Zertifikat A1: Start Deutsch 1**. The Goethe examinations overview can help you identify the adult A1 examination and reach a Goethe-Institut or exam partner; it cannot give your local fee or booking terms.
 
 ## Why the price can change
 
-The amount can differ by country, test centre, exam provider, exam version, and booking period. Travel, a later resit, or a centre's payment rules can change the real cost even when the exam fee itself looks manageable.
+The amount can differ by country, test centre, exam version, and booking period. Travel or the centre's payment rules can change the real cost even when the exam fee itself looks manageable.
 
 Course fees are separate from examination fees. A language school may sell preparation, administration, or booking help without being the official examination provider. Ask what the quoted amount actually covers.
 
 ## How to verify a local fee
 
-1. Start from the [Goethe examinations page](https://www.goethe.de/en/spr/prf.html) or the [telc Deutsch A1 page](https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/), not a search snippet or social post.
-2. Select your country or contact the centre named by the official provider.
-3. Match the exam name, level, delivery format, and date to your actual plan.
-4. Save the official page or confirmation email with the amount and the date you checked it.
+Start from the [Goethe examinations page](https://www.goethe.de/en/spr/prf.html), not a search snippet or social post. Select your country or contact the Goethe-Institut or exam partner named by the official provider. Match the exam name, level, delivery format, and date to your actual plan, then save the official local page or written confirmation with the fee and the date you checked it.
 
 ## Before you pay
 
-Confirm the exam name and level, test centre, test date, payment deadline, and result-delivery process. Then read the centre's refund and rescheduling rules before completing payment.
+Confirm the exam name and level, official local centre, test date, payment deadline, and result process. Then read the centre's cancellation or refund rule and its rescheduling rule before completing payment.
 
-If your visa appointment has a deadline, add space for results, certificate delivery, and the possibility that you may need to book again. This page cannot tell you that a particular timeline will work.
+If your visa appointment has a deadline, ask the local centre how its current result and certificate process fits your plan. This page cannot tell you that a particular timeline will work.
 
 ## Make one fee record before comparing options
 
-For each real booking option, write down the centre name, exact exam, date, fee, payment deadline, refund link, rescheduling link, result timing, and the date you checked it. This prevents a cheaper-looking option from hiding a rule that does not fit your route.
+For each real booking option, make one dated record containing the exact exam, official local centre, test date, fee, payment deadline, cancellation or refund rule, rescheduling rule, result process, and checked date. This prevents a cheaper-looking option from hiding a rule that does not fit your route.
 
 If two pages disagree, do not average the prices or choose the lower one. Contact the official centre and ask which current listing applies to your intended booking.
 
@@ -59,7 +56,6 @@ Find the official centre first in [Goethe A1 test centers](/guides/goethe-a1-tes
 ## Official sources
 
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [telc Deutsch A1](https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/)
 
 ## A1 route FAQ
 
