@@ -45,11 +45,22 @@ const hubNextStepLinks = [
   '/tools/email-reminders/',
 ];
 
+const auditedA1Guides = new Set([
+  'german-family-reunion-language-requirement.md',
+  'goethe-a1-vs-telc-a1.md',
+  'goethe-a1-test-centers.md',
+  'goethe-a1-fees-by-country.md',
+  'goethe-a1-retake-policy.md',
+  'german-a1-documents-checklist.md',
+  'german-a1-exam-booking-timeline.md',
+]);
+
 for (const file of germanyA1Guides) {
   const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
   assert.ok(source.includes('## A1 decision tools and next steps'), `${file} should have the shared A1 next-step section`);
   assert.ok(source.includes('## A1 route FAQ'), `${file} should have a route-level FAQ`);
-  assert.ok(source.includes('updatedDate: "2026-07-11"'), `${file} should show its current update date`);
+  const expectedUpdateDate = auditedA1Guides.has(file) ? '2026-07-13' : '2026-07-11';
+  assert.ok(source.includes(`updatedDate: "${expectedUpdateDate}"`), `${file} should show its expected update date`);
   for (const href of guideNextStepLinks) {
     assert.ok(source.includes(href), `${file} should link to ${href}`);
   }

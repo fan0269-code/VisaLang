@@ -1,10 +1,10 @@
 ---
 title: "German family reunion language requirement guide"
-description: "Check who may need basic German proof for family reunion in Germany, what exemptions may apply, and which official source to verify before applying."
+description: "Check the relevant family-reunion route, the sponsor's residence category, and the responsible mission's current language-proof instructions before applying."
 category: "germany-a1"
 slug: "german-family-reunion-language-requirement"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-11"
+updatedDate: "2026-07-13"
 author: "VisaLang"
 readingTime: "5"
 featured: true
@@ -13,37 +13,31 @@ route: "germany-a1"
 related: ["goethe-a1-vs-telc-a1", "german-a1-documents-checklist", "goethe-a1-germany-family-reunion"]
 ---
 
-## What BAMF says
+## Start with the route category
 
-          
+BAMF explains that family-reunion conditions can differ when you join a German national, an EU citizen, or a third-country national. Identify that route first; a general family-reunion overview cannot decide an individual language requirement.
 
-BAMF explains that spouses and registered partners, parents, and minor unmarried children may migrate to Germany to join family members. It also notes that conditions vary depending on whether you join a German national, an EU citizen, or a third-country national.
+For spouses joining third-country nationals, BAMF describes simple everyday German as a general rule. The applicable route can have different rules, including routes involving skilled workers. This overview is not a complete exception list and does not decide whether an exception applies to your file.
 
-        
-        
-          
+## Check the sponsor's current residence category
 
-## What to check
+After identifying the route, check the sponsor's current residence category and the relationship category used in the application. Do not assume that a rule from a different family-reunion route applies just because the relationship description sounds similar.
 
-          
-- Your exact relationship category.
-- The nationality or residence status of the person in Germany.
-- Whether basic German proof is required or an exception applies.
-- Which certificate and age version is accepted.
+## Confirm the mission's instruction for your file
 
-        
-        
-          
+Use the responsible German mission's current family-reunion instructions for the application location and route. Confirm whether language proof is required for your file, which proof is currently accepted, and any document or age conditions before booking an exam or submitting documents.
+
+The Federal Foreign Office FAQ is an official verification link below. This guide does not quote or derive a detailed rule from it because automated access to that page was blocked during this audit.
 
 ## Next action
 
-          
-
-Start with BAMF for the family reunification framework, then confirm document and language requirements with the German mission or authority responsible for your application.
+Save the current mission instruction for your route, then ask the mission or responsible authority to clarify any unresolved language-proof question before payment, booking, or submission.
 
 ## Official sources
 
 - [BAMF family reunification](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html)
+- [BAMF family reunification for third-country nationals](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/NachzugZuDrittstaatlern/nachzug-zu-drittstaatlern-node.html)
+- [German Federal Foreign Office: proof of German language skills FAQ](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse/606682)
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
 
 ## A1 route FAQ
