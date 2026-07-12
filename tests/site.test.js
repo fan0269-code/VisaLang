@@ -62,9 +62,10 @@ assert.ok(src.css.includes('@media (max-width: 680px)'), 'design system defines 
 assert.ok(src.css.includes('min-height: 44px'), 'interactive controls use a reasonable hit area');
 assert.ok(src.css.includes('overflow-x: auto'), 'wide tables and tool navigation can scroll safely');
 
-assert.ok(src.home.includes('Find the language proof required for your route.'), 'homepage has the single required core task');
-assert.ok(src.home.includes("label: 'Find my route'"), 'homepage has the required primary action');
-assert.ok(src.home.includes("label: 'Browse all routes'"), 'homepage has the required secondary action');
+assert.ok(src.home.includes('Find the right language proof before you book an exam.'), 'homepage has the selected route-planning task');
+assert.ok(src.home.includes('VisaLang check'), 'homepage includes the route-check visual panel');
+assert.ok(src.home.includes('href="/tools/route-finder/">Find my starting route'), 'homepage has the required primary action');
+assert.ok(src.home.includes('href="#principle-title">How to verify a requirement</a>'), 'homepage has the required secondary action');
 assert.ok(src.home.includes('<RouteSelector'), 'homepage uses the shared purpose selector');
 assert.ok(src.home.includes('<TrustNotice'), 'homepage uses the shared trust strip');
 assert.ok(src.home.includes('guides.length'), 'homepage guide count is data-driven');

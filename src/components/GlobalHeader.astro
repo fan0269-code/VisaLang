@@ -14,7 +14,7 @@ const navLabel = (key: keyof typeof labels) => `${labels[key]}${isZh && key !== 
 
 <header class="global-header" data-global-header>
   <div class="global-header__inner">
-    <a class="global-header__brand" href={isZh ? '/zh/' : '/'} aria-label={`${site.name} ${labels.home}`}>{site.name}</a>
+    <a class="global-header__brand" href={isZh ? '/zh/' : '/'} aria-label={`${site.name} ${labels.home}`}>Visa<span>Lang</span></a>
     <nav class="global-header__nav" aria-label={isZh ? '主导航' : 'Primary navigation'}>
       {navItems.map((item) => {
         const href = localHref(item.href);

@@ -1612,3 +1612,89 @@ Verification:
 - `git diff --check` — passed.
 - Rendered QA: desktop homepage and a configured 390px mobile viewport loaded with the expected title/hero, no relevant console warnings/errors, and no horizontal document overflow.
 - Interaction QA: the unique homepage primary CTA continued to navigate to `/tools/route-finder/`; the resulting mobile Route Finder page rendered with no horizontal overflow or relevant console warnings/errors.
+
+## NextNation-inspired homepage design refinement — 2026-07-12
+
+Scope: UI-only redesign based on a live visual reference from `https://nextnation.co/`. The reference informed hierarchy, contrast, whitespace, contained panels, and action emphasis; its branding, copy, login modal, imagery, immigration-service claims, and assets were not copied. Route data, tool behavior, SEO/schema, verification wording, commercial boundaries, and deployment configuration remain unchanged.
+
+Completed:
+
+- Rebuilt the English homepage hero in `src/pages/index.astro` as a stronger split decision surface: headline and CTAs on the left, a three-move verification journey on the right, and an explicit verification boundary beneath the actions.
+- Reworked the shared UI system in `src/styles/global.css`: blue primary action, navy emphasis surface, larger editorial type, rounded but restrained shared surfaces, clearer header states, stronger card interaction cues, and a dark global footer.
+- Refined homepage route selection into a contained, high-contrast interaction surface. Hover/focus-capable routes receive visual feedback without changing their destinations.
+- Added responsive rules for the split hero and retained full-width mobile CTAs, stable navigation, and single-column content at small widths.
+- Updated the homepage CTA source assertions in `tests/site.test.js` to validate the real semantic links rather than the retired `PageHero` prop syntax. This preserves the behavior contract while allowing the homepage to own its visual structure.
+
+Verification:
+
+- `npm test` — passed.
+- `npm run build` — passed; 98 static pages generated.
+- `npm run launch-check` — passed; 24 checks, 0 failures, `READY`.
+- `git diff --check` — passed.
+- Visual QA: live source capture, local desktop capture, mobile capture, and a side-by-side comparison are saved under `.audit/flowlight-ui-2026-07-12/`; the formal review is in `design-qa.md` with `final result: passed`.
+- Local desktop and 500px mobile captures show no clipped headings, off-screen primary action, or persistent-control overflow. The production deployment status remains separate and unverified by this local UI pass.
+
+## Selected Option 3: pale-canvas route-atlas homepage — 2026-07-12
+
+Scope: the user selected the third generated direction (international route planning) and then requested a pale background. This pass changes only the English homepage presentation, its original hero image asset, source assertions, and visual QA record. It does not change any route/tool logic, factual content, CTA destination, sitemap/schema, commercial claim, or deployment configuration.
+
+Completed:
+
+- Reframed the homepage headline around route planning and verification, then added an original `public/images/route-atlas-hero.png` asset with route-relevant mountain, rail, and city imagery.
+- Rebuilt the selected hero as three desktop zones: verification copy, route atlas, and a cobalt three-step planning panel.
+- Kept the surrounding canvas pale blue for information density and reading comfort, while retaining the selected direction's dark-navy hero stage, cobalt planning panel, yellow primary action, and yellow route-step markers.
+- Added the homepage-specific light/dark token rules without changing the shared route, guide, or tool content surfaces.
+- Added a precise mobile override after visual QA found the more-specific homepage grid overriding the generic single-column breakpoint. The corrected 500px screenshot now has one ordered column, full-width actions, and no clipped persistent controls.
+- Updated the homepage source assertion so the selected route-planning task and route-atlas asset are regression-checked.
+
+Verification:
+
+- `npm test` — passed after the selected-homepage assertion and responsive repair.
+- `npm run build` — passed; 98 static pages generated.
+- `npm run launch-check` — passed; 24 checks, 0 failures, `READY`.
+- `git diff --check` — passed.
+- Desktop evidence: `.audit/flowlight-ui-2026-07-12/09-option3-light-desktop.png`.
+- Mobile evidence: `.audit/flowlight-ui-2026-07-12/11-option3-light-mobile-fixed.png`.
+- Comparison evidence and full current QA record: `design-qa.md` (`final result: passed`).
+
+Correction after clarification:
+
+- The user clarified that “pale background” applies only to the page canvas, not to the selected third direction's hero identity. Restored the dark-navy route stage, yellow primary action, route-atlas composition, cobalt three-step panel, and dark route selector; no route/tool/content behavior changed.
+- Corrected desktop evidence: `.audit/flowlight-ui-2026-07-12/14-option3-corrected-desktop-fixed.png`.
+- Corrected mobile evidence: `.audit/flowlight-ui-2026-07-12/15-option3-corrected-mobile.png`.
+
+## Exam-learning visual-system refinement — 2026-07-12
+
+Scope: full shared UI-system refresh and English homepage presentation inspired by the high-level product patterns of `https://www.testgerman.de/`: spacious learning-oriented composition, bright primary action, a contained practice-style panel, and clear progression. This is not a clone: TestGerman branding, logo, copy, user counts, course/exam data, pricing, product claims, AI mentor flow, imagery, partner badges, and page implementation were not copied. VisaLang route data, tool behaviour, SEO/schema, legal/verification boundaries, and CTA destinations remain unchanged.
+
+Completed:
+
+- Replaced the prior mixed visual overrides with a coherent light exam-learning system: warm off-white canvas, navy text, restrained blue support surfaces, yellow primary action, compact navigation, and softened information panels.
+- Rebuilt the English homepage hero into an original decision-and-practice composition using VisaLang's existing original route-atlas asset and verification-first language.
+- Applied the new system across shared cards, route selectors, guide articles, tool panels, filters, notices, and footer so the non-homepage routes keep the same visual family.
+- Created a Figma design file named `VisaLang · Exam learning UI direction`. The first local-page import could not finish because the connected Figma/Codex account reached its current usage limit; no partially imported capture is treated as a completed Figma deliverable.
+
+Verification:
+
+- `npm test` — passed.
+- `npm run build` — passed; 98 static pages generated.
+- Desktop evidence: `.audit/flowlight-ui-2026-07-12/16-exam-learning-desktop.png`.
+- Mobile evidence: `.audit/flowlight-ui-2026-07-12/17-exam-learning-mobile.png`; no clipped primary actions or horizontal overflow observed.
+
+## Optimize Flowlight UI warm-system adoption — 2026-07-12
+
+Input reviewed: `/Users/fanlw/Downloads/Optimize Flowlight UI (1)`, the user-provided React export.
+
+Scope: presentation-only adoption of the export's warm paper palette, wine-red primary action, yellow support surface, rounded `Baloo 2` display type, compact navigation, and white route-check card pattern. Existing VisaLang routes, guide/tool logic, legal boundaries, structured data, CTA destinations, and deployment configuration remain unchanged.
+
+Completed:
+
+- Added the source direction's `Baloo 2` and `Poppins` type pairing through shared layout font links, then applied it to the visual hierarchy without changing content semantics.
+- Rebuilt the English homepage hero as a reference-aligned white route-check card: status badge, authority-first route prompt, green progress state, pale-yellow explanatory note, and wine-red primary action.
+- Reworked the shared header, footer, buttons, route grids, cards, guide/tool surfaces, alerts, and filters into the same warm visual system. The global brand now uses the intended `Visa` / red `Lang` treatment.
+- Removed the stale IPv4 local preview process and started a read-only static local preview from the fresh `dist/` output at `http://127.0.0.1:4321/`; this does not change production hosting.
+
+Verification:
+
+- Desktop evidence: `.audit/flowlight-ui-2026-07-12/22-warm-reference-desktop-built.png`.
+- Mobile evidence: `.audit/flowlight-ui-2026-07-12/23-warm-reference-mobile-built.png`; no horizontal overflow, clipped action, or hidden route-check panel observed.
