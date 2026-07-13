@@ -4,7 +4,7 @@ description: "A planning guide for German citizenship applicants: separate B1 la
 category: "germany-b1"
 slug: "germany-b1-citizenship-language-proof"
 publishedDate: "2026-07-11"
-updatedDate: "2026-07-11"
+updatedDate: "2026-07-13"
 author: "VisaLang"
 readingTime: "7"
 featured: true
@@ -42,7 +42,8 @@ Use the [DTZ vs Goethe B1 vs telc B1 comparison](/guides/goethe-b1-vs-telc-b1/) 
 
 ## Official sources
 
+- [BAMF: naturalisation](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html)
 - [German Government: key questions about naturalisation](https://www.einbuergerung.de/service.php?l=en)
 - [BAMF: migration and residence](https://www.bamf.de/EN/Themen/MigrationAufenthalt/migration-node.html)
 
-Last updated: 2026-07-11. Official sources last checked: 2026-07-11.
+Last updated: 2026-07-13. Official sources last checked: 2026-07-13.

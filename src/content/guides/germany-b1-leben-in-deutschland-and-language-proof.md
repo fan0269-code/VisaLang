@@ -4,7 +4,7 @@ description: "How to organise a Germany B1 and Leben in Deutschland question wit
 category: "germany-b1"
 slug: "germany-b1-leben-in-deutschland-and-language-proof"
 publishedDate: "2026-07-11"
-updatedDate: "2026-07-11"
+updatedDate: "2026-07-13"
 author: "VisaLang"
 readingTime: "6"
 featured: true
@@ -37,6 +37,7 @@ Language and civic knowledge are only possible evidence categories. Keep residen
 ## Official sources
 
 - [BAMF: integration-course final examinations](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse/Abschlusspruefung/abschlusspruefung-node.html)
+- [BAMF: naturalisation](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html)
 - [German Government: key questions about naturalisation](https://www.einbuergerung.de/service.php?l=en)
 
-Last updated: 2026-07-11. Official sources last checked: 2026-07-11.
+Last updated: 2026-07-13. Official sources last checked: 2026-07-13.

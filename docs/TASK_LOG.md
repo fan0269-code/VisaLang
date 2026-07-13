@@ -2,6 +2,38 @@
 
 Updated: 2026-07-13
 
+## Phase 2 Germany B1 content quality window — 2026-07-13
+
+Scope: continue the content-quality plan after the A1 audit by tightening the Germany B1 settlement/citizenship cluster. No A1 content, Header/Footer, tool engine, global styling, deployment configuration, analytics, advertising, pricing, partners, or route-review commercial flow was changed.
+
+Completed:
+
+- Added `docs/PHASE_2_B1_CONTENT_AUDIT.md` as the B1 source and editorial boundary record.
+- Added `tests/germany-b1-cluster.test.js` and wired it into `npm test`.
+- Rechecked the B1 cluster as 13 existing guide pages; no new B1 slug was added.
+- Updated the B1 hub timestamp and the audited B1 guides' source-check dates.
+- Tightened high-risk B1 guidance so language proof, civic knowledge, residence history, livelihood/income, insurance, housing, identity, documents, fees, appointments, and procedure stay separate.
+- Removed unsafe universal planning language from the B1 fee/booking and study-plan pages; both now require authority acceptance and local-centre terms before booking or relying on a schedule.
+
+Official-source boundary:
+
+- Used BAMF settlement/residence, naturalisation, and integration-course final-exam pages; Goethe B1 / German examinations pages; telc B1 / centre-finder pages; and the German Government naturalisation starting point only within their stated scope.
+- Did not add fixed fees, result times, retake windows, appointment waits, accepted-certificate guarantees, exemption conclusions, or individual eligibility findings.
+- The competent authority remains the source of settlement/citizenship acceptance and procedure; the official or authorised centre remains the source of local exam logistics.
+
+Verification:
+
+- `node tests/germany-b1-cluster.test.js` — passed.
+- `npm test` — passed, including route tools, commercial pages, A1 cluster, B1 cluster, content integrity, UI/route/tool/SEO/accessibility/migration checks.
+- `npm run build` — passed; 98 static pages generated.
+- `npm run launch-check` — passed; 24 checks, 0 failures, `READY`.
+- `git diff --check` — passed.
+
+Remaining manual checks:
+
+- Before a reader books, pays, submits, or changes an application plan, manually check the competent local authority's current B1/civic-knowledge/document/procedure instruction and the selected centre's current fee, ID, result, certificate, cancellation, rescheduling, and retake rules.
+- Do not open a second-route expansion until the plan's data prerequisites are met; if continuing content work without those prerequisites, keep deepening A1/B1 official-source quality rather than creating thin new pages.
+
 ## Astro 7 production post-release record and health review — 2026-07-13
 
 Scope: record the already-published Astro 7 security upgrade and run a lightweight production health review. No content, UI, SEO, routes, commercial pages, analytics, advertising, deployment configuration, or dependencies were changed.

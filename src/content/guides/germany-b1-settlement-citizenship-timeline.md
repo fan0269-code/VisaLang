@@ -4,7 +4,7 @@ description: "A planning timeline for Germany B1 language proof, civic knowledge
 category: "germany-b1"
 slug: "germany-b1-settlement-citizenship-timeline"
 publishedDate: "2026-07-11"
-updatedDate: "2026-07-11"
+updatedDate: "2026-07-13"
 author: "VisaLang"
 readingTime: "6"
 featured: true
@@ -43,7 +43,9 @@ Use the [timeline calculator](/tools/timeline-calculator/) to organise your own 
 ## Official sources
 
 - [BAMF: migration and residence](https://www.bamf.de/EN/Themen/MigrationAufenthalt/migration-node.html)
+- [BAMF: settling in Germany](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Migrathek/Niederlassen/niederlassen-node.html)
+- [BAMF: naturalisation](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html)
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
 - [telc German certificate exams](https://www.telc.net/en/language-examinations/certificate-exams/german/)
 
-Last updated: 2026-07-11. Official sources last checked: 2026-07-11.
+Last updated: 2026-07-13. Official sources last checked: 2026-07-13.

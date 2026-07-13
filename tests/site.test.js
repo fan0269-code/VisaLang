@@ -5,6 +5,7 @@ const path = require('node:path');
 require('./route-tools.test.js');
 require('./commercial-pages.test.js');
 require('./germany-a1-cluster.test.js');
+require('./germany-b1-cluster.test.js');
 require('./content-integrity.test.js');
 
 const read = (file) => fs.readFileSync(file, 'utf8');

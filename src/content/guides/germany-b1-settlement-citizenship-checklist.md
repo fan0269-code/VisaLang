@@ -4,7 +4,7 @@ description: "A non-legal planning checklist for Germany B1 settlement-permit an
 category: "germany-b1"
 slug: "germany-b1-settlement-citizenship-checklist"
 publishedDate: "2026-07-11"
-updatedDate: "2026-07-11"
+updatedDate: "2026-07-13"
 author: "VisaLang"
 readingTime: "7"
 featured: true
@@ -48,6 +48,8 @@ Do not book a language exam as a substitute for understanding the application pr
 ## Official sources
 
 - [BAMF: migration and residence](https://www.bamf.de/EN/Themen/MigrationAufenthalt/migration-node.html)
+- [BAMF: settling in Germany](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Migrathek/Niederlassen/niederlassen-node.html)
+- [BAMF: naturalisation](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html)
 - [German Government: key questions about naturalisation](https://www.einbuergerung.de/service.php?l=en)
 
-Last updated: 2026-07-11. Official sources last checked: 2026-07-11.
+Last updated: 2026-07-13. Official sources last checked: 2026-07-13.
