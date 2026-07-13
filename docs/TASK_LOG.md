@@ -2,6 +2,60 @@
 
 Updated: 2026-07-13
 
+## Astro major upgrade assessment and controlled fix — 2026-07-13
+
+Scope: evaluate and repair the `npm audit` findings rooted in `astro@5.18.2` and its nested `esbuild@0.27.7` with the smallest controlled framework upgrade. No page copy, UI styling, routes, SEO/schema, commercial pages, analytics, advertising, deployment configuration, or unrelated documentation was changed.
+
+Upgrade candidate review:
+
+- `astro@6.4.8`: SemVer-major from Astro 5. It is above the Astro advisory fix thresholds (`<6.1.6`, `<6.1.10`, `<6.3.3`, `<6.4.6`) and removed the previous high-severity Astro advisories, but `npm audit --json --registry=https://registry.npmjs.org` still reported 2 low vulnerabilities because Astro 6 kept `astro/node_modules/esbuild@0.27.7` in the vulnerable range. Not accepted.
+- `astro@7.0.7`: SemVer-major from Astro 5 and the version suggested by npm audit. It depends on `esbuild@^0.28.0`; after install, `npm audit --json --registry=https://registry.npmjs.org` reported 0 vulnerabilities. Accepted after full local release-gate verification.
+
+Implemented:
+
+- Updated `astro` from `^5.18.2` to `^7.0.7`.
+- Added `@astrojs/markdown-remark@^7.2.1` as an explicit dependency because `src/data/article-sections.ts` imports it directly and Astro 7 no longer left that transitive package resolvable for the project build.
+- Updated `package-lock.json` through npm install only. `npm audit fix --force` was not used.
+
+Verification:
+
+- Pre-upgrade audit: 2 vulnerabilities total, 1 low and 1 high, rooted in direct `astro` and nested `astro/node_modules/esbuild`.
+- Astro 6 trial audit: 2 low vulnerabilities remained, both through nested `esbuild`.
+- Final audit on Astro 7: 0 vulnerabilities.
+- `npm test` — passed.
+- `npm run build` — passed; 98 static pages generated.
+- `npm run launch-check` — passed; 24 checks, 0 failures, `READY`.
+- `git diff --check` — passed.
+- Follow-up clean-install verification after `npm ci --registry=https://registry.npmjs.org` — passed: `npm test`, `npm run build`, `npm run launch-check`, `npm audit --json --registry=https://registry.npmjs.org`, and `git diff --check` all remained clean.
+
+Manual confirmation:
+
+- Production was not deployed in this window.
+- Recommended next human check before release: review the dependency-only diff, confirm the team accepts the Astro 7 framework-major jump, then run the normal publish decision separately.
+
+## Dependency security audit window — 2026-07-13
+
+Scope: verify the current `npm ci` / `npm audit` dependency security warnings and decide whether a minimal, controlled upgrade is available. No page content, UI styling, route logic, commercial page, analytics/advertising configuration, deployment script, or unrelated documentation was changed.
+
+Audit result:
+
+- Initial `npm audit --json` against the configured `https://registry.npmmirror.com` registry failed because that mirror does not implement npm's security audit endpoint.
+- Re-ran `npm audit --json --registry=https://registry.npmjs.org`; confirmed 2 vulnerabilities total: 1 low and 1 high.
+- Direct vulnerable dependency: `astro@5.18.2`.
+- Indirect vulnerable dependency: `astro`'s bundled `esbuild@0.27.7`.
+- `npm audit` reports the available automatic fix as `astro@7.0.7`, marked as a SemVer-major update.
+
+Decision:
+
+- No non-breaking fix is available inside the current `astro@^5.18.2` range; `npm view astro@5` shows `5.18.2` as the latest Astro 5 release.
+- A patched Astro line exists in later majors, but moving from Astro 5 to Astro 6 or 7 is a framework major upgrade and was not applied in this security-only window.
+- `npm audit fix --force` was not used.
+- Current production risk is limited by the site being built as static Astro output, but the direct dependency still affects the build framework and any future SSR/server-island/dev-server usage. Treat this as a build-chain and framework-surface risk rather than a confirmed exploit in the current static pages.
+
+Follow-up trigger:
+
+- Open a separate controlled Astro-major-upgrade window if the business accepts the migration risk. That window should review Astro 6/7 breaking changes, update dependencies deliberately, run the full release gate, and visually smoke-check key pages before any production deployment.
+
 ## Open Design UI production release — 2026-07-13
 
 Scope: publish the already reviewed Open Design UI layer to the current production host. No guide text, route logic, tool calculations, analytics, advertising, policy copy, or deployment script was changed during this release.
