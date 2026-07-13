@@ -1,41 +1,67 @@
 ---
 title: "TestDaF vs Goethe C1 vs DSH for University Entry"
-description: "Compare the three main German university language exams — TestDaF, Goethe C1, and DSH."
+description: "A programme-first framework for comparing TestDaF, Goethe certificates, and DSH as possible language proofs."
 category: "germany-testdaf"
 slug: "testdaf-vs-goethe-dsh"
 publishedDate: "2026-06-30"
-updatedDate: "2026-06-30"
+updatedDate: "2026-07-13"
 author: "VisaLang"
 readingTime: "5"
 featured: false
 eyebrow: "Germany · University"
 route: "germany-testdaf"
-related: ["goethe-b1-germany-settlement-work", "goethe-b1-fees-and-booking", "goethe-b1-vs-telc-b1"]
+related: ["testdaf-germany-university-admissions", "testdaf-levels-and-scoring", "testdaf-preparation-and-practice"]
 ---
 
-## Quick comparison
+## Start with the programme's accepted-proof list
 
-- **TestDaF:** TDN 4 in all sections is the typical university requirement. Offered worldwide at licensed centres. Widely accepted.
-- **Goethe C1/C2:** Goethe-Zertifikat C1 or C2 is accepted by many universities. Goethe centres are available in many countries.
-- **DSH:** Deutsche Sprachprüfung für den Hochschulzugang. Offered only at German universities. DSH-2 is the typical requirement.
+Do not choose between TestDaF, a Goethe certificate, and DSH from a general comparison. The target university and programme decide which language proofs and result patterns they currently accept.
 
-        
-        
-          
+Open the programme's current admissions or International Office page first. Record its URL and checked date, then note the exact certificate names and result requirements it lists. If it does not state the position clearly, ask the programme before planning an exam.
 
-## How to decide
+## Compare only after the programme confirms the options
 
-If you are outside Germany, TestDaF or Goethe are more accessible. If you are already in Germany near a university, DSH may be cheaper and scheduled more frequently. Start by checking which certificates your target university lists as accepted — most publish a clear table on their international admissions page.
+Once the programme has named the acceptable proofs, use the official source for each option:
 
-        
-        
-          
+| Option | Official source to use | What still needs the programme or local provider |
+| --- | --- | --- |
+| TestDaF | [TestDaF official information](https://www.testdaf.de/de/) | Whether the programme accepts your TestDaF result; the selected centre's current local terms. |
+| Goethe certificate | [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html) | Whether the programme accepts the exact Goethe certificate and result; the selected centre's current local terms. |
+| DSH | The official page of the university that offers the DSH named by the programme | Whether that DSH is an accepted proof for the programme and the university's current DSH information. |
+
+These provider pages can explain their own examinations. They do not establish a programme's admission requirement, minimum result, document list, or an individual application outcome.
+
+## Provider facts that are safe to compare
+
+For the digital TestDaF, the [official test-structure page](https://www.testdaf.de/de/teilnehmende/der-digitale-testdaf/aufbau-des-digitalen-testdaf/) describes four test parts: reading, listening, writing, and speaking. For Goethe-Zertifikat C1, the [Goethe-Institut examinations page](https://www.goethe.de/en/spr/prf.html) describes a C1 certificate with listening, reading, writing, and speaking modules that may be taken and certified individually or together.
+
+These are descriptions of the providers' products. They do not show that a particular programme accepts TestDaF, Goethe C1, a DSH, or any specified result.
+
+## Questions that keep the comparison useful
+
+Use the programme page and the relevant official provider page to answer, in this order:
+
+1. Which exact proofs does the programme currently list?
+2. Does it state a required overall result or component pattern for the proof you are considering?
+3. Which official provider page explains that exact examination?
+4. Which selected official centre or DSH university provides the current local registration information?
+
+Do not use another university's list, a provider overview, price, availability, scheduling, or convenience as a substitute for the programme's requirement.
 
 ## Next action
 
-Visit the TestDaF Institute and Goethe exam pages, compare available dates in your country, and cross-check with your target university's current language admission requirements.
+Save the programme's accepted-proof wording first. Then open the matching TestDaF, Goethe, or DSH provider page and check the selected provider or university directly for current local details before registering.
+
+## Continue your TestDaF decision route
+
+1. [Return to the programme-first admissions check](/guides/testdaf-germany-university-admissions/) and keep its requirement as the comparison boundary.
+2. [Review how TestDaF reports component results](/guides/testdaf-levels-and-scoring/).
+3. [Continue to official TestDaF preparation after you have selected the proof and format](/guides/testdaf-preparation-and-practice/).
 
 ## Official sources
 
-- [TestDaF Institute](https://www.testdaf.de/)
-- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
+- [TestDaF official information](https://www.testdaf.de/de/)
+- [TestDaF: digital test structure](https://www.testdaf.de/de/teilnehmende/der-digitale-testdaf/aufbau-des-digitalen-testdaf/)
+- [Goethe-Institut: German examinations](https://www.goethe.de/en/spr/prf.html)
+
+Last updated: 2026-07-13. Official sources last checked: 2026-07-13.
