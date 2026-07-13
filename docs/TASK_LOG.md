@@ -2,6 +2,43 @@
 
 Updated: 2026-07-13
 
+## AdSense European consent publication — 2026-07-13
+
+Scope: account-side publication and regional user verification only. No source code, policy wording, analytics implementation, deployment configuration, or other service was changed in this step.
+
+User-confirmed result:
+
+- The European regulations message was published in AdSense after the matching policies were deployed.
+- A regional test showed the consent message, Google-only management options, and normal page behaviour after rejection.
+
+Evidence boundary:
+
+- This is user-reported verification. Retain a dated screenshot or AdSense settings export as the operating record; do not treat this log as independent legal approval.
+- Plausible remains unconfigured and must not be installed until account ownership, backup access, retention/deletion and DPA review are documented.
+
+## Privacy and Cookie Policy alignment — 2026-07-13
+
+Scope: align the Astro Privacy Policy and Cookie Policy with the chosen AdSense direction, the drafted European consent message, and the fact that Plausible is not yet enabled. No advertising, analytics, consent-message, account, deployment, or other third-party configuration was changed.
+
+Completed:
+
+- Updated `src/pages/privacy-policy.astro` to disclose the retained Google AdSense script, consent-dependent advertising choices, local tool-progress storage, and the limited future Plausible event scope without claiming that Plausible is live.
+- Updated `src/pages/cookie-policy.astro` to remove the incorrect Plausible-cookie claim; document advertising/consent storage, local tool-progress storage, and the future no-cookie Plausible design.
+- Preserved the limits against collecting tool answers, free text, email addresses, document details, or other user-provided identifiers in analytics events.
+
+Verification:
+
+- `npm test`: passed.
+- `npm run build`: passed; 98 static routes generated.
+- `npm run launch-check`: passed; 24 checks, `READY`.
+- `git diff --check`: passed.
+
+Not yet complete:
+
+- The updated policies were released in `b9f83b9` and deployed from `main` to `/var/www/flowlight.me/public/dist` on 2026-07-13. The public `/privacy-policy/` and `/cookie-policy/` pages returned HTTP 200 and expose the 2026-07-13 date plus the new AdSense/Plausible wording.
+- The AdSense European consent message remains a user-prepared draft. Publish it only now that the matching policies are live, then run a post-publication regional verification before treating advertising consent as complete.
+- Plausible remains unconfigured and must not be added before its account owners, retention/deletion decision and DPA review are recorded.
+
 ## Phase 2 Germany A1 content close-out — 2026-07-13
 
 Scope: final evidence and release-gate record for the seven English Germany A1 family-reunion guides. No route, layout, tool, navigation, Chinese page, commercial surface, analytics, advertising, deployment, or legacy-file change was made in this close-out.
@@ -33,6 +70,105 @@ Remaining manual checks:
 
 - Before a reader books, pays, changes an appointment, or submits a visa file, manually check the responsible German mission's current family-reunion instruction and the selected official local centre's current terms.
 - Treat any locally unavailable, time-sensitive, or conflicting instruction as a verification stop, not an inferred answer.
+
+## Phase 1 privacy and consent audit — 2026-07-13
+
+Scope: audit the business direction to use Plausible Analytics Cloud Growth and retain AdSense. No code, account setting, consent message, policy wording, deployment, or data collection was changed.
+
+Decision:
+
+- Search Console is deferred from this review and remains unconfirmed.
+- Plausible Cloud Growth is conditionally approved as the selected future analytics service, limited to the existing five-event scope and with no event properties or user-provided values. It cannot be deployed before account owners, retention/deletion decision and DPA review are recorded.
+- Retaining the current AdSense implementation is **not approved**. The public homepage loads the script but no CMP/consent flow is present, and public policy text describes advertising as future-only. The implementation remains an unresolved risk rather than an authorised advertising state.
+- Phase 1 remains closed. The full evidence, official-source links and remediation checklist are in `docs/PHASE_1_PRIVACY_CONSENT_AUDIT_2026-07-13.md`.
+
+## Planning-alignment window — 2026-07-13
+
+Scope: planning, operations and historical-roadmap documentation only. No application page, tool logic, third-party integration, legal copy, deployment configuration, release, or content fact was changed.
+
+Completed:
+
+- Declared `docs/MASTER_EXECUTION_PLAN.md` as the only future execution sequence; `docs/OPERATIONS_STATUS.md` as the current evidence and gate record; `docs/PROJECT_CONTEXT.md` as a project map; and this task log as historical window evidence.
+- Marked the traffic and monetization roadmaps as non-authorising historical strategy references, so their older waitlist, tracking, advertising and expansion ideas cannot bypass the current Phase 1 gate.
+- Replaced the obsolete “next window is Phase 0” instruction. The technical baseline is recorded; the only next window is a no-code Phase 1 entry-confirmation pass with two valid outcomes: open a separately authorised minimal-event window or keep the gate closed.
+- Updated deployment wording: the last recorded release used `f258472…`; current local `main` is `c5838eb`, `origin/main` is `f092be6`, and the public homepage contains Open Design markup, but no public version marker proves the current deployed commit.
+- Recorded the visible AdSense loader as an unresolved business/privacy risk. It was not removed or expanded in this documentation-only window; a business/legal decision and, if needed, a separately authorised code-removal window remain required.
+
+Verification:
+
+- Read-only Git check: local `main` remains three commits ahead of `origin/main`.
+- Read-only public check: `/`, both Germany hubs, `/tools/`, `/guides/`, `/zh/`, `/pricing/`, and `/contact/` returned HTTP 200.
+- Documentation-only change: build, tests, deployment and third-party services were intentionally not run or changed.
+
+Next-window prerequisite:
+
+- Business completes every owner/evidence row in `docs/OPERATIONS_STATUS.md`, including an explicit AdSense/Plausible decision. Until then, Phase 1 remains closed.
+
+## Phase 1 entry-responsibility verification — 2026-07-12
+
+Scope: documentation, repository-state verification, and entry-gate decision only. No application pages, tool logic, factual guide content, visual system, deployment script, Nginx configuration, third-party service, personal-data collection, commit, or deployment was changed.
+
+Completed:
+
+- Re-read the Phase 0/1 sequence in `docs/MASTER_EXECUTION_PLAN.md`, current project context, release record, and operations status. Confirmed the technical release baseline remains: local `main` and `origin/main` resolve to `f25847291d053a927d0b0a2c062474bf9d5a100b`; production was published from that `main` commit to `/var/www/flowlight.me/public/dist`; the prior `7e9cd943…` static artifact remains recorded for rollback.
+- Performed a read-only public recheck at 2026-07-12 20:58 Asia/Shanghai: `/`, Germany A1, Germany B1, `/tools/`, `/guides/`, and `/zh/` returned HTTP 200 with the expected titles. This confirms reachability only and does not establish any account, approval, service-receipt, or business-operation evidence.
+- Reworked `docs/OPERATIONS_STATUS.md` into the seven required Phase 1 entry items. Every row now explicitly records named primary/backup placeholders, status, evidence, gap/risk, and next action for Search Console; analytics/data retention; privacy/consent; contact receiver/data limits/SLA; official-fact review; release/rollback roles; and the fixed release process.
+- Verified only repository-visible configuration. The legacy root `index.html` contains a Plausible loader and the Astro shared layout contains an AdSense loader; the source Privacy/Cookie pages also describe Plausible. None supplies an account, access role, processor/retention decision, legal approval, consent decision, or live-service receipt. `/contact/` displays `hello@flowlight.me`, but no receiving/triage proof, permitted-data rule, SLA, or verified mailbox route was found.
+- Marked all business owners and approvals as **待业务方确认**, rather than inferring availability from page copy or legacy documentation. Clarified in `docs/PROJECT_CONTEXT.md` that the 2026-07-11 legacy-production observation is historical and is superseded by the 2026-07-12 live deployment baseline.
+
+Decision:
+
+- **暂不启动阶段 1。** The required business conditions are not all explicitly confirmed. No analytics, lead capture, conversion, payment, mail, form, or other third-party integration may begin in this state.
+
+Residual risks:
+
+- Existing Privacy/Cookie source text and the legacy Plausible loader conflict with the absence of account/access/approval evidence; the Astro layout also contains an AdSense loader. Treat all of these as unverified service/compliance evidence, not as authorization or proof that a service is operating.
+- The rollback artifact is preserved but has not been restoration-drill verified. A fixed release path is technically evidenced for this release, but release and rollback authority are not yet an approved operating procedure.
+- `hello@flowlight.me` is a contact display string only; its owner, receiving endpoint, retention/deletion handling, triage, and reply SLA remain unknown.
+
+Next-window prerequisite:
+
+- Business must complete every Phase 1 gate row in `docs/OPERATIONS_STATUS.md` with named primary/backup owners and inspectable evidence: Search Console property and sitemap status; analytics account/view access; privacy/consent decision; contact receiver and data handling; reply SLA; official-source reviewers; release and rollback authorities; and an approved branch/target/rollback SOP.
+- Only then open a new Phase 1 window, limited to privacy-safe events for route selection, tool completion, official external-link click, guide CTA, and contact intent. It must not transmit tool results or personal information.
+
+## Production release: local `main` deployed — 2026-07-12
+
+Scope: publish the current local `main` after release gates, with a server-side build, a preserved prior static artifact, and public route verification.
+
+Completed:
+
+- Confirmed local `main` and `origin/main` both resolve to `f25847291d053a927d0b0a2c062474bf9d5a100b` (`feat: adopt warm Flowlight UI system`). Local uncommitted material was limited to documentation and unrelated/untracked files, so it was not included in the release target.
+- Release gate passed locally: `npm test`, `npm run build`, and `npm run launch-check`; build output contained 98 routes and launch check was `24/24` passed, `READY`.
+- Preserved the former production static output (`7e9cd943…`) at `/var/www/flowlight.me/releases/20260712T202600CST-7e9cd943/dist` before changing the live directory.
+- Switched server source from `feature/flowlight-rebrand` to `main` at `f258472…`, ran `npm ci` and `npm run build` on the server, staged the output, then published it to `/var/www/flowlight.me/public/dist`.
+- `nginx -t` passed before and after publication; Nginx reload succeeded.
+- Final public HTTPS check at 2026-07-12 20:27 Asia/Shanghai: `/`, `/germany-family-reunion-a1/`, `/germany-b1-settlement-citizenship/`, `/tools/`, `/guides/`, and `/zh/` all returned HTTP 200 with expected titles.
+
+Residual risks:
+
+- The rollback static artifact is preserved but has not yet been exercised as a restoration drill.
+- Business ownership for Search Console, analytics, privacy/consent, contact receiver, reply SLA, and official-source review remains unconfirmed. This continues to block Stage 1 tracking and any lead-capture/commercial activation.
+
+## Phase 0 operational baseline and production smoke check — 2026-07-12
+
+Scope: deployment/rollback contract, public smoke check, operating ownership status, and documentation correction only. No application pages, guide facts, tool logic, third-party services, or deployment files were changed.
+
+Completed:
+
+- Logged into the deployment server after its current SSH host key matched the local known-host record.
+- Confirmed Nginx serves `/var/www/flowlight.me/public/dist` with `index.html`; the server source is under `/var/www/flowlight.me/source`.
+- Confirmed the active server source is `feature/flowlight-rebrand` at `7e9cd943ef24f247b6513758535ae26b072dbf3e`, while the local checkout's `main` is a different commit. The server output exists, but this does not establish that local `main` is live.
+- Performed a public HTTPS smoke check at 2026-07-12 20:19 Asia/Shanghai. `/`, `/germany-family-reunion-a1/`, `/germany-b1-settlement-citizenship/`, `/tools/`, `/guides/`, and `/zh/` all returned HTTP 200 with expected titles.
+- Added `docs/OPERATIONS_STATUS.md` as the single current status page for deployment evidence, smoke checks, ownership gaps, and the Phase 1 entry gate.
+
+Risks and blockers:
+
+- The checked-in deployment script pulls `origin main`, but the running server checkout is a feature branch. Do not deploy or describe a local `main` build as live until the release owner selects the intended branch/commit and a rollback commit.
+- Search Console, analytics access, privacy/consent, contact receiver, reply SLA, official-source reviewer, and release owner are not yet confirmed. No tracking, lead capture, payment, email delivery, or consultation intake may be activated.
+
+Next-window prerequisite:
+
+- Business owner records the missing responsibilities in `docs/OPERATIONS_STATUS.md` and explicitly chooses the production branch/commit plus rollback point. Once that is done, Stage 1 may be scoped as a privacy-safe, minimal observability window; otherwise continue only official-source content refreshes and public health checks.
 
 This log records current project-map findings, known issues, and recommended next-window boundaries for flowlight.me / VisaLang.
 

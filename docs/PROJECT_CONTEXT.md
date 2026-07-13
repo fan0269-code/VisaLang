@@ -1,8 +1,16 @@
 # VisaLang Project Context
 
-Updated: 2026-07-09
+Updated: 2026-07-13
 
 This is the shared project map for future Codex windows working on flowlight.me / VisaLang. The site is already live. Do not rebuild from scratch or make broad code changes unless the user explicitly asks for that scope.
+
+## 阶段 0 运营基线（2026-07-12）
+
+- 线上静态发布目录已实测为 `/var/www/flowlight.me/public/dist`；Nginx 为 `flowlight.me` 配置了该 root，并以 `index.html` 为入口。
+- 服务器源码目录为 `/var/www/flowlight.me/source`。其在 2026-07-12 被记录为 `main` 的 `f25847291d053a927d0b0a2c062474bf9d5a100b`，并据此构建 98 个静态路由发布到 `public/dist`；这只是历史发布记录，不是当前线上提交的证明。
+- 发布前的 `7e9cd943ef24f247b6513758535ae26b072dbf3e` 静态产物已保存为服务器回滚副本。后续发布必须继续记录目标 commit、构建时间、线上检查和回滚点。
+- 2026-07-13 的只读公网检查中：首页、Germany A1、Germany B1、工具中心、指南库、中文入口、定价页和联系页均返回 HTTP 200。公开页面含有 Open Design 标记，但没有版本标记可把线上产物精确关联到 Git 提交。完整证据和未决运营责任见 `docs/OPERATIONS_STATUS.md`。
+- 本地 `main` 当前为 `c5838eb`，比 `origin/main` 的 `f092be6` 多 3 个提交；两者都不能单独证明线上版本。2026-07-12 的阶段 1 准入责任复核已逐项完成，但没有任何项目同时具备命名主备负责人和可检查证据。Search Console、分析/广告权限与数据保留、隐私/同意、联系接收端/允许数据范围/SLA、官方事实审核、发布/回滚职责及固定发布流程均为“待业务方确认”。旧页面文字、`hello@flowlight.me`、legacy Plausible loader 或 Astro AdSense loader 都不能单独证明服务已可用或已获审批。因此**暂不启动阶段 1**；当前公开 AdSense 脚本是需要业务/法律决策的风险项，不是已获批准的服务证据。
 
 ## 项目简介
 
@@ -251,14 +259,14 @@ Important behavior:
 
 ## 当前构建和部署脚本
 
-## Product-upgrade dispatch status (verified 2026-07-11)
+## Historical product-upgrade dispatch status (verified 2026-07-11; superseded for production state)
 
-This section governs the flowlight.me product-upgrade windows. It separates the intended Astro source from the site currently reached by visitors; downstream windows must not collapse those two facts into one claim.
+This is retained as a historical dispatch record for the pre-release state. It does **not** describe current production: the 2026-07-12 deployment baseline above and `docs/OPERATIONS_STATUS.md` are authoritative for the live branch, commit, static root, rollback artifact, and Phase 1 gate.
 
 ### Deployment source-of-truth: release blocker
 
-- **Astro is the approved development target:** current product work belongs in `src/` and is built into `dist/`. The local Astro build has 49 English guides, 16 Germany A1 guides, and 9 Germany B1 guides.
-- **Production is still serving the legacy static layer:** a live check of `https://flowlight.me/` on 2026-07-11 showed 43 guides, 15 Germany A1 guides, and 4 Germany B1 guides, which does not match the current Astro output.
+- **Astro is the approved development target:** current product work belongs in `src/` and is built into `dist/`. The current source contains 54 English guide Markdown files and 5 Chinese guide routes; historical guide counts in older task-log entries are not current inventory.
+- **Historical production observation:** a live check of `https://flowlight.me/` on 2026-07-11 showed 43 guides, 15 Germany A1 guides, and 4 Germany B1 guides, which did not match the Astro output at that time.
 - **The checked-in CVM deployment script confirms the risk:** `deploy/deploy.sh` clones/pulls the repository into `/var/www/flowlight.me/public` and reloads Nginx; it does not run `npm run build` or publish `dist/`. The Nginx template roots directly at that repository directory.
 - **Decision required before any Astro release:** the deployment owner must choose and verify one production contract: (a) build on the server and serve `dist/`; (b) build in CI and publish only `dist/`; or (c) deliberately keep the legacy layer, in which case these Astro upgrade windows must not be treated as production work. Do not hand-edit `dist/` as a workaround.
 

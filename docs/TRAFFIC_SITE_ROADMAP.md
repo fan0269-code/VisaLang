@@ -2,6 +2,8 @@
 
 Date: 2026-07-02
 
+> 状态（2026-07-13）：历史战略参考，不是执行授权。任何分析、留资、邮件、广告、联盟、支付或新路线扩张，必须先遵循 `docs/MASTER_EXECUTION_PLAN.md` 的阶段顺序，并满足 `docs/OPERATIONS_STATUS.md` 的当前门禁。若本文件与上述文件冲突，以后二者为准。
+
 ## Traffic-site thesis
 
 VisaLang can start as a high-intent SEO traffic site before it becomes a product business.
