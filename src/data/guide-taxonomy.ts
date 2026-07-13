@@ -15,6 +15,24 @@ export const guideCategories = [
 
 export const guideCategoryMap = Object.fromEntries(guideCategories.map((category) => [category.slug, category]));
 
+export type GuideMaturityStatus = 'complete-route' | 'core-route' | 'deep-guide' | 'starter';
+
+export function guideMaturityStatus(category?: string): GuideMaturityStatus {
+  if (category === 'germany-a1') return 'complete-route';
+  if (category === 'germany-b1') return 'core-route';
+  return 'starter';
+}
+
+export function guideCategoryIntro(category: { slug: string; desc: string }) {
+  if (category.slug === 'germany-a1') {
+    return 'This is the site’s most complete decision route. Begin with the requirement check, then move through accepted proof, provider choice, official centres, fees, documents, study, and retake timing.';
+  }
+  if (category.slug === 'germany-b1') {
+    return 'This is a core route for settlement and citizenship planning. Use it to keep language proof, civic knowledge, and wider eligibility evidence separate before checking the competent authority.';
+  }
+  return `These are starter overview guides for ${category.desc}. Use them to identify the receiving authority, exact exam family, and official verification step before you treat any exam as suitable for your case.`;
+}
+
 const examMatchers = [
   ['goethe', 'Goethe'],
   ['telc', 'telc Deutsch'],

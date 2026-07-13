@@ -5,7 +5,7 @@ import GuideCard from '../../components/GuideCard.astro';
 import FilterBar from '../../components/FilterBar.astro';
 import SearchInput from '../../components/SearchInput.astro';
 import { getCollection } from 'astro:content';
-import { guideCategories, inferGuideMeta } from '../../data/guide-taxonomy';
+import { guideCategories, guideMaturityStatus, inferGuideMeta } from '../../data/guide-taxonomy';
 import { zhGermanyA1Guides } from '../../data/zh-germany-a1';
 
 const guidePurpose = (route: string) => {
@@ -17,10 +17,9 @@ const guidePurpose = (route: string) => {
   if (value.includes('citizenship')) return 'Citizenship';
   return 'Route research';
 };
-const maturity = (category: string, readingTime: string) => category === 'germany-a1' && Number(readingTime) >= 7 ? 'deep-guide' : category === 'germany-a1' ? 'complete-route' : 'starter';
 const guides = (await getCollection('guides')).map((guide) => {
   const meta = inferGuideMeta(guide.data);
-  return { ...guide, meta, purpose: guidePurpose(meta.route), status: maturity(guide.data.category, guide.data.readingTime) };
+  return { ...guide, meta, purpose: guidePurpose(meta.route), status: guideMaturityStatus(guide.data.category) };
 }).sort((a, b) => b.data.updatedDate.localeCompare(a.data.updatedDate));
 const options = (values: string[]) => Array.from(new Set(values)).sort().map((value) => ({ value, label: value }));
 const filters = [
@@ -30,7 +29,7 @@ const filters = [
   { name: 'exam', label: 'Exam', options: options(guides.flatMap((guide) => guide.meta.exam.split(' / '))) },
   { name: 'level', label: 'Level', options: options(guides.map((guide) => guide.meta.level)) },
   { name: 'language', label: 'Language', options: [{ value: 'en', label: 'English' }, { value: 'zh', label: '中文' }] },
-  { name: 'status', label: 'Content status', options: [{ value: 'complete-route', label: 'Complete route' }, { value: 'deep-guide', label: 'In-depth guide' }, { value: 'starter', label: 'Starter overview' }] },
+  { name: 'status', label: 'Content status', options: [{ value: 'complete-route', label: 'Complete route' }, { value: 'core-route', label: 'Core route' }, { value: 'starter', label: 'Starter overview' }] },
 ];
 const totalGuideCount = guides.length + zhGermanyA1Guides.length;
 const jsonLD = { '@context': 'https://schema.org', '@graph': [{ '@type': 'CollectionPage', name: 'VisaLang task guide library', url: 'https://flowlight.me/guides/', mainEntity: { '@id': 'https://flowlight.me/guides/#items' } }, { '@type': 'ItemList', '@id': 'https://flowlight.me/guides/#items', numberOfItems: totalGuideCount, itemListElement: [...guides.map((guide, index) => ({ '@type': 'ListItem', position: index + 1, name: guide.data.title, url: `https://flowlight.me/guides/${guide.data.slug}/` })), ...zhGermanyA1Guides.map((guide, index) => ({ '@type': 'ListItem', position: guides.length + index + 1, name: guide.title, url: `https://flowlight.me${guide.href}` }))] }] };
@@ -38,14 +37,14 @@ const jsonLD = { '@context': 'https://schema.org', '@graph': [{ '@type': 'Collec
 
 <BaseLayout title="Task guide library" description="Filter language-proof guides by purpose, country, route, exam, level, language, and content status." canonicalURL="https://flowlight.me/guides/" jsonLD={jsonLD}>
   <main class="site-main od-guide-library">
-    <PageHero compact eyebrow="Task library" title="Find the guide for your next decision." description="Filter by purpose first, then narrow by route, exam, level, and verification status." />
+    <PageHero compact eyebrow="Task library" title="Find the guide for your next decision." description="Germany A1 is the complete route, Germany B1 is a core route, and other pages are starter overviews for official checks." />
     <section class="library-panel" aria-label="Guide filters">
       <SearchInput />
       <FilterBar filters={filters} />
       <label class="search-input" for="guide-sort"><span>Sort by</span><select id="guide-sort" data-guide-sort><option value="checked">Recently verified</option><option value="relevance">Route relevance</option><option value="maturity">Content maturity</option></select></label>
       <p class="filter-status" aria-live="polite">Showing {totalGuideCount} guides.</p>
     </section>
-    <section class="content-section" aria-label="Guide results"><div class="guide-related-grid" id="guide-grid">{guides.map((guide, index) => <div class="guide-card-wrap" data-title={guide.data.title.toLowerCase()} data-search={`${guide.data.title} ${guide.data.description} ${guide.purpose} ${guide.meta.country} ${guide.meta.route} ${guide.meta.exam} ${guide.meta.level}`.toLowerCase()} data-purpose={guide.purpose} data-country={guide.meta.country} data-route={guide.data.category} data-exam={guide.meta.exam} data-level={guide.meta.level} data-language="en" data-status={guide.status} data-checked={guide.data.updatedDate} data-relevance={guide.data.category === 'germany-a1' ? 2 : 1} data-maturity={guide.status === 'complete-route' ? 3 : guide.status === 'deep-guide' ? 2 : 1} data-original={index}><GuideCard title={guide.data.title} href={`/guides/${guide.data.slug}/`} value={guide.data.description} country={guide.meta.country} purpose={guide.purpose} exam={guide.meta.exam} level={guide.meta.level} status={guide.status} checked={guide.data.updatedDate} readingTime={guide.data.readingTime} /></div>)}{zhGermanyA1Guides.map((guide, index) => <div class="guide-card-wrap" data-title={guide.title.toLowerCase()} data-search={`${guide.title} ${guide.description} 德国 家庭团聚 A1 中文` } data-purpose="Family reunion" data-country="Germany" data-route="germany-a1" data-exam="German A1" data-level="A1" data-language="zh" data-status="deep-guide" data-checked="2026-07-09" data-relevance="2" data-maturity="2" data-original={guides.length + index}><GuideCard title={guide.title} href={guide.href} value={guide.description} country="Germany" purpose="Family reunion" exam="German A1" level="A1" status="deep-guide" checked="2026-07-09" readingTime="6" language="中文" /></div>)}</div><div class="guide-empty-state" hidden><h2>No matching guide</h2><p>Clear a narrow filter or start with Purpose and Country. If your route is not supported, use Route Finder to prepare an official check.</p><a class="button button--secondary" href="/tools/route-finder/">Open Route Finder</a></div></section>
+    <section class="content-section" aria-label="Guide results"><div class="guide-related-grid" id="guide-grid">{guides.map((guide, index) => <div class="guide-card-wrap" data-title={guide.data.title.toLowerCase()} data-search={`${guide.data.title} ${guide.data.description} ${guide.purpose} ${guide.meta.country} ${guide.meta.route} ${guide.meta.exam} ${guide.meta.level}`.toLowerCase()} data-purpose={guide.purpose} data-country={guide.meta.country} data-route={guide.data.category} data-exam={guide.meta.exam} data-level={guide.meta.level} data-language="en" data-status={guide.status} data-checked={guide.data.updatedDate} data-relevance={guide.data.category === 'germany-a1' ? 3 : guide.data.category === 'germany-b1' ? 2 : 1} data-maturity={guide.status === 'complete-route' ? 3 : guide.status === 'core-route' ? 2 : 1} data-original={index}><GuideCard title={guide.data.title} href={`/guides/${guide.data.slug}/`} value={guide.data.description} country={guide.meta.country} purpose={guide.purpose} exam={guide.meta.exam} level={guide.meta.level} status={guide.status} checked={guide.data.updatedDate} readingTime={guide.data.readingTime} /></div>)}{zhGermanyA1Guides.map((guide, index) => <div class="guide-card-wrap" data-title={guide.title.toLowerCase()} data-search={`${guide.title} ${guide.description} 德国 家庭团聚 A1 中文` } data-purpose="Family reunion" data-country="Germany" data-route="germany-a1" data-exam="German A1" data-level="A1" data-language="zh" data-status="complete-route" data-checked="2026-07-09" data-relevance="3" data-maturity="3" data-original={guides.length + index}><GuideCard title={guide.title} href={guide.href} value={guide.description} country="Germany" purpose="Family reunion" exam="German A1" level="A1" status="complete-route" checked="2026-07-09" readingTime="6" language="中文" /></div>)}</div><div class="guide-empty-state" hidden><h2>No matching guide</h2><p>Clear a narrow filter or start with Purpose and Country. If your route is not supported, use Route Finder to prepare an official check.</p><a class="button button--secondary" href="/tools/route-finder/">Open Route Finder</a></div></section>
   </main>
   <script is:inline>
     (() => {

@@ -1,7 +1,8 @@
 ---
 import GuideStatusBadge from './GuideStatusBadge.astro';
 import LastCheckedBadge from './LastCheckedBadge.astro';
-export interface Props { title: string; href: string; value: string; country: string; purpose: string; exam: string; level: string; status?: 'complete-route' | 'deep-guide' | 'starter'; checked: string; readingTime: string; language?: string; }
+import type { GuideMaturityStatus } from '../data/guide-taxonomy';
+export interface Props { title: string; href: string; value: string; country: string; purpose: string; exam: string; level: string; status?: GuideMaturityStatus; checked: string; readingTime: string; language?: string; }
 const { title, href, value, country, purpose, exam, level, status = 'starter', checked, readingTime, language = 'English' } = Astro.props;
 ---
 <article class="article-card guide-card">

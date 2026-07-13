@@ -1,8 +1,12 @@
 ---
+import GuideStatusBadge from './GuideStatusBadge.astro';
+import type { GuideMaturityStatus } from '../data/guide-taxonomy';
+
 export interface Props {
   title: string;
   slug: string;
   category?: string;
+  status?: GuideMaturityStatus;
   readingTime?: string;
   description?: string;
   country?: string;
@@ -17,6 +21,7 @@ const {
   title,
   slug,
   category,
+  status,
   readingTime,
   description,
   country,
@@ -36,7 +41,12 @@ const tags = [
 ---
 
 <article class="article-card">
-  {category && <p class="card-category">{category}</p>}
+  {(category || status) && (
+    <div class="card-footer">
+      {category && <p class="card-category">{category}</p>}
+      {status && <GuideStatusBadge status={status} />}
+    </div>
+  )}
   <h3><a href={`/guides/${slug}/`}>{title}</a></h3>
   {description && <p class="card-meta">{description}</p>}
   {tags.length > 0 && (

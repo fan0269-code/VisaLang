@@ -10,6 +10,7 @@ import ReportOutdatedInfo from '../components/ReportOutdatedInfo.astro';
 import CopyButton from '../components/CopyButton.astro';
 import PrintButton from '../components/PrintButton.astro';
 import { translatedPaths } from '../data/site';
+import { guideMaturityStatus } from '../data/guide-taxonomy';
 import type { ArticleSections } from '../data/article-sections';
 
 export interface Props {
@@ -23,7 +24,7 @@ export interface Props {
 }
 
 const { title, description, publishedDate, updatedDate, verifiedDate, slug, category, eyebrow, readingTime = '5', breadcrumbs = [{ label: 'Home', href: '/' }, { label: title }], related = [], previous, next, routeHref, routeLabel, country, exam, level, headings = [], sections } = Astro.props;
-const status = category === 'germany-a1' ? 'deep-guide' : 'starter';
+const status = guideMaturityStatus(category);
 const canonicalURL = `https://flowlight.me/guides/${slug}/`;
 const translatedPath = translatedPaths[`/guides/${slug}/`];
 const alternates = translatedPath ? [

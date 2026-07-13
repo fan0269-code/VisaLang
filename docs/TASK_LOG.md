@@ -25,6 +25,48 @@ Verification:
 - `npm run launch-check` — passed; 24 checks, 0 failures, `READY`.
 - `git diff --check` — passed.
 
+## 阶段 1 业务证据补全（无代码）— 2026-07-13
+
+Scope: only complete, verify, and align business-responsibility/evidence records in `docs/OPERATIONS_STATUS.md`, `docs/PROJECT_CONTEXT.md`, and `docs/TASK_LOG.md` for the seven Phase 1 entry requirements. Existing source, deployment configuration, third-party services, production servers, `dist/`, and root legacy HTML were read-only or untouched.
+
+Business information received:
+
+- The business supplied the seven required evidence categories, evidence rules, stop rules, and allowed document scope.
+- No real responsible person's name, business-approved explicit owner role, account-role evidence, evidence repository path, approved SLA, approved test-email scope, release authorization, rollback authorization, or current drill record was supplied in this window. No missing value was inferred or backfilled.
+
+Status separation:
+
+- **本地源码状态**：本窗口开始时 `HEAD` 与 `origin/main` 均为 `1d8770cc11ad03145590ee51782a79cd8c848fb0`。工作区已有与本窗口无关的指南库展示代码和 Task Log 改动；均保留且未发布。
+- **线上部署状态**：2026-07-13 20:20 CST 的只读复核中，apex 首页、`www` 首页、sitemap index、联系页及隐私/Cookie 页面返回 HTTP 200；两个首页含 Cloudflare Web Analytics beacon，线上 Privacy/Cookie 页面含 Cloudflare 与 AdSense 说明。公开 HTML 无版本标记，本窗口未登录服务器，故线上精确 commit 与当前回滚路径有效性为待业务方确认。
+- **业务/运营就绪状态**：不满足阶段 1 准入；七项中 0 项同时具备已命名负责人和直接对应的当前可检查证据。页面文案、邮箱字符串、脚本存在和历史发布记录未被当作真实权限、收件能力或责任归属证据。
+
+Seven-item result:
+
+- Search Console 或等价搜索监测：公开 sitemap 可检查；负责人/备份制度、平台/属性、访问角色、提交状态、查看路径和复核节奏待业务方确认。
+- Analytics：公开 beacon 与政策说明可检查；账户/数据负责人、备份查看人、当前账户角色、面板数据查看方式、隐私/同意要求及批准人、证据保存位置和复核日期待业务方确认。
+- 联系真实收件、分流与保留：仅能检查到 `hello@flowlight.me` 字符串；未获准发送测试邮件。实际送达、收件/分流负责人、数据保留负责人、允许/禁止数据、保留/删除规则和升级路径待业务方确认。
+- 联系 SLA：负责人、目标时限、工作时间/适用范围、计时起点、超时升级规则和响应记录位置待业务方确认。
+- 官方来源与高风险事实复核：可检查到 official-source-first 政策和历史审计样例；主备负责人、固定节奏、强制触发条件、持续审计台账和纠错记录待业务方确认。
+- 发布：可检查到历史发布技术记录；授权发布负责人、备份/升级方式、批准点、目标 commit 批准证据和验证记录位置待业务方确认。
+- 回滚：可检查到历史发布目录和两个回滚产物路径；负责人/授权人、触发阈值、当前生产主机/发布目录、实际回滚 SOP、沟通批准流程、恢复验证和有效演练证据待业务方确认。
+
+Decision:
+
+- **暂不启动阶段 1。** 七项未全部同时具备已命名负责人和可检查证据。
+
+Not changed:
+
+- No application code, route/content body, tool or commercial logic, analytics/form/email/payment/advertising integration, deployment configuration, server state, production artifact, or legacy root HTML was changed by this window.
+
+Remaining risks and next prerequisite:
+
+- Public reachability does not identify the deployed commit or prove operational ownership.
+- The smallest next window remains a no-code business-evidence handoff/review: the business supplies the named owners and the exact minimal materials listed in each `docs/OPERATIONS_STATUS.md` row; an authorized reviewer only checks and records them. The contact test and any rollback drill remain excluded until separately approved. Only after all seven rows pass may a separately scoped minimal implementation window be considered.
+
+Verification:
+
+- `git diff --check` — passed after the three-document consistency review.
+
 Remaining manual checks:
 
 - Before future publication or route expansion, manually recheck any page that would state a fee, result time, accepted certificate, exemption, or eligibility conclusion.
@@ -2203,3 +2245,32 @@ Verification:
 - `npm test` — passed.
 - `npm run build` — passed; 98 static pages generated.
 - `npm run launch-check` — passed; 24 checks, 0 failures, `READY`.
+
+## Guide library maturity-positioning window — 2026-07-13
+
+Scope: narrow content-positioning and guide-library presentation cleanup for `/guides/`, guide category pages, guide cards, and guide status labels. No new country, exam, route, guide page, tool logic, commercial flow, deployment configuration, analytics, form, email, payment, advertising, `dist/`, or root legacy HTML work was in scope.
+
+Completed:
+
+- Centralized guide maturity display in `src/data/guide-taxonomy.ts`: Germany A1 is `Complete route`, Germany B1 is `Core route`, and all other guide categories remain `Starter overview`.
+- Updated `/guides/` copy, status filter options, route relevance sorting, and Chinese Germany A1 card status so mature/core routes are easier to distinguish from starter overviews.
+- Updated guide category intros and category/list cards so Germany A1, Germany B1, and starter categories no longer present as the same maturity level.
+- Reused the same status mapping on guide article headers to avoid B1 guide pages being labelled as starter while the category/library presents them as a core route.
+- Added a focused regression assertion for the guide-library maturity vocabulary and taxonomy mapping.
+
+Not changed:
+
+- No guide pages were added or removed; the build still generated 98 pages and retained all 54 English guide source files.
+- No A1/B1 article body facts, official-source claims, fees, timelines, acceptance statements, route tools, pricing, partners, Route Review, analytics, forms, email, payment, ads, deployment scripts, `dist/`, or legacy root HTML files were changed.
+
+Remaining risk:
+
+- Non-Germany and non-core Germany exam categories are still starter overviews; deeper official-source expansion should remain a separate phase-2/content-quality or later data-led route window.
+- This window improves presentation clarity only; it does not prove live production deployment state because deployment was explicitly out of scope.
+
+Verification:
+
+- `npm test` — passed.
+- `npm run build` — passed; 98 static pages generated.
+- `npm run launch-check` — passed; 24 checks, 0 failures, `READY`.
+- `git diff --check` — passed.

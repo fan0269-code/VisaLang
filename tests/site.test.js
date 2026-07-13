@@ -22,6 +22,7 @@ const src = {
   css: read('src/styles/global.css'),
   home: read('src/pages/index.astro'),
   guides: read('src/pages/guides/index.astro'),
+  guideTaxonomy: read('src/data/guide-taxonomy.ts'),
   route: read('src/pages/germany-family-reunion-a1.astro'),
   tools: read('src/pages/tools/index.astro'),
   reminder: read('src/pages/tools/email-reminders.astro'),
@@ -107,6 +108,12 @@ for (const filter of ['purpose', 'country', 'route', 'exam', 'level', 'language'
 for (const sort of ['Recently verified', 'Route relevance', 'Content maturity']) {
   assert.ok(src.guides.includes(sort), `guide library includes ${sort} sorting`);
 }
+for (const status of ['Complete route', 'Core route', 'Starter overview']) {
+  assert.ok(src.guides.includes(status), `guide library includes ${status} status`);
+}
+assert.ok(src.guideTaxonomy.includes("category === 'germany-a1'") && src.guideTaxonomy.includes("'complete-route'"), 'Germany A1 is marked as the complete route');
+assert.ok(src.guideTaxonomy.includes("category === 'germany-b1'") && src.guideTaxonomy.includes("'core-route'"), 'Germany B1 is marked as the core route');
+assert.ok(src.guideTaxonomy.includes('starter overview guides'), 'other categories retain starter overview framing');
 assert.ok(src.guides.includes('history.replaceState'), 'guide filters persist to URL parameters');
 assert.ok(src.guides.includes('guide-empty-state'), 'guide library has an empty state');
 assert.ok(src.guides.includes('Showing ${visible}'), 'guide library reports result count');

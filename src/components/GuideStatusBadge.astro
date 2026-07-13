@@ -1,6 +1,10 @@
 ---
-export interface Props { status?: 'complete-route' | 'deep-guide' | 'starter'; locale?: 'en' | 'zh-CN'; }
+import type { GuideMaturityStatus } from '../data/guide-taxonomy';
+
+export interface Props { status?: GuideMaturityStatus; locale?: 'en' | 'zh-CN'; }
 const { status = 'starter', locale = 'en' } = Astro.props;
-const labels = locale === 'zh-CN' ? { 'complete-route': '完整路线', 'deep-guide': '深度指南', starter: '入门概览' } : { 'complete-route': 'Complete route', 'deep-guide': 'In-depth guide', starter: 'Starter overview' };
+const labels = locale === 'zh-CN'
+  ? { 'complete-route': '完整路线', 'core-route': '核心路线', 'deep-guide': '深度指南', starter: '入门概览' }
+  : { 'complete-route': 'Complete route', 'core-route': 'Core route', 'deep-guide': 'In-depth guide', starter: 'Starter overview' };
 ---
 <span class:list={['status-badge', `status-badge--${status}`]}>{labels[status]}</span>

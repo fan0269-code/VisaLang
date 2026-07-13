@@ -4,13 +4,14 @@ Updated: 2026-07-13
 
 This is the shared project map for future Codex windows working on flowlight.me / VisaLang. The site is already live. Do not rebuild from scratch or make broad code changes unless the user explicitly asks for that scope.
 
-## 阶段 0 运营基线（2026-07-12）
+## 阶段 0 技术基线与阶段 1 准入状态（2026-07-13）
 
 - 线上静态发布目录已实测为 `/var/www/flowlight.me/public/dist`；Nginx 为 `flowlight.me` 配置了该 root，并以 `index.html` 为入口。
 - 服务器源码目录为 `/var/www/flowlight.me/source`。其在 2026-07-12 被记录为 `main` 的 `f25847291d053a927d0b0a2c062474bf9d5a100b`，并据此构建 98 个静态路由发布到 `public/dist`；这只是历史发布记录，不是当前线上提交的证明。
 - 发布前的 `7e9cd943ef24f247b6513758535ae26b072dbf3e` 静态产物已保存为服务器回滚副本。后续发布必须继续记录目标 commit、构建时间、线上检查和回滚点。
-- 2026-07-13 的只读公网检查中：首页、Germany A1、Germany B1、工具中心、指南库、中文入口、定价页和联系页均返回 HTTP 200。公开页面含有 Open Design 标记，但没有版本标记可把线上产物精确关联到 Git 提交。完整证据和未决运营责任见 `docs/OPERATIONS_STATUS.md`。
-- 本地 `main` 当前为 `c5838eb`，比 `origin/main` 的 `f092be6` 多 3 个提交；两者都不能单独证明线上版本。2026-07-12 的阶段 1 准入责任复核已逐项完成，但没有任何项目同时具备命名主备负责人和可检查证据。Search Console、分析/广告权限与数据保留、隐私/同意、联系接收端/允许数据范围/SLA、官方事实审核、发布/回滚职责及固定发布流程均为“待业务方确认”。旧页面文字、`hello@flowlight.me`、legacy Plausible loader 或 Astro AdSense loader 都不能单独证明服务已可用或已获审批。因此**暂不启动阶段 1**；当前公开 AdSense 脚本是需要业务/法律决策的风险项，不是已获批准的服务证据。
+- **本地源码状态**：2026-07-13 本窗口检查时，本地 `HEAD` 与 `origin/main` 均为 `1d8770cc11ad03145590ee51782a79cd8c848fb0`。工作区另有未提交的指南库展示代码和 `docs/TASK_LOG.md` 改动；本准入窗口不修改、不清理、不发布这些已有改动。本地 Git 状态不能证明线上版本。
+- **线上部署状态**：2026-07-13 20:20 CST 的只读公网复核中，apex 首页、`www` 首页、sitemap index、联系页及隐私/Cookie 页面均返回 HTTP 200；两个首页可检查到 Cloudflare Web Analytics beacon，线上 Privacy/Cookie 页面可见 Cloudflare 与 AdSense 说明。公开页面没有版本标记，本窗口未登录服务器，因此线上精确 commit、当前服务器源码和当前回滚路径有效性均为**待业务方确认**。完整历史部署证据见 `docs/OPERATIONS_STATUS.md`，不得将其直接当成当前线上版本证明。
+- **业务/运营就绪状态**：七项准入要求中 **0 项**同时具备已命名负责人和直接对应的当前可检查证据。Search Console 或等价监测、Analytics/隐私责任、联系真实收件与分流/保留、联系 SLA、官方来源与高风险事实复核、发布授权、回滚授权及当前路径有效性均仍有缺口。`hello@flowlight.me`、页面政策文案、脚本存在和历史记录均不能替代真实配置、权限与责任证据。因此单一结论为 **暂不启动阶段 1**；业务方最小补件清单以 `docs/OPERATIONS_STATUS.md` 七项表为准。
 
 ## 项目简介
 
