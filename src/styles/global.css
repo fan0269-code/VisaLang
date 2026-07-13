@@ -629,6 +629,8 @@ body:has(.site-main--home) .verification-alert--success p { color: var(--text-mu
   body:has(.site-main--home) .route-selector a:nth-child(odd) { border-right: 0; }
 }
 
+@media not all {
+/* Archived warm UI reference. The active Open Design layer now lives in open-design.css. */
 /* User-supplied Optimize Flowlight UI reference: warm paper, wine-red action,
    sunny yellow support surface, and rounded, friendly exam-planning panels. */
 :root {
@@ -769,6 +771,7 @@ body:has(.site-main--home) .verification-alert--success { border-color: var(--bo
   .home-hero__benefits { display: grid; gap: .55rem; }
   body:has(.site-main--home) .route-selector { grid-template-columns: 1fr; }
   body:has(.site-main--home) .route-selector a:nth-child(odd) { border-right: 0; }
+}
 }
 
 @media print {

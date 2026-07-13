@@ -1933,3 +1933,42 @@ Verification:
 
 - Desktop evidence: `.audit/flowlight-ui-2026-07-12/22-warm-reference-desktop-built.png`.
 - Mobile evidence: `.audit/flowlight-ui-2026-07-12/23-warm-reference-mobile-built.png`; no horizontal overflow, clipped action, or hidden route-check panel observed.
+
+## Open Design cool-blue UI sync — 2026-07-13
+
+Input reviewed: `/Users/fanlw/Library/Application Support/Open Design/namespaces/release-stable/data/projects/65a225e9-0d82-423a-a31a-67620219401a`.
+
+Scope: presentation-only sync from the Open Design project. No guide text, exam facts, route logic, URLs, SEO metadata, structured data, legal copy, tool calculations, or deployment configuration were changed.
+
+Completed:
+
+- Replaced the compressed `open-design.css` layer with a maintainable cool-blue Open Design system: restrained 8/12/16 radius scale, opaque header, official-first blue action colour, teal route accent, stronger focus rings, mobile rules, and retained system dark-mode tokens.
+- Disabled the older warm paper / wine-red / Baloo 2 override block in `global.css` by archiving it inside a non-matching media query, so it no longer competes with the active Open Design layer.
+- Removed the now-unused Google font links from `BaseLayout.astro`, since the active Open Design layer uses the system/Noto stack.
+- Added the `od-tools` page scope to `/tools/` so the tools index gets the intended feature-card rhythm without changing tool destinations or logic.
+
+Verification:
+
+- `npm test` — passed.
+- `npm run build` — passed; 98 static pages generated.
+
+## Homepage Open Design override repair — 2026-07-13
+
+Scope: homepage UI bug fix after the Open Design sync. No content, routes, SEO metadata, structured data, tool logic, or deployment configuration changed.
+
+Cause:
+
+- Older homepage-specific selectors in `global.css` used `body:has(.site-main--home)` and had higher specificity than the new generic Open Design selectors.
+- As a result, homepage-only surfaces such as the header, route selector, route cards, last-checked badges, and verification alert could inherit stale dark/warm styling instead of the active cool-blue Open Design layer.
+
+Completed:
+
+- Added homepage-scoped Open Design overrides in `src/styles/open-design.css` for the header, navigation states, route selector, route cards, article cards, badges, and verification alert.
+- Added a tight source-level check for the required homepage OD override selectors during the repair pass.
+
+Verification:
+
+- Homepage OD override check — passed.
+- `npm test` — passed.
+- `npm run build` — passed; 98 static pages generated.
+- `npm run launch-check` — passed; 24 checks, 0 failures, `READY`.
