@@ -15,6 +15,8 @@ This is the shared project map for future Codex windows working on flowlight.me 
 
 2026-07-13 21:32 CST 的后续全量发布已将 `main` 的 `1c95a9f208f78ae955b61df4cb1701ce75eab33e` 部署到当前唯一 DNS 主机 `107.150.102.145`；服务器源码、静态发布目录、Nginx 重载、服务器门禁和公网冒烟均已核对，发布前产物保存于 `/var/www/flowlight.me/releases/20260713T133159Z-pre-8d66394-dist`。这更新了线上部署状态，不改变上述业务/运营准入结论。
 
+2026-07-13 的导航菜单修复发布将生产应用更新到 `01b1827ad20d3cb7e8fc0fa3457f3fc675c1cb33`。`Routes` 与 `About` 现为独立直达链接，展开控件不再被导航容器裁剪；服务器和公网验证均通过，发布前产物保存于 `/var/www/flowlight.me/releases/20260713T142716Z-pre-1c95a9f-dist`。这同样不改变业务/运营准入结论。
+
 ## 项目简介
 
 VisaLang is an official-source-first language exam route navigation site. It helps readers choose and verify language exam paths for visa, residency, citizenship, family reunion, study, and work-registration goals.

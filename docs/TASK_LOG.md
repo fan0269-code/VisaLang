@@ -2,6 +2,23 @@
 
 Updated: 2026-07-13
 
+## 导航菜单展开修复与生产发布 — 2026-07-13
+
+Issue: `Routes` 与 `About` 的主导航入口被实现为仅有下拉的 `<summary>`，同时其绝对定位面板被 `.global-header__nav { overflow: auto }` 裁剪，导致用户点击后没有可见反馈。
+
+Released:
+
+- Commit: `01b1827ad20d3cb7e8fc0fa3457f3fc675c1cb33` (`fix: restore navigation menu controls`).
+- `Routes` 与 `About` 现在各有一个可访问的直达链接和一个独立、带 aria 标签的展开控件；同一时间只会保留一个展开菜单。
+- 桌面导航改为 `overflow: visible`，不再裁剪绝对定位菜单面板。
+- Preserved rollback artifact: `/var/www/flowlight.me/releases/20260713T142716Z-pre-1c95a9f-dist`.
+
+Verification:
+
+- 回归检查先失败，确认旧实现缺少独立链接且会裁剪菜单；修复后 `npm test` 通过。
+- 本地和服务器 `npm run launch-check` 均通过 25 项检查、0 失败；服务器 Nginx 检查与重载通过。
+- 线上工具页 HTML 含 `/routes/`、`/about/` 直达链接和两个下拉控件，最终 CSS 含 `overflow: visible`；工具、路线、关于和 `www` 工具页均返回 HTTP 200。
+
 ## 全量 `main` 生产发布与线上复核 — 2026-07-13
 
 Scope: user-authorized publication of all current working-tree changes and the already-pushed `main` history that the production source had not yet pulled. No third-party account, analytics, contact, payment, advertising, or Phase 1 business-process change was made.

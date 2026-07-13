@@ -1,16 +1,23 @@
 # VisaLang Operations Status
 
 Updated: 2026-07-13
-Window: 全量发布与线上复核
+Window: 导航菜单修复与线上复核
 
 ## Decision at a glance
 
-- **本地源码状态：已提交并推送。** 本次应用发布的目标提交为 `1c95a9f208f78ae955b61df4cb1701ce75eab33e`；提交前已通过 `npm test`、`npm run build`、`npm run launch-check` 和 `git diff --check`。
-- **线上部署状态：已部署并可核对。** 2026-07-13 21:32 CST，`flowlight.me` 与 `www.flowlight.me` 的 A 记录均为 `107.150.102.145`。该主机的 `/var/www/flowlight.me/source` 与 `/var/www/flowlight.me/public/dist` 已更新为 `1c95a9f` 产物；Nginx 配置检查与重载通过。公开首页、`www` 首页、指南库、A1/B1 分类页和 sitemap index 均返回 HTTP 200。
+- **本地源码状态：已提交并推送。** 本次导航修复的应用提交为 `01b1827ad20d3cb7e8fc0fa3457f3fc675c1cb33`；提交前已通过 `npm test`、`npm run build`、`npm run launch-check` 和 `git diff --check`。
+- **线上部署状态：已部署并可核对。** 当前 `flowlight.me` 与 `www.flowlight.me` 的 A 记录均为 `107.150.102.145`。该主机的 `/var/www/flowlight.me/source` 与 `/var/www/flowlight.me/public/dist` 已更新为 `01b1827` 产物；Nginx 配置检查与重载通过。工具页、路线页、关于页和 `www` 工具页均返回 HTTP 200。
 - **业务/运营就绪状态：不满足准入。** 七项准入要求没有全部同时具备“已命名负责人”和“可检查证据”。页面文案、邮箱字符串、脚本存在或历史发布记录均不能替代真实权限、收件测试、责任授权或运营记录。
 - **单一结论：暂不启动阶段 1。** 本次发布不接入服务、不修改隐私文案、不改变七项准入结论；只有七项全部补齐负责人和证据后，才能记录“可进入下一最小实施窗口”。
 
-## Current deployment record — 2026-07-13
+## Navigation menu fix release — 2026-07-13
+
+- Server source advanced from `1c95a9f` to `01b1827ad20d3cb7e8fc0fa3457f3fc675c1cb33`.
+- The fix restores direct `/routes/` and `/about/` links, separates their disclosure controls, and prevents the desktop navigation container from clipping open panels.
+- Rollback artifact: `/var/www/flowlight.me/releases/20260713T142716Z-pre-1c95a9f-dist`.
+- Verification: local and server `npm test` passed; server `npm run launch-check` passed with 25 checks and 0 failures. Public HTML contains both direct links and two disclosure controls; final CSS contains a visible-overflow navigation rule; tools, routes, about, and `www` tools pages returned HTTP 200.
+
+## Full release record — 2026-07-13
 
 - User-authorized full release: server source advanced from `8d66394` to `1c95a9f208f78ae955b61df4cb1701ce75eab33e`.
 - Release target: `107.150.102.145:/var/www/flowlight.me/public/dist`; the checked current DNS sent both apex and `www` to this host.
