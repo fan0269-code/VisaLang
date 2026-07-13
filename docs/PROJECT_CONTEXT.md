@@ -13,6 +13,8 @@ This is the shared project map for future Codex windows working on flowlight.me 
 - **线上部署状态**：2026-07-13 20:20 CST 的只读公网复核中，apex 首页、`www` 首页、sitemap index、联系页及隐私/Cookie 页面均返回 HTTP 200；两个首页可检查到 Cloudflare Web Analytics beacon，线上 Privacy/Cookie 页面可见 Cloudflare 与 AdSense 说明。公开页面没有版本标记，本窗口未登录服务器，因此线上精确 commit、当前服务器源码和当前回滚路径有效性均为**待业务方确认**。完整历史部署证据见 `docs/OPERATIONS_STATUS.md`，不得将其直接当成当前线上版本证明。
 - **业务/运营就绪状态**：七项准入要求中 **0 项**同时具备已命名负责人和直接对应的当前可检查证据。Search Console 或等价监测、Analytics/隐私责任、联系真实收件与分流/保留、联系 SLA、官方来源与高风险事实复核、发布授权、回滚授权及当前路径有效性均仍有缺口。`hello@flowlight.me`、页面政策文案、脚本存在和历史记录均不能替代真实配置、权限与责任证据。因此单一结论为 **暂不启动阶段 1**；业务方最小补件清单以 `docs/OPERATIONS_STATUS.md` 七项表为准。
 
+2026-07-13 21:32 CST 的后续全量发布已将 `main` 的 `1c95a9f208f78ae955b61df4cb1701ce75eab33e` 部署到当前唯一 DNS 主机 `107.150.102.145`；服务器源码、静态发布目录、Nginx 重载、服务器门禁和公网冒烟均已核对，发布前产物保存于 `/var/www/flowlight.me/releases/20260713T133159Z-pre-8d66394-dist`。这更新了线上部署状态，不改变上述业务/运营准入结论。
+
 ## 项目简介
 
 VisaLang is an official-source-first language exam route navigation site. It helps readers choose and verify language exam paths for visa, residency, citizenship, family reunion, study, and work-registration goals.

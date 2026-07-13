@@ -1,14 +1,22 @@
 # VisaLang Operations Status
 
 Updated: 2026-07-13
-Window: 阶段 1 业务证据补全（无代码）
+Window: 全量发布与线上复核
 
 ## Decision at a glance
 
-- **本地源码状态：可核对，但不能代表线上版本。** 2026-07-13 本窗口检查时，本地 `HEAD` 与 `origin/main` 均为 `1d8770cc11ad03145590ee51782a79cd8c848fb0`。工作区已有与本窗口无关的未提交代码和文档改动，本窗口未修改、清理或发布这些改动。
-- **线上部署状态：公开可达，精确部署版本待业务方确认。** 2026-07-13 20:20 CST 的只读复核中，`https://flowlight.me/`、`https://www.flowlight.me/`、`https://flowlight.me/sitemap-index.xml`、联系页及隐私/Cookie 页面均返回 HTTP 200；两个首页可见 Cloudflare Web Analytics beacon。公开 HTML 没有可将产物精确关联到 Git commit 的版本标记，本窗口也未登录服务器，因此不得据此声称线上运行的是本地 `1d8770c`。
+- **本地源码状态：已提交并推送。** 本次应用发布的目标提交为 `1c95a9f208f78ae955b61df4cb1701ce75eab33e`；提交前已通过 `npm test`、`npm run build`、`npm run launch-check` 和 `git diff --check`。
+- **线上部署状态：已部署并可核对。** 2026-07-13 21:32 CST，`flowlight.me` 与 `www.flowlight.me` 的 A 记录均为 `107.150.102.145`。该主机的 `/var/www/flowlight.me/source` 与 `/var/www/flowlight.me/public/dist` 已更新为 `1c95a9f` 产物；Nginx 配置检查与重载通过。公开首页、`www` 首页、指南库、A1/B1 分类页和 sitemap index 均返回 HTTP 200。
 - **业务/运营就绪状态：不满足准入。** 七项准入要求没有全部同时具备“已命名负责人”和“可检查证据”。页面文案、邮箱字符串、脚本存在或历史发布记录均不能替代真实权限、收件测试、责任授权或运营记录。
-- **单一结论：暂不启动阶段 1。** 本窗口不接入服务、不修改隐私文案、不开发功能、不部署；只有七项全部补齐负责人和证据后，才能记录“可进入下一最小实施窗口”。
+- **单一结论：暂不启动阶段 1。** 本次发布不接入服务、不修改隐私文案、不改变七项准入结论；只有七项全部补齐负责人和证据后，才能记录“可进入下一最小实施窗口”。
+
+## Current deployment record — 2026-07-13
+
+- User-authorized full release: server source advanced from `8d66394` to `1c95a9f208f78ae955b61df4cb1701ce75eab33e`.
+- Release target: `107.150.102.145:/var/www/flowlight.me/public/dist`; the checked current DNS sent both apex and `www` to this host.
+- Rollback artifact: `/var/www/flowlight.me/releases/20260713T133159Z-pre-8d66394-dist`.
+- Verification: local and server `npm test` passed; server `npm run launch-check` passed with 24 checks and 0 failures; homepage, `www` homepage, guide library, Germany A1/B1 category pages, and sitemap index all returned HTTP 200. The guide library exposes `Complete route`, `Core route`, and `Starter overview` labels.
+- This release evidence does not name a business release or rollback owner, and it is not a rollback drill. The seven Phase 1 rows below remain closed.
 
 ## Historical deployment and rollback evidence (not current-state proof)
 

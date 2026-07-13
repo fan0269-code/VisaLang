@@ -2,6 +2,27 @@
 
 Updated: 2026-07-13
 
+## 全量 `main` 生产发布与线上复核 — 2026-07-13
+
+Scope: user-authorized publication of all current working-tree changes and the already-pushed `main` history that the production source had not yet pulled. No third-party account, analytics, contact, payment, advertising, or Phase 1 business-process change was made.
+
+Released:
+
+- Commit: `1c95a9f208f78ae955b61df4cb1701ce75eab33e` (`feat: clarify guide library route maturity`).
+- Current DNS: both `flowlight.me` and `www.flowlight.me` resolved to `107.150.102.145` at release time; the historical Node 20 host was not on the current DNS path and was not touched.
+- Server source advanced from `8d66394` to `1c95a9f`; the published directory is `/var/www/flowlight.me/public/dist`.
+- Preserved rollback artifact: `/var/www/flowlight.me/releases/20260713T133159Z-pre-8d66394-dist`.
+
+Verification:
+
+- Local: `npm test`, `npm run build`, `npm run launch-check` (24 checks, 0 failures), and `git diff --check` passed before release.
+- Server: dependency install/build, `nginx -t`, Nginx reload, `npm test`, and `npm run launch-check` (24 checks, 0 failures) passed on `1c95a9f`.
+- Public: homepage, `www` homepage, guide library, Germany A1/B1 category pages, and sitemap index each returned HTTP 200. The guide library rendered `Complete route`, `Core route`, and `Starter overview` labels.
+
+Business boundary:
+
+- This release does not supply named owners or inspectable business evidence for any Phase 1 entry row. **暂不启动阶段 1** remains the only business-readiness conclusion.
+
 ## Phase 2 content / SEO / quality audit window — 2026-07-13
 
 Scope: narrow content, SEO metadata, guide-link, and quality review. No deployment, release, new business line, large page batch, tool logic, pricing, partners, Route Review commercial flow, analytics, advertising, dependency, deployment-config, UI polish, or homepage hero work was changed.
