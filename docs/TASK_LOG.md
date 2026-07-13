@@ -2,6 +2,33 @@
 
 Updated: 2026-07-13
 
+## Open Design UI production release — 2026-07-13
+
+Scope: publish the already reviewed Open Design UI layer to the current production host. No guide text, route logic, tool calculations, analytics, advertising, policy copy, or deployment script was changed during this release.
+
+Released commits:
+
+- `12bd8c2` — production target and analytics baseline documentation.
+- `b15b14ebce0de1c3bcd8d25522bffd5b1c07a395` — Open Design UI layer and audit screenshots.
+
+Production deployment:
+
+- DNS for `flowlight.me` and `www.flowlight.me` resolved to `107.150.102.145` before deployment.
+- Production source moved from `16a94dc` to `b15b14e`.
+- Production Nginx serves `/var/www/flowlight.me/public/dist`.
+- Pre-release production artifact was saved at `/var/www/flowlight.me/releases/20260713T035302Z-pre-b15b14e-dist`.
+- Server-side build generated 98 pages, then Nginx configuration test and reload passed.
+
+Public smoke check:
+
+- `https://flowlight.me/`: HTTP 200 and expected homepage marker.
+- `https://flowlight.me/tools/`: HTTP 200 and expected tools marker.
+- `https://flowlight.me/germany-b1-settlement-citizenship/`: HTTP 200 and expected B1 hub title.
+- `https://flowlight.me/guides/goethe-b1-germany-settlement-work/`: HTTP 200 and expected B1 content marker.
+- `https://flowlight.me/guides/goethe-b1-vs-telc-b1/`: HTTP 200 and expected DTZ / Goethe / telc title.
+- `https://flowlight.me/zh/guides/german-family-reunion-language-requirement/`: HTTP 200 and expected Chinese page title.
+- Live CSS returned HTTP 200 and contained the new Open Design primary colour variable.
+
 ## B1/A1 verification-guide release and production-target correction — 2026-07-13
 
 Scope: release the three verification-first content updates and record the correct production target. No tool logic, pricing page, commercial flow, analytics, advertising configuration, deployment script, or UI styling was changed in this release.
