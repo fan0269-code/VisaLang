@@ -1,6 +1,6 @@
 ---
 title: "Dutch Inburgering A2/B1"
-description: "How the Dutch Inburgering civic integration exam works"
+description: "How the Dutch Inburgering civic integration exam works for residence and citizenship planning, with official checks before booking."
 category: "netherlands"
 slug: "dutch-inburgering-a2-b1-for-integration-and-citizenship"
 publishedDate: "2026-07-01"

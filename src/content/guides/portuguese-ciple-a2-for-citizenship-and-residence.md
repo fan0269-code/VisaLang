@@ -1,6 +1,6 @@
 ---
 title: "CIPLE A2 Portuguese Citizenship"
-description: "Portuguese CIPLE A2 exam for citizenship and residence"
+description: "How the Portuguese CIPLE A2 exam fits citizenship and residence planning, and what official requirement to verify first."
 category: "portugal"
 slug: "portuguese-ciple-a2-for-citizenship-and-residence"
 publishedDate: "2026-07-01"

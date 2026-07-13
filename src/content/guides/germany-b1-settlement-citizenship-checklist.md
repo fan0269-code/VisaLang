@@ -1,6 +1,6 @@
 ---
 title: "Germany B1 settlement and citizenship checklist: questions and evidence categories"
-description: "A non-legal planning checklist for Germany B1 settlement-permit and citizenship routes: keep language proof distinct from residence, income, insurance, housing and procedure."
+description: "A non-legal Germany B1 checklist that keeps language proof separate from residence, income, insurance, housing, and procedure."
 category: "germany-b1"
 slug: "germany-b1-settlement-citizenship-checklist"
 publishedDate: "2026-07-11"

@@ -1,6 +1,6 @@
 ---
 title: "CILS vs CELI vs PLIDA — Italian Citizenship"
-description: "Compare CILS CELI PLIDA for Italian citizenship"
+description: "Compare CILS, CELI and PLIDA for Italian citizenship language proof, then verify the accepted exam with the responsible authority."
 category: "italy"
 slug: "cils-vs-celi-vs-plida-for-italian-citizenship"
 publishedDate: "2026-07-01"

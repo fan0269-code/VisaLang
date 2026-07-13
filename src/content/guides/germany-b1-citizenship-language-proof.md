@@ -1,6 +1,6 @@
 ---
 title: "Germany B1 for citizenship: verify language proof and the wider file"
-description: "A planning guide for German citizenship applicants: separate B1 language proof from residence, identity, livelihood, civic-knowledge, and application questions for the competent authority."
+description: "Plan German citizenship B1 language proof while keeping residence, identity, livelihood, civic knowledge, and authority questions separate."
 category: "germany-b1"
 slug: "germany-b1-citizenship-language-proof"
 publishedDate: "2026-07-11"

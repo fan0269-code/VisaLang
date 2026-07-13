@@ -5,13 +5,18 @@ const path = require('node:path');
 const guideDir = 'src/content/guides';
 const files = fs.readdirSync(guideDir).filter((file) => file.endsWith('.md'));
 const entries = files.map((file) => ({ file, source: fs.readFileSync(path.join(guideDir, file), 'utf8') }));
-const field = (source, name) => source.match(new RegExp(`^${name}:\\s*["']?([^"'\\n]+)`, 'm'))?.[1]?.trim();
+const field = (source, name) => {
+  const value = source.match(new RegExp(`^${name}:\\s*(.+)$`, 'm'))?.[1]?.trim() || '';
+  return value.replace(/^["']|["']$/g, '');
+};
 const slugs = new Set(entries.map(({ source }) => field(source, 'slug')));
 
 assert.equal(slugs.size, entries.length, 'Guide slugs must remain unique');
 for (const { file, source } of entries) {
   const slug = field(source, 'slug');
+  const description = field(source, 'description');
   assert.equal(`${slug}.md`, file, `${file} must match its canonical slug`);
+  assert.ok(description.length >= 70 && description.length <= 170, `${file} needs a concise, specific SEO description`);
   assert.match(source, /^updatedDate:\s*"\d{4}-\d{2}-\d{2}"/m, `${file} needs an updated date`);
   assert.match(source, /https:\/\//, `${file} needs at least one traceable source link`);
   assert.doesNotMatch(source, /guaranteed pass|guaranteed visa|officially endorsed by VisaLang/i, `${file} must not make unsafe outcome or authority claims`);

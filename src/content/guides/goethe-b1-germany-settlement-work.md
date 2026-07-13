@@ -1,6 +1,6 @@
 ---
 title: "Germany settlement permit and B1: verify language proof separately"
-description: "A planning guide for German settlement-permit applicants: separate B1 language proof from residence, livelihood, insurance, housing, documents and the competent authority's procedure."
+description: "Plan German settlement-permit B1 proof while keeping residence, livelihood, insurance, housing, documents, and authority procedure separate."
 category: "germany-b1"
 slug: "goethe-b1-germany-settlement-work"
 publishedDate: "2026-06-30"

@@ -1,6 +1,6 @@
 ---
 title: "Portuguese Golden Visa Language"
-description: "Portuguese Golden Visa language requirement for citizenship"
+description: "How Portuguese language proof relates to Golden Visa and citizenship planning, with CIPLE A2 and authority checks kept separate."
 category: "portugal"
 slug: "portuguese-language-for-golden-visa-and-citizenship"
 publishedDate: "2026-07-01"

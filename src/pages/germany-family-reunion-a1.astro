@@ -11,6 +11,20 @@ import { getCollection } from 'astro:content';
 
 const guides = (await getCollection('guides')).filter((guide) => guide.data.category === 'germany-a1');
 const updatedDate = guides.reduce((latest, guide) => guide.data.updatedDate > latest ? guide.data.updatedDate : latest, '2026-07-11');
+const guideBySlug = new Map(guides.map((guide) => [guide.data.slug, guide]));
+const routeGuideOrder = [
+  'german-family-reunion-language-requirement',
+  'goethe-a1-germany-family-reunion',
+  'goethe-a1-vs-telc-a1',
+  'goethe-a1-test-centers',
+  'goethe-a1-fees-by-country',
+  'goethe-a1-booking-mistakes',
+  'goethe-a1-pre-booking-checklist',
+  'german-a1-exam-booking-timeline',
+];
+const orderedRouteGuides = routeGuideOrder
+  .map((slug) => guideBySlug.get(slug))
+  .filter((guide) => guide !== undefined);
 const steps = [
   { title: 'Confirm whether A1 applies', status: 'current', preparation: 'Your application location, family-reunion category, receiving German mission or authority, and any exemption question.', guide: { href: '/guides/german-family-reunion-language-requirement/', label: 'Requirement guide' }, tool: { href: '/tools/route-finder/', label: 'Route Finder' } },
   { title: 'Confirm the accepted proof', status: 'next', preparation: 'The exact adult certificate, level, exam version, and document format named by the responsible authority.', guide: { href: '/guides/goethe-a1-germany-family-reunion/', label: 'Accepted proof guide' }, tool: { href: '/tools/checklist-generator/', label: 'Requirement Checklist' } },
@@ -40,7 +54,7 @@ const jsonLD = { '@context': 'https://schema.org', '@graph': [
 
     <section class="content-section" aria-labelledby="recommended-tools"><div class="section-header"><h2 id="recommended-tools">Recommended tools</h2><p>Tools save your planning work locally and never turn an unsupported route into a result.</p></div><div class="tool-grid"><a class="article-card" href="/tools/route-finder/"><h3>Route Finder</h3><p class="card-meta">Start with the requirement and receiving authority.</p></a><a class="article-card" href="/tools/checklist-generator/"><h3>Requirement Checklist</h3><p class="card-meta">Track confirmed evidence and unresolved checks.</p></a><a class="article-card" href="/tools/timeline-calculator/"><h3>Timeline Planner</h3><p class="card-meta">Use only locally verified timing inputs.</p></a><a class="article-card" href="/tools/email-reminders/"><h3>Reminder Planner</h3><p class="card-meta">Create a calendar or printable recheck reminder.</p></a></div></section>
 
-    <section class="content-section" aria-labelledby="route-guides"><div class="section-header"><h2 id="route-guides">Related guides</h2><p>Read in route order, not as a random article list.</p></div><div class="guide-related-grid">{guides.sort((a, b) => b.data.updatedDate.localeCompare(a.data.updatedDate)).slice(0, 8).map((guide) => <a class="article-card" href={`/guides/${guide.data.slug}/`}><h3>{guide.data.title}</h3><p class="card-meta">{guide.data.description}</p><LastCheckedBadge date={guide.data.updatedDate} /></a>)}</div><div class="button-row"><a class="button button--secondary" href="/guides/category/germany-a1/">View all Germany A1 guides</a></div></section>
+    <section class="content-section" aria-labelledby="route-guides"><div class="section-header"><h2 id="route-guides">Related guides</h2><p>Read in route order, not as a random article list.</p></div><div class="guide-related-grid">{orderedRouteGuides.map((guide) => <a class="article-card" href={`/guides/${guide.data.slug}/`}><h3>{guide.data.title}</h3><p class="card-meta">{guide.data.description}</p><LastCheckedBadge date={guide.data.updatedDate} /></a>)}</div><div class="button-row"><a class="button button--secondary" href="/guides/category/germany-a1/">View all Germany A1 guides</a></div></section>
 
     <section class="content-section" aria-labelledby="official-entry"><div class="section-header"><h2 id="official-entry">Official verification entry points</h2><p>Start with the authority for the route, then use exam-owner and authorised-centre information for the booking. This route does not currently record a separate source-check date.</p></div><div class="guide-related-grid"><SourceCard name="BAMF family reunification" href="https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html" /><SourceCard name="German Federal Foreign Office" href="https://www.auswaertiges-amt.de/en" /><SourceCard name="Goethe-Institut examinations" href="https://www.goethe.de/en/spr/prf.html" /><SourceCard name="telc Deutsch A1" href="https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/" /></div></section>
 

@@ -1,6 +1,6 @@
 ---
 title: "DELE A2 and CCSE for Spanish Citizenship"
-description: "How DELE A2 and CCSE exams work for Spanish citizenship by residence."
+description: "How DELE A2 and CCSE fit Spanish citizenship by residence, and what to verify before booking or relying on either exam."
 category: "spain"
 slug: "dele-a2-ccse-spanish-citizenship"
 publishedDate: "2026-07-01"

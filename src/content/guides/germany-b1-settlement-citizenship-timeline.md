@@ -1,6 +1,6 @@
 ---
 title: "Germany B1 settlement and citizenship timeline: plan evidence without assuming eligibility"
-description: "A planning timeline for Germany B1 language proof, civic knowledge, documents, appointments, result timing and retake buffers; it does not determine settlement-permit or citizenship eligibility."
+description: "Plan Germany B1 proof, civic knowledge, documents, appointments, result checks, and retake buffers without deciding eligibility."
 category: "germany-b1"
 slug: "germany-b1-settlement-citizenship-timeline"
 publishedDate: "2026-07-11"

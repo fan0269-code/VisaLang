@@ -1,6 +1,6 @@
 ---
 title: "Leben in Deutschland and B1: separate civic knowledge from language proof"
-description: "How to organise a Germany B1 and Leben in Deutschland question without assuming that one result replaces the other or decides settlement-permit or citizenship eligibility."
+description: "Organise Germany B1 and Leben in Deutschland evidence without assuming one result replaces the other or decides eligibility."
 category: "germany-b1"
 slug: "germany-b1-leben-in-deutschland-and-language-proof"
 publishedDate: "2026-07-11"

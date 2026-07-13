@@ -1,6 +1,6 @@
 ---
 title: "CILS B1 Cittadinanza for Italian Citizenship"
-description: "CILS B1 Cittadinanza guides and requirements for Italian citizenship"
+description: "How CILS B1 Cittadinanza fits Italian citizenship planning, what to verify officially, and when to compare CELI or PLIDA."
 category: "italy"
 slug: "cils-b1-cittadinanza-for-italian-citizenship"
 publishedDate: "2026-07-01"

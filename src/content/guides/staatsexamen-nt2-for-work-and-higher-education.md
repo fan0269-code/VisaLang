@@ -1,6 +1,6 @@
 ---
 title: "Staatsexamen NT2 for Dutch Work and Study"
-description: "Staatsexamen NT2 Programme I and II for Dutch work and study"
+description: "How Staatsexamen NT2 Programme I and II fit Dutch work and higher-education routes, and which level to verify officially."
 category: "netherlands"
 slug: "staatsexamen-nt2-for-work-and-higher-education"
 publishedDate: "2026-07-01"

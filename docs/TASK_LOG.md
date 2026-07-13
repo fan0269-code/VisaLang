@@ -2,6 +2,34 @@
 
 Updated: 2026-07-13
 
+## Phase 2 content / SEO / quality audit window — 2026-07-13
+
+Scope: narrow content, SEO metadata, guide-link, and quality review. No deployment, release, new business line, large page batch, tool logic, pricing, partners, Route Review commercial flow, analytics, advertising, dependency, deployment-config, UI polish, or homepage hero work was changed.
+
+Completed:
+
+- Added `docs/PHASE_2_CONTENT_SEO_QUALITY_AUDIT.md` with findings, allowed-scope decisions, excluded work, and human review items.
+- Fixed the Germany A1 route hub so the related guide cards render in route-decision order instead of update-date order.
+- Tightened several guide SEO descriptions that were too short or too long, without adding new policy, fee, timing, acceptance, exemption, or eligibility claims.
+- Added a content-integrity guard requiring guide metadata descriptions to stay concise and specific.
+
+Official-source boundary:
+
+- A1 / B1 high-risk wording hits were reviewed as a scan. The current A1 / B1 content mostly uses the risky terms to deny over-claims and point readers back to the competent authority or official centre.
+- Did not invent route-level official verification dates, fixed fees, fixed result times, accepted-certificate guarantees, exemption conclusions, or individual eligibility findings.
+
+Verification:
+
+- `npm test` — passed, including route tools, commercial pages, A1 cluster, B1 cluster, content integrity, UI/route/tool/SEO/accessibility/migration checks.
+- `npm run build` — passed; 98 static pages generated.
+- `npm run launch-check` — passed; 24 checks, 0 failures, `READY`.
+- `git diff --check` — passed.
+
+Remaining manual checks:
+
+- Before future publication or route expansion, manually recheck any page that would state a fee, result time, accepted certificate, exemption, or eligibility conclusion.
+- If the A1 route hub needs a route-level official-source check date later, verify every listed official entry point first instead of copying guide-level dates upward.
+
 ## Phase 2 Germany B1 content quality window — 2026-07-13
 
 Scope: continue the content-quality plan after the A1 audit by tightening the Germany B1 settlement/citizenship cluster. No A1 content, Header/Footer, tool engine, global styling, deployment configuration, analytics, advertising, pricing, partners, or route-review commercial flow was changed.
