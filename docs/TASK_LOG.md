@@ -2,6 +2,73 @@
 
 Updated: 2026-07-13
 
+## B1/A1 verification-guide release and production-target correction — 2026-07-13
+
+Scope: release the three verification-first content updates and record the correct production target. No tool logic, pricing page, commercial flow, analytics, advertising configuration, deployment script, or UI styling was changed in this release.
+
+Released files:
+
+- `src/content/guides/goethe-b1-germany-settlement-work.md`
+- `src/content/guides/goethe-b1-vs-telc-b1.md`
+- `src/pages/zh/guides/german-family-reunion-language-requirement.astro`
+
+Local release gate:
+
+- `npm test -- --runInBand`: passed.
+- `npm run launch-check`: passed; 24 checks, 0 failures, `READY`.
+- `git diff --check` for the three target files: passed.
+
+Git and production deployment:
+
+- Released commit: `16a94dc3a9509e10f9d84c21f436fe80d3f0bd7c`.
+- Pushed to `origin/main` before deployment.
+- DNS for `flowlight.me` and `www.flowlight.me` resolved to `107.150.102.145` during the release check. This is the current production target used for the live deployment.
+- Production server source at `/var/www/flowlight.me/source` resolved to `16a94dc` after deployment.
+- Production Nginx serves `/var/www/flowlight.me/public/dist`.
+- Pre-release production artifact was saved at `/var/www/flowlight.me/releases/20260712T202525PDT-pre-16a94dc-dist`.
+- Server-side `npm run build` completed and Nginx configuration test/reload passed during the deployment script.
+
+Public smoke check:
+
+- `https://flowlight.me/`: HTTP 200.
+- `https://flowlight.me/guides/goethe-b1-germany-settlement-work/`: HTTP 200 and contained the updated content marker.
+- `https://flowlight.me/guides/goethe-b1-vs-telc-b1/`: HTTP 200 and contained the updated title/content marker.
+- `https://flowlight.me/zh/guides/german-family-reunion-language-requirement/`: HTTP 200 and contained the updated Chinese scenario section.
+- `https://flowlight.me/germany-b1-settlement-citizenship/`: HTTP 200.
+- `https://flowlight.me/zh/germany-family-reunion-a1/`: HTTP 200.
+
+Production-target exclusion notes:
+
+- `43.162.126.37` was reachable and had a compatible `/var/www/flowlight.me/public/dist`, but it was not the DNS target for `flowlight.me` during the release. It must not be treated as the live production host unless DNS changes.
+- SSH alias `aliyun` / `8.218.193.140` failed host-key verification with reported ED25519 fingerprint `SHA256:yFIeAuRfz70RkuQc+pcY2imBex745Z2IjqQOyZfWNGA`. Do not use it for release work until the server owner verifies the host key.
+- Future releases must confirm `dig +short flowlight.me A` before deployment and must publish only to the host currently serving the domain.
+
+## Cloudflare Web Analytics beacon installation — 2026-07-13
+
+Scope: add the user-provided official Cloudflare Web Analytics beacon to the shared Astro layout and align the two public policy pages with the selected free, cookie-free page/performance-only scope. No custom events, user-input analytics, contact collection, advertising configuration, or deployment was changed in this window.
+
+Completed:
+
+- Added the site-specific Cloudflare beacon to `src/layouts/BaseLayout.astro`, so every Astro route receives one beacon.
+- Updated Privacy and Cookie Policies to replace the future Plausible wording with the current Cloudflare page/path/referrer/country/device/performance scope.
+- Explicitly exclude tool answers, free text, contact details, document details, query strings, and custom events from analytics.
+
+Release and verification:
+
+- Released in `ab28655` and deployed from `main` to `/var/www/flowlight.me/public/dist` on 2026-07-13.
+- `npm test`, `npm run launch-check` and `git diff --check` passed before release.
+- Server source resolves to `ab28655`; the public homepage, Privacy Policy and Cookie Policy each expose the Cloudflare beacon, and the two policy pages contain the Cloudflare wording and 2026-07-13 update date.
+- Cloudflare dashboard evidence supplied by the user shows the `flowlight.me` site created 19 minutes earlier with 4 homepage page views and 1 visit in the prior 24 hours. This confirms initial data receipt; do not add custom events.
+
+## Free analytics scope decision — 2026-07-13
+
+Decision: replace the previously selected paid Plausible direction with Cloudflare Web Analytics as the long-term free baseline. The business accepts the product trade-off: this provides page views, paths, referrals, country/device context and performance metrics, but no custom route, tool, outbound-link, guide-CTA or contact-intent events.
+
+Boundary:
+
+- No Cloudflare account, beacon, code, policy wording, deployment or data collection was changed in this decision window.
+- Account primary/backup access must be recorded before a separate beacon-implementation window.
+
 ## AdSense European consent publication — 2026-07-13
 
 Scope: account-side publication and regional user verification only. No source code, policy wording, analytics implementation, deployment configuration, or other service was changed in this step.
