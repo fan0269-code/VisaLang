@@ -24,24 +24,30 @@ const navLabel = (key: keyof typeof labels) => `${labels[key]}${isZh && key !== 
         const active = item.href === '/' ? Astro.url.pathname === href : Astro.url.pathname.startsWith(item.href);
         if (item.key === 'routes') {
           return (
-            <details class="nav-menu">
-              <summary class:list={[{ active }]}>{navLabel('routes')}</summary>
-              <div class="nav-menu__panel">
-                {site.routes.map((route) => <a href={isZh && route.id === 'family-reunion' ? '/zh/germany-family-reunion-a1/' : route.href}>{isZh ? `${route.zh}${route.id === 'family-reunion' ? '' : '（英文）'}` : route.label}</a>)}
-              </div>
-            </details>
+            <div class="nav-menu">
+              <a class:list={['nav-menu__link', { active }]} href={href}>{navLabel('routes')}</a>
+              <details class="nav-menu__disclosure">
+                <summary aria-label={isZh ? '打开路线菜单' : 'Open Routes menu'}></summary>
+                <div class="nav-menu__panel">
+                  {site.routes.map((route) => <a href={isZh && route.id === 'family-reunion' ? '/zh/germany-family-reunion-a1/' : route.href}>{isZh ? `${route.zh}${route.id === 'family-reunion' ? '' : '（英文）'}` : route.label}</a>)}
+                </div>
+              </details>
+            </div>
           );
         }
         if (item.key === 'about') {
           return (
-            <details class="nav-menu">
-              <summary class:list={[{ active }]}>{navLabel('about')}</summary>
-              <div class="nav-menu__panel">
-                <a href="/about/">{isZh ? '关于（英文）' : labels.about}</a>
-                <a href="/pricing/">{isZh ? '价格与服务状态（英文）' : 'Pricing'}</a>
-                <a href="/partners/">{isZh ? '合作伙伴（英文）' : 'Partners'}</a>
-              </div>
-            </details>
+            <div class="nav-menu">
+              <a class:list={['nav-menu__link', { active }]} href={href}>{navLabel('about')}</a>
+              <details class="nav-menu__disclosure">
+                <summary aria-label={isZh ? '打开关于菜单' : 'Open About menu'}></summary>
+                <div class="nav-menu__panel">
+                  <a href="/about/">{isZh ? '关于（英文）' : labels.about}</a>
+                  <a href="/pricing/">{isZh ? '价格与服务状态（英文）' : 'Pricing'}</a>
+                  <a href="/partners/">{isZh ? '合作伙伴（英文）' : 'Partners'}</a>
+                </div>
+              </details>
+            </div>
           );
         }
         return <a class:list={[{ active }]} href={href}>{navLabel(item.key)}</a>;

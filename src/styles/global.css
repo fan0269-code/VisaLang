@@ -104,13 +104,13 @@ p, li { max-width: 75ch; }
 .global-header__inner { display: flex; width: min(var(--page-max), calc(100% - 2rem)); min-height: 76px; align-items: center; gap: var(--space-5); margin: 0 auto; }
 .global-header__brand, .global-footer__brand { color: var(--text); font-size: 1.25rem; font-weight: 820; letter-spacing: -.045em; text-decoration: none; }
 .global-header__nav { display: flex; align-items: center; gap: var(--space-1); margin-left: auto; }
-.global-header__nav > a, .nav-menu > summary, .language-switch { min-height: 42px; padding: .6rem .78rem; border-radius: 999px; color: var(--text-muted); font-size: var(--text-sm); font-weight: 720; text-decoration: none; list-style: none; }
-.global-header__nav > a:hover, .nav-menu > summary:hover, .global-header__nav .active { background: var(--primary-soft); color: var(--primary-hover); }
-.nav-menu { position: relative; }
-.nav-menu > summary { display: flex; align-items: center; cursor: pointer; }
-.nav-menu > summary::-webkit-details-marker { display: none; }
-.nav-menu > summary::after { content: "+"; margin-left: .45rem; color: var(--text-muted); }
-.nav-menu[open] > summary::after { content: "−"; }
+.global-header__nav > a, .nav-menu__link, .nav-menu__disclosure > summary, .language-switch { min-height: 42px; padding: .6rem .78rem; border-radius: 999px; color: var(--text-muted); font-size: var(--text-sm); font-weight: 720; text-decoration: none; list-style: none; }
+.global-header__nav > a:hover, .nav-menu__link:hover, .nav-menu__disclosure > summary:hover, .global-header__nav .active { background: var(--primary-soft); color: var(--primary-hover); }
+.nav-menu { position: relative; display: flex; align-items: center; }
+.nav-menu__disclosure > summary { display: flex; min-width: 42px; align-items: center; justify-content: center; cursor: pointer; }
+.nav-menu__disclosure > summary::-webkit-details-marker { display: none; }
+.nav-menu__disclosure > summary::after { content: "+"; color: currentColor; }
+.nav-menu__disclosure[open] > summary::after { content: "−"; }
 .nav-menu__panel { position: absolute; z-index: var(--z-menu); top: calc(100% + .4rem); left: 0; display: grid; min-width: 220px; padding: .5rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow-md); }
 .nav-menu__panel a { padding: .65rem .75rem; border-radius: var(--radius-sm); color: var(--text); text-decoration: none; }
 .nav-menu__panel a:hover { background: var(--surface-subtle); }

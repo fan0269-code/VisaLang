@@ -79,9 +79,12 @@ const organizationFailures = pages.filter(({ html }) => !jsonLdTypes(html).has('
 if (!organizationFailures.length) pass('Every generated route emits Organization structured data.'); else fail(`Organization schema missing: ${organizationFailures.slice(0, 5).join(', ')}`);
 
 const home = read('dist/index.html');
+const header = home.match(/<header class="global-header"[\s\S]*?<\/header>/)?.[0] || '';
 for (const href of ['/routes/', '/exams/', '/tools/', '/guides/', '/about/']) {
   if (home.includes(`href="${href}"`)) pass(`Primary navigation exposes ${href}`); else fail(`Primary navigation is missing ${href}`);
 }
+const directMenuLinkFailures = [['/routes/', 'Routes'], ['/about/', 'About']].filter(([href, label]) => !header.includes(`class="nav-menu__link" href="${href}">${label}</a>`));
+if (!directMenuLinkFailures.length && (header.match(/class="nav-menu__disclosure"/g) || []).length === 2) pass('Routes and About keep direct links with separate disclosure controls.'); else fail(`Navigation menu controls are incomplete: ${directMenuLinkFailures.map(([, label]) => label).join(', ') || 'missing disclosure'}`);
 if (home.includes('href="/pricing/"') && home.includes('href="/partners/"')) pass('Pricing and Partners remain available under the About navigation and footer surfaces.'); else fail('Pricing or Partners link missing.');
 
 const guidePages = pages.filter(({ route }) => route.startsWith('/guides/') && !route.startsWith('/guides/category/') && route !== '/guides/');

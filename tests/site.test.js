@@ -20,6 +20,7 @@ const src = {
   mobile: read('src/components/MobileNavigation.astro'),
   footer: read('src/components/GlobalFooter.astro'),
   css: read('src/styles/global.css'),
+  openDesignCss: read('src/styles/open-design.css'),
   home: read('src/pages/index.astro'),
   guides: read('src/pages/guides/index.astro'),
   guideTaxonomy: read('src/data/guide-taxonomy.ts'),
@@ -48,6 +49,8 @@ assert.ok(src.header.includes("href=\"/pricing/\""), 'Pricing remains available 
 assert.ok(src.header.includes("href=\"/partners/\""), 'Partners remains available under the About menu');
 assert.ok(src.footer.includes('href="/pricing/"') && src.footer.includes('href="/partners/"'), 'Pricing and Partners remain available in the footer');
 assert.ok(src.header.includes('nav-menu__panel'), 'Routes and About use dropdown panels');
+assert.ok(src.header.includes('nav-menu__link') && src.header.includes('nav-menu__disclosure'), 'Routes and About keep a direct link separate from their disclosure control');
+assert.ok(src.openDesignCss.includes('.global-header__nav { margin-left: 0; flex: 1; overflow: visible;'), 'desktop navigation does not clip dropdown panels');
 assert.ok(src.mobile.includes('Mobile navigation'), 'mobile navigation has its own accessible label');
 assert.ok(src.base.includes('class="skip-link"'), 'shared layout exposes a skip link');
 assert.ok(src.base.includes('id="main-content"'), 'shared layout exposes a main target');

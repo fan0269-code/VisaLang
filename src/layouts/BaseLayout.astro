@@ -69,10 +69,10 @@ const structuredData = [
   <div id="main-content" tabindex="-1"><slot /></div>
   <GlobalFooter />
   <script is:inline>
-    document.querySelectorAll('.nav-menu').forEach((menu) => {
+    document.querySelectorAll('.nav-menu__disclosure').forEach((menu) => {
       menu.addEventListener('toggle', () => {
         if (!menu.open) return;
-        document.querySelectorAll('.nav-menu[open]').forEach((other) => { if (other !== menu) other.removeAttribute('open'); });
+        document.querySelectorAll('.nav-menu__disclosure[open]').forEach((other) => { if (other !== menu) other.removeAttribute('open'); });
       });
     });
   </script>
