@@ -16,52 +16,150 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'WebSite', name: sit
 
 <BaseLayout title="Find the language proof required for your route" description="Choose a route, identify the language proof to verify, compare exams, and plan your next official check." canonicalURL="https://flowlight.me/" alternates={[{ lang: 'en', href: 'https://flowlight.me/' }, { lang: 'zh-CN', href: 'https://flowlight.me/zh/' }, { lang: 'x-default', href: 'https://flowlight.me/' }]} jsonLD={jsonLD}>
   <main class="site-main site-main--home">
-    <header class="od-home-hero">
-      <div class="od-home-hero__copy">
-        <p class="od-eyebrow">Decision platform</p>
-        <h1>Find the right language proof <em>before</em> you book an exam.</h1>
-        <p class="od-home-hero__lead">Start with your purpose—family reunion, work, study, settlement, or citizenship—then identify the proof to verify with the authority receiving your file.</p>
-        <div class="button-row"><a class="button button--primary" href="/tools/route-finder/">Find my route <span aria-hidden="true">→</span></a><a class="button button--secondary" href="/guides/">Browse guides</a></div>
-        <p class="od-home-hero__benefits"><span>✓ Official sources first</span><span>✓ Independent guidance</span></p>
+    <header class="home-hero">
+      <div class="home-hero__copy">
+        <p class="eyebrow">Official-source-first</p>
+        <h1>Find the right language proof before you book an exam.</h1>
+        <p>VisaLang turns a language-proof question into a route you can verify: purpose, level, accepted exam, official source, and next action.</p>
+        <div class="home-hero__actions">
+          <a class="button button--primary" href="/tools/route-finder/">Start with Route Finder <span aria-hidden="true">→</span></a>
+          <a class="button button--secondary" href="/guides/">Browse guides</a>
+        </div>
+        <div class="home-hero__note" aria-label="VisaLang working principles">
+          <div class="signal"><strong>Route first</strong><span>Avoid choosing an exam before the receiving organisation is clear.</span></div>
+          <div class="signal"><strong>Verify next</strong><span>High-change facts stay tied to official sources.</span></div>
+          <div class="signal"><strong>Clear boundary</strong><span>We do not replace authorities, institutions, or exam owners.</span></div>
+        </div>
       </div>
-      <aside class="od-route-finder" aria-labelledby="finder-title">
-        <h2 id="finder-title">Find your starting point</h2><p>Answer a few questions and we’ll point you to the safest next check.</p>
-        <div class="od-route-finder__steps"><span><b>1</b>Country</span><i></i><span><b>2</b>Purpose</span><i></i><span><b>3</b>Level</span></div>
-        <label class="od-field" for="home-country">Country<select id="home-country"><option value="">Choose a country</option><option value="germany">Germany</option><option value="uk">United Kingdom</option><option value="canada">Canada</option><option value="other">Another country</option></select></label>
-        <label class="od-field" for="home-purpose">Purpose<select id="home-purpose"><option value="">Choose a purpose</option><option value="family">Family reunion</option><option value="work">Work</option><option value="study">Study</option><option value="settlement">Settlement or citizenship</option></select></label>
-        <div class="od-route-result" data-home-result><small>Recommended starting point</small><strong data-home-result-title></strong><a data-home-result-link href="/tools/route-finder/">Open Route Finder →</a></div>
+      <aside class="route-console" aria-label="Route starting point">
+        <div class="route-console__head">
+          <p class="console-label">Route starting point</p>
+          <h2>Choose your current situation</h2>
+          <p>This does not produce a policy decision. It helps you identify the next question to verify.</p>
+        </div>
+        <div class="route-console__body">
+          <fieldset class="choice-group">
+            <legend>Purpose</legend>
+            <div class="choice-row" data-choice-group="purpose">
+              <button class="route-choice" type="button" data-value="family" aria-pressed="true">Family reunion</button>
+              <button class="route-choice" type="button" data-value="settlement" aria-pressed="false">Settlement or citizenship</button>
+              <button class="route-choice" type="button" data-value="study" aria-pressed="false">Study</button>
+              <button class="route-choice" type="button" data-value="work" aria-pressed="false">Work or registration</button>
+            </div>
+          </fieldset>
+          <fieldset class="choice-group">
+            <legend>Status</legend>
+            <div class="choice-row" data-choice-group="status">
+              <button class="route-choice" type="button" data-value="unknown" aria-pressed="true">No instruction yet</button>
+              <button class="route-choice" type="button" data-value="instructed" aria-pressed="false">I have an instruction</button>
+            </div>
+          </fieldset>
+          <div class="result-card" aria-live="polite">
+            <b data-route-result-title>Start with the Germany A1 family reunion route</b>
+            <p data-route-result-copy>Next: verify whether the receiving organisation specifies a language level, accepted exam, certificate format, or validity rule.</p>
+            <div class="result-actions">
+              <a class="mini-button" data-route-result-link href="/germany-family-reunion-a1/">Open route</a>
+              <a class="mini-button" href="/tools/route-finder/">Use full tool</a>
+            </div>
+          </div>
+        </div>
       </aside>
     </header>
-    <div class="od-trust-strip" aria-label="VisaLang trust principles"><span><strong>Official-first</strong>Verify with the receiving authority</span><span><strong>Independent</strong>No exam-provider affiliation</span><span><strong>{totalGuideCount} guides</strong>Decision support, not legal advice</span></div>
 
-    <section class="od-section" aria-labelledby="spotlight-title"><div class="od-section__head"><p>Route spotlight</p><h2 id="spotlight-title">Germany A1 family reunion</h2><p>A structured starting path for applicants who need to confirm language proof before booking an exam.</p></div><div class="od-spotlight"><div class="od-spotlight__main"><span class="od-pill">Most developed route</span><h3>Confirm first. Book later.</h3><p>Work through the requirement, accepted proof, exam choice, timeline, documents, and official submission checks in the right order.</p><a class="button button--primary" href="/germany-family-reunion-a1/">View full route →</a></div><ol class="od-spotlight__side"><li>Confirm the requirement</li><li>Identify accepted proof</li><li>Compare exam options</li><li>Plan booking and documents</li></ol></div></section>
+    <hr class="rule" />
 
-    <section class="od-section" aria-labelledby="purpose-title"><div class="od-section__head"><p>Browse routes</p><h2 id="purpose-title">What are you trying to do?</h2><p>Start with the decision that brings you here. The receiving authority or institution sets the rule.</p></div><RouteSelector /></section>
-
-    <section class="od-section" aria-labelledby="tools-title"><div class="od-section__head"><p>Practical tools</p><h2 id="tools-title">Turn checks into a plan</h2><p>Use tools to organise facts you have verified. Unsupported routes stop at a clear official-check boundary.</p></div>
-      <div class="tool-grid">
-        {site.tools.slice(0, 4).map((tool) => <a class="route-card" href={tool.href}><strong>{tool.label}</strong><small>{tool.description}</small></a>)}
+    <section class="section" aria-labelledby="stage-title">
+      <h2 class="section-title" id="stage-title">Break the decision into four practical stages</h2>
+      <p class="section-lede">The home page does not try to answer every country and exam question at once. It helps you choose the first safe step.</p>
+      <div class="lane-grid">
+        <ol class="stage-list">
+          <li class="stage-card"><span class="node" aria-hidden="true">1</span><div><h3>Identify the receiving organisation</h3><p>Start with the authority, institution, employer, regulator, or exam body that will receive your proof.</p><a href="/tools/route-finder/">Choose a purpose</a></div></li>
+          <li class="stage-card"><span class="node" aria-hidden="true">2</span><div><h3>Confirm the proof level</h3><p>Check the source that receives your file before treating any A1, B1, B2, or other level as suitable.</p><a href="/guides/">Browse level guides</a></div></li>
+          <li class="stage-card"><span class="node" aria-hidden="true">3</span><div><h3>Compare accepted exams</h3><p>The same level can map to different certificates. Acceptance depends on the receiving organisation.</p><a href="/tools/exam-comparison/">Compare exams</a></div></li>
+          <li class="stage-card"><span class="node" aria-hidden="true">4</span><div><h3>Verify before acting</h3><p>Recheck centre status, dates, fees, ID rules, result timing, and submission requirements before payment.</p><a href="/tools/checklist-generator/">Build a checklist</a></div></li>
+        </ol>
+        <aside class="sidebar-panel">
+          <h3>VisaLang organises the route. It does not decide the rule.</h3>
+          <p>The interface keeps the boundary visible: no legal or administrative conclusions, no promise that a certificate will be accepted.</p>
+          <ul class="check-list">
+            <li>High-change facts become verification tasks.</li>
+            <li>Every module ends with a next action.</li>
+            <li>Tools, guides, and official-source checks form one loop.</li>
+          </ul>
+        </aside>
       </div>
-      <div class="button-row"><a class="button button--secondary" href="/tools/">View all tools</a></div>
     </section>
 
-    <section class="od-section" aria-labelledby="how-title"><div class="od-section__head"><p>How it works</p><h2 id="how-title">A calmer way to decide</h2></div>
-      <ol class="route-progress">
-        <li class="route-progress__item"><div class="route-progress__number">1</div><div><h3>Identify the receiving organisation</h3><p>Start with the mission, authority, university, employer, regulator, or other organisation that receives your proof.</p></div></li>
-        <li class="route-progress__item"><div class="route-progress__number">2</div><div><h3>Confirm the exact proof</h3><p>Verify the certificate, level, exam version, document format, and any exemption before comparing providers.</p></div></li>
-        <li class="route-progress__item"><div class="route-progress__number">3</div><div><h3>Plan and verify again</h3><p>Use official centre details for dates, fees, ID, results, and cancellation. Recheck before payment and submission.</p></div></li>
-      </ol>
+    <hr class="rule" />
+
+    <section class="section" aria-labelledby="resources-title">
+      <h2 class="section-title" id="resources-title">Enter through tools or guides</h2>
+      <p class="section-lede">Tools narrow the route. Guides explain the boundary, official checks, and supporting evidence.</p>
+      <div class="resource-layout">
+        <div class="resource-lead">
+          <h3>Use a tool when the route is unclear.</h3>
+          <p>If you do not know which language proof matters, begin with the route finder instead of reading a long list first.</p>
+          <div class="button-row"><a class="button button--accent" href="/tools/route-finder/">Open Route Finder</a></div>
+        </div>
+        <div class="resource-list">
+          <a class="resource-link" href="/tools/route-finder/"><div><h3>Route Finder</h3><p>Start from purpose, country, and current instruction status.</p></div><span>Open</span></a>
+          <a class="resource-link" href="/guides/"><div><h3>Guide library</h3><p>Filter explainers by purpose, route, exam, level, and verification status.</p></div><span>Browse</span></a>
+          <a class="resource-link" href="/germany-family-reunion-a1/"><div><h3>Germany A1 route</h3><p>The most developed route for staged requirement, exam, booking, and document checks.</p></div><span>View</span></a>
+        </div>
+      </div>
     </section>
 
-    <section class="od-section" aria-labelledby="updated-title"><div class="od-section__head"><p>Latest guidance</p><h2 id="updated-title">Recently updated</h2><p>{totalGuideCount} English and Chinese guides across {guideCategories.length} route categories. Counts and dates come from the guide data sources.</p><LastCheckedBadge date={latestReview} /></div>
+    <hr class="rule" />
+
+    <section class="section section--tight" aria-labelledby="purpose-title">
+      <h2 class="section-title" id="purpose-title">What are you trying to do?</h2>
+      <p class="section-lede">Start with the decision that brings you here. The receiving authority or institution sets the rule.</p>
+      <RouteSelector />
+    </section>
+
+    <section class="section" aria-labelledby="updated-title"><div class="section-header"><p class="eyebrow">Latest guidance</p><h2 id="updated-title">Recently updated</h2><p>{totalGuideCount} English and Chinese guides across {guideCategories.length} route categories. Counts and dates come from the guide data sources.</p><LastCheckedBadge date={latestReview} /></div>
       <div class="guide-related-grid">{updated.map((guide) => <a class="article-card" href={`/guides/${guide.data.slug}/`}><h3>{guide.data.title}</h3><p class="card-meta">{guide.data.description}</p><span class="last-checked">Updated {guide.data.updatedDate}</span></a>)}</div>
     </section>
 
-    <section class="content-section verification-alert verification-alert--success" aria-labelledby="principle-title"><strong id="principle-title">Our verification principle</strong><div><p>VisaLang explains how to check a route. It does not replace the decision of an authority, institution, exam owner, or authorised centre.</p><p><a href="/editorial-policy/">Read the editorial and correction policy</a></p></div></section>
+    <section class="section section--tight" aria-labelledby="trust-title">
+      <h2 class="section-title" id="trust-title">Trust comes from clear boundaries</h2>
+      <p class="section-lede">The product should not make dramatic promises. It should show what can be organised here and what must be verified elsewhere.</p>
+      <div class="trust-band">
+        <div class="trust-item"><b>No invented facts</b><p>When a stable source is missing, VisaLang gives a verification task instead of a false answer.</p></div>
+        <div class="trust-item"><b>No official replacement</b><p>Governments, institutions, exam owners, and authorised centres remain the final source.</p></div>
+        <div class="trust-item"><b>No pressure tactics</b><p>Stages and checklists reduce uncertainty without pushing users into premature booking.</p></div>
+      </div>
+    </section>
   </main>
   <script is:inline>
-    const country = document.querySelector('#home-country'); const purpose = document.querySelector('#home-purpose'); const result = document.querySelector('[data-home-result]');
-    const update = () => { if (!country?.value || !purpose?.value) return; const germanyFamily = country.value === 'germany' && purpose.value === 'family'; result.dataset.visible = 'true'; result.querySelector('[data-home-result-title]').textContent = germanyFamily ? 'Germany A1 family reunion route' : 'Prepare an official route check'; result.querySelector('[data-home-result-link]').href = germanyFamily ? '/germany-family-reunion-a1/' : '/tools/route-finder/'; };
-    country?.addEventListener('change', update); purpose?.addEventListener('change', update);
+    const groups = document.querySelectorAll('[data-choice-group]');
+    const resultTitle = document.querySelector('[data-route-result-title]');
+    const resultCopy = document.querySelector('[data-route-result-copy]');
+    const resultLink = document.querySelector('[data-route-result-link]');
+    const copy = {
+      family: ['Start with the Germany A1 family reunion route', 'Next: verify whether the receiving organisation specifies a language level, accepted exam, certificate format, or validity rule.', '/germany-family-reunion-a1/'],
+      settlement: ['Prepare a settlement or citizenship proof check', 'Next: identify the receiving authority and verify the required level, accepted proof, exemptions, and submission timing.', '/germany-b1-settlement-citizenship/'],
+      study: ['Prepare an institution-specific study check', 'Next: confirm the university, programme, and visa instructions before treating any exam as acceptable.', '/tools/route-finder/'],
+      work: ['Prepare an employer or regulator proof check', 'Next: confirm whether the receiving organisation sets a certificate, level, validity, or professional-registration rule.', '/tools/route-finder/'],
+    };
+    const updateResult = () => {
+      const purpose = document.querySelector('[data-choice-group="purpose"] .route-choice[aria-pressed="true"]')?.dataset.value || 'family';
+      const status = document.querySelector('[data-choice-group="status"] .route-choice[aria-pressed="true"]')?.dataset.value;
+      const selected = copy[purpose] || copy.family;
+      resultTitle.textContent = selected[0];
+      resultCopy.textContent = status === 'instructed' ? 'Next: compare your instruction against the relevant route and collect the exact source links before booking.' : selected[1];
+      resultLink.href = selected[2];
+      resultLink.textContent = selected[2].includes('/tools/') ? 'Open tool' : 'Open route';
+    };
+    groups.forEach((group) => {
+      group.querySelectorAll('.route-choice').forEach((button) => {
+        button.addEventListener('click', () => {
+          group.querySelectorAll('.route-choice').forEach((item) => item.setAttribute('aria-pressed', 'false'));
+          button.setAttribute('aria-pressed', 'true');
+          updateResult();
+        });
+      });
+    });
+    updateResult();
   </script>
 </BaseLayout>

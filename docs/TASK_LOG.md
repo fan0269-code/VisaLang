@@ -2187,3 +2187,19 @@ Public smoke check:
 Operational follow-up:
 
 - Upgrade Node.js on `43.162.126.37` to `>=22.12.0` and fix Git safe-directory/ownership so the standard server-side deploy script can build there without the local-artifact fallback.
+
+## Open Design homepage structure sync — 2026-07-13
+
+Scope: presentation-layer homepage alignment from the provided Open Design project at `/Users/fanlw/Library/Application Support/Open Design/namespaces/release-stable/data/projects/65a225e9-0d82-423a-a31a-67620219401a`. No URLs, SEO metadata, structured data, guide facts, route data, tool calculations, legal copy, analytics, advertising, or deployment configuration changed.
+
+Completed:
+
+- Reworked the homepage source structure to match the Open Design route-decision layout: route console, staged decision lane, resource entry panel, purpose selector, recently updated guides, and trust boundary band.
+- Added the matching Open Design CSS layer for the new homepage components, including 8/12/16px radius rhythm, cool-blue tokens, non-glass surfaces, route-choice controls, responsive stage cards, and mobile one-column fallbacks.
+- Updated the source-level homepage UI regression checks so they guard the new route-console/trust-band structure instead of the previous temporary `od-*` homepage markers.
+
+Verification:
+
+- `npm test` — passed.
+- `npm run build` — passed; 98 static pages generated.
+- `npm run launch-check` — passed; 24 checks, 0 failures, `READY`.
