@@ -2,6 +2,43 @@
 
 Updated: 2026-07-13
 
+## Astro 7 production post-release record and health review — 2026-07-13
+
+Scope: record the already-published Astro 7 security upgrade and run a lightweight production health review. No content, UI, SEO, routes, commercial pages, analytics, advertising, deployment configuration, or dependencies were changed.
+
+Release record:
+
+- Target commit: `194e883b183aba981404754f45c0759d2e4e3e3c`.
+- Release purpose: upgrade `astro` from 5 to 7, add explicit `@astrojs/markdown-remark`, and remove the Astro / nested `esbuild` vulnerabilities reported by `npm audit`.
+- Publication window: Astro 7 production release was completed before this post-release review; the preserved pre-release artifact timestamp is `20260713T044703Z`, and this review was run on 2026-07-13 around 13:02 CST / 05:02Z.
+- Production DNS target: `flowlight.me` and `www.flowlight.me` both resolved to `107.150.102.145`.
+- Local git state after `git fetch origin main`: `HEAD` and `origin/main` both resolved to `194e883b183aba981404754f45c0759d2e4e3e3c`.
+- Production server source: `ubuntu@107.150.102.145:/var/www/flowlight.me/source` resolved to `194e883b183aba981404754f45c0759d2e4e3e3c`.
+- Production publish directory: `/var/www/flowlight.me/public/dist`.
+- Rollback artifact: `/var/www/flowlight.me/releases/20260713T044703Z-pre-194e883-dist`.
+
+Production verification:
+
+- Server `npm audit --json --registry=https://registry.npmjs.org`: 0 vulnerabilities (`info: 0`, `low: 0`, `moderate: 0`, `high: 0`, `critical: 0`, `total: 0`).
+- Server `npm run launch-check`: passed; 98 generated pages, 24 checks, 0 failures, `READY`.
+- Public smoke checks:
+  - `https://flowlight.me/`: HTTP 200.
+  - `https://flowlight.me/tools/`: HTTP 200.
+  - `https://flowlight.me/germany-family-reunion-a1/`: HTTP 200.
+  - `https://flowlight.me/germany-b1-settlement-citizenship/`: HTTP 200.
+  - `https://flowlight.me/guides/goethe-b1-germany-settlement-work/`: HTTP 200.
+  - `https://flowlight.me/zh/germany-family-reunion-a1/`: HTTP 200.
+  - `https://flowlight.me/pricing/`: HTTP 200.
+  - `https://flowlight.me/partners/`: HTTP 200.
+  - `https://flowlight.me/route-review/`: HTTP 200.
+  - `https://flowlight.me/sitemap-index.xml`: HTTP 200.
+
+Risk and boundary:
+
+- No unresolved production health risk was found in this review: DNS, production source commit, audit, launch-check, and required public URLs all matched the expected state.
+- Remaining non-technical operating risks are unchanged from `docs/OPERATIONS_STATUS.md`: named release/rollback owners, rollback authority, and formal restoration drill are still business-operation follow-ups.
+- No redeploy was run.
+
 ## Astro major upgrade assessment and controlled fix — 2026-07-13
 
 Scope: evaluate and repair the `npm audit` findings rooted in `astro@5.18.2` and its nested `esbuild@0.27.7` with the smallest controlled framework upgrade. No page copy, UI styling, routes, SEO/schema, commercial pages, analytics, advertising, deployment configuration, or unrelated documentation was changed.

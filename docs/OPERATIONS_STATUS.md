@@ -1,12 +1,12 @@
 # VisaLang Operations Status
 
 Updated: 2026-07-13
-Window: Open Design UI production release
+Window: Astro 7 production post-release health review
 
 ## Decision at a glance
 
-- **Technical deployment baseline: confirmed for the current release.** On 2026-07-13, `b15b14ebce0de1c3bcd8d25522bffd5b1c07a395` was pushed to `main`, built on the current DNS production server, and published to `/var/www/flowlight.me/public/dist`; the server source resolves to the same commit. The homepage, tools page, B1 hub, updated B1 guides, and Chinese A1 guide returned HTTP 200 after release.
-- **Current production host: confirmed by DNS for this release.** `flowlight.me` and `www.flowlight.me` resolved to `107.150.102.145` during the release check. That host is the live production target unless DNS changes.
+- **Technical deployment baseline: confirmed for the current release.** On 2026-07-13, the Astro 7 security upgrade target `194e883b183aba981404754f45c0759d2e4e3e3c` was confirmed on local `HEAD`, `origin/main`, and the production server source at `/var/www/flowlight.me/source`. Production serves `/var/www/flowlight.me/public/dist`; server-side audit returned 0 vulnerabilities, server-side launch-check returned 24 checks / 0 failures / `READY`, and the required public smoke URLs returned HTTP 200.
+- **Current production host: confirmed by DNS for this release.** `flowlight.me` and `www.flowlight.me` resolved to `107.150.102.145` during the 2026-07-13 post-release review. That host is the live production target unless DNS changes.
 - **Business/operations baseline: incomplete.** No required item below has both named primary/backup responsibility and current, inspectable evidence. Page copy, an email address, a legacy script, or an undeployed configuration is not service-availability evidence.
 - **Phase 1 decision: 暂不启动阶段 1.** Search Console is deferred from the current review; it is not confirmed. Do not add analytics, lead capture, or conversion work until the remaining applicable gate items are confirmed.
 - **Analytics, advertising and privacy decision: AdSense consent configuration is user-verified; Cloudflare Web Analytics is live.** Business selected Cloudflare Web Analytics as the long-term free, cookie-free baseline and accepted that it does not support custom events. The European consent message was published after the matching policies were deployed; the user reports that the regional test showed the message, Google-only management options, and normal page behaviour after rejection. Cloudflare dashboard evidence supplied by the user shows 4 homepage page views and 1 visit in the prior 24 hours, confirming initial data receipt. Retain the screenshots/exports as operational evidence. The remaining analytics gate item is a primary and backup account-access record.
@@ -15,11 +15,12 @@ Window: Open Design UI production release
 
 | Item | Owner | Status | Evidence | Gap | Next action |
 | --- | --- | --- | --- | --- | --- |
-| Production DNS target | Server / release owner: 待业务方确认 | Confirmed for this release | `flowlight.me` and `www.flowlight.me` resolved to `107.150.102.145` during the 2026-07-13 release. | Named accountable owner is not recorded; DNS can change and must be checked per release. | Record release operator and require DNS target confirmation before every deployment. |
+| Production DNS target | Server / release owner: 待业务方确认 | Confirmed for this release | `flowlight.me` and `www.flowlight.me` resolved to `107.150.102.145` during the 2026-07-13 Astro 7 post-release review. | Named accountable owner is not recorded; DNS can change and must be checked per release. | Record release operator and require DNS target confirmation before every deployment. |
 | Production static root | Server / release owner: 待业务方确认 | Confirmed | Nginx on `107.150.102.145` serves `/var/www/flowlight.me/public/dist` with `index.html`. | Named accountable owner is not recorded. | Business records the release operator and backup operator. |
-| Server source and target commit | Server / release owner: 待业务方确认 | Confirmed for 2026-07-13 release | `main` at `b15b14ebce0de1c3bcd8d25522bffd5b1c07a395` was pushed, built on `107.150.102.145`, and published to `/var/www/flowlight.me/public/dist`; the server source resolves to the same commit. | No named person owns future target-commit approval; public HTML still has no deploy-version marker. | Record the selected target commit, approver, build output and public version evidence for every release. |
-| Rollback artifact | Rollback authority: 待业务方确认 | Recorded, not drill-verified | The production static output that existed before publishing `b15b14e` is preserved at `/var/www/flowlight.me/releases/20260713T035302Z-pre-b15b14e-dist`. The prior content-release artifact remains at `/var/www/flowlight.me/releases/20260712T202525PDT-pre-16a94dc-dist`. | Restoration has not been exercised; no formal rollback authorizer is recorded. | Name the rollback authorizer and run a separately approved restoration drill. |
-| Fixed release / rollback flow | Release owner and rollback authority: 待业务方确认 | Partially evidenced | The 2026-07-13 UI release used `main` → target `b15b14e` → DNS target confirmation → server build → staged `dist` → `/var/www/flowlight.me/public/dist`, with `nginx -t`, reload, public smoke check, and prior artifact retained. | The mandatory approver, release record format, and incident rollback authorization are not confirmed as an operating procedure. | Approve a written SOP that records branch, target commit, DNS target, build time, smoke result, rollback commit/artifact, releaser, and rollback authorizer for every release. |
+| Server source and target commit | Server / release owner: 待业务方确认 | Confirmed for 2026-07-13 release | `HEAD`, `origin/main`, and `ubuntu@107.150.102.145:/var/www/flowlight.me/source` all resolved to `194e883b183aba981404754f45c0759d2e4e3e3c`; this is the Astro 7 security-upgrade target. | No named person owns future target-commit approval; public HTML still has no deploy-version marker. | Record the selected target commit, approver, build output and public version evidence for every release. |
+| Production health checks | Server / release owner: 待业务方确认 | Confirmed for this release | On the production server, `npm audit --json --registry=https://registry.npmjs.org` returned 0 vulnerabilities and `npm run launch-check` returned 24 checks, 0 failures, `READY`. | This confirms the current server source only; it is not a substitute for future release checks. | Keep audit and launch-check in each production release or post-release record. |
+| Rollback artifact | Rollback authority: 待业务方确认 | Recorded, not drill-verified | The production static output that existed before publishing `194e883` is preserved at `/var/www/flowlight.me/releases/20260713T044703Z-pre-194e883-dist`. Earlier artifacts remain historical release records. | Restoration has not been exercised; no formal rollback authorizer is recorded. | Name the rollback authorizer and run a separately approved restoration drill. |
+| Fixed release / rollback flow | Release owner and rollback authority: 待业务方确认 | Partially evidenced | The 2026-07-13 Astro 7 release record identifies `main` target `194e883`, DNS target `107.150.102.145`, production publish directory `/var/www/flowlight.me/public/dist`, rollback artifact, server audit, server launch-check, and public smoke checks. | The mandatory approver, release record format, and incident rollback authorization are not confirmed as an operating procedure. | Approve a written SOP that records branch, target commit, DNS target, build time, smoke result, rollback commit/artifact, releaser, and rollback authorizer for every release. |
 
 ## Hosts excluded from current production release
 
@@ -30,19 +31,22 @@ Window: Open Design UI production release
 
 ## Public smoke check
 
-Recorded release check: 2026-07-13 after publishing `b15b14ebce0de1c3bcd8d25522bffd5b1c07a395`.
+Recorded release check: 2026-07-13 after publishing `194e883b183aba981404754f45c0759d2e4e3e3c`.
 
-The URLs below returned HTTP 200. The checked guide pages contained release-specific content markers, and the live CSS returned the new Open Design primary colour variable. This proves public reachability and the checked release markers only; it does not confirm Search Console, analytics access, contact handling, or any business responsibility.
+The URLs below returned HTTP 200 during the Astro 7 post-release review. This proves public reachability for the checked URLs only; it does not confirm Search Console, analytics access, contact handling, or any business responsibility.
 
-| URL | HTTP | Page title |
+| URL | HTTP | Check purpose |
 | --- | ---: | --- |
-| `https://flowlight.me/` | 200 | Find the language proof required for your route \| VisaLang |
-| `https://flowlight.me/tools/` | 200 | Decision tools \| VisaLang |
-| `https://flowlight.me/guides/goethe-b1-germany-settlement-work/` | 200 | Germany settlement permit and B1: verify language proof separately \| VisaLang |
-| `https://flowlight.me/guides/goethe-b1-vs-telc-b1/` | 200 | DTZ vs Goethe B1 vs telc B1: verify acceptance before choosing \| VisaLang |
-| `https://flowlight.me/zh/guides/german-family-reunion-language-requirement/` | 200 | 德国配偶团聚到底要不要 A1？ \| VisaLang |
-| `https://flowlight.me/germany-b1-settlement-citizenship/` | 200 | Germany B1 for settlement permits and citizenship: verify before you choose proof \| VisaLang |
-| `https://flowlight.me/zh/germany-family-reunion-a1/` | 200 | 德国 A1 家庭团聚中文专题 \| VisaLang |
+| `https://flowlight.me/` | 200 | Homepage |
+| `https://flowlight.me/tools/` | 200 | Tools index |
+| `https://flowlight.me/germany-family-reunion-a1/` | 200 | Germany A1 hub |
+| `https://flowlight.me/germany-b1-settlement-citizenship/` | 200 | Germany B1 hub |
+| `https://flowlight.me/guides/goethe-b1-germany-settlement-work/` | 200 | B1 guide |
+| `https://flowlight.me/zh/germany-family-reunion-a1/` | 200 | Chinese A1 hub |
+| `https://flowlight.me/pricing/` | 200 | Pricing |
+| `https://flowlight.me/partners/` | 200 | Partners |
+| `https://flowlight.me/route-review/` | 200 | Route Review |
+| `https://flowlight.me/sitemap-index.xml` | 200 | Sitemap index |
 
 ## Phase 1 entry-responsibility verification
 
