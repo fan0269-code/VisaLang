@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" role="img" aria-labelledby="t d" shape-rendering="geometricPrecision">
+  <title id="t">VisaLang</title>
+  <desc id="d">VisaLang favicon — route and verification mark on navy</desc>
+  <rect width="40" height="40" rx="9" fill="#1B2A4E"/>
+  <g stroke="#ffffff" stroke-linecap="round" fill="none">
+    <path d="M7 31C7 20 14 17 20 19S30 14 32 10" stroke-width="2.6"/>
+    <circle cx="7" cy="31" r="3" fill="#ffffff" stroke="none"/>
+    <circle cx="32" cy="10" r="4" fill="#8B1A2B" stroke="none"/>
+    <path d="M32 3v2.2M32 14.8V17M25 10h2.2M36.8 10H39" stroke-width="2"/>
+  </g>
+</svg>

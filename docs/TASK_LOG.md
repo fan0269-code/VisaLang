@@ -2150,3 +2150,18 @@ Verification:
 - `npm test` — passed.
 - `npm run build` — passed; 98 static pages generated.
 - `npm run launch-check` — passed; 24 checks, 0 failures, `READY`.
+## Open Design final alignment release prep — 2026-07-13
+
+Scope: final presentation-only alignment from the Open Design project before production release. No guide text, exam facts, route logic, URLs, SEO metadata, structured data, legal copy, analytics, advertising, deployment script, or tool calculations were changed.
+
+Completed:
+
+- Added the Open Design brand mark and favicon assets to the public static tree, then connected them to the shared header, footer, and document favicon.
+- Tightened the active `open-design.css` layer for header/footer branding, route-finder/tool panels, tool steppers, guide-list card rhythm, compact mobile filters, and mobile overflow protection.
+- Verified the real 390px mobile viewport with Chrome DevTools Protocol; homepage, guide library, and Route Finder reported document width equal to viewport width.
+
+Local verification:
+
+- `npm test` — passed.
+- `npm run launch-check` — passed; 24 checks, 0 failures, `READY`.
+- `git diff --check` — passed.
