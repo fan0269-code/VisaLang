@@ -2165,3 +2165,25 @@ Local verification:
 - `npm test` — passed.
 - `npm run launch-check` — passed; 24 checks, 0 failures, `READY`.
 - `git diff --check` — passed.
+
+Release result:
+
+- UI payload commit: `ef1f9dca9e5add2ea0a88a04a7eaf93663f800da`.
+- `flowlight.me` DNS target during release: `107.150.102.145`; standard server deploy completed, server source resolved to `ef1f9dc`, Nginx test/reload passed, and the published static output included `favicon.svg`, the Open Design CSS tokens, and the shared header mark.
+- `www.flowlight.me` DNS target during release: `43.162.126.37`; server source resolved to `ef1f9dc` when checked with `sudo git`. Server-side build failed because Node.js was `v20.20.2` while Astro 7 requires `>=22.12.0`, so the locally built and verified `dist` artifact was synchronized to `/var/www/flowlight.me/public/dist`; Nginx test/reload passed.
+- Rollback artifacts: `107.150.102.145:/var/www/flowlight.me/releases/20260713T080850Z-pre-ef1f9dc-dist` and `43.162.126.37:/var/www/flowlight.me/releases/20260713T080853Z-pre-ef1f9dc-dist`.
+
+Public smoke check:
+
+- `https://flowlight.me/`: HTTP 200 and expected Open Design header/homepage markers.
+- `https://flowlight.me/tools/`: HTTP 200.
+- `https://flowlight.me/guides/`: HTTP 200.
+- `https://flowlight.me/tools/route-finder/`: HTTP 200.
+- `https://www.flowlight.me/`: HTTP 200 and expected Open Design header/homepage markers.
+- `https://www.flowlight.me/tools/`: HTTP 200.
+- `https://www.flowlight.me/guides/`: HTTP 200 on retry and expected guide-library/header markers.
+- `https://www.flowlight.me/favicon.svg`: HTTP 200.
+
+Operational follow-up:
+
+- Upgrade Node.js on `43.162.126.37` to `>=22.12.0` and fix Git safe-directory/ownership so the standard server-side deploy script can build there without the local-artifact fallback.
