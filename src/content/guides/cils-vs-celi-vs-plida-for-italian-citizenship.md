@@ -5,26 +5,38 @@ category: "italy"
 slug: "cils-vs-celi-vs-plida-for-italian-citizenship"
 publishedDate: "2026-07-01"
 updatedDate: "2026-07-01"
-author: "VisaLang"
+contentStatus: "verification-pending"
+decisionStage: "choice"
+nextGuideSlug: "cils-b1-cittadinanza-for-italian-citizenship"
+comparisonScope: "same-route"
+sourceReviewedAt: "2026-07-14"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
+primaryIntent: "Italy citizenship language-certificate comparison"
+audienceScope: "Readers comparing Italian-language certificates for a citizenship application"
+finalDecisionAuthorityType: "Italian citizenship authority or responsible consulate"
+primaryOfficialAuthorityUrl: "https://www.esteri.it/it/servizi-opportunita/italiani-all-estero/cittadinanza/"
+examOwnerUrl: "https://cils.unistrasi.it/"
+localExecutionPrompt: "Before registering, check the current requirement with the authority that receives your application. This page helps you prepare the questions and official sources to use."
+author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "Italy · Citizenship"
 route: "italy"
-related: ["cils-b1-cittadinanza-for-italian-citizenship"]
+supportingGuideSlugs: ["cils-b1-cittadinanza-for-italian-citizenship"]
 ---
 
-## Quick comparison
+## What the authority source supports
 
-- **CILS B1 Cittadinanza:** Citizenship-specific content. Run by Universita per Stranieri di Siena.
-- **CELI B1:** General Italian at B1. Run by Universita per Stranieri di Perugia.
-- **PLIDA B1:** Run by Societa Dante Alighieri. Often available at Dante centres worldwide.
+The reviewed Foreign Ministry page states a language level not lower than B1 for the citizenship applications in its stated scope and lists admitted certification bodies, including the owners of CILS, CELI and PLIDA. Each exam owner controls its own certificate name, format, sessions and centres.
 
 ## How to choose
 
-Ask your Italian consulate which certificates they accept. Most accept all three, but some specify CILS B1 Cittadinanza. Then pick the one with the nearest centre and earliest date.
+Confirm the exact citizenship basis, the authority or consulate handling the case, and the current exemption or alternative-proof rule. Then match the authority's accepted certificate to the exact owner product and check the current centre, session and fee. This page does not rank availability or promise acceptance in an individual case.
 
 ## Official sources
 
 - [CILS — Siena](https://cils.unistrasi.it/)
 - [CELI — Perugia](https://www.cvcl.it/)
 - [PLIDA — Dante Alighieri](https://plida.dante.global/)
+- [Italian Foreign Ministry — citizenship](https://www.esteri.it/it/servizi-opportunita/italiani-all-estero/cittadinanza/)

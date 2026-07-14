@@ -5,12 +5,17 @@ category: "germany-testdaf"
 slug: "testdaf-vs-goethe-dsh"
 publishedDate: "2026-06-30"
 updatedDate: "2026-07-13"
-author: "VisaLang"
+contentStatus: "starter-overview"
+primaryIntent: "TestDaF vs Goethe C1 vs DSH for University Entry decision support"
+decisionStage: "choice"
+nextGuideSlug: "testdaf-germany-university-admissions"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "Germany · University"
 route: "germany-testdaf"
-related: ["testdaf-germany-university-admissions", "testdaf-levels-and-scoring", "testdaf-preparation-and-practice"]
+supportingGuideSlugs: ["testdaf-germany-university-admissions", "testdaf-levels-and-scoring", "testdaf-preparation-and-practice"]
 ---
 
 ## Start with the programme's accepted-proof list
@@ -64,4 +69,4 @@ Save the programme's accepted-proof wording first. Then open the matching TestDa
 - [TestDaF: digital test structure](https://www.testdaf.de/de/teilnehmende/der-digitale-testdaf/aufbau-des-digitalen-testdaf/)
 - [Goethe-Institut: German examinations](https://www.goethe.de/en/spr/prf.html)
 
-Last updated: 2026-07-13. Official sources last checked: 2026-07-13.
+Last updated: 2026-07-13. Official verification pending.

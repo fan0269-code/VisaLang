@@ -15,7 +15,7 @@ import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
           <label>Existing certificate<select name="certificate" required><option value="">Select one option</option><option value="none">No certificate yet</option><option value="a1">I have an A1 certificate</option><option value="other">I have another certificate</option></select></label>
           <label>Target submission date<input name="targetDate" type="date" required /></label>
         </div>
-        <p class="tool-error" id="route-finder-error" aria-live="assertive"></p>
+        <div class="tool-error-summary" id="route-finder-error" data-error-summary role="alert" tabindex="-1" hidden></div>
         <button class="primary-action" type="submit">Find my starting route</button>
       </form>
 
@@ -28,9 +28,9 @@ import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
 
 <script>
   import { findRoute } from '../../data/route-tools';
+  import { setupToolForm } from '../../scripts/tool-form';
 
   const form = document.querySelector<HTMLFormElement>('#route-finder-form');
-  const error = document.querySelector<HTMLElement>('#route-finder-error');
   const resultPanel = document.querySelector<HTMLElement>('#route-finder-result');
   const summary = document.querySelector<HTMLElement>('#route-finder-summary');
 
@@ -41,21 +41,14 @@ import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
     return element;
   };
 
+  const controller = form ? setupToolForm(form, { persistedNames: ['country', 'purpose', 'location', 'level', 'certificate', 'targetDate'] }) : undefined;
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
-    const firstInvalid = [...form.querySelectorAll<HTMLInputElement | HTMLSelectElement>('[required]')].find((field) => !field.value);
-    if (firstInvalid) {
-      const fieldName = firstInvalid.closest('label')?.firstChild?.textContent?.trim() || 'the required field';
-      if (error) error.textContent = `Please complete: ${fieldName}.`;
-      firstInvalid.focus();
-      return;
-    }
+    if (!controller?.validate()) return;
 
     const input = Object.fromEntries(new FormData(form).entries());
     const route = findRoute(input);
-    const params = new URLSearchParams(input as Record<string, string>);
-    history.replaceState({}, '', `${location.pathname}?${params.toString()}`);
-    if (error) error.textContent = '';
+    controller.persist();
     if (!summary || !resultPanel) return;
 
     summary.replaceChildren();
@@ -68,11 +61,23 @@ import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
       summary.append(list);
     } else {
       addText(summary, 'p', 'VisaLang will not generate a route result for this selection. Use the receiving organisation as the official starting point.');
+      addText(summary, 'h3', 'Who to contact');
+      const authorityList = document.createElement('ul');
+      route.authorityTypes.forEach((authority: string) => addText(authorityList, 'li', authority));
+      summary.append(authorityList);
+      const officialEntry = document.createElement('p');
+      if (route.officialEntry) { const officialLink = document.createElement('a'); officialLink.href = route.officialEntry.href; officialLink.textContent = route.officialEntry.label; officialEntry.append('Official starting point: ', officialLink); }
+      else officialEntry.textContent = route.officialEntryPending;
+      summary.append(officialEntry);
+      addText(summary, 'h3', 'Questions to ask');
+      const questions = document.createElement('ul'); route.questions.forEach((question: string) => addText(questions, 'li', question)); summary.append(questions);
     }
     const details = document.createElement('p');
     details.textContent = `Application location recorded: ${String(input.location)}. Target submission date: ${String(input.targetDate)}.`;
     summary.append(details);
     resultPanel.hidden = false;
+    controller.markResult();
     resultPanel.focus();
   });
+  if (controller?.restored) form?.requestSubmit();
 </script>

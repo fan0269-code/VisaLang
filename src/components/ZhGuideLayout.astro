@@ -7,6 +7,7 @@ import VerificationAlert from './VerificationAlert.astro';
 import ReportOutdatedInfo from './ReportOutdatedInfo.astro';
 import CopyButton from './CopyButton.astro';
 import PrintButton from './PrintButton.astro';
+import LastCheckedBadge from './LastCheckedBadge.astro';
 
 export interface Props {
   title: string;
@@ -27,6 +28,8 @@ const {
 } = Astro.props;
 
 const canonicalURL = `https://flowlight.me/zh/guides/${slug}/`;
+const guideRecord = zhGermanyA1Guides.find((guide) => guide.slug === slug);
+if (!guideRecord) throw new Error(`Missing controlled Chinese guide record for ${slug}`);
 const englishURL = new URL(englishHref, 'https://flowlight.me').href;
 const relatedGuides = related
   .map((relatedSlug) => zhGermanyA1Guides.find((guide) => guide.slug === relatedSlug))
@@ -53,7 +56,7 @@ const jsonLD = {
   url: canonicalURL,
   datePublished: '2026-07-09',
   dateModified: updatedDate,
-  author: { '@type': 'Organization', name: 'VisaLang' },
+  author: { name: guideRecord.author },
   publisher: { '@type': 'Organization', name: 'VisaLang', url: 'https://flowlight.me/' },
   inLanguage: 'zh-CN',
   mainEntityOfPage: canonicalURL,
@@ -82,19 +85,14 @@ const jsonLD = {
       <span class="current">{title}</span>
     </nav>
     <ArticleLayout articleId="zh-guide-content" headings={tocHeadings} locale="zh-CN">
-      <p class="eyebrow">德国 A1 / 中文指南</p>
-      <div class="card-footer"><GuideStatusBadge status="deep-guide" locale="zh-CN" /><span>最近更新：<time datetime={updatedDate}>{updatedDate}</time></span><span class="last-checked">官方核验日期：未单独记录</span></div>
-      <h1>{title}</h1>
-      <section class="guide-summary-box" id="direct-answer" aria-label="指南摘要">
-        <h2>直接答案</h2>
-        <p class="guide-summary">{description}</p>
-        <dl>
-          <dt>适用路线</dt>
-          <dd>德国配偶团聚 / 家庭团聚 A1 语言证明</dd>
-          <dt>核验原则</dt>
-          <dd>先看德国使领馆、BAMF、Goethe、telc 官方信息</dd>
-        </dl>
-      </section>
+      <div slot="article-header" class="guide-article__header">
+        <p class="eyebrow">德国 A1 / 中文指南</p>
+        <div class="guide-scope-line"><GuideStatusBadge status={guideRecord.contentStatus} locale="zh-CN" /><span>国家：德国</span><span>路线：配偶团聚 / 家庭团聚 A1</span></div>
+        <h1>{title}</h1>
+        <section class="guide-summary-box" id="direct-answer" aria-label="指南摘要"><h2>直接答案</h2><p class="guide-summary">{description}</p></section>
+        <dl class="guide-meta" aria-label="文章责任和来源状态"><div><dt>最近更新</dt><dd><time datetime={updatedDate}>{updatedDate}</time></dd></div><div><dt>来源审查</dt><dd><LastCheckedBadge status={guideRecord.sourceReviewStatus} locale="zh-CN" /></dd></div><div><dt>作者</dt><dd>{guideRecord.author}</dd></div><div><dt>审查角色</dt><dd>{guideRecord.reviewedByRole ?? '待记录'}</dd></div><div><dt>阅读时间</dt><dd>约 6 分钟</dd></div></dl>
+        <section class="decision-authority" aria-labelledby="zh-who-decides-title"><h2 id="zh-who-decides-title">谁最终决定？</h2><p class="verification-pending"><strong>官方核验待完成。</strong>当前中文受控数据尚未同时记录经来源审查的最终决定机关类型和官方入口。</p><p>VisaLang 不判断个案是否适用、是否豁免、证书是否被接受、材料是否充分或申请结果。</p></section>
+      </div>
       <VerificationAlert title="行动前再次核验"><p>政策、考位、费用和证书接受范围可能变化，请以官方最新要求为准。</p></VerificationAlert>
       <section class="guide-template-box" id="who-this-applies-to">
         <h2>适用对象</h2>
@@ -103,7 +101,7 @@ const jsonLD = {
       </section>
       <section id="key-decisions"><h2>关键决策</h2><ol><li>先确认负责接收语言证明的机构。</li><li>确认准确的证书、等级、考试版本和材料形式。</li><li>再核验当地报名、证件、费用、出分、退改和时间安排。</li></ol></section>
       <section id="detailed-explanation"><h2>详细说明</h2><slot /></section>
-      <section id="what-to-verify-officially"><h2>需要向官方核验什么</h2><p>核验当前要求、可接受证明、考点授权状态、费用、日期、证件、退改、出分和材料形式。本文只帮你整理判断顺序，不替代签证政策、考试报名页面或个案审核结果。</p></section>
+      <section id="what-to-verify-officially"><h2>需要向官方核验什么</h2><p class="verification-pending"><strong>官方来源事实表待完成。</strong>当前中文页面的来源审查状态为 pending，因此不展示看似已人工核验的完整来源表。请分别向接收材料的机关、考试方和当地授权考点确认当前要求。</p></section>
       <section id="common-mistakes"><h2>常见错误</h2><ul><li>没有确认个案要求就先报名。</li><li>把旧费用、旧考位或他人经验当作当前规则。</li><li>只比较考试品牌，不核对准确证书与材料形式。</li></ul></section>
       <section class="guide-template-box" id="next-action">
         <h2>下一步行动</h2>

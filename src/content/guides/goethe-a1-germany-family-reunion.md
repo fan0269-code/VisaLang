@@ -5,12 +5,17 @@ category: "germany-a1"
 slug: "goethe-a1-germany-family-reunion"
 publishedDate: "2026-06-30"
 updatedDate: "2026-07-11"
-author: "VisaLang"
+contentStatus: "complete-route"
+primaryIntent: "Goethe A1 for Germany family reunion visa proof decision support"
+decisionStage: "requirement"
+nextGuideSlug: "german-family-reunion-language-requirement"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "8"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["german-family-reunion-language-requirement", "goethe-a1-vs-telc-a1", "goethe-a1-pre-booking-checklist"]
+supportingGuideSlugs: ["german-family-reunion-language-requirement", "goethe-a1-vs-telc-a1", "goethe-a1-pre-booking-checklist"]
 ---
 
 ## Start with the route, not the brand

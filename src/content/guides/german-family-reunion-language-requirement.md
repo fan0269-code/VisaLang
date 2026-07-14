@@ -5,12 +5,17 @@ category: "germany-a1"
 slug: "german-family-reunion-language-requirement"
 publishedDate: "2026-06-30"
 updatedDate: "2026-07-13"
-author: "VisaLang"
+contentStatus: "complete-route"
+primaryIntent: "German family reunion language requirement guide decision support"
+decisionStage: "choice"
+nextGuideSlug: "goethe-a1-vs-telc-a1"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "5"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["goethe-a1-vs-telc-a1", "german-a1-documents-checklist", "goethe-a1-germany-family-reunion"]
+supportingGuideSlugs: ["goethe-a1-vs-telc-a1", "german-a1-documents-checklist", "goethe-a1-germany-family-reunion"]
 ---
 
 ## Start with the route category

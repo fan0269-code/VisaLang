@@ -22,8 +22,14 @@ assert.ok(a1Result.nextSteps.some((step) => step.includes('accepted A1 certifica
 
 const unsupportedResult = routeTools.findRoute({ country: 'Germany', purpose: 'university' });
 assert.equal(unsupportedResult.id, 'official-verification-required');
-assert.equal(unsupportedResult.availability, 'coming-soon');
+assert.equal(unsupportedResult.availability, 'verify-only');
 assert.ok(unsupportedResult.officialAction.includes('receiving your application'));
+assert.ok(unsupportedResult.authorityTypes.length >= 2, 'Safe fallback identifies institution types without deciding eligibility');
+assert.match(unsupportedResult.officialEntry.href, /^https:\/\//, 'Safe fallback provides an official starting point');
+assert.ok(unsupportedResult.questions.length >= 3, 'Safe fallback provides questions instead of a qualification conclusion');
+const unknownCountryResult = routeTools.findRoute({ country: 'other', purpose: 'other' });
+assert.equal(unknownCountryResult.officialEntry, null, 'Unknown countries do not receive a fabricated official URL');
+assert.match(unknownCountryResult.officialEntryPending, /country-specific official entry/, 'Unknown countries receive an explicit official-entry boundary');
 
 assert.equal(routeTools.getChecklist('germany-family-reunion-a1').length, 3);
 assert.deepEqual(routeTools.getChecklist('unknown-route'), [], 'Unsupported routes must not generate a pseudo-checklist');

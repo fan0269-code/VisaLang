@@ -5,12 +5,17 @@ category: "germany-a1"
 slug: "german-a1-documents-checklist"
 publishedDate: "2026-06-30"
 updatedDate: "2026-07-13"
-author: "VisaLang"
+contentStatus: "complete-route"
+primaryIntent: "German A1 documents checklist: booking, test day, visa decision support"
+decisionStage: "submission-review"
+nextGuideSlug: "goethe-a1-booking-mistakes"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "8"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["goethe-a1-booking-mistakes", "german-family-reunion-language-requirement", "goethe-a1-test-centers"]
+supportingGuideSlugs: ["goethe-a1-booking-mistakes", "german-family-reunion-language-requirement", "goethe-a1-test-centers"]
 ---
 
 ## Keep three document moments separate

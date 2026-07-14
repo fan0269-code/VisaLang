@@ -5,30 +5,42 @@ category: "netherlands"
 slug: "dutch-inburgering-a2-b1-for-integration-and-citizenship"
 publishedDate: "2026-07-01"
 updatedDate: "2026-07-01"
-author: "VisaLang"
+contentStatus: "verification-pending"
+decisionStage: "requirement"
+nextGuideSlug: "staatsexamen-nt2-for-work-and-higher-education"
+comparisonScope: "same-route"
+sourceReviewedAt: "2026-07-14"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
+primaryIntent: "Netherlands integration and citizenship language-proof planning"
+audienceScope: "Readers preparing questions about Dutch integration or citizenship evidence"
+finalDecisionAuthorityType: "Dutch immigration, integration, or citizenship authority"
+primaryOfficialAuthorityUrl: "https://ind.nl/en/living-in-the-netherlands-with-a-residence-permit/civic-integration-for-more-secure-residence-permit-and-naturalisation"
+examOwnerUrl: "https://www.inburgeren.nl/en/taking-the-integration-exam/index.jsp"
+localExecutionPrompt: "Before registering, check the current requirement with the authority that receives your application. This page helps you prepare the questions and official sources to use."
+author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "Netherlands · Integration"
 route: "netherlands"
-related: ["staatsexamen-nt2-for-work-and-higher-education"]
+supportingGuideSlugs: ["staatsexamen-nt2-for-work-and-higher-education"]
 ---
 
 ## What it covers
 
-The Inburgering exam includes reading, listening, writing, speaking, and Knowledge of Dutch Society (KNM). The required level is A2 for most routes, with B1 introduced in recent reforms. DUO administers the integration requirement.
+IND controls the civic-integration conditions for the named residence and naturalisation procedures. DUO controls exam execution, including the components, applicable level or pathway, registration and results shown for the person's case.
 
-## Who needs it
+## Select the procedure and cohort
 
-- Non-EU nationals applying for permanent residence after 5 years.
-- Applicants for Dutch citizenship by naturalisation.
-- Some family-reunion visa holders with an integration obligation.
+The reviewed sources do not support one A2/B1 rule, one residence period, or one deadline for every reader. Confirm the exact residence or naturalisation route and the integration-law cohort before relying on an exam level.
 
 ## What to verify
 
-- Whether your obligation requires A2 or B1 under current rules.
-- If you are exempt from the integration requirement.
-- Deadlines and possible fines for not completing in time.
+- The applicable route, cohort, level, exemption and deadline with IND or DUO.
+- The current exam components and registration details in Mijn Inburgering or on DUO's official pages.
 
 ## Official sources
 
-- [DUO Inburgeren](https://www.inburgeren.nl/en/)
+- [IND — civic integration for residence or naturalisation](https://ind.nl/en/living-in-the-netherlands-with-a-residence-permit/civic-integration-for-more-secure-residence-permit-and-naturalisation)
+- [IND — naturalisation](https://ind.nl/en/dutch-citizenship/becoming-a-dutch-national-through-naturalisation)
+- [DUO — taking the integration exam](https://www.inburgeren.nl/en/taking-the-integration-exam/index.jsp)

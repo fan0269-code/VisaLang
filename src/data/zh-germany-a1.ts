@@ -5,6 +5,7 @@ export const zhGermanyA1Guides = [
     description: '先判断你的家庭团聚路径是否可能需要德语 A1，再去官方页面核验证书、豁免和材料要求。',
     href: '/zh/guides/german-family-reunion-language-requirement/',
     englishHref: '/guides/german-family-reunion-language-requirement/',
+    contentStatus: 'complete-route', sourceReviewStatus: 'pending', author: 'VisaLang Editorial team', decisionStage: 'requirement', reviewedByRole: undefined,
   },
   {
     slug: 'goethe-a1-vs-telc-a1',
@@ -12,6 +13,7 @@ export const zhGermanyA1Guides = [
     description: '从官方接受度、考点、出分、材料和风险角度比较 Goethe A1 与 telc A1。',
     href: '/zh/guides/goethe-a1-vs-telc-a1/',
     englishHref: '/guides/goethe-a1-vs-telc-a1/',
+    contentStatus: 'complete-route', sourceReviewStatus: 'pending', author: 'VisaLang Editorial team', decisionStage: 'choice', reviewedByRole: undefined,
   },
   {
     slug: 'goethe-a1-booking-mistakes',
@@ -19,6 +21,7 @@ export const zhGermanyA1Guides = [
     description: '报名 Goethe A1 前先确认考点、证件、费用、日期、退改和出分规则，避免只听中介说法。',
     href: '/zh/guides/goethe-a1-booking-mistakes/',
     englishHref: '/guides/goethe-a1-booking-mistakes/',
+    contentStatus: 'complete-route', sourceReviewStatus: 'pending', author: 'VisaLang Editorial team', decisionStage: 'local-execution', reviewedByRole: undefined,
   },
   {
     slug: 'german-a1-documents-checklist',
@@ -26,6 +29,7 @@ export const zhGermanyA1Guides = [
     description: '区分 Goethe A1 考试当天要带的证件、报名确认和签证递交时可能要用的语言证明，减少临门一脚的材料风险。',
     href: '/zh/guides/german-a1-documents-checklist/',
     englishHref: '/guides/german-a1-documents-checklist/',
+    contentStatus: 'complete-route', sourceReviewStatus: 'pending', author: 'VisaLang Editorial team', decisionStage: 'submission-review', reviewedByRole: undefined,
   },
   {
     slug: 'goethe-a1-30-day-study-plan',
@@ -33,6 +37,7 @@ export const zhGermanyA1Guides = [
     description: '用合法、稳定、可执行的方式准备 Goethe A1，按 30 天安排听说读写和官方样题练习，不依赖泄题、押题或“包过”承诺。',
     href: '/zh/guides/goethe-a1-30-day-study-plan/',
     englishHref: '/guides/goethe-a1-30-day-study-plan/',
+    contentStatus: 'complete-route', sourceReviewStatus: 'pending', author: 'VisaLang Editorial team', decisionStage: 'local-execution', reviewedByRole: undefined,
   },
 ];
 

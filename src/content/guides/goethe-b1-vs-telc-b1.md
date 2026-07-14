@@ -5,12 +5,17 @@ category: "germany-b1"
 slug: "goethe-b1-vs-telc-b1"
 publishedDate: "2026-06-30"
 updatedDate: "2026-07-13"
-author: "VisaLang"
+contentStatus: "core-route"
+primaryIntent: "DTZ vs Goethe B1 vs telc B1: verify acceptance before choosing decision support"
+decisionStage: "choice"
+nextGuideSlug: "goethe-b1-germany-settlement-work"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "8"
 featured: true
 eyebrow: "Germany B1 · exam comparison"
 route: "germany-b1"
-related: ["goethe-b1-germany-settlement-work", "germany-b1-citizenship-language-proof", "germany-b1-leben-in-deutschland-and-language-proof"]
+supportingGuideSlugs: ["goethe-b1-germany-settlement-work", "germany-b1-citizenship-language-proof", "germany-b1-leben-in-deutschland-and-language-proof"]
 ---
 
 ## Reader decision and search intent
@@ -130,4 +135,4 @@ Use the same order: receiving authority first, exam product second, official cen
 - Current local centre dates, fees, ID rules, cancellation rules, result process, and document format.
 - Any wider settlement, citizenship, work, or residence conditions outside language proof.
 
-Last updated: 2026-07-13. Official sources last checked: 2026-07-13.
+Last updated: 2026-07-13. Official verification pending.

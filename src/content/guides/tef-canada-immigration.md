@@ -5,41 +5,46 @@ category: "canada"
 slug: "tef-canada-immigration"
 publishedDate: "2026-07-01"
 updatedDate: "2026-07-01"
-author: "VisaLang"
+contentStatus: "verification-pending"
+decisionStage: "choice"
+nextGuideSlug: "tcf-canada-vs-tef"
+comparisonScope: "same-route"
+sourceReviewedAt: "2026-07-14"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
+primaryIntent: "Canada immigration and citizenship language-test planning"
+audienceScope: "Readers considering TEF Canada for an immigration or citizenship application"
+finalDecisionAuthorityType: "Canadian immigration or citizenship authority"
+primaryOfficialAuthorityUrl: "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html"
+examOwnerUrl: "https://www.lefrancaisdesaffaires.fr/tests-diplomes/test-evaluation-francais-tef/tef-canada/"
+localExecutionPrompt: "Before registering, check the current requirement with the authority that receives your application. This page helps you prepare the questions and official sources to use."
+author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "Canada · Immigration"
 route: "canada"
-related: ["tcf-canada-vs-tef"]
+supportingGuideSlugs: ["tcf-canada-vs-tef"]
 ---
 
 ## What TEF Canada is
 
-TEF Canada (Test d'Evaluation de Francais pour le Canada) is an IRCC-approved French language proficiency test used for Express Entry Comprehensive Ranking System (CRS) points and citizenship applications. It is administered by CCI Paris Ile-de-France at test centres in Canada and select international locations.
+IRCC's reviewed Express Entry page lists TEF Canada and TCF Canada as accepted French tests for Express Entry and uses NCLC to assess French results. This source does not establish acceptance for every immigration or citizenship procedure.
 
 ## Test sections and scoring
 
-TEF Canada has four sections, each scored independently on a Canadian Language Benchmarks (CLB) scale from 0 to 5+:
-
-- Comprehension ecrite (Reading)
-- Comprehension orale (Listening)
-- Expression ecrite (Writing)
-- Expression orale (Speaking)
-
-Higher CLB levels in each section contribute more CRS points in Express Entry.
+Use IRCC's current, test-specific conversion table rather than converting a TEF result yourself. Use the exam owner's current TEF Canada page for its components, administration and authorised-centre information.
 
 ## TEF vs TCF Canada
 
-Both TEF Canada and TCF Canada are IRCC-approved. The choice often comes down to test centre availability and personal preference. TEF is offered in more international locations; TCF is also widely available. Both are accepted for the same purpose.
+IRCC lists both tests for Express Entry, but each has its own conversion table. This review does not establish equal availability, equal purpose outside Express Entry, or a strategic advantage.
 
 ## What to verify
 
-- Confirm TEF Canada is the right test for your specific immigration stream.
-- Check the next available test date at a TEF Canada centre near you.
-- Record the test fee and the validity period (TEF results are valid for 2 years).
-- Prepare with the official TEF Canada sample tests before booking.
+- Confirm the exact IRCC programme and current accepted test/version.
+- Use IRCC's current conversion table and result-age rule at each submission stage.
+- Check the authorised centre, session, fee and product terms with the exam owner.
 
 ## Official sources
 
-- [TEF Canada — Le français des affaires](https://www.lefrancaisdesaffaires.fr/en/)
-- [IRCC — Express Entry eligibility](https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility.html)
+- [IRCC — Express Entry language-test results](https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html)
+- [Le français des affaires — TEF Canada](https://www.lefrancaisdesaffaires.fr/tests-diplomes/test-evaluation-francais-tef/tef-canada/)

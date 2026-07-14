@@ -5,12 +5,17 @@ category: "germany-a1"
 slug: "goethe-a1-retake-policy"
 publishedDate: "2026-06-30"
 updatedDate: "2026-07-13"
-author: "VisaLang"
+contentStatus: "complete-route"
+primaryIntent: "Goethe A1 retake: plan your next attempt decision support"
+decisionStage: "local-execution"
+nextGuideSlug: "goethe-a1-speaking-topics"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "9"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["goethe-a1-speaking-topics", "goethe-a1-listening-practice", "goethe-a1-30-day-study-plan"]
+supportingGuideSlugs: ["goethe-a1-speaking-topics", "goethe-a1-listening-practice", "goethe-a1-30-day-study-plan"]
 ---
 
 ## Start with the result, not the next booking

@@ -11,9 +11,10 @@ const { guides, routeHref, routeLabel = 'this route', previous, next } = Astro.p
 ---
 
 {(guides.length > 0 || routeHref || previous || next) && (
-  <section class="guide-related" aria-label="Related guides">
+  <section class="guide-related" aria-label="Next guides in this journey">
     {(previous || next) && <nav class="guide-sequence" aria-label="Previous and next guides">{previous && <a href={`/guides/${previous.slug}/`}><small>Previous guide</small><strong>{previous.title}</strong></a>}{next && <a href={`/guides/${next.slug}/`}><small>Next guide</small><strong>{next.title}</strong></a>}</nav>}
-    <h2>Related guides</h2>
+    <h2>Continue this journey</h2>
+    <p>Use the next guide that matches your route or decision stage.</p>
     {guides.length > 0 && (
       <div class="guide-related-grid">
         {guides.map(g => (<a href={`/guides/${g.slug}/`}>{g.title}</a>))}

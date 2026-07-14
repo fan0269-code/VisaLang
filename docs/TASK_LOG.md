@@ -63,6 +63,46 @@ Verification:
 - `npm run launch-check` — passed; 24 checks, 0 failures, `READY`.
 - `git diff --check` — passed.
 
+## P0-1 content update and source-review separation — 2026-07-14
+
+Scope: separate guide editing dates from controlled official-source review metadata and UI. No policy-fact rewrite, homepage redesign, CMP, global CSS refactor, commit, push, or deployment.
+
+Completed:
+
+- Added validated `sourceReviewedAt`, `sourceReviewStatus`, `reviewedByRole`, and `contentStatus` guide metadata. Legacy guides default to `pending`; reviewed records require a date, while pending/not-applicable records reject one.
+- Removed Markdown-body date extraction and all existing unconfirmed “Official sources last checked” claims. Historical dates were not copied from `updatedDate`.
+- Updated guide article, card, route-hub, homepage, guide-library, and exam-directory date labels so editing dates and official-source review states remain separate.
+- Added source-level and built-HTML regression checks for reviewed/pending/not-applicable behavior and the absence of an `updatedDate` fallback.
+
+Verification:
+
+- `npm test` — passed.
+- `npm run launch-check` — passed; 28 checks, 0 failures, `READY`.
+- `git diff --check` — passed.
+
+Remaining manual work:
+
+- All existing guide records remain `sourceReviewStatus: pending` until a human source reviewer confirms the applicable authority/provider sources, review date, support boundary, and reviewer role.
+
+## P0-2 high-risk route audit and safe-downgrade preparation — 2026-07-14
+
+Scope: the 16 Portugal, Spain, UK, Canada, Italy, France, Finland, and Netherlands guides named by the P0-2 brief. No policy facts were researched, generated, or substantively rewritten.
+
+Completed:
+
+- Added validated intent, audience, final-authority type, authority URL, exam-owner URL, and local verification-prompt fields to the guide schema.
+- Made `contentStatus` explicit in all guide frontmatter so route cards, category cards, and article headers no longer infer maturity from country/category.
+- Added one shared high-risk status gate: Complete/Core requires both a final decision-authority URL and `sourceReviewStatus: reviewed`; an exam-owner URL alone cannot elevate a page.
+- Kept all 16 P0-2 pages at `verification-pending` and added the approved non-conclusive reader verification action.
+- Recorded page-level claim categories, source gaps, and human source-package requirements in `docs/HIGH_RISK_ROUTE_SOURCE_AUDIT.md`.
+- Left all existing policy, eligibility, period, level, acceptance, exemption, fee, date, validity, and outcome statements unchanged pending human source review.
+
+Verification:
+
+- `npm test` — passed, including built-HTML status-gate fixtures.
+- `npm run launch-check` — passed.
+- `git diff --check` — passed.
+
 ## 阶段 1 业务证据补全（无代码）— 2026-07-13
 
 Scope: only complete, verify, and align business-responsibility/evidence records in `docs/OPERATIONS_STATUS.md`, `docs/PROJECT_CONTEXT.md`, and `docs/TASK_LOG.md` for the seven Phase 1 entry requirements. Existing source, deployment configuration, third-party services, production servers, `dist/`, and root legacy HTML were read-only or untouched.
@@ -2312,3 +2352,80 @@ Verification:
 - `npm run build` — passed; 98 static pages generated.
 - `npm run launch-check` — passed; 24 checks, 0 failures, `READY`.
 - `git diff --check` — passed.
+
+## Content maturity, responsibility, and journey-link model — 2026-07-14
+
+Scope: unify controlled content status, author/review responsibility, status-authorised CTAs, and decision-stage related links across the Astro guide model. No policy-fact expansion, maturity promotion, visual redesign, tool interaction, advertising/CMP, deployment, commit, or push was included.
+
+Completed:
+
+- Standardized the four content statuses and retained the current baselines: Germany A1 `complete-route`, Germany B1 `core-route`, TestDaF `starter-overview`, and the 16 unresolved high-risk guides `verification-pending`.
+- Added controlled `primaryIntent`, `decisionStage`, `nextGuideSlug`, `supportingGuideSlugs`, and `comparisonScope` metadata across all 54 English guide records.
+- Centralized status-to-CTA permissions so only complete routes expose decision tools; core/starter/pending states remain limited to their approved route and official-source actions.
+- Passed Markdown author and review-role data into visible article metadata and Article JSON-LD from the same source; added Chinese Germany A1 role/status records without inventing a source-review date or completed translation review.
+- Restricted cross-country related-guide rendering to explicit comparison scope and intent, while requiring a same-route or same-stage supporting link.
+- Made About route/status counts and category maturity derive from taxonomy/content data.
+
+Pending:
+
+- All 16 P0-2 high-risk guides remain `verification-pending` until approved source packages close their evidence gaps.
+- The five Chinese Germany A1 guides now use the shared status/responsibility semantics, but source review and review-role completion remain pending; this window does not claim a fully reviewed Chinese content migration.
+
+Verification:
+
+- `npm test` — passed.
+- `npm run launch-check` — passed; 29 checks, 0 failures, 98 generated routes, `READY`.
+- `git diff --check` — passed.
+
+## Final content and UI regression review — 2026-07-14
+
+Scope: read-only regression review of the current uncommitted content/UI implementation relative to `HEAD`, plus the required handoff and task-log documentation. No source repair, commit, push or deployment was performed.
+
+Completed:
+
+- Reviewed the implementation baseline, remediation brief, high-risk source audit, consent/ad-tech decision record, style architecture and current diff.
+- Rechecked representative public outputs: homepage, Guide Library, Germany A1 Complete, Germany B1 Core, TestDaF Starter, Route Finder, Chinese entry/guide, Privacy and Cookie.
+- Verified generated SEO and trust-state evidence: one H1, canonical/OG metadata, Article/Breadcrumb JSON-LD, reciprocal hreflang pairs, sitemap entries, internal links, source-review state rendering, controlled maturity labels and legacy redirect declarations.
+- Created `docs/CONTENT_UI_IMPLEMENTATION_HANDOFF.md` with completion evidence, remaining issues, source-review queue, CMP/ad status, responsive matrix and bounded next-round recommendations.
+
+Verification:
+
+- `git status --short --branch` — completed; pre-existing modifications preserved.
+- `git diff --check` — passed.
+- `npm test` — passed.
+- `npm run launch-check` — passed; 98 generated routes, 31 checks passed, 0 failed, `READY`.
+- Local preview returned `200` for all ten representative trailing-slash routes checked.
+- Generated output contained none of the checked AdSense, Cloudflare Insights, DoubleClick, GTM, Meta Pixel or Plausible runtime markers.
+- Browser viewport/keyboard/network verification — not completed. Browser initialization failed with `Cannot redefine property: process`; automated markup/CSS checks were not recorded as a substitute.
+
+P0/BLOCKED status:
+
+- CMP and advertising activation remains BLOCKED because target regions, consent framework, CMP/no-CMP strategy, supplier allowlist, storage/expiry, withdrawal, pre-consent-loading rules and approved policy wording are not supplied. AdSense and Cloudflare Web Analytics remain paused in source.
+- P0 Privacy/Cookie regression found: public copy says current tools store form fields in `localStorage`, but current tool persistence is URL-query-only; only route-step progress uses `localStorage`.
+- P0 content blocker found: five high-risk pages remain blocked from fact editing and still contain deterministic unreviewed policy/acceptance statements. A pending badge does not complete their required fact downgrade. The affected pages are the two Spain pages, `delf-b1-b2-french-work-study`, `tcf-irn-french-residence`, and `staatsexamen-nt2-for-work-and-higher-education`.
+- P1 remaining issue: Related Guides can admit a cross-country link solely through matching `decisionStage`, bypassing the explicit cross-country comparison gate.
+- P2 remaining issues: some parent navigation links overstate `aria-current="page"`; English and Chinese Article JSON-LD author nodes lack a controlled Schema.org `@type`.
+
+Human review queue:
+
+- Complete the five blocked high-risk authority-source packages above.
+- Keep the other 11 audited high-risk pages at `verification-pending` until their individual route/centre/date/programme checks close.
+- Review the English records that still resolve to source-review `pending`; never substitute `updatedDate`.
+- Complete source and translation review for the five Chinese Germany A1 guides. Their accessible entry and pending UI do not constitute a completed Chinese credibility migration.
+
+### Confirmed P0 correction window
+
+After review findings were confirmed, the user authorised the proposed narrow P0 correction scope.
+
+Completed:
+
+- Corrected Privacy/Cookie wording so current tool results are described as URL-backed and only route-step progress is described as `localStorage` data.
+- Safely downgraded the two blocked Spain guides, two blocked France guides and blocked Dutch work/study guide. Removed the audited deterministic claims without adding replacement policy facts; retained verification questions, authority boundaries and official exam-owner links.
+- Added regression assertions for the policy persistence description, the five in-body verification boundaries and removal of the identified unsafe phrases.
+
+Verification:
+
+- `npm test` — passed.
+- `npm run launch-check` — passed; 98 routes, 31 checks passed, 0 failed, `READY`.
+- The five articles remain `verification-pending`; this correction does not claim source review completion.
+- CMP/ad-tech strategy, browser viewport/network evidence, Related Guides, navigation `aria-current`, and Article author `@type` remain outside this P0 correction window.

@@ -1,32 +1,43 @@
 ---
 title: "DELE Levels for Spanish Citizenship"
-description: "Which DELE level you need for Spanish citizenship, and when higher levels help."
+description: "Prepare the questions needed to verify the current Spanish citizenship language-proof requirement before choosing DELE or SIELE."
 category: "spain"
 slug: "dele-levels-spanish-citizenship"
 publishedDate: "2026-07-01"
 updatedDate: "2026-07-01"
-author: "VisaLang"
+contentStatus: "verification-pending"
+decisionStage: "choice"
+nextGuideSlug: "dele-a2-ccse-spanish-citizenship"
+comparisonScope: "same-route"
+primaryIntent: "Spain citizenship language-proof planning"
+audienceScope: "Readers comparing Spanish-language certificates for a citizenship application"
+finalDecisionAuthorityType: "Spanish citizenship authority"
+examOwnerUrl: "https://examenes.cervantes.es/en/dele"
+localExecutionPrompt: "Before registering, check the current requirement with the authority that receives your application. This page helps you prepare the questions and official sources to use."
+author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "Spain · Citizenship"
 route: "spain"
-related: ["cils-b1-cittadinanza-for-italian-citizenship", "dutch-inburgering-a2-b1-for-integration-and-citizenship", "portuguese-ciple-a2-for-citizenship-and-residence"]
+supportingGuideSlugs: ["dele-a2-ccse-spanish-citizenship", "cils-b1-cittadinanza-for-italian-citizenship", "dutch-inburgering-a2-b1-for-integration-and-citizenship", "portuguese-ciple-a2-for-citizenship-and-residence"]
 ---
 
-## The A2 minimum
+## Official verification required before relying on a level
 
-Spanish citizenship by residence requires DELE A2. This is the legal minimum. A2 means you can understand and use everyday expressions and basic phrases.
+This page does not yet have a reviewed Spanish citizenship-authority source that confirms the language level or certificate for your route. Do not use an exam-provider page alone to decide a citizenship requirement.
 
-## When higher levels help
+## Questions for the receiving authority
 
-- **B1/B2:** Not required for citizenship, but useful for work or study in Spain.
-- **C1/C2:** For professional roles or academic study. Not needed for the citizenship application itself.
+- Which current procedure applies to your citizenship application?
+- Is language proof required for your applicant category, and are any exemptions relevant?
+- Which certificate, level, version, and document format does the authority accept?
+- Does the authority accept SIELE, DELE, another form of proof, or an alternative for your case?
 
-If your only goal is citizenship, prepare for A2. Going higher adds time and cost without benefit for this specific route.
+Record the authority page and the date checked before choosing a level or paying for an exam.
 
-## DELE vs SIELE
+## What the exam-owner links can confirm
 
-DELE is the traditional diploma with fixed exam dates. SIELE is a digital exam with flexible scheduling. For citizenship, confirm with your authority whether SIELE A2 is accepted — DELE A2 is the standard reference.
+Use the DELE and SIELE links below to check their current products and registration information only after the receiving authority has confirmed which proof it will accept. These links do not decide the citizenship requirement.
 
 ## Official sources
 

@@ -5,12 +5,17 @@ category: "germany-a1"
 slug: "german-a1-family-reunion-faq"
 publishedDate: "2026-07-02"
 updatedDate: "2026-07-11"
-author: "VisaLang"
+contentStatus: "complete-route"
+primaryIntent: "German A1 family reunion FAQ: language proof questions decision support"
+decisionStage: "requirement"
+nextGuideSlug: "german-family-reunion-language-requirement"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "8"
 featured: false
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["german-family-reunion-language-requirement", "goethe-a1-vs-telc-a1", "german-a1-documents-checklist"]
+supportingGuideSlugs: ["german-family-reunion-language-requirement", "goethe-a1-vs-telc-a1", "german-a1-documents-checklist"]
 ---
 Use this FAQ to find the right next page, not to replace the German mission, BAMF, Goethe, telc, or a local test centre. Family reunion requirements and local exam procedures can change.
 

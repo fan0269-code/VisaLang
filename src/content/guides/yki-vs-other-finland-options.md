@@ -5,27 +5,34 @@ category: "finland"
 slug: "yki-vs-other-finland-options"
 publishedDate: "2026-07-01"
 updatedDate: "2026-07-01"
-author: "VisaLang"
+contentStatus: "verification-pending"
+decisionStage: "choice"
+nextGuideSlug: "yki-finnish-citizenship"
+comparisonScope: "same-route"
+sourceReviewedAt: "2026-07-14"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
+primaryIntent: "Finland citizenship language-proof comparison"
+audienceScope: "Readers comparing YKI with other possible evidence for a citizenship application"
+finalDecisionAuthorityType: "Finnish immigration and citizenship authority"
+primaryOfficialAuthorityUrl: "https://migri.fi/en/language-skills"
+examOwnerUrl: "https://www.oph.fi/en/national-certificates-language-proficiency-yki"
+localExecutionPrompt: "Before registering, check the current requirement with the authority that receives your application. This page helps you prepare the questions and official sources to use."
+author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "Finland · Citizenship"
 route: "finland"
-related: ["cils-b1-cittadinanza-for-italian-citizenship", "dele-a2-ccse-spanish-citizenship", "dutch-inburgering-a2-b1-for-integration-and-citizenship"]
+supportingGuideSlugs: ["yki-finnish-citizenship", "cils-b1-cittadinanza-for-italian-citizenship", "dele-a2-ccse-spanish-citizenship", "dutch-inburgering-a2-b1-for-integration-and-citizenship"]
 ---
 
-## Why YKI is the default
+## Start with Migri's evidence list
 
-YKI is the national certificate of language proficiency and is the most widely accepted proof of Finnish for citizenship. It is administered by Opetushallitus, the Finnish National Agency for Education, and is recognised by the Finnish Immigration Service (Migri) and the Digital and Population Data Services Agency (Digi- ja väestötietovirasto).
+Migri's current language-skills page controls which ways of demonstrating language skills are accepted for a citizenship application. The Finnish National Agency for Education owns YKI and controls YKI product and administration facts.
 
-## When other certificates may be accepted
-
-- **University language courses:** Some universities offer Finnish courses that grant a passing grade which Migri may accept.
-- **Compulsory education completion:** If you completed basic education in Finnish, you may be exempt from the language certificate.
-- **Upper secondary school diploma in Finnish:** A Finnish lukio diploma can serve as proof.
-
-Always confirm with Migri which proof they accept for your specific application.
+Do not assume that YKI is the default or that a course, diploma or education history is accepted based on its label alone. Compare the exact qualification and documents with the conditions on Migri's current list. If using YKI, separately check the owner's current subtests, centre, date and fee.
 
 ## Official sources
 
 - [YKI — Opetushallitus](https://www.oph.fi/en/national-certificates-language-proficiency-yki)
-- [Finnish Immigration Service (Migri) — Citizenship](https://migri.fi/en/citizenship-application)
+- [Migri — language skills for citizenship](https://migri.fi/en/language-skills)

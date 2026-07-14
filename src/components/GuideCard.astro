@@ -1,15 +1,15 @@
 ---
 import GuideStatusBadge from './GuideStatusBadge.astro';
 import LastCheckedBadge from './LastCheckedBadge.astro';
+import type { SourceReviewStatus } from '../data/source-review';
 import type { GuideMaturityStatus } from '../data/guide-taxonomy';
-export interface Props { title: string; href: string; value: string; country: string; purpose: string; exam: string; level: string; status?: GuideMaturityStatus; checked: string; readingTime: string; language?: string; }
-const { title, href, value, country, purpose, exam, level, status = 'starter', checked, readingTime, language = 'English' } = Astro.props;
+export interface Props { title: string; href: string; value: string; country: string; route: string; status?: GuideMaturityStatus; updatedDate: string; sourceReviewedAt?: string; sourceReviewStatus?: SourceReviewStatus; readingTime: string; language?: string; }
+const { title, href, value, country, route, status = 'verification-pending', updatedDate, sourceReviewedAt, sourceReviewStatus = 'pending', readingTime, language = 'English' } = Astro.props;
 ---
 <article class="article-card guide-card">
   <div class="card-footer"><GuideStatusBadge status={status} /><span>{language}</span></div>
   <h3><a href={href}>{title}</a></h3>
-  <p class="card-meta">{value}</p>
-  <ul class="card-tags" aria-label="Guide metadata"><li>{country}</li><li>{purpose}</li><li>{exam}</li><li>{level}</li></ul>
-  <div class="card-footer"><LastCheckedBadge date={checked} /><span>{readingTime} min read</span></div>
-  <a class="text-link" href={href}>Read guide</a>
+  <p class="card-meta"><strong>Direct answer:</strong> {value}</p>
+  <ul class="card-tags" aria-label="Guide route"><li>{country}</li><li>{route}</li></ul>
+  <div class="card-footer"><span>Updated <time datetime={updatedDate}>{updatedDate}</time></span><LastCheckedBadge date={sourceReviewedAt} status={sourceReviewStatus} /><span>{readingTime} min read</span></div>
 </article>

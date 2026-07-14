@@ -5,12 +5,17 @@ category: "germany-testdaf"
 slug: "testdaf-preparation-and-practice"
 publishedDate: "2026-06-30"
 updatedDate: "2026-07-13"
-author: "VisaLang"
+contentStatus: "starter-overview"
+primaryIntent: "TestDaF Preparation Plan and Official Practice Sources decision support"
+decisionStage: "local-execution"
+nextGuideSlug: "testdaf-germany-university-admissions"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "Germany · University"
 route: "germany-testdaf"
-related: ["testdaf-germany-university-admissions", "testdaf-levels-and-scoring", "testdaf-vs-goethe-dsh"]
+supportingGuideSlugs: ["testdaf-germany-university-admissions", "testdaf-levels-and-scoring", "testdaf-vs-goethe-dsh"]
 ---
 
 ## Confirm the requirement before planning
@@ -60,4 +65,4 @@ Before changing an exam plan, return to the decision sequence:
 - [TestDaF: paper-based preparation](https://www.testdaf.de/de/teilnehmende/der-papierbasierte-testdaf/vorbereitung-auf-den-papierbasierten-testdaf/)
 - [TestDaF: digital scoring](https://www.testdaf.de/de/teilnehmende/der-digitale-testdaf/auswertung-des-digitalen-testdaf/)
 
-Last updated: 2026-07-13. Official sources last checked: 2026-07-13.
+Last updated: 2026-07-13. Official verification pending.

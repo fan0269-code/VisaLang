@@ -22,8 +22,9 @@ assert.deepEqual(categoryGuides.sort(), [...testDaFGuides].sort(), 'TestDaF clus
 
 for (const file of testDaFGuides) {
   const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
+  assert.ok(source.includes('contentStatus: "starter-overview"'), `${file} must remain starter-overview`);
   assert.ok(source.includes('updatedDate: "2026-07-13"'), `${file} should retain the P3 update date`);
-  assert.ok(source.includes('Official sources last checked: 2026-07-13'), `${file} should retain the P3 source-check date`);
+  assert.ok(source.includes('Official verification pending'), `${file} should not claim an unconfirmed historical source-check date`);
   assert.ok(source.includes('## Official sources'), `${file} should expose official sources`);
   assert.ok(source.includes('## Continue your TestDaF decision route'), `${file} should expose the TestDaF decision order`);
   assert.match(source, /target (university and programme|programme)/i, `${file} should keep the programme as the decision authority`);

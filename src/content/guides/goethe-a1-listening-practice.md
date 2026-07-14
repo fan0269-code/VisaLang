@@ -5,12 +5,17 @@ category: "germany-a1"
 slug: "goethe-a1-listening-practice"
 publishedDate: "2026-07-02"
 updatedDate: "2026-07-11"
-author: "VisaLang"
+contentStatus: "complete-route"
+primaryIntent: "Goethe A1 listening practice: a safe daily routine decision support"
+decisionStage: "local-execution"
+nextGuideSlug: "goethe-a1-speaking-topics"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "8"
 featured: false
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["goethe-a1-speaking-topics", "goethe-a1-30-day-study-plan", "goethe-a1-official-links-practice-resources"]
+supportingGuideSlugs: ["goethe-a1-speaking-topics", "goethe-a1-30-day-study-plan", "goethe-a1-official-links-practice-resources"]
 ---
 Listening practice works best when it trains one small decision at a time: what is the place, time, number, person, instruction, or main point? Start with official Goethe material to understand the current exam format, then add short original practice.
 

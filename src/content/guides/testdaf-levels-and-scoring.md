@@ -5,12 +5,17 @@ category: "germany-testdaf"
 slug: "testdaf-levels-and-scoring"
 publishedDate: "2026-06-30"
 updatedDate: "2026-07-13"
-author: "VisaLang"
+contentStatus: "starter-overview"
+primaryIntent: "TestDaF Levels (TDN 3/4/5) and How Scoring Works decision support"
+decisionStage: "choice"
+nextGuideSlug: "testdaf-germany-university-admissions"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "Germany · University"
 route: "germany-testdaf"
-related: ["testdaf-germany-university-admissions", "testdaf-vs-goethe-dsh", "testdaf-preparation-and-practice"]
+supportingGuideSlugs: ["testdaf-germany-university-admissions", "testdaf-vs-goethe-dsh", "testdaf-preparation-and-practice"]
 ---
 
 ## Separate the score from the admissions decision
@@ -58,4 +63,4 @@ Keep the programme requirement and the score explanation separate:
 - [uni-assist: Language certificates](https://www.uni-assist.de/en/how-to-apply/assemble-your-documents/language-certificates/)
 - [DAAD: Requirements overview](https://www.daad.de/en/studying-in-germany/requirements/overview/)
 
-Last updated: 2026-07-13. Official sources last checked: 2026-07-13.
+Last updated: 2026-07-13. Official verification pending.

@@ -5,12 +5,17 @@ category: "germany-a1"
 slug: "goethe-a1-booking-mistakes"
 publishedDate: "2026-07-02"
 updatedDate: "2026-07-11"
-author: "VisaLang"
+contentStatus: "complete-route"
+primaryIntent: "Goethe A1 booking mistakes for family reunion decision support"
+decisionStage: "local-execution"
+nextGuideSlug: "german-a1-documents-checklist"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "8"
 featured: false
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["german-a1-documents-checklist", "goethe-a1-pre-booking-checklist", "goethe-a1-test-centers"]
+supportingGuideSlugs: ["german-a1-documents-checklist", "goethe-a1-pre-booking-checklist", "goethe-a1-test-centers"]
 ---
 ## The mistake happens before payment
 

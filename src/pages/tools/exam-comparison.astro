@@ -12,7 +12,7 @@ import { examComparisonOptions } from '../../data/route-tools';
           <label>First exam<select name="first" required><option value="">Select an exam</option>{examComparisonOptions.map((exam) => <option value={exam.id}>{exam.label}</option>)}</select></label>
           <label>Second exam<select name="second" required><option value="">Select an exam</option>{examComparisonOptions.map((exam) => <option value={exam.id}>{exam.label}</option>)}</select></label>
         </div>
-        <p class="tool-error" id="comparison-error" aria-live="assertive"></p>
+        <div class="tool-error-summary" id="comparison-error" data-error-summary role="alert" tabindex="-1" hidden></div>
         <button class="primary-action" type="submit">Compare verification questions</button>
       </form>
       <section id="comparison-result" class="tool-result" hidden aria-live="polite" tabindex="-1">
@@ -24,28 +24,24 @@ import { examComparisonOptions } from '../../data/route-tools';
 
 <script>
   import { examComparisonDimensions, examComparisonOptions } from '../../data/route-tools';
+  import { setupToolForm } from '../../scripts/tool-form';
 
   const form = document.querySelector<HTMLFormElement>('#comparison-form');
-  const error = document.querySelector<HTMLElement>('#comparison-error');
   const resultPanel = document.querySelector<HTMLElement>('#comparison-result');
   const summary = document.querySelector<HTMLElement>('#comparison-summary');
 
+  const controller = form ? setupToolForm(form, {
+    persistedNames: ['first', 'second'],
+    customError: (field, currentForm) => field.name === 'second' && field.value && field.value === String(new FormData(currentForm).get('first') || '') ? 'Choose two different exams.' : undefined,
+  }) : undefined;
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
+    if (!controller?.validate()) return;
     const data = Object.fromEntries(new FormData(form).entries());
-    if (!data.first || !data.second) {
-      if (error) error.textContent = 'Choose two exams to compare.';
-      return;
-    }
-    if (data.first === data.second) {
-      if (error) error.textContent = 'Choose two different exams.';
-      return;
-    }
     const first = examComparisonOptions.find((exam) => exam.id === data.first);
     const second = examComparisonOptions.find((exam) => exam.id === data.second);
     if (!first || !second || !summary || !resultPanel) return;
-    if (error) error.textContent = '';
-    history.replaceState({}, '', `${location.pathname}?${new URLSearchParams(data as Record<string, string>).toString()}`);
+    controller.persist();
     summary.replaceChildren();
     const heading = document.createElement('h2');
     heading.textContent = `${first.label} and ${second.label}`;
@@ -53,6 +49,12 @@ import { examComparisonOptions } from '../../data/route-tools';
     intro.textContent = 'This is a structured official-check list, not a recommendation or a statement of acceptance.';
     const tableWrap = document.createElement('div');
     tableWrap.className = 'tool-table-wrap';
+    tableWrap.setAttribute('role', 'region');
+    tableWrap.setAttribute('aria-label', 'Exam comparison table. Scroll horizontally to view all columns.');
+    tableWrap.tabIndex = 0;
+    const tableHint = document.createElement('p');
+    tableHint.className = 'tool-table-hint';
+    tableHint.textContent = 'Scroll left and right to view all comparison columns.';
     const table = document.createElement('table');
     const header = document.createElement('tr');
     ['Configured dimension', first.label, second.label].forEach((label) => { const cell = document.createElement('th'); cell.scope = 'col'; cell.textContent = label; header.append(cell); });
@@ -72,8 +74,10 @@ import { examComparisonOptions } from '../../data/route-tools';
       if (index) sources.append(' · ');
       const link = document.createElement('a'); link.href = exam.officialUrl; link.textContent = exam.label; link.rel = 'noreferrer'; link.target = '_blank'; sources.append(link);
     });
-    summary.append(heading, intro, tableWrap, sources);
+    summary.append(heading, intro, tableHint, tableWrap, sources);
     resultPanel.hidden = false;
+    controller.markResult();
     resultPanel.focus();
   });
+  if (controller?.restored) form?.requestSubmit();
 </script>

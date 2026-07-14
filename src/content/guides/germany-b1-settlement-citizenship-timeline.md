@@ -5,12 +5,17 @@ category: "germany-b1"
 slug: "germany-b1-settlement-citizenship-timeline"
 publishedDate: "2026-07-11"
 updatedDate: "2026-07-13"
-author: "VisaLang"
+contentStatus: "core-route"
+primaryIntent: "Germany B1 settlement and citizenship timeline: plan evidence without assuming eligibility decision support"
+decisionStage: "local-execution"
+nextGuideSlug: "germany-b1-settlement-citizenship-checklist"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "6"
 featured: true
 eyebrow: "Germany B1 · timeline planning"
 route: "germany-b1"
-related: ["germany-b1-settlement-citizenship-checklist", "goethe-b1-vs-telc-b1", "germany-b1-citizenship-language-proof"]
+supportingGuideSlugs: ["germany-b1-settlement-citizenship-checklist", "goethe-b1-vs-telc-b1", "germany-b1-citizenship-language-proof"]
 ---
 
 ## Start from the authority date, not an exam date
@@ -48,4 +53,4 @@ Use the [timeline calculator](/tools/timeline-calculator/) to organise your own 
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
 - [telc German certificate exams](https://www.telc.net/en/language-examinations/certificate-exams/german/)
 
-Last updated: 2026-07-13. Official sources last checked: 2026-07-13.
+Last updated: 2026-07-13. Official verification pending.

@@ -9,7 +9,7 @@ import { routeRegistry } from '../../data/route-tools';
       <form id="checklist-form" class="tool-form" novalidate>
         <div class="tool-form-heading"><h2>Choose a route</h2><p>Only Germany family reunion A1 has a configured route checklist. Other selections remain a safe verification checklist.</p></div>
         <label class="tool-field-single">Route<select name="route" required><option value="">Select your route</option>{routeRegistry.map((route) => <option value={route.id}>{route.shortTitle}{route.availability === 'configured' ? ' — configured' : ' — verify first'}</option>)}</select></label>
-        <p class="tool-error" id="checklist-error" aria-live="assertive"></p>
+        <div class="tool-error-summary" id="checklist-error" data-error-summary role="alert" tabindex="-1" hidden></div>
         <button class="primary-action" type="submit">Build my checklist</button>
       </form>
 
@@ -21,23 +21,19 @@ import { routeRegistry } from '../../data/route-tools';
 </ToolLayout>
 
 <script>
-  import { getChecklist, routeRegistry } from '../../data/route-tools';
+  import { getChecklist, routeRegistry, safeRouteResult } from '../../data/route-tools';
+  import { setupToolForm } from '../../scripts/tool-form';
 
   const form = document.querySelector<HTMLFormElement>('#checklist-form');
-  const error = document.querySelector<HTMLElement>('#checklist-error');
   const resultPanel = document.querySelector<HTMLElement>('#checklist-result');
   const summary = document.querySelector<HTMLElement>('#checklist-summary');
 
+  const controller = form ? setupToolForm(form, { persistedNames: ['route'] }) : undefined;
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
+    if (!controller?.validate()) return;
     const routeId = String(new FormData(form).get('route') || '');
-    if (!routeId) {
-      if (error) error.textContent = 'Please choose a route.';
-      form.querySelector<HTMLSelectElement>('select')?.focus();
-      return;
-    }
-    if (error) error.textContent = '';
-    history.replaceState({}, '', `${location.pathname}?route=${encodeURIComponent(routeId)}`);
+    controller.persist();
     if (!summary || !resultPanel) return;
     const route = routeRegistry.find((item) => item.id === routeId);
     const items = getChecklist(routeId);
@@ -53,8 +49,13 @@ import { routeRegistry } from '../../data/route-tools';
     if (!items.length) {
       const next = document.createElement('p');
       next.textContent = 'Identify the organisation receiving your proof and use its current instructions before choosing an exam.';
-      summary.append(next);
+      const official = document.createElement('p');
+      const officialLink = document.createElement('a'); officialLink.href = safeRouteResult.officialEntry.href; officialLink.textContent = safeRouteResult.officialEntry.label;
+      official.append('Official starting point: ', officialLink);
+      const questions = document.createElement('ul'); safeRouteResult.questions.forEach((question: string) => { const item = document.createElement('li'); item.textContent = question; questions.append(item); });
+      summary.append(next, official, questions);
       resultPanel.hidden = false;
+      controller.markResult();
       resultPanel.focus();
       return;
     }
@@ -82,6 +83,8 @@ import { routeRegistry } from '../../data/route-tools';
     updateCompletion();
     summary.append(list, completion);
     resultPanel.hidden = false;
+    controller.markResult();
     resultPanel.focus();
   });
+  if (controller?.restored) form?.requestSubmit();
 </script>

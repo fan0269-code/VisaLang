@@ -5,28 +5,39 @@ category: "finland"
 slug: "yki-finnish-citizenship"
 publishedDate: "2026-07-01"
 updatedDate: "2026-07-01"
-author: "VisaLang"
+contentStatus: "verification-pending"
+decisionStage: "requirement"
+nextGuideSlug: "yki-vs-other-finland-options"
+comparisonScope: "same-route"
+sourceReviewedAt: "2026-07-14"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
+primaryIntent: "Finland citizenship language-proof planning"
+audienceScope: "Readers considering YKI for a Finnish citizenship application"
+finalDecisionAuthorityType: "Finnish immigration and citizenship authority"
+primaryOfficialAuthorityUrl: "https://migri.fi/en/language-skills"
+examOwnerUrl: "https://www.oph.fi/en/national-certificates-language-proficiency-yki"
+localExecutionPrompt: "Before registering, check the current requirement with the authority that receives your application. This page helps you prepare the questions and official sources to use."
+author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "Finland · Citizenship"
 route: "finland"
-related: ["cils-b1-cittadinanza-for-italian-citizenship", "dele-a2-ccse-spanish-citizenship", "dutch-inburgering-a2-b1-for-integration-and-citizenship"]
+supportingGuideSlugs: ["yki-vs-other-finland-options", "cils-b1-cittadinanza-for-italian-citizenship", "dele-a2-ccse-spanish-citizenship", "dutch-inburgering-a2-b1-for-integration-and-citizenship"]
 ---
 
 ## What YKI is
 
-YKI (Yleinen kielitutkinto, the National Certificate of Language Proficiency) tests Finnish or Swedish at three levels: perustaso (basic), keskitaso (intermediate), and ylin taso (advanced). The intermediate level (keskitaso) is the standard requirement for Finnish citizenship.
+The Finnish National Agency for Education owns YKI and publishes its languages, levels, components, registration and test centres. Migri controls which language evidence satisfies a citizenship application.
 
-## Who needs it
+## Check the citizenship evidence first
 
-- Applicants for Finnish citizenship by naturalisation after 5 years of continuous residence.
-- Applicants for Finnish citizenship by marriage or civil partnership.
-- Those applying for permanent residence under the EU long-term resident permit.
+YKI intermediate must not be treated as the only possible proof. Use Migri's current language-skills page to confirm the accepted evidence, any exemption, and the required YKI subtest combination for the citizenship case. Citizenship and permanent residence are separate procedures.
 
 ## What to verify
 
-- Confirm which language (Finnish or Swedish) the authority requires for your case.
-- Check whether you are exempt from the language requirement.
+- Confirm current citizenship eligibility and how the residence period is calculated.
+- Confirm the accepted language evidence and any exemption with Migri.
 - Find a YKI test centre and register through the official Opetushallitus site.
 - Record the exam fee, available dates, and the level you are registering for.
 
@@ -37,3 +48,4 @@ YKI tests reading, writing, listening, and speaking at the chosen level. Free pr
 ## Official sources
 
 - [YKI — Finnish National Agency for Education (Opetushallitus)](https://www.oph.fi/en/national-certificates-language-proficiency-yki)
+- [Migri — language skills for citizenship](https://migri.fi/en/language-skills)

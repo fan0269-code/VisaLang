@@ -5,26 +5,43 @@ import ArticleLayout from './ArticleLayout.astro';
 import RelatedGuides from '../components/RelatedGuides.astro';
 import GuideStatusBadge from '../components/GuideStatusBadge.astro';
 import LastCheckedBadge from '../components/LastCheckedBadge.astro';
+import type { ComparisonScope, DecisionStage, ReviewerRole, SourceReviewStatus } from '../data/source-review';
 import VerificationAlert from '../components/VerificationAlert.astro';
 import ReportOutdatedInfo from '../components/ReportOutdatedInfo.astro';
 import CopyButton from '../components/CopyButton.astro';
 import PrintButton from '../components/PrintButton.astro';
 import { translatedPaths } from '../data/site';
-import { guideMaturityStatus } from '../data/guide-taxonomy';
+import { contentStatusCtas, reviewerRoleLabels, resolveGuideContentStatus } from '../data/source-review';
+import type { ContentStatus } from '../data/source-review';
 import type { ArticleSections } from '../data/article-sections';
 
 export interface Props {
   title: string; description: string; publishedDate: string; updatedDate: string; slug: string;
-  category?: string; route?: string; eyebrow?: string; readingTime?: string; verifiedDate?: string;
+  category?: string; route?: string; eyebrow?: string; readingTime?: string; sourceReviewedAt?: string;
+  sourceReviewStatus?: SourceReviewStatus;
+  reviewedByRole?: ReviewerRole; author: string;
+  contentStatus: ContentStatus; primaryOfficialAuthorityUrl?: string; primaryIntent?: string;
+  audienceScope?: string; finalDecisionAuthorityType?: string; examOwnerUrl?: string; localExecutionPrompt?: string;
   breadcrumbs?: { label: string; href?: string }[]; related?: { title: string; slug: string }[];
   previous?: { title: string; slug: string }; next?: { title: string; slug: string };
   routeHref?: string; routeLabel?: string; country?: string; exam?: string; level?: string;
   headings?: { slug: string; text: string; depth?: number }[];
   sections?: ArticleSections;
+  decisionStage: DecisionStage; nextGuideSlug?: string; comparisonScope: ComparisonScope;
 }
 
-const { title, description, publishedDate, updatedDate, verifiedDate, slug, category, eyebrow, readingTime = '5', breadcrumbs = [{ label: 'Home', href: '/' }, { label: title }], related = [], previous, next, routeHref, routeLabel, country, exam, level, headings = [], sections } = Astro.props;
-const status = guideMaturityStatus(category);
+const { title, description, publishedDate, updatedDate, sourceReviewedAt, sourceReviewStatus = 'pending', reviewedByRole, author, contentStatus, primaryOfficialAuthorityUrl, primaryIntent, audienceScope, finalDecisionAuthorityType, examOwnerUrl, localExecutionPrompt, decisionStage, nextGuideSlug, comparisonScope, slug, category, eyebrow, readingTime = '5', breadcrumbs = [{ label: 'Home', href: '/' }, { label: title }], related = [], previous, next, routeHref, routeLabel, country, exam, level, headings = [], sections } = Astro.props;
+const status = resolveGuideContentStatus({ category: category ?? '', contentStatus, sourceReviewStatus, primaryOfficialAuthorityUrl, primaryIntent, audienceScope, finalDecisionAuthorityType, examOwnerUrl, localExecutionPrompt });
+const ctas = contentStatusCtas(status, { routeHref, primaryOfficialAuthorityUrl, examOwnerUrl, nextGuideSlug });
+const reviewedByLabel = reviewedByRole ? reviewerRoleLabels[reviewedByRole] : sourceReviewStatus === 'pending' ? 'Pending' : 'Not applicable';
+const authorityIsVerified = sourceReviewStatus === 'reviewed' && Boolean(sourceReviewedAt && primaryOfficialAuthorityUrl && finalDecisionAuthorityType);
+const showSourceFactTable = (status === 'complete-route' || status === 'core-route') && authorityIsVerified;
+const nextActionCopy = {
+  requirement: 'Confirm the current requirement with the organisation that will receive your proof.',
+  choice: 'Compare only the options that the receiving organisation currently accepts, then verify the exact exam with its owner.',
+  'local-execution': 'Check the official provider or authorised local centre before booking, paying, or relying on a date.',
+  'submission-review': 'Recheck the receiving authority’s current document instructions before submission.',
+}[decisionStage];
 const canonicalURL = `https://flowlight.me/guides/${slug}/`;
 const translatedPath = translatedPaths[`/guides/${slug}/`];
 const alternates = translatedPath ? [
@@ -46,7 +63,7 @@ const tocHeadings = [
 ].filter((heading, index, list) => list.findIndex((item) => item.id === heading.id) === index);
 const jsonLD = {
   '@context': 'https://schema.org', '@graph': [
-    { '@type': 'Article', headline: title, description, url: canonicalURL, datePublished: publishedDate, dateModified: updatedDate, author: { '@type': 'Organization', name: 'VisaLang' }, publisher: { '@type': 'Organization', name: 'VisaLang', url: 'https://flowlight.me/' }, inLanguage: 'en', mainEntityOfPage: canonicalURL },
+    { '@type': 'Article', headline: title, description, url: canonicalURL, datePublished: publishedDate, dateModified: updatedDate, author: { name: author }, publisher: { '@type': 'Organization', name: 'VisaLang', url: 'https://flowlight.me/' }, inLanguage: 'en', mainEntityOfPage: canonicalURL },
     { '@type': 'BreadcrumbList', itemListElement: breadcrumbs.map((crumb, index) => ({ '@type': 'ListItem', position: index + 1, name: crumb.label, item: crumb.href ? absoluteUrl(crumb.href) : canonicalURL })) },
   ],
 };
@@ -56,32 +73,40 @@ const jsonLD = {
   <main class="guide-page od-guide-article">
     <Breadcrumbs path={breadcrumbs} />
     <ArticleLayout articleId="guide-content" headings={tocHeadings}>
-        {eyebrow && <p class="page-kicker">{eyebrow}</p>}
-        <div class="card-footer"><GuideStatusBadge status={status} /><span>Updated <time datetime={updatedDate}>{updatedDate}</time></span>{verifiedDate ? <LastCheckedBadge date={verifiedDate} /> : <span class="last-checked">Official verification date not separately recorded</span>}<span>{readingTime} min read</span></div>
-        <h1>{title}</h1>
-        <div class="guide-summary-box" id="direct-answer">
-          <h2>Direct answer</h2>
-          <p class="guide-summary">{description}</p>
-          <dl>
-            {country && <div><dt>Country</dt><dd>{country}</dd></div>}
-            {routeLabel && <div><dt>Route</dt><dd>{routeLabel}</dd></div>}
-            {exam && <div><dt>Exam</dt><dd>{exam}</dd></div>}
-            {level && <div><dt>Level</dt><dd>{level}</dd></div>}
+        <div slot="article-header" class="guide-article__header">
+          {eyebrow && <p class="page-kicker">{eyebrow}</p>}
+          <div class="guide-scope-line"><GuideStatusBadge status={status} />{country && <span>Country: {country}</span>}{routeLabel && <span>Route: {routeLabel}</span>}</div>
+          <h1>{title}</h1>
+          <section class="guide-summary-box" id="direct-answer" aria-labelledby="direct-answer-title">
+            <h2 id="direct-answer-title">Direct answer</h2>
+            <p class="guide-summary">{description}</p>
+          </section>
+          <dl class="guide-meta" aria-label="Article responsibility and review information">
+            <div><dt>Updated</dt><dd><time datetime={updatedDate}>{updatedDate}</time></dd></div>
+            <div><dt>Source review</dt><dd><LastCheckedBadge date={sourceReviewedAt} status={sourceReviewStatus} /></dd></div>
+            <div><dt>Written by</dt><dd>{author}</dd></div>
+            <div><dt>Reviewed by role</dt><dd>{reviewedByLabel}</dd></div>
+            <div><dt>Reading time</dt><dd>{readingTime} min</dd></div>
           </dl>
+          <section class="decision-authority" aria-labelledby="who-decides-title">
+            <h2 id="who-decides-title">Who decides this?</h2>
+            {authorityIsVerified ? <><p><strong>Final decision authority:</strong> {finalDecisionAuthorityType}</p><p><a class="official-source-link" href={primaryOfficialAuthorityUrl}>Open the official authority source</a></p></> : <p class="verification-pending"><strong>Official verification pending.</strong> The final decision authority and its official entry have not both been source-reviewed for this page.</p>}
+            <p>VisaLang does not decide individual eligibility, exemptions, certificate acceptance, document sufficiency, or application outcomes.</p>
+          </section>
         </div>
         <VerificationAlert><p>Requirements, exemptions, accepted certificates, fees, dates, centres, and document rules can change. Verify with the organisation receiving your proof before acting.</p></VerificationAlert>
+        {localExecutionPrompt && <VerificationAlert><p>{localExecutionPrompt}</p></VerificationAlert>}
 
         <section id="who-this-applies-to"><h2>Who this applies to</h2>{sections?.who ? <div set:html={sections.who}></div> : <p>Use this guide if you are checking {routeLabel || 'a language-proof route'} before choosing an exam, paying a centre, or submitting a document. It does not decide eligibility, an exemption, or certificate acceptance for an individual case.</p>}</section>
         <section id="key-decisions"><h2>Key decisions</h2><ol><li>Identify the authority or institution receiving your proof.</li><li>Confirm the exact certificate, level, exam version, and document format it accepts.</li><li>Verify local booking, ID, fee, result, cancellation, and timing details with official sources.</li></ol></section>
         <section id="detailed-explanation"><h2>Detailed explanation</h2>{sections ? <div set:html={sections.detailed}></div> : <slot />}</section>
-        <section id="what-to-verify-officially"><h2>What to verify officially</h2><p>Confirm the current rule, accepted proof, local centre status, fee, date, ID requirement, cancellation policy, result timing, and document format with the responsible authority or official provider.</p></section>
+        <section id="what-to-verify-officially"><h2>What to verify officially</h2>{showSourceFactTable ? <div class="source-fact-table"><table><caption>Source-reviewed verification responsibilities for this guide</caption><thead><tr><th scope="col">Item to verify</th><th scope="col">Who finally decides</th><th scope="col">Official source</th><th scope="col">Confirmed on this page</th><th scope="col">You still need to confirm</th></tr></thead><tbody><tr><th scope="row">Current route requirement and accepted proof</th><td>{finalDecisionAuthorityType}</td><td><a class="official-source-link" href={primaryOfficialAuthorityUrl}>Authority source</a></td><td>The official entry and verification sequence recorded on {sourceReviewedAt}.</td><td>Your current individual route, exceptions, document format, and submission instructions.</td></tr>{examOwnerUrl && <tr><th scope="row">Exam product and booking rules</th><td>Official exam owner and authorised local centre</td><td><a class="official-source-link" href={examOwnerUrl}>Exam-owner source</a></td><td>The exam-owner entry used by this guide.</td><td>Current centre authorisation, dates, fees, ID, cancellation, results, and certificate delivery.</td></tr>}</tbody></table></div> : <p class="verification-pending"><strong>Official verification pending.</strong> This page does not yet have the reviewed authority metadata required to publish a source fact table. Confirm the current requirement and accepted proof with the receiving authority before acting.</p>}</section>
         <section id="common-mistakes"><h2>Common mistakes</h2>{sections?.commonMistakes ? <div set:html={sections.commonMistakes}></div> : <ul><li>Booking before confirming the exact proof for the route.</li><li>Using an old price, date, or centre listing without checking the official page.</li><li>Assuming another applicant's outcome applies to your own case.</li></ul>}</section>
-        <section id="next-action"><h2>Next action</h2>{sections?.nextAction ? <div set:html={sections.nextAction}></div> : <ol><li>Write down the receiving organisation and your deadline.</li><li>Open the official sources named in this guide and record the date checked.</li><li>{routeHref ? <a href={routeHref}>Continue with {routeLabel || 'the related route'}</a> : <a href="/tools/route-finder/">Use Route Finder</a>}.</li></ol>}</section>
+        <section id="next-action"><h2>Next action</h2><p>{nextActionCopy}</p><div class="button-row">{ctas.map((cta) => <a class:list={['button', cta.kind === 'official' ? 'button--secondary' : 'button--primary']} href={cta.href}>{cta.label}</a>)}</div></section>
         <section id="official-sources"><h2>Official sources</h2>{sections?.officialSources ? <div set:html={sections.officialSources}></div> : <p>No separate official-source list is recorded in this guide. Use the responsible authority and official exam-owner pages before acting.</p>}</section>
         <aside class="guide-disclaimer" aria-label="Disclaimer"><strong>Planning information only.</strong><p>VisaLang does not provide legal or immigration advice, issue certificates, register exams, or guarantee an application or exam outcome.</p></aside>
         <div class="button-row"><CopyButton target="#guide-content" label="Copy guide" /><PrintButton label="Print guide" /></div>
     </ArticleLayout>
-    <section class="guide-related" aria-labelledby="next-tool-title"><h2 id="next-tool-title">Next tool</h2><div class="button-row"><a class="button button--primary" href="/tools/route-finder/">Check a route</a><a class="button button--secondary" href="/tools/checklist-generator/">Build a requirement checklist</a></div></section>
     <RelatedGuides guides={related} routeHref={routeHref} routeLabel={routeLabel} previous={previous} next={next} />
     <ReportOutdatedInfo pageTitle={title} />
   </main>

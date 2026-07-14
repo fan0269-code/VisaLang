@@ -5,12 +5,17 @@ category: "germany-a1"
 slug: "goethe-a1-pre-booking-checklist"
 publishedDate: "2026-07-02"
 updatedDate: "2026-07-11"
-author: "VisaLang"
+contentStatus: "complete-route"
+primaryIntent: "Goethe A1 pre-booking checklist: verify before paying decision support"
+decisionStage: "submission-review"
+nextGuideSlug: "goethe-a1-booking-mistakes"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "8"
 featured: false
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["goethe-a1-booking-mistakes", "german-a1-documents-checklist", "german-a1-exam-booking-timeline"]
+supportingGuideSlugs: ["goethe-a1-booking-mistakes", "german-a1-documents-checklist", "german-a1-exam-booking-timeline"]
 ---
 Before you pay for a Goethe A1 exam, work through this checklist. It cannot decide your visa case, but it can stop you from paying before the route, centre, and local rules are clear.
 

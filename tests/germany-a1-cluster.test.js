@@ -57,6 +57,7 @@ const auditedA1Guides = new Set([
 
 for (const file of germanyA1Guides) {
   const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
+  assert.ok(source.includes('contentStatus: "complete-route"'), `${file} retains the complete-route baseline`);
   assert.ok(source.includes('## A1 decision tools and next steps'), `${file} should have the shared A1 next-step section`);
   assert.ok(source.includes('## A1 route FAQ'), `${file} should have a route-level FAQ`);
   const expectedUpdateDate = auditedA1Guides.has(file) ? '2026-07-13' : '2026-07-11';

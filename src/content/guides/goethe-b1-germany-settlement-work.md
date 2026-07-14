@@ -5,12 +5,17 @@ category: "germany-b1"
 slug: "goethe-b1-germany-settlement-work"
 publishedDate: "2026-06-30"
 updatedDate: "2026-07-13"
-author: "VisaLang"
+contentStatus: "core-route"
+primaryIntent: "Germany settlement permit and B1: verify language proof separately decision support"
+decisionStage: "requirement"
+nextGuideSlug: "germany-b1-settlement-citizenship-checklist"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "7"
 featured: true
 eyebrow: "Germany B1 · settlement permit"
 route: "germany-b1"
-related: ["germany-b1-settlement-citizenship-checklist", "germany-b1-settlement-citizenship-timeline", "goethe-b1-vs-telc-b1"]
+supportingGuideSlugs: ["germany-b1-settlement-citizenship-checklist", "germany-b1-settlement-citizenship-timeline", "goethe-b1-vs-telc-b1"]
 ---
 
 ## What this page helps decide
@@ -130,4 +135,4 @@ Use it only to understand the separation between language proof and the wider fi
 - Remove any sentence that sounds like approval, eligibility, exemption, fixed processing time, fixed fee, or guaranteed acceptance.
 - Confirm all B1 hub, Route Finder, Checklist, Timeline, and comparison links still resolve.
 
-Last updated: 2026-07-13. Official sources last checked: 2026-07-13.
+Last updated: 2026-07-13. Official verification pending.

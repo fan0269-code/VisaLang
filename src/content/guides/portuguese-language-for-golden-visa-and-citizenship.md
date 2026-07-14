@@ -5,24 +5,38 @@ category: "portugal"
 slug: "portuguese-language-for-golden-visa-and-citizenship"
 publishedDate: "2026-07-01"
 updatedDate: "2026-07-01"
-author: "VisaLang"
+contentStatus: "verification-pending"
+decisionStage: "requirement"
+nextGuideSlug: "portuguese-ciple-a2-for-citizenship-and-residence"
+comparisonScope: "same-route"
+sourceReviewedAt: "2026-07-14"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
+primaryIntent: "Portugal residence and citizenship language-proof planning"
+audienceScope: "Readers preparing questions about Portuguese language proof for residence or citizenship"
+finalDecisionAuthorityType: "Portuguese immigration or citizenship authority"
+primaryOfficialAuthorityUrl: "https://justica.gov.pt/Registos/Nacionalidade/Nacionalidade-portuguesa"
+examOwnerUrl: "https://caple.letras.ulisboa.pt/exame/2/ciple"
+localExecutionPrompt: "Before registering, check the current requirement with the authority that receives your application. This page helps you prepare the questions and official sources to use."
+author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "Portugal · Citizenship"
 route: "portugal"
-related: ["portuguese-ciple-a2-for-citizenship-and-residence"]
+supportingGuideSlugs: ["portuguese-ciple-a2-for-citizenship-and-residence"]
 ---
 
-## CIPLE A2 vs alternatives
+## Check the nationality route first
 
-CIPLE A2 is the most common certificate. DEPLE (B1), DIPLE (B2) and DAPLE (C1) are also accepted from CAPLE. A2 is sufficient — higher levels are not required.
+The Portuguese Justice portal is the authority source for selecting the nationality profile and the evidence that applies to it. Where that procedure asks for Portuguese-language proof, it identifies a certificate from a recognised assessment centre as one possible form of evidence and directs readers to CAPLE.
 
-## Timeline for Golden Visa holders
+This review did not establish one language rule or one residence-period calculation for every Golden Visa holder. Confirm your nationality profile, how residence is calculated, accepted proof, and any exemption with the authority before choosing an exam.
 
-- Citizenship requires 5 years of legal residence from the first permit date.
-- Start Portuguese lessons early in the window — do not cram in the final year.
-- Book CAPLE sessions well ahead — fixed dates, centres fill up.
+## Then check the exam
+
+CAPLE owns the CIPLE exam information. Use its current CIPLE page to check the assessed level, session, centre and fee. CAPLE product information does not decide citizenship eligibility or whether a particular applicant's evidence will be accepted.
 
 ## Official sources
 
-- [CAPLE — University of Lisbon](https://caple.letras.ulisboa.pt/)
+- [Portuguese Justice portal — Portuguese nationality](https://justica.gov.pt/Registos/Nacionalidade/Nacionalidade-portuguesa)
+- [CAPLE — CIPLE](https://caple.letras.ulisboa.pt/exame/2/ciple)

@@ -1,34 +1,41 @@
 ---
 title: "TCF IRN for French Residence and Citizenship"
-description: "How TCF IRN works for French residence permits and citizenship language proof."
+description: "Prepare the questions needed to verify whether and how TCF IRN applies to a specific French residence or citizenship procedure."
 category: "france"
 slug: "tcf-irn-french-residence"
 publishedDate: "2026-07-01"
 updatedDate: "2026-07-01"
-author: "VisaLang"
+contentStatus: "verification-pending"
+decisionStage: "choice"
+nextGuideSlug: "delf-b1-b2-french-work-study"
+comparisonScope: "same-route"
+primaryIntent: "France residence and citizenship language-proof planning"
+audienceScope: "Readers considering TCF IRN for a French residence or citizenship application"
+finalDecisionAuthorityType: "French residence or citizenship authority"
+examOwnerUrl: "https://www.france-education-international.fr/en/test/tcf-irn"
+localExecutionPrompt: "Before registering, check the current requirement with the authority that receives your application. This page helps you prepare the questions and official sources to use."
+author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "France · Residence"
 route: "france"
-related: ["delf-b1-b2-french-work-study"]
+supportingGuideSlugs: ["delf-b1-b2-french-work-study"]
 ---
 
-## What TCF IRN is
+## Official verification required for the procedure
 
-TCF IRN is a French language proficiency test designed for people applying for French residence permits (carte de sejour) and citizenship. It tests listening, reading, writing, and speaking at the A1 to B1 CEFR levels, depending on the requirement of your specific application.
+This page does not yet have the precise reviewed prefecture or government procedure needed to confirm whether TCF IRN applies to your residence or citizenship route. Do not infer an applicant group, required level, exemption, or accepted proof from the exam name.
 
-## Who needs it
+## Questions for the receiving authority
 
-- Applicants for a multi-year residence permit (carte de sejour pluriannuelle) who have been in France on a student or other temporary permit.
-- Applicants for French citizenship by naturalisation or marriage.
-- Applicants for a residence card requiring a B1 level French language certificate.
+- Which procedure and applicant category apply to the application?
+- Is language proof required, and are exemptions or alternative documents available?
+- If TCF IRN is accepted, which current level, result, document format, and submission timing apply?
+- Which official procedure page records those requirements?
 
-## What to verify
+## What to verify after the authority responds
 
-- Confirm the CEFR level your residence category requires (A1, A2, or B1).
-- Check the next TCF IRN session at an approved centre near you.
-- Record the test fee, registration deadline, and result validity period.
-- Prepare with the official TCF sample tests before booking.
+Use the exam-owner link to check the current TCF IRN product and then verify the authorised centre, session, fee, ID, cancellation, result, and document-delivery details. The exam-owner page does not decide the residence or citizenship requirement.
 
 ## Official sources
 

@@ -5,36 +5,42 @@ category: "uk"
 slug: "ielts-ukvi-uk-visa"
 publishedDate: "2026-07-01"
 updatedDate: "2026-07-01"
-author: "VisaLang"
+contentStatus: "verification-pending"
+decisionStage: "requirement"
+nextGuideSlug: "languagecert-selt-uk-visa"
+comparisonScope: "same-route"
+sourceReviewedAt: "2026-07-14"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
+primaryIntent: "UK visa English-language evidence planning"
+audienceScope: "Readers considering IELTS for UKVI for a UK visa application"
+finalDecisionAuthorityType: "UK immigration authority"
+primaryOfficialAuthorityUrl: "https://www.gov.uk/guidance/prove-your-english-language-abilities-with-a-secure-english-language-test-selt"
+examOwnerUrl: "https://ielts.org/take-a-test/test-types/ielts-tests-for-uk-visas-and-immigration"
+localExecutionPrompt: "Before registering, check the current requirement with the authority that receives your application. This page helps you prepare the questions and official sources to use."
+author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "UK · Visa"
 route: "uk"
-related: ["languagecert-selt-uk-visa"]
+supportingGuideSlugs: ["languagecert-selt-uk-visa"]
 ---
 
 ## What IELTS UKVI is
 
-IELTS for UKVI (UK Visas and Immigration) is a Secure English Language Test approved by the UK Home Office. It tests reading, writing, listening, and speaking. The test is the same content as regular IELTS but is administered under stricter security conditions and is the only IELTS variant accepted for UK visa applications.
+UKVI's current SELT list names both IELTS for UKVI and IELTS Life Skills as approved IELTS products. The correct product and skills depend on the application route.
 
 ## Which CEFR level you need
 
-- **Spouse/partner visa:** A1 speaking and listening.
-- **Spouse/partner extension:** A2 speaking and listening.
-- **Indefinite Leave to Remain (ILR):** B1 speaking and listening.
-- **British citizenship:** B1 speaking and listening.
-- **Student visa:** B2 or higher depending on the course.
-
-Always check the exact requirement for your visa category on the UK government website before booking.
+This page does not provide a fixed route-to-level table. Select the exact visa or nationality route on GOV.UK and confirm its current CEFR level, required skills, exemptions and evidence rules.
 
 ## What to verify before booking
 
-- Confirm your visa category requires IELTS UKVI (not regular IELTS or LanguageCert SELT).
-- Check the CEFR level your category requires.
-- Book only through an approved IELTS UKVI test centre.
-- Record the fee, test date, and whether you need all four skills or just speaking and listening.
+- Confirm the exact route, CEFR level and required skills on GOV.UK.
+- Match those requirements to an approved IELTS product and approved location on the current UKVI list.
+- Check the date, price and provider terms with IELTS before paying.
 
 ## Official sources
 
-- [IELTS official site](https://ielts.org/)
-- [UK government — English language requirements](https://www.gov.uk/english-language)
+- [UKVI — approved SELTs and centres](https://www.gov.uk/guidance/prove-your-english-language-abilities-with-a-secure-english-language-test-selt)
+- [IELTS — tests for UK visas and immigration](https://ielts.org/take-a-test/test-types/ielts-tests-for-uk-visas-and-immigration)

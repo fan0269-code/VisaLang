@@ -5,12 +5,17 @@ category: "germany-b1"
 slug: "germany-b1-leben-in-deutschland-and-language-proof"
 publishedDate: "2026-07-11"
 updatedDate: "2026-07-13"
-author: "VisaLang"
+contentStatus: "core-route"
+primaryIntent: "Leben in Deutschland and B1: separate civic knowledge from language proof decision support"
+decisionStage: "requirement"
+nextGuideSlug: "germany-b1-citizenship-language-proof"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "6"
 featured: true
 eyebrow: "Germany B1 · civic knowledge"
 route: "germany-b1"
-related: ["germany-b1-citizenship-language-proof", "goethe-b1-vs-telc-b1", "germany-b1-settlement-citizenship-checklist"]
+supportingGuideSlugs: ["germany-b1-citizenship-language-proof", "goethe-b1-vs-telc-b1", "germany-b1-settlement-citizenship-checklist"]
 ---
 
 ## Do not merge two evidence questions
@@ -40,4 +45,4 @@ Language and civic knowledge are only possible evidence categories. Keep residen
 - [BAMF: naturalisation](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html)
 - [German Government: key questions about naturalisation](https://www.einbuergerung.de/service.php?l=en)
 
-Last updated: 2026-07-13. Official sources last checked: 2026-07-13.
+Last updated: 2026-07-13. Official verification pending.

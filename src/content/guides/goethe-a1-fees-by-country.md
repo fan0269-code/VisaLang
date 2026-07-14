@@ -5,12 +5,17 @@ category: "germany-a1"
 slug: "goethe-a1-fees-by-country"
 publishedDate: "2026-06-30"
 updatedDate: "2026-07-13"
-author: "VisaLang"
+contentStatus: "complete-route"
+primaryIntent: "Goethe A1 exam fees: check your local price decision support"
+decisionStage: "local-execution"
+nextGuideSlug: "goethe-a1-test-centers"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "7"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["goethe-a1-test-centers", "goethe-a1-booking-mistakes", "german-a1-exam-booking-timeline"]
+supportingGuideSlugs: ["goethe-a1-test-centers", "goethe-a1-booking-mistakes", "german-a1-exam-booking-timeline"]
 ---
 
 ## The useful answer is not one number

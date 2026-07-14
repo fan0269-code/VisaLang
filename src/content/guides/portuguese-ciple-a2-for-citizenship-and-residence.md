@@ -5,25 +5,36 @@ category: "portugal"
 slug: "portuguese-ciple-a2-for-citizenship-and-residence"
 publishedDate: "2026-07-01"
 updatedDate: "2026-07-01"
-author: "VisaLang"
+contentStatus: "verification-pending"
+decisionStage: "choice"
+nextGuideSlug: "portuguese-language-for-golden-visa-and-citizenship"
+comparisonScope: "same-route"
+sourceReviewedAt: "2026-07-14"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
+primaryIntent: "Portugal citizenship and residence language-proof planning"
+audienceScope: "Readers considering CIPLE for a Portuguese citizenship or residence application"
+finalDecisionAuthorityType: "Portuguese immigration or citizenship authority"
+primaryOfficialAuthorityUrl: "https://justica.gov.pt/Registos/Nacionalidade/Nacionalidade-portuguesa"
+examOwnerUrl: "https://caple.letras.ulisboa.pt/exame/2/ciple"
+localExecutionPrompt: "Before registering, check the current requirement with the authority that receives your application. This page helps you prepare the questions and official sources to use."
+author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "Portugal · Citizenship"
 route: "portugal"
-related: ["portuguese-language-for-golden-visa-and-citizenship"]
+supportingGuideSlugs: ["portuguese-language-for-golden-visa-and-citizenship"]
 ---
 
-## What CIPLE A2 covers
+## Decide whether CIPLE is relevant
 
-CIPLE tests reading, writing, listening, and speaking at A2 level. Administered by CAPLE at the University of Lisbon and partner centres in Portugal and abroad.
+The Portuguese Justice portal controls the nationality procedure and the evidence requested for the selected profile. The reviewed sources do not support one list saying that every naturalisation, marriage, Golden Visa or permanent-residence applicant needs CIPLE.
 
-## Who needs it
+First select the exact official procedure and confirm the accepted language proof and any exemption. If CIPLE is an accepted option for that procedure, use CAPLE's current CIPLE page to check the exam level, components, centre, session and fee.
 
-- Portuguese citizenship by naturalisation after 5 years of legal residence.
-- Citizenship by marriage.
-- Golden Visa holders applying for citizenship.
-- Permanent residence applicants where A2 is required.
+CAPLE controls the exam product. It does not decide immigration or nationality eligibility.
 
 ## Official sources
 
-- [CAPLE — University of Lisbon](https://caple.letras.ulisboa.pt/)
+- [Portuguese Justice portal — Portuguese nationality](https://justica.gov.pt/Registos/Nacionalidade/Nacionalidade-portuguesa)
+- [CAPLE — CIPLE](https://caple.letras.ulisboa.pt/exame/2/ciple)

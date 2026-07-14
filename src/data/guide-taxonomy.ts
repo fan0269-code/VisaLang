@@ -15,12 +15,13 @@ export const guideCategories = [
 
 export const guideCategoryMap = Object.fromEntries(guideCategories.map((category) => [category.slug, category]));
 
-export type GuideMaturityStatus = 'complete-route' | 'core-route' | 'deep-guide' | 'starter';
+export type GuideMaturityStatus = import('./source-review').ContentStatus;
 
-export function guideMaturityStatus(category?: string): GuideMaturityStatus {
-  if (category === 'germany-a1') return 'complete-route';
-  if (category === 'germany-b1') return 'core-route';
-  return 'starter';
+export function categoryContentStatus(statuses: GuideMaturityStatus[]): GuideMaturityStatus {
+  if (statuses.includes('complete-route')) return 'complete-route';
+  if (statuses.includes('core-route')) return 'core-route';
+  if (statuses.includes('starter-overview')) return 'starter-overview';
+  return 'verification-pending';
 }
 
 export function guideCategoryIntro(category: { slug: string; desc: string }) {

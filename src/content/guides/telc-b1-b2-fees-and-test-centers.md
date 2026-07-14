@@ -5,12 +5,17 @@ category: "germany-telc"
 slug: "telc-b1-b2-fees-and-test-centers"
 publishedDate: "2026-06-30"
 updatedDate: "2026-06-30"
-author: "VisaLang"
+contentStatus: "starter-overview"
+primaryIntent: "telc B1/B2 Fees and Test Centers decision support"
+decisionStage: "local-execution"
+nextGuideSlug: "telc-b1-b2-exam-format-and-preparation"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "Germany · telc"
 route: "germany-telc"
-related: ["goethe-b1-germany-settlement-work", "goethe-b1-fees-and-booking", "goethe-b1-vs-telc-b1"]
+supportingGuideSlugs: ["telc-b1-b2-exam-format-and-preparation", "goethe-b1-germany-settlement-work", "goethe-b1-fees-and-booking", "goethe-b1-vs-telc-b1"]
 ---
 
 ## How to find centres and fees

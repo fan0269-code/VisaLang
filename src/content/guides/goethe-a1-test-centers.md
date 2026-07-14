@@ -5,12 +5,17 @@ category: "germany-a1"
 slug: "goethe-a1-test-centers"
 publishedDate: "2026-06-30"
 updatedDate: "2026-07-13"
-author: "VisaLang"
+contentStatus: "complete-route"
+primaryIntent: "Goethe A1 test centers: verify an official exam centre decision support"
+decisionStage: "local-execution"
+nextGuideSlug: "german-a1-documents-checklist"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "8"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["german-a1-documents-checklist", "goethe-a1-vs-telc-a1", "goethe-a1-fees-by-country"]
+supportingGuideSlugs: ["german-a1-documents-checklist", "goethe-a1-vs-telc-a1", "goethe-a1-fees-by-country"]
 ---
 
 ## What "official test centre" means

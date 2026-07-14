@@ -5,12 +5,17 @@ category: "germany-a1"
 slug: "goethe-a1-vs-telc-a1"
 publishedDate: "2026-06-30"
 updatedDate: "2026-07-13"
-author: "VisaLang"
+contentStatus: "complete-route"
+primaryIntent: "Goethe A1 vs telc A1: choose a family reunion exam decision support"
+decisionStage: "choice"
+nextGuideSlug: "goethe-a1-test-centers"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "8"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["goethe-a1-test-centers", "goethe-a1-fees-by-country", "goethe-a1-booking-mistakes"]
+supportingGuideSlugs: ["goethe-a1-test-centers", "goethe-a1-fees-by-country", "goethe-a1-booking-mistakes"]
 ---
 
 ## The first comparison is acceptance

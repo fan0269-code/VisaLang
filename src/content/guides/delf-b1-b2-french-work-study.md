@@ -1,30 +1,39 @@
 ---
 title: "DELF B1/B2 for French Work and Study"
-description: "How DELF B1 and B2 work for French higher education and professional registration."
+description: "Prepare an official check with a named French institution or regulator before relying on DELF for study, work, or registration."
 category: "france"
 slug: "delf-b1-b2-french-work-study"
 publishedDate: "2026-07-01"
 updatedDate: "2026-07-01"
-author: "VisaLang"
+contentStatus: "verification-pending"
+decisionStage: "requirement"
+nextGuideSlug: "tcf-irn-french-residence"
+comparisonScope: "same-route"
+primaryIntent: "France work and study language-proof planning"
+audienceScope: "Readers considering DELF or DALF for a French institution or professional route"
+finalDecisionAuthorityType: "Receiving French institution, employer, or professional authority"
+examOwnerUrl: "https://www.france-education-international.fr/en/diplome/delf-tout-public"
+localExecutionPrompt: "Before registering, check the current requirement with the authority that receives your application. This page helps you prepare the questions and official sources to use."
+author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "France · Work & Study"
 route: "france"
-related: ["tcf-irn-french-residence"]
+supportingGuideSlugs: ["tcf-irn-french-residence"]
 ---
 
-## DELF vs TCF IRN
+## Official verification required for the receiving institution
 
-- **DELF:** A diploma at fixed CEFR levels (A1, A2, B1, B2, C1, C2). Same content and grading each session. Valid for life.
-- **TCF IRN:** Designed specifically for residence/citizenship applications. Tests at lower CEFR levels (A1 to B1). May have shorter validity periods for some applications.
+This page does not yet identify a reviewed receiving university, employer, or professional regulator. It therefore cannot confirm that DELF, DALF, or TCF is accepted, which level is required, or how long a result will be accepted for a named route.
 
-## When DELF is the right choice
+## Questions for the institution or regulator
 
-- You are applying for a French university or grande ecole (often requires B2 or C1).
-- You need a permanent certificate for professional use (e.g. teaching, translation).
-- You want a certificate with lifetime validity.
+- Which language proof and level are required for the named programme, job, or registration route?
+- Which exam versions and document formats are accepted?
+- Does the institution apply a recency, component-score, submission, or verification rule?
+- Which page or written instruction records the current requirement?
 
-For citizenship by naturalisation, confirm with the prefecture whether DELF B1 is accepted as an alternative to TCF IRN.
+Use the exam-owner links below only to inspect the current DELF/DALF products after the receiving organisation has confirmed its requirement.
 
 ## Official sources
 

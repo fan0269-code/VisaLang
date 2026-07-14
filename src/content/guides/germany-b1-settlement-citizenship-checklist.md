@@ -5,12 +5,17 @@ category: "germany-b1"
 slug: "germany-b1-settlement-citizenship-checklist"
 publishedDate: "2026-07-11"
 updatedDate: "2026-07-13"
-author: "VisaLang"
+contentStatus: "core-route"
+primaryIntent: "Germany B1 settlement and citizenship checklist: questions and evidence categories decision support"
+decisionStage: "submission-review"
+nextGuideSlug: "germany-b1-settlement-citizenship-timeline"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "7"
 featured: true
 eyebrow: "Germany B1 · authority checklist"
 route: "germany-b1"
-related: ["germany-b1-settlement-citizenship-timeline", "goethe-b1-germany-settlement-work", "germany-b1-citizenship-language-proof"]
+supportingGuideSlugs: ["germany-b1-settlement-citizenship-timeline", "goethe-b1-germany-settlement-work", "germany-b1-citizenship-language-proof"]
 ---
 
 ## Use this to prepare questions, not to self-approve a file
@@ -52,4 +57,4 @@ Do not book a language exam as a substitute for understanding the application pr
 - [BAMF: naturalisation](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html)
 - [German Government: key questions about naturalisation](https://www.einbuergerung.de/service.php?l=en)
 
-Last updated: 2026-07-13. Official sources last checked: 2026-07-13.
+Last updated: 2026-07-13. Official verification pending.

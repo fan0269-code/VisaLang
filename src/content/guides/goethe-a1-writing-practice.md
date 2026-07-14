@@ -5,12 +5,17 @@ category: "germany-a1"
 slug: "goethe-a1-writing-practice"
 publishedDate: "2026-07-11"
 updatedDate: "2026-07-11"
-author: "VisaLang"
+contentStatus: "complete-route"
+primaryIntent: "Goethe A1 writing practice: short forms and messages decision support"
+decisionStage: "local-execution"
+nextGuideSlug: "goethe-a1-30-day-study-plan"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "6"
 featured: false
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["goethe-a1-30-day-study-plan", "goethe-a1-speaking-topics", "goethe-a1-official-links-practice-resources"]
+supportingGuideSlugs: ["goethe-a1-30-day-study-plan", "goethe-a1-speaking-topics", "goethe-a1-official-links-practice-resources"]
 ---
 
 ## Scope of this guide

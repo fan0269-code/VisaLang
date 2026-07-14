@@ -1,15 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import RouteSelector from '../components/RouteSelector.astro';
-import LastCheckedBadge from '../components/LastCheckedBadge.astro';
+import GuideStatusBadge from '../components/GuideStatusBadge.astro';
 import { getCollection } from 'astro:content';
+import { resolveGuideContentStatus } from '../data/source-review';
 import { guideCategories } from '../data/guide-taxonomy';
 import { site } from '../data/site';
 import { zhGermanyA1Guides } from '../data/zh-germany-a1';
 
 const guides = await getCollection('guides');
-const updated = [...guides].sort((a, b) => b.data.updatedDate.localeCompare(a.data.updatedDate)).slice(0, 3);
-const latestReview = updated[0]?.data.updatedDate || site.lastSystemReview;
+const updated = [...guides]
+  .sort((a, b) => b.data.updatedDate.localeCompare(a.data.updatedDate))
+  .slice(0, 3)
+  .map((guide) => ({ ...guide, status: resolveGuideContentStatus(guide.data) }));
 const totalGuideCount = guides.length + zhGermanyA1Guides.length;
 const jsonLD = { '@context': 'https://schema.org', '@type': 'WebSite', name: site.name, url: `${site.url}/`, description: 'Official-source-first language-proof route decisions.' };
 ---
@@ -41,17 +44,17 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'WebSite', name: sit
           <fieldset class="choice-group">
             <legend>Purpose</legend>
             <div class="choice-row" data-choice-group="purpose">
-              <button class="route-choice" type="button" data-value="family" aria-pressed="true">Family reunion</button>
-              <button class="route-choice" type="button" data-value="settlement" aria-pressed="false">Settlement or citizenship</button>
-              <button class="route-choice" type="button" data-value="study" aria-pressed="false">Study</button>
-              <button class="route-choice" type="button" data-value="work" aria-pressed="false">Work or registration</button>
+              <label class="route-choice"><input type="radio" name="home-purpose" value="family" checked /><span>Family reunion</span></label>
+              <label class="route-choice"><input type="radio" name="home-purpose" value="settlement" /><span>Settlement or citizenship</span></label>
+              <label class="route-choice"><input type="radio" name="home-purpose" value="study" /><span>Study</span></label>
+              <label class="route-choice"><input type="radio" name="home-purpose" value="work" /><span>Work or registration</span></label>
             </div>
           </fieldset>
           <fieldset class="choice-group">
             <legend>Status</legend>
             <div class="choice-row" data-choice-group="status">
-              <button class="route-choice" type="button" data-value="unknown" aria-pressed="true">No instruction yet</button>
-              <button class="route-choice" type="button" data-value="instructed" aria-pressed="false">I have an instruction</button>
+              <label class="route-choice"><input type="radio" name="home-status" value="unknown" checked /><span>No instruction yet</span></label>
+              <label class="route-choice"><input type="radio" name="home-status" value="instructed" /><span>I have an instruction</span></label>
             </div>
           </fieldset>
           <div class="result-card" aria-live="polite">
@@ -117,8 +120,8 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'WebSite', name: sit
       <RouteSelector />
     </section>
 
-    <section class="section" aria-labelledby="updated-title"><div class="section-header"><p class="eyebrow">Latest guidance</p><h2 id="updated-title">Recently updated</h2><p>{totalGuideCount} English and Chinese guides across {guideCategories.length} route categories. Counts and dates come from the guide data sources.</p><LastCheckedBadge date={latestReview} /></div>
-      <div class="guide-related-grid">{updated.map((guide) => <a class="article-card" href={`/guides/${guide.data.slug}/`}><h3>{guide.data.title}</h3><p class="card-meta">{guide.data.description}</p><span class="last-checked">Updated {guide.data.updatedDate}</span></a>)}</div>
+    <section class="section" aria-labelledby="updated-title"><div class="section-header"><p class="eyebrow">Latest guidance</p><h2 id="updated-title">Recently updated</h2><p>{totalGuideCount} English and Chinese guides across {guideCategories.length} route categories. Counts and editing dates come from the guide data sources.</p></div>
+      <div class="guide-related-grid">{updated.map((guide) => <a class="article-card" href={`/guides/${guide.data.slug}/`}><GuideStatusBadge status={guide.status} /><h3>{guide.data.title}</h3><p class="card-meta">{guide.data.description}</p><span class="last-checked">Updated {guide.data.updatedDate}</span></a>)}</div>
     </section>
 
     <section class="section section--tight" aria-labelledby="trust-title">
@@ -139,27 +142,19 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'WebSite', name: sit
     const copy = {
       family: ['Start with the Germany A1 family reunion route', 'Next: verify whether the receiving organisation specifies a language level, accepted exam, certificate format, or validity rule.', '/germany-family-reunion-a1/'],
       settlement: ['Prepare a settlement or citizenship proof check', 'Next: identify the receiving authority and verify the required level, accepted proof, exemptions, and submission timing.', '/germany-b1-settlement-citizenship/'],
-      study: ['Prepare an institution-specific study check', 'Next: confirm the university, programme, and visa instructions before treating any exam as acceptable.', '/tools/route-finder/'],
-      work: ['Prepare an employer or regulator proof check', 'Next: confirm whether the receiving organisation sets a certificate, level, validity, or professional-registration rule.', '/tools/route-finder/'],
+      study: ['Prepare an institution-specific study check', 'Next: confirm the university, programme, and visa instructions before treating any exam as acceptable.', '/guides/category/germany-testdaf/'],
+      work: ['Prepare an employer or regulator proof check', 'Next: confirm whether the receiving organisation sets a certificate, level, validity, or professional-registration rule.', '/guides/category/germany-telc/'],
     };
     const updateResult = () => {
-      const purpose = document.querySelector('[data-choice-group="purpose"] .route-choice[aria-pressed="true"]')?.dataset.value || 'family';
-      const status = document.querySelector('[data-choice-group="status"] .route-choice[aria-pressed="true"]')?.dataset.value;
+      const purpose = document.querySelector('[data-choice-group="purpose"] input:checked')?.value || 'family';
+      const status = document.querySelector('[data-choice-group="status"] input:checked')?.value;
       const selected = copy[purpose] || copy.family;
       resultTitle.textContent = selected[0];
       resultCopy.textContent = status === 'instructed' ? 'Next: compare your instruction against the relevant route and collect the exact source links before booking.' : selected[1];
       resultLink.href = selected[2];
       resultLink.textContent = selected[2].includes('/tools/') ? 'Open tool' : 'Open route';
     };
-    groups.forEach((group) => {
-      group.querySelectorAll('.route-choice').forEach((button) => {
-        button.addEventListener('click', () => {
-          group.querySelectorAll('.route-choice').forEach((item) => item.setAttribute('aria-pressed', 'false'));
-          button.setAttribute('aria-pressed', 'true');
-          updateResult();
-        });
-      });
-    });
+    groups.forEach((group) => group.addEventListener('change', updateResult));
     updateResult();
   </script>
 </BaseLayout>

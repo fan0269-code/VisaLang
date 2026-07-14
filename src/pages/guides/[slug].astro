@@ -17,17 +17,23 @@ const frontmatter = guide.data;
 const articleSections = await buildArticleSections(guide.body);
 
 const allGuides = await getCollection('guides');
-const relatedGuides = frontmatter.related
+const linkedGuides = frontmatter.supportingGuideSlugs
   .map(slug => allGuides.find(g => g.data.slug === slug))
-  .filter(Boolean)
-  .map(g => ({ title: g!.data.title, slug: g!.data.slug }));
+  .filter((guide): guide is NonNullable<typeof guide> => Boolean(guide));
+const isAllowedRelated = (candidate: typeof linkedGuides[number]) => {
+  const sameRoute = candidate.data.category === frontmatter.category;
+  const sameDecisionStage = candidate.data.decisionStage === frontmatter.decisionStage;
+  const sameCountry = inferGuideMeta(candidate.data).country === inferGuideMeta(frontmatter).country;
+  if (sameRoute || sameDecisionStage || sameCountry) return true;
+  return frontmatter.comparisonScope === 'cross-country-comparison' && /compar/i.test(frontmatter.primaryIntent ?? '');
+};
+const relatedGuides = linkedGuides.filter(isAllowedRelated).map(g => ({ title: g.data.title, slug: g.data.slug }));
 const routeGuides = allGuides.filter((item) => item.data.category === frontmatter.category).sort((a, b) => a.data.title.localeCompare(b.data.title));
 const routeIndex = routeGuides.findIndex((item) => item.data.slug === frontmatter.slug);
 const previousGuide = routeIndex > 0 ? { title: routeGuides[routeIndex - 1].data.title, slug: routeGuides[routeIndex - 1].data.slug } : undefined;
 const nextGuide = routeIndex >= 0 && routeIndex < routeGuides.length - 1 ? { title: routeGuides[routeIndex + 1].data.title, slug: routeGuides[routeIndex + 1].data.slug } : undefined;
 
 const guideMeta = inferGuideMeta(frontmatter);
-const verifiedDate = guide.body.match(/Official sources last checked:\s*(\d{4}-\d{2}-\d{2})/i)?.[1];
 const routeLabel = formatRouteLabel(frontmatter.route, frontmatter.category);
 const routeHref = frontmatter.category ? `/guides/category/${frontmatter.category}/` : undefined;
 ---
@@ -41,7 +47,20 @@ const routeHref = frontmatter.category ? `/guides/category/${frontmatter.categor
   eyebrow={frontmatter.eyebrow}
   category={frontmatter.category}
   readingTime={frontmatter.readingTime}
-  verifiedDate={verifiedDate}
+  sourceReviewedAt={frontmatter.sourceReviewedAt}
+  sourceReviewStatus={frontmatter.sourceReviewStatus}
+  reviewedByRole={frontmatter.reviewedByRole}
+  author={frontmatter.author}
+  contentStatus={frontmatter.contentStatus}
+  primaryOfficialAuthorityUrl={frontmatter.primaryOfficialAuthorityUrl}
+  primaryIntent={frontmatter.primaryIntent}
+  audienceScope={frontmatter.audienceScope}
+  finalDecisionAuthorityType={frontmatter.finalDecisionAuthorityType}
+  examOwnerUrl={frontmatter.examOwnerUrl}
+  localExecutionPrompt={frontmatter.localExecutionPrompt}
+  decisionStage={frontmatter.decisionStage}
+  nextGuideSlug={frontmatter.nextGuideSlug}
+  comparisonScope={frontmatter.comparisonScope}
   breadcrumbs={[
     { label: 'Home', href: '/' },
     ...(routeLabel && routeHref ? [{ label: routeLabel, href: routeHref }] : []),

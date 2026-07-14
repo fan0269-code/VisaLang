@@ -5,7 +5,8 @@ import GuideCard from '../../components/GuideCard.astro';
 import FilterBar from '../../components/FilterBar.astro';
 import SearchInput from '../../components/SearchInput.astro';
 import { getCollection } from 'astro:content';
-import { guideCategories, guideMaturityStatus, inferGuideMeta } from '../../data/guide-taxonomy';
+import { guideCategories, inferGuideMeta } from '../../data/guide-taxonomy';
+import { resolveGuideContentStatus } from '../../data/source-review';
 import { zhGermanyA1Guides } from '../../data/zh-germany-a1';
 
 const guidePurpose = (route: string) => {
@@ -19,7 +20,7 @@ const guidePurpose = (route: string) => {
 };
 const guides = (await getCollection('guides')).map((guide) => {
   const meta = inferGuideMeta(guide.data);
-  return { ...guide, meta, purpose: guidePurpose(meta.route), status: guideMaturityStatus(guide.data.category) };
+  return { ...guide, meta, purpose: guidePurpose(meta.route), status: resolveGuideContentStatus(guide.data) };
 }).sort((a, b) => b.data.updatedDate.localeCompare(a.data.updatedDate));
 const options = (values: string[]) => Array.from(new Set(values)).sort().map((value) => ({ value, label: value }));
 const filters = [
@@ -29,7 +30,7 @@ const filters = [
   { name: 'exam', label: 'Exam', options: options(guides.flatMap((guide) => guide.meta.exam.split(' / '))) },
   { name: 'level', label: 'Level', options: options(guides.map((guide) => guide.meta.level)) },
   { name: 'language', label: 'Language', options: [{ value: 'en', label: 'English' }, { value: 'zh', label: '中文' }] },
-  { name: 'status', label: 'Content status', options: [{ value: 'complete-route', label: 'Complete route' }, { value: 'core-route', label: 'Core route' }, { value: 'starter', label: 'Starter overview' }] },
+  { name: 'status', label: 'Content status', options: [{ value: 'complete-route', label: 'Complete route' }, { value: 'core-route', label: 'Core route' }, { value: 'starter-overview', label: 'Starter overview' }, { value: 'verification-pending', label: 'Verification pending' }] },
 ];
 const totalGuideCount = guides.length + zhGermanyA1Guides.length;
 const jsonLD = { '@context': 'https://schema.org', '@graph': [{ '@type': 'CollectionPage', name: 'VisaLang task guide library', url: 'https://flowlight.me/guides/', mainEntity: { '@id': 'https://flowlight.me/guides/#items' } }, { '@type': 'ItemList', '@id': 'https://flowlight.me/guides/#items', numberOfItems: totalGuideCount, itemListElement: [...guides.map((guide, index) => ({ '@type': 'ListItem', position: index + 1, name: guide.data.title, url: `https://flowlight.me/guides/${guide.data.slug}/` })), ...zhGermanyA1Guides.map((guide, index) => ({ '@type': 'ListItem', position: guides.length + index + 1, name: guide.title, url: `https://flowlight.me${guide.href}` }))] }] };
@@ -37,14 +38,12 @@ const jsonLD = { '@context': 'https://schema.org', '@graph': [{ '@type': 'Collec
 
 <BaseLayout title="Task guide library" description="Filter language-proof guides by purpose, country, route, exam, level, language, and content status." canonicalURL="https://flowlight.me/guides/" jsonLD={jsonLD}>
   <main class="site-main od-guide-library">
-    <PageHero compact eyebrow="Task library" title="Find the guide for your next decision." description="Germany A1 is the complete route, Germany B1 is a core route, and other pages are starter overviews for official checks." />
+    <PageHero compact eyebrow="Task library" title="Find the guide for your next decision." description="Use each guide’s content status and source-review state to distinguish developed routes from pages that still require official verification." />
     <section class="library-panel" aria-label="Guide filters">
       <SearchInput />
       <FilterBar filters={filters} />
-      <label class="search-input" for="guide-sort"><span>Sort by</span><select id="guide-sort" data-guide-sort><option value="checked">Recently verified</option><option value="relevance">Route relevance</option><option value="maturity">Content maturity</option></select></label>
-      <p class="filter-status" aria-live="polite">Showing {totalGuideCount} guides.</p>
     </section>
-    <section class="content-section" aria-label="Guide results"><div class="guide-related-grid" id="guide-grid">{guides.map((guide, index) => <div class="guide-card-wrap" data-title={guide.data.title.toLowerCase()} data-search={`${guide.data.title} ${guide.data.description} ${guide.purpose} ${guide.meta.country} ${guide.meta.route} ${guide.meta.exam} ${guide.meta.level}`.toLowerCase()} data-purpose={guide.purpose} data-country={guide.meta.country} data-route={guide.data.category} data-exam={guide.meta.exam} data-level={guide.meta.level} data-language="en" data-status={guide.status} data-checked={guide.data.updatedDate} data-relevance={guide.data.category === 'germany-a1' ? 3 : guide.data.category === 'germany-b1' ? 2 : 1} data-maturity={guide.status === 'complete-route' ? 3 : guide.status === 'core-route' ? 2 : 1} data-original={index}><GuideCard title={guide.data.title} href={`/guides/${guide.data.slug}/`} value={guide.data.description} country={guide.meta.country} purpose={guide.purpose} exam={guide.meta.exam} level={guide.meta.level} status={guide.status} checked={guide.data.updatedDate} readingTime={guide.data.readingTime} /></div>)}{zhGermanyA1Guides.map((guide, index) => <div class="guide-card-wrap" data-title={guide.title.toLowerCase()} data-search={`${guide.title} ${guide.description} 德国 家庭团聚 A1 中文` } data-purpose="Family reunion" data-country="Germany" data-route="germany-a1" data-exam="German A1" data-level="A1" data-language="zh" data-status="complete-route" data-checked="2026-07-09" data-relevance="3" data-maturity="3" data-original={guides.length + index}><GuideCard title={guide.title} href={guide.href} value={guide.description} country="Germany" purpose="Family reunion" exam="German A1" level="A1" status="complete-route" checked="2026-07-09" readingTime="6" language="中文" /></div>)}</div><div class="guide-empty-state" hidden><h2>No matching guide</h2><p>Clear a narrow filter or start with Purpose and Country. If your route is not supported, use Route Finder to prepare an official check.</p><a class="button button--secondary" href="/tools/route-finder/">Open Route Finder</a></div></section>
+    <section class="content-section guide-results" aria-label="Guide results"><div class="guide-related-grid" id="guide-grid">{guides.map((guide, index) => <div class="guide-card-wrap" data-title={guide.data.title.toLowerCase()} data-search={`${guide.data.title} ${guide.data.description} ${guide.purpose} ${guide.meta.country} ${guide.meta.route} ${guide.meta.exam} ${guide.meta.level}`.toLowerCase()} data-purpose={guide.purpose} data-country={guide.meta.country} data-route={guide.data.category} data-exam={guide.meta.exam} data-level={guide.meta.level} data-language="en" data-status={guide.status} data-updated={guide.data.updatedDate} data-relevance={guide.data.category === 'germany-a1' ? 3 : guide.data.category === 'germany-b1' ? 2 : 1} data-maturity={guide.status === 'complete-route' ? 3 : guide.status === 'core-route' ? 2 : 1} data-original={index}><GuideCard title={guide.data.title} href={`/guides/${guide.data.slug}/`} value={guide.data.description} country={guide.meta.country} route={guide.meta.route} status={guide.status} updatedDate={guide.data.updatedDate} sourceReviewedAt={guide.data.sourceReviewedAt} sourceReviewStatus={guide.data.sourceReviewStatus} readingTime={guide.data.readingTime} /></div>)}{zhGermanyA1Guides.map((guide, index) => { const sourceGuide = guides.find((item) => item.data.slug === guide.slug); const status = sourceGuide?.status ?? 'verification-pending'; return <div class="guide-card-wrap" data-title={guide.title.toLowerCase()} data-search={`${guide.title} ${guide.description} 德国 家庭团聚 A1 中文` } data-purpose="Family reunion" data-country="Germany" data-route="germany-a1" data-exam="German A1" data-level="A1" data-language="zh" data-status={status} data-updated="2026-07-09" data-relevance="3" data-maturity={status === 'complete-route' ? 3 : status === 'core-route' ? 2 : 1} data-original={guides.length + index}><GuideCard title={guide.title} href={guide.href} value={guide.description} country="Germany" route="Family reunion" status={status} updatedDate="2026-07-09" sourceReviewStatus="pending" readingTime="6" language="中文" /></div>})}</div><div class="guide-empty-state" hidden><h2>No matching guide</h2><p>Clear a narrow filter or start with Purpose and Country. If your route is not supported, use Route Finder to prepare an official check.</p><a class="button button--secondary" href="/tools/route-finder/">Open Route Finder</a></div></section>
   </main>
   <script is:inline>
     (() => {
@@ -57,13 +56,15 @@ const jsonLD = { '@context': 'https://schema.org', '@graph': [{ '@type': 'Collec
       const form = document.querySelector('[data-filter-form]');
       const status = document.querySelector('.filter-status');
       const empty = document.querySelector('.guide-empty-state');
-      const drawer = document.querySelector('.filter-drawer');
-      if (matchMedia('(max-width: 680px)').matches) drawer?.removeAttribute('open');
+      const activeFilters = document.querySelector('[data-active-filters]');
+      const activeFilterList = document.querySelector('.active-filter-list');
+      const clearAll = document.querySelector('[data-clear-all]');
+      const filterLabels = Object.fromEntries(filters.map((filter) => [filter.name, filter.closest('label')?.querySelector('span')?.textContent || filter.name]));
       const syncUrl = () => {
         const next = new URLSearchParams();
         if (search.value.trim()) next.set('q', search.value.trim());
         filters.forEach((filter) => { if (filter.value) next.set(filter.name, filter.value); });
-        if (sort.value !== 'checked') next.set('sort', sort.value);
+        if (sort.value !== 'updated') next.set('sort', sort.value);
         history.replaceState(null, '', next.toString() ? `/guides/?${next}` : '/guides/');
       };
       const apply = () => {
@@ -80,19 +81,53 @@ const jsonLD = { '@context': 'https://schema.org', '@graph': [{ '@type': 'Collec
           if (!card.hidden) visible += 1;
         });
         const key = sort.value;
-        const sorted = [...cards].sort((a, b) => key === 'checked' ? b.dataset.checked.localeCompare(a.dataset.checked) : Number(b.dataset[key]) - Number(a.dataset[key]) || Number(a.dataset.original) - Number(b.dataset.original));
+        const sorted = [...cards].sort((a, b) => key === 'updated' ? b.dataset.updated.localeCompare(a.dataset.updated) : Number(b.dataset[key]) - Number(a.dataset[key]) || Number(a.dataset.original) - Number(b.dataset.original));
         sorted.forEach((card) => grid.append(card));
         status.textContent = `Showing ${visible} of ${cards.length} guides.`;
         empty.hidden = visible !== 0;
+        const active = [
+          ...(search.value.trim() ? [{ name: 'q', label: 'Search', value: search.value.trim() }] : []),
+          ...filters.filter((filter) => filter.value).map((filter) => ({ name: filter.name, label: filterLabels[filter.name], value: filter.options[filter.selectedIndex]?.text || filter.value })),
+          ...(sort.value !== 'updated' ? [{ name: 'sort', label: 'Sort', value: sort.options[sort.selectedIndex]?.text || sort.value }] : []),
+        ];
+        activeFilterList.replaceChildren(...active.map((item) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'active-filter-chip';
+          button.dataset.removeFilter = item.name;
+          button.setAttribute('aria-label', `Remove ${item.label}: ${item.value}`);
+          button.textContent = `${item.label}: ${item.value} ×`;
+          return button;
+        }));
+        activeFilters.hidden = active.length === 0;
+        clearAll.disabled = active.length === 0;
         syncUrl();
       };
       search.value = params.get('q') || '';
       filters.forEach((filter) => { filter.value = params.get(filter.name) || ''; });
-      sort.value = params.get('sort') || 'checked';
+      sort.value = params.get('sort') || 'updated';
       search.addEventListener('input', apply);
       filters.forEach((filter) => filter.addEventListener('change', apply));
       sort.addEventListener('change', apply);
-      form.addEventListener('reset', () => setTimeout(() => { search.value = ''; sort.value = 'checked'; apply(); }, 0));
+      activeFilterList.addEventListener('click', (event) => {
+        if (!(event.target instanceof Element)) return;
+        const button = event.target.closest('[data-remove-filter]');
+        if (!button) return;
+        if (button.dataset.removeFilter === 'q') search.value = '';
+        else if (button.dataset.removeFilter === 'sort') sort.value = 'updated';
+        else {
+          const filter = filters.find((item) => item.name === button.dataset.removeFilter);
+          if (filter) filter.value = '';
+        }
+        apply();
+      });
+      clearAll.addEventListener('click', () => {
+        search.value = '';
+        filters.forEach((filter) => { filter.value = ''; });
+        sort.value = 'updated';
+        apply();
+        search.focus();
+      });
       apply();
     })();
   </script>

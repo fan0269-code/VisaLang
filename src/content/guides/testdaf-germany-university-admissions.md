@@ -5,12 +5,17 @@ category: "germany-testdaf"
 slug: "testdaf-germany-university-admissions"
 publishedDate: "2026-06-30"
 updatedDate: "2026-07-13"
-author: "VisaLang"
+contentStatus: "starter-overview"
+primaryIntent: "TestDaF for German University Admissions decision support"
+decisionStage: "choice"
+nextGuideSlug: "testdaf-levels-and-scoring"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "Germany · University"
 route: "germany-testdaf"
-related: ["testdaf-levels-and-scoring", "testdaf-vs-goethe-dsh", "testdaf-preparation-and-practice"]
+supportingGuideSlugs: ["testdaf-levels-and-scoring", "testdaf-vs-goethe-dsh", "testdaf-preparation-and-practice"]
 ---
 
 ## Start with the programme, not the exam
@@ -62,4 +67,4 @@ After you have saved the programme requirement, continue in this order:
 - [DAAD: Requirements overview](https://www.daad.de/en/studying-in-germany/requirements/overview/)
 - [TestDaF: proof of German skills for study](https://www.testdaf.de/de/hochschulen/der-testdaf-und-hochschulen/nachweis-der-deutschkenntnisse-fuer-das-studium/)
 
-Last updated: 2026-07-13. Official sources last checked: 2026-07-13.
+Last updated: 2026-07-13. Official verification pending.

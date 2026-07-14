@@ -5,12 +5,17 @@ category: "germany-b1"
 slug: "goethe-b1-fees-and-booking"
 publishedDate: "2026-06-30"
 updatedDate: "2026-07-13"
-author: "VisaLang"
+contentStatus: "core-route"
+primaryIntent: "Goethe B1 fees and booking: verify local terms before paying decision support"
+decisionStage: "local-execution"
+nextGuideSlug: "goethe-b1-germany-settlement-work"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "6"
 featured: false
 eyebrow: "Germany B1+"
 route: "germany-b1"
-related: ["goethe-b1-germany-settlement-work", "goethe-b1-vs-telc-b1", "goethe-b1-study-plan"]
+supportingGuideSlugs: ["goethe-b1-germany-settlement-work", "goethe-b1-vs-telc-b1", "goethe-b1-study-plan"]
 ---
 
 ## Start with acceptance, not price
@@ -48,4 +53,4 @@ Booking availability or a certificate fee does not establish settlement-permit o
 - [DTZ vs Goethe B1 vs telc B1](/guides/goethe-b1-vs-telc-b1/)
 - [Route Review boundary](/route-review/)
 
-Last updated: 2026-07-13. Official sources last checked: 2026-07-13.
+Last updated: 2026-07-13. Official verification pending.

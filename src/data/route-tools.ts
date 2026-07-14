@@ -46,9 +46,12 @@ export const routeRegistry = [
 
 export const safeRouteResult = {
   id: 'official-verification-required',
-  availability: 'coming-soon',
-  title: 'This route is not configured yet',
+  availability: 'verify-only',
+  title: 'Official verification required',
   officialAction: 'Ask the authority, university, employer, training provider, regulator, or other organisation receiving your application which language proof it requires and accepts.',
+  authorityTypes: ['The authority or institution receiving the application', 'The official exam owner or authorised local centre'],
+  officialEntry: { href: 'https://www.auswaertiges-amt.de/en', label: 'German Federal Foreign Office — find the responsible official authority' },
+  questions: ['Which language proof and level apply to this exact route?', 'Is an exemption or alternative proof relevant to my case?', 'Which certificate, document format, and current submission instructions are accepted?'],
   nextSteps: [
     'Identify the organisation that receives your application or document.',
   ],
@@ -60,7 +63,12 @@ export function findRoute(input) {
   const purpose = String(input.purpose || '').trim().toLowerCase();
   const configured = routeRegistry.find((route) => route.country === country && route.purpose === purpose && route.availability === 'configured');
 
-  if (!configured) return { ...safeRouteResult, input };
+  if (!configured) return {
+    ...safeRouteResult,
+    officialEntry: country === 'germany' ? safeRouteResult.officialEntry : null,
+    officialEntryPending: country === 'germany' ? undefined : 'No country-specific official entry can be selected from “Another country”. Start with that country’s government or the institution receiving the application.',
+    input,
+  };
 
   return {
     ...configured,

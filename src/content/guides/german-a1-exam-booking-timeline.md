@@ -5,12 +5,17 @@ category: "germany-a1"
 slug: "german-a1-exam-booking-timeline"
 publishedDate: "2026-07-08"
 updatedDate: "2026-07-13"
-author: "VisaLang"
+contentStatus: "complete-route"
+primaryIntent: "German A1 exam booking timeline decision support"
+decisionStage: "local-execution"
+nextGuideSlug: "goethe-a1-test-centers"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "7"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["goethe-a1-test-centers", "goethe-a1-retake-policy", "german-a1-documents-checklist"]
+supportingGuideSlugs: ["goethe-a1-test-centers", "goethe-a1-retake-policy", "german-a1-documents-checklist"]
 ---
 
 ## Quick answer
@@ -85,7 +90,7 @@ Write down only a mission-confirmed document deadline and the dates you have ent
 - 2026-07-10: Added backward planning and an explicit unknown-timing rule.
 - 2026-07-13: Limited the plan to reader-entered or locally confirmed dates and separated centre timing from mission deadline instructions.
 
-Last updated: 2026-07-13. Official sources last checked: 2026-07-13.
+Last updated: 2026-07-13. Official verification pending.
 
 ## A1 route FAQ
 

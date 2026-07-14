@@ -16,6 +16,7 @@ const listFiles = (directory, suffix, result = []) => {
   return result;
 };
 const occurrences = (html, pattern) => [...html.matchAll(pattern)].length;
+const frontmatterField = (source, name) => source.match(new RegExp(`^${name}:\\s*["']?([^"'\\n]+)`, 'm'))?.[1]?.trim();
 const jsonLdTypes = (html) => {
   const types = new Set();
   for (const match of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
@@ -102,6 +103,31 @@ const guideFailures = guidePages.filter(({ html }) => {
 }).map(({ route }) => route);
 if (!guideFailures.length) pass(`All ${guidePages.length} guide pages have Article/Breadcrumb data, one TOC, one disclaimer, and eight ordered semantic sections.`); else fail(`Guide layout failures: ${guideFailures.slice(0, 5).join(', ')}`);
 
+const sourceReviewFailures = guidePages.filter(({ route, html }) => {
+  const slug = route.split('/').filter(Boolean).at(-1);
+  const source = read(`src/content/guides/${slug}.md`);
+  const status = frontmatterField(source, 'sourceReviewStatus') || 'pending';
+  const date = frontmatterField(source, 'sourceReviewedAt');
+  if (status === 'reviewed') return !date || !html.includes(`Official sources last checked: <time datetime="${date}">${date}</time>`);
+  if (status === 'not-applicable') return !html.includes('Official source review not applicable') || html.includes('Official sources last checked');
+  return !html.includes('Official verification pending') || html.includes('Official sources last checked');
+}).map(({ route }) => route);
+if (!sourceReviewFailures.length) pass('Guide source-review HTML matches each record’s reviewed, pending, or not-applicable metadata.'); else fail(`Guide source-review status failures: ${sourceReviewFailures.slice(0, 5).join(', ')}`);
+const contentStatusFailures = guidePages.filter(({ route, html }) => {
+  const slug = route.split('/').filter(Boolean).at(-1);
+  const source = read(`src/content/guides/${slug}.md`);
+  const requested = frontmatterField(source, 'contentStatus');
+  const category = frontmatterField(source, 'category');
+  const sourceReviewStatus = frontmatterField(source, 'sourceReviewStatus') || 'pending';
+  const hasAuthority = Boolean(frontmatterField(source, 'primaryOfficialAuthorityUrl'));
+  const isHighRisk = ['portugal', 'spain', 'uk', 'canada', 'italy', 'france', 'finland', 'netherlands'].includes(category);
+  const elevated = requested === 'complete-route' || requested === 'core-route';
+  const expected = isHighRisk && elevated && (!hasAuthority || sourceReviewStatus !== 'reviewed') ? 'verification-pending' : requested;
+  return !expected || !html.includes(`status-badge--${expected}`);
+}).map(({ route }) => route);
+if (!contentStatusFailures.length) pass('Every guide article header uses the shared contentStatus gate.'); else fail(`Guide content-status failures: ${contentStatusFailures.slice(0, 5).join(', ')}`);
+if (!home.includes('Official sources last checked') && home.includes('Recently updated')) pass('Homepage keeps recent editing updates separate from source review.'); else fail('Homepage mixes editing and source-review dates.');
+
 const tools = ['/tools/route-finder/', '/tools/checklist-generator/', '/tools/timeline-calculator/', '/tools/exam-comparison/', '/tools/email-reminders/'];
 const toolFailures = tools.filter((route) => !jsonLdTypes(fs.readFileSync(outputFor(route), 'utf8')).has('WebApplication'));
 if (!toolFailures.length) pass('Every real tool page emits WebApplication structured data.'); else fail(`Tool schema failures: ${toolFailures.join(', ')}`);
@@ -114,6 +140,10 @@ for (const label of ['Purpose', 'Country', 'Route', 'Exam', 'Level', 'Language',
   if (!guideIndex.includes(label)) fail(`Guide library is missing ${label}.`);
 }
 if (!checks.some((check) => !check.ok && check.message.startsWith('Guide library'))) pass('Guide library exposes seven filters, sorting, search, result count, and empty state markup.');
+if (guideIndex.includes('<details class="filter-drawer">') && !guideIndex.includes('<details class="filter-drawer" open>') && guideIndex.includes('aria-live="polite"') && guideIndex.includes('data-clear-all')) pass('Guide library keeps advanced filters closed by default and exposes live results plus Clear all.'); else fail('Guide library filter disclosure or feedback controls are incomplete.');
+const guideCardBlocks = [...guideIndex.matchAll(/<article class="article-card guide-card">([\s\S]*?)<\/article>/g)].map((match) => match[1]);
+if (guideCardBlocks.length && guideCardBlocks.every((card) => occurrences(card, /<a(?:\s|>)/g) === 1)) pass('Every rendered Guide Card has one primary link.'); else fail('A rendered Guide Card has zero or multiple links.');
+if (guideIndex.includes('Recently updated') && !guideIndex.includes('Recently verified') && guideIndex.includes('Official verification pending')) pass('Guide cards sort by editing date and expose the pending source-review state.'); else fail('Guide cards mix editing and source-review semantics.');
 const guideIndexTypes = jsonLdTypes(guideIndex);
 const categorySchemaFailures = pages.filter(({ route }) => route.startsWith('/guides/category/')).filter(({ html }) => {
   const types = jsonLdTypes(html); return !types.has('CollectionPage') || !types.has('ItemList');

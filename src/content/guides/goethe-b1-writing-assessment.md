@@ -5,12 +5,17 @@ category: "germany-b1"
 slug: "goethe-b1-writing-assessment"
 publishedDate: "2026-07-04"
 updatedDate: "2026-07-04"
-author: "VisaLang"
+contentStatus: "core-route"
+primaryIntent: "Goethe B1 writing assessment decision support"
+decisionStage: "local-execution"
+nextGuideSlug: "goethe-b1-difficulty-analysis"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "7"
 featured: false
 eyebrow: "Germany B1+"
 route: "germany-b1"
-related: ["goethe-b1-difficulty-analysis", "goethe-b1-mock-exam-routine", "goethe-b1-study-plan"]
+supportingGuideSlugs: ["goethe-b1-difficulty-analysis", "goethe-b1-mock-exam-routine", "goethe-b1-study-plan"]
 ---
 
 ## TL;DR verdict
@@ -108,4 +113,4 @@ Writing practice does not establish accepted language proof or individual settle
 
 - 2026-07-04: Published the Goethe B1 writing assessment guide.
 
-Last updated: 2026-07-04. Official sources last checked: 2026-07-04.
+Last updated: 2026-07-04. Official verification pending.

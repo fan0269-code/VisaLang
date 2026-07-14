@@ -2,7 +2,9 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ArticleCard from '../../../components/ArticleCard.astro';
-import { guideCategories, guideCategoryIntro, guideMaturityStatus, guideCategoryMap, inferGuideMeta } from '../../../data/guide-taxonomy';
+import GuideStatusBadge from '../../../components/GuideStatusBadge.astro';
+import { categoryContentStatus, guideCategories, guideCategoryIntro, guideCategoryMap, inferGuideMeta } from '../../../data/guide-taxonomy';
+import { contentStatusCtas, resolveGuideContentStatus } from '../../../data/source-review';
 
 export function getStaticPaths() {
   return guideCategories.map((category) => ({
@@ -15,11 +17,13 @@ const { category } = Astro.props;
 const guides = await getCollection('guides');
 const categoryGuides = guides
   .filter((guide) => guide.data.category === category.slug)
-  .map((guide) => ({ ...guide, meta: inferGuideMeta(guide.data), status: guideMaturityStatus(guide.data.category) }))
+  .map((guide) => ({ ...guide, meta: inferGuideMeta(guide.data), status: resolveGuideContentStatus(guide.data) }))
   .sort((a, b) => b.data.publishedDate.localeCompare(a.data.publishedDate));
 
 const canonicalURL = `https://flowlight.me/guides/category/${category.slug}/`;
 const categoryIntro = guideCategoryIntro(category);
+const categoryStatus = categoryContentStatus(categoryGuides.map((guide) => guide.status));
+const categoryCtas = contentStatusCtas(categoryStatus, { routeHref: `/guides/category/${category.slug}/` });
 const jsonLD = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -61,11 +65,13 @@ const jsonLD = {
       <header class="library-header">
         <p class="eyebrow">Guide category</p>
         <h1>{category.name} guides</h1>
+        <p><GuideStatusBadge status={categoryStatus} /></p>
         <p>
           {categoryGuides.length} guide{categoryGuides.length === 1 ? '' : 's'} for {category.desc}. {categoryIntro}
         </p>
         <p>Before booking, verify the current requirement with the authority or institution receiving your proof; then verify the exact test, authorised centre, fee, date, ID rule, and result process with official sources.</p>
         <div class="action-row left">
+          {categoryCtas.filter((cta) => cta.href !== canonicalURL && cta.href !== `/guides/category/${category.slug}/`).map((cta) => <a class="secondary-action" href={cta.href}>{cta.label}</a>)}
           <a class="secondary-action" href="/guides/">Browse all guides</a>
         </div>
       </header>

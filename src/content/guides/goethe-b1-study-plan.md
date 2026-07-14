@@ -5,12 +5,17 @@ category: "germany-b1"
 slug: "goethe-b1-study-plan"
 publishedDate: "2026-06-30"
 updatedDate: "2026-07-13"
-author: "VisaLang"
+contentStatus: "core-route"
+primaryIntent: "Goethe B1 study plan for working adults decision support"
+decisionStage: "local-execution"
+nextGuideSlug: "goethe-b1-germany-settlement-work"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "Germany B1+"
 route: "germany-b1"
-related: ["goethe-b1-germany-settlement-work", "goethe-b1-fees-and-booking", "goethe-b1-vs-telc-b1"]
+supportingGuideSlugs: ["goethe-b1-germany-settlement-work", "goethe-b1-fees-and-booking", "goethe-b1-vs-telc-b1"]
 ---
 
 ## Verify the route before planning the study block
@@ -49,4 +54,4 @@ Study planning is not a finding that B1 is accepted or that a settlement/citizen
 - [Route Review boundary](/route-review/)
 - [Proposed B1 practice pack interest](/contact/?interest=b1-practice-pack)
 
-Last updated: 2026-07-13. Official sources last checked: 2026-07-13.
+Last updated: 2026-07-13. Official verification pending.

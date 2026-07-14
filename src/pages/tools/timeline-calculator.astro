@@ -15,7 +15,7 @@ import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
           <label>Translation / certification time (days)<input name="translationDays" type="number" min="0" required inputmode="numeric" aria-describedby="timeline-input-help" /></label>
         </div>
         <p id="timeline-input-help">Enter only values you confirmed for your own centre and document process. No default timing is assumed.</p>
-        <p class="tool-error" id="timeline-error" aria-live="assertive"></p>
+        <div class="tool-error-summary" id="timeline-error" data-error-summary role="alert" tabindex="-1" hidden></div>
         <button class="primary-action" type="submit">Calculate planning dates</button>
       </form>
       <section id="timeline-result" class="tool-result" hidden aria-live="polite" tabindex="-1">
@@ -27,28 +27,22 @@ import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
 
 <script>
   import { calculateTimeline } from '../../data/route-tools';
+  import { setupToolForm } from '../../scripts/tool-form';
 
   const form = document.querySelector<HTMLFormElement>('#timeline-form');
-  const error = document.querySelector<HTMLElement>('#timeline-error');
   const resultPanel = document.querySelector<HTMLElement>('#timeline-result');
   const summary = document.querySelector<HTMLElement>('#timeline-summary');
 
+  const controller = form ? setupToolForm(form, { persistedNames: ['targetDate', 'examType', 'resultWaitDays', 'retakeBufferDays', 'translationDays'] }) : undefined;
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
-    const firstInvalid = [...form.querySelectorAll<HTMLInputElement | HTMLSelectElement>('[required]')].find((field) => !field.value || (field instanceof HTMLInputElement && Number(field.value) < 0));
-    if (firstInvalid) {
-      if (error) error.textContent = 'Enter a target date, exam type, and zero or positive planning buffers.';
-      firstInvalid.focus();
-      return;
-    }
+    if (!controller?.validate()) return;
     const input = Object.fromEntries(new FormData(form).entries());
     const plan = calculateTimeline(input);
     if (!plan || !summary || !resultPanel) {
-      if (error) error.textContent = 'Enter a valid target date.';
       return;
     }
-    if (error) error.textContent = '';
-    history.replaceState({}, '', `${location.pathname}?${new URLSearchParams(input as Record<string, string>).toString()}`);
+    controller.persist();
     summary.replaceChildren();
     const heading = document.createElement('h2');
     heading.textContent = 'Your planning estimate';
@@ -65,6 +59,8 @@ import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
     notice.textContent = 'Planning estimate: confirm actual booking availability, result timing, retake rules, and document handling with the official centre and receiving authority.';
     summary.append(heading, intro, list, notice);
     resultPanel.hidden = false;
+    controller.markResult();
     resultPanel.focus();
   });
+  if (controller?.restored) form?.requestSubmit();
 </script>

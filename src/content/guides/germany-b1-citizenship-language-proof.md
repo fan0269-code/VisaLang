@@ -5,12 +5,17 @@ category: "germany-b1"
 slug: "germany-b1-citizenship-language-proof"
 publishedDate: "2026-07-11"
 updatedDate: "2026-07-13"
-author: "VisaLang"
+contentStatus: "core-route"
+primaryIntent: "Germany B1 for citizenship: verify language proof and the wider file decision support"
+decisionStage: "choice"
+nextGuideSlug: "germany-b1-leben-in-deutschland-and-language-proof"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "7"
 featured: true
 eyebrow: "Germany B1 · citizenship planning"
 route: "germany-b1"
-related: ["germany-b1-leben-in-deutschland-and-language-proof", "goethe-b1-vs-telc-b1", "germany-b1-settlement-citizenship-checklist"]
+supportingGuideSlugs: ["germany-b1-leben-in-deutschland-and-language-proof", "goethe-b1-vs-telc-b1", "germany-b1-settlement-citizenship-checklist"]
 ---
 
 ## The safe answer first
@@ -46,4 +51,4 @@ Use the [DTZ vs Goethe B1 vs telc B1 comparison](/guides/goethe-b1-vs-telc-b1/) 
 - [German Government: key questions about naturalisation](https://www.einbuergerung.de/service.php?l=en)
 - [BAMF: migration and residence](https://www.bamf.de/EN/Themen/MigrationAufenthalt/migration-node.html)
 
-Last updated: 2026-07-13. Official sources last checked: 2026-07-13.
+Last updated: 2026-07-13. Official verification pending.

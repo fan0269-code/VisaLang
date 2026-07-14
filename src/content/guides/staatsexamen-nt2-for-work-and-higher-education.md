@@ -5,22 +5,35 @@ category: "netherlands"
 slug: "staatsexamen-nt2-for-work-and-higher-education"
 publishedDate: "2026-07-01"
 updatedDate: "2026-07-01"
-author: "VisaLang"
+contentStatus: "verification-pending"
+decisionStage: "requirement"
+nextGuideSlug: "dutch-inburgering-a2-b1-for-integration-and-citizenship"
+comparisonScope: "same-route"
+primaryIntent: "Netherlands work and higher-education language-proof planning"
+audienceScope: "Readers considering Staatsexamen NT2 for a Dutch institution or professional route"
+finalDecisionAuthorityType: "Receiving Dutch institution, employer, or professional authority"
+examOwnerUrl: "https://www.staatsexamensnt2.nl/"
+localExecutionPrompt: "Before registering, check the current requirement with the authority that receives your application. This page helps you prepare the questions and official sources to use."
+author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "Netherlands · Work & Study"
 route: "netherlands"
-related: ["dutch-inburgering-a2-b1-for-integration-and-citizenship"]
+supportingGuideSlugs: ["dutch-inburgering-a2-b1-for-integration-and-citizenship"]
 ---
 
-## NT2 Programme I vs II
+## Official verification required for the receiving organisation
 
-- **Programme I (B1):** For vocational education (MBO) and jobs. Tests reading, listening, writing, and speaking.
-- **Programme II (B2):** For higher education (HBO/university) and professional registration.
+This page does not yet identify a reviewed institution, employer, or professional regulator that confirms which Dutch proof or level it accepts. Do not choose Programme I, Programme II, or an Inburgering route from a general category description alone.
 
-## NT2 vs Inburgering
+## Questions for the institution, employer, or regulator
 
-Inburgering is for integration/citizenship. NT2 is for education and career. If you need Dutch for university or a regulated profession, NT2 is the one — Inburgering alone may not be enough.
+- Which language proof and level are required for the named programme, role, or registration?
+- Is Staatsexamen NT2 accepted, and if so which programme and document format?
+- Are component, recency, verification, or submission rules applied?
+- Which official page or written instruction records the current requirement?
+
+After receiving that answer, use the official NT2 and DUO links below to verify the relevant exam or integration product and its current execution details. Neither link decides acceptance for an unnamed institution or profession.
 
 ## Official sources
 

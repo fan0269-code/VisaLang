@@ -60,6 +60,7 @@ const auditedB1Guides = new Set([
 
 for (const file of germanyB1Guides) {
   const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
+  assert.ok(source.includes('contentStatus: "core-route"'), `${file} retains the core-route baseline`);
   assert.ok(source.includes('## Continue your B1 decision route'), `${file} should have the shared B1 next-step section`);
   assert.ok(source.includes('competent authority') || source.includes('authority'), `${file} should keep the authority-first boundary`);
   assert.ok(source.includes('eligibility') || source.includes('accepted language proof') || source.includes('proof acceptance'), `${file} should separate practice from eligibility or proof acceptance`);
@@ -68,7 +69,7 @@ for (const file of germanyB1Guides) {
   }
   if (auditedB1Guides.has(file)) {
     assert.ok(source.includes('updatedDate: "2026-07-13"'), `${file} should show the B1 audit update date`);
-    assert.ok(source.includes('Official sources last checked: 2026-07-13'), `${file} should show the B1 source-check date`);
+    assert.ok(source.includes('Official verification pending'), `${file} should not claim an unconfirmed historical source-check date`);
   }
 }
 

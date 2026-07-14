@@ -2,8 +2,15 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { zhGermanyA1Guides } from '../data/zh-germany-a1';
+import { guideCategories } from '../data/guide-taxonomy';
+import { contentStatusLabels, resolveGuideContentStatus } from '../data/source-review';
 const guides = await getCollection('guides');
 const totalGuideCount = guides.length + zhGermanyA1Guides.length;
+const statusCounts = guides.reduce<Record<string, number>>((counts, guide) => {
+  const status = resolveGuideContentStatus(guide.data);
+  counts[status] = (counts[status] ?? 0) + 1;
+  return counts;
+}, {});
 const updated = '2026-07-02';
 const jsonLD = { '@context': 'https://schema.org', '@type': 'AboutPage', name: 'About VisaLang' };
 ---
@@ -16,7 +23,11 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'AboutPage', name: '
         <p class="guide-summary">VisaLang is a bilingual (English / Chinese) language-exam navigation site for the moment before you book an exam or submit a document that may require language proof.</p>
 
         <h2>What we do</h2>
-        <p>We research official sources, organize the information, add safe preparation guidance, and help you identify what to verify before you pay for an exam. We currently cover <strong>{totalGuideCount} English and Chinese guides</strong> across 11 country routes.</p>
+        <p>We research official sources, organize the information, add safe preparation guidance, and help you identify what to verify before you pay for an exam. We currently cover <strong>{totalGuideCount} English and Chinese guides</strong> across {guideCategories.length} route categories.</p>
+
+        <h2>Content maturity</h2>
+        <p>Each English guide carries a controlled status from its content record. Current counts are:</p>
+        <ul>{Object.entries(contentStatusLabels).map(([status, label]) => <li><strong>{label}:</strong> {statusCounts[status] ?? 0}</li>)}</ul>
 
         <h2>What we do not do</h2>
         <ul>

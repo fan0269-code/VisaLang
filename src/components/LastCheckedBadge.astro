@@ -1,5 +1,14 @@
 ---
-export interface Props { date: string; label?: string; }
-const { date, label = 'Official sources last checked' } = Astro.props;
+import type { SourceReviewStatus } from '../data/source-review';
+export interface Props { date?: string; status?: SourceReviewStatus; label?: string; locale?: 'en' | 'zh-CN'; }
+const { date, status = 'pending', label, locale = 'en' } = Astro.props;
+const copy = locale === 'zh-CN'
+  ? { checked: '官方来源核验日期', pending: '官方来源待核验', notApplicable: '不适用官方来源核验' }
+  : { checked: 'Official sources last checked', pending: 'Official verification pending', notApplicable: 'Official source review not applicable' };
+const checkedLabel = label ?? copy.checked;
 ---
-<span class="last-checked">{label}: <time datetime={date}>{date}</time></span>
+{status === 'reviewed' && date
+  ? <span class="last-checked">{checkedLabel}: <time datetime={date}>{date}</time></span>
+  : status === 'not-applicable'
+    ? <span class="last-checked">{copy.notApplicable}</span>
+    : <span class="last-checked">{copy.pending}</span>}

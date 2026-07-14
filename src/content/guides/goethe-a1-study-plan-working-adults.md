@@ -5,12 +5,17 @@ category: "germany-a1"
 slug: "goethe-a1-study-plan-working-adults"
 publishedDate: "2026-07-02"
 updatedDate: "2026-07-11"
-author: "VisaLang"
+contentStatus: "complete-route"
+primaryIntent: "Goethe A1 study plan for working adults: realistic 8-week routine decision support"
+decisionStage: "local-execution"
+nextGuideSlug: "goethe-a1-30-day-study-plan"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "9"
 featured: false
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["goethe-a1-30-day-study-plan", "goethe-a1-speaking-topics", "goethe-a1-listening-practice"]
+supportingGuideSlugs: ["goethe-a1-30-day-study-plan", "goethe-a1-speaking-topics", "goethe-a1-listening-practice"]
 ---
 This is a flexible eight-week routine for people who work full time. It does not promise that eight weeks is enough for every learner or every exam date. Use it only after confirming that the route and timing are realistic.
 

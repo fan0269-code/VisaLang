@@ -2,92 +2,80 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## What this is
+## Project overview
 
-VisaLang is a **pre-launch static MVP** for a bilingual (English / 中文) language-exam navigation site. It points users to the right official language exam for visa, residency, citizenship, and work-registration paths. No framework, no backend, no database, no build step — plain HTML/CSS/JS served statically.
+VisaLang is a bilingual (English/中文) static navigation site for language-exam evidence used in visa, residency, citizenship, study, and work journeys. It is built with Astro 7, TypeScript, Astro Content Collections, Markdown guides, CSS, and Node `assert` regression tests. It has no application backend or database.
 
-The first monetizable niche is **Germany A1 family-reunion**; that is why all 10 guide pages are Germany A1 focused.
+The site is a **verification navigator, not a decision-maker**: content and tools must guide readers to the official authority that makes the final decision. The fully configured route-tool path is currently Germany family-reunion A1; every other route must remain in the official-verification-required fallback.
 
 ## Commands
 
+Run commands from the repository root.
+
 ```bash
-npm test                              # data integrity: exams (50), pageSeeds (200), tool logic, homepage markup
-npm run launch-check                  # Definition of Ready: legal pages, guides, JSON-LD, sitemap, dead links
-python3 -m http.server 4173           # local preview → http://127.0.0.1:4173/index.html
+npm run dev                 # Start the Astro development server
+npm run build               # Clean Astro cache, build static output, enrich sitemap lastmod dates
+npm run preview             # Preview the built static site
+npm test                    # Run the complete Node assert regression suite
+npm run launch-check        # Build, then run the release/readiness checks against dist/
 ```
 
-There is no lint, no build, no bundler.
+Run an individual test file directly when iterating on a focused area:
 
-## Deployment — live at https://flowlight.me
-
-**Server**: Tencent Cloud CVM, Ubuntu 24.04, IP `43.162.126.37`, user `ubuntu`, SSH key auth.
-**GitHub**: `https://github.com/fan0269-code/VisaLang` (public, `main` branch).
-
-**Auto-update**: a system cron (`/etc/cron.d/visalang-update`) runs `/usr/local/bin/visalang-update.sh` every 15 min — `git pull origin main` + `systemctl reload nginx` if there are changes.
-
-**Update workflow** (all the user needs):
 ```bash
-git add -A && git commit -m "what changed" && git push
-# Site updates within 15 min, no server access needed.
+node tests/route-tools.test.js
+node tests/commercial-pages.test.js
+node tests/content-integrity.test.js
+node tests/germany-a1-cluster.test.js
+node tests/germany-b1-cluster.test.js
+node tests/germany-testdaf-cluster.test.js
 ```
 
-**Server access** (if needed):
-```bash
-ssh ubuntu@43.162.126.37
-sudo systemctl reload nginx          # manual reload
-tail /var/log/visalang-update.log    # view auto-update log
-```
+There are currently no package scripts for linting, formatting, or standalone type-checking. Do not document or invoke nonexistent `npm run lint` or `npm run typecheck` commands.
 
-**Key paths on server**: site root `/var/www/flowlight.me/public/`, nginx config `/etc/nginx/sites-available/flowlight.me.conf`, SSL cert `/etc/letsencrypt/live/flowlight.me/` (auto-renew via certbot).
-
-**Pending user actions**: replace Formspree `YOUR_FORM_ID` in `index.html` line ~232; add analytics snippet to `<head>`. Both are not blocking — site works without them.
+`bash deploy/deploy.sh` is a server deployment workflow: it installs locked dependencies, builds, and publishes `dist/` to Nginx. It is not the default local development command.
 
 ## Architecture
 
-**Data + render split.** Everything visible is driven by `app-data.js` and painted client-side by `app.js`. There is no server.
+### Source of truth and generated output
 
-- `app-data.js` — **UMD module**: self-registers as `window.ExamSiteData` in the browser and as `module.exports` under Node (so tests can `require` it). Holds `brand`, `i18n` (en/zh), `exams` (50 seeds), `pageSeeds` (200 high-intent SEO page seeds), `pageSections` (the 15-section guide template), `sources`, `tools`, and the two pure planner functions `calculateExamBudget` and `recommendExamPath`.
-- `app.js` — reads `window.ExamSiteData`, then renders stats, category tabs, the exam table, tool cards, sources, and i18n text into `index.html`. Owns the `state` object (`{ category, locale, search }`) and re-renders on tab/search/language-toggle events. The EN↔ZH toggle re-runs `renderAll()`; translatable elements are marked with `data-i18n` / `data-i18n-placeholder` attributes and resolved against `i18n[state.locale]`.
-- `index.html` — page structure with i18n hooks; loads `app-data.js` then `app.js` (order matters).
-- `styles.css` — responsive styles, shared by homepage and guide pages.
-- `guides/*.html` — 10 hand-written static guide pages (Germany A1 batch), each linking back to `/index.html` and loading `../styles.css`.
+- Treat `src/` as the active Astro application: pages are in `src/pages/`, reusable UI in `src/components/` and `src/layouts/`, content in `src/content/guides/`, and structured logic/data in `src/data/`.
+- `public/` is copied directly into `dist/` at build time. It owns public static assets plus deployment behavior such as `_redirects`, `_headers`, and `robots.txt`.
+- Never edit `dist/`, `.astro/`, or `node_modules/` by hand. Change `package-lock.json` only when dependencies genuinely change.
+- The root `index.html`, `app.js`, `app-data.js`, `styles.css`, `guides/*.html`, and `zh/*.html` belong to a legacy static compatibility layer. Do not use or delete them for normal feature work unless the task explicitly covers legacy compatibility, redirects, or deployment.
 
-## Invariants enforced by `tests/site.test.js`
+### Content, page, and SEO flow
 
-The test file is the spec. Do not let it go red without intent:
+1. `src/content.config.ts` defines the `guides` Markdown collection and validates guide frontmatter.
+2. `src/pages/guides/[slug].astro` uses the collection to generate static guide routes and passes guide data/content to `GuideLayout.astro`.
+3. `src/data/article-sections.ts` classifies Markdown headings for the standardized guide sections.
+4. `GuideLayout.astro` provides the guide trust structure: breadcrumb, one H1, direct answer, verification reminder, TOC, disclaimer, related content, and Article/Breadcrumb JSON-LD.
+5. `BaseLayout.astro` provides site-wide metadata and shell: canonical and hreflang links, Open Graph/Twitter tags, Organization JSON-LD, navigation, and footer.
+6. `astro.config.mjs` sets `trailingSlash: 'always'` and the production site URL. The sitemap integration produces the sitemap; `scripts/enrich-sitemap-lastmod.js` adds guide update dates after the build.
 
-- `exams.length === 50` and `pageSeeds.length === 200`. Every exam must have `name`, `officialSource`, and `lastUpdated`.
-- `pageSections` must equal the exact 15-element array (Exam Overview → Eligibility → … → Last Updated). This is the canonical guide-page template referenced by `docs/CONTENT_WORKFLOW.md`.
-- `tools.length === 3`; `sources` must include a Goethe entry.
-- `calculateExamBudget({ examFee:130, prepBudget:49, retakes:1 })` → `{ total: 309 }` (total = `examFee + prepBudget + examFee*retakes`).
-- `recommendExamPath({ goal:"spouse-visa", country:"Germany", language:"German" })` must return `primaryExam: "Goethe-Zertifikat A1"` with ≥3 steps, and the `warning` must **not** contain "dump".
-- Homepage markup checks: `#hero-finder` appears before `#exam-count`, `#path-result` exists, language toggle and `data-i18n="heroHeadline"`, `#waitlist-message`, and `data-i18n="footerDisclaimer"` all present.
-- **Exactly 10** `.html` files in `guides/`. Adding or removing a guide page requires updating this assertion. Each guide must contain `Last updated: 2026-06-30`, an `Official sources` section, and the link `https://www.goethe.de/en/spr/prf.html`.
-- Homepage must link to `guides/goethe-a1-germany-family-reunion.html`.
+### Browser tools
 
-When extending `app-data.js`, keep both export paths working (browser global + Node `module.exports`) — the test requires the Node path.
+`src/data/route-tools.ts` contains the testable route and timeline logic. `src/pages/tools/route-finder.astro` validates browser input, uses that module, persists successful non-sensitive result inputs through URL query parameters, and renders either a configured path or an official-verification fallback. `RouteProgress.astro` separately stores the current route step in `localStorage`; the reminder planner generates ICS locally and has no mail-service integration.
 
-## Content & compliance rules (from docs/ + enforced by project policy)
+## Project-specific constraints
 
-- **Official-first, safe prep.** Every guide links back to the official exam owner / government source. Never publish leaked questions, copied real exam items, or fake "authorized" content. The `recommendExamPath` warning string is the canonical compliance statement.
-- Do not fabricate specific fees, dates, policy numbers, or government requirements — point users to the official source to verify. The "Last Updated" date on every page is a trust signal.
-- Guide-page writing template and workflow live in `docs/CONTENT_WORKFLOW.md` (15-section structure above). Launch verification steps are in `docs/LAUNCH_CHECKLIST.md`; product/status notes in `docs/PM_AUDIT.md`.
+### Routing, layout, and verification
 
-## Conventions
+- Preserve trailing-slash URLs. For a public route addition or migration, update canonical/hreflang tags, JSON-LD, sitemap behavior, internal links, and `public/_redirects` when an older URL needs preservation.
+- Reuse `BaseLayout`, `GuideLayout`, existing shared components, and `src/styles/global.css` tokens/classes rather than creating a parallel visual system.
+- Guide pages must retain a single H1, accessible skip target, TOC, official verification reminder, disclaimer, and the established guide structure.
+- For changes affecting routes, navigation, SEO, content structure, sitemap, redirects, or layout, run both `npm test` and `npm run launch-check` before completion.
+- When behavior, route coverage, or required links change, update the smallest relevant assertion in `tests/`.
 
-- Bilingual copy: add an English string under `i18n.en` and its Chinese counterpart under `i18n.zh` with the same key. The toggle just swaps `state.locale`.
-- Guide filenames are kebab-case and topic-specific (e.g. `goethe-a1-fees-by-country.html`). New guides should match the existing Germany A1 page structure so the shared assertions keep passing.
+### Content and commercial boundaries
 
-## Agent skills
+- Link visa, residency, citizenship, admission, and professional-qualification claims to the authority with final decision power. Link exam fees, dates, centres, cancellations, and results to the official exam owner or authorised centre.
+- Do not invent or guarantee fees, dates, eligibility, exemptions, accepted certificates, results, visa outcomes, payment, delivery, or service-completion states. When a fact is not verifiable, give readers a concrete official verification step.
+- Keep guide frontmatter complete. In particular, `slug`, `publishedDate`, `updatedDate`, and `readingTime` are required; slugs must be unique, match the filename, and any `related` slugs must resolve.
+- Commercial pages remain contact-intent/coming-soon pages. Do not add unconfirmed prices or claims that payment, email sending, review acceptance, product delivery, or a service workflow exists.
+- Do not add forms, payments, email delivery, third-party tracking, or ads without explicit scope. Consent/privacy/network requirements must be addressed together for any such change.
+- Write Chinese pages naturally for Chinese readers; do not mechanically translate English copy.
 
-### Issue tracker
+## Documentation precedence
 
-Issues tracked in GitHub (`fan0269-code/VisaLang`); external PRs are not a triage surface. See `docs/agents/issue-tracker.md`.
-
-### Triage labels
-
-Default five-label vocabulary (needs-triage / needs-info / ready-for-agent / ready-for-human / wontfix). See `docs/agents/triage-labels.md`.
-
-### Domain docs
-
-Single-context layout — one `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
+Use `PROJECT_CONTEXT.md`, `AGENTS.md`, current `package.json`, `src/`, and `tests/` as the present-day implementation sources. Some historical documentation — including the previous version of this file, `README.md`, `docs/CONTENT_WORKFLOW.md`, and `docs/LAUNCH_CHECKLIST.md` — describes the legacy static layer and must not override the current Astro architecture or test constraints.

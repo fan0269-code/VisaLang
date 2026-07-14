@@ -5,12 +5,17 @@ category: "germany-a1"
 slug: "goethe-a1-speaking-topics"
 publishedDate: "2026-06-30"
 updatedDate: "2026-07-11"
-author: "VisaLang"
+contentStatus: "complete-route"
+primaryIntent: "Goethe A1 speaking topics: safe practice plan decision support"
+decisionStage: "local-execution"
+nextGuideSlug: "goethe-a1-30-day-study-plan"
+comparisonScope: "same-route"
+author: "VisaLang Editorial team"
 readingTime: "9"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-related: ["goethe-a1-30-day-study-plan", "goethe-a1-listening-practice", "goethe-a1-retake-policy"]
+supportingGuideSlugs: ["goethe-a1-30-day-study-plan", "goethe-a1-listening-practice", "goethe-a1-retake-policy"]
 ---
 
 ## Practise abilities, not predicted questions
