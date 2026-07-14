@@ -1,9 +1,27 @@
 # VisaLang Operations Status
 
-Updated: 2026-07-13
-Window: 导航菜单修复与线上复核
+Updated: 2026-07-14
+Window: 内容与 UI 改造整批发布
 
 ## Decision at a glance
+
+- **本地源码状态：已提交并推送。** 内容与 UI 改造应用提交为 `5167dd45361cfa4920ca87c39091652d8e545405`；本地 `npm test`、`npm run launch-check` 和 `git diff --check` 通过。
+- **线上部署状态：已部署并验证。** `flowlight.me` 与 `www.flowlight.me` 在发布时均解析到 `107.150.102.145`。服务器源码、Astro 构建和 `/var/www/flowlight.me/public/dist` 已更新；Nginx 检查及重载通过；服务器 `npm test` 与 `npm run launch-check` 通过。公网关键页面、双域首页和 sitemap 均返回 200。
+- **广告/CMP 状态：业务策略仍 BLOCKED，临时安全处置已上线。** 公网 HTML 未发现暂停的 AdSense 或 Cloudflare Insights 运行时标记；不得据此声称已部署 CMP 或取得地区合规批准。
+- **内容状态：P0 安全降级已上线，人工来源审核未自动完成。** 五篇 BLOCKED 高风险文章已移除审计指出的确定性陈述并继续显示 `verification-pending`；中文来源与翻译审核仍 pending。
+
+## Content and UI remediation release — 2026-07-14
+
+- Application commit: `5167dd45361cfa4920ca87c39091652d8e545405`.
+- Production target: `107.150.102.145:/var/www/flowlight.me/public/dist`; both apex and `www` A records resolved to this host before deployment.
+- Server Node.js: `v22.23.1`; server source advanced from `6b8131b` to `5167dd4`.
+- Rollback artifact: `/var/www/flowlight.me/releases/20260714T115051Z-pre-5167dd4-dist`.
+- Server verification: dependency audit reported 0 vulnerabilities; `npm test` passed; `npm run launch-check` passed with 98 routes and 31 checks; Nginx configuration test and reload passed.
+- Public verification: apex, `www`, Guide Library, representative Complete/Core/Starter guides, Route Finder, Chinese entry, Privacy, Cookie and sitemap returned HTTP 200. Public Privacy/Cookie HTML contained the corrected URL/local-storage wording; the Spain pending guide contained the safe verification boundary; checked public HTML contained no AdSense, Cloudflare Insights or DoubleClick runtime markers.
+- Served homepage SHA-256 after publish: `5a05525786f841c7350fd263e9cc1464d3c1048c7c0cef081b407e8a7d33294e`.
+- Remaining release evidence gap: the in-app browser runtime still could not provide 375/768/1024/1440 screenshots or a clean-profile network HAR. HTTP and generated-HTML checks are not recorded as a substitute for that manual evidence.
+
+## Previous 2026-07-13 decision snapshot
 
 - **本地源码状态：已提交并推送。** 本次导航修复的应用提交为 `01b1827ad20d3cb7e8fc0fa3457f3fc675c1cb33`；提交前已通过 `npm test`、`npm run build`、`npm run launch-check` 和 `git diff --check`。
 - **线上部署状态：已部署并可核对。** 当前 `flowlight.me` 与 `www.flowlight.me` 的 A 记录均为 `107.150.102.145`。该主机的 `/var/www/flowlight.me/source` 与 `/var/www/flowlight.me/public/dist` 已更新为 `01b1827` 产物；Nginx 配置检查与重载通过。工具页、路线页、关于页和 `www` 工具页均返回 HTTP 200。

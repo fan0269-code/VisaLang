@@ -2429,3 +2429,29 @@ Verification:
 - `npm run launch-check` — passed; 98 routes, 31 checks passed, 0 failed, `READY`.
 - The five articles remain `verification-pending`; this correction does not claim source review completion.
 - CMP/ad-tech strategy, browser viewport/network evidence, Related Guides, navigation `aria-current`, and Article author `@type` remain outside this P0 correction window.
+
+## Content and UI remediation production release — 2026-07-14
+
+User instruction: push and deploy the completed batch.
+
+Completed:
+
+- Committed the full reviewed workspace as `5167dd45361cfa4920ca87c39091652d8e545405` (`feat: complete content and UI remediation`) and pushed `main` to `origin`.
+- Confirmed both `flowlight.me` and `www.flowlight.me` resolved to `107.150.102.145` before deployment.
+- Preserved the previous served output at `/var/www/flowlight.me/releases/20260714T115051Z-pre-5167dd4-dist`.
+- Fast-forwarded server source from `6b8131b` to `5167dd4`, installed locked dependencies, built 98 Astro pages, replaced the served `dist`, checked Nginx configuration and reloaded Nginx.
+
+Verification:
+
+- Server dependency install/audit — 0 vulnerabilities.
+- Server `npm test` — passed.
+- Server `npm run launch-check` — passed; 98 routes, 31 checks, 0 failures, `READY`.
+- Public HTTP — apex, `www`, Guide Library, Complete/Core/Starter guide samples, Route Finder, Chinese entry, Privacy, Cookie and sitemap returned 200.
+- Public P0 evidence — corrected URL/local-storage policy wording and safe Spain verification boundary were present.
+- Public ad-tech check — no checked AdSense, Cloudflare Insights or DoubleClick runtime marker appeared in homepage, Privacy or Cookie HTML.
+
+Remaining:
+
+- CMP/ad-tech activation remains BLOCKED pending the recorded business/legal decisions.
+- Chinese source/translation review and five-page authority-source completion remain pending.
+- Browser screenshots, keyboard walkthrough and clean-profile HAR remain unverified because the browser-control runtime failed during this maintenance session.
