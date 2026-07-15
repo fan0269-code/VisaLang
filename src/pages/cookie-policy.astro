@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const updated = '2026-07-14';
+const updated = '2026-07-15';
 ---
 
-<BaseLayout title="Cookie Policy" description="How VisaLang currently uses browser storage while advertising, analytics, and advertising consent remain paused." noindex={true}>
+<BaseLayout title="Cookie Policy" description="How VisaLang uses browser storage and Google AdSense consent choices." noindex={true}>
   <main class="page-shell">
     <article class="guide-article narrow-page">
         <p class="eyebrow">Legal</p>
@@ -15,7 +15,7 @@ const updated = '2026-07-14';
 
         <h2>Local storage we use</h2>
         <ul>
-          <li><strong>Advertising, analytics and consent:</strong> Google AdSense, Cloudflare Web Analytics, and an advertising-consent mechanism are not currently enabled. VisaLang does not currently create advertising, analytics, or consent storage through those services.</li>
+          <li><strong>Advertising and consent:</strong> Google AdSense and Google's consent message may use cookies, local storage, and consent signals for advertising choices. Cloudflare Web Analytics is not enabled.</li>
           <li><strong>Tool result URLs:</strong> after a tool successfully generates a result, it places only the non-sensitive values needed to restore that result in the page URL. Current tools do not store their form fields in local storage. URLs can remain in browser history or be included when a link is copied.</li>
           <li><strong>Route progress:</strong> route pages can store the current route step in browser local storage. This storage also has no site-defined automatic expiry.</li>
           <li><strong>Guide filters:</strong> Guide Library filters also use page URL values so the filtered view can be restored or shared.</li>
@@ -25,7 +25,7 @@ const updated = '2026-07-14';
         <p>We do not use third-party social-media tracking cookies. Third-party sites you visit from VisaLang, including official sources and advertising destinations, apply their own policies.</p>
 
         <h2>Managing cookies</h2>
-        <p>There is currently no advertising-consent preference to manage. Use “Restart this tool” to remove that tool’s URL values. You can also clear or block local storage in your browser settings; doing so may remove saved route-step progress.</p>
+        <p>Use the Google privacy settings control or the consent message to manage advertising choices where provided. Use “Restart this tool” to remove that tool’s URL values. You can also clear or block local storage in your browser settings; doing so may remove saved route-step progress.</p>
 
         <h2>Third-party embeds</h2>
         <p>VisaLang does not currently load third-party video or resource embeds. Following a link to an external site takes you to that site, where its own privacy and cookie policies apply.</p>

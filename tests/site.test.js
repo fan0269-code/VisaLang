@@ -67,11 +67,10 @@ assert.ok(src.base.includes('id="main-content"'), 'shared layout exposes a main 
 assert.ok(src.base.includes('organisationJsonLD'), 'shared layout emits Organization data');
 assert.ok(src.base.includes('rel="canonical"'), 'shared layout emits canonical URLs');
 assert.ok(src.base.includes('hreflang'), 'shared layout emits hreflang links');
-for (const blockedDomain of ['pagead2.googlesyndication.com', 'static.cloudflareinsights.com']) {
-  assert.ok(!src.base.includes(blockedDomain), `shared layout does not unconditionally load ${blockedDomain}`);
-}
-assert.ok(src.privacy.includes('Advertising and an advertising-consent mechanism are not currently enabled.'), 'privacy policy states the current paused advertising and consent behavior');
-assert.ok(src.cookies.includes('Google AdSense, Cloudflare Web Analytics, and an advertising-consent mechanism are not currently enabled.'), 'cookie policy states the current paused third-party behavior');
+assert.ok(src.base.includes('pagead2.googlesyndication.com/ pagead/js/adsbygoogle.js'.replace('/ ', '/')), 'shared layout includes the approved AdSense publisher script');
+assert.ok(!src.base.includes('static.cloudflareinsights.com'), 'shared layout does not load Cloudflare Web Analytics');
+assert.ok(src.privacy.includes('Google AdSense') && src.privacy.includes('consent message'), 'privacy policy describes AdSense and consent messaging');
+assert.ok(src.cookies.includes('Google AdSense') && src.cookies.includes('consent signals'), 'cookie policy describes AdSense storage and consent signals');
 assert.ok(src.privacy.includes('places only the non-sensitive values needed to restore that result in the page URL'), 'privacy policy describes URL-backed tool restoration');
 assert.ok(src.cookies.includes('Current tools do not store their form fields in local storage.'), 'cookie policy does not misstate tool fields as local-storage data');
 assert.ok(src.cookies.includes('Route progress:') && src.cookies.includes('current route step in browser local storage'), 'cookie policy limits current local-storage behavior to route progress');
