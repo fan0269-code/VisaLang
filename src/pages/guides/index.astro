@@ -33,10 +33,10 @@ const filters = [
   { name: 'status', label: 'Content status', options: [{ value: 'complete-route', label: 'Complete route' }, { value: 'core-route', label: 'Core route' }, { value: 'starter-overview', label: 'Starter overview' }, { value: 'verification-pending', label: 'Verification pending' }] },
 ];
 const totalGuideCount = guides.length + zhGermanyA1Guides.length;
-const jsonLD = { '@context': 'https://schema.org', '@graph': [{ '@type': 'CollectionPage', name: 'VisaLang task guide library', url: 'https://flowlight.me/guides/', mainEntity: { '@id': 'https://flowlight.me/guides/#items' } }, { '@type': 'ItemList', '@id': 'https://flowlight.me/guides/#items', numberOfItems: totalGuideCount, itemListElement: [...guides.map((guide, index) => ({ '@type': 'ListItem', position: index + 1, name: guide.data.title, url: `https://flowlight.me/guides/${guide.data.slug}/` })), ...zhGermanyA1Guides.map((guide, index) => ({ '@type': 'ListItem', position: guides.length + index + 1, name: guide.title, url: `https://flowlight.me${guide.href}` }))] }] };
+const jsonLD = { '@context': 'https://schema.org', '@graph': [{ '@type': 'CollectionPage', name: 'VisaLang task guide library', url: 'https://visalang.org/guides/', mainEntity: { '@id': 'https://visalang.org/guides/#items' } }, { '@type': 'ItemList', '@id': 'https://visalang.org/guides/#items', numberOfItems: totalGuideCount, itemListElement: [...guides.map((guide, index) => ({ '@type': 'ListItem', position: index + 1, name: guide.data.title, url: `https://visalang.org/guides/${guide.data.slug}/` })), ...zhGermanyA1Guides.map((guide, index) => ({ '@type': 'ListItem', position: guides.length + index + 1, name: guide.title, url: `https://visalang.org${guide.href}` }))] }] };
 ---
 
-<BaseLayout title="Task guide library" description="Filter language-proof guides by purpose, country, route, exam, level, language, and content status." canonicalURL="https://flowlight.me/guides/" jsonLD={jsonLD}>
+<BaseLayout title="Task guide library" description="Filter language-proof guides by purpose, country, route, exam, level, language, and content status." canonicalURL="https://visalang.org/guides/" jsonLD={jsonLD}>
   <main class="site-main od-guide-library">
     <PageHero compact eyebrow="Task library" title="Find the guide for your next decision." description="Use each guide’s content status and source-review state to distinguish developed routes from pages that still require official verification." />
     <section class="library-panel" aria-label="Guide filters">

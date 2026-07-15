@@ -20,7 +20,7 @@ const categoryGuides = guides
   .map((guide) => ({ ...guide, meta: inferGuideMeta(guide.data), status: resolveGuideContentStatus(guide.data) }))
   .sort((a, b) => b.data.publishedDate.localeCompare(a.data.publishedDate));
 
-const canonicalURL = `https://flowlight.me/guides/category/${category.slug}/`;
+const canonicalURL = `https://visalang.org/guides/category/${category.slug}/`;
 const categoryIntro = guideCategoryIntro(category);
 const categoryStatus = categoryContentStatus(categoryGuides.map((guide) => guide.status));
 const categoryCtas = contentStatusCtas(categoryStatus, { routeHref: `/guides/category/${category.slug}/` });
@@ -34,7 +34,7 @@ const jsonLD = {
       url: canonicalURL,
       description: `VisaLang guides for ${category.desc}.`,
       inLanguage: 'en',
-      isPartOf: { '@type': 'WebSite', name: 'VisaLang', url: 'https://flowlight.me/' },
+      isPartOf: { '@type': 'WebSite', name: 'VisaLang', url: 'https://visalang.org/' },
       mainEntity: { '@id': `${canonicalURL}#item-list` },
     },
     {
@@ -45,7 +45,7 @@ const jsonLD = {
       itemListElement: categoryGuides.map((guide, index) => ({
         '@type': 'ListItem',
         position: index + 1,
-        url: `https://flowlight.me/guides/${guide.data.slug}/`,
+        url: `https://visalang.org/guides/${guide.data.slug}/`,
         name: guide.data.title,
         description: guide.data.description,
       })),

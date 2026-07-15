@@ -43,7 +43,7 @@ import ToolResultPanel from '../../components/ToolResultPanel.astro';
     if (!reminder.date) return;
     const stamp = reminder.date.replaceAll('-', '');
     const escapeIcs = (value: string) => value.replace(/[\\,;]/g, (match) => `\\${match}`).replace(/\n/g, '\\n');
-    const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//VisaLang//Reminder Planner//EN','BEGIN:VEVENT',`UID:${Date.now()}@flowlight.me`,`DTSTART;VALUE=DATE:${stamp}`,`SUMMARY:${escapeIcs(reminder.topic)}`,`DESCRIPTION:${escapeIcs(`Route or authority: ${reminder.route}. Recheck: ${reminder.source || 'responsible official source'}.`)}`,'END:VEVENT','END:VCALENDAR'].join('\r\n');
+    const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//VisaLang//Reminder Planner//EN','BEGIN:VEVENT',`UID:${Date.now()}@visalang.org`,`DTSTART;VALUE=DATE:${stamp}`,`SUMMARY:${escapeIcs(reminder.topic)}`,`DESCRIPTION:${escapeIcs(`Route or authority: ${reminder.route}. Recheck: ${reminder.source || 'responsible official source'}.`)}`,'END:VEVENT','END:VCALENDAR'].join('\r\n');
     const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' }); const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = 'visalang-reminder.ics'; link.click(); URL.revokeObjectURL(link.href);
   });
   if (controller?.restored) form?.requestSubmit();

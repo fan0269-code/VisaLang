@@ -10,7 +10,7 @@ const noindexSitemapPaths = [
 ];
 
 export default defineConfig({
-  site: 'https://flowlight.me',
+  site: 'https://visalang.org',
   integrations: [
     sitemap({
       filter: (page) => {

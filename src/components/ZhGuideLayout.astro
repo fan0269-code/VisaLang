@@ -27,10 +27,10 @@ const {
   related = [],
 } = Astro.props;
 
-const canonicalURL = `https://flowlight.me/zh/guides/${slug}/`;
+const canonicalURL = `https://visalang.org/zh/guides/${slug}/`;
 const guideRecord = zhGermanyA1Guides.find((guide) => guide.slug === slug);
 if (!guideRecord) throw new Error(`Missing controlled Chinese guide record for ${slug}`);
-const englishURL = new URL(englishHref, 'https://flowlight.me').href;
+const englishURL = new URL(englishHref, 'https://visalang.org').href;
 const relatedGuides = related
   .map((relatedSlug) => zhGermanyA1Guides.find((guide) => guide.slug === relatedSlug))
   .filter(Boolean);
@@ -57,7 +57,7 @@ const jsonLD = {
   datePublished: '2026-07-09',
   dateModified: updatedDate,
   author: { name: guideRecord.author },
-  publisher: { '@type': 'Organization', name: 'VisaLang', url: 'https://flowlight.me/' },
+  publisher: { '@type': 'Organization', name: 'VisaLang', url: 'https://visalang.org/' },
   inLanguage: 'zh-CN',
   mainEntityOfPage: canonicalURL,
 };

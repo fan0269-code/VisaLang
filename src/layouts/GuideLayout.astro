@@ -42,14 +42,14 @@ const nextActionCopy = {
   'local-execution': 'Check the official provider or authorised local centre before booking, paying, or relying on a date.',
   'submission-review': 'Recheck the receiving authority’s current document instructions before submission.',
 }[decisionStage];
-const canonicalURL = `https://flowlight.me/guides/${slug}/`;
+const canonicalURL = `https://visalang.org/guides/${slug}/`;
 const translatedPath = translatedPaths[`/guides/${slug}/`];
 const alternates = translatedPath ? [
   { lang: 'en', href: canonicalURL },
-  { lang: 'zh-CN', href: `https://flowlight.me${translatedPath}` },
+  { lang: 'zh-CN', href: `https://visalang.org${translatedPath}` },
   { lang: 'x-default', href: canonicalURL },
 ] : [];
-const absoluteUrl = (href: string) => new URL(href, 'https://flowlight.me').href;
+const absoluteUrl = (href: string) => new URL(href, 'https://visalang.org').href;
 const tocHeadings = [
   { text: 'Direct answer', id: 'direct-answer', depth: 2 },
   { text: 'Who this applies to', id: 'who-this-applies-to', depth: 2 },
@@ -63,7 +63,7 @@ const tocHeadings = [
 ].filter((heading, index, list) => list.findIndex((item) => item.id === heading.id) === index);
 const jsonLD = {
   '@context': 'https://schema.org', '@graph': [
-    { '@type': 'Article', headline: title, description, url: canonicalURL, datePublished: publishedDate, dateModified: updatedDate, author: { name: author }, publisher: { '@type': 'Organization', name: 'VisaLang', url: 'https://flowlight.me/' }, inLanguage: 'en', mainEntityOfPage: canonicalURL },
+    { '@type': 'Article', headline: title, description, url: canonicalURL, datePublished: publishedDate, dateModified: updatedDate, author: { name: author }, publisher: { '@type': 'Organization', name: 'VisaLang', url: 'https://visalang.org/' }, inLanguage: 'en', mainEntityOfPage: canonicalURL },
     { '@type': 'BreadcrumbList', itemListElement: breadcrumbs.map((crumb, index) => ({ '@type': 'ListItem', position: index + 1, name: crumb.label, item: crumb.href ? absoluteUrl(crumb.href) : canonicalURL })) },
   ],
 };

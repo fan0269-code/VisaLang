@@ -31,7 +31,7 @@ for (const file of guideFiles) {
   if (!metadata) continue;
   sitemap = addLastmod(
     sitemap,
-    `https://flowlight.me/guides/${metadata.slug}/`,
+    `https://visalang.org/guides/${metadata.slug}/`,
     metadata.updatedDate
   );
 }

@@ -1,6 +1,6 @@
 export const brand = {
   name: 'VisaLang',
-  domain: 'flowlight.me',
+  domain: 'visalang.org',
   tagline: 'Find the right language exam for your next move.',
 };
 

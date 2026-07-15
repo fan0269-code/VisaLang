@@ -2,8 +2,8 @@ export type Locale = 'en' | 'zh-CN';
 
 export const site = {
   name: 'VisaLang',
-  url: 'https://flowlight.me',
-  email: 'hello@flowlight.me',
+  url: 'https://visalang.org',
+  email: 'hello@visalang.org',
   lastSystemReview: '2026-07-11',
   routes: [
     { id: 'family-reunion', label: 'Family reunion', zh: '家庭团聚', href: '/germany-family-reunion-a1/', status: 'available' },

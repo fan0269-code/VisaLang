@@ -35,7 +35,7 @@ const steps = [
   { title: 'Recheck before submission', status: 'next', preparation: 'Confirm the receiving authority still accepts the proof and that every required document format is current.', guide: { href: '/guides/german-a1-family-reunion-faq/', label: 'Route FAQ' }, tool: { href: '/tools/email-reminders/', label: 'Reminder Planner' } },
 ] as const;
 const jsonLD = { '@context': 'https://schema.org', '@graph': [
-  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://flowlight.me/' }, { '@type': 'ListItem', position: 2, name: 'Routes', item: 'https://flowlight.me/routes/' }, { '@type': 'ListItem', position: 3, name: 'Germany A1 family reunion', item: 'https://flowlight.me/germany-family-reunion-a1/' }] },
+  { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://visalang.org/' }, { '@type': 'ListItem', position: 2, name: 'Routes', item: 'https://visalang.org/routes/' }, { '@type': 'ListItem', position: 3, name: 'Germany A1 family reunion', item: 'https://visalang.org/germany-family-reunion-a1/' }] },
   { '@type': 'FAQPage', mainEntity: [
     { '@type': 'Question', name: 'Do I need German A1 for family reunion?', acceptedAnswer: { '@type': 'Answer', text: 'The requirement and any exemption depend on the individual route and responsible authority. Confirm before booking.' } },
     { '@type': 'Question', name: 'Should I choose an exam before checking the requirement?', acceptedAnswer: { '@type': 'Answer', text: 'No. Confirm whether proof is required and which exact certificate is accepted first.' } },
@@ -43,7 +43,7 @@ const jsonLD = { '@context': 'https://schema.org', '@graph': [
 ] };
 ---
 
-<BaseLayout title="Germany A1 family reunion route" description="Confirm the Germany family-reunion A1 requirement, accepted proof, exam option, booking, timeline, documents, and official submission checks." canonicalURL="https://flowlight.me/germany-family-reunion-a1/" alternates={[{ lang: 'en', href: 'https://flowlight.me/germany-family-reunion-a1/' }, { lang: 'zh-CN', href: 'https://flowlight.me/zh/germany-family-reunion-a1/' }, { lang: 'x-default', href: 'https://flowlight.me/germany-family-reunion-a1/' }]} jsonLD={jsonLD}>
+<BaseLayout title="Germany A1 family reunion route" description="Confirm the Germany family-reunion A1 requirement, accepted proof, exam option, booking, timeline, documents, and official submission checks." canonicalURL="https://visalang.org/germany-family-reunion-a1/" alternates={[{ lang: 'en', href: 'https://visalang.org/germany-family-reunion-a1/' }, { lang: 'zh-CN', href: 'https://visalang.org/zh/germany-family-reunion-a1/' }, { lang: 'x-default', href: 'https://visalang.org/germany-family-reunion-a1/' }]} jsonLD={jsonLD}>
   <main class="site-main od-route-hub">
     <Breadcrumbs path={[{ label: 'Home', href: '/' }, { label: 'Routes', href: '/routes/' }, { label: 'Germany A1 family reunion' }]} />
     <PageHero compact eyebrow="Germany / Family reunion" title="Germany A1 family reunion route" description="Confirm whether A1 applies, then move through proof, exam, booking, timing, documents, and submission checks." primary={{ href: '#route-progress', label: 'Start the route' }} secondary={{ href: '/tools/route-finder/', label: 'Check my starting point' }} />

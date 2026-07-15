@@ -68,7 +68,7 @@ for (const page of pages) {
   const title = page.html.match(/<title>(.*?)<\/title>/)?.[1] || '';
   const description = page.html.match(/<meta name="description" content="([^"]+)"/)?.[1] || '';
   const canonical = page.html.match(/<link rel="canonical" href="([^"]+)"/)?.[1] || '';
-  if (!title || !description || !canonical.startsWith('https://flowlight.me/')) metadataFailures.push(page.route);
+  if (!title || !description || !canonical.startsWith('https://visalang.org/')) metadataFailures.push(page.route);
   if (titleMap.has(title)) metadataFailures.push(`${page.route} duplicate title with ${titleMap.get(title)}`); else titleMap.set(title, page.route);
   if (descriptionMap.has(description)) metadataFailures.push(`${page.route} duplicate description with ${descriptionMap.get(description)}`); else descriptionMap.set(description, page.route);
 }
@@ -153,10 +153,10 @@ if (guideIndexTypes.has('CollectionPage') && guideIndexTypes.has('ItemList') && 
 const a1Hub = fs.readFileSync(outputFor('/germany-family-reunion-a1/'), 'utf8');
 if (jsonLdTypes(a1Hub).has('FAQPage') && occurrences(a1Hub, /<details>/g) >= 2 && occurrences(a1Hub, /class="route-progress__item/g) === 7) pass('Germany A1 route has visible FAQ data and seven route steps.'); else fail('Germany A1 FAQ or seven-step route is incomplete.');
 
-const hreflangPairs = pages.filter(({ route }) => !route.startsWith('/zh')).flatMap(({ route, html }) => [...html.matchAll(/hreflang="zh-CN" href="https:\/\/flowlight\.me([^\"]+)"/g)].map((match) => [route, match[1]]));
+const hreflangPairs = pages.filter(({ route }) => !route.startsWith('/zh')).flatMap(({ route, html }) => [...html.matchAll(/hreflang="zh-CN" href="https:\/\/visalang\.org([^\"]+)"/g)].map((match) => [route, match[1]]));
 const hreflangFailures = hreflangPairs.filter(([en, zh]) => {
   if (!fs.existsSync(outputFor(zh))) return true;
-  return !fs.readFileSync(outputFor(zh), 'utf8').includes(`hreflang="en" href="https://flowlight.me${en}"`);
+  return !fs.readFileSync(outputFor(zh), 'utf8').includes(`hreflang="en" href="https://visalang.org${en}"`);
 });
 if (hreflangPairs.length >= 7 && !hreflangFailures.length) pass(`All ${hreflangPairs.length} English and Chinese hreflang pairs are reciprocal.`); else fail(`hreflang pair failures: ${hreflangFailures.map((pair) => pair.join(' <-> ')).join(', ')}`);
 
