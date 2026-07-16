@@ -9,8 +9,8 @@ Status rule: a high-risk guide cannot render as `complete-route` or `core-route`
 |---|---|---|---|---|---|---|
 | `src/content/guides/portuguese-language-for-golden-visa-and-citizenship.md` | verification-pending | citizenship/residence period; accepted certificate/level; booking timing | No | Yes — CAPLE | Portuguese citizenship/immigration authority for route, residence-period calculation, accepted proof and exemptions; CAPLE scope confirmation | verification-pending |
 | `src/content/guides/portuguese-ciple-a2-for-citizenship-and-residence.md` | verification-pending | citizenship/residence eligibility; accepted level; applicant groups | No | Yes — CAPLE | Portuguese citizenship/immigration authority for each audience and accepted proof; CAPLE exam scope | verification-pending |
-| `src/content/guides/dele-levels-spanish-citizenship.md` | verification-pending | citizenship minimum level; accepted exams; cost/benefit conclusion | No | Yes — Instituto Cervantes | Spanish citizenship authority for applicable route, level, exemptions and accepted proof; exam-owner product scope | verification-pending |
-| `src/content/guides/dele-a2-ccse-spanish-citizenship.md` | verification-pending | residence years; nationality exceptions; required exams; format/duration/dates | No | Yes — Instituto Cervantes | Spanish citizenship authority for residence rules, exceptions, required evidence and exemptions; DELE/CCSE owner details | verification-pending |
+| `src/content/guides/dele-levels-spanish-citizenship.md` | verification-pending | applicant-specific accepted proof, alternatives and dispensation | Yes — Ministry of Justice, reviewed 2026-07-16 | Yes — Instituto Cervantes | Human review of retained Ministry-first wording; no individual eligibility or SIELE-acceptance conclusion | verification-pending |
+| `src/content/guides/dele-a2-ccse-spanish-citizenship.md` | verification-pending | applicant category, residence calculation, required evidence and dispensation result | Yes — Ministry of Justice, reviewed 2026-07-16 | Yes — Instituto Cervantes | Human review of retained Ministry-first wording; current centre/date/fee checks remain local | verification-pending |
 | `src/content/guides/languagecert-selt-uk-visa.md` | verification-pending | Home Office approval; visa levels; acceptance equivalence; fees/results | Yes — UK government link exists | Yes — LanguageCert | UK government route-specific requirement/approved-test evidence and current SELT list; LanguageCert product and local-centre details | verification-pending |
 | `src/content/guides/ielts-ukvi-uk-visa.md` | verification-pending | route-specific CEFR levels; accepted IELTS variant; security/booking | Yes — UK government link exists | Yes — IELTS | UK government route-specific level, skills, exemptions and approved-test evidence; IELTS UKVI product/local-centre details | verification-pending |
 | `src/content/guides/tef-canada-immigration.md` | verification-pending | immigration/citizenship acceptance; CRS/CLB scoring; validity period | Yes — IRCC link exists | Yes — Le français des affaires | IRCC source for each programme/use, accepted result and validity; exam-owner scoring/product details | verification-pending |
@@ -66,10 +66,14 @@ The editorial source reviewer used `docs/HIGH_RISK_ROUTE_SOURCE_PACKAGE_2026-07-
 
 The following pages lack the required page-specific final-decision-authority input. Their existing factual prose was not treated as reviewed, and no `sourceReviewedAt` was added:
 
-- `src/content/guides/dele-levels-spanish-citizenship.md`
-- `src/content/guides/dele-a2-ccse-spanish-citizenship.md`
 - `src/content/guides/delf-b1-b2-french-work-study.md`
 - `src/content/guides/tcf-irn-french-residence.md`
 - `src/content/guides/staatsexamen-nt2-for-work-and-higher-education.md`
 
-They remain `verification-pending`. Required inputs are, respectively, a current Spanish Ministry of Justice procedure page; the named French receiving institution/regulator; the precise French prefecture/procedure page; and the named Dutch institution/employer/regulator.
+They remain `verification-pending`. Required inputs are, respectively, the named French receiving institution/regulator; the precise French prefecture/procedure page; and the named Dutch institution/employer/regulator.
+
+### Spain source pilot — 2026-07-16
+
+The previous deciding-authority gap for the two Spain guides was closed using the current Spanish Ministry of Justice residence-nationality procedure and electronic application/dispensation pages. The narrow source review and claim boundaries are recorded in `docs/SPAIN_CONTENT_SOURCE_PILOT_2026-07-16.md`.
+
+Both guides now record the Ministry as the primary official authority and a real source-review date. They remain `verification-pending`: the reviewed pages do not authorize VisaLang to decide an applicant category, residence calculation, accepted evidence, individual dispensation, or local exam terms.

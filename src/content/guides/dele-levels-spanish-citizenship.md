@@ -4,7 +4,10 @@ description: "Prepare the questions needed to verify the current Spanish citizen
 category: "spain"
 slug: "dele-levels-spanish-citizenship"
 publishedDate: "2026-07-01"
-updatedDate: "2026-07-01"
+updatedDate: "2026-07-16"
+sourceReviewedAt: "2026-07-16"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "verification-pending"
 decisionStage: "choice"
 nextGuideSlug: "dele-a2-ccse-spanish-citizenship"
@@ -12,6 +15,7 @@ comparisonScope: "same-route"
 primaryIntent: "Spain citizenship language-proof planning"
 audienceScope: "Readers comparing Spanish-language certificates for a citizenship application"
 finalDecisionAuthorityType: "Spanish citizenship authority"
+primaryOfficialAuthorityUrl: "https://www.mjusticia.gob.es/es/ciudadania/tramites/nacionalidad-residencia"
 examOwnerUrl: "https://examenes.cervantes.es/en/dele"
 localExecutionPrompt: "Before registering, check the current requirement with the authority that receives your application. This page helps you prepare the questions and official sources to use."
 author: "VisaLang Editorial team"
@@ -24,7 +28,7 @@ supportingGuideSlugs: ["dele-a2-ccse-spanish-citizenship", "cils-b1-cittadinanza
 
 ## Official verification required before relying on a level
 
-This page does not yet have a reviewed Spanish citizenship-authority source that confirms the language level or certificate for your route. Do not use an exam-provider page alone to decide a citizenship requirement.
+Start with the [Spanish Ministry of Justice residence-nationality procedure](https://www.mjusticia.gob.es/es/ciudadania/tramites/nacionalidad-residencia). It is the deciding-authority starting point; an exam-provider page alone cannot decide which proof or dispensation applies to your application.
 
 ## Questions for the receiving authority
 
@@ -35,11 +39,16 @@ This page does not yet have a reviewed Spanish citizenship-authority source that
 
 Record the authority page and the date checked before choosing a level or paying for an exam.
 
-## What the exam-owner links can confirm
+## What the reviewed sources can confirm
 
-Use the DELE and SIELE links below to check their current products and registration information only after the receiving authority has confirmed which proof it will accept. These links do not decide the citizenship requirement.
+The Ministry procedure confirms the residence-nationality route and provides a separate path for requesting dispensation from Instituto Cervantes tests. Instituto Cervantes describes DELE levels and its nationality-test products. Together, these sources support the verification sequence; they do not establish your applicant category, accepted evidence, or individual dispensation result.
+
+Use the DELE and SIELE links below to check their current products and registration information only after the Ministry procedure has confirmed which proof applies. SIELE is included as a question to verify, not as an accepted citizenship certificate claim.
 
 ## Official sources
 
+- [Residence nationality procedure — Spanish Ministry of Justice](https://www.mjusticia.gob.es/es/ciudadania/tramites/nacionalidad-residencia)
+- [Electronic application and Cervantes-test dispensation — Spanish Ministry of Justice](https://sede.mjusticia.gob.es/es/tramites/nacionalidad-espanola)
+- [Nationality tests — Instituto Cervantes](https://examenes.cervantes.es/es/presentacion/nacionalidad)
 - [DELE exams — Instituto Cervantes](https://examenes.cervantes.es/en/dele)
 - [SIELE — Servicio Internacional de Evaluacion de la Lengua Espanola](https://siele.org/)

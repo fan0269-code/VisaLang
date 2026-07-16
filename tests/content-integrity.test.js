@@ -73,8 +73,6 @@ const highRiskAudit = fs.readFileSync('docs/HIGH_RISK_ROUTE_SOURCE_AUDIT.md', 'u
 for (const { file } of highRiskEntries) assert.ok(highRiskAudit.includes(`src/content/guides/${file}`), `${file} appears in the high-risk source audit`);
 
 const blockedFactEditSlugs = [
-  'dele-levels-spanish-citizenship',
-  'dele-a2-ccse-spanish-citizenship',
   'delf-b1-b2-french-work-study',
   'tcf-irn-french-residence',
   'staatsexamen-nt2-for-work-and-higher-education',
@@ -92,6 +90,15 @@ const blockedClaims = {
 };
 for (const [slug, unsafePattern] of Object.entries(blockedClaims)) {
   assert.doesNotMatch(bySlug.get(slug)?.source || '', unsafePattern, `${slug} does not retain the audited deterministic claim`);
+}
+
+for (const slug of ['dele-levels-spanish-citizenship', 'dele-a2-ccse-spanish-citizenship']) {
+  const source = bySlug.get(slug)?.source || '';
+  assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${slug} records the completed narrow source review`);
+  assert.equal(field(source, 'sourceReviewedAt'), '2026-07-16', `${slug} records the real source-review date`);
+  assert.equal(field(source, 'contentStatus'), 'verification-pending', `${slug} remains pending despite the reviewed source package`);
+  assert.match(field(source, 'primaryOfficialAuthorityUrl'), /mjusticia\.gob\.es/, `${slug} records the Spanish deciding authority`);
+  assert.match(source, /does not establish|cannot decide|does not let VisaLang decide/i, `${slug} keeps the applicant-specific decision boundary`);
 }
 
 const lastCheckedBadge = fs.readFileSync('src/components/LastCheckedBadge.astro', 'utf8');

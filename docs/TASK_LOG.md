@@ -1,6 +1,39 @@
 # VisaLang Task Log
 
-Updated: 2026-07-13
+Updated: 2026-07-16
+
+## Content execution ledger and Spain source pilot — 2026-07-16
+
+Scope: upgrade the existing content map into an execution ledger and run a narrow official-source pilot for the two Spain citizenship guides. No new route/page, UI, tool, commercial flow, analytics, advertising, deployment configuration, commit, push, or deployment was included.
+
+Completed:
+
+- Rebuilt `docs/CONTENT_MAP.md` from the current 54 English guide records and five Chinese Germany A1 records, with language, route, maturity, intent, stage, authority, exam owner, update/source-review dates, evidence gap, next action and P0/P1/P2 priority.
+- Recorded 16 P0, 35 P1 and 8 P2 items. English evidence state is 13 partial, 3 blocked and 38 pending; no English guide is classified as fully reviewed because the 13 reviewed high-risk source packages retain route/local boundaries. The five Chinese guides remain source- and translation-review pending.
+- Created `docs/SPAIN_CONTENT_SOURCE_PILOT_2026-07-16.md` with the Ministry of Justice and Instituto Cervantes source hierarchy plus a claim-level support matrix.
+- Added the current Ministry of Justice procedure and electronic dispensation pages to both Spain guides, recorded the real 2026-07-16 narrow source review, and retained applicant-specific verification boundaries.
+- Kept both Spain pages at `verification-pending`; no residence-period shortcut, universal two-test rule, SIELE acceptance conclusion, individual exemption, fixed fee/date or outcome claim was added.
+- Updated the high-risk audit and regression checks so both rendered Spain pages prove the source-review date, deciding-authority boundary and unchanged pending maturity.
+
+Source-gate result:
+
+- `SOURCE_GATE_PASSED_WITH_APPLICANT_BOUNDARY` for the narrow retained claims.
+- Remaining Spain work is human review of the retained wording and any later applicant-category evidence package; source review does not authorize maturity promotion.
+- Remaining blocked fact-edit queue: the two France guides and the Netherlands Staatsexamen NT2 guide, pending their named receiving authority/institution/regulator.
+
+Verification:
+
+- Official URL reachability: Ministry of Justice procedure, Ministry electronic office, Cervantes nationality, DELE and CCSE pages returned HTTP 200 during the review.
+- Focused `content-integrity` and `source-review-render` tests — passed.
+- `git diff --check` — passed.
+- `npm test` — passed.
+- `npm run build` — passed; 98 pages generated.
+- `npm run launch-check` — passed; 98 routes, 31 checks, 0 failures, `READY`.
+
+Delivery boundary:
+
+- Existing unrelated working-tree changes were preserved.
+- This window did not commit, push or deploy.
 
 ## 导航菜单展开修复与生产发布 — 2026-07-13
 

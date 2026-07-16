@@ -76,9 +76,15 @@ try {
   assert.ok(highRiskReviewedHtml.includes('"dateModified":"2026-07-01"'), 'Article JSON-LD keeps the editorial updatedDate');
   assert.ok(!highRiskReviewedHtml.includes('"dateModified":"2026-07-14"'), 'Article JSON-LD does not reinterpret sourceReviewedAt as an editorial update');
 
-  const blockedHtml = fs.readFileSync('dist/guides/dele-levels-spanish-citizenship/index.html', 'utf8');
-  assert.ok(blockedHtml.includes('Official verification pending'), 'a page without final-authority input remains explicitly unreviewed');
-  assert.ok(!blockedHtml.includes('Official sources last checked'), 'blocked pages do not claim a source-review date');
+  const spainHtml = fs.readFileSync('dist/guides/dele-levels-spanish-citizenship/index.html', 'utf8');
+  assert.ok(spainHtml.includes('Official sources last checked: <time datetime="2026-07-16">2026-07-16</time>'), 'the Spain pilot renders its controlled source-review date');
+  assert.ok(spainHtml.includes('Verification pending'), 'reviewed Spain sources do not promote incomplete applicant-specific content');
+  assert.ok(spainHtml.includes('Spanish citizenship authority'), 'the Spain pilot renders the deciding-authority boundary');
+
+  const spainA2CcseHtml = fs.readFileSync('dist/guides/dele-a2-ccse-spanish-citizenship/index.html', 'utf8');
+  assert.ok(spainA2CcseHtml.includes('Official sources last checked: <time datetime="2026-07-16">2026-07-16</time>'), 'the second Spain pilot page renders its controlled source-review date');
+  assert.ok(spainA2CcseHtml.includes('Verification pending'), 'the second reviewed Spain page remains pending for applicant-specific decisions');
+  assert.ok(spainA2CcseHtml.includes('Spanish citizenship authority'), 'the second Spain page renders the deciding-authority boundary');
 } finally {
   fs.rmSync(fixturePath, { force: true });
   fs.rmSync(pendingFixturePath, { force: true });
