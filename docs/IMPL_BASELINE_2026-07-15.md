@@ -79,7 +79,7 @@ Additional components present (not in task's named list, recorded for completene
 ## 4. Active CSS surface
 
 - **Single active stylesheet:** `src/styles/global.css` (2168 lines), imported exactly once, by `BaseLayout.astro:5`. A repo-wide grep confirms no other `import` of a stylesheet in `src/`.
-- **`src/styles/open-design.css` is NOT imported anywhere** (grep for `open-design` in `src/` matches only its own self-referential header comment). Its own header states: *"LEGACY MIGRATION REFERENCE ONLY. Not imported by BaseLayout. Active production rules live in global.css."* → **Runtime status: inactive / dead reference.** Its component and layout rules were consolidated into `global.css` under the "Consolidated Open Design component and layout rules" section (global.css line ~823 onward), which is the version that applies at runtime.
+- **`src/styles/open-design.css` is NOT imported anywhere** — a project-wide search for the `BaseLayout`-side import of that stylesheet, for any `import '../styles/open-design.css'` style reference, and for the stylesheet's own self-referential header comment all return zero matches under `src/`. Its own header states: *"LEGACY MIGRATION REFERENCE ONLY. Not imported by BaseLayout. Active production rules live in global.css."* → **Runtime status: inactive / dead reference.** Its component and layout rules were consolidated into `global.css` under the "Consolidated Open Design component and layout rules" section (global.css line ~823 onward), which is the version that applies at runtime.
 
 ### 4.1 Token duplication (`:root` blocks in global.css)
 
@@ -106,7 +106,7 @@ Full line-by-line reconciliation of every overlapping `body:has(...)` declaratio
 Per `CLAUDE.md` ("Documentation precedence" + "Source of truth"), the following root-level files are the legacy static compatibility layer and are **out of scope** for the content/UI migration (do not use, edit, or delete for normal feature work):
 
 - Root pages/assets: `index.html`, `app.js`, `app-data.js`, `styles.css`, `404.html`, `about.html`, `affiliate-disclosure.html`, `contact.html`, `cookie-policy.html`, `editorial-policy.html`, `privacy-policy.html`, `terms.html`, `do-i-need-german-a1.html`, `germany-family-reunion-a1.html`.
-- Legacy guide HTML: `guides/*.html` (45 files, e.g. `goethe-a1-30-day-study-plan.html`, `telc-b1-b2-*.html`, `testdaf-*.html`).
+- Legacy guide HTML: `guides/*.html` (44 files, e.g. `goethe-a1-30-day-study-plan.html`, `telc-b1-b2-*.html`, `testdaf-*.html`).
 - Legacy Chinese layer: `zh/index.html`, `zh/germany-family-reunion-a1.html`, `zh/guides/` (legacy HTML).
 
 These are superseded by the Astro `src/` application and its build output; they are recorded here only to fix the boundary.
