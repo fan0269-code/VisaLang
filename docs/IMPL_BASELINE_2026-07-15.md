@@ -135,7 +135,9 @@ Sources: `deploy/README.md`, `deploy/deploy.sh` (with `deploy/nginx-vhost-templa
 
 ## 7. BLOCKED items
 
-- **Host IP address:** the concrete server IP is not committed to the repo (README uses a placeholder). This single field cannot be inferred from repository contents without infrastructure/secret access. All other deployment-mapping fields (domain, site directory, vhost, public URL, DNS scheme, repo, build flow, TLS) are present and inferred above, so the overall mapping is **not** flagged `DEPLOYMENT_TARGET_MAPPING_BLOCKED`; only the literal host IP is unknown-from-repo (by design).
+DEPLOYMENT_TARGET_MAPPING_BLOCKED: Host IP address is not stored in the repository (README uses the placeholder `你的服务器公网IP`). All other deployment-mapping fields listed in §6 are present.
+
+- The single unknown field (host IP) cannot be inferred from repository contents without infrastructure/secret access.
 - No unreadable files were encountered. `src/styles/open-design.css` was readable and confirmed inactive (§4).
 
 ## 8. Out-of-scope reminder
