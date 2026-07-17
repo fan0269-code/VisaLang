@@ -1,0 +1,89 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+
+const read = (file) => fs.readFileSync(file, 'utf8');
+
+const extractTopLevelServerBlocks = (config) => {
+  const blocks = [];
+  let depth = 0;
+  let start = -1;
+
+  for (let index = 0; index < config.length; index += 1) {
+    if (depth === 0 && start === -1 && (index === 0 || config[index - 1] === '\n') && /^server\s*\{/.test(config.slice(index))) {
+      start = index;
+    }
+
+    if (config[index] === '{') depth += 1;
+    if (config[index] === '}') {
+      depth -= 1;
+      if (start !== -1 && depth === 0) {
+        blocks.push(config.slice(start, index + 1));
+        start = -1;
+      }
+    }
+  }
+
+  return blocks;
+};
+
+const listensOn = (block, port) => new RegExp(`^\\s*listen\\s+(?:\\[::\\]:)?${port}(?:\\s+[^;]+)?;$`, 'm').test(block);
+
+const deploy = read('deploy/deploy.sh');
+const nginx = read('deploy/nginx-vhost-template.conf');
+const serverInit = read('deploy/server-init.sh');
+const redirects = read('deploy/legacy-redirects.conf');
+const serverBlocks = extractTopLevelServerBlocks(nginx);
+const httpBlock = serverBlocks.find((block) => listensOn(block, 80) && block.includes('server_name visalang.org www.visalang.org;'));
+const wwwHttpsBlock = serverBlocks.find((block) => listensOn(block, 443) && block.includes('server_name www.visalang.org;'));
+const apexHttpsBlock = serverBlocks.find((block) => listensOn(block, 443) && block.includes('server_name visalang.org;'));
+
+assert.ok(deploy.includes('DOMAIN="visalang.org"'), 'deployment is fixed to the canonical VisaLang domain');
+assert.doesNotMatch(deploy, /flowlight\.me/, 'deployment no longer targets the legacy domain');
+assert.doesNotMatch(nginx, /https:\/\/\$host/, 'Nginx never builds redirects from the request Host header');
+assert.ok(httpBlock, 'Nginx has an HTTP canonical redirect server');
+assert.ok(httpBlock.includes('return 301 https://visalang.org$request_uri;'), 'HTTP redirect server uses the fixed canonical host');
+assert.ok(wwwHttpsBlock, 'Nginx has a dedicated HTTPS www redirect server');
+assert.ok(wwwHttpsBlock.includes('return 301 https://visalang.org$request_uri;'), 'HTTPS www redirect server uses the fixed canonical host');
+assert.doesNotMatch(wwwHttpsBlock, /root \/var\/www\/visalang\.org\/current;/, 'HTTPS www redirect server does not serve the current release');
+assert.ok(apexHttpsBlock, 'Nginx has a dedicated canonical HTTPS server');
+assert.ok(apexHttpsBlock.includes('root /var/www/visalang.org/current;'), 'canonical Nginx server uses the atomic current release');
+assert.ok(apexHttpsBlock.includes('include /etc/nginx/snippets/visalang-legacy-redirects.conf;'), 'canonical Nginx server loads executable legacy redirects');
+assert.ok(apexHttpsBlock.includes('location ~* \\.(css|js)$') && apexHttpsBlock.includes('expires 1y;') && apexHttpsBlock.includes('try_files $uri =404;'), 'canonical Nginx server caches CSS and JavaScript assets');
+assert.ok(apexHttpsBlock.includes('location ~* \\.(xml|txt)$') && apexHttpsBlock.includes('expires 1h;'), 'canonical Nginx server caches XML and text assets');
+assert.ok(apexHttpsBlock.includes('error_page 404 /404.html;') && apexHttpsBlock.includes('location = /404.html {') && apexHttpsBlock.includes('internal;') && apexHttpsBlock.includes('location / {'), 'canonical Nginx server defines internal 404 handling');
+assert.doesNotMatch(apexHttpsBlock, /server_name www\.visalang\.org;/, 'canonical HTTPS server is not the www redirect server');
+assert.doesNotMatch(nginx, /Content-Security-Policy/, 'Nginx does not ship an incompatible static AdSense CSP');
+for (const headerDirective of [
+  'add_header X-Content-Type-Options nosniff always;',
+  'add_header X-Frame-Options SAMEORIGIN always;',
+  'add_header Referrer-Policy strict-origin-when-cross-origin always;',
+  'add_header Permissions-Policy "camera=(), microphone=(), geolocation=()" always;',
+  'add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;',
+]) {
+  assert.ok(apexHttpsBlock.includes(headerDirective), `canonical Nginx server retains ${headerDirective}`);
+}
+assert.doesNotMatch(serverInit, /flowlight\.me/, 'server initialization instructions use the canonical domain');
+
+const exactRedirects = {
+  '/index.html': 'https://visalang.org/$is_args$args',
+  '/germany-family-reunion-a1.html': 'https://visalang.org/germany-family-reunion-a1/$is_args$args',
+  '/do-i-need-german-a1.html': 'https://visalang.org/tools/route-finder/$is_args$args',
+  '/about.html': 'https://visalang.org/about/$is_args$args',
+  '/contact.html': 'https://visalang.org/contact/$is_args$args',
+  '/privacy-policy.html': 'https://visalang.org/privacy-policy/$is_args$args',
+  '/terms.html': 'https://visalang.org/terms/$is_args$args',
+  '/cookie-policy.html': 'https://visalang.org/cookie-policy/$is_args$args',
+  '/editorial-policy.html': 'https://visalang.org/editorial-policy/$is_args$args',
+  '/affiliate-disclosure.html': 'https://visalang.org/affiliate-disclosure/$is_args$args',
+  '/zh/index.html': 'https://visalang.org/zh/$is_args$args',
+  '/zh/germany-family-reunion-a1.html': 'https://visalang.org/zh/germany-family-reunion-a1/$is_args$args',
+  '/guides/dutch-inburgering-a2-b1-for-integration-and-citize/': 'https://visalang.org/guides/dutch-inburgering-a2-b1-for-integration-and-citizenship/$is_args$args',
+  '/guides/portuguese-language-for-golden-visa-and-citizenshi/': 'https://visalang.org/guides/portuguese-language-for-golden-visa-and-citizenship/$is_args$args',
+};
+for (const [source, target] of Object.entries(exactRedirects)) {
+  assert.ok(redirects.includes(`location = ${source} { return 301 ${target}; }`), `Nginx redirects ${source} to ${target} without dropping query parameters`);
+}
+assert.ok(redirects.includes('location ~ ^/guides/(.+)\\.html$ { return 301 https://visalang.org/guides/$1/$is_args$args; }'), 'Nginx redirects legacy English guide HTML routes to the canonical trailing-slash route without dropping query parameters');
+assert.ok(redirects.includes('location ~ ^/zh/guides/(.+)\\.html$ { return 301 https://visalang.org/zh/guides/$1/$is_args$args; }'), 'Nginx redirects legacy Chinese guide HTML routes to the canonical trailing-slash route without dropping query parameters');
+
+console.log('deployment configuration rules passed');

@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
-# 一键部署 VisaLang 到 /var/www/flowlight.me/public
-# 用法：在服务器上，cd ~/ && bash deploy.sh
-
+# VisaLang deployment target: /var/www/visalang.org
 set -euo pipefail
-
-DOMAIN="flowlight.me"
+DOMAIN="visalang.org"
 SITE_DIR="/var/www/$DOMAIN"
 PUBLIC_DIR="$SITE_DIR/public"
 SERVE_DIR="$PUBLIC_DIR/dist"

@@ -9,6 +9,7 @@ require('./germany-b1-cluster.test.js');
 require('./germany-testdaf-cluster.test.js');
 require('./content-integrity.test.js');
 require('./source-review-render.test.js');
+require('./deploy.test.js');
 
 const read = (file) => fs.readFileSync(file, 'utf8');
 const exists = (file) => fs.existsSync(file);
