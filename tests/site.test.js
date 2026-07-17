@@ -67,10 +67,13 @@ assert.ok(src.base.includes('id="main-content"'), 'shared layout exposes a main 
 assert.ok(src.base.includes('organisationJsonLD'), 'shared layout emits Organization data');
 assert.ok(src.base.includes('rel="canonical"'), 'shared layout emits canonical URLs');
 assert.ok(src.base.includes('hreflang'), 'shared layout emits hreflang links');
-assert.ok(src.base.includes('pagead2.googlesyndication.com/ pagead/js/adsbygoogle.js'.replace('/ ', '/')), 'shared layout includes the approved AdSense publisher script');
+assert.ok(!src.base.includes('pagead2.googlesyndication.com'), 'shared layout does not load AdSense before CMP approval');
 assert.ok(!src.base.includes('static.cloudflareinsights.com'), 'shared layout does not load Cloudflare Web Analytics');
-assert.ok(src.privacy.includes('Google AdSense') && src.privacy.includes('consent message'), 'privacy policy describes AdSense and consent messaging');
-assert.ok(src.cookies.includes('Google AdSense') && src.cookies.includes('consent signals'), 'cookie policy describes AdSense storage and consent signals');
+assert.ok(src.privacy.includes('How VisaLang handles visitor data, URL state, local storage, and server logs.'), 'privacy policy description matches the current no-ad, no-analytics runtime');
+assert.ok(src.privacy.includes('does not currently load Google AdSense'), 'privacy policy states that advertising is paused');
+assert.ok(src.privacy.includes('No advertising consent mechanism is currently active'), 'privacy policy does not claim an unverified consent flow');
+assert.ok(src.cookies.includes('does not currently set advertising cookies'), 'cookie policy states the current no-ad cookie behavior');
+assert.ok(!exists('public/ads.txt'), 'ads.txt is absent while the publisher integration is paused');
 assert.ok(src.privacy.includes('places only the non-sensitive values needed to restore that result in the page URL'), 'privacy policy describes URL-backed tool restoration');
 assert.ok(src.cookies.includes('Current tools do not store their form fields in local storage.'), 'cookie policy does not misstate tool fields as local-storage data');
 assert.ok(src.cookies.includes('Route progress:') && src.cookies.includes('current route step in browser local storage'), 'cookie policy limits current local-storage behavior to route progress');

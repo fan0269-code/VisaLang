@@ -1,10 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const jsonLD = { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Privacy Policy' };
-const updated = '2026-07-15';
+const updated = '2026-07-17';
 ---
 
-<BaseLayout title="Privacy Policy" description="How VisaLang handles visitor data, cookies, and analytics." jsonLD={jsonLD} noindex={true}>
+<BaseLayout title="Privacy Policy" description="How VisaLang handles visitor data, URL state, local storage, and server logs." jsonLD={jsonLD} noindex={true}>
   <main class="page-shell">
     <article class="guide-article narrow-page">
         <p class="eyebrow">Legal</p>
@@ -16,7 +16,7 @@ const updated = '2026-07-15';
 
         <h2>Services and information we use</h2>
         <ul>
-          <li><strong>Advertising:</strong> VisaLang uses Google AdSense. Google provides the consent message for visitors in the EEA, UK, and Switzerland; advertising choices can affect whether ads are personalised. Cloudflare Web Analytics is not enabled.</li>
+          <li><strong>Advertising:</strong> VisaLang does not currently load Google AdSense or another advertising network. No advertising consent mechanism is currently active. Advertising will remain disabled until its consent, privacy, security-header, and regional requirements have been reviewed and tested.</li>
           <li><strong>Tool and route progress:</strong> after a tool successfully generates a result, it places only the non-sensitive values needed to restore that result in the page URL. Use the tool’s restart control to remove those URL values. Route pages separately store the current route step in your browser’s local storage; clear site data to remove that route-step progress.</li>
           <li><strong>Direct contact:</strong> if you email us, your email provider and ours process the address, message, and any information you choose to include.</li>
           <li><strong>Server logs:</strong> standard web server logs (IP address, user agent, timestamp) retained for security and debugging purposes.</li>
@@ -32,14 +32,13 @@ const updated = '2026-07-15';
         </ul>
 
         <h2>Cookies and privacy choices</h2>
-        <p>Google's consent message lets eligible visitors accept, reject, or manage advertising choices. Use the available privacy settings control to revisit choices where it is provided. See our <a href="/cookie-policy/">Cookie Policy</a> for details about local browser storage.</p>
-        <p>You can clear or block local storage in your browser settings. Doing so may remove saved tool or route progress.</p>
+        <p>VisaLang does not currently load an advertising consent message because display advertising is paused. You can clear URL values with a tool’s restart control and remove route-step progress by clearing site data in your browser.</p>
 
         <h2>Third-party links</h2>
         <p>Our guides link to official exam providers and government authorities. Once you leave visalang.org, their privacy policies apply. We are not responsible for practices on external sites.</p>
 
         <h2>Advertising</h2>
-        <p>Display advertising is provided by Google AdSense under the publisher account identified in the site's ads.txt file. Google may use cookies, local storage, and related data for advertising as permitted by the visitor's choices and applicable settings. Google may serve non-personalised or limited ads where personalised advertising is not available. See Google's own policies and the consent message for the applicable choices and vendors.</p>
+        <p>Display advertising is currently disabled. VisaLang will update this policy before enabling an advertising network, consent platform, or related third-party storage.</p>
 
         <h2>Your rights</h2>
         <p>If you contacted us and want your message or email address removed where applicable, contact <a href="/contact/">us</a>. Residents of the EU, UK, and California may have additional rights under GDPR or CCPA.</p>
