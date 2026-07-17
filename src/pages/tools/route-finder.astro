@@ -41,7 +41,7 @@ import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
     return element;
   };
 
-  const controller = form ? setupToolForm(form, { persistedNames: ['country', 'purpose', 'location', 'level', 'certificate', 'targetDate'] }) : undefined;
+  const controller = form ? setupToolForm(form, { persistedNames: ['country', 'purpose', 'level', 'certificate'] }) : undefined;
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
     if (!controller?.validate()) return;
@@ -59,6 +59,21 @@ import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
       const list = document.createElement('ol');
       route.nextSteps.forEach((step: string) => addText(list, 'li', step));
       summary.append(list);
+      const nextActions = document.createElement('p');
+      if (route.guide?.href) {
+        const guideLink = document.createElement('a');
+        guideLink.href = route.guide.href;
+        guideLink.textContent = route.guide.label || 'Continue with guide';
+        nextActions.append(guideLink, ' / ');
+      }
+      const checklistLink = document.createElement('a');
+      checklistLink.href = '/tools/checklist-generator/';
+      checklistLink.textContent = 'Open Checklist';
+      const timelineLink = document.createElement('a');
+      timelineLink.href = '/tools/timeline-calculator/';
+      timelineLink.textContent = 'Open Timeline';
+      nextActions.append(checklistLink, ' / ', timelineLink);
+      summary.append(nextActions);
     } else {
       addText(summary, 'p', 'VisaLang will not generate a route result for this selection. Use the receiving organisation as the official starting point.');
       addText(summary, 'h3', 'Who to contact');
@@ -79,5 +94,4 @@ import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
     controller.markResult();
     resultPanel.focus();
   });
-  if (controller?.restored) form?.requestSubmit();
 </script>

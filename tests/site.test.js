@@ -156,6 +156,8 @@ assert.ok(read('src/components/tools/ToolShell.astro').includes('data-tool-resta
 assert.ok(read('src/components/tools/ToolShell.astro').includes('<ToolStepper current={0}'), 'tool progress starts at Step 1');
 assert.ok(!read('src/components/tools/ToolShell.astro').includes('localStorage'), 'tools do not silently persist planning fields in localStorage');
 const toolFormController = read('src/scripts/tool-form.ts');
+const routeFinderTool = read('src/pages/tools/route-finder.astro');
+const toolResultSupport = read('src/components/tools/ToolResultSupport.astro');
 assert.ok(toolFormController.includes("setAttribute('aria-invalid', 'true')") && toolFormController.includes("field.removeAttribute('aria-invalid')"), 'tool validation sets and clears field invalid state');
 assert.ok(toolFormController.includes("closest('li')?.remove()") && toolFormController.includes('summary.replaceChildren()'), 'corrected fields are also removed from the error summary');
 assert.ok(toolFormController.includes('data-error-summary') && toolFormController.includes('failures[0].field.focus()'), 'tool validation renders an error summary and focuses the first invalid field');
@@ -166,12 +168,23 @@ assert.ok(src.css.includes('.tool-error-summary') && src.css.includes('[aria-inv
 for (const toolPage of ['route-finder', 'checklist-generator', 'timeline-calculator', 'exam-comparison', 'email-reminders']) {
   const toolSource = read(`src/pages/tools/${toolPage}.astro`);
   assert.ok(toolSource.includes('novalidate') && toolSource.includes('setupToolForm'), `${toolPage} uses shared accessible client validation`);
-  assert.ok(toolSource.includes('controller.persist()') && toolSource.includes('controller.markResult()') && toolSource.includes('requestSubmit()'), `${toolPage} persists and restores successful URL-backed results and marks Step 3`);
+  assert.ok(toolSource.includes('controller.persist()') && toolSource.includes('controller.markResult()'), `${toolPage} persists successful URL-backed results and marks Step 3`);
+  if (toolPage !== 'route-finder') assert.ok(toolSource.includes('requestSubmit()'), `${toolPage} restores successful URL-backed results automatically`);
 }
 const comparisonTool = read('src/pages/tools/exam-comparison.astro');
 assert.ok(comparisonTool.includes("setAttribute('role', 'region')") && comparisonTool.includes("setAttribute('aria-label', 'Exam comparison table."), 'exam comparison table uses a named region');
 assert.ok(comparisonTool.includes('tableWrap.tabIndex = 0') && comparisonTool.includes('Scroll left and right to view all comparison columns.'), 'exam comparison region is keyboard focusable and has a narrow-screen scroll hint');
 assert.ok(src.css.includes('.tool-table-hint { display: block; }') && src.css.includes('overscroll-behavior-inline: contain'), 'comparison table exposes its hint at the mobile breakpoint and contains horizontal scrolling');
+assert.ok(routeFinderTool.includes("persistedNames: ['country', 'purpose', 'level', 'certificate']"), 'route-finder restores only route classification fields from the URL');
+assert.match(routeFinderTool, /<input\s+name="location"\s+required\b/, 'route-finder keeps application location required for the current page result');
+assert.match(routeFinderTool, /<input\s+name="targetDate"\s+type="date"\s+required\b/, 'route-finder keeps target submission date required for the current page result');
+assert.doesNotMatch(routeFinderTool, /persistedNames:\s*\[[^\]]*(?:location|targetDate)/s, 'route-finder does not persist location or target date to the URL');
+assert.doesNotMatch(routeFinderTool, /restored[\s\S]*requestSubmit\(\)/, 'route-finder does not automatically submit after restoring partial URL state');
+assert.ok(toolResultSupport.includes("const { resultId, guideHref = '/guides/', guideLabel = 'Browse route guides' } = Astro.props;"), 'ToolResultSupport defaults to a route-neutral guide handoff');
+assert.ok(!toolResultSupport.includes('Germany B1 settlement and citizenship route'), 'ToolResultSupport does not push unrelated Germany route defaults');
+assert.ok(routeFinderTool.includes('route.guide?.href'), 'configured route-finder results use the configured route guide link when available');
+assert.ok(routeFinderTool.includes("checklistLink.href = '/tools/checklist-generator/'"), 'configured route-finder results link to the Checklist tool');
+assert.ok(routeFinderTool.includes("timelineLink.href = '/tools/timeline-calculator/'"), 'configured route-finder results link to the Timeline tool');
 assert.ok(read('src/data/route-tools.ts').includes("availability: 'verify-only'"), 'unsupported routes stop at an official-verification-required state');
 assert.ok(read('src/data/route-tools.ts').includes('if (!route) return []'), 'unsupported routes do not generate a pseudo-checklist');
 assert.ok(!/value="(21|28|7)"/.test(read('src/pages/tools/timeline-calculator.astro')), 'timeline does not assume default result or retake timing');
