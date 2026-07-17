@@ -54,13 +54,13 @@ try {
   const reviewedHtml = fs.readFileSync(path.join(fixtureOutput, 'index.html'), 'utf8');
   assert.ok(reviewedHtml.includes('Official sources last checked: <time datetime="2026-07-10">2026-07-10</time>'), 'reviewed status renders sourceReviewedAt');
   assert.ok(!reviewedHtml.includes('Official verification pending'), 'reviewed status does not render pending copy');
-  assert.ok(reviewedHtml.includes('Complete route'), 'reviewed authority metadata preserves the controlled Complete route status');
-  assert.ok(reviewedHtml.includes('Source-reviewed verification responsibilities for this guide'), 'reviewed Complete/Core metadata renders the semantic source fact table');
+  assert.ok(reviewedHtml.includes('Route structure complete'), 'reviewed authority metadata preserves the controlled Route structure complete status');
+  assert.ok(reviewedHtml.includes('Source-reviewed verification responsibilities for this guide'), 'reviewed Route structure complete/Core route structure metadata renders the semantic source fact table');
   assert.ok(reviewedHtml.includes('Who decides this?') && reviewedHtml.includes('Test authority'), 'reviewed authority metadata renders the controlled decision authority');
 
   const unreviewedHtml = fs.readFileSync(path.join(pendingFixtureOutput, 'index.html'), 'utf8');
   assert.ok(unreviewedHtml.includes('Verification pending'), 'a high-risk guide with a final-authority URL remains downgraded while source review is pending');
-  assert.ok(!unreviewedHtml.includes('Complete route') && !unreviewedHtml.includes('Core route'), 'pending source review cannot render Complete/Core even with a final-authority URL');
+  assert.ok(!unreviewedHtml.includes('Route structure complete') && !unreviewedHtml.includes('Core route structure'), 'pending source review cannot render Route structure complete/Core route structure even with a final-authority URL');
   assert.ok(!unreviewedHtml.includes('Source-reviewed verification responsibilities for this guide'), 'pending source review cannot render a source fact table');
 
   const pendingHtml = fs.readFileSync('dist/guides/goethe-a1-booking-mistakes/index.html', 'utf8');
@@ -72,7 +72,7 @@ try {
   const highRiskReviewedHtml = fs.readFileSync('dist/guides/ielts-ukvi-uk-visa/index.html', 'utf8');
   assert.ok(highRiskReviewedHtml.includes('Official sources last checked: <time datetime="2026-07-14">2026-07-14</time>'), 'reviewed high-risk metadata renders its controlled source date');
   assert.ok(highRiskReviewedHtml.includes('Verification pending'), 'reviewed sources do not promote incomplete high-risk content');
-  assert.ok(!highRiskReviewedHtml.includes('Complete route') && !highRiskReviewedHtml.includes('Core route'), 'verification-pending remains consistent across the article header');
+  assert.ok(!highRiskReviewedHtml.includes('Route structure complete') && !highRiskReviewedHtml.includes('Core route structure'), 'verification-pending remains consistent across the article header');
   assert.ok(highRiskReviewedHtml.includes('"dateModified":"2026-07-01"'), 'Article JSON-LD keeps the editorial updatedDate');
   assert.ok(!highRiskReviewedHtml.includes('"dateModified":"2026-07-14"'), 'Article JSON-LD does not reinterpret sourceReviewedAt as an editorial update');
 

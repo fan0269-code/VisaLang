@@ -38,6 +38,8 @@ const src = {
   redirects: read('public/_redirects'),
   headers: read('public/_headers'),
   adsTxt: exists('public/ads.txt') ? read('public/ads.txt') : '',
+  sourceReview: read('src/data/source-review.ts'),
+  guideStatusBadge: read('src/components/GuideStatusBadge.astro'),
 };
 
 const requiredComponents = [
@@ -199,8 +201,29 @@ for (const filter of ['purpose', 'country', 'route', 'exam', 'level', 'language'
 for (const sort of ['Recently updated', 'Route relevance', 'Content maturity']) {
   assert.ok(src.filterBar.includes(sort), `guide library includes ${sort} sorting`);
 }
-for (const status of ['Complete route', 'Core route', 'Starter overview']) {
+for (const status of ['Route structure complete', 'Core route structure', 'Starter overview', 'Verification pending']) {
   assert.ok(src.guides.includes(status), `guide library includes ${status} status`);
+}
+for (const oldFilterLabel of ['Complete route', 'Core route']) {
+  assert.ok(!src.guides.includes(`label: '${oldFilterLabel}'`), `guide library no longer uses ${oldFilterLabel} as a filter label`);
+}
+const expectedContentStatusLabels = {
+  'complete-route': 'Route structure complete',
+  'core-route': 'Core route structure',
+  'starter-overview': 'Starter overview',
+  'verification-pending': 'Verification pending',
+};
+for (const [status, label] of Object.entries(expectedContentStatusLabels)) {
+  assert.ok(src.sourceReview.includes(`'${status}': '${label}'`), `source-review labels ${status} as ${label}`);
+}
+const expectedChineseStatusLabels = {
+  'complete-route': '路线结构完整',
+  'core-route': '核心路线结构',
+  'starter-overview': '入门概览',
+  'verification-pending': '待核验',
+};
+for (const [status, label] of Object.entries(expectedChineseStatusLabels)) {
+  assert.ok(src.guideStatusBadge.includes(`'${status}': '${label}'`), `Chinese status badge labels ${status} as ${label}`);
 }
 assert.match(read('src/content/guides/german-family-reunion-language-requirement.md'), /^contentStatus: "complete-route"/m, 'Germany A1 content records retain the complete route baseline');
 assert.match(read('src/content/guides/germany-b1-citizenship-language-proof.md'), /^contentStatus: "core-route"/m, 'Germany B1 content records retain the core route baseline');
