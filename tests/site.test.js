@@ -36,6 +36,8 @@ const src = {
   cookies: read('src/pages/cookie-policy.astro'),
   siteData: read('src/data/site.ts'),
   redirects: read('public/_redirects'),
+  headers: read('public/_headers'),
+  adsTxt: exists('public/ads.txt') ? read('public/ads.txt') : '',
 };
 
 const requiredComponents = [
@@ -67,16 +69,51 @@ assert.ok(src.base.includes('id="main-content"'), 'shared layout exposes a main 
 assert.ok(src.base.includes('organisationJsonLD'), 'shared layout emits Organization data');
 assert.ok(src.base.includes('rel="canonical"'), 'shared layout emits canonical URLs');
 assert.ok(src.base.includes('hreflang'), 'shared layout emits hreflang links');
-assert.ok(!src.base.includes('pagead2.googlesyndication.com'), 'shared layout does not load AdSense before CMP approval');
+const adsenseLoader = 'pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3018617123550799';
+assert.ok(src.base.includes('enableAds?: boolean'), 'BaseLayout exposes an enableAds prop');
+assert.ok(src.base.includes('enableAds = true'), 'BaseLayout enables advertising by default');
+assert.equal((src.base.match(/pagead2\.googlesyndication\.com/g) || []).length, 1, 'BaseLayout declares the AdSense host once');
+assert.ok(src.base.includes(adsenseLoader), 'BaseLayout loads the configured AdSense publisher script');
+assert.match(
+  src.base,
+  /\{\s*enableAds\s*&&\s*<script\s+async\s+src="https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-3018617123550799"\s+crossorigin="anonymous"><\/script>\s*\}/,
+  'BaseLayout conditionally renders the approved AdSense loader through enableAds',
+);
 assert.ok(!src.base.includes('static.cloudflareinsights.com'), 'shared layout does not load Cloudflare Web Analytics');
-assert.ok(src.privacy.includes('How VisaLang handles visitor data, URL state, local storage, and server logs.'), 'privacy policy description matches the current no-ad, no-analytics runtime');
-assert.ok(src.privacy.includes('does not currently load Google AdSense'), 'privacy policy states that advertising is paused');
-assert.ok(src.privacy.includes('No advertising consent mechanism is currently active'), 'privacy policy does not claim an unverified consent flow');
-assert.ok(src.cookies.includes('does not currently set advertising cookies'), 'cookie policy states the current no-ad cookie behavior');
-assert.ok(!exists('public/ads.txt'), 'ads.txt is absent while the publisher integration is paused');
-assert.ok(src.privacy.includes('places only the non-sensitive values needed to restore that result in the page URL'), 'privacy policy describes URL-backed tool restoration');
-assert.ok(src.cookies.includes('Current tools do not store their form fields in local storage.'), 'cookie policy does not misstate tool fields as local-storage data');
-assert.ok(src.cookies.includes('Route progress:') && src.cookies.includes('current route step in browser local storage'), 'cookie policy limits current local-storage behavior to route progress');
+assert.ok(src.tool.includes('enableAds={false}'), 'ToolLayout disables advertising for URL-backed tools');
+assert.ok(src.tools.includes('enableAds={false}'), 'tools index disables advertising');
+assert.ok(src.guides.includes('enableAds={false}'), 'searchable guide library index disables advertising');
+assert.equal(src.adsTxt, 'google.com, pub-3018617123550799, DIRECT, f08c47fec0942fa0\n', 'ads.txt declares the approved direct Google seller');
+assert.ok(src.privacy.includes('How VisaLang handles visitor data, advertising choices, URL state, local storage, and server logs.'), 'privacy policy description covers advertising choices');
+for (const text of ['VisaLang uses Google AdSense on ad-eligible content pages', 'Google Privacy & messaging', 'Google Ads Settings', 'places only the non-sensitive values needed to restore that result in the page URL']) {
+  assert.ok(src.privacy.includes(text), `privacy policy includes ${text}`);
+}
+for (const text of ['Google AdSense and Google Privacy & messaging', 'Current tools do not store their form fields in local storage.', 'Route progress:', 'current route step in browser local storage']) {
+  assert.ok(src.cookies.includes(text), `cookie policy includes ${text}`);
+}
+assert.ok(!src.headers.includes('Content-Security-Policy:'), 'headers leaves CSP to Google-managed advertising requirements');
+for (const header of ['X-Content-Type-Options:', 'X-Frame-Options:', 'Referrer-Policy:', 'Permissions-Policy:', 'Strict-Transport-Security:']) {
+  assert.ok(src.headers.includes(header), `headers retains ${header}`);
+}
+
+for (const page of [
+  'dist/index.html',
+  'dist/guides/german-family-reunion-language-requirement/index.html',
+]) {
+  assert.ok(read(page).includes(adsenseLoader), `ad-eligible generated page loads AdSense: ${page}`);
+}
+for (const page of [
+  'dist/tools/index.html',
+  'dist/tools/route-finder/index.html',
+  'dist/tools/checklist-generator/index.html',
+  'dist/tools/timeline-calculator/index.html',
+  'dist/tools/exam-comparison/index.html',
+  'dist/tools/email-reminders/index.html',
+  'dist/guides/index.html',
+]) {
+  assert.ok(!read(page).includes('pagead2.googlesyndication.com'), `advertising-free generated page excludes AdSense: ${page}`);
+}
+assert.equal(read('dist/ads.txt'), 'google.com, pub-3018617123550799, DIRECT, f08c47fec0942fa0\n', 'generated ads.txt retains the approved direct Google seller');
 
 for (const token of ['--page-max', '--reading-max', '--text-2xl', '--space-8', '--radius', '--shadow-md', '--primary', '--risk', '--success', '--focus', '--disabled']) {
   assert.ok(src.css.includes(token), `design system should define ${token}`);

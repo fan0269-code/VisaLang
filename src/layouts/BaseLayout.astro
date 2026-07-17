@@ -14,6 +14,7 @@ export interface Props {
   lang?: string;
   alternates?: { lang: string; href: string }[];
   jsonLD?: Record<string, unknown> | Record<string, unknown>[];
+  enableAds?: boolean;
 }
 
 const {
@@ -26,6 +27,7 @@ const {
   lang = 'en',
   alternates = [],
   jsonLD,
+  enableAds = true,
 } = Astro.props;
 
 const pageTitle = /(^|\s|\|)VisaLang($|\s)/i.test(title) ? title : `${title} | VisaLang`;
@@ -58,6 +60,7 @@ const structuredData = [
   <meta name="twitter:title" content={pageTitle}>
   <meta name="twitter:description" content={description}>
   <link rel="icon" href="https://visalang.org/favicon.svg" type="image/svg+xml">
+  {enableAds && <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3018617123550799" crossorigin="anonymous"></script>}
   {structuredData.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)}></script>)}
 </head>
 <body>
