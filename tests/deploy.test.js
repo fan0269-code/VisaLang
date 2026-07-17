@@ -29,6 +29,16 @@ const extractTopLevelServerBlocks = (config) => {
 const listensOn = (block, port) => new RegExp(`^\\s*listen\\s+(?:\\[::\\]:)?${port}(?:\\s+[^;]+)?;$`, 'm').test(block);
 
 const deploy = read('deploy/deploy.sh');
+const indexOfOrFail = (fragment) => {
+  const index = deploy.indexOf(fragment);
+  assert.notEqual(index, -1, `deployment contains ${fragment}`);
+  return index;
+};
+const assertOrdered = (label, indices) => {
+  for (let index = 1; index < indices.length; index += 1) {
+    assert.ok(indices[index - 1] < indices[index], `${label}: command ${index} follows command ${index - 1}`);
+  }
+};
 const nginx = read('deploy/nginx-vhost-template.conf');
 const serverInit = read('deploy/server-init.sh');
 const redirects = read('deploy/legacy-redirects.conf');
@@ -85,5 +95,39 @@ for (const [source, target] of Object.entries(exactRedirects)) {
 }
 assert.ok(redirects.includes('location ~ ^/guides/(.+)\\.html$ { return 301 https://visalang.org/guides/$1/$is_args$args; }'), 'Nginx redirects legacy English guide HTML routes to the canonical trailing-slash route without dropping query parameters');
 assert.ok(redirects.includes('location ~ ^/zh/guides/(.+)\\.html$ { return 301 https://visalang.org/zh/guides/$1/$is_args$args; }'), 'Nginx redirects legacy Chinese guide HTML routes to the canonical trailing-slash route without dropping query parameters');
+
+const cloneIndex = indexOfOrFail('$SUDO git clone --branch main --single-branch "$REPO" "$SOURCE_DIR"');
+const dirtyCheckIndex = indexOfOrFail('git -C "$SOURCE_DIR" status --porcelain');
+const pullIndex = indexOfOrFail('pull --ff-only origin main');
+const releaseIdIndex = indexOfOrFail('rev-parse --short=12 HEAD');
+const availabilityIndex = indexOfOrFail('if ! command -v node');
+const nodeCommandIndex = indexOfOrFail('$SUDO node -e');
+const nodeVersionIndex = indexOfOrFail('process.versions.node');
+const ciIndex = indexOfOrFail('$SUDO npm --prefix "$SOURCE_DIR" ci');
+const testIndex = indexOfOrFail('$SUDO npm --prefix "$SOURCE_DIR" test');
+const launchCheckIndex = indexOfOrFail('$SUDO npm --prefix "$SOURCE_DIR" run launch-check');
+const sourceValidationIndex = indexOfOrFail('if [ ! -f "$SOURCE_DIR/dist/index.html" ]; then');
+const conflictIndex = indexOfOrFail('$SUDO test -e "$RELEASE_DIR"');
+const releaseDirectoryIndex = indexOfOrFail('$SUDO mkdir "$RELEASE_DIR"');
+const copyIndex = indexOfOrFail('$SUDO cp -a "$SOURCE_DIR/dist/." "$RELEASE_DIR/"');
+const candidateValidationIndex = indexOfOrFail('if [ ! -f "$RELEASE_DIR/index.html" ]; then');
+const redirectInstallIndex = indexOfOrFail('$SUDO install -m 0644 "$SOURCE_DIR/deploy/legacy-redirects.conf" "$REDIRECTS_TARGET"');
+const nginxTestIndex = indexOfOrFail('$SUDO nginx -t');
+const symlinkIndex = indexOfOrFail('$SUDO ln -sfn "$RELEASE_DIR" "$CURRENT_LINK.next"');
+const promoteIndex = indexOfOrFail('$SUDO mv -Tf "$CURRENT_LINK.next" "$CURRENT_LINK"');
+const reloadIndex = indexOfOrFail('$SUDO systemctl reload nginx');
+
+assert.doesNotMatch(deploy, /\bstash(?:\s|$)/, 'deployment never stashes source changes');
+assert.ok(deploy.includes('SUDO="sudo"') && deploy.includes('$SUDO -n true'), 'non-root deployment requires passwordless sudo');
+assert.ok(deploy.includes('command -v npm'), 'deployment requires preinstalled npm');
+assert.match(deploy, /major > 22 \|\| \(major === 22 && minor >= 12\)/, 'deployment requires Node.js 22.12 or newer');
+assert.doesNotMatch(deploy, /npm --prefix "\$SOURCE_DIR" run build/, 'deployment relies on launch-check rather than a redundant direct build');
+assertOrdered('existing source flow', [dirtyCheckIndex, pullIndex, releaseIdIndex, availabilityIndex, nodeCommandIndex, nodeVersionIndex, ciIndex, testIndex, launchCheckIndex, sourceValidationIndex, conflictIndex, releaseDirectoryIndex, copyIndex, candidateValidationIndex, redirectInstallIndex, nginxTestIndex, symlinkIndex, promoteIndex, reloadIndex]);
+assertOrdered('first source flow', [cloneIndex, releaseIdIndex, availabilityIndex, nodeCommandIndex, nodeVersionIndex, ciIndex, testIndex, launchCheckIndex, sourceValidationIndex, conflictIndex, releaseDirectoryIndex, copyIndex, candidateValidationIndex, redirectInstallIndex, nginxTestIndex, symlinkIndex, promoteIndex, reloadIndex]);
+assert.doesNotMatch(deploy, /\b(?:PUBLIC_DIR|SERVE_DIR)\b/, 'deployment does not retain legacy public/dist release paths');
+assert.doesNotMatch(deploy, /rm -rf/, 'deployment does not delete historic releases');
+assert.doesNotMatch(deploy, /\b(?:apt(?:-get)?|yum|dnf|nvm)\b|nodejs\.org/, 'deployment never installs or downloads Node.js');
+assert.doesNotMatch(deploy, /smoke-test/, 'deployment does not execute an unauthorised production smoke test');
+assert.doesNotMatch(deploy, /production (?:is )?verified/i, 'deployment does not claim production verification');
 
 console.log('deployment configuration rules passed');
