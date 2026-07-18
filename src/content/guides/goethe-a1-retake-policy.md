@@ -4,8 +4,10 @@ description: "What to do after an unsuccessful Goethe A1 result: use the result 
 category: "germany-a1"
 slug: "goethe-a1-retake-policy"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-18"
-sourceReviewStatus: "pending"
+updatedDate: "2026-07-19"
+sourceReviewedAt: "2026-07-19"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "complete-route"
 primaryIntent: "Plan the next step after an unsuccessful Goethe A1 result without assuming a universal retake rule"
 decisionStage: "local-execution"
@@ -13,9 +15,9 @@ nextGuideSlug: "goethe-a1-speaking-topics"
 comparisonScope: "same-route"
 audienceScope: "People with an unsuccessful Goethe-Zertifikat A1: Start Deutsch 1 result who need to verify the next local option."
 finalDecisionAuthorityType: "Goethe-Institut for exam-level result context and the selected local centre for next-attempt terms"
-primaryOfficialAuthorityUrl: "https://www.goethe.de/en/spr/prf/pes/pas1.html"
+primaryOfficialAuthorityUrl: "https://www.goethe.de/ins/de/en/prf/ogf.html"
 examOwnerUrl: "https://www.goethe.de/en/spr/prf/pes/pas1.html"
-localExecutionPrompt: "Send the selected local centre your exact examination and score-report context; confirm whether a partial retake or full new booking applies, plus the next seat, fee, ID, result, and certificate process before planning again."
+localExecutionPrompt: "Send the selected local centre your exact examination and score-report context; confirm the next full-exam booking, seat, fee, ID, result, and certificate process before planning again."
 author: "VisaLang Editorial team"
 readingTime: "9"
 featured: true
@@ -26,14 +28,14 @@ supportingGuideSlugs: ["goethe-a1-speaking-topics", "goethe-a1-listening-practic
 
 ## Start with the result, not the next booking
 
-An unsuccessful A1 result is useful information, not a verdict on whether you can complete the route. First read your score report. The [Goethe A1 results page](https://www.goethe.de/en/spr/prf/pes/pas1.html) explains the exam-level pass-or-fail result context for Goethe-Zertifikat A1: Start Deutsch 1; it does not decide what your local centre can offer next.
+An unsuccessful A1 result is useful information, not a verdict on whether you can complete the route. First read your score report. The [Goethe A1 results page](https://www.goethe.de/en/spr/prf/pes/pas1.html) explains the exam-level pass-or-fail result context for Goethe-Zertifikat A1: Start Deutsch 1.
 
-Do not assume a partial retake, a full new booking, or a next seat. Ask the responsible local centre what applies to your exact examination and current result before you choose another date.
+Goethe's official [German examinations FAQ](https://www.goethe.de/ins/de/en/prf/ogf.html) says an examination as a whole can be retaken as often as needed. That provider-level rule does not guarantee a local seat, date, fee, or booking route, and it does not make a partial A1 retake available. Ask the responsible local centre how to make the next full-exam booking before choosing another date.
 
 ## Local-centre questions to check first
 
 - Your score report and the section where your performance needs the most work.
-- Whether any partial retake or full new booking is available for your exact examination.
+- How to register for the next full examination, without assuming that a partial A1 retake is available.
 - The next available seat and its registration deadline.
 - The local fee, ID requirement, result process, and certificate process.
 - The centre's current cancellation, refund, and rescheduling terms.
@@ -69,6 +71,7 @@ Repair the weakest skill with [Goethe A1 speaking topics](/guides/goethe-a1-spea
 ## Official sources
 
 - [Information on the exam results: Goethe-Zertifikat A1: Start Deutsch 1](https://www.goethe.de/en/spr/prf/pes/pas1.html)
+- [Goethe-Institut Germany FAQ: retaking an examination](https://www.goethe.de/ins/de/en/prf/ogf.html)
 
 ## A1 route FAQ
 

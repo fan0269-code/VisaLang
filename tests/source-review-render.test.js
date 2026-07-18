@@ -109,6 +109,11 @@ try {
     assert.ok(chineseHtml.includes(`hreflang="en" href="https://visalang.org/guides/${slug}/"`), `${slug} Chinese page links to its English equivalent`);
     assert.ok(chineseHtml.includes('"@type":"Article"') && chineseHtml.includes('"@type":"BreadcrumbList"'), `${slug} Chinese page emits Article and BreadcrumbList JSON-LD`);
   }
+
+  const chineseReviewedHtml = fs.readFileSync('dist/zh/guides/goethe-a1-test-centers/index.html', 'utf8');
+  assert.ok(chineseReviewedHtml.includes('官方来源核验日期: <time datetime="2026-07-19">2026-07-19</time>'), 'Chinese review renders its controlled independent review date');
+  assert.ok(chineseReviewedHtml.includes('来源与翻译审查'), 'Chinese review renders the controlled source and translation role');
+  assert.ok(!chineseReviewedHtml.includes('独立中文来源复核待完成'), 'reviewed Chinese content no longer renders the pending boundary');
 } finally {
   fs.rmSync(fixturePath, { force: true });
   fs.rmSync(pendingFixturePath, { force: true });

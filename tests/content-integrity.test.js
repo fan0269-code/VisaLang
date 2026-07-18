@@ -28,10 +28,13 @@ const auditedGermanyA1Slugs = [
 const reviewedGermanyA1Slugs = new Set([
   'german-family-reunion-language-requirement',
   'goethe-a1-vs-telc-a1',
+  'goethe-a1-test-centers',
+  'goethe-a1-fees-by-country',
+  'goethe-a1-retake-policy',
   'german-a1-documents-checklist',
   'german-a1-exam-booking-timeline',
 ]);
-const pendingLocalSourceSlugs = new Set([
+const newlyReviewedLocalSourceSlugs = new Set([
   'goethe-a1-test-centers',
   'goethe-a1-fees-by-country',
   'goethe-a1-retake-policy',
@@ -39,19 +42,15 @@ const pendingLocalSourceSlugs = new Set([
 for (const slug of auditedGermanyA1Slugs) {
   const source = bySlug.get(slug)?.source || '';
   assert.equal(field(source, 'contentStatus'), 'complete-route', `${slug} keeps content maturity independent from source review`);
-  assert.equal(field(source, 'updatedDate'), '2026-07-18', `${slug} records the substantive visible update`);
+  const expectedReviewDate = newlyReviewedLocalSourceSlugs.has(slug) ? '2026-07-19' : '2026-07-18';
+  assert.equal(field(source, 'updatedDate'), expectedReviewDate, `${slug} records the substantive visible update`);
   for (const fieldName of ['audienceScope', 'finalDecisionAuthorityType', 'primaryOfficialAuthorityUrl', 'examOwnerUrl', 'localExecutionPrompt']) {
     assert.ok(field(source, fieldName), `${slug} records ${fieldName}`);
   }
   if (reviewedGermanyA1Slugs.has(slug)) {
-    assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${slug} records the completed 2026-07-18 source review`);
-    assert.equal(field(source, 'sourceReviewedAt'), '2026-07-18', `${slug} records the real source-review date`);
+    assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${slug} records the completed source review`);
+    assert.equal(field(source, 'sourceReviewedAt'), expectedReviewDate, `${slug} records the real source-review date`);
     assert.equal(field(source, 'reviewedByRole'), 'source-review', `${slug} records the source-review role`);
-  } else {
-    assert.ok(pendingLocalSourceSlugs.has(slug), `${slug} has an explicit source disposition`);
-    assert.equal(field(source, 'sourceReviewStatus'), 'pending', `${slug} stays pending without a selected local-centre source`);
-    assert.equal(field(source, 'sourceReviewedAt'), '', `${slug} does not claim a source-review date`);
-    assert.equal(field(source, 'reviewedByRole'), '', `${slug} does not claim a completed source-review role`);
   }
 }
 

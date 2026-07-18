@@ -38,6 +38,14 @@ const relatedGuides = relatedSlugs
   .filter(Boolean);
 const previousGuide = zhGermanyA1Guides.find((guide) => guide.nextGuideSlug === slug);
 const nextGuide = zhGermanyA1Guides.find((guide) => guide.slug === guideRecord.nextGuideSlug);
+const reviewerRoleLabels = {
+  editorial: '编辑审查',
+  'source-review': '来源审查',
+  'translation-review': '来源与翻译审查',
+} as const;
+const reviewerRoleLabel = guideRecord.reviewedByRole
+  ? reviewerRoleLabels[guideRecord.reviewedByRole]
+  : '尚未完成独立中文来源复核';
 const tocHeadings = [
   { text: '直接答案', id: 'direct-answer', depth: 2 },
   { text: '适用对象', id: 'who-this-applies-to', depth: 2 },
@@ -109,7 +117,7 @@ const jsonLD = {
         <div class="guide-scope-line"><GuideStatusBadge status={guideRecord.contentStatus} locale="zh-CN" /><span>国家：德国</span><span>路线：配偶团聚 / 家庭团聚 A1</span></div>
         <h1>{title}</h1>
         <section class="guide-summary-box" id="direct-answer" aria-label="指南摘要"><h2>直接答案</h2><p class="guide-summary">{description}</p></section>
-        <dl class="guide-meta" aria-label="文章责任和来源状态"><div><dt>首次发布</dt><dd><time datetime={guideRecord.publishedDate}>{guideRecord.publishedDate}</time></dd></div><div><dt>最近更新</dt><dd><time datetime={updatedDate}>{updatedDate}</time></dd></div><div><dt>来源审查</dt><dd><LastCheckedBadge date={guideRecord.sourceReviewedAt} status={guideRecord.sourceReviewStatus} locale="zh-CN" /></dd></div><div><dt>作者</dt><dd>{guideRecord.author}</dd></div><div><dt>审查角色</dt><dd>{guideRecord.reviewedByRole ?? '尚未完成独立中文来源复核'}</dd></div><div><dt>阅读时间</dt><dd>约 {guideRecord.readingTime} 分钟</dd></div></dl>
+        <dl class="guide-meta" aria-label="文章责任和来源状态"><div><dt>首次发布</dt><dd><time datetime={guideRecord.publishedDate}>{guideRecord.publishedDate}</time></dd></div><div><dt>最近更新</dt><dd><time datetime={updatedDate}>{updatedDate}</time></dd></div><div><dt>来源审查</dt><dd><LastCheckedBadge date={guideRecord.sourceReviewedAt} status={guideRecord.sourceReviewStatus} locale="zh-CN" /></dd></div><div><dt>作者</dt><dd>{guideRecord.author}</dd></div><div><dt>审查角色</dt><dd>{reviewerRoleLabel}</dd></div><div><dt>阅读时间</dt><dd>约 {guideRecord.readingTime} 分钟</dd></div></dl>
         <section class="decision-authority" aria-labelledby="zh-who-decides-title"><h2 id="zh-who-decides-title">谁最终决定？</h2><p><strong>最终决定机关：</strong>{guideRecord.finalDecisionAuthorityType}</p><p><a class="official-source-link" href={guideRecord.primaryOfficialAuthorityUrl}>打开官方主管机关入口</a></p>{guideRecord.sourceReviewStatus === 'reviewed' ? <p>本页已记录独立中文来源复核日期。</p> : <p class="verification-pending"><strong>独立中文来源复核待完成。</strong>当前官方入口用于帮助你执行核验，不表示 VisaLang 已替你确认个案结论。</p>}<p>VisaLang 不判断个案是否适用、是否豁免、证书是否被接受、材料是否充分或申请结果。</p></section>
       </div>
       <VerificationAlert title="行动前再次核验"><p>政策、考位、费用和证书接受范围可能变化，请以官方最新要求为准。</p></VerificationAlert>

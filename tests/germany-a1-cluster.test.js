@@ -9,6 +9,10 @@ const germanyA1Guides = fs.readdirSync(guideDirectory)
 const hub = fs.readFileSync('src/pages/germany-family-reunion-a1.astro', 'utf8');
 const zhHub = fs.readFileSync('src/pages/zh/germany-family-reunion-a1.astro', 'utf8');
 const zhData = fs.readFileSync('src/data/zh-germany-a1.ts', 'utf8');
+const zhGuideSources = fs.readdirSync('src/pages/zh/guides')
+  .filter((file) => file.endsWith('.astro'))
+  .map((file) => fs.readFileSync(path.join('src/pages/zh/guides', file), 'utf8'))
+  .join('\n');
 
 assert.equal(germanyA1Guides.length, 17, 'Germany A1 cluster should retain its 16 guides and add only the missing writing intent');
 assert.ok(germanyA1Guides.includes('goethe-a1-writing-practice.md'), 'Germany A1 cluster should cover the unique writing-practice intent');
@@ -79,13 +83,22 @@ const routeRelationshipUpdatedGuides = new Set([
   'goethe-a1-pre-booking-checklist.md',
   'goethe-a1-30-day-study-plan.md',
 ]);
+const sourceReviewedOnJuly19 = new Set([
+  'goethe-a1-test-centers.md',
+  'goethe-a1-fees-by-country.md',
+  'goethe-a1-retake-policy.md',
+]);
 
 for (const file of germanyA1Guides) {
   const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
   assert.ok(source.includes('contentStatus: "complete-route"'), `${file} retains the complete-route baseline`);
   assert.ok(source.includes('## A1 decision tools and next steps'), `${file} should have the shared A1 next-step section`);
   assert.ok(source.includes('## A1 route FAQ'), `${file} should have a route-level FAQ`);
-  const expectedUpdateDate = auditedA1Guides.has(file) || routeRelationshipUpdatedGuides.has(file) ? '2026-07-18' : '2026-07-11';
+  const expectedUpdateDate = sourceReviewedOnJuly19.has(file)
+    ? '2026-07-19'
+    : auditedA1Guides.has(file) || routeRelationshipUpdatedGuides.has(file)
+      ? '2026-07-18'
+      : '2026-07-11';
   assert.ok(source.includes(`updatedDate: "${expectedUpdateDate}"`), `${file} should show its expected update date`);
   for (const href of guideNextStepLinks) {
     assert.ok(source.includes(href), `${file} should link to ${href}`);
@@ -107,6 +120,11 @@ assert.ok(zhHub.indexOf('/zh/guides/goethe-a1-germany-family-reunion/') < zhHub.
 assert.ok(zhHub.indexOf('/zh/guides/goethe-a1-test-centers/') < zhHub.indexOf('/zh/guides/german-a1-exam-booking-timeline/'), 'Chinese hub verifies the centre before planning the timeline');
 assert.ok(zhHub.indexOf('/zh/guides/german-a1-exam-booking-timeline/') < zhHub.indexOf('/zh/guides/goethe-a1-30-day-study-plan/'), 'Chinese hub places the study plan after the booking timeline');
 assert.match(zhHub, /goethe-a1-retake-policy[^\n]*英文指南|英文指南[^\n]*goethe-a1-retake-policy/, 'Chinese hub labels the retake branch as an English guide');
+assert.equal((zhData.match(/sourceReviewStatus: 'reviewed'/g) || []).length, 8, 'all eight Chinese Germany A1 records expose the completed independent review');
+assert.equal((zhData.match(/sourceReviewedAt: '2026-07-19'/g) || []).length, 8, 'all eight Chinese records expose the real review date');
+assert.equal((zhData.match(/reviewedByRole: 'translation-review'/g) || []).length, 8, 'all eight Chinese records expose the source and translation review role');
+assert.equal((zhData.match(/updatedDate: '2026-07-19'/g) || []).length, 8, 'all eight Chinese records expose the substantive review update date');
+assert.doesNotMatch(zhGuideSources, /读者问题与搜索意图|官方来源核验表|发布前人工核验清单|哪个更稳|更稳通常/, 'public Chinese guides exclude internal editorial language and unsupported stability framing');
 
 for (const href of hubNextStepLinks) {
   assert.ok(hub.includes(href), `Germany A1 hub should link to ${href}`);

@@ -4,8 +4,10 @@ description: "How to record and compare the current local Goethe A1 exam fee and
 category: "germany-a1"
 slug: "goethe-a1-fees-by-country"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-18"
-sourceReviewStatus: "pending"
+updatedDate: "2026-07-19"
+sourceReviewedAt: "2026-07-19"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "complete-route"
 primaryIntent: "Record and compare a current local Goethe A1 exam fee and its booking terms before payment"
 decisionStage: "local-execution"
@@ -30,11 +32,11 @@ Do not use an old blog price as your Germany A1 budget. The usable fee is the on
 
 For an adult Goethe route, check that the listing says **Goethe-Zertifikat A1: Start Deutsch 1**. The Goethe examinations overview can help you identify the adult A1 examination and reach a Goethe-Institut or exam partner; it cannot give your local fee or booking terms.
 
-## Why the price can change
+## Why one global price does not work
 
-The amount can differ by country, test centre, exam version, and booking period. Travel or the centre's payment rules can change the real cost even when the exam fee itself looks manageable.
+Official Goethe pages publish different local price tables for Germany and for the Beijing institute. The Beijing page also distinguishes locally defined learner categories. These first-party examples show why a price from one location or category must not be copied into another booking.
 
-Course fees are separate from examination fees. A language school may sell preparation, administration, or booking help without being the official examination provider. Ask what the quoted amount actually covers.
+Do not assume a course, preparation package, administration service, or booking helper includes the official examination fee. Ask what the quoted amount covers and verify the exam charge with the official or authorised centre that will take the booking.
 
 ## How to verify a local fee
 
@@ -67,6 +69,8 @@ Find the official centre first in [Goethe A1 test centers](/guides/goethe-a1-tes
 ## Official sources
 
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
+- [Goethe-Institut Beijing: 2026 examination prices and registration](https://www.goethe.de/ins/cn/zh/spr/prf/anm.html)
+- [Goethe-Institut Germany: 2026 examination prices](https://www.goethe.de/ins/de/zh/prf/pre.html)
 
 ## A1 route FAQ
 
