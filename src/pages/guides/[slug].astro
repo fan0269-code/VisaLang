@@ -28,10 +28,15 @@ const isAllowedRelated = (candidate: typeof linkedGuides[number]) => {
   return frontmatter.comparisonScope === 'cross-country-comparison' && /compar/i.test(frontmatter.primaryIntent ?? '');
 };
 const relatedGuides = linkedGuides.filter(isAllowedRelated).map(g => ({ title: g.data.title, slug: g.data.slug }));
-const routeGuides = allGuides.filter((item) => item.data.category === frontmatter.category).sort((a, b) => a.data.title.localeCompare(b.data.title));
-const routeIndex = routeGuides.findIndex((item) => item.data.slug === frontmatter.slug);
-const previousGuide = routeIndex > 0 ? { title: routeGuides[routeIndex - 1].data.title, slug: routeGuides[routeIndex - 1].data.slug } : undefined;
-const nextGuide = routeIndex >= 0 && routeIndex < routeGuides.length - 1 ? { title: routeGuides[routeIndex + 1].data.title, slug: routeGuides[routeIndex + 1].data.slug } : undefined;
+const routeGuides = allGuides.filter((item) => item.data.category === frontmatter.category);
+const sortedRouteGuides = [...routeGuides].sort((a, b) => a.data.title.localeCompare(b.data.title));
+const routeIndex = sortedRouteGuides.findIndex((item) => item.data.slug === frontmatter.slug);
+const alphabeticalPrevious = routeIndex > 0 ? sortedRouteGuides[routeIndex - 1] : undefined;
+const alphabeticalNext = routeIndex >= 0 && routeIndex < sortedRouteGuides.length - 1 ? sortedRouteGuides[routeIndex + 1] : undefined;
+const explicitNext = routeGuides.find((item) => item.data.slug === frontmatter.nextGuideSlug);
+const previousGuide = frontmatter.category === 'germany-a1' || !alphabeticalPrevious ? undefined : { title: alphabeticalPrevious.data.title, slug: alphabeticalPrevious.data.slug };
+const nextGuideSource = frontmatter.category === 'germany-a1' ? explicitNext : alphabeticalNext;
+const nextGuide = nextGuideSource ? { title: nextGuideSource.data.title, slug: nextGuideSource.data.slug } : undefined;
 
 const guideMeta = inferGuideMeta(frontmatter);
 const routeLabel = formatRouteLabel(frontmatter.route, frontmatter.category);

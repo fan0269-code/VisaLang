@@ -2566,3 +2566,16 @@ Remaining:
 - Verification: `git diff --check` passed; final status/stat and scoped diffs were inspected; the five target guides have zero diff. No tests or build were run because phase one did not modify source, tests, routes, or content.
 - Next-stage entry: only evidence-bounded wording changes may proceed. Local fee, centre availability, retake terms, test-day documents, visa-file documents, certificate acceptance, and individual exemption/eligibility claims require the named centre or mission source first.
 - Explicit exclusions: no guide body/frontmatter, content status, source-review date, test, commit, push, or deployment change.
+
+## 2026-07-18 — Germany A1 content, route, and Chinese core-path update
+
+- Scope: updated the seven specified English Germany A1 guides, their bounded route dependencies and shared guide rendering; added three Chinese core-route guides and their controlled data, bilingual mappings, sitemap coverage, and regression tests.
+- Source disposition: `german-family-reunion-language-requirement`, `goethe-a1-vs-telc-a1`, `german-a1-documents-checklist`, and `german-a1-exam-booking-timeline` were reviewed against accessible official sources on 2026-07-18. `goethe-a1-test-centers`, `goethe-a1-fees-by-country`, and `goethe-a1-retake-policy` remain `pending` because no selected local centre's current page or written reply was supplied.
+- Status separation: all seven target guides retain `contentStatus: complete-route`; only the four completed English source reviews carry `sourceReviewedAt: 2026-07-18` and `reviewedByRole: source-review`. The Chinese records remain independently `pending` with no review date or reviewer role.
+- Route result: the English main route now follows requirement, acceptable proof, provider comparison, centre verification, pre-booking checks, timeline, documents, official resources, and study plan; it terminates without a forced next-guide cycle. Retake remains a conditional branch. The Chinese route has the corresponding core sequence and no forced loop at its final study step.
+- Public routes added: `/zh/guides/goethe-a1-germany-family-reunion/`, `/zh/guides/goethe-a1-test-centers/`, and `/zh/guides/german-a1-exam-booking-timeline/`. Each has canonical, reciprocal hreflang, Article and BreadcrumbList JSON-LD, and sitemap coverage.
+- Rendering result: guide pages display article-specific next actions when authored; Germany A1 previous/next navigation follows the controlled route instead of alphabetical order.
+- Review result: standards and prompt-compliance reviews initially found a long forced route loop and three over-claimed local-source reviews. Both were corrected; the final read-only recheck reported no remaining P1/P2 findings.
+- Verification: `node tests/content-integrity.test.js`, `node tests/germany-a1-cluster.test.js`, and `node tests/source-review-render.test.js` passed; `npm test` passed; `git diff --check` passed; `npm run launch-check` built 101 pages and passed 37 checks with 0 failures, ending in `READY`.
+- Overall result: `PARTIAL`. Technical verification is ready, but three selected-centre-dependent English source reviews and independent Chinese source/translation review remain open.
+- Delivery boundary: no branch, commit, push, or deployment was created or performed.

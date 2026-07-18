@@ -22,21 +22,22 @@ const {
   title,
   description,
   slug,
-  updatedDate = '2026-07-09',
-  englishHref = `/guides/${slug}/`,
+  englishHref: englishHrefOverride,
   related = [],
 } = Astro.props;
 
 const canonicalURL = `https://visalang.org/zh/guides/${slug}/`;
 const guideRecord = zhGermanyA1Guides.find((guide) => guide.slug === slug);
 if (!guideRecord) throw new Error(`Missing controlled Chinese guide record for ${slug}`);
+const updatedDate = guideRecord.updatedDate;
+const englishHref = englishHrefOverride ?? guideRecord.englishHref;
 const englishURL = new URL(englishHref, 'https://visalang.org').href;
-const relatedGuides = related
+const relatedSlugs = related.length > 0 ? related : guideRecord.supportingGuideSlugs;
+const relatedGuides = relatedSlugs
   .map((relatedSlug) => zhGermanyA1Guides.find((guide) => guide.slug === relatedSlug))
   .filter(Boolean);
-const currentIndex = zhGermanyA1Guides.findIndex((guide) => guide.slug === slug);
-const previousGuide = currentIndex > 0 ? zhGermanyA1Guides[currentIndex - 1] : undefined;
-const nextGuide = currentIndex >= 0 && currentIndex < zhGermanyA1Guides.length - 1 ? zhGermanyA1Guides[currentIndex + 1] : undefined;
+const previousGuide = zhGermanyA1Guides.find((guide) => guide.nextGuideSlug === slug);
+const nextGuide = zhGermanyA1Guides.find((guide) => guide.slug === guideRecord.nextGuideSlug);
 const tocHeadings = [
   { text: '直接答案', id: 'direct-answer', depth: 2 },
   { text: '适用对象', id: 'who-this-applies-to', depth: 2 },
@@ -48,18 +49,36 @@ const tocHeadings = [
   { text: '官方来源', id: 'official-sources', depth: 2 },
 ];
 
+const breadcrumbItems = [
+  { name: '中文首页', href: '/zh/' },
+  { name: '德国 A1 家庭团聚', href: '/zh/germany-family-reunion-a1/' },
+  { name: title },
+];
 const jsonLD = {
   '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: title,
-  description,
-  url: canonicalURL,
-  datePublished: '2026-07-09',
-  dateModified: updatedDate,
-  author: { '@type': 'Organization', name: guideRecord.author },
-  publisher: { '@type': 'Organization', name: 'VisaLang', url: 'https://visalang.org/' },
-  inLanguage: 'zh-CN',
-  mainEntityOfPage: canonicalURL,
+  '@graph': [
+    {
+      '@type': 'Article',
+      headline: title,
+      description,
+      url: canonicalURL,
+      datePublished: guideRecord.publishedDate,
+      dateModified: updatedDate,
+      author: { '@type': 'Organization', name: guideRecord.author },
+      publisher: { '@type': 'Organization', name: 'VisaLang', url: 'https://visalang.org/' },
+      inLanguage: 'zh-CN',
+      mainEntityOfPage: canonicalURL,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbItems.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.name,
+        item: item.href ? new URL(item.href, 'https://visalang.org').href : canonicalURL,
+      })),
+    },
+  ],
 };
 ---
 
@@ -90,10 +109,11 @@ const jsonLD = {
         <div class="guide-scope-line"><GuideStatusBadge status={guideRecord.contentStatus} locale="zh-CN" /><span>国家：德国</span><span>路线：配偶团聚 / 家庭团聚 A1</span></div>
         <h1>{title}</h1>
         <section class="guide-summary-box" id="direct-answer" aria-label="指南摘要"><h2>直接答案</h2><p class="guide-summary">{description}</p></section>
-        <dl class="guide-meta" aria-label="文章责任和来源状态"><div><dt>最近更新</dt><dd><time datetime={updatedDate}>{updatedDate}</time></dd></div><div><dt>来源审查</dt><dd><LastCheckedBadge status={guideRecord.sourceReviewStatus} locale="zh-CN" /></dd></div><div><dt>作者</dt><dd>{guideRecord.author}</dd></div><div><dt>审查角色</dt><dd>{guideRecord.reviewedByRole ?? '待记录'}</dd></div><div><dt>阅读时间</dt><dd>约 6 分钟</dd></div></dl>
-        <section class="decision-authority" aria-labelledby="zh-who-decides-title"><h2 id="zh-who-decides-title">谁最终决定？</h2><p class="verification-pending"><strong>官方核验待完成。</strong>当前中文受控数据尚未同时记录经来源审查的最终决定机关类型和官方入口。</p><p>VisaLang 不判断个案是否适用、是否豁免、证书是否被接受、材料是否充分或申请结果。</p></section>
+        <dl class="guide-meta" aria-label="文章责任和来源状态"><div><dt>首次发布</dt><dd><time datetime={guideRecord.publishedDate}>{guideRecord.publishedDate}</time></dd></div><div><dt>最近更新</dt><dd><time datetime={updatedDate}>{updatedDate}</time></dd></div><div><dt>来源审查</dt><dd><LastCheckedBadge date={guideRecord.sourceReviewedAt} status={guideRecord.sourceReviewStatus} locale="zh-CN" /></dd></div><div><dt>作者</dt><dd>{guideRecord.author}</dd></div><div><dt>审查角色</dt><dd>{guideRecord.reviewedByRole ?? '尚未完成独立中文来源复核'}</dd></div><div><dt>阅读时间</dt><dd>约 {guideRecord.readingTime} 分钟</dd></div></dl>
+        <section class="decision-authority" aria-labelledby="zh-who-decides-title"><h2 id="zh-who-decides-title">谁最终决定？</h2><p><strong>最终决定机关：</strong>{guideRecord.finalDecisionAuthorityType}</p><p><a class="official-source-link" href={guideRecord.primaryOfficialAuthorityUrl}>打开官方主管机关入口</a></p>{guideRecord.sourceReviewStatus === 'reviewed' ? <p>本页已记录独立中文来源复核日期。</p> : <p class="verification-pending"><strong>独立中文来源复核待完成。</strong>当前官方入口用于帮助你执行核验，不表示 VisaLang 已替你确认个案结论。</p>}<p>VisaLang 不判断个案是否适用、是否豁免、证书是否被接受、材料是否充分或申请结果。</p></section>
       </div>
       <VerificationAlert title="行动前再次核验"><p>政策、考位、费用和证书接受范围可能变化，请以官方最新要求为准。</p></VerificationAlert>
+      <VerificationAlert title="本地执行核验"><p>{guideRecord.localExecutionPrompt}</p></VerificationAlert>
       <section class="guide-template-box" id="who-this-applies-to">
         <h2>适用对象</h2>
         <p>适合已经在规划德国配偶团聚或家庭团聚、需要把“是否需要 A1、该考什么、何时报名、材料怎么准备”拆成可核验步骤的中文用户。</p>
@@ -101,7 +121,7 @@ const jsonLD = {
       </section>
       <section id="key-decisions"><h2>关键决策</h2><ol><li>先确认负责接收语言证明的机构。</li><li>确认准确的证书、等级、考试版本和材料形式。</li><li>再核验当地报名、证件、费用、出分、退改和时间安排。</li></ol></section>
       <section id="detailed-explanation"><h2>详细说明</h2><slot /></section>
-      <section id="what-to-verify-officially"><h2>需要向官方核验什么</h2><p class="verification-pending"><strong>官方来源事实表待完成。</strong>当前中文页面的来源审查状态为 pending，因此不展示看似已人工核验的完整来源表。请分别向接收材料的机关、考试方和当地授权考点确认当前要求。</p></section>
+      <section id="what-to-verify-officially"><h2>需要向官方核验什么</h2><p>先向最终决定机关确认这项证明是否适用于你的路线，再向考试主办方确认准确考试产品，最后向所选官方或授权考点确认本地报名和执行规则。</p></section>
       <section id="common-mistakes"><h2>常见错误</h2><ul><li>没有确认个案要求就先报名。</li><li>把旧费用、旧考位或他人经验当作当前规则。</li><li>只比较考试品牌，不核对准确证书与材料形式。</li></ul></section>
       <section class="guide-template-box" id="next-action">
         <h2>下一步行动</h2>

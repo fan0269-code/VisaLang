@@ -4,12 +4,20 @@ description: "Check the relevant family-reunion route, the sponsor's residence c
 category: "germany-a1"
 slug: "german-family-reunion-language-requirement"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-13"
+updatedDate: "2026-07-18"
+sourceReviewedAt: "2026-07-18"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "complete-route"
-primaryIntent: "German family reunion language requirement guide decision support"
-decisionStage: "choice"
-nextGuideSlug: "goethe-a1-vs-telc-a1"
+primaryIntent: "Confirm the family-reunion route and current language-proof requirement before choosing an exam"
+decisionStage: "requirement"
+nextGuideSlug: "goethe-a1-germany-family-reunion"
 comparisonScope: "same-route"
+audienceScope: "People preparing a Germany spouse or family-reunion application who must identify the responsible route and mission before choosing language proof."
+finalDecisionAuthorityType: "Responsible German mission or competent immigration authority"
+primaryOfficialAuthorityUrl: "https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682"
+examOwnerUrl: "https://www.goethe.de/en/spr/prf.html"
+localExecutionPrompt: "Open the current family-reunion instructions for your application location; confirm whether proof is required, the exact accepted certificate and document form, and any case-specific exception before booking."
 author: "VisaLang Editorial team"
 readingTime: "5"
 featured: true
@@ -32,7 +40,7 @@ After identifying the route, check the sponsor's current residence category and 
 
 Use the responsible German mission's current family-reunion instructions for the application location and route. Confirm whether language proof is required for your file, which proof is currently accepted, and any document or age conditions before booking an exam or submitting documents.
 
-The Federal Foreign Office FAQ is an official verification link below. This guide does not quote or derive a detailed rule from it because automated access to that page was blocked during this audit.
+The Federal Foreign Office FAQ directs applicants to BAMF information and the responsible German mission. It does not replace the mission's current route-specific document instructions or decide an individual exception.
 
 ## Next action
 
@@ -42,7 +50,7 @@ Save the current mission instruction for your route, then ask the mission or res
 
 - [BAMF family reunification](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html)
 - [BAMF family reunification for third-country nationals](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/NachzugZuDrittstaatlern/nachzug-zu-drittstaatlern-node.html)
-- [German Federal Foreign Office: proof of German language skills FAQ](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse/606682)
+- [German Federal Foreign Office: proof of German language skills FAQ](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682)
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
 
 ## A1 route FAQ

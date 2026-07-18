@@ -4,14 +4,16 @@ import { zhGermanyA1Guides, zhCoreOfficialSources } from '../../data/zh-germany-
 import RouteProgress from '../../components/RouteProgress.astro';
 
 const canonicalURL = 'https://visalang.org/zh/germany-family-reunion-a1/';
+const updatedDate = zhGermanyA1Guides.reduce((latest, guide) => guide.updatedDate > latest ? guide.updatedDate : latest, '2026-07-09');
 const routeSteps = [
   { title: '确认是否需要 A1', status: 'current', preparation: '准备申请地、家庭团聚类型、负责个案的德国使领馆或主管机关，以及需要核验的豁免问题。', guide: { href: '/zh/guides/german-family-reunion-language-requirement/', label: '查看要求指南' } },
-  { title: '确认接受的证明', status: 'next', preparation: '核对准确的成人证书、等级、考试版本和材料形式。', guide: { href: '/zh/guides/goethe-a1-vs-telc-a1/', label: '比较证书' } },
+  { title: '确认接受的证明', status: 'next', preparation: '向负责机关核对准确的成人证书、等级、考试版本和材料形式。', guide: { href: '/zh/guides/goethe-a1-germany-family-reunion/', label: '核验可接受证明' } },
   { title: '比较考试选项', status: 'next', preparation: '只比较已经被主管机关确认可用的考试，不把品牌知名度当作接受证明。', guide: { href: '/zh/guides/goethe-a1-vs-telc-a1/', label: 'Goethe 与 telc' } },
-  { title: '核验考点与报名', status: 'next', preparation: '核验授权考点、姓名拼写、证件、费用、日期、退改和出分。', guide: { href: '/zh/guides/goethe-a1-booking-mistakes/', label: '报名检查' } },
-  { title: '制定时间线', status: 'next', preparation: '只使用当地考点确认的出分、证书寄送和重考时间。', guide: { href: '/zh/guides/goethe-a1-30-day-study-plan/', label: '准备计划' } },
-  { title: '准备考试与材料', status: 'next', preparation: '把考试当天材料与签证文件中的语言证明要求分开核对。', guide: { href: '/zh/guides/german-a1-documents-checklist/', label: '材料清单' } },
-  { title: '递交前再次核验', status: 'next', preparation: '递交前重新确认接受范围、文件形式和当前官方要求。' },
+  { title: '核验考点与报名', status: 'next', preparation: '从考试方入口核验授权考点，再确认准确考试、姓名、证件、费用、日期、退改和出证流程。', guide: { href: '/zh/guides/goethe-a1-test-centers/', label: '核验官方考点' } },
+  { title: '制定时间线', status: 'next', preparation: '只使用自己持有或负责机关、所选考点当前确认的考试、出分、取证和材料节点。', guide: { href: '/zh/guides/german-a1-exam-booking-timeline/', label: '倒排报名时间线' } },
+  { title: '准备材料', status: 'next', preparation: '把报名、考试当天和签证文件中的语言证明要求分开核对。', guide: { href: '/zh/guides/german-a1-documents-checklist/', label: '材料清单' } },
+  { title: '使用官方资源学习', status: 'next', preparation: '在要求、证明、考点、报名和时间线明确后，再安排听说读写练习。', guide: { href: '/zh/guides/goethe-a1-30-day-study-plan/', label: '备考计划' } },
+  { title: '递交前复核或进入复考分支', status: 'next', preparation: '递交前重新确认接受范围和文件形式；首次未通过时，另看 Goethe A1 复考（英文指南）。', guide: { href: '/guides/goethe-a1-retake-policy/', label: 'Goethe A1 复考（英文指南）' } },
 ] as const;
 const jsonLD = {
   '@context': 'https://schema.org',
@@ -23,15 +25,15 @@ const jsonLD = {
       name: '德国配偶团聚一定要 A1 吗？',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: '很多配偶团聚申请会涉及基础德语 A1 证明，但是否适用、是否有豁免、接受哪种证书，要以负责你个案的德国使领馆或主管机关最新要求为准。',
+        text: '是否需要 A1、是否适用个案例外以及接受哪种证明，要以负责你申请的德国使领馆或主管机关当前要求为准。',
       },
     },
     {
       '@type': 'Question',
-      name: 'Goethe A1 和 telc A1 哪个更稳？',
+      name: 'Goethe A1 和 telc A1 应该如何比较？',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: '更稳的不是品牌本身，而是你的主管机关明确接受、你能按时拿到结果、材料名称和证件规则都符合要求的那一个。',
+        text: '先确认主管机关可能接受的准确证明，再比较考试产品、官方考点和本地报名条件；品牌本身不能替代接受确认。',
       },
     },
   ],
@@ -40,7 +42,7 @@ const jsonLD = {
 
 <BaseLayout
   title="德国 A1 家庭团聚中文专题"
-  description="面向中文用户的德国配偶团聚 A1 路线：是否需要 A1、Goethe A1 vs telc A1、报名避坑、材料清单、备考计划和官方核验。"
+  description="面向中文用户的德国配偶团聚 A1 路线：依次核验要求、可接受证明、考试、官方考点、报名时间线、材料和学习计划。"
   canonicalURL={canonicalURL}
   lang="zh-CN"
   alternates={[
@@ -54,10 +56,10 @@ const jsonLD = {
     <article class="guide-article route-hub-page">
       <p class="eyebrow">德国 · 配偶团聚 · A1</p>
       <h1>德国 A1 家庭团聚中文专题</h1>
-      <p class="guide-summary">如果你正在准备德国配偶团聚或家庭团聚，先别急着报名考试。正确顺序是：确认自己是否需要 A1，确认哪些证书被接受，再看报名、材料、备考和重考风险。</p>
+      <p class="guide-summary">如果你正在准备德国配偶团聚或家庭团聚，先别急着报名考试。先确认负责机关和 A1 要求，再确认可接受证明、考试产品、官方考点、报名时间线和材料；学习计划与复考分支放在这些核验之后。</p>
 
       <div class="guide-trustbar" aria-label="官方核验提示">
-        <span>最后更新：<time datetime="2026-07-09">2026-07-09</time></span>
+        <span>最后更新：<time datetime={updatedDate}>{updatedDate}</time></span>
         <span>本文不替代德国使领馆、BAMF、Goethe、telc 官方页面；不确定处请以官方最新要求为准。</span>
       </div>
 
@@ -74,14 +76,14 @@ const jsonLD = {
       <h3>德国配偶团聚到底要不要 A1？</h3>
       <p>很多配偶团聚路径会要求申请人证明基础德语能力，但不能只听“别人也这么办”。是否需要 A1、是否符合豁免、需要哪种证明，取决于你的关系类型、申请地、德国一方身份、当地使领馆文件清单和当前政策。先看官方清单，再决定考试。</p>
 
-      <h3>Goethe A1 和 telc A1 哪个更稳？</h3>
-      <p>对签证材料来说，“更稳”通常意味着：主管机关接受、证书名称清楚、考试等级和技能覆盖符合要求、出分时间能赶上预约、考点规则和证件要求你能满足。不要只用“哪个更容易”做决定。</p>
+      <h3>Goethe A1 和 telc A1 应该如何比较？</h3>
+      <p>先由主管机关确认可能适用的准确证明，再核对证书名称、考试等级、官方考点、材料形式和本地执行规则。不要只用品牌知名度或“哪个更容易”做决定。</p>
 
       <h3>人在中国怎么报名？</h3>
       <p>先找 Goethe-Institut 或对应官方考点页面，查看当前城市、日期、费用、证件、报名方式、退改规则和出分时间。本文不会编造费用或考试日期，因为这些信息最容易变化。</p>
 
       <h3>证书多久有效？如果没通过怎么办？</h3>
-      <p>证书有效期、是否要求近期成绩、是否接受旧证书、没通过后的重考间隔和能否赶上签证预约，都要以使领馆、考试主办方和当地考点最新规则为准。备考时要给自己留出重考和补材料时间。</p>
+      <p>证书是否仍被接受、是否要求特定出具时间、再次报名条件和材料安排，都要分别向负责机关、考试主办方和当地考点核验。首次未通过时，用当前考点信息重新计算下一步，不预设复考间隔。</p>
 
       <h2 id="zh-guides">中文核心指南</h2>
       <div class="guide-related-grid">
@@ -104,6 +106,14 @@ const jsonLD = {
 
       <h2>按这个顺序推进</h2>
       <RouteProgress steps={routeSteps} current={0} routeId="zh-germany-family-reunion-a1" locale="zh-CN" />
+
+      <h2>暂时只有英文的补充页面</h2>
+      <ul>
+        <li><a href="/guides/goethe-a1-pre-booking-checklist/">Goethe A1 付款前检查（英文指南）</a>：在付款前复核要求、准确考试、考点和本地条款。</li>
+        <li><a href="/guides/goethe-a1-official-links-practice-resources/">Goethe A1 官方练习资源（英文指南）</a>：确认考试与时间线后再选择官方练习入口。</li>
+        <li><a href="/guides/goethe-a1-retake-policy/">Goethe A1 复考（英文指南）</a>：仅在首次未通过后进入这个条件分支。</li>
+        <li><a href="/tools/timeline-calculator/">时间线规划器（英文工具）</a>：只输入自己持有或官方确认的节点。</li>
+      </ul>
 
       <h2>官方核验入口</h2>
       <p>这组中文内容的作用是帮你组织问题，不是替你判断政策。每次报名或递签前，都要重新核验官方信息。</p>

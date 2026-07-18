@@ -4,12 +4,20 @@ description: "A three-stage German A1 checklist for exam booking, test day, and 
 category: "germany-a1"
 slug: "german-a1-documents-checklist"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-13"
+updatedDate: "2026-07-18"
+sourceReviewedAt: "2026-07-18"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "complete-route"
-primaryIntent: "German A1 documents checklist: booking, test day, visa decision support"
+primaryIntent: "Separate booking, test-day, and visa-submission document checks for a Germany A1 route"
 decisionStage: "submission-review"
-nextGuideSlug: "goethe-a1-booking-mistakes"
+nextGuideSlug: "goethe-a1-official-links-practice-resources"
 comparisonScope: "same-route"
+audienceScope: "Germany family-reunion applicants separating local exam documents from the language proof and document form required for their visa file."
+finalDecisionAuthorityType: "Responsible German mission for visa documents and selected test centre for booking and test-day documents"
+primaryOfficialAuthorityUrl: "https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682"
+examOwnerUrl: "https://www.goethe.de/en/spr/prf.html"
+localExecutionPrompt: "Check the selected centre's current booking and test-day document list, then check the responsible German mission's current visa-file instructions for the certificate, originals, copies, translations, and any additional documents."
 author: "VisaLang Editorial team"
 readingTime: "8"
 featured: true
@@ -64,7 +72,7 @@ Read [German family reunion language requirement](/guides/german-family-reunion-
 
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
 - [BAMF family reunification](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html)
-- [German Federal Foreign Office: proof of German language skills FAQ](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse/606682) — manual official-source verification only; use the responsible mission's current checklist for the visa file.
+- [German Federal Foreign Office: proof of German language skills FAQ](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682) — use the responsible mission's current checklist for the visa file.
 
 ## A1 route FAQ
 

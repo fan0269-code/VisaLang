@@ -4,12 +4,20 @@ description: "Plan a Germany A1 booking timeline with official centre dates, res
 category: "germany-a1"
 slug: "german-a1-exam-booking-timeline"
 publishedDate: "2026-07-08"
-updatedDate: "2026-07-13"
+updatedDate: "2026-07-18"
+sourceReviewedAt: "2026-07-18"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "complete-route"
-primaryIntent: "German A1 exam booking timeline decision support"
+primaryIntent: "Build a Germany A1 booking timeline from reader-entered or locally confirmed dates"
 decisionStage: "local-execution"
-nextGuideSlug: "goethe-a1-test-centers"
+nextGuideSlug: "german-a1-documents-checklist"
 comparisonScope: "same-route"
+audienceScope: "Germany family-reunion applicants who have confirmed a relevant A1 route and need to plan from their own or official local dates."
+finalDecisionAuthorityType: "Selected official test centre for exam timing and responsible German mission for visa-file deadlines"
+primaryOfficialAuthorityUrl: "https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682"
+examOwnerUrl: "https://www.goethe.de/en/spr/prf.html"
+localExecutionPrompt: "Obtain the selected centre's current seat, result-publication, certificate issue or delivery, and next-seat information; then verify the responsible mission's current document deadline before paying or changing an appointment."
 author: "VisaLang Editorial team"
 readingTime: "7"
 featured: true
@@ -83,14 +91,16 @@ Write down only a mission-confirmed document deadline and the dates you have ent
 
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
 - [BAMF family reunification](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html)
+- [German Federal Foreign Office: proof of German language skills FAQ](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682)
 
 ## Revision history
 
 - 2026-07-08: Published the German A1 booking timeline and risk checklist.
 - 2026-07-10: Added backward planning and an explicit unknown-timing rule.
 - 2026-07-13: Limited the plan to reader-entered or locally confirmed dates and separated centre timing from mission deadline instructions.
+- 2026-07-18: Rechecked the official source boundaries and linked the current responsible-mission verification entry.
 
-Last updated: 2026-07-13. Official verification pending.
+Last updated: 2026-07-18. Official sources reviewed within the narrow boundaries stated on this page.
 
 ## A1 route FAQ
 

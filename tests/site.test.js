@@ -249,7 +249,7 @@ assert.ok(src.guides.includes('resolveGuideContentStatus(guide.data)'), 'guide c
 assert.ok(src.guide.includes('resolveGuideContentStatus'), 'article headers use the shared content-status gate');
 assert.ok(src.guide.includes('showSourceFactTable') && src.guide.includes('sourceReviewStatus === \'reviewed\''), 'source fact tables require reviewed controlled metadata');
 assert.ok(src.guide.includes('Who decides this?') && src.guide.includes('Official verification pending.'), 'English guides expose the deciding-authority boundary');
-assert.ok(src.zhGuide.includes('谁最终决定？') && src.zhGuide.includes('官方来源事实表待完成'), 'Chinese guides preserve an explicit pending source boundary');
+assert.ok(src.zhGuide.includes('谁最终决定？') && src.zhGuide.includes('独立中文来源复核待完成'), 'Chinese guides preserve an explicit pending source boundary');
 assert.ok(src.guide.includes("author: { '@type': 'Organization', name: author }") && src.zhGuide.includes("author: { '@type': 'Organization', name: guideRecord.author }"), 'Article JSON-LD authors use a controlled Organization type with the same controlled name, without inventing a Person');
 assert.ok(src.guideTaxonomy.includes('starter overview guides'), 'other categories retain starter overview framing');
 assert.ok(src.guides.includes('history.replaceState'), 'guide filters persist to URL parameters');

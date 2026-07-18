@@ -16,6 +16,74 @@ const arrayField = (source, name) => {
   return [...raw.matchAll(/["']([^"']+)["']/g)].map((match) => match[1]);
 };
 
+const auditedGermanyA1Slugs = [
+  'german-family-reunion-language-requirement',
+  'goethe-a1-vs-telc-a1',
+  'goethe-a1-test-centers',
+  'goethe-a1-fees-by-country',
+  'goethe-a1-retake-policy',
+  'german-a1-documents-checklist',
+  'german-a1-exam-booking-timeline',
+];
+const reviewedGermanyA1Slugs = new Set([
+  'german-family-reunion-language-requirement',
+  'goethe-a1-vs-telc-a1',
+  'german-a1-documents-checklist',
+  'german-a1-exam-booking-timeline',
+]);
+const pendingLocalSourceSlugs = new Set([
+  'goethe-a1-test-centers',
+  'goethe-a1-fees-by-country',
+  'goethe-a1-retake-policy',
+]);
+for (const slug of auditedGermanyA1Slugs) {
+  const source = bySlug.get(slug)?.source || '';
+  assert.equal(field(source, 'contentStatus'), 'complete-route', `${slug} keeps content maturity independent from source review`);
+  assert.equal(field(source, 'updatedDate'), '2026-07-18', `${slug} records the substantive visible update`);
+  for (const fieldName of ['audienceScope', 'finalDecisionAuthorityType', 'primaryOfficialAuthorityUrl', 'examOwnerUrl', 'localExecutionPrompt']) {
+    assert.ok(field(source, fieldName), `${slug} records ${fieldName}`);
+  }
+  if (reviewedGermanyA1Slugs.has(slug)) {
+    assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${slug} records the completed 2026-07-18 source review`);
+    assert.equal(field(source, 'sourceReviewedAt'), '2026-07-18', `${slug} records the real source-review date`);
+    assert.equal(field(source, 'reviewedByRole'), 'source-review', `${slug} records the source-review role`);
+  } else {
+    assert.ok(pendingLocalSourceSlugs.has(slug), `${slug} has an explicit source disposition`);
+    assert.equal(field(source, 'sourceReviewStatus'), 'pending', `${slug} stays pending without a selected local-centre source`);
+    assert.equal(field(source, 'sourceReviewedAt'), '', `${slug} does not claim a source-review date`);
+    assert.equal(field(source, 'reviewedByRole'), '', `${slug} does not claim a completed source-review role`);
+  }
+}
+
+assert.equal(field(bySlug.get('german-family-reunion-language-requirement')?.source || '', 'decisionStage'), 'requirement', 'the requirement guide uses the requirement decision stage');
+const germanyA1MainRoute = [
+  'german-family-reunion-language-requirement',
+  'goethe-a1-germany-family-reunion',
+  'goethe-a1-vs-telc-a1',
+  'goethe-a1-test-centers',
+  'goethe-a1-pre-booking-checklist',
+  'german-a1-exam-booking-timeline',
+  'german-a1-documents-checklist',
+  'goethe-a1-official-links-practice-resources',
+  'goethe-a1-30-day-study-plan',
+];
+for (let index = 0; index < germanyA1MainRoute.length - 1; index += 1) {
+  const slug = germanyA1MainRoute[index];
+  assert.equal(field(bySlug.get(slug)?.source || '', 'nextGuideSlug'), germanyA1MainRoute[index + 1], `${slug} points to the next main-route decision`);
+}
+assert.equal(field(bySlug.get('goethe-a1-30-day-study-plan')?.source || '', 'nextGuideSlug'), '', 'the main route terminates after the study plan');
+assert.ok(!germanyA1MainRoute.includes('goethe-a1-retake-policy'), 'retake remains a conditional branch, not a universal main-route step');
+
+for (const { source } of entries.filter(({ source }) => field(source, 'category') === 'germany-a1')) {
+  const route = [];
+  let cursor = field(source, 'slug');
+  while (cursor) {
+    assert.ok(!route.includes(cursor), `Germany A1 next-guide chain must terminate without a cycle: ${[...route, cursor].join(' -> ')}`);
+    route.push(cursor);
+    cursor = field(bySlug.get(cursor)?.source || '', 'nextGuideSlug');
+  }
+}
+
 assert.equal(slugs.size, entries.length, 'Guide slugs must remain unique');
 for (const { file, source } of entries) {
   const slug = field(source, 'slug');
@@ -27,7 +95,7 @@ for (const { file, source } of entries) {
   assert.match(source, /https:\/\//, `${file} needs at least one traceable source link`);
   assert.doesNotMatch(source, /guaranteed pass|guaranteed visa|officially endorsed by VisaLang/i, `${file} must not make unsafe outcome or authority claims`);
   const nextGuideSlug = field(source, 'nextGuideSlug');
-  assert.ok(slugs.has(nextGuideSlug), `${file} nextGuideSlug must resolve: ${nextGuideSlug}`);
+  if (nextGuideSlug) assert.ok(slugs.has(nextGuideSlug), `${file} nextGuideSlug must resolve: ${nextGuideSlug}`);
   const supportingGuideSlugs = arrayField(source, 'supportingGuideSlugs');
   assert.ok(supportingGuideSlugs.length > 0, `${file} needs controlled supporting guides`);
   for (const relatedSlug of supportingGuideSlugs) assert.ok(slugs.has(relatedSlug), `${file} supporting guide slug must resolve: ${relatedSlug}`);
@@ -38,6 +106,10 @@ for (const { file, source } of entries) {
     return field(relatedSource, 'category') === category || field(relatedSource, 'decisionStage') === decisionStage;
   }), `${file} needs at least one related guide in the same route or decision stage`);
   assert.match(field(source, 'comparisonScope'), /^(same-route|cross-country-comparison)$/, `${file} needs a controlled comparison scope`);
+  if (category === 'germany-a1' && nextGuideSlug) {
+    const nextSource = bySlug.get(nextGuideSlug)?.source || '';
+    assert.notEqual(field(nextSource, 'nextGuideSlug'), slug, `${file} must not form a direct bidirectional next-guide loop with ${nextGuideSlug}`);
+  }
 }
 
 const contentSchema = fs.readFileSync('src/content.config.ts', 'utf8');

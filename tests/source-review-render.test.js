@@ -10,6 +10,16 @@ const pendingFixtureSlug = '__source-review-pending-fixture';
 const pendingFixturePath = path.join('src/content/guides', `${pendingFixtureSlug}.md`);
 const pendingFixtureOutput = path.join('dist/guides', pendingFixtureSlug);
 
+const removeFixtureSitemapEntries = () => {
+  const sitemapPath = 'dist/sitemap-0.xml';
+  if (!fs.existsSync(sitemapPath)) return;
+  let sitemap = fs.readFileSync(sitemapPath, 'utf8');
+  for (const slug of [fixtureSlug, pendingFixtureSlug]) {
+    sitemap = sitemap.replace(new RegExp(`<url><loc>https://visalang\\.org/guides/${slug}/</loc>(?:<lastmod>[^<]+</lastmod>)?</url>`, 'g'), '');
+  }
+  fs.writeFileSync(sitemapPath, sitemap);
+};
+
 const fixture = `---
 title: "Source review render fixture"
 description: "A build-only fixture that verifies controlled source-review metadata rendering without publishing a real review claim."
@@ -85,11 +95,33 @@ try {
   assert.ok(spainA2CcseHtml.includes('Official sources last checked: <time datetime="2026-07-16">2026-07-16</time>'), 'the second Spain pilot page renders its controlled source-review date');
   assert.ok(spainA2CcseHtml.includes('Verification pending'), 'the second reviewed Spain page remains pending for applicant-specific decisions');
   assert.ok(spainA2CcseHtml.includes('Spanish citizenship authority'), 'the second Spain page renders the deciding-authority boundary');
+
+  const requirementHtml = fs.readFileSync('dist/guides/german-family-reunion-language-requirement/index.html', 'utf8');
+  assert.ok(requirementHtml.includes('Save the current mission instruction for your route'), 'generated guide HTML renders the article-specific next action');
+  assert.ok(!requirementHtml.includes('Confirm the current requirement with the organisation that will receive your proof.'), 'article-specific next action replaces the generic fallback copy');
+  assert.ok(requirementHtml.includes('<small>Next guide</small><strong>Goethe A1 for Germany family reunion visa proof</strong>'), 'Germany A1 sequence renders the explicit primary next guide');
+  assert.ok(!requirementHtml.includes('<small>Previous guide</small>'), 'Germany A1 sequence does not imply an ambiguous previous step when branches converge');
+
+  for (const slug of ['goethe-a1-germany-family-reunion', 'goethe-a1-test-centers', 'german-a1-exam-booking-timeline']) {
+    const englishHtml = fs.readFileSync(path.join('dist/guides', slug, 'index.html'), 'utf8');
+    const chineseHtml = fs.readFileSync(path.join('dist/zh/guides', slug, 'index.html'), 'utf8');
+    assert.ok(englishHtml.includes(`hreflang="zh-CN" href="https://visalang.org/zh/guides/${slug}/"`), `${slug} English page links to its Chinese equivalent`);
+    assert.ok(chineseHtml.includes(`hreflang="en" href="https://visalang.org/guides/${slug}/"`), `${slug} Chinese page links to its English equivalent`);
+    assert.ok(chineseHtml.includes('"@type":"Article"') && chineseHtml.includes('"@type":"BreadcrumbList"'), `${slug} Chinese page emits Article and BreadcrumbList JSON-LD`);
+  }
 } finally {
   fs.rmSync(fixturePath, { force: true });
   fs.rmSync(pendingFixturePath, { force: true });
   fs.rmSync(fixtureOutput, { recursive: true, force: true });
   fs.rmSync(pendingFixtureOutput, { recursive: true, force: true });
+  removeFixtureSitemapEntries();
 }
+
+const sitemap = fs.readFileSync('dist/sitemap-0.xml', 'utf8');
+for (const slug of ['goethe-a1-germany-family-reunion', 'goethe-a1-test-centers', 'german-a1-exam-booking-timeline']) {
+  assert.ok(sitemap.includes(`https://visalang.org/zh/guides/${slug}/`), `sitemap includes the Chinese ${slug} route`);
+}
+assert.ok(!sitemap.includes('__source-review-'), 'test fixtures are removed from the generated sitemap');
+assert.ok(!sitemap.includes('.html'), 'generated sitemap excludes legacy .html URLs');
 
 console.log('source-review rendered HTML states passed');

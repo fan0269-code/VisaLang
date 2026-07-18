@@ -1,19 +1,113 @@
-export const zhGermanyA1Guides = [
+import type { ContentStatus, DecisionStage, ReviewerRole, SourceReviewStatus } from './source-review';
+
+export interface ZhGermanyA1Guide {
+  slug: string;
+  title: string;
+  description: string;
+  href: string;
+  englishHref: string;
+  publishedDate: string;
+  updatedDate: string;
+  readingTime: string;
+  contentStatus: ContentStatus;
+  sourceReviewStatus: SourceReviewStatus;
+  sourceReviewedAt?: string;
+  reviewedByRole?: ReviewerRole;
+  author: string;
+  audienceScope: string;
+  finalDecisionAuthorityType: string;
+  primaryOfficialAuthorityUrl: string;
+  examOwnerUrl: string;
+  localExecutionPrompt: string;
+  decisionStage: DecisionStage;
+  nextGuideSlug?: string;
+  supportingGuideSlugs: string[];
+}
+
+export const zhGermanyA1Guides: ZhGermanyA1Guide[] = [
   {
     slug: 'german-family-reunion-language-requirement',
     title: '德国配偶团聚到底要不要 A1？',
     description: '先判断你的家庭团聚路径是否可能需要德语 A1，再去官方页面核验证书、豁免和材料要求。',
     href: '/zh/guides/german-family-reunion-language-requirement/',
     englishHref: '/guides/german-family-reunion-language-requirement/',
-    contentStatus: 'complete-route', sourceReviewStatus: 'pending', author: 'VisaLang Editorial team', decisionStage: 'requirement', reviewedByRole: undefined,
+    publishedDate: '2026-07-09',
+    updatedDate: '2026-07-13',
+    readingTime: '12',
+    contentStatus: 'complete-route',
+    sourceReviewStatus: 'pending',
+    author: 'VisaLang Editorial team',
+    audienceScope: '准备德国配偶或家庭团聚申请、尚未确认自己路线是否需要 A1 证明的中文读者。',
+    finalDecisionAuthorityType: '负责申请地的德国使领馆或主管机关',
+    primaryOfficialAuthorityUrl: 'https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682',
+    examOwnerUrl: 'https://www.goethe.de/en/spr/prf.html',
+    localExecutionPrompt: '先找到负责你申请地和家庭团聚类别的官方说明，再确认是否需要证明、可接受证书和材料形式。',
+    decisionStage: 'requirement',
+    nextGuideSlug: 'goethe-a1-germany-family-reunion',
+    supportingGuideSlugs: ['goethe-a1-germany-family-reunion', 'german-a1-documents-checklist'],
+  },
+  {
+    slug: 'goethe-a1-germany-family-reunion',
+    title: '如何核验德国 A1 家庭团聚可接受证明',
+    description: '先向负责机关确认准确证书、等级、考试版本和材料形式，再决定是否报名 Goethe、telc 或其他考试。',
+    href: '/zh/guides/goethe-a1-germany-family-reunion/',
+    englishHref: '/guides/goethe-a1-germany-family-reunion/',
+    publishedDate: '2026-07-18',
+    updatedDate: '2026-07-18',
+    readingTime: '7',
+    contentStatus: 'complete-route',
+    sourceReviewStatus: 'pending',
+    author: 'VisaLang Editorial team',
+    audienceScope: '已经确认家庭团聚路线、需要核验准确 A1 证明名称和提交形式的中文读者。',
+    finalDecisionAuthorityType: '负责接收签证或家庭团聚材料的德国使领馆或主管机关',
+    primaryOfficialAuthorityUrl: 'https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682',
+    examOwnerUrl: 'https://www.goethe.de/en/spr/prf.html',
+    localExecutionPrompt: '向负责机关确认准确证书、等级、成人考试版本、原件或复印件等材料形式，并保存当前官方页面或回复。',
+    decisionStage: 'requirement',
+    nextGuideSlug: 'goethe-a1-vs-telc-a1',
+    supportingGuideSlugs: ['german-family-reunion-language-requirement', 'goethe-a1-vs-telc-a1'],
   },
   {
     slug: 'goethe-a1-vs-telc-a1',
-    title: 'Goethe A1 vs telc A1：哪个更稳？',
-    description: '从官方接受度、考点、出分、材料和风险角度比较 Goethe A1 与 telc A1。',
+    title: 'Goethe A1 与 telc A1：如何比较',
+    description: '先确认主管机关可能接受的准确证明，再比较 Goethe A1 与 telc A1 的考试产品、考点和本地执行条件。',
     href: '/zh/guides/goethe-a1-vs-telc-a1/',
     englishHref: '/guides/goethe-a1-vs-telc-a1/',
-    contentStatus: 'complete-route', sourceReviewStatus: 'pending', author: 'VisaLang Editorial team', decisionStage: 'choice', reviewedByRole: undefined,
+    publishedDate: '2026-07-09',
+    updatedDate: '2026-07-09',
+    readingTime: '6',
+    contentStatus: 'complete-route',
+    sourceReviewStatus: 'pending',
+    author: 'VisaLang Editorial team',
+    audienceScope: '已经向负责机关确认可能适用的 A1 证明、准备比较准确考试产品的中文读者。',
+    finalDecisionAuthorityType: '负责接收材料的德国使领馆或主管机关',
+    primaryOfficialAuthorityUrl: 'https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682',
+    examOwnerUrl: 'https://www.goethe.de/en/spr/prf.html',
+    localExecutionPrompt: '先确认负责机关接受的准确证明，再分别核验考试方和所选考点的当前产品与报名条件。',
+    decisionStage: 'choice',
+    nextGuideSlug: 'goethe-a1-test-centers',
+    supportingGuideSlugs: ['goethe-a1-germany-family-reunion', 'goethe-a1-test-centers'],
+  },
+  {
+    slug: 'goethe-a1-test-centers',
+    title: '如何核验 Goethe 或 telc A1 官方考点',
+    description: '从考试方官方入口确认考点和准确考试产品，再向所选考点核验日期、费用、证件、退改和出证流程。',
+    href: '/zh/guides/goethe-a1-test-centers/',
+    englishHref: '/guides/goethe-a1-test-centers/',
+    publishedDate: '2026-07-18',
+    updatedDate: '2026-07-18',
+    readingTime: '6',
+    contentStatus: 'complete-route',
+    sourceReviewStatus: 'pending',
+    author: 'VisaLang Editorial team',
+    audienceScope: '已经确认可能适用的 A1 证明、准备核验官方或授权考点的中文读者。',
+    finalDecisionAuthorityType: '官方考试主办方和所选官方或授权考点',
+    primaryOfficialAuthorityUrl: 'https://www.goethe.de/en/spr/prf.html',
+    examOwnerUrl: 'https://www.goethe.de/en/spr/prf.html',
+    localExecutionPrompt: '从考试方官方入口确认考点，再向该考点核验准确考试、日期、费用、证件、退改、成绩和证书流程。',
+    decisionStage: 'local-execution',
+    nextGuideSlug: 'goethe-a1-booking-mistakes',
+    supportingGuideSlugs: ['goethe-a1-vs-telc-a1', 'goethe-a1-booking-mistakes'],
   },
   {
     slug: 'goethe-a1-booking-mistakes',
@@ -21,7 +115,41 @@ export const zhGermanyA1Guides = [
     description: '报名 Goethe A1 前先确认考点、证件、费用、日期、退改和出分规则，避免只听中介说法。',
     href: '/zh/guides/goethe-a1-booking-mistakes/',
     englishHref: '/guides/goethe-a1-booking-mistakes/',
-    contentStatus: 'complete-route', sourceReviewStatus: 'pending', author: 'VisaLang Editorial team', decisionStage: 'local-execution', reviewedByRole: undefined,
+    publishedDate: '2026-07-09',
+    updatedDate: '2026-07-09',
+    readingTime: '5',
+    contentStatus: 'complete-route',
+    sourceReviewStatus: 'pending',
+    author: 'VisaLang Editorial team',
+    audienceScope: '在中国准备报名 Goethe A1、需要逐项核对本地报名条件的中文读者。',
+    finalDecisionAuthorityType: '所选 Goethe-Institut 或官方考试合作方',
+    primaryOfficialAuthorityUrl: 'https://www.goethe.de/en/spr/prf.html',
+    examOwnerUrl: 'https://www.goethe.de/en/spr/prf.html',
+    localExecutionPrompt: '在付款前向所选考点核验准确考试、姓名和证件、日期、费用、退改、成绩和证书流程。',
+    decisionStage: 'local-execution',
+    nextGuideSlug: 'german-a1-exam-booking-timeline',
+    supportingGuideSlugs: ['goethe-a1-test-centers', 'german-a1-exam-booking-timeline'],
+  },
+  {
+    slug: 'german-a1-exam-booking-timeline',
+    title: '德国 A1 报名时间线：如何倒排',
+    description: '只使用你已确认的考试、出分、取证和材料节点倒排计划；未知日期保持未知，并回到负责机关或考点核验。',
+    href: '/zh/guides/german-a1-exam-booking-timeline/',
+    englishHref: '/guides/german-a1-exam-booking-timeline/',
+    publishedDate: '2026-07-18',
+    updatedDate: '2026-07-18',
+    readingTime: '7',
+    contentStatus: 'complete-route',
+    sourceReviewStatus: 'pending',
+    author: 'VisaLang Editorial team',
+    audienceScope: '已经确认路线和考点、需要用自己持有或官方确认的日期倒排计划的中文读者。',
+    finalDecisionAuthorityType: '所选官方考点负责考试节点，负责申请的德国使领馆或主管机关负责材料节点',
+    primaryOfficialAuthorityUrl: 'https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682',
+    examOwnerUrl: 'https://www.goethe.de/en/spr/prf.html',
+    localExecutionPrompt: '取得所选考点当前确认的考试、出分、取证和下一考位信息，再核对负责机关的材料提交节点。',
+    decisionStage: 'local-execution',
+    nextGuideSlug: 'german-a1-documents-checklist',
+    supportingGuideSlugs: ['goethe-a1-test-centers', 'german-a1-documents-checklist'],
   },
   {
     slug: 'german-a1-documents-checklist',
@@ -29,15 +157,40 @@ export const zhGermanyA1Guides = [
     description: '区分 Goethe A1 考试当天要带的证件、报名确认和签证递交时可能要用的语言证明，减少临门一脚的材料风险。',
     href: '/zh/guides/german-a1-documents-checklist/',
     englishHref: '/guides/german-a1-documents-checklist/',
-    contentStatus: 'complete-route', sourceReviewStatus: 'pending', author: 'VisaLang Editorial team', decisionStage: 'submission-review', reviewedByRole: undefined,
+    publishedDate: '2026-07-09',
+    updatedDate: '2026-07-09',
+    readingTime: '5',
+    contentStatus: 'complete-route',
+    sourceReviewStatus: 'pending',
+    author: 'VisaLang Editorial team',
+    audienceScope: '需要把考试报名、考试当天和签证材料三套文件要求分开核对的中文读者。',
+    finalDecisionAuthorityType: '负责申请的德国使领馆或主管机关，以及所选官方考点',
+    primaryOfficialAuthorityUrl: 'https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682',
+    examOwnerUrl: 'https://www.goethe.de/en/spr/prf.html',
+    localExecutionPrompt: '分别核对所选考点的报名和考试当天文件，以及负责机关对证书、原件、复印件、翻译和补充材料的要求。',
+    decisionStage: 'submission-review',
+    nextGuideSlug: 'goethe-a1-30-day-study-plan',
+    supportingGuideSlugs: ['german-a1-exam-booking-timeline', 'goethe-a1-30-day-study-plan'],
   },
   {
     slug: 'goethe-a1-30-day-study-plan',
     title: 'Goethe A1 备考计划：30 天怎么安排',
-    description: '用合法、稳定、可执行的方式准备 Goethe A1，按 30 天安排听说读写和官方样题练习，不依赖泄题、押题或“包过”承诺。',
+    description: '用合法、稳定、可执行的方式准备 Goethe A1，按 30 天安排听说读写和官方样题练习，不依赖违规材料或通过承诺。',
     href: '/zh/guides/goethe-a1-30-day-study-plan/',
     englishHref: '/guides/goethe-a1-30-day-study-plan/',
-    contentStatus: 'complete-route', sourceReviewStatus: 'pending', author: 'VisaLang Editorial team', decisionStage: 'local-execution', reviewedByRole: undefined,
+    publishedDate: '2026-07-09',
+    updatedDate: '2026-07-09',
+    readingTime: '5',
+    contentStatus: 'complete-route',
+    sourceReviewStatus: 'pending',
+    author: 'VisaLang Editorial team',
+    audienceScope: '已经确认路线、证明、考点和时间线，准备使用官方材料安排学习的中文读者。',
+    finalDecisionAuthorityType: '考试主办方负责考试产品和格式，接收材料的机关负责证明接受',
+    primaryOfficialAuthorityUrl: 'https://www.goethe.de/en/spr/prf.html',
+    examOwnerUrl: 'https://www.goethe.de/en/spr/prf.html',
+    localExecutionPrompt: '使用考试主办方当前的官方说明和练习材料，并在报名前再次核验所选考点与负责机关的要求。',
+    decisionStage: 'local-execution',
+    supportingGuideSlugs: ['german-a1-documents-checklist', 'goethe-a1-booking-mistakes'],
   },
 ];
 
@@ -45,5 +198,5 @@ export const zhCoreOfficialSources = [
   { name: '德国驻外使领馆 / Auswaertiges Amt', href: 'https://www.auswaertiges-amt.de/' },
   { name: 'BAMF 家庭团聚信息', href: 'https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html' },
   { name: 'Goethe-Institut 德语考试', href: 'https://www.goethe.de/en/spr/prf.html' },
-  { name: 'telc Deutsch A1', href: 'https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/' },
+  { name: 'telc 官方考点查询', href: 'https://www.telc.net/en/language-examinations/find-a-telc-examination-centre/' },
 ];
