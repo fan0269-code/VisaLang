@@ -2603,3 +2603,13 @@ Remaining:
 - Authority boundary: responsible German missions or authorities decide individual family-reunion requirements, exemptions, accepted proof, and submission format; exam owners define products and exam-level rules; selected centres control current local execution details.
 - Verification: focused content/render tests passed; `npm test` passed; `npm run launch-check` built 101 pages and passed 37 checks with 0 failures, ending in `READY`.
 - Release boundary: this entry records the reviewed application candidate before commit and production deployment. Deployment evidence is recorded separately after the immutable production release is verified.
+
+## 2026-07-19 — Germany A1 source-review production release
+
+- Created application commit `1521d98021e0eb80efa3dc453bce0e8ea766de4e` (`content: complete Germany A1 source review`) from the exact reviewed 13-file scope and pushed `main` from `b2c8524` to `1521d98`. Pre-existing untracked merge, prompt, plan and specification files remained unstaged and unchanged.
+- The first SSH precheck confirmed the previous current release `/var/www/visalang.org/releases/5cfe8eedc290`, then stopped before deployment because an extra nonessential `git status` hit Git's dubious-ownership protection. No server Git configuration was changed.
+- Ran the repository deployment script separately. Server source fast-forwarded to `1521d98`; locked dependency install reported 0 vulnerabilities; server `npm test` and `npm run launch-check` passed; Nginx switched atomically to `/var/www/visalang.org/releases/1521d98021e0`.
+- Retained `/var/www/visalang.org/releases/5cfe8eedc290` as the immediate rollback target. No rollback trigger occurred.
+- Production smoke passed from the production host: homepage, Guide Library, robots and sitemap returned 200; legacy and `www` redirects returned expected canonical 301 responses.
+- Public content checks passed for all three English review-date markers and the checked Chinese review date, `来源与翻译审查` role, neutral Goethe/telc title, absence of the old `哪个更稳` wording, and absence of the pending Chinese review message.
+- Release result: the reviewed facts, process guides and Chinese review state are online. Dynamic reader-specific centre availability, seat, date, fee and individual family-reunion decisions remain official recheck items, not uncompleted page-review work.

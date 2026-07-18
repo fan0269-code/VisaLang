@@ -1,17 +1,27 @@
 # VisaLang Operations Status
 
 Updated: 2026-07-19
-Window: Germany A1 content and Chinese core-path production release
+Window: Germany A1 official-source and Chinese review production release
 
 ## Decision at a glance
 
-- **本地源码状态：已提交并推送。** Germany A1 内容、路线和三篇中文核心页的应用提交为 `5cfe8eedc290dd3ef03a2f27617a33ccd3425bd0`；本地和服务器发布门禁均通过。
-- **线上部署状态：已部署并验证。** `visalang.org` 当前不可变发布为 `/var/www/visalang.org/releases/5cfe8eedc290`，服务器源码和发布产物均对应 `5cfe8ee`；Nginx 配置检查、原子切换、重载和公网 smoke check 通过。
-- **回滚状态：可用但未触发。** 发布前当前版本 `/var/www/visalang.org/releases/0e1dec2929ca` 保留完整；本次没有发生强制回滚条件。
-- **内容复核状态：仍为 PARTIAL。** 3 篇依赖所选当地考点来源的英文页继续 `pending`，全部中文页仍待独立来源和翻译复核；本次部署没有把这些状态提升为已复核。
+- **本地源码状态：已提交并推送。** Germany A1 官方来源与中文复核的应用提交为 `1521d98021e0eb80efa3dc453bce0e8ea766de4e`；本地和服务器发布门禁均通过。
+- **线上部署状态：已部署并验证。** `visalang.org` 当前不可变发布为 `/var/www/visalang.org/releases/1521d98021e0`；Nginx 原子切换、服务器 gate、公网 smoke 和页面复核标记检查通过。
+- **回滚状态：可用但未触发。** 发布前版本 `/var/www/visalang.org/releases/5cfe8eedc290` 保留完整；本次没有发生强制回滚条件。
+- **内容复核状态：页面复核已完成。** 3 篇英文页已完成事实和核验流程复核，8 篇中文页已完成来源与最终中文措辞复核，日期均为 2026-07-19。读者未来选择的具体考点、考位、费用、日期和个案决定仍须实时核验。
 - **广告/CMP 状态：本轮未改变。** CMP 选择、Auto ads 位置、CLS、浏览器网络行为和账户侧证据仍需单独的受控验证窗口。
 - **历史边界：** 下方 `flowlight.me`、无广告状态和旧 `/public/dist` 发布记录仅为带日期的历史证据，不证明当前 `visalang.org` 线上状态。
 - **未处理范围：** 本窗口未新增 analytics、表单、支付、邮件投递或其他服务集成，也未修改 DNS、TLS、CMP 或广告账户配置。
+
+## Germany A1 source-review release — 2026-07-19
+
+- Application commit and immutable release: `1521d98021e0eb80efa3dc453bce0e8ea766de4e` / `/var/www/visalang.org/releases/1521d98021e0`.
+- Previous verified release retained for rollback: `/var/www/visalang.org/releases/5cfe8eedc290`.
+- Review result: the three formerly pending English pages display source-review date 2026-07-19; all eight Chinese Germany A1 records display the same date and the visible role `来源与翻译审查`.
+- Evidence boundary: China / Beijing / Beijing German Cultural Center · Goethe-Institut China is the bounded local example. Its 2026 price and local contract terms were not generalized to another centre. Start Deutsch 1 is recorded as a non-modular whole examination; local next-attempt dates, seats and fees remain centre-controlled.
+- Server release gate: locked dependency install reported 0 vulnerabilities; `npm test` passed; `npm run launch-check` built 101 pages and passed 37 checks with 0 failures, ending in `READY`; Nginx configuration testing and atomic switch passed.
+- Public smoke: homepage, Guide Library, robots and sitemap returned 200; legacy and `www` routes returned expected 301 redirects. All three English review-date markers and the checked Chinese review-date/role/title markers were present on the public site; reviewed Chinese output did not contain the pending-review message.
+- The first pre-deploy SSH command stopped before deployment because a nonessential `git status` hit Git's dubious-ownership protection. No switch occurred in that attempt. The repository deployment script then ran successfully without changing the global Git safe-directory configuration.
 
 ## Germany A1 content release — 2026-07-19
 
