@@ -1,7 +1,7 @@
 # VisaLang Production Trust Stabilization Execution Orchestration Design
 
-**Date:** 2026-07-17  
-**Status:** Approved for implementation-plan authoring  
+**Date:** 2026-07-17
+**Status:** Approved for implementation-plan authoring
 **Source plan:** `docs/superpowers/plans/2026-07-17-production-trust-stabilization.md`
 
 ## 1. Purpose

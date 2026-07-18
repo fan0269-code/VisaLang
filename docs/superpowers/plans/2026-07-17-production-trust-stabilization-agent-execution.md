@@ -125,7 +125,7 @@ No commit is created for this read-only task.
 
 ### Task 1: Pause advertising and align public policy
 
-**Agent:** Fresh TDD executor.  
+**Agent:** Fresh TDD executor.
 **Reviewer:** Defer final approval to the Wave 1 TypeScript/Astro reviewer.
 
 **Files:**
@@ -259,7 +259,7 @@ git commit -m "fix: pause unverified advertising integration"
 
 ### Task 2: Separate route maturity from source assurance everywhere
 
-**Agent:** Fresh TDD executor.  
+**Agent:** Fresh TDD executor.
 **Reviewer:** Defer final approval to the Wave 1 TypeScript/Astro reviewer.
 
 **Files:**
@@ -360,7 +360,7 @@ git commit -m "fix: separate route maturity from source assurance"
 
 ### Task 3: Minimise Route Finder URL state and make handoffs route-safe
 
-**Agent:** Fresh TDD executor.  
+**Agent:** Fresh TDD executor.
 **Reviewer:** Wave 1 TypeScript/Astro reviewer after implementation.
 
 **Files:**
@@ -494,7 +494,7 @@ git commit -m "fix: make route finder handoff context safe"
 
 ### Task 4: Add the deployment regression harness, canonical host contract, and Nginx legacy redirects
 
-**Agent:** Fresh deployment TDD executor.  
+**Agent:** Fresh deployment TDD executor.
 **Reviewers:** Defer final approval to the Wave 2 parallel review.
 
 **Files:**
@@ -740,7 +740,7 @@ git commit -m "fix: align nginx deployment with visalang.org"
 
 ### Task 5: Make deployment test-gated, immutable, and atomic
 
-**Agent:** Fresh deployment TDD executor.  
+**Agent:** Fresh deployment TDD executor.
 **Reviewers:** Defer final approval to the Wave 2 parallel review.
 
 **Files:**
@@ -903,7 +903,7 @@ git commit -m "feat: add atomic test-gated deployment"
 
 ### Task 6: Add explicit verified-release rollback
 
-**Agent:** Fresh deployment TDD executor.  
+**Agent:** Fresh deployment TDD executor.
 **Reviewers:** Defer final approval to the Wave 2 parallel review.
 
 **Files:**
@@ -1032,7 +1032,7 @@ git commit -m "feat: add explicit release rollback"
 
 ### Task 7: Add production smoke checks and replace deployment documentation
 
-**Agent:** Fresh deployment/documentation TDD executor.  
+**Agent:** Fresh deployment/documentation TDD executor.
 **Reviewers:** Code, security/privacy, and deployment reviewers run in parallel after this task.
 
 **Files:**
@@ -1277,7 +1277,7 @@ git commit -m "test: add production smoke checks"
 
 ### Task 8: Run final verification and record Phase 0 local evidence
 
-**Agent:** Main coordinator.  
+**Agent:** Main coordinator.
 **Verifier:** Fresh independent verifier who did not implement Tasks 1–7.
 
 **Files:**

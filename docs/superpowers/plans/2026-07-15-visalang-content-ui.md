@@ -446,8 +446,8 @@ Create `docs/HIGH_RISK_ROUTE_SOURCE_AUDIT.md` with:
 ```markdown
 # High-risk route source audit
 
-Status date: 2026-07-15  
-Owner: Claude (content lead)  
+Status date: 2026-07-15
+Owner: Claude (content lead)
 Reviewer: <name — source review>
 
 | File path | Category | Current contentStatus | Deciding authority known? | Exam owner known? | Recommended status | Required source pack fields |

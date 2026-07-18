@@ -1,7 +1,7 @@
 # VisaLang AdSense, Google CMP, and Auto Ads Compliance Design
 
-**Date:** 2026-07-17  
-**Status:** Approved for implementation-plan authoring  
+**Date:** 2026-07-17
+**Status:** Approved for implementation-plan authoring
 **Business goal:** Preserve display-ad monetisation for the VisaLang traffic site without presenting unverified consent, security-header, performance, or production evidence as complete.
 
 ## 1. Decision summary

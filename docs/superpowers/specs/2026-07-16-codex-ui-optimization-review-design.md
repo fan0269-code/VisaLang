@@ -1,7 +1,7 @@
 # Codex UI Optimization Review Design
 
-**Date:** 2026-07-16  
-**Status:** Approved design awaiting written-spec review  
+**Date:** 2026-07-16
+**Status:** Approved design awaiting written-spec review
 **Scope:** VisaLang UI optimization review prompt; no source-code changes in this work item.
 
 ## Decision summary
