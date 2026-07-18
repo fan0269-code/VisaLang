@@ -6,6 +6,6 @@ const { title, description, eyebrow, current } = Astro.props;
 const canonicalURL = `https://visalang.org${Astro.url.pathname}`;
 const jsonLD = { '@context': 'https://schema.org', '@type': 'WebApplication', name: title, description, url: canonicalURL, applicationCategory: 'UtilitiesApplication', operatingSystem: 'Any', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } };
 ---
-<BaseLayout title={title} description={description} canonicalURL={canonicalURL} jsonLD={jsonLD}>
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} jsonLD={jsonLD} enableAds={false}>
   <ToolShell eyebrow={eyebrow} title={title} description={description} current={current}><slot /></ToolShell>
 </BaseLayout>

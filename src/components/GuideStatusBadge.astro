@@ -5,7 +5,7 @@ import { contentStatusLabels } from '../data/source-review';
 export interface Props { status?: GuideMaturityStatus; locale?: 'en' | 'zh-CN'; }
 const { status = 'verification-pending', locale = 'en' } = Astro.props;
 const labels = locale === 'zh-CN'
-  ? { 'complete-route': '完整路线', 'core-route': '核心路线', 'starter-overview': '入门概览', 'verification-pending': '待核验' }
+  ? { 'complete-route': '路线结构完整', 'core-route': '核心路线结构', 'starter-overview': '入门概览', 'verification-pending': '待核验' }
   : contentStatusLabels;
 ---
 <span class:list={['status-badge', `status-badge--${status}`]}>{labels[status]}</span>

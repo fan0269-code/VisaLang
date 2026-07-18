@@ -17,8 +17,11 @@ echo "  ✓ $PRETTY_NAME"
 echo "==> 更新系统包索引"
 apt update -y
 
-echo "==> 安装 Nginx + Certbot + Git + Node.js + npm + UFW"
-DEBIAN_FRONTEND=noninteractive apt install -y nginx certbot python3-certbot-nginx git nodejs npm ufw curl
+echo "==> 安装 Nginx + Certbot + Git + UFW"
+DEBIAN_FRONTEND=noninteractive apt install -y nginx certbot python3-certbot-nginx git ufw curl
+
+echo "==> Node.js 要求"
+echo "  发布前请单独安装 Node.js 22.12+ 与 npm；本初始化脚本不会在发布窗口修改 Node 运行时。"
 
 echo "==> 启动并开机自启 Nginx"
 systemctl enable --now nginx
@@ -32,21 +35,20 @@ ufw allow 'Nginx Full'
 ufw --force enable
 ufw status
 
-echo "==> 创建 web 目录骨架 /var/www/<site>/public"
-mkdir -p /var/www/_template
-chown -R www-data:www-data /var/www
-chmod -R 755 /var/www
+echo "==> 创建 VisaLang 目录骨架"
+mkdir -p /var/www/visalang.org/source /var/www/visalang.org/releases
+chown -R www-data:www-data /var/www/visalang.org
+chmod -R 755 /var/www/visalang.org
 
 echo ""
 echo "==> 初始化完成 ✅"
 echo ""
-echo "接下来你需要："
-echo "  1) 把域名 flowlight.me 的 A 记录指向 $(curl -s ifconfig.me)"
-echo "  2) 复制 deploy/nginx-vhost-template.conf 到 /etc/nginx/sites-available/flowlight.me.conf"
-echo "     把 \$DOMAIN 全部替换成 flowlight.me"
-echo "     ln -s /etc/nginx/sites-available/flowlight.me.conf /etc/nginx/sites-enabled/"
-echo "     nginx -t && systemctl reload nginx"
-echo "  3) certbot --nginx -d flowlight.me -d www.flowlight.me（首签证书）"
-echo "  4) bash deploy.sh（部署代码）"
+echo "接下来需要由获权操作人完成："
+echo "  1) 确认 visalang.org 与 www.visalang.org 的 DNS 目标"
+echo "  2) 安装 deploy/nginx-vhost-template.conf 到 /etc/nginx/sites-available/visalang.org.conf"
+echo "  3) 安装 deploy/legacy-redirects.conf 到 /etc/nginx/snippets/visalang-legacy-redirects.conf"
+echo "  4) nginx -t 通过后再启用并重载 Nginx"
+echo "  5) 确认证书覆盖 visalang.org 与 www.visalang.org"
+echo "  6) 仅在批准的发布窗口运行 deploy/deploy.sh"
 echo ""
 echo "服务器公网 IP：$(curl -s ifconfig.me)"

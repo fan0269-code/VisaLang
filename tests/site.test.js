@@ -9,6 +9,7 @@ require('./germany-b1-cluster.test.js');
 require('./germany-testdaf-cluster.test.js');
 require('./content-integrity.test.js');
 require('./source-review-render.test.js');
+require('./deploy.test.js');
 
 const read = (file) => fs.readFileSync(file, 'utf8');
 const exists = (file) => fs.existsSync(file);
@@ -36,6 +37,10 @@ const src = {
   cookies: read('src/pages/cookie-policy.astro'),
   siteData: read('src/data/site.ts'),
   redirects: read('public/_redirects'),
+  headers: read('public/_headers'),
+  adsTxt: exists('public/ads.txt') ? read('public/ads.txt') : '',
+  sourceReview: read('src/data/source-review.ts'),
+  guideStatusBadge: read('src/components/GuideStatusBadge.astro'),
 };
 
 const requiredComponents = [
@@ -67,13 +72,51 @@ assert.ok(src.base.includes('id="main-content"'), 'shared layout exposes a main 
 assert.ok(src.base.includes('organisationJsonLD'), 'shared layout emits Organization data');
 assert.ok(src.base.includes('rel="canonical"'), 'shared layout emits canonical URLs');
 assert.ok(src.base.includes('hreflang'), 'shared layout emits hreflang links');
-assert.ok(src.base.includes('pagead2.googlesyndication.com/ pagead/js/adsbygoogle.js'.replace('/ ', '/')), 'shared layout includes the approved AdSense publisher script');
+const adsenseLoader = 'pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3018617123550799';
+assert.ok(src.base.includes('enableAds?: boolean'), 'BaseLayout exposes an enableAds prop');
+assert.ok(src.base.includes('enableAds = true'), 'BaseLayout enables advertising by default');
+assert.equal((src.base.match(/pagead2\.googlesyndication\.com/g) || []).length, 1, 'BaseLayout declares the AdSense host once');
+assert.ok(src.base.includes(adsenseLoader), 'BaseLayout loads the configured AdSense publisher script');
+assert.match(
+  src.base,
+  /\{\s*enableAds\s*&&\s*<script\s+async\s+src="https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-3018617123550799"\s+crossorigin="anonymous"><\/script>\s*\}/,
+  'BaseLayout conditionally renders the approved AdSense loader through enableAds',
+);
 assert.ok(!src.base.includes('static.cloudflareinsights.com'), 'shared layout does not load Cloudflare Web Analytics');
-assert.ok(src.privacy.includes('Google AdSense') && src.privacy.includes('consent message'), 'privacy policy describes AdSense and consent messaging');
-assert.ok(src.cookies.includes('Google AdSense') && src.cookies.includes('consent signals'), 'cookie policy describes AdSense storage and consent signals');
-assert.ok(src.privacy.includes('places only the non-sensitive values needed to restore that result in the page URL'), 'privacy policy describes URL-backed tool restoration');
-assert.ok(src.cookies.includes('Current tools do not store their form fields in local storage.'), 'cookie policy does not misstate tool fields as local-storage data');
-assert.ok(src.cookies.includes('Route progress:') && src.cookies.includes('current route step in browser local storage'), 'cookie policy limits current local-storage behavior to route progress');
+assert.ok(src.tool.includes('enableAds={false}'), 'ToolLayout disables advertising for URL-backed tools');
+assert.ok(src.tools.includes('enableAds={false}'), 'tools index disables advertising');
+assert.ok(src.guides.includes('enableAds={false}'), 'searchable guide library index disables advertising');
+assert.equal(src.adsTxt, 'google.com, pub-3018617123550799, DIRECT, f08c47fec0942fa0\n', 'ads.txt declares the approved direct Google seller');
+assert.ok(src.privacy.includes('How VisaLang handles visitor data, advertising choices, URL state, local storage, and server logs.'), 'privacy policy description covers advertising choices');
+for (const text of ['VisaLang uses Google AdSense on ad-eligible content pages', 'Google Privacy & messaging', 'Google Ads Settings', 'places only the non-sensitive values needed to restore that result in the page URL']) {
+  assert.ok(src.privacy.includes(text), `privacy policy includes ${text}`);
+}
+for (const text of ['Google AdSense and Google Privacy & messaging', 'Current tools do not store their form fields in local storage.', 'Route progress:', 'current route step in browser local storage']) {
+  assert.ok(src.cookies.includes(text), `cookie policy includes ${text}`);
+}
+assert.ok(!src.headers.includes('Content-Security-Policy:'), 'headers leaves CSP to Google-managed advertising requirements');
+for (const header of ['X-Content-Type-Options:', 'X-Frame-Options:', 'Referrer-Policy:', 'Permissions-Policy:', 'Strict-Transport-Security:']) {
+  assert.ok(src.headers.includes(header), `headers retains ${header}`);
+}
+
+for (const page of [
+  'dist/index.html',
+  'dist/guides/german-family-reunion-language-requirement/index.html',
+]) {
+  assert.ok(read(page).includes(adsenseLoader), `ad-eligible generated page loads AdSense: ${page}`);
+}
+for (const page of [
+  'dist/tools/index.html',
+  'dist/tools/route-finder/index.html',
+  'dist/tools/checklist-generator/index.html',
+  'dist/tools/timeline-calculator/index.html',
+  'dist/tools/exam-comparison/index.html',
+  'dist/tools/email-reminders/index.html',
+  'dist/guides/index.html',
+]) {
+  assert.ok(!read(page).includes('pagead2.googlesyndication.com'), `advertising-free generated page excludes AdSense: ${page}`);
+}
+assert.equal(read('dist/ads.txt'), 'google.com, pub-3018617123550799, DIRECT, f08c47fec0942fa0\n', 'generated ads.txt retains the approved direct Google seller');
 
 for (const token of ['--page-max', '--reading-max', '--text-2xl', '--space-8', '--radius', '--shadow-md', '--primary', '--risk', '--success', '--focus', '--disabled']) {
   assert.ok(src.css.includes(token), `design system should define ${token}`);
@@ -114,6 +157,8 @@ assert.ok(read('src/components/tools/ToolShell.astro').includes('data-tool-resta
 assert.ok(read('src/components/tools/ToolShell.astro').includes('<ToolStepper current={0}'), 'tool progress starts at Step 1');
 assert.ok(!read('src/components/tools/ToolShell.astro').includes('localStorage'), 'tools do not silently persist planning fields in localStorage');
 const toolFormController = read('src/scripts/tool-form.ts');
+const routeFinderTool = read('src/pages/tools/route-finder.astro');
+const toolResultSupport = read('src/components/tools/ToolResultSupport.astro');
 assert.ok(toolFormController.includes("setAttribute('aria-invalid', 'true')") && toolFormController.includes("field.removeAttribute('aria-invalid')"), 'tool validation sets and clears field invalid state');
 assert.ok(toolFormController.includes("closest('li')?.remove()") && toolFormController.includes('summary.replaceChildren()'), 'corrected fields are also removed from the error summary');
 assert.ok(toolFormController.includes('data-error-summary') && toolFormController.includes('failures[0].field.focus()'), 'tool validation renders an error summary and focuses the first invalid field');
@@ -124,7 +169,8 @@ assert.ok(src.css.includes('.tool-error-summary') && src.css.includes('[aria-inv
 for (const toolPage of ['route-finder', 'checklist-generator', 'timeline-calculator', 'exam-comparison', 'email-reminders']) {
   const toolSource = read(`src/pages/tools/${toolPage}.astro`);
   assert.ok(toolSource.includes('novalidate') && toolSource.includes('setupToolForm'), `${toolPage} uses shared accessible client validation`);
-  assert.ok(toolSource.includes('controller.persist()') && toolSource.includes('controller.markResult()') && toolSource.includes('requestSubmit()'), `${toolPage} persists and restores successful URL-backed results and marks Step 3`);
+  assert.ok(toolSource.includes('controller.persist()') && toolSource.includes('controller.markResult()'), `${toolPage} persists successful URL-backed results and marks Step 3`);
+  if (toolPage !== 'route-finder') assert.ok(toolSource.includes('requestSubmit()'), `${toolPage} restores successful URL-backed results automatically`);
 }
 const comparisonTool = read('src/pages/tools/exam-comparison.astro');
 assert.ok(comparisonTool.includes("setAttribute('role', 'region')") && comparisonTool.includes("setAttribute('aria-label', 'Exam comparison table."), 'exam comparison table uses a named region');
@@ -132,6 +178,16 @@ assert.ok(comparisonTool.includes('tableWrap.tabIndex = 0') && comparisonTool.in
 assert.ok(comparisonTool.includes('sharedCell.colSpan = 2') && comparisonTool.includes('sourcesLabel.textContent = \'Official exam page\''), 'exam comparison shares one verification prompt across both exam columns and routes each exam to its own official page');
 assert.ok(!comparisonTool.includes('firstCell.textContent = dimension.value') && !comparisonTool.includes('secondCell.textContent = dimension.value'), 'exam comparison no longer fills both columns with the same dimension value');
 assert.ok(src.css.includes('.tool-table-hint { display: block; }') && src.css.includes('overscroll-behavior-inline: contain'), 'comparison table exposes its hint at the mobile breakpoint and contains horizontal scrolling');
+assert.ok(routeFinderTool.includes("persistedNames: ['country', 'purpose', 'level', 'certificate']"), 'route-finder restores only route classification fields from the URL');
+assert.match(routeFinderTool, /<input\s+name="location"\s+required\b/, 'route-finder keeps application location required for the current page result');
+assert.match(routeFinderTool, /<input\s+name="targetDate"\s+type="date"\s+required\b/, 'route-finder keeps target submission date required for the current page result');
+assert.doesNotMatch(routeFinderTool, /persistedNames:\s*\[[^\]]*(?:location|targetDate)/s, 'route-finder does not persist location or target date to the URL');
+assert.doesNotMatch(routeFinderTool, /restored[\s\S]*requestSubmit\(\)/, 'route-finder does not automatically submit after restoring partial URL state');
+assert.ok(toolResultSupport.includes("const { resultId, guideHref = '/guides/', guideLabel = 'Browse route guides' } = Astro.props;"), 'ToolResultSupport defaults to a route-neutral guide handoff');
+assert.ok(!toolResultSupport.includes('Germany B1 settlement and citizenship route'), 'ToolResultSupport does not push unrelated Germany route defaults');
+assert.ok(routeFinderTool.includes('route.guide?.href'), 'configured route-finder results use the configured route guide link when available');
+assert.ok(routeFinderTool.includes("checklistLink.href = '/tools/checklist-generator/'"), 'configured route-finder results link to the Checklist tool');
+assert.ok(routeFinderTool.includes("timelineLink.href = '/tools/timeline-calculator/'"), 'configured route-finder results link to the Timeline tool');
 assert.ok(read('src/data/route-tools.ts').includes("availability: 'verify-only'"), 'unsupported routes stop at an official-verification-required state');
 assert.ok(read('src/data/route-tools.ts').includes('if (!route) return []'), 'unsupported routes do not generate a pseudo-checklist');
 assert.ok(!/value="(21|28|7)"/.test(read('src/pages/tools/timeline-calculator.astro')), 'timeline does not assume default result or retake timing');
@@ -161,8 +217,29 @@ for (const filter of ['purpose', 'country', 'route', 'exam', 'level', 'language'
 for (const sort of ['Recently updated', 'Route relevance', 'Content maturity']) {
   assert.ok(src.filterBar.includes(sort), `guide library includes ${sort} sorting`);
 }
-for (const status of ['Complete route', 'Core route', 'Starter overview']) {
+for (const status of ['Route structure complete', 'Core route structure', 'Starter overview', 'Verification pending']) {
   assert.ok(src.guides.includes(status), `guide library includes ${status} status`);
+}
+for (const oldFilterLabel of ['Complete route', 'Core route']) {
+  assert.ok(!src.guides.includes(`label: '${oldFilterLabel}'`), `guide library no longer uses ${oldFilterLabel} as a filter label`);
+}
+const expectedContentStatusLabels = {
+  'complete-route': 'Route structure complete',
+  'core-route': 'Core route structure',
+  'starter-overview': 'Starter overview',
+  'verification-pending': 'Verification pending',
+};
+for (const [status, label] of Object.entries(expectedContentStatusLabels)) {
+  assert.ok(src.sourceReview.includes(`'${status}': '${label}'`), `source-review labels ${status} as ${label}`);
+}
+const expectedChineseStatusLabels = {
+  'complete-route': '路线结构完整',
+  'core-route': '核心路线结构',
+  'starter-overview': '入门概览',
+  'verification-pending': '待核验',
+};
+for (const [status, label] of Object.entries(expectedChineseStatusLabels)) {
+  assert.ok(src.guideStatusBadge.includes(`'${status}': '${label}'`), `Chinese status badge labels ${status} as ${label}`);
 }
 assert.match(read('src/content/guides/german-family-reunion-language-requirement.md'), /^contentStatus: "complete-route"/m, 'Germany A1 content records retain the complete route baseline');
 assert.match(read('src/content/guides/germany-b1-citizenship-language-proof.md'), /^contentStatus: "core-route"/m, 'Germany B1 content records retain the core route baseline');

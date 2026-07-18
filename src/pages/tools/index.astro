@@ -5,7 +5,7 @@ import ProductStatus from '../../components/ProductStatus.astro';
 import { site } from '../../data/site';
 const jsonLD = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'VisaLang decision tools', url: 'https://visalang.org/tools/' };
 ---
-<BaseLayout title="Decision tools" description="Use free tools to organise route questions, requirements, timing, exam comparisons, and reminders." canonicalURL="https://visalang.org/tools/" jsonLD={jsonLD}>
+<BaseLayout title="Decision tools" description="Use free tools to organise route questions, requirements, timing, exam comparisons, and reminders." canonicalURL="https://visalang.org/tools/" jsonLD={jsonLD} enableAds={false}>
   <main class="site-main od-tools">
     <PageHero compact title="Tools for planning a language-proof route." description="Each tool records your inputs and keeps official verification visible." primary={{ href: '/tools/route-finder/', label: 'Start with Route Finder' }} />
     <section class="tool-grid" aria-label="Available tools">{site.tools.map((tool) => <a class="article-card" href={tool.href}><div><ProductStatus status="available" /></div><h2>{tool.label}</h2><p class="card-meta">{tool.description}</p><span class="text-link">Open tool</span></a>)}</section>
