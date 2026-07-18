@@ -75,7 +75,6 @@ for (const headerDirective of [
 assert.doesNotMatch(serverInit, /flowlight\.me/, 'server initialization instructions use the canonical domain');
 
 const exactRedirects = {
-  '/index.html': 'https://visalang.org/$is_args$args',
   '/germany-family-reunion-a1.html': 'https://visalang.org/germany-family-reunion-a1/$is_args$args',
   '/do-i-need-german-a1.html': 'https://visalang.org/tools/route-finder/$is_args$args',
   '/about.html': 'https://visalang.org/about/$is_args$args',
@@ -90,6 +89,8 @@ const exactRedirects = {
   '/guides/dutch-inburgering-a2-b1-for-integration-and-citize/': 'https://visalang.org/guides/dutch-inburgering-a2-b1-for-integration-and-citizenship/$is_args$args',
   '/guides/portuguese-language-for-golden-visa-and-citizenshi/': 'https://visalang.org/guides/portuguese-language-for-golden-visa-and-citizenship/$is_args$args',
 };
+assert.ok(redirects.includes('if ($request_uri = /index.html) { return 301 https://visalang.org/$is_args$args; }'), 'Nginx redirects explicit legacy /index.html requests without looping internal index resolution');
+assert.ok(redirects.includes('try_files /index.html =404;'), 'Nginx can still serve the homepage after its internal index resolution');
 for (const [source, target] of Object.entries(exactRedirects)) {
   assert.ok(redirects.includes(`location = ${source} { return 301 ${target}; }`), `Nginx redirects ${source} to ${target} without dropping query parameters`);
 }
