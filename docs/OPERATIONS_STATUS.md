@@ -1,16 +1,28 @@
 # VisaLang Operations Status
 
-Updated: 2026-07-18
-Window: Production trust stabilization local merge and verification
+Updated: 2026-07-19
+Window: Germany A1 content and Chinese core-path production release
 
 ## Decision at a glance
 
-- **本地源码状态：Phase 0 合并与验证已完成，尚未推送。** AdSense 仅在符合条件的内容路由恢复；全部 `/tools/` 路由和可搜索的 Guide Library 首页保持无广告。`npm test`、`npm run build`、`npm run launch-check` 与 `git diff --check` 已通过。
-- **目标部署契约：`visalang.org`。** 本地已准备固定域名 Nginx、不可变发布、显式 release-ID 回滚和生产冒烟脚本；本窗口未连接服务器、未改 DNS/TLS、未重载 Nginx、未运行公网冒烟或回滚。
-- **广告/CMP 状态：本地源码已恢复，线上证据待核验。** Google Privacy & messaging 和 Auto ads 是业务方确认的账户输入，并非本窗口独立取得的账户或生产证据；Auto ads page exclusions、Policy Center、CMP 路径、浏览器网络行为、广告位置和 CLS 均待单独授权核验。
-- **安全头状态：** 已明确移除与 Google 管理广告不兼容的静态 CSP，同时保留 HSTS、`nosniff`、frame、referrer 和 permissions headers。线上响应头尚未核验。
+- **本地源码状态：已提交并推送。** Germany A1 内容、路线和三篇中文核心页的应用提交为 `5cfe8eedc290dd3ef03a2f27617a33ccd3425bd0`；本地和服务器发布门禁均通过。
+- **线上部署状态：已部署并验证。** `visalang.org` 当前不可变发布为 `/var/www/visalang.org/releases/5cfe8eedc290`，服务器源码和发布产物均对应 `5cfe8ee`；Nginx 配置检查、原子切换、重载和公网 smoke check 通过。
+- **回滚状态：可用但未触发。** 发布前当前版本 `/var/www/visalang.org/releases/0e1dec2929ca` 保留完整；本次没有发生强制回滚条件。
+- **内容复核状态：仍为 PARTIAL。** 3 篇依赖所选当地考点来源的英文页继续 `pending`，全部中文页仍待独立来源和翻译复核；本次部署没有把这些状态提升为已复核。
+- **广告/CMP 状态：本轮未改变。** CMP 选择、Auto ads 位置、CLS、浏览器网络行为和账户侧证据仍需单独的受控验证窗口。
 - **历史边界：** 下方 `flowlight.me`、无广告状态和旧 `/public/dist` 发布记录仅为带日期的历史证据，不证明当前 `visalang.org` 线上状态。
-- **未授权范围：** 本窗口未新增 analytics、表单、支付、邮件投递或其他服务集成。
+- **未处理范围：** 本窗口未新增 analytics、表单、支付、邮件投递或其他服务集成，也未修改 DNS、TLS、CMP 或广告账户配置。
+
+## Germany A1 content release — 2026-07-19
+
+- Application commit and immutable release: `5cfe8eedc290dd3ef03a2f27617a33ccd3425bd0` / `/var/www/visalang.org/releases/5cfe8eedc290`.
+- Previous verified release retained for rollback: `/var/www/visalang.org/releases/0e1dec2929ca`.
+- DNS/TLS path: `visalang.org` and `www.visalang.org` resolved through Cloudflare; direct origin verification against `107.150.102.145` returned the same current page timestamp and successful HTTPS response. `www` redirected to the canonical apex host.
+- Server release gate: Node.js `v22.23.1`; locked dependency install reported 0 vulnerabilities; `npm test` passed; `npm run launch-check` built 101 pages and passed 37 checks with 0 failures, ending in `READY`.
+- Publication: server source fast-forwarded from `0e1dec2` to `5cfe8ee`; the deployment script created the commit-addressed release, installed the legacy redirect snippet, passed `nginx -t`, switched `current` atomically and reloaded Nginx.
+- Public smoke: homepage, Guide Library, robots and sitemap returned 200; legacy `.html` routes and `www` returned the expected canonical 301 redirects. The three new Chinese routes, reviewed/pending English source-state markers and Chinese sitemap entry were present online.
+- Local smoke caveat: the first macOS smoke attempt failed before HTTP validation with a LibreSSL/Cloudflare `SSL_ERROR_SYSCALL`. The same repository smoke script passed from the production host, and a second public marker check completed 6/6 without the local TLS path.
+- Remaining manual evidence: CMP choices, Auto ads placement, CLS and clean-profile browser network behavior were not part of this content release and remain separately gated.
 
 ## Content and UI remediation release — 2026-07-14
 

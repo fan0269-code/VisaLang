@@ -2579,3 +2579,16 @@ Remaining:
 - Verification: `node tests/content-integrity.test.js`, `node tests/germany-a1-cluster.test.js`, and `node tests/source-review-render.test.js` passed; `npm test` passed; `git diff --check` passed; `npm run launch-check` built 101 pages and passed 37 checks with 0 failures, ending in `READY`.
 - Overall result: `PARTIAL`. Technical verification is ready, but three selected-centre-dependent English source reviews and independent Chinese source/translation review remain open.
 - Delivery boundary: no branch, commit, push, or deployment was created or performed.
+
+## 2026-07-19 — Germany A1 production release
+
+- User authorised the completed Germany A1 content batch for production publication.
+- Re-ran the local release gate: `npm test` passed; `npm run launch-check` built 101 pages and passed 37 checks with 0 failures; deployment shell syntax checks and `git diff --check` passed.
+- Staged only the 25 reviewed content, route, Chinese-page, test and task-log files. Pre-existing untracked merge, prompt, plan and specification files remained unstaged and unchanged.
+- Created application commit `5cfe8eedc290dd3ef03a2f27617a33ccd3425bd0` (`content: update Germany A1 decision routes`) and pushed `main` from `0e1dec2` to `5cfe8ee`.
+- Confirmed the production origin behind Cloudflare is the previously recorded host `107.150.102.145`; server source was clean on `main`, Node.js was `v22.23.1`, Nginx configuration tested successfully, and existing immutable releases were available before publication.
+- Ran `/var/www/visalang.org/source/deploy/deploy.sh`. Server source fast-forwarded to `5cfe8ee`; locked dependency install reported 0 vulnerabilities; server `npm test` and `npm run launch-check` passed; Nginx switched atomically to `/var/www/visalang.org/releases/5cfe8eedc290` and reloaded successfully.
+- Retained `/var/www/visalang.org/releases/0e1dec2929ca` as the immediate rollback target. No rollback trigger occurred.
+- Production smoke passed from the production host: homepage, Guide Library, robots and sitemap returned 200; legacy and `www` redirects returned the expected canonical 301 responses. Additional checks found all three new Chinese routes, both reviewed and pending English source-state markers, and the new sitemap marker online.
+- The first local smoke invocation failed during LibreSSL/Cloudflare negotiation with `SSL_ERROR_SYSCALL`; it did not produce an application HTTP failure. The same script passed from the production host, and a clean follow-up marker check returned 6/6.
+- Release result: application source pushed and deployed successfully. The three local-centre-dependent English source reviews and independent Chinese source/translation review remain pending by design; CMP, Auto ads, CLS and clean-profile browser network evidence remain outside this content release.
