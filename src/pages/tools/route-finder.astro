@@ -27,7 +27,7 @@ import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
 </ToolLayout>
 
 <script>
-  import { findRoute } from '../../data/route-tools';
+  import { findRoute, toolLinks } from '../../data/route-tools';
   import { setupToolForm } from '../../scripts/tool-form';
 
   const form = document.querySelector<HTMLFormElement>('#route-finder-form');
@@ -67,10 +67,10 @@ import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
         nextActions.append(guideLink, ' / ');
       }
       const checklistLink = document.createElement('a');
-      checklistLink.href = '/tools/checklist-generator/';
+      checklistLink.href = toolLinks.checklist;
       checklistLink.textContent = 'Open Checklist';
       const timelineLink = document.createElement('a');
-      timelineLink.href = '/tools/timeline-calculator/';
+      timelineLink.href = toolLinks.timeline;
       timelineLink.textContent = 'Open Timeline';
       nextActions.append(checklistLink, ' / ', timelineLink);
       summary.append(nextActions);

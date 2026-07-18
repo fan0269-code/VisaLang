@@ -1,6 +1,34 @@
 # VisaLang Task Log
 
-Updated: 2026-07-16
+Updated: 2026-07-18
+
+## Production trust stabilization local implementation — 2026-07-18
+
+Scope: merge the production-trust branch into the primary local checkout and complete the approved local source and deployment-safety contract. No production server, DNS, TLS, Nginx reload, public smoke test, or rollback was executed.
+
+Completed:
+
+- Preserved and committed the existing guide-navigation, homepage, comparison-tool, CSS, test, and documentation changes before merging.
+- Restored the approved AdSense publisher loader and `public/ads.txt` on ad-eligible content pages while keeping all tool routes and the searchable Guide Library index advertising-free.
+- Updated Privacy and Cookie disclosures, maturity labels, Route Finder URL minimisation, neutral handoffs, `visalang.org` Nginx configuration, executable legacy redirects, immutable release deployment, explicit release-ID rollback, and prepared production smoke checks.
+- Reconciled current consent and operations summaries while retaining dated `flowlight.me` and no-ad records as historical evidence only.
+- Included the two VisaLang-specific migration handoff documents; excluded the unrelated Claude skill-configuration plan and all `graphify-out/` generated artifacts.
+
+Verification:
+
+- `bash -n deploy/deploy.sh deploy/rollback.sh deploy/smoke-test.sh deploy/server-init.sh` — passed.
+- `node tests/deploy.test.js` — passed.
+- `npm test` — passed.
+- `npm run build` — passed; 98 pages generated.
+- `npm run launch-check` — passed; 98 routes, 31 checks, 0 failures, `READY`.
+- `git diff --check` — passed.
+
+Production boundary:
+
+- Google account configuration is user-confirmed input; current account exports, Auto ads exclusions, Policy Center state, CMP/browser paths and ads.txt account status were not independently collected.
+- DNS, TLS, installed Nginx, live redirects/headers, advertising placement, CLS, public smoke checks and rollback remain unverified.
+- Raw HAR files, screenshots, cookies, advertising identifiers and consent strings are not stored in Git or public documentation.
+- A separately authorised account/browser/production-verification window is required before deployment or a live compliance claim.
 
 ## Content execution ledger and Spain source pilot — 2026-07-16
 

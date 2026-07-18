@@ -130,4 +130,37 @@ assert.doesNotMatch(deploy, /\b(?:apt(?:-get)?|yum|dnf|nvm)\b|nodejs\.org/, 'dep
 assert.doesNotMatch(deploy, /smoke-test/, 'deployment does not execute an unauthorised production smoke test');
 assert.doesNotMatch(deploy, /production (?:is )?verified/i, 'deployment does not claim production verification');
 
+assert.ok(fs.existsSync('deploy/rollback.sh'), 'deployment includes an explicit rollback command');
+const rollback = read('deploy/rollback.sh');
+assert.match(rollback, /RELEASE_ID="\$\{1:-\}"/, 'rollback requires an explicit release ID argument');
+assert.match(rollback, /\^\[0-9a-f\]\{7,40\}\$/, 'rollback validates the release ID format');
+assert.ok(rollback.includes('"$TARGET_RELEASE/index.html"'), 'rollback requires a complete release target');
+assert.ok(rollback.includes('RELEASES_REAL'), 'rollback validates target containment inside releases');
+assert.ok(rollback.includes('CURRENT_TARGET'), 'rollback refuses the already-current release');
+assert.doesNotMatch(rollback, /find .*%T@|sort -nr|PREVIOUS_RELEASE/, 'rollback does not infer a target by modification time');
+assert.ok(rollback.indexOf('nginx -t') < rollback.indexOf('ln -sfn'), 'rollback validates Nginx before switching current');
+assert.match(rollback, /ln -sfn/, 'rollback stages an atomic symlink switch');
+assert.match(rollback, /mv -Tf/, 'rollback atomically replaces current');
+
+assert.ok(fs.existsSync('deploy/smoke-test.sh'), 'deployment includes production smoke checks');
+const smoke = read('deploy/smoke-test.sh');
+for (const path of ['/', '/guides/', '/robots.txt', '/sitemap-index.xml']) {
+  assert.ok(smoke.includes(path), `smoke test checks public path: ${path}`);
+}
+for (const path of ['/index.html', '/germany-family-reunion-a1.html']) {
+  assert.ok(smoke.includes(path), `smoke test checks legacy redirect: ${path}`);
+}
+assert.ok(smoke.includes('rel="canonical" href="https://visalang.org/"'), 'smoke test verifies the production canonical');
+assert.ok(smoke.includes('https://www.visalang.org'), 'smoke test checks www canonicalisation');
+assert.ok(smoke.includes('pagead2.googlesyndication.com'), 'smoke test verifies the active AdSense runtime on eligible content');
+assert.ok(smoke.includes('/tools/route-finder/'), 'smoke test verifies the tool route remains advertising-free');
+assert.ok(smoke.includes('google.com, pub-3018617123550799, DIRECT, f08c47fec0942fa0'), 'smoke test verifies the production ads.txt seller line');
+assert.ok(smoke.includes('content-security-policy'), 'smoke test verifies the approved CSP removal');
+const deployReadme = read('deploy/README.md');
+assert.doesNotMatch(deployReadme, /flowlight\.me/, 'deployment documentation no longer describes the legacy domain as current');
+assert.ok(deployReadme.includes('rollback.sh <verified-release-id>'), 'deployment documentation requires an explicit verified rollback target');
+assert.ok(deployReadme.includes('separately authorised production window'), 'deployment documentation preserves the production authorisation boundary');
+assert.ok(deployReadme.includes('Auto ads page exclusions'), 'deployment documentation requires account-side route exclusions');
+assert.ok(deployReadme.includes('Raw HAR files and screenshots must not be committed to Git'), 'deployment documentation protects raw browser evidence');
+
 console.log('deployment configuration rules passed');

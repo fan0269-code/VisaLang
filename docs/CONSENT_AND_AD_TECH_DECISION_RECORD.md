@@ -1,8 +1,20 @@
 # VisaLang consent and ad-tech decision record
 
-Audit date: 2026-07-14 (Asia/Shanghai)  
-Status: **BLOCKED — implementation is not authorised until the business inputs in section 9 are approved.**  
-Scope: read-only audit and implementation preparation. This record is not legal advice and does not assert GDPR, UK GDPR, CCPA, TCF, or other regulatory compliance.
+Audit date: 2026-07-18 (Asia/Shanghai)
+Status: **SOURCE APPROVED — AdSense restoration is implemented locally; account, browser-network, placement, and production verification remain pending.**
+Scope: local source implementation and historical audit record. This record is not legal advice and does not assert GDPR, UK GDPR, CCPA, TCF, or other regulatory compliance.
+
+## Approved source target — 2026-07-17
+
+- The business confirmed that Google Privacy & messaging European regulations message is published and tested and that Auto ads is enabled.
+- Source restores publisher `ca-pub-3018617123550799` only on ad-eligible content pages.
+- All `/tools/` routes and the searchable `/guides/` index disable the AdSense runtime; account-side Auto ads exclusions remain production evidence requirements.
+- `public/ads.txt` restores Google direct seller `pub-3018617123550799`.
+- The incompatible static CSP is removed; the remaining security headers stay enabled.
+- This local source state does not prove current account screenshots/exports, browser consent paths, Auto ads placement, CLS, production headers, or live advertising behavior.
+- Raw HAR, screenshots, cookies, advertising identifiers, and consent strings must remain outside Git and public documentation.
+
+The temporary safety disposition below is retained as dated historical evidence; it no longer describes the current local source target.
 
 ## Temporary safety disposition — 2026-07-14
 

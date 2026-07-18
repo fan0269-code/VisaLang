@@ -1,14 +1,16 @@
 # VisaLang Operations Status
 
-Updated: 2026-07-14
-Window: 内容与 UI 改造整批发布
+Updated: 2026-07-18
+Window: Production trust stabilization local merge and verification
 
 ## Decision at a glance
 
-- **本地源码状态：已提交并推送。** 内容与 UI 改造应用提交为 `5167dd45361cfa4920ca87c39091652d8e545405`；本地 `npm test`、`npm run launch-check` 和 `git diff --check` 通过。
-- **线上部署状态：已部署并验证。** `flowlight.me` 与 `www.flowlight.me` 在发布时均解析到 `107.150.102.145`。服务器源码、Astro 构建和 `/var/www/flowlight.me/public/dist` 已更新；Nginx 检查及重载通过；服务器 `npm test` 与 `npm run launch-check` 通过。公网关键页面、双域首页和 sitemap 均返回 200。
-- **广告/CMP 状态：业务策略仍 BLOCKED，临时安全处置已上线。** 公网 HTML 未发现暂停的 AdSense 或 Cloudflare Insights 运行时标记；不得据此声称已部署 CMP 或取得地区合规批准。
-- **内容状态：P0 安全降级已上线，人工来源审核未自动完成。** 五篇 BLOCKED 高风险文章已移除审计指出的确定性陈述并继续显示 `verification-pending`；中文来源与翻译审核仍 pending。
+- **本地源码状态：Phase 0 合并与验证已完成，尚未推送。** AdSense 仅在符合条件的内容路由恢复；全部 `/tools/` 路由和可搜索的 Guide Library 首页保持无广告。`npm test`、`npm run build`、`npm run launch-check` 与 `git diff --check` 已通过。
+- **目标部署契约：`visalang.org`。** 本地已准备固定域名 Nginx、不可变发布、显式 release-ID 回滚和生产冒烟脚本；本窗口未连接服务器、未改 DNS/TLS、未重载 Nginx、未运行公网冒烟或回滚。
+- **广告/CMP 状态：本地源码已恢复，线上证据待核验。** Google Privacy & messaging 和 Auto ads 是业务方确认的账户输入，并非本窗口独立取得的账户或生产证据；Auto ads page exclusions、Policy Center、CMP 路径、浏览器网络行为、广告位置和 CLS 均待单独授权核验。
+- **安全头状态：** 已明确移除与 Google 管理广告不兼容的静态 CSP，同时保留 HSTS、`nosniff`、frame、referrer 和 permissions headers。线上响应头尚未核验。
+- **历史边界：** 下方 `flowlight.me`、无广告状态和旧 `/public/dist` 发布记录仅为带日期的历史证据，不证明当前 `visalang.org` 线上状态。
+- **未授权范围：** 本窗口未新增 analytics、表单、支付、邮件投递或其他服务集成。
 
 ## Content and UI remediation release — 2026-07-14
 

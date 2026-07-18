@@ -2,6 +2,7 @@
 import CopyButton from '../CopyButton.astro';
 import PrintButton from '../PrintButton.astro';
 import ExportButton from '../ExportButton.astro';
+import { toolLinks } from '../../data/route-tools';
 
 export interface Props {
   resultId: string;
@@ -24,7 +25,7 @@ const { resultId, guideHref = '/guides/', guideLabel = 'Browse route guides' } =
     <section>
       <h2>Continue your plan</h2>
       <p><a href={guideHref}>{guideLabel}</a></p>
-      <p><a href="/tools/checklist-generator/">Open Checklist</a> / <a href="/tools/timeline-calculator/">Open Timeline</a></p>
+      <p><a href={toolLinks.checklist}>Open Checklist</a> / <a href={toolLinks.timeline}>Open Timeline</a></p>
     </section>
   </div>
   <div class="tool-cta-row"><CopyButton target={`#${resultId}`} /><PrintButton label="Print plan" /><ExportButton target={`#${resultId}`} /></div>

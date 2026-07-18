@@ -186,8 +186,8 @@ assert.doesNotMatch(routeFinderTool, /restored[\s\S]*requestSubmit\(\)/, 'route-
 assert.ok(toolResultSupport.includes("const { resultId, guideHref = '/guides/', guideLabel = 'Browse route guides' } = Astro.props;"), 'ToolResultSupport defaults to a route-neutral guide handoff');
 assert.ok(!toolResultSupport.includes('Germany B1 settlement and citizenship route'), 'ToolResultSupport does not push unrelated Germany route defaults');
 assert.ok(routeFinderTool.includes('route.guide?.href'), 'configured route-finder results use the configured route guide link when available');
-assert.ok(routeFinderTool.includes("checklistLink.href = '/tools/checklist-generator/'"), 'configured route-finder results link to the Checklist tool');
-assert.ok(routeFinderTool.includes("timelineLink.href = '/tools/timeline-calculator/'"), 'configured route-finder results link to the Timeline tool');
+assert.ok(routeFinderTool.includes('checklistLink.href = toolLinks.checklist'), 'configured route-finder results use the shared Checklist tool link');
+assert.ok(routeFinderTool.includes('timelineLink.href = toolLinks.timeline'), 'configured route-finder results use the shared Timeline tool link');
 assert.ok(read('src/data/route-tools.ts').includes("availability: 'verify-only'"), 'unsupported routes stop at an official-verification-required state');
 assert.ok(read('src/data/route-tools.ts').includes('if (!route) return []'), 'unsupported routes do not generate a pseudo-checklist');
 assert.ok(!/value="(21|28|7)"/.test(read('src/pages/tools/timeline-calculator.astro')), 'timeline does not assume default result or retake timing');
