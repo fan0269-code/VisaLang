@@ -2,6 +2,45 @@
 
 Updated: 2026-07-18
 
+## Editorial UI redesign and semantic navigation — 2026-07-18
+
+Scope: execute the approved UI redesign prompt locally. No advertising/CMP, Privacy/Cookie, deployment configuration, content-fact, dependency, public URL, commit, push or deployment change was authorised.
+
+Completed:
+
+- Verified the existing Related Guides scope gate, Exam Comparison shared verification row, and English/Chinese Article JSON-LD Organization author fixes with focused and aggregate tests.
+- Replaced the homepage Route Console class and card-heavy principles with a static Germany A1 route entry, editorial statement, restrained numbered stages and compact trust boundary.
+- Kept primary actions on the official blue token, removed the active warm yellow glow, retained warning colour for verification-pending, and confirmed the teal starter-overview treatment.
+- Reused the existing sans/serif font tokens with Chinese fallbacks; no external or self-hosted font asset was added.
+- Unified desktop and mobile `aria-current`: exact links use `page`, parent sections use `location`, and non-current links omit the attribute.
+- Removed only proven-zero active homepage selectors for the old console, signal cards, result actions and earlier journey/atlas/practice surfaces.
+- Added production-output assertions for the homepage, Spain authority boundary and Related Guides exclusion, Article JSON-LD, Exam Comparison bundle and navigation semantics.
+
+Files changed in this window:
+
+- `src/pages/index.astro`
+- `src/styles/global.css`
+- `src/components/GlobalHeader.astro`
+- `src/components/MobileNavigation.astro`
+- `src/lib/navigation-current.ts`
+- `tests/site.test.js`
+- `docs/STYLE_ARCHITECTURE.md`
+- `docs/TASK_LOG.md`
+- `docs/CONTENT_UI_IMPLEMENTATION_HANDOFF.md`
+
+Verification:
+
+- Stage 1 baseline: `node tests/content-integrity.test.js`, `npm test`, `npm run build`, `npm run launch-check`, and `git diff --check` passed.
+- Stage 2/3: focused aggregate tests, CSS-cleanup build and launch check passed.
+- Final results are recorded at handoff after the last complete gate.
+
+Deferred and boundaries:
+
+- Self-hosted fonts are deferred because no licensed WOFF2 source asset was available; stable local/system stacks are active.
+- Real-browser screenshots and keyboard/network evidence were not collected in this source window.
+- AdSense remains present under the existing `enableAds` route contract. No CMP, policy, CSP, third-party permission or advertising behavior was changed here.
+- No production deployment or production smoke check was run. A later deployment review must start from a clean, explicitly authorised window.
+
 ## Production trust stabilization local implementation — 2026-07-18
 
 Scope: merge the production-trust branch into the primary local checkout and complete the approved local source and deployment-safety contract. No production server, DNS, TLS, Nginx reload, public smoke test, or rollback was executed.

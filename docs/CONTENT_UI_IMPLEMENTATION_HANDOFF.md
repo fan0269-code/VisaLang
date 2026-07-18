@@ -4,6 +4,22 @@ Review date: 2026-07-14 (Asia/Shanghai)
 Review scope: current uncommitted workspace compared with `HEAD`; read-only source review plus documentation handoff.  
 Release authority: none. This review did not commit, push or deploy.
 
+## 2026-07-18 UI execution update
+
+The following previously open UI/semantic items are now implemented and covered by source plus generated-output assertions:
+
+- **Related Guides cross-country filtering:** same-route pages no longer admit other-country guides solely because the decision stage matches; the Spain citizenship regression excludes the Italian citizenship guide.
+- **Exam Comparison duplicate values:** each dimension now uses one official-verification prompt spanning both exam columns, followed by labelled official exam links.
+- **Article JSON-LD author:** English and Chinese guide layouts identify the controlled editorial author as an `Organization`.
+- **Navigation semantics:** desktop and mobile navigation share one helper; exact destinations use `aria-current="page"` and parent sections use `aria-current="location"`.
+- **TOC breakpoint:** narrow behaviour uses the approved 768px breakpoint.
+- **Homepage expression:** the Route Console was replaced by a static route entry; signal/trust card walls were consolidated; stages use a restrained numbered list; primary actions use the blue token.
+- **Status badges:** starter overview remains secondary teal and verification pending remains warning, not success.
+- **Homepage dead CSS:** proven-zero active console, signal, result-action and older journey/atlas/practice selectors were removed; the inactive archived stylesheet reference remains untouched.
+- **Typography:** distinct stable sans body and serif heading roles are active with Chinese fallbacks. Self-hosted font files remain deferred because no licensed local WOFF2 assets were available.
+
+Automated build and launch gates pass. Real-browser screenshots, computed layout, keyboard traversal and clean-profile network evidence remain a separate manual review item.
+
 ## Overall disposition
 
 The current source builds and passes the repository's automated launch gate. The two P0 regressions found during review were closed in a confirmed narrow correction window: Privacy/Cookie copy now matches the URL-backed tool model, and five source-audit-blocked guides no longer present the identified deterministic policy claims. This safe downgrade does not complete their source review.
@@ -66,9 +82,9 @@ The required 375/768/1024/1440 visual, keyboard and clean-profile network-panel 
 
 The five Chinese Germany A1 records show `sourceReviewStatus: pending` and no completed review role. Their pages explicitly suppress the source fact table and state that official verification is pending. This is a safe boundary, not a completed Chinese credibility migration.
 
-### P1 — cross-country Related Guides can bypass the comparison gate
+### Closed P1 — cross-country Related Guides comparison gate
 
-The related-link filter accepts a guide when `decisionStage` matches before checking `comparisonScope`. A same-stage guide from another country can therefore render while the source page says `comparisonScope: same-route`. This violates the controlled cross-country-link rule and is present in the Spain supporting-guide data.
+The filter now always allows same-route and same-country links, but gates same-stage cross-country links behind a non-`same-route` scope and gates other cross-country links behind explicit comparison scope plus intent. Generated Spain output proves the Italian same-stage guide is excluded.
 
 ### P2 — consent audit record contains historical/current wording tension
 
@@ -78,10 +94,10 @@ The related-link filter accepts a guide when `decisionStage` matches before chec
 
 Astro is configured with `trailingSlash: 'always'` and all generated canonical/internal URLs use trailing slashes. The local Astro preview returned `404` for `/guides` without a slash; redirect behavior depends on the deployment server rather than the static build. Existing `.html` and corrected-slug redirects are present, but the production server's general slash normalization should be checked separately.
 
-### P2 — navigation and Article JSON-LD semantics
+### Closed P2 — navigation and Article JSON-LD semantics
 
-- Some ordinary desktop section links and mobile About/section links use `aria-current="page"` for a parent section rather than the exact current URL. Visual active state and exact page-current semantics should be separated.
-- English and Chinese Article JSON-LD author objects reuse the visible controlled name but omit Schema.org `@type`. A later correction should use a controlled `Organization`/`Person` mapping without inferring a person or credential.
+- Desktop and mobile navigation now share one URL-state helper; parent sections use `location` and exact links use `page`.
+- English and Chinese Article JSON-LD author objects reuse the visible controlled name and specify `@type: Organization` without inventing a person or credential.
 
 ## Human source-review queue
 

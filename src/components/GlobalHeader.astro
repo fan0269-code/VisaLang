@@ -1,6 +1,7 @@
 ---
 import MobileNavigation from './MobileNavigation.astro';
 import { navItems, site, translatedPaths, ui } from '../data/site';
+import { navigationCurrent } from '../lib/navigation-current';
 
 const isZh = Astro.url.pathname.startsWith('/zh');
 const locale = isZh ? 'zh-CN' : 'en';
@@ -11,12 +12,6 @@ const switchHref = isZh ? reverseTranslations[Astro.url.pathname] || '/' : trans
 const localHref = (href: string) => isZh && href === '/' ? '/zh/' : href;
 const navLabel = (key: keyof typeof labels) => `${labels[key]}${isZh && key !== 'home' ? '（英文）' : ''}`;
 const currentPath = Astro.url.pathname;
-const exactCurrent = (href: string) => currentPath === href;
-const sectionActive = (key: string, href: string) => {
-  if (key === 'routes') return currentPath.startsWith('/routes/') || currentPath.startsWith('/germany-') || currentPath.startsWith('/zh/germany-');
-  if (key === 'about') return ['/about/', '/pricing/', '/partners/'].some((path) => currentPath.startsWith(path));
-  return href === '/' || href === '/zh/' ? currentPath === href : currentPath.startsWith(href);
-};
 ---
 
 <header class="global-header" data-global-header>
@@ -28,15 +23,16 @@ const sectionActive = (key: string, href: string) => {
     <nav class="global-header__nav" aria-label={isZh ? '主导航' : 'Primary navigation'}>
       {navItems.map((item) => {
         const href = localHref(item.href);
-        const active = sectionActive(item.key, href);
+        const current = navigationCurrent(currentPath, item.key, href);
+        const active = Boolean(current);
         if (item.key === 'routes') {
           return (
             <div class="nav-menu">
-              <a class:list={['nav-menu__link', { active }]} href={href} aria-current={exactCurrent(href) ? 'page' : undefined}>{navLabel('routes')}</a>
+              <a class:list={['nav-menu__link', { active }]} href={href} aria-current={current}>{navLabel('routes')}</a>
               <details class="nav-menu__disclosure">
                 <summary aria-label={isZh ? '打开路线菜单' : 'Open Routes menu'}></summary>
                 <div class="nav-menu__panel">
-                  {site.routes.map((route) => { const routeHref = isZh && route.id === 'family-reunion' ? '/zh/germany-family-reunion-a1/' : route.href; return <a href={routeHref} aria-current={exactCurrent(routeHref) ? 'page' : undefined}>{isZh ? `${route.zh}${route.id === 'family-reunion' ? '' : '（英文）'}` : route.label}</a>; })}
+                  {site.routes.map((route) => { const routeHref = isZh && route.id === 'family-reunion' ? '/zh/germany-family-reunion-a1/' : route.href; return <a href={routeHref} aria-current={navigationCurrent(currentPath, 'route-item', routeHref)}>{isZh ? `${route.zh}${route.id === 'family-reunion' ? '' : '（英文）'}` : route.label}</a>; })}
                 </div>
               </details>
             </div>
@@ -45,19 +41,19 @@ const sectionActive = (key: string, href: string) => {
         if (item.key === 'about') {
           return (
             <div class="nav-menu">
-              <a class:list={['nav-menu__link', { active }]} href={href} aria-current={exactCurrent(href) ? 'page' : undefined}>{navLabel('about')}</a>
+              <a class:list={['nav-menu__link', { active }]} href={href} aria-current={current}>{navLabel('about')}</a>
               <details class="nav-menu__disclosure">
                 <summary aria-label={isZh ? '打开关于菜单' : 'Open About menu'}></summary>
                 <div class="nav-menu__panel">
-                  <a href="/about/" aria-current={exactCurrent('/about/') ? 'page' : undefined}>{isZh ? '关于（英文）' : labels.about}</a>
-                  <a href="/pricing/" aria-current={exactCurrent('/pricing/') ? 'page' : undefined}>{isZh ? '价格与服务状态（英文）' : 'Pricing'}</a>
-                  <a href="/partners/" aria-current={exactCurrent('/partners/') ? 'page' : undefined}>{isZh ? '合作伙伴（英文）' : 'Partners'}</a>
+                  <a href="/about/" aria-current={navigationCurrent(currentPath, 'about-item', '/about/')}>{isZh ? '关于（英文）' : labels.about}</a>
+                  <a href="/pricing/" aria-current={navigationCurrent(currentPath, 'about-item', '/pricing/')}>{isZh ? '价格与服务状态（英文）' : 'Pricing'}</a>
+                  <a href="/partners/" aria-current={navigationCurrent(currentPath, 'about-item', '/partners/')}>{isZh ? '合作伙伴（英文）' : 'Partners'}</a>
                 </div>
               </details>
             </div>
           );
         }
-        return <a class:list={[{ active }]} href={href} aria-current={active ? 'page' : undefined}>{navLabel(item.key)}</a>;
+        return <a class:list={[{ active }]} href={href} aria-current={current}>{navLabel(item.key)}</a>;
       })}
     </nav>
     <a class="language-switch" href={switchHref} hreflang={isZh ? 'en' : 'zh-CN'}>{isZh ? 'English' : '中文'}</a>

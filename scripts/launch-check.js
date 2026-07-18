@@ -87,6 +87,22 @@ for (const href of ['/routes/', '/exams/', '/tools/', '/guides/', '/about/']) {
 const directMenuLinkFailures = [['/routes/', 'Routes'], ['/about/', 'About']].filter(([href, label]) => !header.includes(`class="nav-menu__link" href="${href}">${label}</a>`));
 if (!directMenuLinkFailures.length && (header.match(/class="nav-menu__disclosure"/g) || []).length === 2) pass('Routes and About keep direct links with separate disclosure controls.'); else fail(`Navigation menu controls are incomplete: ${directMenuLinkFailures.map(([, label]) => label).join(', ') || 'missing disclosure'}`);
 if (home.includes('href="/pricing/"') && home.includes('href="/partners/"')) pass('Pricing and Partners remain available under the About navigation and footer surfaces.'); else fail('Pricing or Partners link missing.');
+if (!home.includes('route-console') && home.includes('class="route-entry"') && !home.includes('button--accent')) pass('Homepage uses the static editorial route entry without accent CTA styling.'); else fail('Homepage still exposes the old console or accent CTA styling.');
+
+const spainCitizenship = fs.readFileSync(outputFor('/guides/dele-a2-ccse-spanish-citizenship/'), 'utf8');
+if (spainCitizenship.includes('status-badge--verification-pending') && spainCitizenship.includes('Spanish citizenship authority')) pass('Spain citizenship output preserves pending status and deciding authority.'); else fail('Spain citizenship trust boundary is incomplete.');
+if (!spainCitizenship.includes('href="/guides/cils-b1-cittadinanza-for-italian-citizenship/"')) pass('Same-route Spain output excludes the Italian same-stage guide.'); else fail('Spain same-route output leaks a cross-country Related Guide.');
+if (/"author":\{"@type":"Organization","name":"VisaLang Editorial team"\}/.test(spainCitizenship)) pass('Guide Article JSON-LD identifies the editorial author as an Organization.'); else fail('Guide Article JSON-LD author type is incorrect.');
+
+const comparison = fs.readFileSync(outputFor('/tools/exam-comparison/'), 'utf8');
+const clientScripts = fs.readdirSync(path.join(dist, '_astro'))
+  .filter((file) => file.endsWith('.js'))
+  .map((file) => read(`dist/_astro/${file}`))
+  .join('\n');
+if (comparison.includes('id="comparison-form"') && clientScripts.includes('Official exam page') && clientScripts.includes('colSpan=2')) pass('Exam Comparison shares verification prompts and exposes official exam links.'); else fail('Exam Comparison generated bundle repeats or omits its verification contract.');
+
+const routeFinder = fs.readFileSync(outputFor('/tools/route-finder/'), 'utf8');
+if (routeFinder.includes('href="/tools/" aria-current="location"') && routeFinder.includes('href="/tools/route-finder/" aria-current="page"')) pass('Navigation distinguishes the Tools section from the exact Route Finder page.'); else fail('Navigation aria-current semantics are inconsistent.');
 
 const guidePages = pages.filter(({ route }) => route.startsWith('/guides/') && !route.startsWith('/guides/category/') && route !== '/guides/');
 const guideFailures = guidePages.filter(({ html }) => {

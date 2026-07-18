@@ -8,6 +8,18 @@
 
 The existing exam-learning compatibility block remains active inside `global.css`. Its remaining declarations are observable on the approved pages, including the page background treatment, so this pass preserves their cascade instead of guessing that they are unused. Reduce it only through a separate selector-by-selector visual audit.
 
+## Editorial authority pass — 2026-07-18
+
+- Body copy uses the stable humanist sans stack behind `--font-sans`; headings use the distinct serif stack behind `--font-display`. Both retain `Noto Sans SC` / `Noto Serif SC`, system and generic fallbacks.
+- No font files or runtime font requests were added. Self-hosted fonts remain deferred until licensed WOFF2 assets are available.
+- `global.css` remains the only active production stylesheet. `open-design.css` remains an unloaded reference.
+- Primary actions use `--primary` and `--primary-hover`. Warning colour is reserved for verification-pending and other warning states.
+- The active page glow is limited to low-opacity blue/teal values at or below `.025`; the warm yellow glow was removed.
+- Starter overview badges use the secondary teal treatment; verification-pending badges retain the warning treatment.
+- Viewport layout continues to use only 1024px, 768px and 375px. Article TOC behaviour switches at 768px.
+- The homepage now uses a static `.route-entry`, a numbered editorial stage list and compact trust prose instead of the Route Console, signal cards and trust-card wall.
+- Proven-zero active selectors for the old Route Console, signal cards, result actions and earlier journey/atlas/practice hero surfaces were removed. The inactive archived reference was not rewritten.
+
 ## Pre-consolidation mapping
 
 Before this consolidation, `global.css` loaded first and `open-design.css` loaded second. The later file therefore won whenever specificity was equal. `global.css` also contained archived theme blocks below its original foundation.
@@ -44,7 +56,7 @@ Only `max-width: 1024px`, `max-width: 768px`, and `max-width: 375px` may be adde
 ## Core component ownership
 
 - Header: `.global-header*`, `.nav-menu*`, `.mobile-navigation*` in `global.css`.
-- Home Hero: `.home-hero*`, `.route-console*`, `.choice-*`, `.route-choice*` in `global.css`.
+- Home Hero: `.home-hero*`, `.route-entry`, `.stage-list`, `.stage-card` and `.trust-statement` in `global.css`.
 - Guide Card and Library: `.guide-card*`, `.od-guide-library*`, `.guide-filter-form`, `.filter-*` in `global.css`.
 - Guide Article: `.guide-layout`, `.guide-article*`, `.article-toc`, `.decision-authority`, `.source-fact-table`, `.od-guide-article*` in `global.css`.
 - Tool Form: `.tool-page*`, `.tool-form*`, `.tool-field-*`, `.tool-stepper`, `.tool-table-*`, `.tool-error-*` in `global.css`.

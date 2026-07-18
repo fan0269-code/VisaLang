@@ -41,6 +41,7 @@ const src = {
   adsTxt: exists('public/ads.txt') ? read('public/ads.txt') : '',
   sourceReview: read('src/data/source-review.ts'),
   guideStatusBadge: read('src/components/GuideStatusBadge.astro'),
+  navigationCurrent: exists('src/lib/navigation-current.ts') ? read('src/lib/navigation-current.ts') : '',
 };
 
 const requiredComponents = [
@@ -62,8 +63,8 @@ assert.ok(src.header.includes("href=\"/partners/\""), 'Partners remains availabl
 assert.ok(src.footer.includes('href="/pricing/"') && src.footer.includes('href="/partners/"'), 'Pricing and Partners remain available in the footer');
 assert.ok(src.header.includes('nav-menu__panel'), 'Routes and About use dropdown panels');
 assert.ok(src.header.includes('nav-menu__link') && src.header.includes('nav-menu__disclosure'), 'Routes and About keep a direct link separate from their disclosure control');
-assert.ok(src.header.includes("aria-current={active ? 'page' : undefined}") && src.mobile.includes("aria-current={currentTopLevel(item.key, href) ? 'page' : undefined}"), 'desktop and mobile navigation expose the current page or section');
-assert.ok(src.mobile.includes("if (key === 'routes') return currentPath === href") && src.mobile.includes("if (key === 'about')"), 'mobile navigation avoids duplicate route currents while preserving grouped About pages');
+assert.ok(src.header.includes("navigationCurrent(currentPath, item.key, href)") && src.mobile.includes("navigationCurrent(currentPath, item.key, href)"), 'desktop and mobile navigation reuse one current-location rule');
+assert.ok(src.navigationCurrent.includes("if (currentPath === href) return 'page'") && src.navigationCurrent.includes("return sectionActive(currentPath, key, href) ? 'location' : undefined"), 'navigation distinguishes exact pages from parent sections');
 assert.ok(src.header.includes('Open Routes menu') && src.header.includes('Open About menu'), 'Routes and About disclosures have names distinct from their page links');
 assert.ok(src.css.includes('.global-header__nav { margin-left: 0; flex: 1; overflow: visible;'), 'desktop navigation does not clip dropdown panels');
 assert.ok(src.mobile.includes('Mobile navigation'), 'mobile navigation has its own accessible label');
@@ -135,15 +136,16 @@ assert.ok(src.css.includes('min-height: 44px'), 'interactive controls use a reas
 assert.ok(src.css.includes('overflow-x: auto'), 'wide tables and tool navigation can scroll safely');
 
 assert.ok(src.home.includes('Find the right language proof before you book an exam.'), 'homepage has the selected route-planning task');
-assert.ok(src.home.includes('route-console') && !src.home.includes('data-choice-group') && !src.home.includes('home-purpose'), 'homepage route console is a static editorial entry, not an inline interactive decision panel');
+assert.ok(src.home.includes('class="route-entry"') && !src.home.includes('route-console'), 'homepage uses a static editorial route entry instead of a console surface');
 assert.ok(src.home.includes('href="/tools/route-finder/">Start with Route Finder'), 'homepage has the required primary action');
 assert.ok(src.home.includes('href="/guides/">Browse guides</a>'), 'homepage has the Open Design secondary action');
 assert.ok(src.home.includes('<RouteSelector'), 'homepage uses the shared purpose selector');
-assert.equal((src.home.match(/type="radio"/g) || []).length, 0, 'homepage route console is static and does not inline radio-based decision controls');
-assert.ok(!src.home.includes('<fieldset class="choice-group">') && !src.home.includes('<legend>Purpose</legend>') && !src.home.includes('<legend>Status</legend>'), 'homepage route console no longer carries inline Purpose/Status fieldsets');
+assert.equal((src.home.match(/type="radio"/g) || []).length, 0, 'homepage does not inline radio-based decision controls');
+assert.ok(!src.home.includes('<fieldset class="choice-group">') && !src.home.includes('<legend>Purpose</legend>') && !src.home.includes('<legend>Status</legend>'), 'homepage does not duplicate Route Finder controls');
 assert.doesNotMatch(src.home, /aria-pressed=/, 'homepage does not emulate mutually exclusive radio choices with aria-pressed buttons');
-assert.ok(src.css.includes('.route-choice:has(input:checked)::after') && src.css.includes('content: "Selected"'), 'selected radio state includes visible text rather than color alone');
-assert.ok(src.home.includes('trust-band'), 'homepage uses the Open Design trust strip');
+assert.ok(src.home.includes('home-hero__principles') && !src.home.includes('class="signal"'), 'homepage consolidates hero principles into one editorial statement');
+assert.ok(src.home.includes('trust-statement') && !src.home.includes('trust-band'), 'homepage trust boundary is editorial prose rather than a card wall');
+assert.ok(!src.home.includes('button--accent'), 'homepage does not use warning accent styling for primary actions');
 assert.ok(src.home.includes('guides.length'), 'homepage guide count is data-driven');
 assert.ok(src.home.includes('guideCategories.length'), 'homepage route count is data-driven');
 
