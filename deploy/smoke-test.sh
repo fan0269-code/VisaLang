@@ -16,9 +16,9 @@ check_redirect() {
   local url="$1"
   local expected="$2"
   local headers
-  headers="$(curl -sS -I --max-redirs 0 "$url")"
+  headers="$(curl -sS -I --max-redirs 0 "$url" | tr -d '\r')"
   printf '%s' "$headers" | grep -Eq '^HTTP/[^ ]+ 301' || { echo "✗ Expected 301 for $url"; exit 1; }
-  printf '%s' "$headers" | grep -Eiq "^location: $expected\r?$" || { echo "✗ Unexpected Location for $url"; exit 1; }
+  printf '%s' "$headers" | grep -Eiq "^location: $expected$" || { echo "✗ Unexpected Location for $url"; exit 1; }
   echo "✓ 301 $url -> $expected"
 }
 
