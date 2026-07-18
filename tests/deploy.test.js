@@ -84,18 +84,19 @@ const exactRedirects = {
   '/cookie-policy.html': 'https://visalang.org/cookie-policy/$is_args$args',
   '/editorial-policy.html': 'https://visalang.org/editorial-policy/$is_args$args',
   '/affiliate-disclosure.html': 'https://visalang.org/affiliate-disclosure/$is_args$args',
-  '/zh/index.html': 'https://visalang.org/zh/$is_args$args',
   '/zh/germany-family-reunion-a1.html': 'https://visalang.org/zh/germany-family-reunion-a1/$is_args$args',
   '/guides/dutch-inburgering-a2-b1-for-integration-and-citize/': 'https://visalang.org/guides/dutch-inburgering-a2-b1-for-integration-and-citizenship/$is_args$args',
   '/guides/portuguese-language-for-golden-visa-and-citizenshi/': 'https://visalang.org/guides/portuguese-language-for-golden-visa-and-citizenship/$is_args$args',
 };
 assert.ok(redirects.includes('if ($request_uri = /index.html) { return 301 https://visalang.org/$is_args$args; }'), 'Nginx redirects explicit legacy /index.html requests without looping internal index resolution');
 assert.ok(redirects.includes('try_files /index.html =404;'), 'Nginx can still serve the homepage after its internal index resolution');
+assert.ok(redirects.includes('if ($request_uri = /zh/index.html) { return 301 https://visalang.org/zh/$is_args$args; }'), 'Nginx redirects explicit legacy Chinese index requests without looping internal index resolution');
+assert.ok(redirects.includes('try_files /zh/index.html =404;'), 'Nginx can still serve the Chinese homepage after its internal index resolution');
 for (const [source, target] of Object.entries(exactRedirects)) {
   assert.ok(redirects.includes(`location = ${source} { return 301 ${target}; }`), `Nginx redirects ${source} to ${target} without dropping query parameters`);
 }
-assert.ok(redirects.includes('location ~ ^/guides/(.+)\\.html$ { return 301 https://visalang.org/guides/$1/$is_args$args; }'), 'Nginx redirects legacy English guide HTML routes to the canonical trailing-slash route without dropping query parameters');
-assert.ok(redirects.includes('location ~ ^/zh/guides/(.+)\\.html$ { return 301 https://visalang.org/zh/guides/$1/$is_args$args; }'), 'Nginx redirects legacy Chinese guide HTML routes to the canonical trailing-slash route without dropping query parameters');
+assert.ok(redirects.includes('if ($request_uri ~ \\.html(?:\\?|$)) { return 301 https://visalang.org/guides/$1/$is_args$args; }'), 'Nginx redirects explicit legacy English guide HTML routes without catching internal directory indexes');
+assert.ok(redirects.includes('if ($request_uri ~ \\.html(?:\\?|$)) { return 301 https://visalang.org/zh/guides/$1/$is_args$args; }'), 'Nginx redirects explicit legacy Chinese guide HTML routes without catching internal directory indexes');
 
 const cloneIndex = indexOfOrFail('$SUDO git clone --branch main --single-branch "$REPO" "$SOURCE_DIR"');
 const dirtyCheckIndex = indexOfOrFail('git -C "$SOURCE_DIR" status --porcelain');
