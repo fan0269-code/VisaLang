@@ -37,31 +37,15 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'WebSite', name: sit
       <aside class="route-console" aria-label="Route starting point">
         <div class="route-console__head">
           <p class="console-label">Route starting point</p>
-          <h2>Choose your current situation</h2>
-          <p>This does not produce a policy decision. It helps you identify the next question to verify.</p>
+          <h2>Start with the Germany A1 family reunion route</h2>
+          <p>This is the most developed route. It does not produce a policy decision — it identifies the next question to verify.</p>
         </div>
         <div class="route-console__body">
-          <fieldset class="choice-group">
-            <legend>Purpose</legend>
-            <div class="choice-row" data-choice-group="purpose">
-              <label class="route-choice"><input type="radio" name="home-purpose" value="family" checked /><span>Family reunion</span></label>
-              <label class="route-choice"><input type="radio" name="home-purpose" value="settlement" /><span>Settlement or citizenship</span></label>
-              <label class="route-choice"><input type="radio" name="home-purpose" value="study" /><span>Study</span></label>
-              <label class="route-choice"><input type="radio" name="home-purpose" value="work" /><span>Work or registration</span></label>
-            </div>
-          </fieldset>
-          <fieldset class="choice-group">
-            <legend>Status</legend>
-            <div class="choice-row" data-choice-group="status">
-              <label class="route-choice"><input type="radio" name="home-status" value="unknown" checked /><span>No instruction yet</span></label>
-              <label class="route-choice"><input type="radio" name="home-status" value="instructed" /><span>I have an instruction</span></label>
-            </div>
-          </fieldset>
-          <div class="result-card" aria-live="polite">
-            <b data-route-result-title>Start with the Germany A1 family reunion route</b>
-            <p data-route-result-copy>Next: verify whether the receiving organisation specifies a language level, accepted exam, certificate format, or validity rule.</p>
+          <div class="result-card">
+            <b>Germany A1 family reunion</b>
+            <p>Next: verify whether the receiving organisation specifies a language level, accepted exam, certificate format, or validity rule.</p>
             <div class="result-actions">
-              <a class="mini-button" data-route-result-link href="/germany-family-reunion-a1/">Open route</a>
+              <a class="mini-button" href="/germany-family-reunion-a1/">Open route</a>
               <a class="mini-button" href="/tools/route-finder/">Use full tool</a>
             </div>
           </div>
@@ -73,13 +57,12 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'WebSite', name: sit
 
     <section class="section" aria-labelledby="stage-title">
       <h2 class="section-title" id="stage-title">Break the decision into four practical stages</h2>
-      <p class="section-lede">The home page does not try to answer every country and exam question at once. It helps you choose the first safe step.</p>
       <div class="lane-grid">
         <ol class="stage-list">
-          <li class="stage-card"><span class="node" aria-hidden="true">1</span><div><h3>Identify the receiving organisation</h3><p>Start with the authority, institution, employer, regulator, or exam body that will receive your proof.</p><a href="/tools/route-finder/">Choose a purpose</a></div></li>
-          <li class="stage-card"><span class="node" aria-hidden="true">2</span><div><h3>Confirm the proof level</h3><p>Check the source that receives your file before treating any A1, B1, B2, or other level as suitable.</p><a href="/guides/">Browse level guides</a></div></li>
-          <li class="stage-card"><span class="node" aria-hidden="true">3</span><div><h3>Compare accepted exams</h3><p>The same level can map to different certificates. Acceptance depends on the receiving organisation.</p><a href="/tools/exam-comparison/">Compare exams</a></div></li>
-          <li class="stage-card"><span class="node" aria-hidden="true">4</span><div><h3>Verify before acting</h3><p>Recheck centre status, dates, fees, ID rules, result timing, and submission requirements before payment.</p><a href="/tools/checklist-generator/">Build a checklist</a></div></li>
+          <li class="stage-card"><div><h3>Identify the receiving organisation</h3><p>Start with the authority, institution, employer, regulator, or exam body that will receive your proof.</p><a href="/tools/route-finder/">Choose a purpose</a></div></li>
+          <li class="stage-card"><div><h3>Confirm the proof level</h3><p>Check the source that receives your file before treating any A1, B1, B2, or other level as suitable.</p><a href="/guides/">Browse level guides</a></div></li>
+          <li class="stage-card"><div><h3>Compare accepted exams</h3><p>The same level can map to different certificates. Acceptance depends on the receiving organisation.</p><a href="/tools/exam-comparison/">Compare exams</a></div></li>
+          <li class="stage-card"><div><h3>Verify before acting</h3><p>Recheck centre status, dates, fees, ID rules, result timing, and submission requirements before payment.</p><a href="/tools/checklist-generator/">Build a checklist</a></div></li>
         </ol>
         <aside class="sidebar-panel">
           <h3>VisaLang organises the route. It does not decide the rule.</h3>
@@ -102,7 +85,7 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'WebSite', name: sit
         <div class="resource-lead">
           <h3>Use a tool when the route is unclear.</h3>
           <p>If you do not know which language proof matters, begin with the route finder instead of reading a long list first.</p>
-          <div class="button-row"><a class="button button--accent" href="/tools/route-finder/">Open Route Finder</a></div>
+          <div class="button-row"><a class="button button--primary" href="/tools/route-finder/">Open Route Finder</a></div>
         </div>
         <div class="resource-list">
           <a class="resource-link" href="/tools/route-finder/"><div><h3>Route Finder</h3><p>Start from purpose, country, and current instruction status.</p></div><span>Open</span></a>
@@ -134,27 +117,4 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'WebSite', name: sit
       </div>
     </section>
   </main>
-  <script is:inline>
-    const groups = document.querySelectorAll('[data-choice-group]');
-    const resultTitle = document.querySelector('[data-route-result-title]');
-    const resultCopy = document.querySelector('[data-route-result-copy]');
-    const resultLink = document.querySelector('[data-route-result-link]');
-    const copy = {
-      family: ['Start with the Germany A1 family reunion route', 'Next: verify whether the receiving organisation specifies a language level, accepted exam, certificate format, or validity rule.', '/germany-family-reunion-a1/'],
-      settlement: ['Prepare a settlement or citizenship proof check', 'Next: identify the receiving authority and verify the required level, accepted proof, exemptions, and submission timing.', '/germany-b1-settlement-citizenship/'],
-      study: ['Prepare an institution-specific study check', 'Next: confirm the university, programme, and visa instructions before treating any exam as acceptable.', '/guides/category/germany-testdaf/'],
-      work: ['Prepare an employer or regulator proof check', 'Next: confirm whether the receiving organisation sets a certificate, level, validity, or professional-registration rule.', '/guides/category/germany-telc/'],
-    };
-    const updateResult = () => {
-      const purpose = document.querySelector('[data-choice-group="purpose"] input:checked')?.value || 'family';
-      const status = document.querySelector('[data-choice-group="status"] input:checked')?.value;
-      const selected = copy[purpose] || copy.family;
-      resultTitle.textContent = selected[0];
-      resultCopy.textContent = status === 'instructed' ? 'Next: compare your instruction against the relevant route and collect the exact source links before booking.' : selected[1];
-      resultLink.href = selected[2];
-      resultLink.textContent = selected[2].includes('/tools/') ? 'Open tool' : 'Open route';
-    };
-    groups.forEach((group) => group.addEventListener('change', updateResult));
-    updateResult();
-  </script>
 </BaseLayout>

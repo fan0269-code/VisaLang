@@ -56,7 +56,7 @@ const jsonLD = {
   url: canonicalURL,
   datePublished: '2026-07-09',
   dateModified: updatedDate,
-  author: { name: guideRecord.author },
+  author: { '@type': 'Organization', name: guideRecord.author },
   publisher: { '@type': 'Organization', name: 'VisaLang', url: 'https://visalang.org/' },
   inLanguage: 'zh-CN',
   mainEntityOfPage: canonicalURL,

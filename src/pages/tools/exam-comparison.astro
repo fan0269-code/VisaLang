@@ -63,18 +63,21 @@ import { examComparisonOptions } from '../../data/route-tools';
     examComparisonDimensions.forEach((dimension) => {
       const row = document.createElement('tr');
       const dimensionCell = document.createElement('th'); dimensionCell.scope = 'row'; dimensionCell.textContent = dimension.label;
-      const firstCell = document.createElement('td'); firstCell.textContent = dimension.value;
-      const secondCell = document.createElement('td'); secondCell.textContent = dimension.value;
-      row.append(dimensionCell, firstCell, secondCell); body.append(row);
+      const sharedCell = document.createElement('td'); sharedCell.colSpan = 2; sharedCell.textContent = dimension.value;
+      row.append(dimensionCell, sharedCell); body.append(row);
     });
+    const sourcesRow = document.createElement('tr');
+    const sourcesLabel = document.createElement('th'); sourcesLabel.scope = 'row'; sourcesLabel.textContent = 'Official exam page';
+    sourcesRow.append(sourcesLabel);
+    [first, second].forEach((exam) => {
+      const cell = document.createElement('td');
+      const link = document.createElement('a'); link.href = exam.officialUrl; link.textContent = exam.label; link.rel = 'noreferrer'; link.target = '_blank';
+      cell.append(link);
+      sourcesRow.append(cell);
+    });
+    body.append(sourcesRow);
     table.append(body); tableWrap.append(table);
-    const sources = document.createElement('p');
-    sources.append('Official exam pages: ');
-    [first, second].forEach((exam, index) => {
-      if (index) sources.append(' · ');
-      const link = document.createElement('a'); link.href = exam.officialUrl; link.textContent = exam.label; link.rel = 'noreferrer'; link.target = '_blank'; sources.append(link);
-    });
-    summary.append(heading, intro, tableHint, tableWrap, sources);
+    summary.append(heading, intro, tableHint, tableWrap);
     resultPanel.hidden = false;
     controller.markResult();
     resultPanel.focus();

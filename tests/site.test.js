@@ -92,12 +92,12 @@ assert.ok(src.css.includes('min-height: 44px'), 'interactive controls use a reas
 assert.ok(src.css.includes('overflow-x: auto'), 'wide tables and tool navigation can scroll safely');
 
 assert.ok(src.home.includes('Find the right language proof before you book an exam.'), 'homepage has the selected route-planning task');
-assert.ok(src.home.includes('route-console'), 'homepage includes the Open Design route console panel');
+assert.ok(src.home.includes('route-console') && !src.home.includes('data-choice-group') && !src.home.includes('home-purpose'), 'homepage route console is a static editorial entry, not an inline interactive decision panel');
 assert.ok(src.home.includes('href="/tools/route-finder/">Start with Route Finder'), 'homepage has the required primary action');
 assert.ok(src.home.includes('href="/guides/">Browse guides</a>'), 'homepage has the Open Design secondary action');
 assert.ok(src.home.includes('<RouteSelector'), 'homepage uses the shared purpose selector');
-assert.equal((src.home.match(/type="radio"/g) || []).length, 6, 'homepage Purpose and Status use native radio controls');
-assert.ok(src.home.includes('<fieldset class="choice-group">') && src.home.includes('<legend>Purpose</legend>') && src.home.includes('<legend>Status</legend>'), 'homepage radio groups use fieldset and visible legends');
+assert.equal((src.home.match(/type="radio"/g) || []).length, 0, 'homepage route console is static and does not inline radio-based decision controls');
+assert.ok(!src.home.includes('<fieldset class="choice-group">') && !src.home.includes('<legend>Purpose</legend>') && !src.home.includes('<legend>Status</legend>'), 'homepage route console no longer carries inline Purpose/Status fieldsets');
 assert.doesNotMatch(src.home, /aria-pressed=/, 'homepage does not emulate mutually exclusive radio choices with aria-pressed buttons');
 assert.ok(src.css.includes('.route-choice:has(input:checked)::after') && src.css.includes('content: "Selected"'), 'selected radio state includes visible text rather than color alone');
 assert.ok(src.home.includes('trust-band'), 'homepage uses the Open Design trust strip');
@@ -129,6 +129,8 @@ for (const toolPage of ['route-finder', 'checklist-generator', 'timeline-calcula
 const comparisonTool = read('src/pages/tools/exam-comparison.astro');
 assert.ok(comparisonTool.includes("setAttribute('role', 'region')") && comparisonTool.includes("setAttribute('aria-label', 'Exam comparison table."), 'exam comparison table uses a named region');
 assert.ok(comparisonTool.includes('tableWrap.tabIndex = 0') && comparisonTool.includes('Scroll left and right to view all comparison columns.'), 'exam comparison region is keyboard focusable and has a narrow-screen scroll hint');
+assert.ok(comparisonTool.includes('sharedCell.colSpan = 2') && comparisonTool.includes('sourcesLabel.textContent = \'Official exam page\''), 'exam comparison shares one verification prompt across both exam columns and routes each exam to its own official page');
+assert.ok(!comparisonTool.includes('firstCell.textContent = dimension.value') && !comparisonTool.includes('secondCell.textContent = dimension.value'), 'exam comparison no longer fills both columns with the same dimension value');
 assert.ok(src.css.includes('.tool-table-hint { display: block; }') && src.css.includes('overscroll-behavior-inline: contain'), 'comparison table exposes its hint at the mobile breakpoint and contains horizontal scrolling');
 assert.ok(read('src/data/route-tools.ts').includes("availability: 'verify-only'"), 'unsupported routes stop at an official-verification-required state');
 assert.ok(read('src/data/route-tools.ts').includes('if (!route) return []'), 'unsupported routes do not generate a pseudo-checklist');
@@ -169,7 +171,7 @@ assert.ok(src.guide.includes('resolveGuideContentStatus'), 'article headers use 
 assert.ok(src.guide.includes('showSourceFactTable') && src.guide.includes('sourceReviewStatus === \'reviewed\''), 'source fact tables require reviewed controlled metadata');
 assert.ok(src.guide.includes('Who decides this?') && src.guide.includes('Official verification pending.'), 'English guides expose the deciding-authority boundary');
 assert.ok(src.zhGuide.includes('谁最终决定？') && src.zhGuide.includes('官方来源事实表待完成'), 'Chinese guides preserve an explicit pending source boundary');
-assert.ok(src.guide.includes('author: { name: author }') && src.zhGuide.includes('author: { name: guideRecord.author }'), 'visible and JSON-LD authors use the same controlled data without a hard-coded author type');
+assert.ok(src.guide.includes("author: { '@type': 'Organization', name: author }") && src.zhGuide.includes("author: { '@type': 'Organization', name: guideRecord.author }"), 'Article JSON-LD authors use a controlled Organization type with the same controlled name, without inventing a Person');
 assert.ok(src.guideTaxonomy.includes('starter overview guides'), 'other categories retain starter overview framing');
 assert.ok(src.guides.includes('history.replaceState'), 'guide filters persist to URL parameters');
 assert.ok(src.guides.includes("params.get('q')") && src.guides.includes('params.get(filter.name)') && src.guides.includes("params.get('sort')"), 'guide filters restore search, facets, and sort from URL parameters');
@@ -181,6 +183,10 @@ assert.ok(src.filterBar.includes('aria-live="polite"') && src.filterBar.includes
 assert.equal((src.guideCard.match(/<a\s/g) || []).length, 1, 'each Guide Card exposes one primary keyboard link');
 assert.ok(src.guideCard.includes('Direct answer:') && src.guideCard.includes('Updated <time') && src.guideCard.includes('<LastCheckedBadge'), 'Guide Cards expose direct answer, updated date, and source-review state');
 assert.ok(src.css.includes('@media (max-width: 768px)') && src.css.includes('.od-guide-library .filter-drawer > summary { display: flex; }'), 'Guide Library keeps the advanced-filter disclosure available at narrow widths');
+
+const guideSlugSrc = read('src/pages/guides/[slug].astro');
+assert.ok(guideSlugSrc.includes("if (sameRoute || sameCountry) return true;") && guideSlugSrc.includes("frontmatter.comparisonScope !== 'same-route' && candidate.data.decisionStage === frontmatter.decisionStage"), 'related-guide filtering gates same-decisionStage cross-country links behind a non-same-route comparison scope');
+assert.ok(!guideSlugSrc.includes('sameDecisionStage || sameCountry') && !guideSlugSrc.includes('sameRoute || sameDecisionStage'), 'related-guide filter no longer short-circuits on sameDecisionStage before the comparisonScope gate');
 
 const routeSteps = [
   'Confirm whether A1 applies', 'Confirm the accepted proof', 'Compare exam options', 'Verify centre and booking',

@@ -2488,3 +2488,14 @@ Remaining:
 - CMP/ad-tech activation remains BLOCKED pending the recorded business/legal decisions.
 - Chinese source/translation review and five-page authority-source completion remain pending.
 - Browser screenshots, keyboard walkthrough and clean-profile HAR remain unverified because the browser-control runtime failed during this maintenance session.
+
+## 2026-07-16 — Germany A1 source refresh phase 1
+
+- Scope: read-only claim extraction and official-source audit for `goethe-a1-fees-by-country`, `goethe-a1-test-centers`, `goethe-a1-retake-policy`, `german-a1-documents-checklist`, and `german-family-reunion-language-requirement`.
+- Result: `PHASE_1_PARTIAL_SOURCE_GAPS_RECORDED`; page dispositions are four `READY_FOR_LIMITED_REWRITE` and one `PARTIAL_REWRITE_ONLY` (`german-a1-documents-checklist`).
+- Matrix: 37 claims total; 18 high risk; 14 fully supported; 22 partially supported; 1 unsupported; 0 source blocked.
+- Official source types checked: Federal Foreign Office, BAMF national/general family-reunion pages, Goethe-Institut global product/results/rules pages, and the telc official centre finder. No applicant location or selected centre was supplied, so mission/centre-specific gaps remain explicit.
+- Worktree protection: preserved all pre-existing modified and untracked files; the five target guides had no starting diff and were not edited. Only the phase-one report and this appended log entry belong to this window.
+- Verification: `git diff --check` passed; final status/stat and scoped diffs were inspected; the five target guides have zero diff. No tests or build were run because phase one did not modify source, tests, routes, or content.
+- Next-stage entry: only evidence-bounded wording changes may proceed. Local fee, centre availability, retake terms, test-day documents, visa-file documents, certificate acceptance, and individual exemption/eligibility claims require the named centre or mission source first.
+- Explicit exclusions: no guide body/frontmatter, content status, source-review date, test, commit, push, or deployment change.

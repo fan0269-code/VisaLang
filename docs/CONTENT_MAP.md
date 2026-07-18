@@ -1,84 +1,102 @@
-# VisaLang Content Map
+# VisaLang Content Execution Ledger
 
-Updated: 2026-07-11
+Updated: 2026-07-16
+Source of truth: `src/content/guides/*.md`, `src/data/zh-germany-a1.ts`, and the current source-review schema.
 
-Source scanned: `src/content/guides/*.md`
+## Status summary
 
-Current guide count: 54
+- English guides: 54.
+- Chinese Germany A1 guides: 5.
+- Priority queue including Chinese guides: P0 16, P1 35, P2 8.
+- English evidence state: reviewed 0, partial 13, blocked 3, pending 38.
+- Chinese evidence state: 5 pending; source and translation review are not complete.
+- Content maturity is not evidence maturity. An updated or mature page may still have pending official-source review.
 
-Notes:
+## Priority rules
 
-- `slug`, `title`, `category`, `route`, and `lastUpdated` come from guide frontmatter.
-- `country`, `exam`, and `level` are inferred from `category`, `slug`, and `title`; they are not formal frontmatter fields yet.
-- Membership columns are based on the current `category` value.
+- P0: high-risk immigration, citizenship, visa, admission, or professional-acceptance content that remains `verification-pending`.
+- P1: Germany A1/B1 core-route content and the Chinese A1 trust-migration queue.
+- P2: starter support content that should not expand before P0/P1 evidence gaps close.
+- `updatedDate` never substitutes for `sourceReviewedAt`.
 
-## Category Summary
+## English guide ledger
 
-| category | count |
-|---|---:|
-| germany-a1 | 17 |
-| germany-b1 | 13 |
-| germany-testdaf | 4 |
-| germany-telc | 4 |
-| uk | 2 |
-| canada | 2 |
-| italy | 2 |
-| spain | 2 |
-| france | 2 |
-| finland | 2 |
-| netherlands | 2 |
-| portugal | 2 |
+| slug | language | category | route | maturity | primary intent | stage | deciding authority | exam owner | updated | source reviewed | evidence | unresolved | next action | priority |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| tcf-canada-vs-tef | EN | canada | canada | verification-pending | Canada immigration French-language test comparison | choice | Canadian immigration authority | TEF Canada / TCF Canada | 2026-07-01 | 2026-07-14 | partial | Route/local execution details unresolved | Close route, centre, date, or programme gaps | P0 |
+| tef-canada-immigration | EN | canada | canada | verification-pending | Canada immigration and citizenship language-test planning | choice | Canadian immigration or citizenship authority | Le français des affaires | 2026-07-01 | 2026-07-14 | partial | Route/local execution details unresolved | Close route, centre, date, or programme gaps | P0 |
+| yki-finnish-citizenship | EN | finland | finland | verification-pending | Finland citizenship language-proof planning | requirement | Finnish immigration and citizenship authority | Finnish National Agency for Education | 2026-07-01 | 2026-07-14 | partial | Route/local execution details unresolved | Close route, centre, date, or programme gaps | P0 |
+| yki-vs-other-finland-options | EN | finland | finland | verification-pending | Finland citizenship language-proof comparison | choice | Finnish immigration and citizenship authority | Finnish National Agency for Education | 2026-07-01 | 2026-07-14 | partial | Route/local execution details unresolved | Close route, centre, date, or programme gaps | P0 |
+| delf-b1-b2-french-work-study | EN | france | france | verification-pending | France work and study language-proof planning | requirement | Receiving French institution, employer, or professional authority | France Éducation international | 2026-07-01 | pending | blocked | Deciding-authority evidence required | Supply deciding-authority source package | P0 |
+| tcf-irn-french-residence | EN | france | france | verification-pending | France residence and citizenship language-proof planning | choice | French residence or citizenship authority | France Éducation international | 2026-07-01 | pending | blocked | Deciding-authority evidence required | Supply deciding-authority source package | P0 |
+| cils-b1-cittadinanza-for-italian-citizenship | EN | italy | italy | verification-pending | Italy citizenship language-proof planning | requirement | Italian citizenship authority or responsible consulate | CILS | 2026-07-01 | 2026-07-14 | partial | Route/local execution details unresolved | Close route, centre, date, or programme gaps | P0 |
+| cils-vs-celi-vs-plida-for-italian-citizenship | EN | italy | italy | verification-pending | Italy citizenship language-certificate comparison | choice | Italian citizenship authority or responsible consulate | CILS / CELI / PLIDA | 2026-07-01 | 2026-07-14 | partial | Route/local execution details unresolved | Close route, centre, date, or programme gaps | P0 |
+| dutch-inburgering-a2-b1-for-integration-and-citizenship | EN | netherlands | netherlands | verification-pending | Netherlands integration and citizenship language-proof planning | requirement | Dutch immigration, integration, or citizenship authority | DUO | 2026-07-01 | 2026-07-14 | partial | Route/local execution details unresolved | Close route, centre, date, or programme gaps | P0 |
+| staatsexamen-nt2-for-work-and-higher-education | EN | netherlands | netherlands | verification-pending | Netherlands work and higher-education language-proof planning | requirement | Receiving Dutch institution, employer, or professional authority | Staatsexamen NT2 | 2026-07-01 | pending | blocked | Deciding-authority evidence required | Supply deciding-authority source package | P0 |
+| portuguese-ciple-a2-for-citizenship-and-residence | EN | portugal | portugal | verification-pending | Portugal citizenship and residence language-proof planning | choice | Portuguese immigration or citizenship authority | CAPLE | 2026-07-01 | 2026-07-14 | partial | Route/local execution details unresolved | Close route, centre, date, or programme gaps | P0 |
+| portuguese-language-for-golden-visa-and-citizenship | EN | portugal | portugal | verification-pending | Portugal residence and citizenship language-proof planning | requirement | Portuguese immigration or citizenship authority | CAPLE | 2026-07-01 | 2026-07-14 | partial | Route/local execution details unresolved | Close route, centre, date, or programme gaps | P0 |
+| dele-a2-ccse-spanish-citizenship | EN | spain | spain | verification-pending | Spain citizenship exam planning | requirement | Spanish citizenship authority | Instituto Cervantes | 2026-07-16 | 2026-07-16 | partial | Route/local execution details unresolved | Human review retained wording; keep applicant boundary | P0 |
+| dele-levels-spanish-citizenship | EN | spain | spain | verification-pending | Spain citizenship language-proof planning | choice | Spanish citizenship authority | Instituto Cervantes | 2026-07-16 | 2026-07-16 | partial | Route/local execution details unresolved | Human review retained wording; keep applicant boundary | P0 |
+| ielts-ukvi-uk-visa | EN | uk | uk | verification-pending | UK visa English-language evidence planning | requirement | UK immigration authority | IELTS | 2026-07-01 | 2026-07-14 | partial | Route/local execution details unresolved | Close route, centre, date, or programme gaps | P0 |
+| languagecert-selt-uk-visa | EN | uk | uk | verification-pending | UK visa English-language evidence planning | requirement | UK immigration authority | LanguageCert | 2026-07-01 | 2026-07-14 | partial | Route/local execution details unresolved | Close route, centre, date, or programme gaps | P0 |
+| german-a1-documents-checklist | EN | germany-a1 | germany-a1 | complete-route | German A1 documents checklist: booking, test day, visa decision support | submission-review | Not recorded | Not recorded | 2026-07-13 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| german-a1-exam-booking-timeline | EN | germany-a1 | germany-a1 | complete-route | German A1 exam booking timeline decision support | local-execution | Not recorded | Not recorded | 2026-07-13 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| german-a1-family-reunion-faq | EN | germany-a1 | germany-a1 | complete-route | German A1 family reunion FAQ: language proof questions decision support | requirement | Not recorded | Not recorded | 2026-07-11 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| german-family-reunion-language-requirement | EN | germany-a1 | germany-a1 | complete-route | German family reunion language requirement guide decision support | choice | Not recorded | Not recorded | 2026-07-13 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| goethe-a1-30-day-study-plan | EN | germany-a1 | germany-a1 | complete-route | 30-day Goethe A1 study plan for family reunion decision support | local-execution | Not recorded | Goethe-Institut | 2026-07-11 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| goethe-a1-booking-mistakes | EN | germany-a1 | germany-a1 | complete-route | Goethe A1 booking mistakes for family reunion decision support | local-execution | Not recorded | Goethe-Institut | 2026-07-11 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| goethe-a1-fees-by-country | EN | germany-a1 | germany-a1 | complete-route | Goethe A1 exam fees: check your local price decision support | local-execution | Not recorded | Goethe-Institut | 2026-07-13 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| goethe-a1-germany-family-reunion | EN | germany-a1 | germany-a1 | complete-route | Goethe A1 for Germany family reunion visa proof decision support | requirement | Not recorded | Goethe-Institut | 2026-07-11 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| goethe-a1-listening-practice | EN | germany-a1 | germany-a1 | complete-route | Goethe A1 listening practice: a safe daily routine decision support | local-execution | Not recorded | Goethe-Institut | 2026-07-11 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| goethe-a1-official-links-practice-resources | EN | germany-a1 | germany-a1 | complete-route | Goethe A1 official links and practice resources: where to verify decision support | local-execution | Not recorded | Goethe-Institut | 2026-07-11 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| goethe-a1-pre-booking-checklist | EN | germany-a1 | germany-a1 | complete-route | Goethe A1 pre-booking checklist: verify before paying decision support | submission-review | Not recorded | Goethe-Institut | 2026-07-11 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| goethe-a1-retake-policy | EN | germany-a1 | germany-a1 | complete-route | Goethe A1 retake: plan your next attempt decision support | local-execution | Not recorded | Goethe-Institut | 2026-07-13 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| goethe-a1-speaking-topics | EN | germany-a1 | germany-a1 | complete-route | Goethe A1 speaking topics: safe practice plan decision support | local-execution | Not recorded | Goethe-Institut | 2026-07-11 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| goethe-a1-study-plan-working-adults | EN | germany-a1 | germany-a1 | complete-route | Goethe A1 study plan for working adults: realistic 8-week routine decision support | local-execution | Not recorded | Goethe-Institut | 2026-07-11 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| goethe-a1-test-centers | EN | germany-a1 | germany-a1 | complete-route | Goethe A1 test centers: verify an official exam centre decision support | local-execution | Not recorded | Goethe-Institut | 2026-07-13 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| goethe-a1-vs-telc-a1 | EN | germany-a1 | germany-a1 | complete-route | Goethe A1 vs telc A1: choose a family reunion exam decision support | choice | Not recorded | Goethe-Institut | 2026-07-13 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| goethe-a1-writing-practice | EN | germany-a1 | germany-a1 | complete-route | Goethe A1 writing practice: short forms and messages decision support | local-execution | Not recorded | Goethe-Institut | 2026-07-11 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| germany-b1-citizenship-language-proof | EN | germany-b1 | germany-b1 | core-route | Germany B1 for citizenship: verify language proof and the wider file decision support | choice | Not recorded | Not recorded | 2026-07-13 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| germany-b1-leben-in-deutschland-and-language-proof | EN | germany-b1 | germany-b1 | core-route | Leben in Deutschland and B1: separate civic knowledge from language proof decision support | requirement | Not recorded | Not recorded | 2026-07-13 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| germany-b1-settlement-citizenship-checklist | EN | germany-b1 | germany-b1 | core-route | Germany B1 settlement and citizenship checklist: questions and evidence categories decision support | submission-review | Not recorded | Not recorded | 2026-07-13 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| germany-b1-settlement-citizenship-timeline | EN | germany-b1 | germany-b1 | core-route | Germany B1 settlement and citizenship timeline: plan evidence without assuming eligibility decision support | local-execution | Not recorded | Not recorded | 2026-07-13 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| goethe-b1-difficulty-analysis | EN | germany-b1 | germany-b1 | core-route | Goethe B1 difficulty analysis decision support | choice | Not recorded | Goethe-Institut | 2026-07-04 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| goethe-b1-fees-and-booking | EN | germany-b1 | germany-b1 | core-route | Goethe B1 fees and booking: verify local terms before paying decision support | local-execution | Not recorded | Goethe-Institut | 2026-07-13 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| goethe-b1-germany-settlement-work | EN | germany-b1 | germany-b1 | core-route | Germany settlement permit and B1: verify language proof separately decision support | requirement | Not recorded | Goethe-Institut | 2026-07-13 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| goethe-b1-listening-deep-dive | EN | germany-b1 | germany-b1 | core-route | Goethe B1 listening deep dive decision support | local-execution | Not recorded | Goethe-Institut | 2026-07-04 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| goethe-b1-mock-exam-routine | EN | germany-b1 | germany-b1 | core-route | Goethe B1 mock exam routine decision support | local-execution | Not recorded | Goethe-Institut | 2026-07-04 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| goethe-b1-speaking-topics | EN | germany-b1 | germany-b1 | core-route | Goethe B1 speaking topics decision support | local-execution | Not recorded | Goethe-Institut | 2026-07-04 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| goethe-b1-study-plan | EN | germany-b1 | germany-b1 | core-route | Goethe B1 study plan for working adults decision support | local-execution | Not recorded | Goethe-Institut | 2026-07-13 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| goethe-b1-vs-telc-b1 | EN | germany-b1 | germany-b1 | core-route | DTZ vs Goethe B1 vs telc B1: verify acceptance before choosing decision support | choice | Not recorded | Goethe-Institut | 2026-07-13 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| goethe-b1-writing-assessment | EN | germany-b1 | germany-b1 | core-route | Goethe B1 writing assessment decision support | local-execution | Not recorded | Goethe-Institut | 2026-07-04 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P1 |
+| telc-b1-b2-exam-format-and-preparation | EN | germany-telc | germany-telc | starter-overview | telc B1/B2 Exam Format and Safe Preparation decision support | local-execution | Not recorded | telc | 2026-06-30 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P2 |
+| telc-b1-b2-fees-and-test-centers | EN | germany-telc | germany-telc | starter-overview | telc B1/B2 Fees and Test Centers decision support | local-execution | Not recorded | telc | 2026-06-30 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P2 |
+| telc-b1-b2-germany-work-nursing | EN | germany-telc | germany-telc | starter-overview | telc Deutsch B1/B2 for Work, Nursing, and Residence decision support | requirement | Not recorded | telc | 2026-06-30 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P2 |
+| telc-vs-goethe-for-german-visa | EN | germany-telc | germany-telc | starter-overview | telc vs Goethe: Which for Your German Visa Route decision support | choice | Not recorded | Goethe-Institut | 2026-06-30 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P2 |
+| testdaf-germany-university-admissions | EN | germany-testdaf | germany-testdaf | starter-overview | TestDaF for German University Admissions decision support | choice | Not recorded | TestDaF Institute | 2026-07-13 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P2 |
+| testdaf-levels-and-scoring | EN | germany-testdaf | germany-testdaf | starter-overview | TestDaF Levels (TDN 3/4/5) and How Scoring Works decision support | choice | Not recorded | TestDaF Institute | 2026-07-13 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P2 |
+| testdaf-preparation-and-practice | EN | germany-testdaf | germany-testdaf | starter-overview | TestDaF Preparation Plan and Official Practice Sources decision support | local-execution | Not recorded | TestDaF Institute | 2026-07-13 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P2 |
+| testdaf-vs-goethe-dsh | EN | germany-testdaf | germany-testdaf | starter-overview | TestDaF vs Goethe C1 vs DSH for University Entry decision support | choice | Not recorded | Goethe-Institut | 2026-07-13 | pending | pending | Official source review not completed | Review official sources and assign reviewer | P2 |
 
-## Guide Inventory
+## Chinese Germany A1 ledger
 
-| slug | title | category | country | route | exam | level | lastUpdated | Germany A1 | Germany B1 | TestDaF | telc Deutsch | UK | Canada | Italy | Spain | France | Finland | Netherlands | Portugal |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| cils-b1-cittadinanza-for-italian-citizenship | CILS B1 Cittadinanza for Italian Citizenship | italy | Italy | italy | CILS | B1 | 2026-07-01 |  |  |  |  |  |  | yes |  |  |  |  |  |
-| cils-vs-celi-vs-plida-for-italian-citizenship | CILS vs CELI vs PLIDA - Italian Citizenship | italy | Italy | italy | CILS/CELI/PLIDA |  | 2026-07-01 |  |  |  |  |  |  | yes |  |  |  |  |  |
-| dele-a2-ccse-spanish-citizenship | DELE A2 and CCSE for Spanish Citizenship | spain | Spain | spain | DELE/CCSE | A2 | 2026-07-01 |  |  |  |  |  |  |  | yes |  |  |  |  |
-| dele-levels-spanish-citizenship | DELE Levels for Spanish Citizenship | spain | Spain | spain | DELE |  | 2026-07-01 |  |  |  |  |  |  |  | yes |  |  |  |  |
-| delf-b1-b2-french-work-study | DELF B1/B2 for French Work and Study | france | France | france | DELF | B1/B2 | 2026-07-01 |  |  |  |  |  |  |  |  | yes |  |  |  |
-| dutch-inburgering-a2-b1-for-integration-and-citizenship | Dutch Inburgering A2/B1 | netherlands | Netherlands | netherlands | Inburgering | A2/B1 | 2026-07-01 |  |  |  |  |  |  |  |  |  |  | yes |  |
-| german-a1-documents-checklist | German A1 documents checklist | germany-a1 | Germany | germany-a1 | German A1 proof | A1 | 2026-06-30 | yes |  |  |  |  |  |  |  |  |  |  |  |
-| german-a1-exam-booking-timeline | German A1 exam booking timeline | germany-a1 | Germany | germany-a1 | German A1 proof | A1 | 2026-07-08 | yes |  |  |  |  |  |  |  |  |  |  |  |
-| german-a1-family-reunion-faq | German A1 family reunion FAQ: language proof questions | germany-a1 | Germany | germany-a1 | German A1 proof | A1 | 2026-07-10 | yes |  |  |  |  |  |  |  |  |  |  |  |
-| german-family-reunion-language-requirement | German family reunion language requirement guide | germany-a1 | Germany | germany-a1 | German A1 proof |  | 2026-07-10 | yes |  |  |  |  |  |  |  |  |  |  |  |
-| goethe-a1-30-day-study-plan | 30-day Goethe A1 study plan for family reunion | germany-a1 | Germany | germany-a1 | Goethe | A1 | 2026-07-10 | yes |  |  |  |  |  |  |  |  |  |  |  |
-| goethe-a1-booking-mistakes | Goethe A1 booking mistakes for family reunion | germany-a1 | Germany | germany-a1 | Goethe | A1 | 2026-07-10 | yes |  |  |  |  |  |  |  |  |  |  |  |
-| goethe-a1-fees-by-country | Goethe A1 fees by country | germany-a1 | Germany | germany-a1 | Goethe | A1 | 2026-06-30 | yes |  |  |  |  |  |  |  |  |  |  |  |
-| goethe-a1-germany-family-reunion | Goethe A1 for Germany family reunion visa proof | germany-a1 | Germany | germany-a1 | Goethe | A1 | 2026-07-10 | yes |  |  |  |  |  |  |  |  |  |  |  |
-| goethe-a1-listening-practice | Goethe A1 Listening Practice Plan | germany-a1 | Germany | germany-a1 | Goethe | A1 | 2026-07-02 | yes |  |  |  |  |  |  |  |  |  |  |  |
-| goethe-a1-official-links-practice-resources | Goethe A1 official links and practice resources | germany-a1 | Germany | germany-a1 | Goethe | A1 | 2026-06-30 | yes |  |  |  |  |  |  |  |  |  |  |  |
-| goethe-a1-pre-booking-checklist | Goethe A1 Pre-Booking Checklist | germany-a1 | Germany | germany-a1 | Goethe | A1 | 2026-07-02 | yes |  |  |  |  |  |  |  |  |  |  |  |
-| goethe-a1-retake-policy | Goethe A1 retake policy | germany-a1 | Germany | germany-a1 | Goethe | A1 | 2026-06-30 | yes |  |  |  |  |  |  |  |  |  |  |  |
-| goethe-a1-speaking-topics | Goethe A1 speaking topics | germany-a1 | Germany | germany-a1 | Goethe | A1 | 2026-06-30 | yes |  |  |  |  |  |  |  |  |  |  |  |
-| goethe-a1-study-plan-working-adults | Goethe A1 Study Plan for Working Adults | germany-a1 | Germany | germany-a1 | Goethe | A1 | 2026-07-02 | yes |  |  |  |  |  |  |  |  |  |  |  |
-| goethe-a1-test-centers | Goethe A1 test centers | germany-a1 | Germany | germany-a1 | Goethe | A1 | 2026-06-30 | yes |  |  |  |  |  |  |  |  |  |  |  |
-| goethe-a1-vs-telc-a1 | Goethe A1 vs telc A1 for German family reunion | germany-a1 | Germany | germany-a1 | Goethe/telc Deutsch | A1 | 2026-07-10 | yes |  |  |  |  |  |  |  |  |  |  |  |
-| goethe-b1-difficulty-analysis | Goethe B1 difficulty analysis | germany-b1 | Germany | germany-b1 | Goethe | B1 | 2026-07-04 |  | yes |  |  |  |  |  |  |  |  |  |  |
-| goethe-b1-fees-and-booking | Goethe B1 Fees and Booking by Country | germany-b1 | Germany | germany-b1 | Goethe | B1 | 2026-06-30 |  | yes |  |  |  |  |  |  |  |  |  |  |
-| goethe-b1-germany-settlement-work | Goethe B1 for German Settlement and Work | germany-b1 | Germany | germany-b1 | Goethe | B1 | 2026-06-30 |  | yes |  |  |  |  |  |  |  |  |  |  |
-| goethe-b1-listening-deep-dive | Goethe B1 listening deep dive | germany-b1 | Germany | germany-b1 | Goethe | B1 | 2026-07-04 |  | yes |  |  |  |  |  |  |  |  |  |  |
-| goethe-b1-mock-exam-routine | Goethe B1 mock exam routine | germany-b1 | Germany | germany-b1 | Goethe | B1 | 2026-07-04 |  | yes |  |  |  |  |  |  |  |  |  |  |
-| goethe-b1-speaking-topics | Goethe B1 speaking topics | germany-b1 | Germany | germany-b1 | Goethe | B1 | 2026-07-04 |  | yes |  |  |  |  |  |  |  |  |  |  |
-| goethe-b1-study-plan | 60-Day Goethe B1 Study Plan for Working Adults | germany-b1 | Germany | germany-b1 | Goethe | B1 | 2026-06-30 |  | yes |  |  |  |  |  |  |  |  |  |  |
-| goethe-b1-vs-telc-b1 | Goethe B1 vs telc B1: Which Is Accepted Where | germany-b1 | Germany | germany-b1 | Goethe/telc Deutsch | B1 | 2026-06-30 |  | yes |  |  |  |  |  |  |  |  |  |  |
-| goethe-b1-writing-assessment | Goethe B1 writing assessment | germany-b1 | Germany | germany-b1 | Goethe | B1 | 2026-07-04 |  | yes |  |  |  |  |  |  |  |  |  |  |
-| ielts-ukvi-uk-visa | IELTS UKVI for UK Visa and Immigration | uk | United Kingdom | uk | IELTS UKVI |  | 2026-07-01 |  |  |  |  | yes |  |  |  |  |  |  |  |
-| languagecert-selt-uk-visa | LanguageCert SELT for UK Visa | uk | United Kingdom | uk | LanguageCert SELT |  | 2026-07-01 |  |  |  |  | yes |  |  |  |  |  |  |  |
-| portuguese-ciple-a2-for-citizenship-and-residence | CIPLE A2 Portuguese Citizenship | portugal | Portugal | portugal | CIPLE | A2 | 2026-07-01 |  |  |  |  |  |  |  |  |  |  |  | yes |
-| portuguese-language-for-golden-visa-and-citizenship | Portuguese Golden Visa Language | portugal | Portugal | portugal | Portuguese proof |  | 2026-07-01 |  |  |  |  |  |  |  |  |  |  |  | yes |
-| staatsexamen-nt2-for-work-and-higher-education | Staatsexamen NT2 for Dutch Work and Study | netherlands | Netherlands | netherlands | Staatsexamen NT2 |  | 2026-07-01 |  |  |  |  |  |  |  |  |  |  | yes |  |
-| tcf-canada-vs-tef | TCF Canada vs TEF Canada - Which to Take | canada | Canada | canada | TCF Canada/TEF Canada |  | 2026-07-01 |  |  |  |  |  | yes |  |  |  |  |  |  |
-| tcf-irn-french-residence | TCF IRN for French Residence and Citizenship | france | France | france | TCF IRN |  | 2026-07-01 |  |  |  |  |  |  |  |  | yes |  |  |  |
-| tef-canada-immigration | TEF Canada for Express Entry and Citizenship | canada | Canada | canada | TEF Canada |  | 2026-07-01 |  |  |  |  |  | yes |  |  |  |  |  |  |
-| telc-b1-b2-exam-format-and-preparation | telc B1/B2 Exam Format and Safe Preparation | germany-telc | Germany | germany-telc | telc Deutsch | B1/B2 | 2026-06-30 |  |  |  | yes |  |  |  |  |  |  |  |  |
-| telc-b1-b2-fees-and-test-centers | telc B1/B2 Fees and Test Centers | germany-telc | Germany | germany-telc | telc Deutsch | B1/B2 | 2026-06-30 |  |  |  | yes |  |  |  |  |  |  |  |  |
-| telc-b1-b2-germany-work-nursing | telc Deutsch B1/B2 for Work, Nursing, and Residence | germany-telc | Germany | germany-telc | telc Deutsch | B1/B2 | 2026-06-30 |  |  |  | yes |  |  |  |  |  |  |  |  |
-| telc-vs-goethe-for-german-visa | telc vs Goethe: Which for Your German Visa Route | germany-telc | Germany | germany-telc | telc Deutsch/Goethe |  | 2026-06-30 |  |  |  | yes |  |  |  |  |  |  |  |  |
-| testdaf-germany-university-admissions | TestDaF for German University Admissions | germany-testdaf | Germany | germany-testdaf | TestDaF |  | 2026-06-30 |  |  | yes |  |  |  |  |  |  |  |  |  |
-| testdaf-levels-and-scoring | TestDaF Levels (TDN 3/4/5) and How Scoring Works | germany-testdaf | Germany | germany-testdaf | TestDaF | TDN 3/4/5 | 2026-06-30 |  |  | yes |  |  |  |  |  |  |  |  |  |
-| testdaf-preparation-and-practice | TestDaF Preparation Plan and Official Practice Sources | germany-testdaf | Germany | germany-testdaf | TestDaF |  | 2026-06-30 |  |  | yes |  |  |  |  |  |  |  |  |  |
-| testdaf-vs-goethe-dsh | TestDaF vs Goethe C1 vs DSH for University Entry | germany-testdaf | Germany | germany-testdaf | TestDaF/Goethe/DSH | C1 | 2026-06-30 |  |  | yes |  |  |  |  |  |  |  |  |  |
-| yki-finnish-citizenship | YKI Finnish National Certificate for Citizenship | finland | Finland | finland | YKI |  | 2026-07-01 |  |  |  |  |  |  |  |  |  | yes |  |  |
-| yki-vs-other-finland-options | YKI vs Other Finnish Language Tests for Citizenship | finland | Finland | finland | YKI |  | 2026-07-01 |  |  |  |  |  |  |  |  |  | yes |  |  |
+| slug | language | category | route | maturity | primary intent | stage | deciding authority | exam owner | updated | source reviewed | evidence | unresolved | next action | priority |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| german-family-reunion-language-requirement | ZH | germany-a1 | germany-a1 | complete-route | Confirm whether A1 may apply before choosing proof | requirement | German mission / competent visa authority | Goethe-Institut / telc | Not recorded | pending | pending | Source and translation review incomplete | Complete bilingual claim-by-claim review | P1 |
+| goethe-a1-vs-telc-a1 | ZH | germany-a1 | germany-a1 | complete-route | Compare Goethe A1 and telc A1 safely | choice | German mission / competent visa authority | Goethe-Institut / telc | Not recorded | pending | pending | Source and translation review incomplete | Complete bilingual claim-by-claim review | P1 |
+| goethe-a1-booking-mistakes | ZH | germany-a1 | germany-a1 | complete-route | Avoid local booking errors | local-execution | Selected official/authorised centre | Goethe-Institut | Not recorded | pending | pending | Local centre and translation review incomplete | Review China-specific centre terms | P1 |
+| german-a1-documents-checklist | ZH | germany-a1 | germany-a1 | complete-route | Separate exam-day and visa documents | submission-review | German mission and selected exam centre | Goethe-Institut | Not recorded | pending | pending | Source and translation review incomplete | Review mission and centre documents separately | P1 |
+| goethe-a1-30-day-study-plan | ZH | germany-a1 | germany-a1 | complete-route | Prepare with official practice materials | local-execution | Not applicable for study routine | Goethe-Institut | Not recorded | pending | pending | Translation review incomplete | Verify resource links and translation | P1 |
+
+## Immediate execution queue
+
+1. Human-review the two Spain pilot rewrites and keep both pages at `verification-pending` until applicant-specific evidence boundaries are intentionally accepted.
+2. Close the three remaining blocked pages with the named French receiving authority/procedure and named Dutch receiving institution, employer, or regulator.
+3. Refresh Germany A1 sources for fees, centres, retake, documents and exemption language, page by page.
+4. Review Germany B1 sources while keeping language proof, civic knowledge and wider eligibility evidence separate.
+5. Complete Chinese A1 source review, translation review, real dates and approved reviewer roles.
+6. Review TestDaF/telc starter pages only after P0/P1 gaps are materially reduced.
+
+## Maintenance rule
+
+Update this ledger from current source metadata after each content window. Do not promote evidence or maturity from an editing date, an exam-owner link alone, or an unverified historical audit.

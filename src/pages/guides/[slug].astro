@@ -22,9 +22,9 @@ const linkedGuides = frontmatter.supportingGuideSlugs
   .filter((guide): guide is NonNullable<typeof guide> => Boolean(guide));
 const isAllowedRelated = (candidate: typeof linkedGuides[number]) => {
   const sameRoute = candidate.data.category === frontmatter.category;
-  const sameDecisionStage = candidate.data.decisionStage === frontmatter.decisionStage;
   const sameCountry = inferGuideMeta(candidate.data).country === inferGuideMeta(frontmatter).country;
-  if (sameRoute || sameDecisionStage || sameCountry) return true;
+  if (sameRoute || sameCountry) return true;
+  if (frontmatter.comparisonScope !== 'same-route' && candidate.data.decisionStage === frontmatter.decisionStage) return true;
   return frontmatter.comparisonScope === 'cross-country-comparison' && /compar/i.test(frontmatter.primaryIntent ?? '');
 };
 const relatedGuides = linkedGuides.filter(isAllowedRelated).map(g => ({ title: g.data.title, slug: g.data.slug }));
