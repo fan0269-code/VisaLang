@@ -2,6 +2,7 @@
 
 Review date: 2026-07-16 (Asia/Shanghai)
 Re-review date: 2026-07-19 (Asia/Shanghai)
+Human acceptance date: 2026-07-19 (Asia/Shanghai)
 Scope: `dele-levels-spanish-citizenship` and `dele-a2-ccse-spanish-citizenship` only.
 
 ## Gate decision
@@ -10,11 +11,15 @@ Scope: `dele-levels-spanish-citizenship` and `dele-a2-ccse-spanish-citizenship` 
 
 Agent source and wording re-review: `AGENT_REREVIEW_COMPLETED_WITH_APPLICANT_BOUNDARY`
 
-Human acceptance gate: `PENDING`
+Human acceptance gate: `ACCEPTED_BY_PROJECT_OWNER`
+
+Acceptance evidence: explicit user confirmation in the Codex task on 2026-07-19. The reviewer is recorded at the project-owner role level because no personal name was provided; no identity is inferred from a local account, repository path, or Git metadata.
 
 The current Ministry of Justice residence-nationality procedure and electronic filing pages close the previous absence of a deciding-authority source. They confirm the competent procedure, link the Instituto Cervantes test-dispensation process, and state that the application requires supporting documents. Instituto Cervantes remains the exam owner for DELE and CCSE product rules.
 
 This does not support an individual eligibility decision, a universal two-test rule, a fixed residence-period shortcut, or a universal exemption conclusion. Both guides remain `verification-pending` and direct the reader to the Ministry procedure before booking.
+
+The human acceptance closes only the final-wording review gate for these two bounded rewrites. It does not change their source-review date, content maturity, authority hierarchy, applicant boundary, or reader-side verification actions.
 
 ## Approved official sources
 
@@ -80,4 +85,4 @@ The previously listed DELE and CCSE FAQ URLs timed out in this review and were n
 - Kept `sourceReviewStatus: reviewed` for the bounded page facts and updated the real review date to 2026-07-19.
 - Kept `contentStatus: verification-pending`; this review does not resolve applicant-specific evidence, dispensation, residence calculation or local execution.
 - Corrected the main route to `dele-a2-ccse-spanish-citizenship` → `dele-levels-spanish-citizenship` → terminal. The choice page no longer sends readers back to the requirement page, and the primary next page is not duplicated in supporting links.
-- Kept the human-review queue open. A named human reviewer must inspect and intentionally accept or reject the final wording before the content-plan item can be closed.
+- The project owner explicitly accepted the final wording on 2026-07-19, closing the human wording-review queue item. Both pages remain `verification-pending` for applicant-specific evidence, dispensation, residence calculation and local execution.

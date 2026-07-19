@@ -35,8 +35,8 @@ Source of truth: `src/content/guides/*.md`, `src/data/zh-germany-a1.ts`, and the
 | staatsexamen-nt2-for-work-and-higher-education | EN | netherlands | netherlands | verification-pending | Verify Staatsexamen NT2-II for UvA Dutch-taught bachelor's admissions | requirement | University of Amsterdam Dutch-taught bachelor admissions | Staatsexamen NT2 | 2026-07-19 | 2026-07-19 | partial | Exact programme rules remain current and receiver-specific; work and professional routes are outside scope | Recheck the exact programme | P0 |
 | portuguese-ciple-a2-for-citizenship-and-residence | EN | portugal | portugal | verification-pending | Portugal citizenship and residence language-proof planning | choice | Portuguese immigration or citizenship authority | CAPLE | 2026-07-01 | 2026-07-14 | partial | Route/local execution details unresolved | Close route, centre, date, or programme gaps | P0 |
 | portuguese-language-for-golden-visa-and-citizenship | EN | portugal | portugal | verification-pending | Portugal residence and citizenship language-proof planning | requirement | Portuguese immigration or citizenship authority | CAPLE | 2026-07-01 | 2026-07-14 | partial | Route/local execution details unresolved | Close route, centre, date, or programme gaps | P0 |
-| dele-a2-ccse-spanish-citizenship | EN | spain | spain | verification-pending | Spain citizenship exam planning | requirement | Spanish citizenship authority | Instituto Cervantes | 2026-07-19 | 2026-07-19 | partial | Applicant evidence, dispensation and local execution remain unresolved | Agent pre-review complete; named human acceptance pending | P0 |
-| dele-levels-spanish-citizenship | EN | spain | spain | verification-pending | Spain citizenship language-proof planning | choice | Spanish citizenship authority | Instituto Cervantes | 2026-07-19 | 2026-07-19 | partial | Accepted evidence and individual dispensation remain unresolved | Agent pre-review complete; named human acceptance pending | P0 |
+| dele-a2-ccse-spanish-citizenship | EN | spain | spain | verification-pending | Spain citizenship exam planning | requirement | Spanish citizenship authority | Instituto Cervantes | 2026-07-19 | 2026-07-19 | partial | Applicant evidence, dispensation and local execution remain unresolved | Project-owner wording acceptance completed on 2026-07-19; recheck the applicant case | P0 |
+| dele-levels-spanish-citizenship | EN | spain | spain | verification-pending | Spain citizenship language-proof planning | choice | Spanish citizenship authority | Instituto Cervantes | 2026-07-19 | 2026-07-19 | partial | Accepted evidence and individual dispensation remain unresolved | Project-owner wording acceptance completed on 2026-07-19; recheck accepted evidence | P0 |
 | ielts-ukvi-uk-visa | EN | uk | uk | verification-pending | UK visa English-language evidence planning | requirement | UK immigration authority | IELTS | 2026-07-01 | 2026-07-14 | partial | Route/local execution details unresolved | Close route, centre, date, or programme gaps | P0 |
 | languagecert-selt-uk-visa | EN | uk | uk | verification-pending | UK visa English-language evidence planning | requirement | UK immigration authority | LanguageCert | 2026-07-01 | 2026-07-14 | partial | Route/local execution details unresolved | Close route, centre, date, or programme gaps | P0 |
 | german-a1-documents-checklist | EN | germany-a1 | germany-a1 | complete-route | German A1 documents checklist: booking, test day, visa decision support | submission-review | German mission / competent visa authority and selected centre | Goethe-Institut | 2026-07-18 | 2026-07-18 | reviewed | Reader-specific mission and centre instructions remain dynamic | Recheck before submission | P1 |
@@ -93,10 +93,9 @@ Source of truth: `src/content/guides/*.md`, `src/data/zh-germany-a1.ts`, and the
 
 ## Immediate execution queue
 
-1. A named human reviewer must inspect and intentionally accept or reject the two Spain pilot rewrites; both pages remain `verification-pending` meanwhile. Agent source/wording pre-review completed on 2026-07-19.
-2. Review the ten remaining pending English Germany A1 support pages only in separately scoped windows.
-3. Review the five Germany B1 preparation-support pages without promoting the core route or inferring exam outcomes.
-4. Review TestDaF/telc starter pages only after P0/P1 gaps are materially reduced.
+1. Review the ten remaining pending English Germany A1 support pages only in separately scoped windows.
+2. Review the five Germany B1 preparation-support pages without promoting the core route or inferring exam outcomes.
+3. Review TestDaF/telc starter pages only after P0/P1 gaps are materially reduced.
 
 ## Maintenance rule
 

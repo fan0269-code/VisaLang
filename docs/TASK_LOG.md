@@ -2681,3 +2681,12 @@ Remaining:
 - Production smoke passed from the production host: homepage, Guide Library, robots and sitemap returned 200; legacy routes and `www` returned expected canonical 301 responses.
 - Public marker checks passed for all three reviewed guides: the narrowed Sorbonne, French nationality-procedure and UvA titles, visible `Verification pending` state, official-source review date, terminal navigation and active release target were online.
 - Release boundary: page-level source review is complete for the retained bounded facts, but reader-specific acceptance, exception, dossier, admission and local execution remain official recheck items. Spain's separate named-human acceptance gate remains open. No DNS, TLS, CMP, advertising, analytics, form, payment or email-delivery configuration changed.
+
+## 2026-07-19 — Spain source-pilot project-owner wording acceptance
+
+- The project owner explicitly accepted the final wording of `dele-a2-ccse-spanish-citizenship` and `dele-levels-spanish-citizenship` in the Codex task. No personal reviewer name was supplied, so the acceptance evidence is recorded at the project-owner role level without inferring an identity from local or Git metadata.
+- Acceptance scope: closes the human wording-review gate only. It does not change either public guide body, source-review date, `sourceReviewStatus: reviewed`, or `contentStatus: verification-pending`.
+- Applicant boundary remains: the Spanish Ministry decides the applicable procedure, evidence and dispensation; Instituto Cervantes defines the exam products; the selected centre controls current local execution. No individual eligibility, accepted-evidence, exemption, fee, date or outcome conclusion was added.
+- Content queue result: removed the completed Spain wording gate. The next Agent-capable item is the separately scoped review of the ten remaining pending English Germany A1 support pages.
+- Verification: the updated acceptance assertion failed against the old `PENDING` record, then passed after the scoped documentation change; `npm test`, `npm run launch-check` and `git diff --check` passed; independent standards and specification reviews both returned `PASS`.
+- Delivery boundary: this entry records the accepted candidate before commit and production publication. Deployment evidence must be recorded separately after the immutable release is verified.

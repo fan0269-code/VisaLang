@@ -292,8 +292,16 @@ assert.ok(arrayField(spainChoice, 'supportingGuideSlugs').includes('dele-a2-ccse
 
 const spainPilotAudit = fs.readFileSync('docs/SPAIN_CONTENT_SOURCE_PILOT_2026-07-16.md', 'utf8');
 assert.match(spainPilotAudit, /AGENT_REREVIEW_COMPLETED_WITH_APPLICANT_BOUNDARY/, 'Spain pilot records the agent pre-review disposition');
-assert.match(spainPilotAudit, /Human acceptance gate:\s*`PENDING`/, 'Spain pilot keeps the named-human acceptance gate open');
+assert.match(spainPilotAudit, /Human acceptance gate:\s*`ACCEPTED_BY_PROJECT_OWNER`/, 'Spain pilot records the project-owner wording acceptance');
+assert.match(spainPilotAudit, /Human acceptance date:\s*2026-07-19/, 'Spain pilot records the human acceptance date');
+assert.match(spainPilotAudit, /explicit user confirmation in the Codex task/i, 'Spain pilot records the acceptance evidence without inventing a personal identity');
 assert.match(spainPilotAudit, /Re-review date:\s*2026-07-19/, 'Spain pilot records the actual agent re-review date');
+
+const contentMap = fs.readFileSync('docs/CONTENT_MAP.md', 'utf8');
+assert.doesNotMatch(contentMap, /named human acceptance pending/i, 'the content ledger no longer reports the accepted Spain wording as pending');
+assert.doesNotMatch(contentMap, /^1\. A named human reviewer must inspect and intentionally accept or reject the two Spain pilot rewrites/m, 'the completed Spain acceptance gate is removed from the execution queue');
+assert.match(contentMap, /Project-owner wording acceptance completed on 2026-07-19/i, 'the content ledger records the completed Spain wording acceptance');
+assert.doesNotMatch(highRiskSourceAudit, /Human review of retained Ministry-first wording/, 'the high-risk audit closes the wording-review requirement for both Spain pages');
 
 for (const source of [spainRequirement, spainChoice]) {
   assert.doesNotMatch(source, /\b(?:1|2|5|10|one|two|five|ten)[ -]years?\b/i, 'Spain pilot does not publish fixed residence-year shortcuts');
