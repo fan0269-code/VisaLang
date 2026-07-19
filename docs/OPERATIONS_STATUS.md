@@ -1,17 +1,27 @@
 # VisaLang Operations Status
 
 Updated: 2026-07-19
-Window: Spain source-pilot production release
+Window: France and Netherlands P0 authority-review production release
 
 ## Decision at a glance
 
-- **本地源码状态：已提交并推送。** Spain 来源预审与路线修正的应用提交为 `ee66a0a3273ab85eca233f5732f3cde8689324a3`；本地和服务器发布门禁均通过。
-- **线上部署状态：已部署并验证。** `visalang.org` 当前不可变发布为 `/var/www/visalang.org/releases/ee66a0a3273a`；Nginx 原子切换、服务器 gate、公网 smoke、页面状态和路线检查通过。
-- **回滚状态：可用但未触发。** 发布前版本 `/var/www/visalang.org/releases/c99877850ab1` 保留完整；本次没有发生强制回滚条件。
-- **内容复核状态：Agent 预审完成，人工闸门仍开放。** 两篇 Spain 指南继续显示 `verification-pending`；上线不代表命名人工审阅者已接受最终措辞，也不解决申请人类别、居留计算、证明接受、个案豁免或当地考试执行问题。
+- **本地源码状态：已提交并推送。** France / Netherlands P0 来源复核、范围收窄与路线去环的应用提交为 `d2ea2202668a5e31e6c032f376332874a28a57cd`；本地和服务器发布门禁均通过。
+- **线上部署状态：已部署并验证。** `visalang.org` 当前不可变发布为 `/var/www/visalang.org/releases/d2ea2202668a`；Nginx 原子切换、服务器 gate、公网 smoke 和三页公开标记检查通过。
+- **回滚状态：可用但未触发。** 发布前版本 `/var/www/visalang.org/releases/ee66a0a3273a` 保留完整；本次没有发生强制回滚条件。
+- **内容复核状态：页面事实来源复核完成，读者个案仍待核验。** 三篇 France / Netherlands 指南继续显示 `verification-pending`；上线不代表其他院校、雇主、职业监管机构、法国居留程序或个案结果已确认。Spain 命名人工验收门禁仍独立开放。
 - **广告/CMP 状态：本轮未改变。** CMP 选择、Auto ads 位置、CLS、浏览器网络行为和账户侧证据仍需单独的受控验证窗口。
 - **历史边界：** 下方 `flowlight.me`、无广告状态和旧 `/public/dist` 发布记录仅为带日期的历史证据，不证明当前 `visalang.org` 线上状态。
 - **未处理范围：** 本窗口未新增 analytics、表单、支付、邮件投递或其他服务集成，也未修改 DNS、TLS、CMP 或广告账户配置。
+
+## France and Netherlands P0 authority-review release — 2026-07-19
+
+- Application commit and immutable release: `d2ea2202668a5e31e6c032f376332874a28a57cd` / `/var/www/visalang.org/releases/d2ea2202668a`.
+- Previous verified release retained for rollback: `/var/www/visalang.org/releases/ee66a0a3273a`.
+- Local and server release gates: Node.js `v22.23.1`; locked dependency installation reported 0 vulnerabilities; `npm test` passed; `npm run launch-check` built 101 pages and passed 37 checks with 0 failures, ending in `READY`; deployment shell syntax, Nginx configuration testing and the atomic switch passed.
+- Production smoke: homepage, Guide Library, robots and sitemap returned 200; legacy routes and `www` returned expected canonical 301 redirects.
+- Public guide verification: the Sorbonne admissions, French nationality-procedure and UvA admissions titles were present; every page displayed `Verification pending` and its official-source review date; none rendered a sequential Next guide; the immutable release target and server source matched the application commit.
+- Scope boundary: the legacy slugs remain stable, but visible intent and authority metadata are narrowed to the reviewed Sorbonne faculty, French nationality procedure and UvA Dutch-taught bachelor's admissions branches. Other receivers, work/professional routes, French residence routes, exceptions, individual decisions and local execution remain current official checks.
+- No DNS, TLS, CMP, advertising account, analytics, form, payment or email-delivery configuration was changed. No rollback trigger occurred. Spain's named-human acceptance gate remains open.
 
 ## Spain source-pilot release — 2026-07-19
 

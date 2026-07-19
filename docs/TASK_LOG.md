@@ -2670,3 +2670,14 @@ Remaining:
 - Route result: removed the France cross-purpose direct next loop and the Netherlands Inburgering/NT2 direct next loop. France and Netherlands now use explicit frontmatter next navigation; all four affected pages are terminal and retain the other route only as non-sequential supporting context.
 - Verification: both focused tests passed after confirmed RED failures; after the final authority-scope corrections, `npm test` passed, `npm run launch-check` built 101 pages and passed 37 checks with 0 failures, ending in `READY`, and `git diff --check` passed. Independent standards and specification reviews both ended in `PASS`.
 - Delivery boundary: no push, deployment, SSH/server access, DNS, TLS, CMP, advertising, analytics, form, payment or email-delivery change was made. A scoped local commit may be created after the final review; publication requires a separate user instruction.
+
+## 2026-07-19 — France and Netherlands P0 production release
+
+- User accepted the completed France / Netherlands content batch and authorised production publication. Pushed application commit `d2ea2202668a5e31e6c032f376332874a28a57cd` (`content: review France and Netherlands P0 guides`) from `2a634f0` to `d2ea220`; the pre-existing untracked report, prompt, plan and specification files remained unstaged and unchanged.
+- Re-ran the local release gate: `npm test` passed; `npm run launch-check` built 101 pages and passed 37 checks with 0 failures; deployment shell syntax and `git diff --check` passed.
+- Confirmed the previous production release `/var/www/visalang.org/releases/ee66a0a3273a`, clean server source, Node.js `v22.23.1` and valid Nginx configuration before switching.
+- Ran the repository immutable deployment script. Server source fast-forwarded to `d2ea220`; locked dependency installation reported 0 vulnerabilities; server `npm test` and `npm run launch-check` passed; Nginx switched atomically to `/var/www/visalang.org/releases/d2ea2202668a`.
+- Retained `/var/www/visalang.org/releases/ee66a0a3273a` as the immediate verified rollback target. No rollback trigger occurred.
+- Production smoke passed from the production host: homepage, Guide Library, robots and sitemap returned 200; legacy routes and `www` returned expected canonical 301 responses.
+- Public marker checks passed for all three reviewed guides: the narrowed Sorbonne, French nationality-procedure and UvA titles, visible `Verification pending` state, official-source review date, terminal navigation and active release target were online.
+- Release boundary: page-level source review is complete for the retained bounded facts, but reader-specific acceptance, exception, dossier, admission and local execution remain official recheck items. Spain's separate named-human acceptance gate remains open. No DNS, TLS, CMP, advertising, analytics, form, payment or email-delivery configuration changed.
