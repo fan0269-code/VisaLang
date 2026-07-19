@@ -7,7 +7,7 @@ Source of truth: `src/content/guides/*.md`, `src/data/zh-germany-a1.ts`, and the
 
 - English guides: 54.
 - Chinese Germany A1 guides: 8.
-- English controlled source-review state: reviewed 28, pending 26.
+- English controlled source-review state: reviewed 31, pending 23.
 - Core-route source review: Germany A1 has 7 reviewed and 10 pending English guides; Germany B1 has 8 reviewed core guides and 5 pending preparation-support guides.
 - Chinese Germany A1 evidence state: 8 reviewed with independent source and translation review recorded on 2026-07-19.
 - Content maturity is not evidence maturity. An updated or mature page may still have pending official-source review.
@@ -27,12 +27,12 @@ Source of truth: `src/content/guides/*.md`, `src/data/zh-germany-a1.ts`, and the
 | tef-canada-immigration | EN | canada | canada | verification-pending | Canada immigration and citizenship language-test planning | choice | Canadian immigration or citizenship authority | Le français des affaires | 2026-07-01 | 2026-07-14 | partial | Route/local execution details unresolved | Close route, centre, date, or programme gaps | P0 |
 | yki-finnish-citizenship | EN | finland | finland | verification-pending | Finland citizenship language-proof planning | requirement | Finnish immigration and citizenship authority | Finnish National Agency for Education | 2026-07-01 | 2026-07-14 | partial | Route/local execution details unresolved | Close route, centre, date, or programme gaps | P0 |
 | yki-vs-other-finland-options | EN | finland | finland | verification-pending | Finland citizenship language-proof comparison | choice | Finnish immigration and citizenship authority | Finnish National Agency for Education | 2026-07-01 | 2026-07-14 | partial | Route/local execution details unresolved | Close route, centre, date, or programme gaps | P0 |
-| delf-b1-b2-french-work-study | EN | france | france | verification-pending | France work and study language-proof planning | requirement | Receiving French institution, employer, or professional authority | France Éducation international | 2026-07-01 | pending | blocked | Deciding-authority evidence required | Supply deciding-authority source package | P0 |
-| tcf-irn-french-residence | EN | france | france | verification-pending | France residence and citizenship language-proof planning | choice | French residence or citizenship authority | France Éducation international | 2026-07-01 | pending | blocked | Deciding-authority evidence required | Supply deciding-authority source package | P0 |
+| delf-b1-b2-french-work-study | EN | france | france | verification-pending | Verify DELF or DALF evidence for Sorbonne Faculty of Arts and Humanities admissions | requirement | Sorbonne University Faculty of Arts and Humanities admissions | France Éducation international | 2026-07-19 | 2026-07-19 | partial | Exact programme rules remain current and receiver-specific; work and professional routes are outside scope | Recheck the exact faculty and programme | P0 |
+| tcf-irn-french-residence | EN | france | france | verification-pending | Verify TCF IRN against a current French nationality procedure | choice | French Ministry of the Interior nationality procedure | France Éducation international | 2026-07-19 | 2026-07-19 | partial | Exact applicant category, dispensation and local centre remain unresolved; residence routes are outside scope | Recheck the exact nationality procedure and centre | P0 |
 | cils-b1-cittadinanza-for-italian-citizenship | EN | italy | italy | verification-pending | Italy citizenship language-proof planning | requirement | Italian citizenship authority or responsible consulate | CILS | 2026-07-01 | 2026-07-14 | partial | Route/local execution details unresolved | Close route, centre, date, or programme gaps | P0 |
 | cils-vs-celi-vs-plida-for-italian-citizenship | EN | italy | italy | verification-pending | Italy citizenship language-certificate comparison | choice | Italian citizenship authority or responsible consulate | CILS / CELI / PLIDA | 2026-07-01 | 2026-07-14 | partial | Route/local execution details unresolved | Close route, centre, date, or programme gaps | P0 |
 | dutch-inburgering-a2-b1-for-integration-and-citizenship | EN | netherlands | netherlands | verification-pending | Netherlands integration and citizenship language-proof planning | requirement | Dutch immigration, integration, or citizenship authority | DUO | 2026-07-01 | 2026-07-14 | partial | Route/local execution details unresolved | Close route, centre, date, or programme gaps | P0 |
-| staatsexamen-nt2-for-work-and-higher-education | EN | netherlands | netherlands | verification-pending | Netherlands work and higher-education language-proof planning | requirement | Receiving Dutch institution, employer, or professional authority | Staatsexamen NT2 | 2026-07-01 | pending | blocked | Deciding-authority evidence required | Supply deciding-authority source package | P0 |
+| staatsexamen-nt2-for-work-and-higher-education | EN | netherlands | netherlands | verification-pending | Verify Staatsexamen NT2-II for UvA Dutch-taught bachelor's admissions | requirement | University of Amsterdam Dutch-taught bachelor admissions | Staatsexamen NT2 | 2026-07-19 | 2026-07-19 | partial | Exact programme rules remain current and receiver-specific; work and professional routes are outside scope | Recheck the exact programme | P0 |
 | portuguese-ciple-a2-for-citizenship-and-residence | EN | portugal | portugal | verification-pending | Portugal citizenship and residence language-proof planning | choice | Portuguese immigration or citizenship authority | CAPLE | 2026-07-01 | 2026-07-14 | partial | Route/local execution details unresolved | Close route, centre, date, or programme gaps | P0 |
 | portuguese-language-for-golden-visa-and-citizenship | EN | portugal | portugal | verification-pending | Portugal residence and citizenship language-proof planning | requirement | Portuguese immigration or citizenship authority | CAPLE | 2026-07-01 | 2026-07-14 | partial | Route/local execution details unresolved | Close route, centre, date, or programme gaps | P0 |
 | dele-a2-ccse-spanish-citizenship | EN | spain | spain | verification-pending | Spain citizenship exam planning | requirement | Spanish citizenship authority | Instituto Cervantes | 2026-07-19 | 2026-07-19 | partial | Applicant evidence, dispensation and local execution remain unresolved | Agent pre-review complete; named human acceptance pending | P0 |
@@ -94,10 +94,9 @@ Source of truth: `src/content/guides/*.md`, `src/data/zh-germany-a1.ts`, and the
 ## Immediate execution queue
 
 1. A named human reviewer must inspect and intentionally accept or reject the two Spain pilot rewrites; both pages remain `verification-pending` meanwhile. Agent source/wording pre-review completed on 2026-07-19.
-2. Close the three remaining blocked pages with the named French receiving authority/procedure and named Dutch receiving institution, employer, or regulator.
-3. Review the ten remaining pending English Germany A1 support pages only in separately scoped windows.
-4. Review the five Germany B1 preparation-support pages without promoting the core route or inferring exam outcomes.
-5. Review TestDaF/telc starter pages only after P0/P1 gaps are materially reduced.
+2. Review the ten remaining pending English Germany A1 support pages only in separately scoped windows.
+3. Review the five Germany B1 preparation-support pages without promoting the core route or inferring exam outcomes.
+4. Review TestDaF/telc starter pages only after P0/P1 gaps are materially reduced.
 
 ## Maintenance rule
 

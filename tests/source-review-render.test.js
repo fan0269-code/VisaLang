@@ -132,6 +132,32 @@ try {
   assert.ok(spainA2CcseHtml.includes('Save the current Ministry instruction before comparing or booking a DELE or CCSE product.'), 'the Spain requirement page renders its authority-first next action');
   assert.ok(spainA2CcseHtml.includes('<small>Next guide</small><strong>DELE levels and Spanish citizenship: verify the accepted proof first</strong>'), 'the Spain requirement page continues to the certificate-choice page');
 
+  const newlyReviewedP0Pages = [
+    {
+      slug: 'delf-b1-b2-french-work-study',
+      authority: 'Sorbonne University Faculty of Arts and Humanities admissions',
+      nextAction: 'Open the current admissions page for your exact faculty and programme before choosing a DELF or DALF level.',
+    },
+    {
+      slug: 'tcf-irn-french-residence',
+      authority: 'French Ministry of the Interior nationality procedure',
+      nextAction: 'Identify the exact Ministry nationality procedure and save its current language-proof instructions before booking TCF IRN.',
+    },
+    {
+      slug: 'staatsexamen-nt2-for-work-and-higher-education',
+      authority: 'University of Amsterdam Dutch-taught bachelor admissions',
+      nextAction: 'Open the current UvA admissions page for your Dutch-taught bachelor’s programme and confirm its accepted Dutch proof before registering for NT2.',
+    },
+  ];
+  for (const { slug, authority, nextAction } of newlyReviewedP0Pages) {
+    const html = fs.readFileSync(`dist/guides/${slug}/index.html`, 'utf8');
+    assert.ok(html.includes('Official sources last checked: <time datetime="2026-07-19">2026-07-19</time>'), `${slug} renders its current source-review date`);
+    assert.ok(html.includes('Verification pending'), `${slug} remains visibly pending after page-specific source review`);
+    assert.ok(html.includes(authority), `${slug} renders the named decision authority or receiving institution`);
+    assert.ok(html.includes(nextAction), `${slug} renders its page-specific authority-first next action`);
+    assert.ok(!html.includes('<small>Next guide</small>'), `${slug} does not send readers into a different route as a sequential next step`);
+  }
+
   const requirementHtml = fs.readFileSync('dist/guides/german-family-reunion-language-requirement/index.html', 'utf8');
   assert.ok(requirementHtml.includes('Save the current mission instruction for your route'), 'generated guide HTML renders the article-specific next action');
   assert.ok(!requirementHtml.includes('Confirm the current requirement with the organisation that will receive your proof.'), 'article-specific next action replaces the generic fallback copy');

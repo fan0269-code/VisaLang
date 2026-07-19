@@ -72,6 +72,21 @@ The following pages lack the required page-specific final-decision-authority inp
 
 They remain `verification-pending`. Required inputs are, respectively, the named French receiving institution/regulator; the precise French prefecture/procedure page; and the named Dutch institution/employer/regulator.
 
+## P0-3 page-specific authority review — 2026-07-19
+
+The 2026-07-14 blocked disposition above is historical. The three pages now have current, page-specific source packages and bounded rewrites:
+
+- `docs/FRANCE_HIGH_RISK_SOURCE_REVIEW_2026-07-19.md`
+- `docs/NETHERLANDS_NT2_SOURCE_REVIEW_2026-07-19.md`
+
+| Guide | Named authority or receiver reviewed | Page disposition | Unresolved boundary |
+|---|---|---|---|
+| `delf-b1-b2-french-work-study` | Sorbonne University Faculty of Arts and Humanities; FEI DELF/DALF | Narrowed to the reviewed faculty admissions branch; still `verification-pending` | Exact programme rules remain current and receiver-specific; work and professional routes are explicitly outside page scope |
+| `tcf-irn-french-residence` | Ministry of the Interior nationality procedure; current Service-Public nationality evidence page; FEI TCF IRN | Narrowed to the reviewed nationality-procedure branch; still `verification-pending` | Applicant category, exception/dispensation, dossier decision and local centre terms remain reader-specific; residence routes are explicitly outside page scope |
+| `staatsexamen-nt2-for-work-and-higher-education` | University of Amsterdam Dutch-taught bachelor's admissions; DUO/CvTE NT2 pages | Narrowed to the reviewed UvA admissions branch; still `verification-pending` | Exact programme rules remain current and receiver-specific; work and professional routes are explicitly outside page scope; NT2 does not automatically confer admission |
+
+The source packages close the missing-input blocker, not the reader-specific decision. `sourceReviewedAt` records review of the facts retained on each rewritten page; it does not promote `contentStatus`, guarantee acceptance, or substitute for a current receiver check.
+
 ### Spain source pilot — 2026-07-16
 
 The previous deciding-authority gap for the two Spain guides was closed using the current Spanish Ministry of Justice residence-nationality procedure and electronic application/dispensation pages. The narrow source review and claim boundaries are recorded in `docs/SPAIN_CONTENT_SOURCE_PILOT_2026-07-16.md`.

@@ -1,41 +1,60 @@
 ---
-title: "Staatsexamen NT2 for Dutch Work and Study"
-description: "How Staatsexamen NT2 Programme I and II fit Dutch work and higher-education routes, and which level to verify officially."
+title: "Staatsexamen NT2-II for UvA Dutch-taught bachelor admissions"
+description: "Use the reviewed University of Amsterdam Dutch-taught bachelor's admissions page and official NT2 product facts, then verify your exact programme."
 category: "netherlands"
 slug: "staatsexamen-nt2-for-work-and-higher-education"
 publishedDate: "2026-07-01"
-updatedDate: "2026-07-01"
+updatedDate: "2026-07-19"
+sourceReviewedAt: "2026-07-19"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "verification-pending"
 decisionStage: "requirement"
-nextGuideSlug: "dutch-inburgering-a2-b1-for-integration-and-citizenship"
 comparisonScope: "same-route"
-primaryIntent: "Netherlands work and higher-education language-proof planning"
-audienceScope: "Readers considering Staatsexamen NT2 for a Dutch institution or professional route"
-finalDecisionAuthorityType: "Receiving Dutch institution, employer, or professional authority"
-examOwnerUrl: "https://www.staatsexamensnt2.nl/"
+primaryIntent: "Verify Staatsexamen NT2-II evidence for UvA Dutch-taught bachelor's admissions"
+audienceScope: "Applicants using the reviewed UvA Dutch-taught bachelor's admissions page"
+finalDecisionAuthorityType: "University of Amsterdam Dutch-taught bachelor admissions"
+primaryOfficialAuthorityUrl: "https://www.uva.nl/en/education/admissions/bachelors/dutch-taught-programmes/prior-education-non-dutch/dutch-language-requirements/dutch-language-requirements.html"
+examOwnerUrl: "https://www.staatsexamensnt2.nl/over-het-staatsexamen-nt2/wat-is-het-staatsexamen-nt2"
 localExecutionPrompt: "Before registering, check the current requirement with the authority that receives your application. This page helps you prepare the questions and official sources to use."
 author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
-eyebrow: "Netherlands · Work & Study"
+eyebrow: "Netherlands · UvA admissions"
 route: "netherlands"
 supportingGuideSlugs: ["dutch-inburgering-a2-b1-for-integration-and-citizenship"]
 ---
 
-## Official verification required for the receiving organisation
+## Start with the named receiver
 
-This page does not yet identify a reviewed institution, employer, or professional regulator that confirms which Dutch proof or level it accepts. Do not choose Programme I, Programme II, or an Inburgering route from a general category description alone.
+The reviewed University of Amsterdam page covers international applicants to Dutch-taught bachelor's programmes. Within that page's scope, applicants without one of its listed alternative proofs must take Staatsexamen NT2 Programme II. This only applies to the reviewed UvA admissions scope and does not establish admission, another institution's requirement, or a work rule.
 
-## Questions for the institution, employer, or regulator
+## What the exam owner confirms
 
-- Which language proof and level are required for the named programme, role, or registration?
-- Is Staatsexamen NT2 accepted, and if so which programme and document format?
+DUO and Staatsexamens NT2 describe Programme I as B1 and Programme II as B2. Both programmes test Reading, Listening, Speaking, and Writing, and a diploma is issued after all four components are passed. Those product descriptions do not decide which proof a receiver accepts.
+
+## Admission is a separate decision
+
+The official exam site says schools and universities set their own requirements and that an NT2 diploma does not automatically confer admission. UvA also lists alternative evidence within the reviewed page, so NT2-II is not the only path for every applicant in that bounded scope.
+
+## Keep work and professional routes outside this page
+
+No named employer or professional regulator was reviewed for this page. Programme I and II work-context descriptions are exam-design facts, not proof that a specific employer or regulator accepts the diploma.
+
+## Questions for the exact UvA programme and admissions team
+
+- Which language proof and level are required for the named programme?
+- Does the listed NT2-II route apply to this programme and applicant category?
 - Are component, recency, verification, or submission rules applied?
 - Which official page or written instruction records the current requirement?
 
-After receiving that answer, use the official NT2 and DUO links below to verify the relevant exam or integration product and its current execution details. Neither link decides acceptance for an unnamed institution or profession.
+## Next action
+
+Open the current UvA admissions page for your Dutch-taught bachelor's programme and confirm its accepted Dutch proof before registering for NT2.
 
 ## Official sources
 
-- [DUO Inburgeren](https://www.inburgeren.nl/en/)
-- [Staatsexamens NT2](https://www.staatsexamensnt2.nl/)
+- [University of Amsterdam — Dutch language requirements for Dutch-taught bachelor's programmes](https://www.uva.nl/en/education/admissions/bachelors/dutch-taught-programmes/prior-education-non-dutch/dutch-language-requirements/dutch-language-requirements.html)
+- [DUO — how Staatsexamen NT2 works](https://www.duo.nl/particulier/staatsexamen-nt2/hoe-het-staatsexamen-nt2-werkt.jsp)
+- [Staatsexamens NT2 — product and programme levels](https://www.staatsexamensnt2.nl/over-het-staatsexamen-nt2/wat-is-het-staatsexamen-nt2)
+- [Staatsexamens NT2 — schools set their own requirements](https://www.staatsexamensnt2.nl/over-het-staatsexamen-nt2/hoe-gebruik-je-het-diploma)

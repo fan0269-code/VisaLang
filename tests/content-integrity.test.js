@@ -224,25 +224,53 @@ for (const { file, source } of highRiskEntries) {
 const highRiskAudit = fs.readFileSync('docs/HIGH_RISK_ROUTE_SOURCE_AUDIT.md', 'utf8');
 for (const { file } of highRiskEntries) assert.ok(highRiskAudit.includes(`src/content/guides/${file}`), `${file} appears in the high-risk source audit`);
 
-const blockedFactEditSlugs = [
-  'delf-b1-b2-french-work-study',
-  'tcf-irn-french-residence',
-  'staatsexamen-nt2-for-work-and-higher-education',
-];
-for (const slug of blockedFactEditSlugs) {
-  const source = bySlug.get(slug)?.source || '';
-  assert.match(source, /Official verification required/i, `${slug} exposes the blocked verification boundary in its body`);
-}
 const blockedClaims = {
   'dele-levels-spanish-citizenship': /legal minimum|not required for citizenship|DELE A2 is the standard reference/i,
   'dele-a2-ccse-spanish-citizenship': /10 years|2 years for some nationalities|must pass both/i,
-  'delf-b1-b2-french-work-study': /valid for life|often requires B2 or C1|lifetime validity/i,
+  'delf-b1-b2-french-work-study': /accepted for life|accepted by every|often requires B2 or C1|lifetime acceptance/i,
   'tcf-irn-french-residence': /Applicants for a multi-year residence permit|Applicants for French citizenship|requiring a B1 level/i,
   'staatsexamen-nt2-for-work-and-higher-education': /For vocational education \(MBO\) and jobs|For higher education \(HBO\/university\)|NT2 is the one/i,
 };
 for (const [slug, unsafePattern] of Object.entries(blockedClaims)) {
   assert.doesNotMatch(bySlug.get(slug)?.source || '', unsafePattern, `${slug} does not retain the audited deterministic claim`);
 }
+
+const newlyReviewedDecisionAuthorityPages = {
+  'delf-b1-b2-french-work-study': { authority: /sorbonne-universite\.fr/, scope: /Sorbonne Faculty of Arts and Humanities admissions/i, eyebrow: /Sorbonne admissions/i },
+  'tcf-irn-french-residence': { authority: /immigration\.interieur\.gouv\.fr/, scope: /French nationality procedure/i, eyebrow: /Nationality procedure/i },
+  'staatsexamen-nt2-for-work-and-higher-education': { authority: /uva\.nl/, scope: /UvA Dutch-taught bachelor's admissions/i, eyebrow: /UvA admissions/i },
+};
+for (const [slug, { authority, scope, eyebrow }] of Object.entries(newlyReviewedDecisionAuthorityPages)) {
+  const source = bySlug.get(slug)?.source || '';
+  assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${slug} records the completed page-specific source review`);
+  assert.equal(field(source, 'sourceReviewedAt'), '2026-07-19', `${slug} records the current source-review date`);
+  assert.equal(field(source, 'reviewedByRole'), 'source-review', `${slug} records the controlled reviewer role`);
+  assert.equal(field(source, 'contentStatus'), 'verification-pending', `${slug} remains pending for reader-specific acceptance and execution`);
+  assert.match(field(source, 'primaryOfficialAuthorityUrl'), authority, `${slug} records a named final-decision authority or receiving institution`);
+  assert.match(field(source, 'primaryIntent'), scope, `${slug} narrows its intent to the branch controlled by the recorded authority`);
+  assert.match(field(source, 'audienceScope'), scope, `${slug} narrows its audience to the branch controlled by the recorded authority`);
+  assert.match(field(source, 'eyebrow'), eyebrow, `${slug} keeps its visible route label within the reviewed authority scope`);
+  assert.equal(field(source, 'nextGuideSlug'), '', `${slug} terminates instead of sending readers into a different France or Netherlands route`);
+  assert.match(source, /does not establish|does not decide|only applies|does not create a rule/i, `${slug} keeps the named-source scope boundary`);
+}
+
+const franceStudy = bySlug.get('delf-b1-b2-french-work-study')?.source || '';
+const franceResidence = bySlug.get('tcf-irn-french-residence')?.source || '';
+const dutchStudy = bySlug.get('staatsexamen-nt2-for-work-and-higher-education')?.source || '';
+const dutchIntegration = bySlug.get('dutch-inburgering-a2-b1-for-integration-and-citizenship')?.source || '';
+assert.match(franceStudy, /Sorbonne University/i, 'the DELF page names the reviewed receiving institution');
+assert.match(franceStudy, /Faculty of Arts and Humanities/i, 'the DELF page limits the institution example to the reviewed faculty scope');
+assert.match(franceResidence, /1 January 2026/i, 'the TCF IRN page dates the current French procedure rule');
+assert.match(franceResidence, /B2/i, 'the TCF IRN page records the current nationality-procedure language level from the Ministry source');
+assert.match(dutchStudy, /University of Amsterdam/i, 'the NT2 page names the reviewed receiving university');
+assert.match(dutchStudy, /Dutch-taught bachelor/i, 'the NT2 page limits the acceptance example to the reviewed programme scope');
+assert.equal(field(dutchIntegration, 'nextGuideSlug'), '', 'the separate Dutch integration route no longer loops into the work/study route');
+assert.ok(arrayField(dutchIntegration, 'supportingGuideSlugs').includes('staatsexamen-nt2-for-work-and-higher-education'), 'the Dutch integration page may retain NT2 as non-sequential supporting context');
+
+const highRiskSourceAudit = fs.readFileSync('docs/HIGH_RISK_ROUTE_SOURCE_AUDIT.md', 'utf8');
+assert.match(highRiskSourceAudit, /P0-3 page-specific authority review — 2026-07-19/, 'the high-risk audit records the new page-specific authority review');
+assert.match(highRiskSourceAudit, /FRANCE_HIGH_RISK_SOURCE_REVIEW_2026-07-19\.md/, 'the high-risk audit links the France evidence matrix');
+assert.match(highRiskSourceAudit, /NETHERLANDS_NT2_SOURCE_REVIEW_2026-07-19\.md/, 'the high-risk audit links the Netherlands evidence matrix');
 
 for (const slug of ['dele-levels-spanish-citizenship', 'dele-a2-ccse-spanish-citizenship']) {
   const source = bySlug.get(slug)?.source || '';
