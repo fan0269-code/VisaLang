@@ -1,11 +1,16 @@
 # Spain content source pilot
 
 Review date: 2026-07-16 (Asia/Shanghai)
+Re-review date: 2026-07-19 (Asia/Shanghai)
 Scope: `dele-levels-spanish-citizenship` and `dele-a2-ccse-spanish-citizenship` only.
 
 ## Gate decision
 
 `SOURCE_GATE_PASSED_WITH_APPLICANT_BOUNDARY`
+
+Agent source and wording re-review: `AGENT_REREVIEW_COMPLETED_WITH_APPLICANT_BOUNDARY`
+
+Human acceptance gate: `PENDING`
 
 The current Ministry of Justice residence-nationality procedure and electronic filing pages close the previous absence of a deciding-authority source. They confirm the competent procedure, link the Instituto Cervantes test-dispensation process, and state that the application requires supporting documents. Instituto Cervantes remains the exam owner for DELE and CCSE product rules.
 
@@ -38,14 +43,14 @@ This does not support an individual eligibility decision, a universal two-test r
 
 ### `dele-levels-spanish-citizenship`
 
-- Source review: reviewed on 2026-07-16 for the narrow claims retained.
+- Source review: reviewed again on 2026-07-19 for the narrow claims retained.
 - Content maturity: remains `verification-pending`.
 - Safe additions: Ministry procedure link, separation of citizenship authority from exam owner, bounded description of Cervantes product guidance.
 - Still unresolved: applicant category, accepted evidence, individual dispensation, and any alternative certificate.
 
 ### `dele-a2-ccse-spanish-citizenship`
 
-- Source review: reviewed on 2026-07-16 for the narrow claims retained.
+- Source review: reviewed again on 2026-07-19 for the narrow claims retained.
 - Content maturity: remains `verification-pending`.
 - Safe additions: Ministry procedure and dispensation links, separation of application requirements from DELE/CCSE product execution.
 - Still unresolved: applicant-specific residence calculation, required evidence, dispensation result, centre, date, fee and retake terms.
@@ -55,3 +60,24 @@ This does not support an individual eligibility decision, a universal two-test r
 - Do not promote either page from `verification-pending` in this window.
 - Do not infer an individual result from the existence of a Ministry procedure or a Cervantes FAQ.
 - Do not add residence-period, nationality-exception, fee, date or universal two-test statements without a page-specific current authority source.
+
+## 2026-07-19 agent re-review evidence
+
+| Source | Access result | Current locator / short exact quote | Permitted support | Boundary |
+|---|---|---|---|---|
+| Spanish Ministry of Justice residence-nationality procedure | HTTP 200 | Main content: “La obtención de la nacionalidad por residencia requiere…” | Identifies residence nationality as the Ministry procedure and states that the applicable residence period, civic conduct and integration form part of that procedure | Does not determine the reader's applicable period, evidence or outcome |
+| Ministry electronic office residence-nationality page | HTTP 200 | “Solicitud de Dispensas de las pruebas del Instituto Cervantes” and the separate online application section | Confirms electronic residence-nationality filing and a separate Cervantes-test dispensation application | The existence of a dispensation process does not establish an individual dispensation |
+| Instituto Cervantes nationality-tests page | HTTP 200 | “dos pruebas requisitos… en determinados supuestos” and “DELE nivel A2 o superior y la prueba CCSE” | Attributes the named products and the important “certain cases” boundary to the exam owner | Does not decide which product or dispensation applies to the reader |
+| Instituto Cervantes DELE A2 page | HTTP 200 | “Exámenes DELE A2”; product abilities and four-part format | Supports only the current DELE A2 product and format | Does not establish citizenship acceptance or comparative benefit |
+| Instituto Cervantes CCSE exam page | HTTP 200 | “La prueba CCSE consta de cinco tareas y de 25 preguntas” | Supports only the current CCSE product structure | Does not establish applicant category, citizenship eligibility or exemption |
+
+The previously listed DELE and CCSE FAQ URLs timed out in this review and were not needed for the retained public claims. No inaccessible FAQ statement was used to promote or expand either page.
+
+## Agent wording and route disposition — 2026-07-19
+
+- Completed an authority-first pre-review of the two public rewrites with the applicant boundary retained; this is not a human acceptance decision.
+- Replaced broad product links with the direct current DELE A2 and CCSE product pages.
+- Kept `sourceReviewStatus: reviewed` for the bounded page facts and updated the real review date to 2026-07-19.
+- Kept `contentStatus: verification-pending`; this review does not resolve applicant-specific evidence, dispensation, residence calculation or local execution.
+- Corrected the main route to `dele-a2-ccse-spanish-citizenship` → `dele-levels-spanish-citizenship` → terminal. The choice page no longer sends readers back to the requirement page, and the primary next page is not duplicated in supporting links.
+- Kept the human-review queue open. A named human reviewer must inspect and intentionally accept or reject the final wording before the content-plan item can be closed.

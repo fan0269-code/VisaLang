@@ -119,14 +119,18 @@ try {
   assert.ok(!highRiskReviewedHtml.includes('"dateModified":"2026-07-14"'), 'Article JSON-LD does not reinterpret sourceReviewedAt as an editorial update');
 
   const spainHtml = fs.readFileSync('dist/guides/dele-levels-spanish-citizenship/index.html', 'utf8');
-  assert.ok(spainHtml.includes('Official sources last checked: <time datetime="2026-07-16">2026-07-16</time>'), 'the Spain pilot renders its controlled source-review date');
+  assert.ok(spainHtml.includes('Official sources last checked: <time datetime="2026-07-19">2026-07-19</time>'), 'the Spain pilot renders its agent source re-review date');
   assert.ok(spainHtml.includes('Verification pending'), 'reviewed Spain sources do not promote incomplete applicant-specific content');
   assert.ok(spainHtml.includes('Spanish citizenship authority'), 'the Spain pilot renders the deciding-authority boundary');
+  assert.ok(spainHtml.includes('Confirm the Ministry procedure and accepted evidence before choosing a DELE level or another product.'), 'the Spain choice page renders its authority-first next action');
+  assert.ok(!spainHtml.includes('<small>Next guide</small>'), 'the Spain choice page is terminal and does not loop to the requirement page');
 
   const spainA2CcseHtml = fs.readFileSync('dist/guides/dele-a2-ccse-spanish-citizenship/index.html', 'utf8');
-  assert.ok(spainA2CcseHtml.includes('Official sources last checked: <time datetime="2026-07-16">2026-07-16</time>'), 'the second Spain pilot page renders its controlled source-review date');
+  assert.ok(spainA2CcseHtml.includes('Official sources last checked: <time datetime="2026-07-19">2026-07-19</time>'), 'the second Spain pilot page renders its agent source re-review date');
   assert.ok(spainA2CcseHtml.includes('Verification pending'), 'the second reviewed Spain page remains pending for applicant-specific decisions');
   assert.ok(spainA2CcseHtml.includes('Spanish citizenship authority'), 'the second Spain page renders the deciding-authority boundary');
+  assert.ok(spainA2CcseHtml.includes('Save the current Ministry instruction before comparing or booking a DELE or CCSE product.'), 'the Spain requirement page renders its authority-first next action');
+  assert.ok(spainA2CcseHtml.includes('<small>Next guide</small><strong>DELE levels and Spanish citizenship: verify the accepted proof first</strong>'), 'the Spain requirement page continues to the certificate-choice page');
 
   const requirementHtml = fs.readFileSync('dist/guides/german-family-reunion-language-requirement/index.html', 'utf8');
   assert.ok(requirementHtml.includes('Save the current mission instruction for your route'), 'generated guide HTML renders the article-specific next action');

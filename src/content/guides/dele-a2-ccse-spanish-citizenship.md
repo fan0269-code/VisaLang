@@ -1,11 +1,11 @@
 ---
-title: "DELE A2 and CCSE for Spanish Citizenship"
-description: "How DELE A2 and CCSE fit Spanish citizenship by residence, and what to verify before booking or relying on either exam."
+title: "DELE A2 and CCSE for Spanish citizenship: confirm what applies"
+description: "Start with Spain's residence-nationality procedure, then confirm whether DELE A2, CCSE, an alternative, or a dispensation applies."
 category: "spain"
 slug: "dele-a2-ccse-spanish-citizenship"
 publishedDate: "2026-07-01"
-updatedDate: "2026-07-16"
-sourceReviewedAt: "2026-07-16"
+updatedDate: "2026-07-19"
+sourceReviewedAt: "2026-07-19"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "verification-pending"
@@ -16,14 +16,14 @@ primaryIntent: "Spain citizenship exam planning"
 audienceScope: "Readers preparing questions about DELE and CCSE for a citizenship application"
 finalDecisionAuthorityType: "Spanish citizenship authority"
 primaryOfficialAuthorityUrl: "https://www.mjusticia.gob.es/es/ciudadania/tramites/nacionalidad-residencia"
-examOwnerUrl: "https://examenes.cervantes.es/en/dele"
+examOwnerUrl: "https://examenes.cervantes.es/es/presentacion/nacionalidad"
 localExecutionPrompt: "Before registering, check the current requirement with the authority that receives your application. This page helps you prepare the questions and official sources to use."
 author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "Spain · Citizenship"
 route: "spain"
-supportingGuideSlugs: ["dele-levels-spanish-citizenship", "cils-b1-cittadinanza-for-italian-citizenship", "dutch-inburgering-a2-b1-for-integration-and-citizenship", "portuguese-ciple-a2-for-citizenship-and-residence"]
+supportingGuideSlugs: ["cils-b1-cittadinanza-for-italian-citizenship", "dutch-inburgering-a2-b1-for-integration-and-citizenship", "portuguese-ciple-a2-for-citizenship-and-residence"]
 ---
 
 ## Official verification required before booking either exam
@@ -41,7 +41,7 @@ Save the authority response or current procedure page before booking.
 
 ## What the reviewed sources can confirm
 
-The Ministry pages confirm the residence-nationality application route and the existence of a separate Cervantes-test dispensation process. Instituto Cervantes describes DELE and CCSE product rules and its nationality-test guidance. This supports a Ministry-first verification sequence, not a universal conclusion that every applicant must take both tests.
+The Ministry pages confirm the residence-nationality application route and the existence of a separate Cervantes-test dispensation process. The current Cervantes nationality page describes DELE A2 or higher and CCSE as tests it administers in certain nationality cases; the direct DELE A2 and CCSE pages describe those products. This supports a Ministry-first verification sequence, not a universal two-test rule.
 
 After the Ministry procedure confirms the proof applicable to your case, use the Instituto Cervantes links to verify the current product, authorised registration route, dates, fees, ID rules, result process, and retake terms. Exam-owner information does not establish citizenship eligibility or the proof required for an individual application.
 
@@ -50,5 +50,9 @@ After the Ministry procedure confirms the proof applicable to your case, use the
 - [Residence nationality procedure — Spanish Ministry of Justice](https://www.mjusticia.gob.es/es/ciudadania/tramites/nacionalidad-residencia)
 - [Electronic application and Cervantes-test dispensation — Spanish Ministry of Justice](https://sede.mjusticia.gob.es/es/tramites/nacionalidad-espanola)
 - [Nationality tests — Instituto Cervantes](https://examenes.cervantes.es/es/presentacion/nacionalidad)
-- [DELE exams — Instituto Cervantes](https://examenes.cervantes.es/en/dele)
-- [CCSE exam — Instituto Cervantes](https://examenes.cervantes.es/en/ccse)
+- [DELE A2 — Instituto Cervantes](https://examenes.cervantes.es/es/dele/examenes/a2)
+- [CCSE exam — Instituto Cervantes](https://examenes.cervantes.es/es/ccse/examen)
+
+## Next action
+
+Save the current Ministry instruction before comparing or booking a DELE or CCSE product. If the authority confirms that language evidence is required, continue to the DELE-level guide with the accepted certificate, level and document format written down.

@@ -247,10 +247,30 @@ for (const [slug, unsafePattern] of Object.entries(blockedClaims)) {
 for (const slug of ['dele-levels-spanish-citizenship', 'dele-a2-ccse-spanish-citizenship']) {
   const source = bySlug.get(slug)?.source || '';
   assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${slug} records the completed narrow source review`);
-  assert.equal(field(source, 'sourceReviewedAt'), '2026-07-16', `${slug} records the real source-review date`);
+  assert.equal(field(source, 'sourceReviewedAt'), '2026-07-19', `${slug} records the agent source re-review date`);
   assert.equal(field(source, 'contentStatus'), 'verification-pending', `${slug} remains pending despite the reviewed source package`);
   assert.match(field(source, 'primaryOfficialAuthorityUrl'), /mjusticia\.gob\.es/, `${slug} records the Spanish deciding authority`);
   assert.match(source, /does not establish|cannot decide|does not let VisaLang decide/i, `${slug} keeps the applicant-specific decision boundary`);
+}
+
+const spainRequirement = bySlug.get('dele-a2-ccse-spanish-citizenship')?.source || '';
+const spainChoice = bySlug.get('dele-levels-spanish-citizenship')?.source || '';
+assert.equal(field(spainRequirement, 'decisionStage'), 'requirement', 'Spain starts with the citizenship requirement and evidence question');
+assert.equal(field(spainRequirement, 'nextGuideSlug'), 'dele-levels-spanish-citizenship', 'Spain requirement page continues to the certificate-choice page');
+assert.ok(!arrayField(spainRequirement, 'supportingGuideSlugs').includes('dele-levels-spanish-citizenship'), 'Spain requirement keeps its primary next page out of supporting links');
+assert.equal(field(spainChoice, 'decisionStage'), 'choice', 'Spain certificate page remains a choice step');
+assert.equal(field(spainChoice, 'nextGuideSlug'), '', 'Spain certificate-choice page terminates instead of looping to the requirement page');
+assert.ok(arrayField(spainChoice, 'supportingGuideSlugs').includes('dele-a2-ccse-spanish-citizenship'), 'Spain certificate choice keeps the requirement page as supporting context');
+
+const spainPilotAudit = fs.readFileSync('docs/SPAIN_CONTENT_SOURCE_PILOT_2026-07-16.md', 'utf8');
+assert.match(spainPilotAudit, /AGENT_REREVIEW_COMPLETED_WITH_APPLICANT_BOUNDARY/, 'Spain pilot records the agent pre-review disposition');
+assert.match(spainPilotAudit, /Human acceptance gate:\s*`PENDING`/, 'Spain pilot keeps the named-human acceptance gate open');
+assert.match(spainPilotAudit, /Re-review date:\s*2026-07-19/, 'Spain pilot records the actual agent re-review date');
+
+for (const source of [spainRequirement, spainChoice]) {
+  assert.doesNotMatch(source, /\b(?:1|2|5|10|one|two|five|ten)[ -]years?\b/i, 'Spain pilot does not publish fixed residence-year shortcuts');
+  assert.doesNotMatch(source, /\b(?:must|required to)\s+(?:take|pass)\s+(?:the\s+)?(?:DELE|CCSE|both)\b/i, 'Spain pilot does not publish a universal named-exam rule');
+  assert.doesNotMatch(source, /\b(?:no exemptions?|cannot be exempt|everyone must|all applicants? must)\b/i, 'Spain pilot does not publish a universal exemption or applicant rule');
 }
 
 const lastCheckedBadge = fs.readFileSync('src/components/LastCheckedBadge.astro', 'utf8');

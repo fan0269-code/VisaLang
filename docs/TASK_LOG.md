@@ -2638,3 +2638,13 @@ Remaining:
 - Public Germany B1 checks passed: reviewed markers 8/8, no alphabetic Previous links 8/8, explicit Next mappings 7/7, terminal checklist, and Hub self-canonical/TOC/`CollectionPage` output.
 - Release result: the eight reviewed Germany B1 core pages and corrected route graph are online. The five preparation-support pages remain pending, and reader-specific legal route, authority, evidence acceptance and local execution details remain official recheck items.
 - No DNS, TLS, CMP, advertising account, analytics, form, payment, email-delivery or other third-party configuration was changed during this release.
+
+## 2026-07-19 — Spain source-pilot agent pre-review
+
+- Scope: completed the agent pre-review portion of the next `docs/CONTENT_MAP.md` item for `dele-a2-ccse-spanish-citizenship` and `dele-levels-spanish-citizenship` only. The named-human acceptance gate remains open. No other country, commercial surface, shared layout, deployment file or third-party configuration was changed.
+- Reopened the current Spanish Ministry of Justice residence-nationality procedure and electronic-office dispensation page, plus the current Instituto Cervantes nationality, DELE A2 and CCSE product pages. The two previously listed Cervantes FAQ URLs timed out and were not used for any retained claim.
+- Agent pre-review disposition: `AGENT_REREVIEW_COMPLETED_WITH_APPLICANT_BOUNDARY`. The Ministry-first wording and current product descriptions passed an authority-first Codex review; this is not a human acceptance decision. Both pages remain `contentStatus: verification-pending` because applicant category, residence calculation, accepted evidence, individual dispensation and local exam execution remain unresolved.
+- Updated the actual source-review and substantive editing date to 2026-07-19, replaced broad exam links with direct current DELE A2 and CCSE pages, and added page-specific next actions.
+- Corrected the Spain route metadata to requirement → choice → terminal. Removed the direct bidirectional next-guide loop and the duplicate next/supporting target without changing public slugs.
+- Updated `docs/SPAIN_CONTENT_SOURCE_PILOT_2026-07-16.md`, focused regression assertions and the content ledger. The human acceptance item remains first in the immediate execution queue; the three blocked French/Dutch pages remain next after it.
+- Completion boundary: result is `PARTIAL` until a named human reviewer intentionally accepts or rejects the final wording. No push or deployment is performed in this window; a scoped local commit may be created after the technical gates pass.
