@@ -2648,3 +2648,13 @@ Remaining:
 - Corrected the Spain route metadata to requirement → choice → terminal. Removed the direct bidirectional next-guide loop and the duplicate next/supporting target without changing public slugs.
 - Updated `docs/SPAIN_CONTENT_SOURCE_PILOT_2026-07-16.md`, focused regression assertions and the content ledger. The human acceptance item remains first in the immediate execution queue; the three blocked French/Dutch pages remain next after it.
 - Completion boundary: result is `PARTIAL` until a named human reviewer intentionally accepts or rejects the final wording. No push or deployment is performed in this window; a scoped local commit may be created after the technical gates pass.
+
+## 2026-07-19 — Spain source-pilot production release
+
+- User authorised publication of the completed Agent pre-review candidate. Created application commit `ee66a0a3273ab85eca233f5732f3cde8689324a3` (`content: pre-review Spain citizenship guides`) and pushed `main` from `6cc615a` to `ee66a0a`. The nine pre-existing untracked report, prompt, plan and specification files remained unstaged and unchanged.
+- Re-ran the local release gate: `npm test` passed; `npm run launch-check` built 101 pages and passed 37 checks with 0 failures; deployment shell syntax and `git diff --check` passed.
+- Confirmed the previous production release `/var/www/visalang.org/releases/c99877850ab1`, clean server source, Node.js `v22.23.1` and valid Nginx configuration before switching.
+- Ran the repository immutable deployment script. Server source fast-forwarded to `ee66a0a`; locked dependency installation reported 0 vulnerabilities; server `npm test` and `npm run launch-check` passed; Nginx switched atomically to `/var/www/visalang.org/releases/ee66a0a3273a`.
+- Retained `/var/www/visalang.org/releases/c99877850ab1` as the immediate verified rollback target. No rollback trigger occurred.
+- Production smoke passed from the production host: homepage, Guide Library, robots and sitemap returned 200; legacy routes and `www` returned expected canonical 301 responses. Spain public marker checks passed 6/6 for both titles, both pending-state labels, requirement-to-choice Next navigation, terminal choice-page navigation and the active release target.
+- Release boundary: the two Spain pages are online but remain `verification-pending`. The named-human acceptance gate is still open; this release does not promote the Agent pre-review to human acceptance or assert any applicant-specific outcome. CMP, Auto ads, CLS and clean-profile browser network evidence remain outside this content release.

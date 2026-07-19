@@ -1,17 +1,27 @@
 # VisaLang Operations Status
 
 Updated: 2026-07-19
-Window: Germany B1 source-review and route production release
+Window: Spain source-pilot production release
 
 ## Decision at a glance
 
-- **本地源码状态：已提交并推送。** Germany B1 来源复核与路线修正的应用提交为 `c99877850ab13a98851b5bfc9a0d2b0f5d99710d`；本地和服务器发布门禁均通过。
-- **线上部署状态：已部署并验证。** `visalang.org` 当前不可变发布为 `/var/www/visalang.org/releases/c99877850ab1`；Nginx 原子切换、服务器 gate、公网 smoke、页面复核标记和路线检查通过。
-- **回滚状态：可用但未触发。** 发布前版本 `/var/www/visalang.org/releases/1521d98021e0` 保留完整；本次没有发生强制回滚条件。
-- **内容复核状态：八篇核心页已完成。** 8 篇 Germany B1 核心路线指南已完成页面事实、来源边界和核验流程复核，日期均为 2026-07-19；5 篇备考支持页继续 `pending`。读者的具体法定路线、当地主管机关、证明接受形式、费用和日期仍须实时核验。
+- **本地源码状态：已提交并推送。** Spain 来源预审与路线修正的应用提交为 `ee66a0a3273ab85eca233f5732f3cde8689324a3`；本地和服务器发布门禁均通过。
+- **线上部署状态：已部署并验证。** `visalang.org` 当前不可变发布为 `/var/www/visalang.org/releases/ee66a0a3273a`；Nginx 原子切换、服务器 gate、公网 smoke、页面状态和路线检查通过。
+- **回滚状态：可用但未触发。** 发布前版本 `/var/www/visalang.org/releases/c99877850ab1` 保留完整；本次没有发生强制回滚条件。
+- **内容复核状态：Agent 预审完成，人工闸门仍开放。** 两篇 Spain 指南继续显示 `verification-pending`；上线不代表命名人工审阅者已接受最终措辞，也不解决申请人类别、居留计算、证明接受、个案豁免或当地考试执行问题。
 - **广告/CMP 状态：本轮未改变。** CMP 选择、Auto ads 位置、CLS、浏览器网络行为和账户侧证据仍需单独的受控验证窗口。
 - **历史边界：** 下方 `flowlight.me`、无广告状态和旧 `/public/dist` 发布记录仅为带日期的历史证据，不证明当前 `visalang.org` 线上状态。
 - **未处理范围：** 本窗口未新增 analytics、表单、支付、邮件投递或其他服务集成，也未修改 DNS、TLS、CMP 或广告账户配置。
+
+## Spain source-pilot release — 2026-07-19
+
+- Application commit and immutable release: `ee66a0a3273ab85eca233f5732f3cde8689324a3` / `/var/www/visalang.org/releases/ee66a0a3273a`.
+- Previous verified release retained for rollback: `/var/www/visalang.org/releases/c99877850ab1`.
+- Local and server release gates: locked dependency installation reported 0 vulnerabilities; `npm test` passed; `npm run launch-check` built 101 pages and passed 37 checks with 0 failures, ending in `READY`; deployment shell syntax, Nginx configuration testing and the atomic switch passed.
+- Production smoke: homepage, Guide Library, robots and sitemap returned 200; legacy routes and `www` returned expected canonical 301 redirects.
+- Spain public verification: both revised guide titles and both `Official verification pending` markers were present; the requirement guide rendered the choice guide as Next; the choice guide rendered no Next guide; the immutable release target matched the application commit. Marker checks passed 6/6.
+- Review boundary: `AGENT_REREVIEW_COMPLETED_WITH_APPLICANT_BOUNDARY` remains an Agent pre-review disposition only. The named-human acceptance gate remains pending, both pages remain `verification-pending`, and publication does not assert an applicant-specific nationality or examination outcome.
+- No DNS, TLS, CMP, advertising account, analytics, form, payment or email-delivery configuration was changed. No rollback trigger occurred.
 
 ## Germany B1 source-review release — 2026-07-19
 
