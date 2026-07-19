@@ -9,6 +9,38 @@ const fixtureOutput = path.join('dist/guides', fixtureSlug);
 const pendingFixtureSlug = '__source-review-pending-fixture';
 const pendingFixturePath = path.join('src/content/guides', `${pendingFixtureSlug}.md`);
 const pendingFixtureOutput = path.join('dist/guides', pendingFixtureSlug);
+const guideDirectory = 'src/content/guides';
+const frontmatterField = (source, name) => {
+  const value = source.match(new RegExp(`^${name}:\\s*(.+)$`, 'm'))?.[1]?.trim() || '';
+  return value.replace(/^["']|["']$/g, '');
+};
+const germanyB1GuideSources = fs.readdirSync(guideDirectory)
+  .filter((file) => file.endsWith('.md'))
+  .map((file) => ({ file, source: fs.readFileSync(path.join(guideDirectory, file), 'utf8') }))
+  .filter(({ source }) => frontmatterField(source, 'category') === 'germany-b1');
+const germanyB1CoreSlugs = [
+  'goethe-b1-germany-settlement-work',
+  'germany-b1-citizenship-language-proof',
+  'germany-b1-leben-in-deutschland-and-language-proof',
+  'goethe-b1-vs-telc-b1',
+  'goethe-b1-fees-and-booking',
+  'goethe-b1-study-plan',
+  'germany-b1-settlement-citizenship-timeline',
+  'germany-b1-settlement-citizenship-checklist',
+];
+const structuredDataTypes = (html) => {
+  const types = [];
+  for (const [, json] of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+    const visit = (value) => {
+      if (Array.isArray(value)) return value.forEach(visit);
+      if (!value || typeof value !== 'object') return;
+      if (typeof value['@type'] === 'string') types.push(value['@type']);
+      for (const child of Object.values(value)) visit(child);
+    };
+    visit(JSON.parse(json));
+  }
+  return types;
+};
 
 const removeFixtureSitemapEntries = () => {
   const sitemapPath = 'dist/sitemap-0.xml';
@@ -114,6 +146,58 @@ try {
   assert.ok(chineseReviewedHtml.includes('官方来源核验日期: <time datetime="2026-07-19">2026-07-19</time>'), 'Chinese review renders its controlled independent review date');
   assert.ok(chineseReviewedHtml.includes('来源与翻译审查'), 'Chinese review renders the controlled source and translation role');
   assert.ok(!chineseReviewedHtml.includes('独立中文来源复核待完成'), 'reviewed Chinese content no longer renders the pending boundary');
+
+  assert.equal(germanyB1GuideSources.length, 13, 'render checks cover all 13 Germany B1 guides');
+  for (const { file, source } of germanyB1GuideSources) {
+    const slug = frontmatterField(source, 'slug');
+    const html = fs.readFileSync(path.join('dist/guides', slug, 'index.html'), 'utf8');
+    const nextGuideSlug = frontmatterField(source, 'nextGuideSlug');
+    const renderedNext = html.match(/<a href="([^"]+)"><small>Next guide<\/small>/)?.[1] || '';
+    const renderedPrevious = html.match(/<a href="([^"]+)"><small>Previous guide<\/small>/)?.[1] || '';
+    assert.equal((html.match(/<h1(?:\s|>)/g) || []).length, 1, `${file} renders exactly one H1`);
+    assert.equal((html.match(/<details class="article-toc"/g) || []).length, 1, `${file} renders exactly one ArticleTOC`);
+    const schemaTypes = structuredDataTypes(html);
+    assert.ok(schemaTypes.includes('Article'), `${file} renders Article JSON-LD`);
+    assert.ok(schemaTypes.includes('BreadcrumbList'), `${file} renders BreadcrumbList JSON-LD`);
+    assert.ok(html.includes('aria-label="Disclaimer"') && html.includes('VisaLang does not provide legal or immigration advice'), `${file} renders the planning disclaimer`);
+    assert.equal(renderedNext, nextGuideSlug ? `/guides/${nextGuideSlug}/` : '', `${file} renders its explicit business next step instead of an alphabetical neighbour`);
+    assert.equal(renderedPrevious, '', `${file} does not render an alphabetical previous step into the explicit B1 route`);
+  }
+
+  for (const slug of germanyB1CoreSlugs) {
+    const source = germanyB1GuideSources.find((guide) => frontmatterField(guide.source, 'slug') === slug)?.source || '';
+    const html = fs.readFileSync(path.join('dist/guides', slug, 'index.html'), 'utf8');
+    const sourceReviewedAt = frontmatterField(source, 'sourceReviewedAt');
+    const updatedDate = frontmatterField(source, 'updatedDate');
+    assert.ok(html.includes(`"dateModified":"${updatedDate}"`), `${slug} Article dateModified comes from updatedDate`);
+    assert.equal(frontmatterField(source, 'sourceReviewStatus'), 'reviewed', `${slug} keeps the completed source review`);
+    assert.equal(sourceReviewedAt, '2026-07-19', `${slug} keeps the actual source-review date`);
+    assert.equal(frontmatterField(source, 'reviewedByRole'), 'source-review', `${slug} keeps the source-review role`);
+    assert.ok(html.includes('Official sources last checked: <time datetime="2026-07-19">2026-07-19</time>'), `${slug} renders its controlled source-review date`);
+    assert.ok(html.includes('<dt>Reviewed by role</dt><dd>Source review</dd>'), `${slug} renders the controlled source-review role`);
+    assert.ok(!html.includes('Official verification pending'), `${slug} does not render a conflicting pending state`);
+  }
+
+  const b1HubHtml = fs.readFileSync('dist/germany-b1-settlement-citizenship/index.html', 'utf8');
+  assert.equal((b1HubHtml.match(/<h1(?:\s|>)/g) || []).length, 1, 'Germany B1 hub renders exactly one H1');
+  assert.equal((b1HubHtml.match(/<details class="article-toc"/g) || []).length, 1, 'Germany B1 hub renders exactly one ArticleTOC');
+  assert.equal((b1HubHtml.match(/<link rel="canonical" href="https:\/\/visalang\.org\/germany-b1-settlement-citizenship\/">/g) || []).length, 1, 'Germany B1 hub renders its self-canonical exactly once');
+  const hubSchemaTypes = structuredDataTypes(b1HubHtml);
+  for (const schemaType of ['Organization', 'BreadcrumbList', 'CollectionPage']) {
+    assert.ok(hubSchemaTypes.includes(schemaType), `Germany B1 hub renders ${schemaType} JSON-LD`);
+  }
+  const tocHtml = b1HubHtml.match(/<details class="article-toc"[\s\S]*?<\/details>/)?.[0] || '';
+  const h2Ids = new Set([...b1HubHtml.matchAll(/<h2 id="([^"]+)"/g)].map((match) => match[1]));
+  const tocTargets = [...tocHtml.matchAll(/href="#([^"]+)"/g)].map((match) => match[1]);
+  assert.ok(tocTargets.length > 0, 'Germany B1 hub TOC exposes real section links');
+  assert.equal(new Set(tocTargets).size, tocTargets.length, 'Germany B1 hub TOC has no duplicate targets');
+  for (const target of tocTargets) assert.ok(h2Ids.has(target), `Germany B1 hub TOC target resolves to an H2 id: ${target}`);
+  assert.doesNotMatch(b1HubHtml, /Content map and internal-link matrix|Existing B1 guide audit|Reworked as|Genuinely missing decision pages|proposed support|proposed human-service contact path/i, 'Germany B1 hub does not render internal editorial language');
+  for (const [, href] of b1HubHtml.matchAll(/<a\b[^>]*href="(\/[^"#]*)"/g)) {
+    const pathname = new URL(href, 'https://visalang.org').pathname;
+    assert.ok(pathname.endsWith('/'), `Germany B1 hub rendered internal link uses a trailing slash: ${href}`);
+    assert.ok(!pathname.endsWith('.html'), `Germany B1 hub rendered internal link avoids legacy HTML: ${href}`);
+  }
 } finally {
   fs.rmSync(fixturePath, { force: true });
   fs.rmSync(pendingFixturePath, { force: true });
@@ -128,5 +212,12 @@ for (const slug of ['goethe-a1-germany-family-reunion', 'goethe-a1-test-centers'
 }
 assert.ok(!sitemap.includes('__source-review-'), 'test fixtures are removed from the generated sitemap');
 assert.ok(!sitemap.includes('.html'), 'generated sitemap excludes legacy .html URLs');
+for (const canonical of [
+  'https://visalang.org/germany-b1-settlement-citizenship/',
+  ...germanyB1GuideSources.map(({ source }) => `https://visalang.org/guides/${frontmatterField(source, 'slug')}/`),
+]) {
+  const escapedCanonical = canonical.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  assert.equal((sitemap.match(new RegExp(`<loc>${escapedCanonical}</loc>`, 'g')) || []).length, 1, `sitemap includes the Germany B1 canonical exactly once: ${canonical}`);
+}
 
 console.log('source-review rendered HTML states passed');

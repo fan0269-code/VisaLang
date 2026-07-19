@@ -1,56 +1,65 @@
 ---
-title: "Germany B1 settlement and citizenship timeline: plan evidence without assuming eligibility"
-description: "Plan Germany B1 proof, civic knowledge, documents, appointments, result checks, and retake buffers without deciding eligibility."
+title: "Germany B1 settlement and citizenship timeline: plan from confirmed dates"
+description: "Build a Germany B1 evidence timeline from authority- and centre-confirmed dates without calculating eligibility or inventing standard buffers."
 category: "germany-b1"
 slug: "germany-b1-settlement-citizenship-timeline"
 publishedDate: "2026-07-11"
-updatedDate: "2026-07-13"
+updatedDate: "2026-07-19"
+sourceReviewedAt: "2026-07-19"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "core-route"
-primaryIntent: "Germany B1 settlement and citizenship timeline: plan evidence without assuming eligibility decision support"
+primaryIntent: "Plan language and application evidence from reader-entered or officially confirmed dates"
 decisionStage: "local-execution"
 nextGuideSlug: "germany-b1-settlement-citizenship-checklist"
 comparisonScope: "same-route"
+audienceScope: "Readers organising a settlement-permit or naturalisation evidence timeline after identifying the competent authority and possible language proof."
+finalDecisionAuthorityType: "Competent local foreigners or nationality authority for application procedure; selected exam centre for local exam dates and processes"
+primaryOfficialAuthorityUrl: "https://bamf-navi.bamf.de/en/Themen/Behoerden/?typ=ABH"
+examOwnerUrl: "https://www.goethe.de/ins/de/en/prf/prf/gzb1.html"
+localExecutionPrompt: "Use only dates entered by you or confirmed by the competent authority and selected centre; recheck each source before booking or submission."
 author: "VisaLang Editorial team"
-readingTime: "6"
+readingTime: "5"
 featured: true
 eyebrow: "Germany B1 · timeline planning"
 route: "germany-b1"
-supportingGuideSlugs: ["germany-b1-settlement-citizenship-checklist", "goethe-b1-vs-telc-b1", "germany-b1-citizenship-language-proof"]
+supportingGuideSlugs: ["goethe-b1-germany-settlement-work", "germany-b1-citizenship-language-proof"]
 ---
 
-## Start from the authority date, not an exam date
+## Start with two confirmed anchors
 
-Your target may be an application appointment, a document deadline, or a date the competent authority has given you. Confirm that date and its document rules first. VisaLang cannot predict an appointment, result acceptance, or whether your application is complete.
+The first anchor is the competent authority's current application instruction, appointment or deadline. The second is the selected official or authorised centre's current exam and result process. If either is missing, mark it unresolved instead of inserting a default date.
 
-## A cautious sequence
+This timeline does not calculate residence periods, eligibility or processing time.
 
-1. **Verification window:** identify the authority and obtain its current language-proof and non-language evidence instructions.
-2. **Evidence-choice window:** confirm the exact accepted B1 or alternative proof before comparing Goethe, telc, DTZ, dates or fees.
-3. **Exam window:** check the official local centre's availability, registration deadline, ID rules, result process and cancellation terms.
-4. **Buffer window:** add time for results, certificate delivery, an allowed retake if relevant, translations only if the authority requests them, and document collection.
-5. **Submission window:** re-check the authority's current forms, appointment procedure and any evidence currency rules before submitting.
+## Build the sequence from evidence
 
-## Do not use this as a residence clock
+1. **Authority check:** save the route, required proof, procedure, source and date checked.
+2. **Proof choice:** keep only the exam products or alternatives the authority has confirmed may fit.
+3. **Centre check:** record the exact product, seat, registration, identification, fee, cancellation, result and certificate process.
+4. **Reader-set buffer:** add only the time you choose after considering the confirmed dates and your own risk tolerance.
+5. **Submission recheck:** revisit the authority's current instructions before submitting.
 
-This is an evidence-planning timeline, not a calculation of residence years or a finding that income, insurance, housing, identity, civic knowledge, or another condition is satisfied. Those issues need the competent authority's current instruction and individual assessment.
+Do not copy another centre's result period, assume a retake seat, or create a standard appointment wait. If translation or certification is relevant, use the authority's actual instruction and a provider-confirmed date.
 
-Use the [timeline calculator](/tools/timeline-calculator/) to organise your own dates, then record the source and date for every assumption.
+## Evidence record
 
-## Continue your B1 decision route
+For every date, store who supplied it, the exact source, the time zone if relevant, the date checked and whether it is confirmed or provisional. Note which event would make you recheck it—for example, a changed exam date, a new authority instruction or a missed appointment.
 
-- [B1 settlement and citizenship hub](/germany-b1-settlement-citizenship/)
-- [Route Finder](/tools/route-finder/)
-- [B1 checklist](/guides/germany-b1-settlement-citizenship-checklist/)
-- [This B1 timeline](/guides/germany-b1-settlement-citizenship-timeline/)
-- [DTZ vs Goethe B1 vs telc B1](/guides/goethe-b1-vs-telc-b1/)
-- [Route Review boundary](/route-review/)
+## Common mistakes
+
+- Starting from an exam date before proof acceptance is clear.
+- Treating a general result estimate as a guaranteed certificate date.
+- Assuming a failed attempt can always be repeated before the target date.
+- Using this planning sequence as a residence-duration calculation.
+
+## Next action
+
+When the dated evidence record is ready, finish with the [submission-review checklist](/guides/germany-b1-settlement-citizenship-checklist/). Recheck the [settlement route](/guides/goethe-b1-germany-settlement-work/) or [citizenship language-proof route](/guides/germany-b1-citizenship-language-proof/) if an authority answer remains unresolved.
 
 ## Official sources
 
-- [BAMF: migration and residence](https://www.bamf.de/EN/Themen/MigrationAufenthalt/migration-node.html)
-- [BAMF: settling in Germany](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Migrathek/Niederlassen/niederlassen-node.html)
-- [BAMF: naturalisation](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html)
-- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [telc German certificate exams](https://www.telc.net/en/language-examinations/certificate-exams/german/)
-
-Last updated: 2026-07-13. Official verification pending.
+- [BAMF-NAvI: locate a competent foreigners authority](https://bamf-navi.bamf.de/en/Themen/Behoerden/?typ=ABH)
+- [German Government: how the naturalisation process works](https://www.einbuergerung.de/ablauf.php?l=en)
+- [Goethe-Institut: testing locations](https://www.goethe.de/ins/de/en/prf/ort.html)
+- [telc: find an examination centre](https://www.telc.net/en/language-examinations/find-a-telc-examination-centre/)

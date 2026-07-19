@@ -1,60 +1,68 @@
 ---
-title: "Germany B1 settlement and citizenship checklist: questions and evidence categories"
-description: "A non-legal Germany B1 checklist that keeps language proof separate from residence, income, insurance, housing, and procedure."
+title: "Germany B1 settlement and citizenship checklist: recheck before submission"
+description: "Use a non-legal Germany B1 checklist to recheck authority instructions, language evidence and the wider file before submission."
 category: "germany-b1"
 slug: "germany-b1-settlement-citizenship-checklist"
 publishedDate: "2026-07-11"
-updatedDate: "2026-07-13"
+updatedDate: "2026-07-19"
+sourceReviewedAt: "2026-07-19"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "core-route"
-primaryIntent: "Germany B1 settlement and citizenship checklist: questions and evidence categories decision support"
+primaryIntent: "Recheck the authority's current evidence categories and submission instructions"
 decisionStage: "submission-review"
-nextGuideSlug: "germany-b1-settlement-citizenship-timeline"
 comparisonScope: "same-route"
+audienceScope: "Readers preparing a final evidence recheck for a German settlement-permit or naturalisation application after confirming the applicable route."
+finalDecisionAuthorityType: "Competent local foreigners or nationality authority assessing the route and complete application"
+primaryOfficialAuthorityUrl: "https://www.einbuergerung.de/ablauf.php?l=en"
+examOwnerUrl: "https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse/Abschlusspruefung/abschlusspruefung-node.html"
+localExecutionPrompt: "Compare this planning list with the competent authority's current page, portal, form or written reply and resolve every mismatch before submission."
 author: "VisaLang Editorial team"
-readingTime: "7"
+readingTime: "6"
 featured: true
-eyebrow: "Germany B1 · authority checklist"
+eyebrow: "Germany B1 · submission review"
 route: "germany-b1"
-supportingGuideSlugs: ["germany-b1-settlement-citizenship-timeline", "goethe-b1-germany-settlement-work", "germany-b1-citizenship-language-proof"]
+supportingGuideSlugs: ["goethe-b1-germany-settlement-work", "germany-b1-citizenship-language-proof"]
 ---
 
-## Use this to prepare questions, not to self-approve a file
+## A recheck, not a universal document list
 
-This checklist helps you organise a conversation with the competent authority. It is not a definitive document list and cannot establish settlement-permit or citizenship eligibility.
+Use this page to compare your notes with the competent authority's current instructions. It cannot establish eligibility, an exception, proof acceptance or a complete file. Settlement-permit and naturalisation routes are not interchangeable.
 
-## Language-proof check
+## Route and authority
 
-- Name the authority, location, application route and target date.
-- Ask which exact language proof, level, provider or alternative evidence it accepts now.
-- Keep the authority's answer separate from centre availability, fee, ID and result rules.
-- Compare only proof the authority has confirmed is relevant to your case.
+- Record the exact application route or statutory provision shown by the authority.
+- Confirm the competent authority, location, current procedure and submission channel.
+- Save the current page, portal, form, PDF or written reply and date checked.
+- Resolve any conflict between a general overview and the local instruction.
 
-## Wider application-file check
+## Language and civic-knowledge evidence
 
-- Ask separately about residence history or required periods.
-- Ask which livelihood or income evidence is needed, and how the authority treats its current status.
-- Ask about health insurance, housing, identity and civil-status documents where relevant.
-- Ask whether civic-knowledge proof, translations, certifications, declarations, forms, fees or appointments are required.
-- Record the authority page, contact, date checked and any written response; re-check before submission.
+- Record the exact language level, accepted document and required format.
+- Keep the exam owner's product information separate from the authority's acceptance decision.
+- For naturalisation or another relevant route, ask whether civic-knowledge evidence is separately required and which proof is accepted.
+- Recheck centre-specific dates, identification, fee, cancellation, result and certificate details before relying on them.
 
-## Procedure check
+## Wider application file
 
-Do not book a language exam as a substitute for understanding the application procedure. Confirm where to apply, whether an appointment is needed, how documents must be submitted, and which dates or document-validity rules the authority applies.
+Use the authority's own checklist for identity, residence history, livelihood, housing, insurance, declarations, forms and any other conditions. The relevance and required evidence vary by route and case; this page does not supply or assess them.
 
-## Continue your B1 decision route
+For each item, record `confirmed`, `not applicable according to the authority`, or `unresolved`. Do not convert “unresolved” into a guess.
 
-- [B1 settlement and citizenship hub](/germany-b1-settlement-citizenship/)
-- [Route Finder](/tools/route-finder/)
-- [This B1 checklist](/guides/germany-b1-settlement-citizenship-checklist/)
-- [B1 timeline](/guides/germany-b1-settlement-citizenship-timeline/)
-- [DTZ vs Goethe B1 vs telc B1](/guides/goethe-b1-vs-telc-b1/)
-- [Route Review boundary](/route-review/)
+## Common mistakes
+
+- Treating B1 as the entire settlement or naturalisation file.
+- Merging language evidence and civic-knowledge evidence.
+- Reusing an old form or another authority's checklist.
+- Submitting before resolving a mismatch in document format or procedure.
+
+## Next action
+
+This is the terminal review step. Return to the [settlement route guide](/guides/goethe-b1-germany-settlement-work/) or [citizenship language-proof guide](/guides/germany-b1-citizenship-language-proof/) only when a route-specific question remains unresolved; do not create a forced loop back through the timeline.
 
 ## Official sources
 
-- [BAMF: migration and residence](https://www.bamf.de/EN/Themen/MigrationAufenthalt/migration-node.html)
-- [BAMF: settling in Germany](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Migrathek/Niederlassen/niederlassen-node.html)
-- [BAMF: naturalisation](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html)
-- [German Government: key questions about naturalisation](https://www.einbuergerung.de/service.php?l=en)
-
-Last updated: 2026-07-13. Official verification pending.
+- [Residence Act, Section 9](https://www.gesetze-im-internet.de/aufenthg_2004/__9.html)
+- [Nationality Act, Section 10](https://www.gesetze-im-internet.de/stag/__10.html)
+- [German Government: how the naturalisation process works](https://www.einbuergerung.de/ablauf.php?l=en)
+- [BAMF-NAvI: locate a competent foreigners authority](https://bamf-navi.bamf.de/en/Themen/Behoerden/?typ=ABH)

@@ -1,56 +1,69 @@
 ---
-title: "Goethe B1 fees and booking: verify local terms before paying"
-description: "How to verify Goethe B1 fees, booking rules, centre terms and exam dates without assuming authority acceptance or a guaranteed timeline."
+title: "Goethe B1 fees and booking: verify the selected centre before paying"
+description: "Verify the exact Goethe B1 product, current centre fee and booking terms after the receiving authority confirms possible proof."
 category: "germany-b1"
 slug: "goethe-b1-fees-and-booking"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-13"
+updatedDate: "2026-07-19"
+sourceReviewedAt: "2026-07-19"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "core-route"
-primaryIntent: "Goethe B1 fees and booking: verify local terms before paying decision support"
+primaryIntent: "Verify current Goethe B1 centre terms before booking or paying"
 decisionStage: "local-execution"
-nextGuideSlug: "goethe-b1-germany-settlement-work"
+nextGuideSlug: "germany-b1-settlement-citizenship-timeline"
 comparisonScope: "same-route"
+audienceScope: "Readers preparing to book Goethe-Zertifikat B1 after a receiving authority has confirmed that the proof may fit their route."
+finalDecisionAuthorityType: "Competent receiving authority for acceptance; selected official or authorised Goethe centre for local booking terms"
+primaryOfficialAuthorityUrl: "https://www.goethe.de/ins/de/en/prf/ort.html"
+examOwnerUrl: "https://www.goethe.de/ins/de/en/prf/prf/gzb1.html"
+localExecutionPrompt: "Ask the selected official or authorised centre to confirm the exact B1 product, current fee scope, date, registration, ID, cancellation and result process before payment."
 author: "VisaLang Editorial team"
-readingTime: "6"
+readingTime: "5"
 featured: false
-eyebrow: "Germany B1+"
+eyebrow: "Germany B1 · booking"
 route: "germany-b1"
-supportingGuideSlugs: ["goethe-b1-germany-settlement-work", "goethe-b1-vs-telc-b1", "goethe-b1-study-plan"]
+supportingGuideSlugs: ["goethe-b1-vs-telc-b1", "goethe-b1-study-plan"]
 ---
 
-## Start with acceptance, not price
+## Acceptance comes before price
 
-Do not start by choosing the cheapest or earliest Goethe B1 seat. First confirm that the competent authority accepts Goethe-Zertifikat B1, and whether it needs a full certificate, modules, original documents, recent issue dates, or another result format. A local fee page cannot answer that acceptance question.
+A Goethe fee or available seat does not establish proof acceptance or eligibility for your route. Save the authority's accepted-proof instruction first. Then identify the exact product and selected official or authorised centre.
 
-## Local fee and booking checklist
+This page does not publish a fixed fee. The applicable amount and terms are the ones the selected centre currently publishes or confirms for your exact product and booking date.
 
-- Find the Goethe-Institut or authorised exam partner in your country using the official Goethe map.
-- Check the current local fee for Goethe-Zertifikat B1, including whether the page refers to the adult or youth product.
-- Confirm payment deadline, payment method, refund policy, cancellation rule, rescheduling rule, registration deadline, ID rule, result process and certificate collection process.
-- If you are planning a backup attempt, confirm whether the selected centre currently allows it, which modules or full exam would be involved, and whether the dates fit the authority's document timeline.
+## Build a dated booking record
 
-## Why no fixed price is listed
+Ask the centre to confirm:
 
-Fees change by country, centre, date, product and exchange rate. Publishing a stale number creates a false reference. Use the selected official or authorised centre's current page or written reply, then save the fee, exact exam product, date checked and payment terms in your own evidence record.
+- Exact exam product, adult or youth version, and whether you are booking the full exam or modules.
+- Location, exam date, current seat status and registration deadline.
+- Fee, currency, what the fee covers, payment deadline and payment method.
+- Identification, cancellation, rescheduling, withdrawal and refund terms.
+- Accessibility arrangements, result process and certificate collection or delivery.
+
+Save the centre name, official URL or written reply and date checked. A central product page or centre finder does not prove the current local answer.
+
+## Keep authority and centre roles separate
+
+The receiving authority decides whether your proof fits the application. Goethe defines its exam product. The selected centre controls the current local transaction and exam-day instructions. Confirmation from one does not replace the others.
+
+If the centre page and a written reply conflict, pause before payment and ask the centre to resolve the discrepancy in writing.
+
+## Common mistakes
+
+- Booking the cheapest or earliest seat before confirming acceptance.
+- Using a national or global fee as the price for another centre.
+- Assuming all centres offer every product or module on every date.
+- Treating an estimated result period as a guaranteed delivery date.
 
 ## Next action
 
-Use Goethe's official examination information to reach the right local centre, record the exact B1 product and fee, and compare it with the authority-confirmed proof requirement before paying. If the authority has not confirmed acceptance, pause the booking.
+After recording the centre's current terms, place those dates in the [B1 evidence timeline](/guides/germany-b1-settlement-citizenship-timeline/). Revisit the [exam comparison](/guides/goethe-b1-vs-telc-b1/) or adapt the [study plan](/guides/goethe-b1-study-plan/) if the available product or date changes.
 
 ## Official sources
 
-- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [Goethe-Institut Germany: Goethe-Zertifikat B1](https://www.goethe.de/ins/de/en/prf/prf/gzb1.html)
-
-## Continue your B1 decision route
-
-Booking availability or a certificate fee does not establish settlement-permit or citizenship eligibility. Verify language acceptance separately from residence, income, insurance, housing and every other procedural condition with the competent authority.
-
-- [B1 settlement and citizenship hub](/germany-b1-settlement-citizenship/)
-- [Route Finder](/tools/route-finder/)
-- [B1 checklist](/guides/germany-b1-settlement-citizenship-checklist/)
-- [B1 timeline](/guides/germany-b1-settlement-citizenship-timeline/)
-- [DTZ vs Goethe B1 vs telc B1](/guides/goethe-b1-vs-telc-b1/)
-- [Route Review boundary](/route-review/)
-
-Last updated: 2026-07-13. Official verification pending.
+- [Goethe-Institut: Goethe-Zertifikat B1](https://www.goethe.de/ins/de/en/prf/prf/gzb1.html)
+- [Goethe-Institut: testing locations in Germany](https://www.goethe.de/ins/de/en/prf/ort.html)
+- [Goethe-Institut: current Germany exam-fee page](https://www.goethe.de/ins/de/en/prf/pre.html)
+- [Goethe-Institut: further B1 information and centre contact](https://www.goethe.de/ins/de/en/prf/prf/gzb1/inf.html)

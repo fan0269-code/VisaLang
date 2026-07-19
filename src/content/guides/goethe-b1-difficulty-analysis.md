@@ -15,7 +15,7 @@ readingTime: "7"
 featured: false
 eyebrow: "Germany B1+"
 route: "germany-b1"
-supportingGuideSlugs: ["goethe-b1-study-plan", "goethe-b1-vs-telc-b1", "goethe-b1-mock-exam-routine"]
+supportingGuideSlugs: ["goethe-b1-vs-telc-b1", "goethe-b1-mock-exam-routine"]
 ---
 
 ## TL;DR verdict

@@ -1,48 +1,65 @@
 ---
-title: "Leben in Deutschland and B1: separate civic knowledge from language proof"
-description: "Organise Germany B1 and Leben in Deutschland evidence without assuming one result replaces the other or decides eligibility."
+title: "Leben in Deutschland and B1: keep civic knowledge and language separate"
+description: "Understand the separate roles of B1 language evidence and Leben in Deutschland without assuming one replaces the other for every route."
 category: "germany-b1"
 slug: "germany-b1-leben-in-deutschland-and-language-proof"
 publishedDate: "2026-07-11"
-updatedDate: "2026-07-13"
+updatedDate: "2026-07-19"
+sourceReviewedAt: "2026-07-19"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "core-route"
-primaryIntent: "Leben in Deutschland and B1: separate civic knowledge from language proof decision support"
+primaryIntent: "Separate B1 language evidence from Leben in Deutschland civic-knowledge evidence"
 decisionStage: "requirement"
-nextGuideSlug: "germany-b1-citizenship-language-proof"
+nextGuideSlug: "goethe-b1-vs-telc-b1"
 comparisonScope: "same-route"
+audienceScope: "Readers checking German naturalisation or settlement evidence who need to keep language and civic-knowledge questions separate."
+finalDecisionAuthorityType: "Competent local nationality or foreigners authority for the reader's specific application route"
+primaryOfficialAuthorityUrl: "https://www.einbuergerung.de/ablauf.php?l=en"
+examOwnerUrl: "https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse/Abschlusspruefung/abschlusspruefung-node.html"
+localExecutionPrompt: "Ask the competent authority whether your route needs language evidence, civic-knowledge evidence, both or an accepted alternative, and which exact documents it accepts."
 author: "VisaLang Editorial team"
-readingTime: "6"
+readingTime: "5"
 featured: true
 eyebrow: "Germany B1 · civic knowledge"
 route: "germany-b1"
-supportingGuideSlugs: ["germany-b1-citizenship-language-proof", "goethe-b1-vs-telc-b1", "germany-b1-settlement-citizenship-checklist"]
+supportingGuideSlugs: ["germany-b1-citizenship-language-proof", "germany-b1-settlement-citizenship-checklist"]
 ---
 
-## Do not merge two evidence questions
+## Two tests can answer different evidence questions
 
-B1 concerns German-language ability. Leben in Deutschland is a civic-knowledge examination associated with integration-course contexts. A result in one category should not be assumed to replace the other, and neither result alone proves settlement-permit or citizenship eligibility.
+The integration-course final examination includes the Deutsch-Test für Zuwanderer for language and Leben in Deutschland for civic knowledge. Current naturalisation law also treats language knowledge and knowledge of Germany's legal and social order as separate requirements.
 
-## Verify the named evidence for your route
+Do not treat a B1 language result as civic-knowledge proof. Do not treat a Leben in Deutschland result as language proof. Neither result establishes application eligibility, and whether a particular result or alternative document satisfies your route remains a decision for the competent authority.
 
-Ask the competent authority whether it needs language proof, civic-knowledge proof, both, an accepted alternative, or another document. Then confirm the exact exam, result document, local registration and submission process with the relevant official owner. Rules and acceptable alternatives can differ by route and facts; VisaLang cannot decide an exemption or individual outcome.
+## What the official sources support
 
-## Keep wider conditions separate
+- DTZ assesses German language skills from A2 to B1 in the integration-course context.
+- Leben in Deutschland is a separate civic-knowledge test.
+- Under the cited conditions, a Leben in Deutschland result may be used to demonstrate the civic-knowledge requirement for naturalisation.
 
-Language and civic knowledge are only possible evidence categories. Keep residence duration, income or secure livelihood, insurance, housing, identity, application forms, fees, appointments and any other authority instructions in a separate file checklist. The authority—not a certificate provider—assesses the whole application.
+These points do not make Leben in Deutschland and the naturalisation test interchangeable for every purpose, and they do not prove that the integration-course certificate completes a settlement or citizenship file.
 
-## Continue your B1 decision route
+## Build a two-column evidence note
 
-- [B1 settlement and citizenship hub](/germany-b1-settlement-citizenship/)
-- [Route Finder](/tools/route-finder/)
-- [B1 checklist](/guides/germany-b1-settlement-citizenship-checklist/)
-- [B1 timeline](/guides/germany-b1-settlement-citizenship-timeline/)
-- [DTZ vs Goethe B1 vs telc B1](/guides/goethe-b1-vs-telc-b1/)
-- [Route Review boundary](/route-review/)
+In one column, record the language level and exact language document the authority accepts. In the other, record the required civic-knowledge document or accepted alternative. For each item, save the deciding authority, source, date checked and document format.
+
+Keep residence history, livelihood, identity, forms, appointments and other application conditions outside both columns.
+
+## Common mistakes
+
+- Calling both tests “the B1 test”.
+- Assuming the integration-course certificate settles every route requirement.
+- Using an old description of naturalisation time rules from an exam-information page.
+- Treating a general federal explanation as the local authority's final document instruction.
+
+## Next action
+
+After the authority confirms the evidence categories, continue to the [DTZ, Goethe B1 and telc B1 comparison](/guides/goethe-b1-vs-telc-b1/). Use the [citizenship language-proof guide](/guides/germany-b1-citizenship-language-proof/) or [submission checklist](/guides/germany-b1-settlement-citizenship-checklist/) for the relevant branch.
 
 ## Official sources
 
-- [BAMF: integration-course final examinations](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse/Abschlusspruefung/abschlusspruefung-node.html)
-- [BAMF: naturalisation](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html)
-- [German Government: key questions about naturalisation](https://www.einbuergerung.de/service.php?l=en)
-
-Last updated: 2026-07-13. Official verification pending.
+- [German Government: how the naturalisation process works](https://www.einbuergerung.de/ablauf.php?l=en)
+- [Integration Course Ordinance, Section 17](https://www.gesetze-im-internet.de/intv/__17.html)
+- [BAMF: the final examination and certificate](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse/Abschlusspruefung/abschlusspruefung-node.html)
+- [Nationality Act, Section 10](https://www.gesetze-im-internet.de/stag/__10.html)

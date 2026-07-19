@@ -15,7 +15,7 @@ readingTime: "7"
 featured: false
 eyebrow: "Germany B1+"
 route: "germany-b1"
-supportingGuideSlugs: ["goethe-b1-study-plan", "goethe-b1-difficulty-analysis", "goethe-b1-listening-deep-dive"]
+supportingGuideSlugs: ["goethe-b1-difficulty-analysis", "goethe-b1-listening-deep-dive"]
 ---
 
 ## TL;DR verdict

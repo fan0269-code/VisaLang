@@ -83,6 +83,87 @@ for (const { source } of entries.filter(({ source }) => field(source, 'category'
   }
 }
 
+const germanyB1CoreRoute = {
+  'goethe-b1-germany-settlement-work': {
+    decisionStage: 'requirement',
+    nextGuideSlug: 'goethe-b1-vs-telc-b1',
+    supportingGuideSlugs: ['germany-b1-settlement-citizenship-checklist', 'germany-b1-settlement-citizenship-timeline'],
+  },
+  'germany-b1-citizenship-language-proof': {
+    decisionStage: 'requirement',
+    nextGuideSlug: 'goethe-b1-vs-telc-b1',
+    supportingGuideSlugs: ['germany-b1-leben-in-deutschland-and-language-proof', 'germany-b1-settlement-citizenship-checklist'],
+  },
+  'germany-b1-leben-in-deutschland-and-language-proof': {
+    decisionStage: 'requirement',
+    nextGuideSlug: 'goethe-b1-vs-telc-b1',
+    supportingGuideSlugs: ['germany-b1-citizenship-language-proof', 'germany-b1-settlement-citizenship-checklist'],
+  },
+  'goethe-b1-vs-telc-b1': {
+    decisionStage: 'choice',
+    nextGuideSlug: 'goethe-b1-fees-and-booking',
+    supportingGuideSlugs: ['goethe-b1-germany-settlement-work', 'germany-b1-citizenship-language-proof'],
+  },
+  'goethe-b1-fees-and-booking': {
+    decisionStage: 'local-execution',
+    nextGuideSlug: 'germany-b1-settlement-citizenship-timeline',
+    supportingGuideSlugs: ['goethe-b1-vs-telc-b1', 'goethe-b1-study-plan'],
+  },
+  'goethe-b1-study-plan': {
+    decisionStage: 'local-execution',
+    nextGuideSlug: 'germany-b1-settlement-citizenship-timeline',
+    supportingGuideSlugs: ['goethe-b1-vs-telc-b1', 'goethe-b1-fees-and-booking'],
+  },
+  'germany-b1-settlement-citizenship-timeline': {
+    decisionStage: 'local-execution',
+    nextGuideSlug: 'germany-b1-settlement-citizenship-checklist',
+    supportingGuideSlugs: ['goethe-b1-germany-settlement-work', 'germany-b1-citizenship-language-proof'],
+  },
+  'germany-b1-settlement-citizenship-checklist': {
+    decisionStage: 'submission-review',
+    nextGuideSlug: '',
+    supportingGuideSlugs: ['goethe-b1-germany-settlement-work', 'germany-b1-citizenship-language-proof'],
+  },
+};
+
+for (const [slug, expected] of Object.entries(germanyB1CoreRoute)) {
+  const source = bySlug.get(slug)?.source || '';
+  assert.equal(field(source, 'decisionStage'), expected.decisionStage, `${slug} uses the agreed B1 decision stage`);
+  assert.equal(field(source, 'nextGuideSlug'), expected.nextGuideSlug, `${slug} uses the agreed B1 primary next step`);
+  assert.deepEqual(arrayField(source, 'supportingGuideSlugs'), expected.supportingGuideSlugs, `${slug} uses only the agreed B1 supporting branches`);
+}
+
+const germanyB1Entries = entries.filter(({ source }) => field(source, 'category') === 'germany-b1');
+assert.equal(germanyB1Entries.length, 13, 'Germany B1 route graph retains exactly 13 guides');
+for (const { file, source } of germanyB1Entries) {
+  const slug = field(source, 'slug');
+  const nextGuideSlug = field(source, 'nextGuideSlug');
+  const supportingGuideSlugs = arrayField(source, 'supportingGuideSlugs');
+  assert.equal(new Set(supportingGuideSlugs).size, supportingGuideSlugs.length, `${file} has no duplicate supporting-guide targets`);
+  assert.ok(!supportingGuideSlugs.includes(slug), `${file} has no supporting self-link`);
+  if (nextGuideSlug) {
+    const nextSource = bySlug.get(nextGuideSlug)?.source || '';
+    assert.ok(nextSource, `${file} nextGuideSlug resolves: ${nextGuideSlug}`);
+    assert.equal(field(nextSource, 'category'), 'germany-b1', `${file} nextGuideSlug stays in the Germany B1 route`);
+    assert.notEqual(nextGuideSlug, slug, `${file} has no next-guide self-link`);
+    assert.ok(!supportingGuideSlugs.includes(nextGuideSlug), `${file} keeps its primary next step out of supportingGuideSlugs`);
+  }
+  for (const supportingSlug of supportingGuideSlugs) {
+    const supportingSource = bySlug.get(supportingSlug)?.source || '';
+    assert.ok(supportingSource, `${file} supportingGuideSlug resolves: ${supportingSlug}`);
+    assert.equal(field(supportingSource, 'category'), 'germany-b1', `${file} supportingGuideSlug stays in the Germany B1 route`);
+  }
+
+  const route = [];
+  let cursor = slug;
+  while (cursor) {
+    assert.ok(!route.includes(cursor), `Germany B1 next-guide chain must terminate without a cycle: ${[...route, cursor].join(' -> ')}`);
+    route.push(cursor);
+    cursor = field(bySlug.get(cursor)?.source || '', 'nextGuideSlug');
+  }
+}
+assert.equal(field(bySlug.get('germany-b1-settlement-citizenship-checklist')?.source || '', 'nextGuideSlug'), '', 'Germany B1 submission checklist is the terminal route page');
+
 assert.equal(slugs.size, entries.length, 'Guide slugs must remain unique');
 for (const { file, source } of entries) {
   const slug = field(source, 'slug');

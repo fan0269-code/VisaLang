@@ -1,57 +1,65 @@
 ---
 title: "Goethe B1 study plan for working adults"
-description: "A flexible Goethe B1 study plan for working adults that starts after accepted proof and official exam format are verified."
+description: "Adapt an eight-week Goethe B1 planning template to your confirmed exam date, official format and available study time without a pass guarantee."
 category: "germany-b1"
 slug: "goethe-b1-study-plan"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-13"
+updatedDate: "2026-07-19"
+sourceReviewedAt: "2026-07-19"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "core-route"
-primaryIntent: "Goethe B1 study plan for working adults decision support"
+primaryIntent: "Adapt an editorial B1 study template after proof acceptance and exam format are confirmed"
 decisionStage: "local-execution"
-nextGuideSlug: "goethe-b1-germany-settlement-work"
+nextGuideSlug: "germany-b1-settlement-citizenship-timeline"
 comparisonScope: "same-route"
+audienceScope: "Working adults preparing for Goethe-Zertifikat B1 after confirming the exam product and their receiving authority's proof requirement."
+finalDecisionAuthorityType: "Goethe-Institut for exam format; competent receiving authority for proof acceptance"
+primaryOfficialAuthorityUrl: "https://www.goethe.de/ins/de/en/prf/prf/gzb1/inf.html"
+examOwnerUrl: "https://www.goethe.de/ins/de/en/prf/prf/gzb1.html"
+localExecutionPrompt: "Confirm the exact exam product and date, then adapt this editorial template to official practice materials, your available time and any selected-centre instructions."
 author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
-eyebrow: "Germany B1+"
+eyebrow: "Germany B1 · study planning"
 route: "germany-b1"
-supportingGuideSlugs: ["goethe-b1-germany-settlement-work", "goethe-b1-fees-and-booking", "goethe-b1-vs-telc-b1"]
+supportingGuideSlugs: ["goethe-b1-vs-telc-b1", "goethe-b1-fees-and-booking"]
 ---
 
-## Verify the route before planning the study block
+## Verify the exam before scheduling study
 
-Use this page only after you have checked that B1 is relevant to your route and that the competent authority accepts the proof you plan to use. Study readiness is different from accepted language proof, and accepted language proof is still separate from residence, income, insurance, housing, civic-knowledge and procedure questions.
+Use this page only after confirming that Goethe-Zertifikat B1 is a possible proof for your route and checking the current exam information. Goethe's B1 exam covers reading, listening, writing and speaking. Its official page and practice materials—not this schedule—define the exam product and current format.
 
-## Adjustable eight-week structure
+The eight-week structure below is an editorial planning template. It is not a Goethe recommendation, a required duration or a promise that a learner will pass.
 
-- Weeks 1–2: Expand vocabulary to work, health, media, and society topics. Daily 20-minute reading drills.
-- Weeks 3–4: Listening practice with German news, podcasts, or radio at B1 speed. Weekly timed writing tasks.
-- Weeks 5–6: Speaking practice with original topic cards. Record yourself and review weak points.
-- Weeks 7–8: Full timed mock sessions (all four modules), weak-area repair, and official format review.
+## An adjustable eight-week template
 
-## Why this structure works
+- **Weeks 1–2:** sample each skill with official practice material and record repeated gaps.
+- **Weeks 3–4:** concentrate on the two weakest skills while keeping short practice in the others.
+- **Weeks 5–6:** practise complete task sequences under time limits you take from the current official materials.
+- **Weeks 7–8:** rehearse the confirmed format, review the error log and leave time for rest and exam-day preparation.
 
-B1 requires independent language use, not just memorised phrases. A balanced plan should touch reading, listening, writing and speaking regularly, but the exact daily time is your own planning input. If your exam date, work schedule, health, childcare or local centre availability changes, adjust the plan instead of treating the week numbers as a guarantee.
+If your work, health, care responsibilities or exam date change, adjust the sequence. Do not compress the plan to meet an unconfirmed application deadline.
+
+## How to adapt the template
+
+Record the confirmed exam date, the available study sessions each week, the official material used and the result of each review. After each practice session, choose one error pattern to revisit instead of simply adding more hours.
+
+Keep exam preparation separate from the application file. Practice readiness does not establish certificate acceptance, eligibility, an exemption or completion of other route conditions.
+
+## Common mistakes
+
+- Treating eight weeks as an official or sufficient preparation period.
+- Mixing Goethe and telc materials without labelling the different product.
+- Using unofficial tasks before checking current official practice materials.
+- Letting an unconfirmed authority or centre date drive the schedule.
 
 ## Next action
 
-Before following any plan, compare it with Goethe's current official information, download official practice materials where available, and adjust the schedule to your confirmed exam date. If the authority has not yet confirmed the accepted proof, return to the B1 hub and comparison page before committing to a booking.
+Put the confirmed exam and authority dates into the [B1 evidence timeline](/guides/germany-b1-settlement-citizenship-timeline/). Return to the [exam comparison](/guides/goethe-b1-vs-telc-b1/) or [booking guide](/guides/goethe-b1-fees-and-booking/) if the product or centre is not yet settled.
 
 ## Official sources
 
-- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [Goethe-Institut Germany: Goethe-Zertifikat B1](https://www.goethe.de/ins/de/en/prf/prf/gzb1.html)
-
-## Continue your B1 decision route
-
-Study planning is not a finding that B1 is accepted or that a settlement/citizenship file is eligible. Verify language proof, residence, income, insurance, housing and procedure separately with the competent authority.
-
-- [B1 settlement and citizenship hub](/germany-b1-settlement-citizenship/)
-- [Route Finder](/tools/route-finder/)
-- [B1 checklist](/guides/germany-b1-settlement-citizenship-checklist/)
-- [B1 timeline](/guides/germany-b1-settlement-citizenship-timeline/)
-- [DTZ vs Goethe B1 vs telc B1](/guides/goethe-b1-vs-telc-b1/)
-- [Route Review boundary](/route-review/)
-- [Proposed B1 practice pack interest](/contact/?interest=b1-practice-pack)
-
-Last updated: 2026-07-13. Official verification pending.
+- [Goethe-Institut: Goethe-Zertifikat B1](https://www.goethe.de/ins/de/en/prf/prf/gzb1.html)
+- [Goethe-Institut: further B1 information](https://www.goethe.de/ins/de/en/prf/prf/gzb1/inf.html)
+- [Goethe-Institut: official B1 practice materials](https://www.goethe.de/ins/de/en/prf/prf/gzb1/ueb.html)

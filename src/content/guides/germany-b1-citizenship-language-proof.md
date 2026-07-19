@@ -1,54 +1,68 @@
 ---
-title: "Germany B1 for citizenship: verify language proof and the wider file"
-description: "Plan German citizenship B1 language proof while keeping residence, identity, livelihood, civic knowledge, and authority questions separate."
+title: "Germany B1 for citizenship: separate language proof from the full file"
+description: "Check the B1 language-evidence step for German naturalisation while keeping civic knowledge, other conditions and local procedure separate."
 category: "germany-b1"
 slug: "germany-b1-citizenship-language-proof"
 publishedDate: "2026-07-11"
-updatedDate: "2026-07-13"
+updatedDate: "2026-07-19"
+sourceReviewedAt: "2026-07-19"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "core-route"
-primaryIntent: "Germany B1 for citizenship: verify language proof and the wider file decision support"
-decisionStage: "choice"
-nextGuideSlug: "germany-b1-leben-in-deutschland-and-language-proof"
+primaryIntent: "Separate the naturalisation language-evidence question from the rest of the application"
+decisionStage: "requirement"
+nextGuideSlug: "goethe-b1-vs-telc-b1"
 comparisonScope: "same-route"
+audienceScope: "Readers checking language evidence under the general Section 10 naturalisation route while preserving local-authority and individual-case verification."
+finalDecisionAuthorityType: "Competent local nationality authority applying the current Nationality Act to the individual application"
+primaryOfficialAuthorityUrl: "https://www.gesetze-im-internet.de/stag/__10.html"
+examOwnerUrl: "https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse/Abschlusspruefung/abschlusspruefung-node.html"
+localExecutionPrompt: "Ask the competent nationality authority which current language document, civic-knowledge document, form and submission method apply to your application."
 author: "VisaLang Editorial team"
-readingTime: "7"
+readingTime: "5"
 featured: true
 eyebrow: "Germany B1 · citizenship planning"
 route: "germany-b1"
-supportingGuideSlugs: ["germany-b1-leben-in-deutschland-and-language-proof", "goethe-b1-vs-telc-b1", "germany-b1-settlement-citizenship-checklist"]
+supportingGuideSlugs: ["germany-b1-leben-in-deutschland-and-language-proof", "germany-b1-settlement-citizenship-checklist"]
 ---
 
-## The safe answer first
+## The language question is only one part of naturalisation
 
-B1 may be relevant language evidence for a naturalisation application, but it is not a citizenship decision. The competent naturalisation authority must determine the requirements and evidence for your case. VisaLang cannot assess individual eligibility, exemptions, or outcomes.
+Under the general route in Section 10 of the Nationality Act, German-language knowledge and knowledge of Germany's legal and social order are separate requirements. The Act describes B1 for the language requirement and also contains exceptions and special rules that an authority must apply to the individual case.
 
-## Keep two lists, not one
+This page does not decide eligibility, whether Section 10 is your route, whether an exception applies, or whether a particular certificate or alternative document is sufficient.
 
-**Language-proof list:** the authority's exact B1 requirement, accepted certificate or alternative proof, certificate format, and any current instruction about validity.
+## Keep two evidence lists
 
-**Application-file list:** identity and status documents, residence history, livelihood or income evidence, insurance, housing where requested, civic-knowledge evidence where required, declarations, fees, appointment and application procedure. Do not treat a B1 pass as evidence that the second list is complete.
+**Language evidence:** save the authority's current wording about level, accepted document, certificate or alternative evidence, format and submission method.
 
-## Questions to ask the competent authority
+**The rest of the file:** keep civic-knowledge evidence, identity, residence history, livelihood and every other document or declaration in the authority's current checklist. A B1 result does not complete that second list.
 
-Ask in writing where possible: which language proof is accepted; whether an integration-course result, Goethe B1, telc B1, school or vocational evidence is accepted; whether a civic-knowledge document is separately required; which documents and current forms apply; and how the authority wants evidence submitted. Do not ask a course provider or online forum to decide the authority's rule.
+The federal naturalisation portal provides an overview. Your competent nationality authority controls the current local procedure and assesses your evidence.
 
-## Choose proof only after that answer
+## Questions for the competent authority
 
-Use the [DTZ vs Goethe B1 vs telc B1 comparison](/guides/goethe-b1-vs-telc-b1/) to prepare a precise question. It is not a list of universally accepted certificates. If you also need civic knowledge, read [Leben in Deutschland and B1](/guides/germany-b1-leben-in-deutschland-and-language-proof/) because they are different evidence categories.
+- Which naturalisation route and current instruction apply to me?
+- Which language documents are accepted, and in what form?
+- Is civic-knowledge evidence separately required, and what proof is accepted?
+- Which forms, documents and submission channel are current for this authority?
+- Are any possible exceptions relevant, and what evidence would the authority require to assess them?
 
-## Continue your B1 decision route
+Save the source or written reply and the date checked. Do not use another applicant's result as evidence for your own file.
 
-- [B1 settlement and citizenship hub](/germany-b1-settlement-citizenship/)
-- [Route Finder](/tools/route-finder/)
-- [B1 checklist](/guides/germany-b1-settlement-citizenship-checklist/)
-- [B1 timeline](/guides/germany-b1-settlement-citizenship-timeline/)
-- [Exam comparison](/guides/goethe-b1-vs-telc-b1/)
-- [Route Review boundary](/route-review/)
+## Common mistakes
+
+- Treating B1 language evidence and civic-knowledge evidence as the same item.
+- Treating an exam provider's page as a naturalisation acceptance decision.
+- Applying a general federal overview as a complete local document list.
+- Assuming an exception without an authority assessment.
+
+## Next action
+
+Once the authority confirms the possible language evidence, use the [DTZ, Goethe B1 and telc B1 comparison](/guides/goethe-b1-vs-telc-b1/). If civic knowledge is part of your route, read [Leben in Deutschland and language proof](/guides/germany-b1-leben-in-deutschland-and-language-proof/) and keep the [submission checklist](/guides/germany-b1-settlement-citizenship-checklist/) separate.
 
 ## Official sources
 
-- [BAMF: naturalisation](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html)
+- [Nationality Act, Section 10](https://www.gesetze-im-internet.de/stag/__10.html)
+- [German Government: how the naturalisation process works](https://www.einbuergerung.de/ablauf.php?l=en)
 - [German Government: key questions about naturalisation](https://www.einbuergerung.de/service.php?l=en)
-- [BAMF: migration and residence](https://www.bamf.de/EN/Themen/MigrationAufenthalt/migration-node.html)
-
-Last updated: 2026-07-13. Official verification pending.
