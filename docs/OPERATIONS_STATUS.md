@@ -1,17 +1,27 @@
 # VisaLang Operations Status
 
 Updated: 2026-07-19
-Window: Germany A1 official-source and Chinese review production release
+Window: Germany B1 source-review and route production release
 
 ## Decision at a glance
 
-- **本地源码状态：已提交并推送。** Germany A1 官方来源与中文复核的应用提交为 `1521d98021e0eb80efa3dc453bce0e8ea766de4e`；本地和服务器发布门禁均通过。
-- **线上部署状态：已部署并验证。** `visalang.org` 当前不可变发布为 `/var/www/visalang.org/releases/1521d98021e0`；Nginx 原子切换、服务器 gate、公网 smoke 和页面复核标记检查通过。
-- **回滚状态：可用但未触发。** 发布前版本 `/var/www/visalang.org/releases/5cfe8eedc290` 保留完整；本次没有发生强制回滚条件。
-- **内容复核状态：页面复核已完成。** 3 篇英文页已完成事实和核验流程复核，8 篇中文页已完成来源与最终中文措辞复核，日期均为 2026-07-19。读者未来选择的具体考点、考位、费用、日期和个案决定仍须实时核验。
+- **本地源码状态：已提交并推送。** Germany B1 来源复核与路线修正的应用提交为 `c99877850ab13a98851b5bfc9a0d2b0f5d99710d`；本地和服务器发布门禁均通过。
+- **线上部署状态：已部署并验证。** `visalang.org` 当前不可变发布为 `/var/www/visalang.org/releases/c99877850ab1`；Nginx 原子切换、服务器 gate、公网 smoke、页面复核标记和路线检查通过。
+- **回滚状态：可用但未触发。** 发布前版本 `/var/www/visalang.org/releases/1521d98021e0` 保留完整；本次没有发生强制回滚条件。
+- **内容复核状态：八篇核心页已完成。** 8 篇 Germany B1 核心路线指南已完成页面事实、来源边界和核验流程复核，日期均为 2026-07-19；5 篇备考支持页继续 `pending`。读者的具体法定路线、当地主管机关、证明接受形式、费用和日期仍须实时核验。
 - **广告/CMP 状态：本轮未改变。** CMP 选择、Auto ads 位置、CLS、浏览器网络行为和账户侧证据仍需单独的受控验证窗口。
 - **历史边界：** 下方 `flowlight.me`、无广告状态和旧 `/public/dist` 发布记录仅为带日期的历史证据，不证明当前 `visalang.org` 线上状态。
 - **未处理范围：** 本窗口未新增 analytics、表单、支付、邮件投递或其他服务集成，也未修改 DNS、TLS、CMP 或广告账户配置。
+
+## Germany B1 source-review release — 2026-07-19
+
+- Application commit and immutable release: `c99877850ab13a98851b5bfc9a0d2b0f5d99710d` / `/var/www/visalang.org/releases/c99877850ab1`.
+- Previous verified release retained for rollback: `/var/www/visalang.org/releases/1521d98021e0`.
+- Server release gate: Node.js `v22.23.1`; locked dependency install reported 0 vulnerabilities; `npm test` passed; `npm run launch-check` built 101 pages and passed 37 checks with 0 failures, ending in `READY`; Nginx configuration testing and atomic switch passed.
+- Production smoke: homepage, Guide Library, robots and sitemap returned 200; legacy routes and `www` returned expected canonical 301 redirects.
+- B1 public verification: all eight core guides displayed the 2026-07-19 official-source review marker; none rendered an alphabetic Previous guide; all seven non-terminal pages rendered the specified explicit Next guide; the checklist remained terminal; the Hub rendered its self-canonical URL, accessible TOC and `CollectionPage` structured data.
+- Review boundary: the five preparation-support guides remain pending. Reader-specific route, authority, proof acceptance, exception, centre, fee, date and submission details remain live verification items rather than page-level review gaps.
+- No DNS, TLS, CMP, advertising account, analytics, form, payment or email-delivery configuration was changed. No rollback trigger occurred.
 
 ## Germany A1 source-review release — 2026-07-19
 

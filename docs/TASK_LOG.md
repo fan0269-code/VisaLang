@@ -2627,3 +2627,14 @@ Remaining:
 - Verification: all four focused commands passed; `npm test` passed; `npm run launch-check` built 101 pages and passed 37 checks with 0 failures, ending in `READY.` The first `git diff --check` found three trailing-space lines in the new audit header; they were corrected before the final gate.
 - Worktree protection: the nine initial untracked report, prompt, plan and specification files remained present and byte-identical; no initial tracked or staged change existed. All new tracked changes are within the prompt allowlist or the conditional five-support-page frontmatter allowance.
 - Delivery boundary: no commit, push, PR, deployment, SSH/server access or third-party account change was performed.
+
+## 2026-07-19 — Germany B1 source-review production release
+
+- Created application commit `c99877850ab13a98851b5bfc9a0d2b0f5d99710d` (`content: complete Germany B1 source review`) from the exact reviewed 21-file scope and pushed `main` from `8919d41` to `c998778`. The nine pre-existing untracked report, prompt, plan and specification files remained unstaged and unchanged.
+- Confirmed the previous production release `/var/www/visalang.org/releases/1521d98021e0`, server Node.js `v22.23.1` and valid Nginx configuration before switching.
+- Ran the repository immutable deployment script. Server source fast-forwarded to `c998778`; locked dependency installation reported 0 vulnerabilities; server `npm test` passed; server `npm run launch-check` built 101 pages and passed 37 checks with 0 failures, ending in `READY`; Nginx switched atomically to `/var/www/visalang.org/releases/c99877850ab1`.
+- Retained `/var/www/visalang.org/releases/1521d98021e0` as the immediate verified rollback target. No rollback trigger occurred.
+- Production smoke passed from the production host: homepage, Guide Library, robots and sitemap returned 200; legacy routes and `www` returned expected canonical 301 responses.
+- Public Germany B1 checks passed: reviewed markers 8/8, no alphabetic Previous links 8/8, explicit Next mappings 7/7, terminal checklist, and Hub self-canonical/TOC/`CollectionPage` output.
+- Release result: the eight reviewed Germany B1 core pages and corrected route graph are online. The five preparation-support pages remain pending, and reader-specific legal route, authority, evidence acceptance and local execution details remain official recheck items.
+- No DNS, TLS, CMP, advertising account, analytics, form, payment, email-delivery or other third-party configuration was changed during this release.
