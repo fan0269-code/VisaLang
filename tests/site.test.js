@@ -23,7 +23,6 @@ const src = {
   mobile: read('src/components/MobileNavigation.astro'),
   footer: read('src/components/GlobalFooter.astro'),
   css: read('src/styles/global.css'),
-  openDesignCss: read('src/styles/open-design.css'),
   styleArchitecture: read('docs/STYLE_ARCHITECTURE.md'),
   home: read('src/pages/index.astro'),
   guides: read('src/pages/guides/index.astro'),
@@ -60,6 +59,7 @@ for (const route of ['Home', 'Routes', 'Exams', 'Tools', 'Guides', 'About']) {
 }
 assert.ok(src.header.includes("href=\"/pricing/\""), 'Pricing remains available under the About menu');
 assert.ok(src.header.includes("href=\"/partners/\""), 'Partners remains available under the About menu');
+assert.ok(!src.header.includes('header-route-cta'), 'header does not duplicate the homepage Route Finder CTA');
 assert.ok(src.footer.includes('href="/pricing/"') && src.footer.includes('href="/partners/"'), 'Pricing and Partners remain available in the footer');
 assert.ok(src.header.includes('nav-menu__panel'), 'Routes and About use dropdown panels');
 assert.ok(src.header.includes('nav-menu__link') && src.header.includes('nav-menu__disclosure'), 'Routes and About keep a direct link separate from their disclosure control');
@@ -125,7 +125,6 @@ for (const token of ['--page-max', '--reading-max', '--text-2xl', '--space-8', '
 assert.ok(src.css.includes('prefers-color-scheme: dark'), 'design system reserves dark mode tokens');
 assert.ok(src.css.includes('prefers-reduced-motion: reduce'), 'design system respects reduced motion');
 assert.ok(src.base.includes("import '../styles/global.css';") && !src.base.includes('open-design.css'), 'BaseLayout loads one production stylesheet');
-assert.ok(src.openDesignCss.includes('LEGACY MIGRATION REFERENCE ONLY'), 'the former override layer is explicitly retained as an inactive reference');
 assert.ok(src.styleArchitecture.includes('one stylesheet') && src.styleArchitecture.includes('375px') && src.styleArchitecture.includes('1440px'), 'style architecture documents the active source and breakpoint strategy');
 const activeCssBeforeArchive = src.css.split('@media not all')[0];
 assert.equal((activeCssBeforeArchive.match(/(?:^|\n):root\s*\{/g) || []).length, 1, 'core tokens have one effective base definition');
@@ -143,7 +142,7 @@ assert.ok(src.home.includes('<RouteSelector'), 'homepage uses the shared purpose
 assert.equal((src.home.match(/type="radio"/g) || []).length, 0, 'homepage does not inline radio-based decision controls');
 assert.ok(!src.home.includes('<fieldset class="choice-group">') && !src.home.includes('<legend>Purpose</legend>') && !src.home.includes('<legend>Status</legend>'), 'homepage does not duplicate Route Finder controls');
 assert.doesNotMatch(src.home, /aria-pressed=/, 'homepage does not emulate mutually exclusive radio choices with aria-pressed buttons');
-assert.ok(src.home.includes('home-hero__principles') && !src.home.includes('class="signal"'), 'homepage consolidates hero principles into one editorial statement');
+assert.ok(!src.home.includes('home-hero__principles') && src.home.includes('<strong>Route first. No invented facts.</strong>'), 'homepage moves route-first principles into the trust statement');
 assert.ok(src.home.includes('trust-statement') && !src.home.includes('trust-band'), 'homepage trust boundary is editorial prose rather than a card wall');
 assert.ok(!src.home.includes('button--accent'), 'homepage does not use warning accent styling for primary actions');
 assert.ok(src.home.includes('guides.length'), 'homepage guide count is data-driven');

@@ -1,6 +1,24 @@
 # VisaLang Task Log
 
-Updated: 2026-07-18
+Updated: 2026-07-21
+
+## Homepage and stylesheet consolidation closure — 2026-07-21
+
+Scope: finish and verify the existing local homepage/CSS consolidation before starting the separately scoped five-country content review. No content-fact, dependency, deployment, push, or public-site change was included.
+
+Completed:
+
+- Removed the duplicate desktop Route Finder header CTA while retaining the homepage primary route entry and mobile navigation.
+- Moved the homepage-only body styling to the explicit `home-view` body class and tightened the homepage trust statement.
+- Consolidated the remaining active styles into `src/styles/global.css` and removed the inactive `src/styles/open-design.css` migration reference.
+- Updated the style architecture and regression assertions to match the one-stylesheet source of truth.
+
+Verification:
+
+- `npm test` — passed.
+- `npm run build` — passed; 101 pages generated.
+- `npm run launch-check` — passed; 101 routes, 37 checks, 0 failures, `READY`.
+- No deployment or public-site verification was performed.
 
 ## Editorial UI redesign and semantic navigation — 2026-07-18
 

@@ -17,18 +17,17 @@ const totalGuideCount = guides.length + zhGermanyA1Guides.length;
 const jsonLD = { '@context': 'https://schema.org', '@type': 'WebSite', name: site.name, url: `${site.url}/`, description: 'Official-source-first language-proof route decisions.' };
 ---
 
-<BaseLayout title="Find the language proof required for your route" description="Choose a route, identify the language proof to verify, compare exams, and plan your next official check." canonicalURL="https://visalang.org/" alternates={[{ lang: 'en', href: 'https://visalang.org/' }, { lang: 'zh-CN', href: 'https://visalang.org/zh/' }, { lang: 'x-default', href: 'https://visalang.org/' }]} jsonLD={jsonLD}>
-  <main class="site-main site-main--home">
+<BaseLayout title="Find the language proof required for your route" description="Choose a route, identify the language proof to verify, compare exams, and plan your next official check." canonicalURL="https://visalang.org/" alternates={[{ lang: 'en', href: 'https://visalang.org/' }, { lang: 'zh-CN', href: 'https://visalang.org/zh/' }, { lang: 'x-default', href: 'https://visalang.org/' }]} jsonLD={jsonLD} bodyClass="home-view">
+  <main class="site-main">
     <header class="home-hero">
       <div class="home-hero__copy">
         <p class="eyebrow">Official-source-first</p>
         <h1>Find the right language proof before you book an exam.</h1>
-        <p>VisaLang turns a language-proof question into a route you can verify: purpose, level, accepted exam, official source, and next action.</p>
+        <p>Turn your language-proof question into a route you can verify before booking.</p>
         <div class="home-hero__actions">
           <a class="button button--primary" href="/tools/route-finder/">Start with Route Finder <span aria-hidden="true">→</span></a>
           <a class="button button--secondary" href="/guides/">Browse guides</a>
         </div>
-        <p class="home-hero__principles"><strong>Route first.</strong> Identify the receiving organisation, then verify changing requirements with its official source before choosing an exam.</p>
       </div>
       <aside class="route-entry" aria-label="Featured verification route">
         <p class="eyebrow">Most developed route</p>
@@ -95,7 +94,7 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'WebSite', name: sit
 
     <section class="section section--tight" aria-labelledby="trust-title">
       <h2 class="section-title" id="trust-title">Trust comes from clear boundaries</h2>
-      <p class="trust-statement"><strong>No invented facts.</strong> When a stable source is missing, use the verification task provided. Governments, institutions, exam owners, and authorised centres remain the final source for requirements, acceptance, fees, dates, and individual outcomes.</p>
+      <p class="trust-statement"><strong>Route first. No invented facts.</strong> Identify the receiving organisation, then verify changing requirements with its official source before choosing an exam. When a stable source is missing, use the verification task provided. Governments, institutions, exam owners, and authorised centres remain the final source for requirements, acceptance, fees, dates, and individual outcomes.</p>
     </section>
   </main>
 </BaseLayout>

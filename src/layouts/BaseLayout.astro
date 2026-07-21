@@ -15,6 +15,7 @@ export interface Props {
   alternates?: { lang: string; href: string }[];
   jsonLD?: Record<string, unknown> | Record<string, unknown>[];
   enableAds?: boolean;
+  bodyClass?: string;
 }
 
 const {
@@ -28,6 +29,7 @@ const {
   alternates = [],
   jsonLD,
   enableAds = true,
+  bodyClass,
 } = Astro.props;
 
 const pageTitle = /(^|\s|\|)VisaLang($|\s)/i.test(title) ? title : `${title} | VisaLang`;
@@ -63,7 +65,7 @@ const structuredData = [
   {enableAds && <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3018617123550799" crossorigin="anonymous"></script>}
   {structuredData.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)}></script>)}
 </head>
-<body>
+<body class={bodyClass}>
   <a class="skip-link" href="#main-content">{ui[locale].skip}</a>
   <GlobalHeader />
   <div id="main-content" tabindex="-1"><slot /></div>

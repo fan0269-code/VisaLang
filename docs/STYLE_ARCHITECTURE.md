@@ -4,7 +4,7 @@
 
 `src/layouts/BaseLayout.astro` loads one stylesheet: `src/styles/global.css`.
 
-`src/styles/open-design.css` is retained as an unloaded migration reference. It must not be imported by a page or layout and must not receive new production rules. A rule is active only when it is in `global.css`.
+The former `src/styles/open-design.css` override layer has been removed after its active rules were consolidated into `global.css`. Do not recreate or import a second theme layer. A rule is active only when it is in `global.css`.
 
 The existing exam-learning compatibility block remains active inside `global.css`. Its remaining declarations are observable on the approved pages, including the page background treatment, so this pass preserves their cascade instead of guessing that they are unused. Reduce it only through a separate selector-by-selector visual audit.
 
@@ -12,13 +12,13 @@ The existing exam-learning compatibility block remains active inside `global.css
 
 - Body copy uses the stable humanist sans stack behind `--font-sans`; headings use the distinct serif stack behind `--font-display`. Both retain `Noto Sans SC` / `Noto Serif SC`, system and generic fallbacks.
 - No font files or runtime font requests were added. Self-hosted fonts remain deferred until licensed WOFF2 assets are available.
-- `global.css` remains the only active production stylesheet. `open-design.css` remains an unloaded reference.
+- `global.css` remains the only production stylesheet. The former inactive `open-design.css` migration reference has been removed.
 - Primary actions use `--primary` and `--primary-hover`. Warning colour is reserved for verification-pending and other warning states.
 - The active page glow is limited to low-opacity blue/teal values at or below `.025`; the warm yellow glow was removed.
 - Starter overview badges use the secondary teal treatment; verification-pending badges retain the warning treatment.
 - Viewport layout continues to use only 1024px, 768px and 375px. Article TOC behaviour switches at 768px.
 - The homepage now uses a static `.route-entry`, a numbered editorial stage list and compact trust prose instead of the Route Console, signal cards and trust-card wall.
-- Proven-zero active selectors for the old Route Console, signal cards, result actions and earlier journey/atlas/practice hero surfaces were removed. The inactive archived reference was not rewritten.
+- Proven-zero active selectors for the old Route Console, signal cards, result actions and earlier journey/atlas/practice hero surfaces were removed. The inactive archived override file was removed after consolidation.
 
 ## Pre-consolidation mapping
 
@@ -63,7 +63,7 @@ Only `max-width: 1024px`, `max-width: 768px`, and `max-width: 375px` may be adde
 
 ## Guardrails
 
-- Do not import `open-design.css` or add a new theme override layer.
+- Do not recreate or import `open-design.css`, or add a new theme override layer.
 - Do not treat the retained exam-learning compatibility block as a new override layer; migrate a declaration only when its rendered use is proven.
 - Do not redefine core tokens inside page/component sections.
 - Do not add ad-hoc 560/680/800/900/1080px breakpoints.
