@@ -1,17 +1,30 @@
 # VisaLang Operations Status
 
-Updated: 2026-07-19
-Window: France and Netherlands P0 authority-review production release
+Updated: 2026-07-22
+Window: Germany A1/B1 support-page source-review production release
 
 ## Decision at a glance
 
-- **本地源码状态：已提交并推送。** France / Netherlands P0 来源复核、范围收窄与路线去环的应用提交为 `d2ea2202668a5e31e6c032f376332874a28a57cd`；本地和服务器发布门禁均通过。
-- **线上部署状态：已部署并验证。** `visalang.org` 当前不可变发布为 `/var/www/visalang.org/releases/d2ea2202668a`；Nginx 原子切换、服务器 gate、公网 smoke 和三页公开标记检查通过。
-- **回滚状态：可用但未触发。** 发布前版本 `/var/www/visalang.org/releases/ee66a0a3273a` 保留完整；本次没有发生强制回滚条件。
-- **内容复核状态：页面事实来源复核完成，读者个案仍待核验。** 三篇 France / Netherlands 指南继续显示 `verification-pending`；上线不代表其他院校、雇主、职业监管机构、法国居留程序或个案结果已确认。Spain 命名人工验收门禁仍独立开放。
-- **广告/CMP 状态：本轮未改变。** CMP 选择、Auto ads 位置、CLS、浏览器网络行为和账户侧证据仍需单独的受控验证窗口。
+- **本地源码状态：已提交并推送。** Germany A1/B1 15 篇备考支持页来源复核与路线修复的应用提交为 `cd0f73cb0f9d4662d73369bb757bdaa02856eb50`；本地和服务器发布门禁均通过。
+- **线上部署状态：已部署并验证。** `visalang.org` 当前不可变发布为 `/var/www/visalang.org/releases/cd0f73cb0f9d`；Nginx 原子切换、服务器 gate、标准公网 smoke 和四页公开标记检查通过。
+- **回滚状态：可用但未触发。** 发布前版本 `/var/www/visalang.org/releases/d2ea2202668a` 保留完整；本次没有发生强制回滚条件。
+- **内容复核状态：15 篇支持页均为 reviewed，读者个案和当地执行仍待核验。** 上线不决定个人路线、例外、证书接受性、考点、日期、费用、证件、取消、出分或证书交付。
+- **广告/CMP 状态：本轮未改变且账户侧核验被明确跳过。** 项目所有者明确授权按内容发布继续；标准 smoke 只验证现有 loader、广告排除页和 `ads.txt`，未核验账户侧 CMP、Auto ads、Policy Center、CLS 或浏览器网络行为。
+- **依赖状态：存在待修复的既有风险。** 服务器 `npm ci` 和 npm 官方审计报告 1 个 moderate、2 个 high（Astro、sharp、svgo）；`package.json` 与 `package-lock.json` 相对回滚版本未变化，因此不是本轮内容改动引入。依赖升级需单独窗口。
 - **历史边界：** 下方 `flowlight.me`、无广告状态和旧 `/public/dist` 发布记录仅为带日期的历史证据，不证明当前 `visalang.org` 线上状态。
 - **未处理范围：** 本窗口未新增 analytics、表单、支付、邮件投递或其他服务集成，也未修改 DNS、TLS、CMP 或广告账户配置。
+
+## Germany A1/B1 support-page source-review release — 2026-07-22
+
+- Application commit and immutable release: `cd0f73cb0f9d4662d73369bb757bdaa02856eb50` / `/var/www/visalang.org/releases/cd0f73cb0f9d`.
+- Previous verified release retained for rollback: `/var/www/visalang.org/releases/d2ea2202668a`.
+- Server source fast-forwarded from `d2ea2202668a5e31e6c032f376332874a28a57cd` to `cd0f73cb0f9d4662d73369bb757bdaa02856eb50`; the source commit and `current` symlink matched after deployment.
+- Local and server gates: Node.js `v22.23.1`; `npm test` passed; `npm run launch-check` built 101 pages and passed 37 checks with 0 failures, ending in `READY`; deployment shell syntax, Nginx configuration testing, atomic switch and reload passed. Existing Nginx protocol-option warnings remained non-fatal.
+- Production smoke: homepage, Guide Library, robots and sitemap returned 200; legacy routes and `www` returned the expected canonical 301 redirects; canonical, AdSense-loader, advertising-exclusion, `ads.txt`, robots and security-header checks passed.
+- Public content markers passed for the A1 exact-centre ID wording, B1 listening editorial-category label, B1 speaking Part 1 mapping, B1 writing assessment dimensions and the `2026-07-22` source-review date.
+- Project owner explicitly instructed the release to continue without current account-side AdSense/CMP verification. No account setting was read or modified, and this release does not claim CMP choices, Auto ads placement, Policy Center, CLS or clean-profile network verification.
+- The official npm audit endpoint reported Astro moderate plus sharp and svgo high advisories. Dependency manifests were unchanged from the rollback release; no dependency update was attempted in this content window.
+- No DNS, TLS, analytics, form, payment, email-delivery, CMP or advertising-account configuration changed. No rollback trigger occurred.
 
 ## France and Netherlands P0 authority-review release — 2026-07-19
 

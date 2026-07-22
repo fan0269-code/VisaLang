@@ -2,6 +2,27 @@
 
 Updated: 2026-07-22
 
+## Germany A1/B1 support-page production release — 2026-07-22
+
+Scope: publish the already reviewed Germany A1/B1 support-page work together with the current local `main` baseline, using the repository's commit-addressed immutable release workflow. The two prompt-file changes that existed before the review window remained uncommitted and were not included.
+
+Release result:
+
+- Created and pushed application commit `cd0f73cb0f9d4662d73369bb757bdaa02856eb50` to `origin/main`.
+- Production source fast-forwarded from `d2ea2202668a5e31e6c032f376332874a28a57cd` to the target commit.
+- Server `npm test` and `npm run launch-check` passed; 101 pages were built, all 37 checks passed, and the output ended in `READY.`
+- Nginx configuration testing passed and `current` switched atomically to `/var/www/visalang.org/releases/cd0f73cb0f9d`.
+- `/var/www/visalang.org/releases/d2ea2202668a` remains the immediate verified rollback release.
+- Standard public smoke passed for the homepage, Guide Library, robots, sitemap, canonical redirects, AdSense source contract, ad-free routes, `ads.txt` and security headers.
+- Public markers passed for the A1 centre-specific ID wording, B1 listening category boundary, B1 speaking sequence, B1 writing dimensions and the 2026-07-22 review date.
+
+Explicit release boundary:
+
+- The project owner instructed the content release to continue while skipping current account-side AdSense/CMP verification. No third-party account was accessed or modified.
+- CMP choices, Auto ads placement, Policy Center state, CLS and clean-profile browser network behavior remain unverified in this release.
+- Server installation and npm's official audit endpoint reported 1 moderate and 2 high advisories affecting Astro, sharp and svgo. Dependency manifests were unchanged from the rollback release, so the risks predated this content deployment; remediation is deferred to a separately reviewed dependency window.
+- No DNS, TLS, analytics, form, payment, email-delivery, CMP or advertising-account configuration was changed. No rollback was triggered.
+
 ## Germany A1/B1 support-page source review — 2026-07-22
 
 Scope: review and safely bound the claims, sources, metadata and next-step routes of the ten Germany A1 and five Germany B1 preparation support pages. This window did not include a commit, push, deployment, server access or third-party account change.
