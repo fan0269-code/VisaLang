@@ -4,17 +4,25 @@ description: "A focused 30-day Goethe A1 study plan for family reunion applicant
 category: "germany-a1"
 slug: "goethe-a1-30-day-study-plan"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-18"
+updatedDate: "2026-07-22"
+sourceReviewedAt: "2026-07-22"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "complete-route"
 primaryIntent: "30-day Goethe A1 study plan for family reunion decision support"
 decisionStage: "local-execution"
 comparisonScope: "same-route"
+audienceScope: "Adults using a 30-day practice schedule for Goethe-Zertifikat A1: Start Deutsch 1 after route and date checks."
+finalDecisionAuthorityType: "Goethe-Institut for exam format and an authorised local centre for local administration"
+primaryOfficialAuthorityUrl: "https://www.goethe.de/en/spr/prf/ueb/pa1.html"
+examOwnerUrl: "https://www.goethe.de/en/spr/prf.html"
+localExecutionPrompt: "Use current Goethe A1 adult training to calibrate the plan and confirm the selected centre's date, ID and test-day instructions before relying on the final-week schedule."
 author: "VisaLang Editorial team"
 readingTime: "9"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-supportingGuideSlugs: ["goethe-a1-speaking-topics", "goethe-a1-listening-practice", "goethe-a1-retake-policy"]
+supportingGuideSlugs: ["goethe-a1-speaking-topics", "goethe-a1-listening-practice"]
 ---
 
 ## Use this plan only after the route check
@@ -51,7 +59,7 @@ At the end of each session, write down one error you can repair tomorrow. Do not
 
 Choose the two weakest areas from your notes. Spend the first part of the week repairing them, then combine all four skills in calm timed practice.
 
-Use the final days to rehearse practical details too: your arrival plan, original ID, booking confirmation, and a simple speaking warm-up. Check current local instructions rather than copying another candidate's test-day routine.
+Use the final days to rehearse practical details too: your arrival plan, the exact identification required by the centre, booking confirmation, and a simple speaking warm-up. Check current local instructions rather than copying another candidate's test-day routine.
 
 ## When this plan is not enough
 
@@ -74,26 +82,4 @@ Use [Goethe A1 speaking topics](/guides/goethe-a1-speaking-topics/) and [Goethe 
 ## Official sources
 
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [Goethe-Zertifikat A1: Start Deutsch 1](https://www.goethe.de/ins/de/en/prf/prf/gzsd1.html)
-
-## A1 route FAQ
-
-### Can this page confirm that I will pass?
-
-No. It separates the questions you need to ask; the official centre and the German mission or authority decide their current document instructions.
-
-### What if local instructions conflict?
-
-Pause, save the official links or written replies, and ask the responsible source which instruction applies before booking or submitting documents.
-
-## A1 decision tools and next steps
-
-These planning aids organise questions; they do not decide an exemption, certificate acceptance, fees, result timing, or your individual case.
-
-- Return to the [Germany A1 family reunion hub](/germany-family-reunion-a1/) to see the full decision order.
-- Start with [Route Finder](/tools/route-finder/) if the requirement or exemption question is still open.
-- Turn your official checks into a working list with the [Checklist Generator](/tools/checklist-generator/).
-- Enter only locally confirmed buffers in the [Timeline Calculator](/tools/timeline-calculator/).
-- Compare the questions—not provider rankings—in [Exam Comparison](/tools/exam-comparison/).
-- The [A1 Family Reunion Pack](/contact/?interest=a1-family-reunion-pack) is a proposed planning pack; requesting access only opens a contact-intent path.
-- [Route Review](/contact/?interest=route-review) is proposed informational support, not legal, visa, or acceptance advice.
+- [Official Goethe A1 exam training](https://www.goethe.de/en/spr/prf/ueb/pa1.html)

@@ -4,18 +4,26 @@ description: "How Goethe-Zertifikat A1 can fit Germany family reunion visa plann
 category: "germany-a1"
 slug: "goethe-a1-germany-family-reunion"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-18"
+updatedDate: "2026-07-22"
+sourceReviewedAt: "2026-07-22"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "complete-route"
 primaryIntent: "Goethe A1 for Germany family reunion visa proof decision support"
 decisionStage: "requirement"
 nextGuideSlug: "goethe-a1-vs-telc-a1"
 comparisonScope: "same-route"
+audienceScope: "Spouses planning a German family-reunification visa who must confirm whether basic German proof applies to their own route."
+finalDecisionAuthorityType: "Competent German mission abroad and the responsible foreigners authority"
+primaryOfficialAuthorityUrl: "https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11"
+examOwnerUrl: "https://www.goethe.de/en/spr/prf.html"
+localExecutionPrompt: "Confirm the current language-proof instruction with the competent German mission, then verify the exact exam, centre, date, fee, ID and cancellation rules with Goethe or its authorised local centre."
 author: "VisaLang Editorial team"
 readingTime: "8"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-supportingGuideSlugs: ["german-family-reunion-language-requirement", "goethe-a1-vs-telc-a1", "goethe-a1-pre-booking-checklist"]
+supportingGuideSlugs: ["german-family-reunion-language-requirement", "goethe-a1-pre-booking-checklist"]
 ---
 
 ## Start with the route, not the brand
@@ -42,32 +50,10 @@ Use a different page first if you still do not know whether A1 applies, are comp
 
 ## Next action
 
-Confirm the route in [German family reunion language requirement](/guides/german-family-reunion-language-requirement/). Then compare providers in [Goethe A1 vs telc A1](/guides/goethe-a1-vs-telc-a1/) and complete the [Goethe A1 pre-booking checklist](/guides/goethe-a1-pre-booking-checklist/) before paying.
+Confirm the route with the competent German mission, save its current instruction, then compare providers in [Goethe A1 vs telc A1](/guides/goethe-a1-vs-telc-a1/). Use the [pre-booking checklist](/guides/goethe-a1-pre-booking-checklist/) only after the accepted proof is clear.
 
 ## Official sources
 
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [BAMF family reunification](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html)
-- [German Federal Foreign Office](https://www.auswaertiges-amt.de/en)
-
-## A1 route FAQ
-
-### Can this page confirm that Goethe A1 is accepted?
-
-No. It separates the questions you need to ask; the official centre and the German mission or authority decide their current document instructions.
-
-### What if local instructions conflict?
-
-Pause, save the official links or written replies, and ask the responsible source which instruction applies before booking or submitting documents.
-
-## A1 decision tools and next steps
-
-These planning aids organise questions; they do not decide an exemption, certificate acceptance, fees, result timing, or your individual case.
-
-- Return to the [Germany A1 family reunion hub](/germany-family-reunion-a1/) to see the full decision order.
-- Start with [Route Finder](/tools/route-finder/) if the requirement or exemption question is still open.
-- Turn your official checks into a working list with the [Checklist Generator](/tools/checklist-generator/).
-- Enter only locally confirmed buffers in the [Timeline Calculator](/tools/timeline-calculator/).
-- Compare the questions—not provider rankings—in [Exam Comparison](/tools/exam-comparison/).
-- The [A1 Family Reunion Pack](/contact/?interest=a1-family-reunion-pack) is a proposed planning pack; requesting access only opens a contact-intent path.
-- [Route Review](/contact/?interest=route-review) is proposed informational support, not legal, visa, or acceptance advice.
+- [Federal Foreign Office: Visas for Germany](https://www.auswaertiges-amt.de/en/visa-service/215870-215870)
+- [BAMF spousal-reunification language-proof leaflet (PDF)](https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11)

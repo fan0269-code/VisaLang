@@ -28,6 +28,23 @@ const germanyB1CoreSlugs = [
   'germany-b1-settlement-citizenship-timeline',
   'germany-b1-settlement-citizenship-checklist',
 ];
+const supportReviewRoutes = {
+  'goethe-a1-germany-family-reunion': 'goethe-a1-vs-telc-a1',
+  'german-a1-family-reunion-faq': 'goethe-a1-vs-telc-a1',
+  'goethe-a1-listening-practice': 'goethe-a1-speaking-topics',
+  'goethe-a1-speaking-topics': 'goethe-a1-30-day-study-plan',
+  'goethe-a1-writing-practice': 'goethe-a1-30-day-study-plan',
+  'goethe-a1-study-plan-working-adults': 'goethe-a1-30-day-study-plan',
+  'goethe-a1-official-links-practice-resources': 'goethe-a1-30-day-study-plan',
+  'goethe-a1-30-day-study-plan': '',
+  'goethe-a1-booking-mistakes': 'german-a1-documents-checklist',
+  'goethe-a1-pre-booking-checklist': 'german-a1-exam-booking-timeline',
+  'goethe-b1-difficulty-analysis': 'goethe-b1-study-plan',
+  'goethe-b1-listening-deep-dive': 'goethe-b1-mock-exam-routine',
+  'goethe-b1-mock-exam-routine': 'goethe-b1-study-plan',
+  'goethe-b1-speaking-topics': 'goethe-b1-mock-exam-routine',
+  'goethe-b1-writing-assessment': 'goethe-b1-mock-exam-routine',
+};
 const structuredDataTypes = (html) => {
   const types = [];
   for (const [, json] of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
@@ -105,11 +122,19 @@ try {
   assert.ok(!unreviewedHtml.includes('Route structure complete') && !unreviewedHtml.includes('Core route structure'), 'pending source review cannot render Route structure complete/Core route structure even with a final-authority URL');
   assert.ok(!unreviewedHtml.includes('Source-reviewed verification responsibilities for this guide'), 'pending source review cannot render a source fact table');
 
-  const pendingHtml = fs.readFileSync('dist/guides/goethe-a1-booking-mistakes/index.html', 'utf8');
-  assert.ok(pendingHtml.includes('<dt>Updated</dt><dd><time datetime="2026-07-11">2026-07-11</time></dd>'), 'editing date remains visible as an update');
-  assert.ok(pendingHtml.includes('Official verification pending'), 'missing sourceReviewedAt renders pending copy');
-  assert.ok(!pendingHtml.includes('Official sources last checked'), 'updatedDate never falls back into source-review output');
-  assert.ok(!pendingHtml.includes('Source-reviewed verification responsibilities for this guide'), 'unreviewed Complete/Core content does not manufacture a source fact table');
+  for (const [slug, nextSlug] of Object.entries(supportReviewRoutes)) {
+    const source = fs.readFileSync(path.join(guideDirectory, `${slug}.md`), 'utf8');
+    const html = fs.readFileSync(path.join('dist/guides', slug, 'index.html'), 'utf8');
+    const renderedNext = html.match(/<a href="([^"]+)"><small>Next guide<\/small>/)?.[1] || '';
+    assert.equal((html.match(/<h1(?:\s|>)/g) || []).length, 1, `${slug} renders exactly one H1`);
+    assert.ok(html.includes('aria-label="Disclaimer"'), `${slug} renders the planning disclaimer`);
+    assert.ok(html.includes('Official sources last checked: <time datetime="2026-07-22">2026-07-22</time>'), `${slug} renders the current source-review date`);
+    assert.ok(html.includes('<dt>Reviewed by role</dt><dd>Source review</dd>'), `${slug} renders the source-review role`);
+    assert.ok(!html.includes('Official verification pending'), `${slug} does not render a conflicting pending state`);
+    assert.ok(html.includes(`"dateModified":"${frontmatterField(source, 'updatedDate')}"`), `${slug} keeps dateModified tied to updatedDate`);
+    assert.ok(html.includes(`<link rel="canonical" href="https://visalang.org/guides/${slug}/">`), `${slug} renders its self-canonical`);
+    assert.equal(renderedNext, nextSlug ? `/guides/${nextSlug}/` : '', `${slug} renders the explicit business next step`);
+  }
 
   const highRiskReviewedHtml = fs.readFileSync('dist/guides/ielts-ukvi-uk-visa/index.html', 'utf8');
   const highRiskReviewedSource = fs.readFileSync('src/content/guides/ielts-ukvi-uk-visa.md', 'utf8');
@@ -266,6 +291,16 @@ for (const slug of ['goethe-a1-germany-family-reunion', 'goethe-a1-test-centers'
 }
 assert.ok(!sitemap.includes('__source-review-'), 'test fixtures are removed from the generated sitemap');
 assert.ok(!sitemap.includes('.html'), 'generated sitemap excludes legacy .html URLs');
+const englishGuideSlugs = fs.readdirSync(guideDirectory)
+  .filter((file) => file.endsWith('.md'))
+  .map((file) => frontmatterField(fs.readFileSync(path.join(guideDirectory, file), 'utf8'), 'slug'));
+assert.equal(englishGuideSlugs.length, 54, 'source collection retains exactly 54 English guides');
+for (const slug of englishGuideSlugs) {
+  const canonical = `https://visalang.org/guides/${slug}/`;
+  const escapedCanonical = canonical.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  assert.equal((sitemap.match(new RegExp(`<loc>${escapedCanonical}</loc>`, 'g')) || []).length, 1, `sitemap contains the English guide canonical exactly once: ${canonical}`);
+}
+assert.equal((sitemap.match(/<loc>https:\/\/visalang\.org\/zh\/guides\/[^<]+<\/loc>/g) || []).length, 8, 'sitemap contains exactly 8 Chinese guide canonicals');
 for (const canonical of [
   'https://visalang.org/germany-b1-settlement-citizenship/',
   ...germanyB1GuideSources.map(({ source }) => `https://visalang.org/guides/${frontmatterField(source, 'slug')}/`),

@@ -4,12 +4,20 @@ description: "A mock-exam routine for the Goethe-Zertifikat B1: official sample 
 category: "germany-b1"
 slug: "goethe-b1-mock-exam-routine"
 publishedDate: "2026-07-04"
-updatedDate: "2026-07-04"
+updatedDate: "2026-07-22"
+sourceReviewedAt: "2026-07-22"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "core-route"
 primaryIntent: "Goethe B1 mock exam routine decision support"
 decisionStage: "local-execution"
 nextGuideSlug: "goethe-b1-study-plan"
 comparisonScope: "same-route"
+audienceScope: "Adults using current official Goethe-Zertifikat B1 training material for timed practice and error review."
+finalDecisionAuthorityType: "Goethe-Institut for exam format and an authorised local centre for local administration"
+primaryOfficialAuthorityUrl: "https://www.goethe.de/en/spr/prf/ueb/pb1.html"
+examOwnerUrl: "https://www.goethe.de/ins/de/en/prf/prf/gzb1.html"
+localExecutionPrompt: "Use current Goethe B1 adult training for the mock, then confirm the selected centre's date, ID, arrival, cancellation, result and certificate instructions before exam day."
 author: "VisaLang Editorial team"
 readingTime: "7"
 featured: false
@@ -18,7 +26,7 @@ route: "germany-b1"
 supportingGuideSlugs: ["goethe-b1-difficulty-analysis", "goethe-b1-listening-deep-dive"]
 ---
 
-## TL;DR verdict
+## Direct practice answer
 
 A mock exam is useful only if it changes your next week of study. Do not just complete papers and count the score. Simulate the timing, log mistakes by module, repair the weakest pattern, and retest.
 
@@ -87,23 +95,9 @@ Mock routines must match the exact exam you will take. If you switch between Goe
 
 ## Official sources
 
-- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
+- [Goethe-Zertifikat B1](https://www.goethe.de/ins/de/en/prf/prf/gzb1.html)
+- [Official Goethe B1 exam training](https://www.goethe.de/en/spr/prf/ueb/pb1.html)
 
-## Continue your B1 decision route
+## Next action
 
-A mock score does not establish accepted language proof or settlement/citizenship eligibility. Verify the authority's language rule separately from residence, income, insurance, housing and all other procedural conditions.
-
-- [B1 settlement and citizenship hub](/germany-b1-settlement-citizenship/)
-- [Route Finder](/tools/route-finder/)
-- [B1 checklist](/guides/germany-b1-settlement-citizenship-checklist/)
-- [B1 timeline](/guides/germany-b1-settlement-citizenship-timeline/)
-- [DTZ vs Goethe B1 vs telc B1](/guides/goethe-b1-vs-telc-b1/)
-- [Route Review boundary](/route-review/)
-- [Proposed B1 practice pack interest](/contact/?interest=b1-practice-pack)
-- [Goethe-Institut German examinations overview](https://www.goethe.de/en/spr/prf.html)
-
-## Revision history
-
-- 2026-07-04: Published the Goethe B1 mock exam routine.
-
-Last updated: 2026-07-04. Official verification pending.
+Carry the repeated errors into the [Goethe B1 study plan](/guides/goethe-b1-study-plan/). A practice score does not establish proof acceptance or an individual residence or citizenship result; verify those questions with the receiving authority.

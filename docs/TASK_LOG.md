@@ -1,6 +1,38 @@
 # VisaLang Task Log
 
-Updated: 2026-07-21
+Updated: 2026-07-22
+
+## Germany A1/B1 support-page source review — 2026-07-22
+
+Scope: review and safely bound the claims, sources, metadata and next-step routes of the ten Germany A1 and five Germany B1 preparation support pages. This window did not include a commit, push, deployment, server access or third-party account change.
+
+Completed:
+
+- Opened current first-party BAMF, Federal Foreign Office and Goethe sources and saved the claim-level review in `docs/GERMANY_A1_B1_SUPPORT_SOURCE_REVIEW_2026-07-22.md`.
+- Set all 15 pages to `sourceReviewStatus: reviewed` only after unsupported public values were deleted or changed to explicit competent-authority or selected-centre verification actions.
+- Separated immigration acceptance from exam-owner facts and separated global exam information from local date, fee, seat, ID, cancellation, result and certificate procedures.
+- Corrected the B1 speaking Part 1–3 sequence and writing assessment dimensions; removed unsupported listening-frequency/prediction language and universal ID wording.
+- Removed repeated route/CTA templates, limited supporting links, corrected the A1 pre-booking and B1 support-page stages, and closed next-step loops, regressions and duplicates.
+- Updated `docs/CONTENT_MAP.md` and added focused source-status, route, rendered-metadata, sitemap/date and local-ID regression coverage.
+- Completed independent standards and specification review; the final review reported no blocking findings.
+
+Verification:
+
+- `node tests/germany-a1-cluster.test.js` — passed.
+- `node tests/germany-b1-cluster.test.js` — passed.
+- `node tests/content-integrity.test.js` — passed.
+- `node tests/source-review-render.test.js` — passed.
+- `node tests/site.test.js` — passed.
+- `npm test` — passed.
+- `git diff --check` — passed with no output.
+- `npm run build` — passed; 101 pages generated.
+- `npm run launch-check` — passed; 101 routes, 37 checks, 0 failures, `READY.`
+
+Boundary:
+
+- `reviewed` covers only the bounded claims and dispositions recorded in the matrix. It does not decide an individual's route, exception, accepted proof, centre, date, fee, ID, cancellation, result timing or certificate delivery.
+- The local `READY.` result is build/readiness evidence, not production publication evidence.
+- No commit, push, deployment, server access or third-party account change was performed.
 
 ## P0 five-country source review and route closure — 2026-07-21
 

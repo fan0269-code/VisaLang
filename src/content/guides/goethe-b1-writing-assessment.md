@@ -1,24 +1,32 @@
 ---
 title: "Goethe B1 writing assessment"
-description: "How the Goethe-Zertifikat B1 writing module is assessed: scoring dimensions, common point-loss patterns, email templates, and a self-check routine."
+description: "A Goethe-Zertifikat B1 writing self-check routine based on the current official module description and adult practice material, without claiming an official score."
 category: "germany-b1"
 slug: "goethe-b1-writing-assessment"
 publishedDate: "2026-07-04"
-updatedDate: "2026-07-04"
+updatedDate: "2026-07-22"
+sourceReviewedAt: "2026-07-22"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "core-route"
 primaryIntent: "Goethe B1 writing assessment decision support"
 decisionStage: "local-execution"
-nextGuideSlug: "goethe-b1-difficulty-analysis"
+nextGuideSlug: "goethe-b1-mock-exam-routine"
 comparisonScope: "same-route"
+audienceScope: "Adults preparing the writing module of Goethe-Zertifikat B1 with current official training material."
+finalDecisionAuthorityType: "Goethe-Institut for exam format and an authorised local centre for local administration"
+primaryOfficialAuthorityUrl: "https://www.goethe.de/ins/de/en/prf/prf/gzb1/inf.html"
+examOwnerUrl: "https://www.goethe.de/ins/de/en/prf/prf/gzb1.html"
+localExecutionPrompt: "Use current Goethe B1 adult writing training and confirm any centre-specific format, date, ID and test-day instruction with the authorised local centre."
 author: "VisaLang Editorial team"
 readingTime: "7"
 featured: false
 eyebrow: "Germany B1+"
 route: "germany-b1"
-supportingGuideSlugs: ["goethe-b1-mock-exam-routine", "goethe-b1-study-plan"]
+supportingGuideSlugs: ["goethe-b1-difficulty-analysis", "goethe-b1-study-plan"]
 ---
 
-## TL;DR verdict
+## Direct practice answer
 
 Goethe B1 writing is not only a grammar test. You lose points when the text does not answer all prompt points, uses the wrong register, lacks structure, or becomes hard to understand.
 
@@ -38,15 +46,16 @@ Build a fixed self-check routine so every practice text is reviewed the same way
 - You want copied model answers from real exams.
 - You need advanced C1-style essay correction.
 
-## Scoring dimensions
+## Self-review dimensions
+
+The official adult training material groups writing evaluation under task fulfilment, coherence, vocabulary, and structures. The questions below translate those areas into a practice checklist; they do not predict an examiner's score.
 
 When you review your writing, check these dimensions:
 
-- Task completion: did you answer every bullet point?
-- Structure: can the reader follow the message quickly?
-- Register: is the tone formal or informal as required?
-- Language range: do you use enough connectors and sentence patterns?
-- Accuracy: do grammar mistakes block meaning?
+- Task fulfilment: did you answer the assigned purpose and required points?
+- Coherence: can the reader follow the order and connections between ideas?
+- Vocabulary: are the words suitable and varied enough for the task?
+- Structures: do sentence patterns and grammar keep the meaning understandable?
 
 ## Common point-loss patterns
 
@@ -94,23 +103,9 @@ Both require clear B1-level writing, but the exact task experience and assessmen
 
 ## Official sources
 
-- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [Goethe-Institut German examinations overview](https://www.goethe.de/en/spr/prf.html)
+- [Goethe-Zertifikat B1 further information](https://www.goethe.de/ins/de/en/prf/prf/gzb1/inf.html)
+- [Official Goethe B1 exam training](https://www.goethe.de/en/spr/prf/ueb/pb1.html)
 
-## Continue your B1 decision route
+## Next action
 
-Writing practice does not establish accepted language proof or individual settlement/citizenship eligibility. Verify language, residence, income, insurance, housing and procedure separately with the competent authority.
-
-- [B1 settlement and citizenship hub](/germany-b1-settlement-citizenship/)
-- [Route Finder](/tools/route-finder/)
-- [B1 checklist](/guides/germany-b1-settlement-citizenship-checklist/)
-- [B1 timeline](/guides/germany-b1-settlement-citizenship-timeline/)
-- [DTZ vs Goethe B1 vs telc B1](/guides/goethe-b1-vs-telc-b1/)
-- [Route Review boundary](/route-review/)
-- [Proposed B1 practice pack interest](/contact/?interest=b1-practice-pack)
-
-## Revision history
-
-- 2026-07-04: Published the Goethe B1 writing assessment guide.
-
-Last updated: 2026-07-04. Official verification pending.
+Use the self-check during the [Goethe B1 mock-exam routine](/guides/goethe-b1-mock-exam-routine/). Keep proof acceptance and local administration separate from this writing practice and verify them with the receiving authority and authorised centre.

@@ -164,6 +164,41 @@ for (const { file, source } of germanyB1Entries) {
 }
 assert.equal(field(bySlug.get('germany-b1-settlement-citizenship-checklist')?.source || '', 'nextGuideSlug'), '', 'Germany B1 submission checklist is the terminal route page');
 
+const supportReviewRouteExpectations = {
+  'goethe-a1-germany-family-reunion': ['germany-a1', 'requirement', 'goethe-a1-vs-telc-a1'],
+  'german-a1-family-reunion-faq': ['germany-a1', 'requirement', 'goethe-a1-vs-telc-a1'],
+  'goethe-a1-listening-practice': ['germany-a1', 'local-execution', 'goethe-a1-speaking-topics'],
+  'goethe-a1-speaking-topics': ['germany-a1', 'local-execution', 'goethe-a1-30-day-study-plan'],
+  'goethe-a1-writing-practice': ['germany-a1', 'local-execution', 'goethe-a1-30-day-study-plan'],
+  'goethe-a1-study-plan-working-adults': ['germany-a1', 'local-execution', 'goethe-a1-30-day-study-plan'],
+  'goethe-a1-official-links-practice-resources': ['germany-a1', 'local-execution', 'goethe-a1-30-day-study-plan'],
+  'goethe-a1-30-day-study-plan': ['germany-a1', 'local-execution', ''],
+  'goethe-a1-booking-mistakes': ['germany-a1', 'local-execution', 'german-a1-documents-checklist'],
+  'goethe-a1-pre-booking-checklist': ['germany-a1', 'local-execution', 'german-a1-exam-booking-timeline'],
+  'goethe-b1-difficulty-analysis': ['germany-b1', 'local-execution', 'goethe-b1-study-plan'],
+  'goethe-b1-listening-deep-dive': ['germany-b1', 'local-execution', 'goethe-b1-mock-exam-routine'],
+  'goethe-b1-mock-exam-routine': ['germany-b1', 'local-execution', 'goethe-b1-study-plan'],
+  'goethe-b1-speaking-topics': ['germany-b1', 'local-execution', 'goethe-b1-mock-exam-routine'],
+  'goethe-b1-writing-assessment': ['germany-b1', 'local-execution', 'goethe-b1-mock-exam-routine'],
+};
+const stageRank = { requirement: 0, choice: 1, 'local-execution': 2, 'submission-review': 3 };
+for (const [slug, [category, decisionStage, expectedNext]] of Object.entries(supportReviewRouteExpectations)) {
+  const source = bySlug.get(slug)?.source || '';
+  const nextGuideSlug = field(source, 'nextGuideSlug');
+  const supportingGuideSlugs = arrayField(source, 'supportingGuideSlugs');
+  assert.equal(field(source, 'category'), category, `${slug} remains in its support-page cluster`);
+  assert.equal(field(source, 'decisionStage'), decisionStage, `${slug} uses the corrected decision stage`);
+  assert.equal(nextGuideSlug, expectedNext, `${slug} uses the agreed support-page next step`);
+  assert.ok(supportingGuideSlugs.length <= 2, `${slug} exposes at most two supporting guides`);
+  assert.ok(!supportingGuideSlugs.includes(slug), `${slug} has no supporting self-link`);
+  assert.ok(!nextGuideSlug || !supportingGuideSlugs.includes(nextGuideSlug), `${slug} does not duplicate its primary next step`);
+  if (nextGuideSlug) {
+    const nextSource = bySlug.get(nextGuideSlug)?.source || '';
+    assert.equal(field(nextSource, 'category'), category, `${slug} keeps its primary next step in ${category}`);
+    assert.ok(stageRank[field(nextSource, 'decisionStage')] >= stageRank[decisionStage], `${slug} does not move backwards in decision stage`);
+  }
+}
+
 assert.equal(slugs.size, entries.length, 'Guide slugs must remain unique');
 for (const { file, source } of entries) {
   const slug = field(source, 'slug');

@@ -1,26 +1,34 @@
 ---
 title: "Goethe B1 listening deep dive"
-description: "A deep-dive on the Goethe-Zertifikat B1 listening module: item types, once-only audio risk, number traps, detail traps, and a four-week drill routine."
+description: "A focused Goethe-Zertifikat B1 listening routine using the current official module description, adult training audio, error review, and timed practice."
 category: "germany-b1"
 slug: "goethe-b1-listening-deep-dive"
 publishedDate: "2026-07-04"
-updatedDate: "2026-07-04"
+updatedDate: "2026-07-22"
+sourceReviewedAt: "2026-07-22"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "core-route"
 primaryIntent: "Goethe B1 listening deep dive decision support"
 decisionStage: "local-execution"
-nextGuideSlug: "goethe-b1-difficulty-analysis"
+nextGuideSlug: "goethe-b1-mock-exam-routine"
 comparisonScope: "same-route"
+audienceScope: "Adults preparing the listening module of Goethe-Zertifikat B1 with current official training material."
+finalDecisionAuthorityType: "Goethe-Institut for exam format and an authorised local centre for local administration"
+primaryOfficialAuthorityUrl: "https://www.goethe.de/ins/de/en/prf/prf/gzb1.html"
+examOwnerUrl: "https://www.goethe.de/ins/de/en/prf/prf/gzb1.html"
+localExecutionPrompt: "Use current Goethe B1 adult listening training and confirm any centre-specific format, date, ID and test-day instruction with the authorised local centre."
 author: "VisaLang Editorial team"
 readingTime: "7"
 featured: false
 eyebrow: "Germany B1+"
 route: "germany-b1"
-supportingGuideSlugs: ["goethe-b1-mock-exam-routine", "goethe-b1-study-plan"]
+supportingGuideSlugs: ["goethe-b1-difficulty-analysis", "goethe-b1-study-plan"]
 ---
 
-## TL;DR verdict
+## Direct practice answer
 
-Goethe B1 listening is hard because the answer is often a paraphrase, not a repeated keyword. Treat it as a detail-and-intent test, not as background audio practice.
+Use the current official Goethe B1 adult material to learn the format. The detail, intent and paraphrase drills below are VisaLang practice methods, not an official taxonomy or a prediction of live questions.
 
 Your goal is to predict what kind of detail matters before the audio starts, then check the answer against the whole meaning, not one familiar word.
 
@@ -50,7 +58,9 @@ Before each task, scan the questions and mark the type of information you need:
 
 This reduces panic because you are listening for a purpose.
 
-## Item types you will meet
+## VisaLang practice categories
+
+The following categories are editorial ways to organise error review after using official material. They are not a list of guaranteed item types.
 
 | Item type | Main risk | Practice focus |
 | --- | --- | --- |
@@ -59,7 +69,7 @@ This reduces panic because you are listening for a purpose.
 | Interviews | Choosing a keyword trap. | Listen for paraphrase and speaker attitude. |
 | Longer messages | Losing the thread. | Write one-word notes after each idea. |
 
-## Four high-frequency traps
+## Four common practice traps
 
 - Keyword trap: the word appears, but the meaning points elsewhere.
 - Correction trap: the speaker first says one thing, then changes it.
@@ -88,23 +98,9 @@ Do not assume one listening test is easier from anecdotes. Compare official samp
 
 ## Official sources
 
-- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
+- [Goethe-Zertifikat B1 further information](https://www.goethe.de/ins/de/en/prf/prf/gzb1/inf.html)
+- [Official Goethe B1 exam training](https://www.goethe.de/en/spr/prf/ueb/pb1.html)
 
-## Continue your B1 decision route
+## Next action
 
-Practice readiness is different from proof acceptance and wider settlement or citizenship conditions. Verify language, residence, income, insurance, housing and procedure separately with the competent authority.
-
-- [B1 settlement and citizenship hub](/germany-b1-settlement-citizenship/)
-- [Route Finder](/tools/route-finder/)
-- [B1 checklist](/guides/germany-b1-settlement-citizenship-checklist/)
-- [B1 timeline](/guides/germany-b1-settlement-citizenship-timeline/)
-- [DTZ vs Goethe B1 vs telc B1](/guides/goethe-b1-vs-telc-b1/)
-- [Route Review boundary](/route-review/)
-- [Proposed B1 practice pack interest](/contact/?interest=b1-practice-pack)
-- [Goethe-Institut German examinations overview](https://www.goethe.de/en/spr/prf.html)
-
-## Revision history
-
-- 2026-07-04: Published the Goethe B1 listening deep dive.
-
-Last updated: 2026-07-04. Official verification pending.
+After focused listening drills, run one bounded session with the [Goethe B1 mock-exam routine](/guides/goethe-b1-mock-exam-routine/). Keep proof acceptance and local booking questions with the receiving authority and authorised centre.

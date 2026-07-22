@@ -4,18 +4,26 @@ description: "Build a safe Goethe A1 writing-practice routine for short forms an
 category: "germany-a1"
 slug: "goethe-a1-writing-practice"
 publishedDate: "2026-07-11"
-updatedDate: "2026-07-11"
+updatedDate: "2026-07-22"
+sourceReviewedAt: "2026-07-22"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "complete-route"
 primaryIntent: "Goethe A1 writing practice: short forms and messages decision support"
 decisionStage: "local-execution"
 nextGuideSlug: "goethe-a1-30-day-study-plan"
 comparisonScope: "same-route"
+audienceScope: "Adults preparing the writing section of Goethe-Zertifikat A1: Start Deutsch 1 with current official practice material."
+finalDecisionAuthorityType: "Goethe-Institut for exam format and an authorised local centre for local administration"
+primaryOfficialAuthorityUrl: "https://www.goethe.de/en/spr/prf/ueb/pa1.html"
+examOwnerUrl: "https://www.goethe.de/en/spr/prf.html"
+localExecutionPrompt: "Use the current Goethe A1 adult writing training and confirm any centre-specific format, date, ID and test-day instruction with the authorised local centre."
 author: "VisaLang Editorial team"
 readingTime: "6"
 featured: false
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-supportingGuideSlugs: ["goethe-a1-30-day-study-plan", "goethe-a1-speaking-topics", "goethe-a1-official-links-practice-resources"]
+supportingGuideSlugs: ["goethe-a1-speaking-topics", "goethe-a1-official-links-practice-resources"]
 ---
 
 ## Scope of this guide
@@ -47,26 +55,4 @@ Pair this routine with [Goethe A1 speaking topics](/guides/goethe-a1-speaking-to
 ## Official sources
 
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [Goethe-Zertifikat A1: Start Deutsch 1](https://www.goethe.de/ins/de/en/prf/prf/gzsd1.html)
-
-## A1 route FAQ
-
-### Can this page confirm the local exam procedure?
-
-No. It separates the questions you need to ask; the official centre and the German mission or authority decide their current document instructions.
-
-### What if local instructions conflict?
-
-Pause, save the official links or written replies, and ask the responsible source which instruction applies before booking or submitting documents.
-
-## A1 decision tools and next steps
-
-These planning aids organise questions; they do not decide an exemption, certificate acceptance, fees, result timing, or your individual case.
-
-- Return to the [Germany A1 family reunion hub](/germany-family-reunion-a1/) to see the full decision order.
-- Start with [Route Finder](/tools/route-finder/) if the requirement or exemption question is still open.
-- Turn your official checks into a working list with the [Checklist Generator](/tools/checklist-generator/).
-- Enter only locally confirmed buffers in the [Timeline Calculator](/tools/timeline-calculator/).
-- Compare the questions—not provider rankings—in [Exam Comparison](/tools/exam-comparison/).
-- The [A1 Family Reunion Pack](/contact/?interest=a1-family-reunion-pack) is a proposed planning pack; requesting access only opens a contact-intent path.
-- [Route Review](/contact/?interest=route-review) is proposed informational support, not legal, visa, or acceptance advice.
+- [Official Goethe A1 exam training](https://www.goethe.de/en/spr/prf/ueb/pa1.html)

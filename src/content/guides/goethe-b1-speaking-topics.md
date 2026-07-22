@@ -1,24 +1,32 @@
 ---
 title: "Goethe B1 speaking topics"
-description: "The Goethe-Zertifikat B1 speaking module: Teil 1, Teil 2, Teil 3 formats, topic bank, paired-interview phrases, recording routine, and common mistakes."
+description: "A Goethe-Zertifikat B1 speaking routine based on the current official module description, adult training material, partner practice, and self-recording."
 category: "germany-b1"
 slug: "goethe-b1-speaking-topics"
 publishedDate: "2026-07-04"
-updatedDate: "2026-07-04"
+updatedDate: "2026-07-22"
+sourceReviewedAt: "2026-07-22"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "core-route"
 primaryIntent: "Goethe B1 speaking topics decision support"
 decisionStage: "local-execution"
-nextGuideSlug: "goethe-b1-difficulty-analysis"
+nextGuideSlug: "goethe-b1-mock-exam-routine"
 comparisonScope: "same-route"
+audienceScope: "Adults preparing the speaking module of Goethe-Zertifikat B1 with current official training material."
+finalDecisionAuthorityType: "Goethe-Institut for exam format and an authorised local centre for local administration"
+primaryOfficialAuthorityUrl: "https://www.goethe.de/ins/de/en/prf/prf/gzb1/inf.html"
+examOwnerUrl: "https://www.goethe.de/ins/de/en/prf/prf/gzb1.html"
+localExecutionPrompt: "Use current Goethe B1 adult speaking training and confirm any centre-specific format, partner arrangement, date, ID and test-day instruction with the authorised local centre."
 author: "VisaLang Editorial team"
 readingTime: "7"
 featured: false
 eyebrow: "Germany B1+"
 route: "germany-b1"
-supportingGuideSlugs: ["goethe-b1-mock-exam-routine", "goethe-b1-study-plan"]
+supportingGuideSlugs: ["goethe-b1-difficulty-analysis", "goethe-b1-study-plan"]
 ---
 
-## TL;DR verdict
+## Direct practice answer
 
 Goethe B1 speaking rewards clear, connected, understandable German. You do not need perfect sentences. You do need to answer the task, keep speaking, react to your partner, and repair mistakes without freezing.
 
@@ -38,17 +46,17 @@ Use original practice prompts and official format information. Do not memorise l
 - You want real copied exam prompts.
 - You need one-to-one pronunciation diagnosis.
 
-## Teil 1, Teil 2, Teil 3 quick-reference
+## Speaking practice areas
 
 | Part | What to practise | Risk |
 | --- | --- | --- |
-| Introduction or personal exchange | Clear personal information and everyday topics. | Giving one-word answers. |
-| Short presentation or topic task | Opinion, reason, example, and conclusion. | Memorising a speech that does not answer the prompt. |
-| Partner interaction | Asking, reacting, agreeing, disagreeing, and planning. | Ignoring your partner or running out of repair phrases. |
+| Joint planning (Part 1) | Make suggestions, respond to your partner, and reach a workable plan together. | Delivering a monologue instead of planning with the partner. |
+| Topic presentation (Part 2) | Organise the assigned topic, state an opinion, and give reasons or examples. | Memorising a speech that does not answer the assigned task. |
+| Feedback and questions (Part 3) | Respond to the partner's presentation and ask or answer a relevant question. | Giving generic feedback that does not engage with the presentation. |
 
 Always verify the current format on the official Goethe page and with your test center.
 
-## Topic bank with sample frames
+## Original topic bank with sample frames
 
 Use these as original practice themes, not real exam questions:
 
@@ -93,23 +101,9 @@ The best choice is the accepted and available exam for your route. Compare offic
 
 ## Official sources
 
-- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
+- [Goethe-Zertifikat B1 further information](https://www.goethe.de/ins/de/en/prf/prf/gzb1/inf.html)
+- [Official Goethe B1 exam training](https://www.goethe.de/en/spr/prf/ueb/pb1.html)
 
-## Continue your B1 decision route
+## Next action
 
-Speaking practice does not answer proof acceptance or individual settlement/citizenship eligibility. Verify the authority's language requirement separately from residence, income, insurance, housing and all other procedural conditions.
-
-- [B1 settlement and citizenship hub](/germany-b1-settlement-citizenship/)
-- [Route Finder](/tools/route-finder/)
-- [B1 checklist](/guides/germany-b1-settlement-citizenship-checklist/)
-- [B1 timeline](/guides/germany-b1-settlement-citizenship-timeline/)
-- [DTZ vs Goethe B1 vs telc B1](/guides/goethe-b1-vs-telc-b1/)
-- [Route Review boundary](/route-review/)
-- [Proposed B1 practice pack interest](/contact/?interest=b1-practice-pack)
-- [Goethe-Institut German examinations overview](https://www.goethe.de/en/spr/prf.html)
-
-## Revision history
-
-- 2026-07-04: Published the Goethe B1 speaking topics guide.
-
-Last updated: 2026-07-04. Official verification pending.
+Test the routine in the [Goethe B1 mock-exam routine](/guides/goethe-b1-mock-exam-routine/). Keep proof acceptance and local administration separate from speaking practice and confirm them with the receiving authority and authorised centre.

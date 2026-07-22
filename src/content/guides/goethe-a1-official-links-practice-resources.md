@@ -4,18 +4,26 @@ description: "A safe source map for Goethe A1 family reunion planning: requireme
 category: "germany-a1"
 slug: "goethe-a1-official-links-practice-resources"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-11"
+updatedDate: "2026-07-22"
+sourceReviewedAt: "2026-07-22"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "complete-route"
 primaryIntent: "Goethe A1 official links and practice resources: where to verify decision support"
 decisionStage: "local-execution"
 nextGuideSlug: "goethe-a1-30-day-study-plan"
 comparisonScope: "same-route"
+audienceScope: "Adults mapping current official sources for a German family-reunification A1 route and Goethe A1 preparation."
+finalDecisionAuthorityType: "Competent German mission for route proof; Goethe-Institut and authorised local centre for the exam"
+primaryOfficialAuthorityUrl: "https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11"
+examOwnerUrl: "https://www.goethe.de/en/spr/prf.html"
+localExecutionPrompt: "Save the competent mission's current route instruction and the official Goethe exam entry, then confirm the selected centre's dates, fees, ID, cancellation and result process."
 author: "VisaLang Editorial team"
 readingTime: "7"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-supportingGuideSlugs: ["goethe-a1-30-day-study-plan", "goethe-a1-speaking-topics", "goethe-a1-listening-practice"]
+supportingGuideSlugs: ["goethe-a1-speaking-topics", "goethe-a1-listening-practice"]
 ---
 
 ## Match each question to its source
@@ -47,28 +55,6 @@ Use this source map with the [Goethe A1 pre-booking checklist](/guides/goethe-a1
 ## Official sources
 
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [BAMF family reunification](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html)
-- [telc German certificate exams](https://www.telc.net/en/language-examinations/certificate-exams/german/)
-- [German Federal Foreign Office](https://www.auswaertiges-amt.de/en)
-
-## A1 route FAQ
-
-### Can this page replace the official source?
-
-No. It separates the questions you need to ask; the official centre and the German mission or authority decide their current document instructions.
-
-### What if local instructions conflict?
-
-Pause, save the official links or written replies, and ask the responsible source which instruction applies before booking or submitting documents.
-
-## A1 decision tools and next steps
-
-These planning aids organise questions; they do not decide an exemption, certificate acceptance, fees, result timing, or your individual case.
-
-- Return to the [Germany A1 family reunion hub](/germany-family-reunion-a1/) to see the full decision order.
-- Start with [Route Finder](/tools/route-finder/) if the requirement or exemption question is still open.
-- Turn your official checks into a working list with the [Checklist Generator](/tools/checklist-generator/).
-- Enter only locally confirmed buffers in the [Timeline Calculator](/tools/timeline-calculator/).
-- Compare the questions—not provider rankings—in [Exam Comparison](/tools/exam-comparison/).
-- The [A1 Family Reunion Pack](/contact/?interest=a1-family-reunion-pack) is a proposed planning pack; requesting access only opens a contact-intent path.
-- [Route Review](/contact/?interest=route-review) is proposed informational support, not legal, visa, or acceptance advice.
+- [Official Goethe A1 exam training](https://www.goethe.de/en/spr/prf/ueb/pa1.html)
+- [BAMF spousal-reunification language-proof leaflet (PDF)](https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11)
+- [Federal Foreign Office: Visas for Germany](https://www.auswaertiges-amt.de/en/visa-service/215870-215870)

@@ -73,11 +73,26 @@ for (const file of requiredCoreGuides) {
   assert.doesNotMatch(markdownBody(source), /Reader decision and search intent|Manual checks still needed|Before you rely on this page|Proposed B1 practice pack interest/i, `${file} does not expose internal editorial language`);
 }
 
-for (const file of preparationSupportGuides) {
+const preparationSupportExpectations = {
+  'goethe-b1-difficulty-analysis.md': 'goethe-b1-study-plan',
+  'goethe-b1-listening-deep-dive.md': 'goethe-b1-mock-exam-routine',
+  'goethe-b1-mock-exam-routine.md': 'goethe-b1-study-plan',
+  'goethe-b1-speaking-topics.md': 'goethe-b1-mock-exam-routine',
+  'goethe-b1-writing-assessment.md': 'goethe-b1-mock-exam-routine',
+};
+for (const [file, nextGuideSlug] of Object.entries(preparationSupportExpectations)) {
   const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
-  assert.equal(field(source, 'sourceReviewStatus') || 'pending', 'pending', `${file} stays source-review pending`);
-  assert.equal(field(source, 'sourceReviewedAt'), '', `${file} does not claim a completed source-review date`);
-  assert.equal(field(source, 'reviewedByRole'), '', `${file} does not claim a completed source-review role`);
+  assert.equal(field(source, 'updatedDate'), '2026-07-22', `${file} records its substantive visible update`);
+  assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${file} records the completed source review`);
+  assert.equal(field(source, 'sourceReviewedAt'), '2026-07-22', `${file} records the actual source-review date`);
+  assert.equal(field(source, 'reviewedByRole'), 'source-review', `${file} records the controlled reviewer role`);
+  assert.equal(field(source, 'decisionStage'), 'local-execution', `${file} remains a preparation execution page`);
+  assert.equal(field(source, 'nextGuideSlug'), nextGuideSlug, `${file} uses the agreed primary next step`);
+  for (const fieldName of ['audienceScope', 'finalDecisionAuthorityType', 'primaryOfficialAuthorityUrl', 'examOwnerUrl', 'localExecutionPrompt']) {
+    assert.ok(field(source, fieldName), `${file} records ${fieldName}`);
+  }
+  const body = markdownBody(source);
+  assert.doesNotMatch(body, /TL;DR verdict|Continue your B1 decision route|Revision history|Official verification pending|Proposed B1 practice pack/i, `${file} removes internal or repeated template copy`);
 }
 
 assert.equal((hub.match(/<h1(?:\s|>)/g) || []).length, 1, 'B1 hub source declares exactly one H1');

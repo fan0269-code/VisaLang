@@ -4,18 +4,26 @@ description: "A practical Goethe A1 pre-booking checklist for the requirement, e
 category: "germany-a1"
 slug: "goethe-a1-pre-booking-checklist"
 publishedDate: "2026-07-02"
-updatedDate: "2026-07-18"
+updatedDate: "2026-07-22"
+sourceReviewedAt: "2026-07-22"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "complete-route"
 primaryIntent: "Goethe A1 pre-booking checklist: verify before paying decision support"
-decisionStage: "submission-review"
+decisionStage: "local-execution"
 nextGuideSlug: "german-a1-exam-booking-timeline"
 comparisonScope: "same-route"
+audienceScope: "Adults checking the Goethe-Zertifikat A1: Start Deutsch 1 product and an authorised local centre before payment."
+finalDecisionAuthorityType: "Receiving German authority for proof acceptance; Goethe-Institut and authorised local centre for booking"
+primaryOfficialAuthorityUrl: "https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11"
+examOwnerUrl: "https://www.goethe.de/en/spr/prf.html"
+localExecutionPrompt: "Confirm proof acceptance with the competent authority and save the selected centre's current date, fee, ID, payment, cancellation, rescheduling, result and certificate instructions before paying."
 author: "VisaLang Editorial team"
 readingTime: "8"
 featured: false
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-supportingGuideSlugs: ["goethe-a1-booking-mistakes", "german-a1-documents-checklist", "german-a1-exam-booking-timeline"]
+supportingGuideSlugs: ["goethe-a1-booking-mistakes", "german-a1-documents-checklist"]
 ---
 Before you pay for a Goethe A1 exam, work through this checklist. It cannot decide your visa case, but it can stop you from paying before the route, centre, and local rules are clear.
 
@@ -49,8 +57,8 @@ Before you pay for a Goethe A1 exam, work through this checklist. It cannot deci
 
 ## Step 5: Prepare your documents
 
-- [ ] Valid passport or national ID card (check expiry date — must be valid on exam day).
-- [ ] Any additional identification the test centre currently requires.
+- [ ] The exact identification document the test centre currently requires, including its validity rule.
+- [ ] Any additional identification or supporting document in the centre's current instructions.
 - [ ] Confirmation of registration or booking reference.
 - [ ] Payment receipt.
 - [ ] Check the centre instructions for what to bring and what is prohibited.
@@ -91,26 +99,5 @@ Save the official requirement source, centre page, fee, date, payment deadline, 
 ## Official sources
 
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [Goethe-Zertifikat A1: Start Deutsch 1 terms and conditions](https://www.goethe.de/resources/files/pdf347/dfb-2025_01-start-deutsch-1_englisch.pdf)
-
-## A1 route FAQ
-
-### Can this page confirm that I can book?
-
-No. It separates the questions you need to ask; the official centre and the German mission or authority decide their current document instructions.
-
-### What if local instructions conflict?
-
-Pause, save the official links or written replies, and ask the responsible source which instruction applies before booking or submitting documents.
-
-## A1 decision tools and next steps
-
-These planning aids organise questions; they do not decide an exemption, certificate acceptance, fees, result timing, or your individual case.
-
-- Return to the [Germany A1 family reunion hub](/germany-family-reunion-a1/) to see the full decision order.
-- Start with [Route Finder](/tools/route-finder/) if the requirement or exemption question is still open.
-- Turn your official checks into a working list with the [Checklist Generator](/tools/checklist-generator/).
-- Enter only locally confirmed buffers in the [Timeline Calculator](/tools/timeline-calculator/).
-- Compare the questions—not provider rankings—in [Exam Comparison](/tools/exam-comparison/).
-- The [A1 Family Reunion Pack](/contact/?interest=a1-family-reunion-pack) is a proposed planning pack; requesting access only opens a contact-intent path.
-- [Route Review](/contact/?interest=route-review) is proposed informational support, not legal, visa, or acceptance advice.
+- [Goethe-Zertifikat A1: Start Deutsch 1 terms and conditions](https://www.goethe.de/pro/relaunch/prf/en/Durchfuehrungsbestimmungen_A1_Start_Deutsch_1.pdf)
+- [Federal Foreign Office: Visas for Germany](https://www.auswaertiges-amt.de/en/visa-service/215870-215870)
