@@ -177,11 +177,12 @@ for (const { file, source } of entries) {
   const nextGuideSlug = field(source, 'nextGuideSlug');
   if (nextGuideSlug) assert.ok(slugs.has(nextGuideSlug), `${file} nextGuideSlug must resolve: ${nextGuideSlug}`);
   const supportingGuideSlugs = arrayField(source, 'supportingGuideSlugs');
-  assert.ok(supportingGuideSlugs.length > 0, `${file} needs controlled supporting guides`);
+  const isFiveCountryRequirement = ['uk', 'canada', 'italy', 'portugal', 'finland'].includes(field(source, 'category')) && field(source, 'decisionStage') === 'requirement';
+  assert.ok(supportingGuideSlugs.length > 0 || isFiveCountryRequirement, `${file} needs controlled supporting guides unless its only same-route peer is already the primary next step`);
   for (const relatedSlug of supportingGuideSlugs) assert.ok(slugs.has(relatedSlug), `${file} supporting guide slug must resolve: ${relatedSlug}`);
   const category = field(source, 'category');
   const decisionStage = field(source, 'decisionStage');
-  assert.ok(supportingGuideSlugs.some((relatedSlug) => {
+  assert.ok(isFiveCountryRequirement || supportingGuideSlugs.some((relatedSlug) => {
     const relatedSource = bySlug.get(relatedSlug)?.source || '';
     return field(relatedSource, 'category') === category || field(relatedSource, 'decisionStage') === decisionStage;
   }), `${file} needs at least one related guide in the same route or decision stage`);
@@ -219,7 +220,31 @@ for (const { file, source } of highRiskEntries) {
   for (const fieldName of ['primaryIntent', 'audienceScope', 'finalDecisionAuthorityType', 'examOwnerUrl', 'localExecutionPrompt']) {
     assert.ok(field(source, fieldName), `${file} records ${fieldName}`);
   }
-  assert.equal(field(source, 'localExecutionPrompt'), 'Before registering, check the current requirement with the authority that receives your application. This page helps you prepare the questions and official sources to use.', `${file} uses the approved non-conclusive verification prompt`);
+  assert.ok(field(source, 'localExecutionPrompt').length >= 40, `${file} provides a concrete non-conclusive verification prompt`);
+}
+
+const fiveCountryRoutes = {
+  uk: ['ielts-ukvi-uk-visa', 'languagecert-selt-uk-visa'],
+  canada: ['tef-canada-immigration', 'tcf-canada-vs-tef'],
+  italy: ['cils-b1-cittadinanza-for-italian-citizenship', 'cils-vs-celi-vs-plida-for-italian-citizenship'],
+  portugal: ['portuguese-language-for-golden-visa-and-citizenship', 'portuguese-ciple-a2-for-citizenship-and-residence'],
+  finland: ['yki-finnish-citizenship', 'yki-vs-other-finland-options'],
+};
+for (const [category, [requirementSlug, choiceSlug]] of Object.entries(fiveCountryRoutes)) {
+  const requirement = bySlug.get(requirementSlug)?.source || '';
+  const choice = bySlug.get(choiceSlug)?.source || '';
+  assert.equal(field(requirement, 'nextGuideSlug'), choiceSlug, `${category} requirement points to its choice page`);
+  assert.equal(field(choice, 'nextGuideSlug'), '', `${category} choice page terminates`);
+  for (const [slug, source] of [[requirementSlug, requirement], [choiceSlug, choice]]) {
+    const next = field(source, 'nextGuideSlug');
+    const supporting = arrayField(source, 'supportingGuideSlugs');
+    assert.ok(!supporting.includes(slug), `${slug} has no supporting self-link`);
+    assert.ok(!next || !supporting.includes(next), `${slug} does not duplicate its primary next step in supporting guides`);
+    for (const supportingSlug of supporting) {
+      assert.equal(field(bySlug.get(supportingSlug)?.source || '', 'category'), category, `${slug} keeps supporting guides inside ${category}`);
+    }
+    if (next) assert.notEqual(field(bySlug.get(next)?.source || '', 'nextGuideSlug'), slug, `${slug} has no direct bidirectional next loop`);
+  }
 }
 const highRiskAudit = fs.readFileSync('docs/HIGH_RISK_ROUTE_SOURCE_AUDIT.md', 'utf8');
 for (const { file } of highRiskEntries) assert.ok(highRiskAudit.includes(`src/content/guides/${file}`), `${file} appears in the high-risk source audit`);

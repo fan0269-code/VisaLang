@@ -4,20 +4,19 @@ description: "How the Portuguese CIPLE A2 exam fits citizenship and residence pl
 category: "portugal"
 slug: "portuguese-ciple-a2-for-citizenship-and-residence"
 publishedDate: "2026-07-01"
-updatedDate: "2026-07-01"
+updatedDate: "2026-07-21"
 contentStatus: "verification-pending"
 decisionStage: "choice"
-nextGuideSlug: "portuguese-language-for-golden-visa-and-citizenship"
 comparisonScope: "same-route"
-sourceReviewedAt: "2026-07-14"
+sourceReviewedAt: "2026-07-21"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
-primaryIntent: "Portugal citizenship and residence language-proof planning"
-audienceScope: "Readers considering CIPLE for a Portuguese citizenship or residence application"
-finalDecisionAuthorityType: "Portuguese immigration or citizenship authority"
+primaryIntent: "CIPLE comparison for a Portuguese nationality procedure"
+audienceScope: "Readers whose selected Portuguese nationality procedure may accept CIPLE evidence"
+finalDecisionAuthorityType: "Portuguese nationality authority"
 primaryOfficialAuthorityUrl: "https://justica.gov.pt/Registos/Nacionalidade/Nacionalidade-portuguesa"
 examOwnerUrl: "https://caple.letras.ulisboa.pt/exame/2/ciple"
-localExecutionPrompt: "Before registering, check the current requirement with the authority that receives your application. This page helps you prepare the questions and official sources to use."
+localExecutionPrompt: "Confirm that your exact nationality procedure accepts CIPLE evidence, then use CAPLE's current page to verify the A2 product, centre, session, fee and registration terms."
 author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
@@ -28,9 +27,9 @@ supportingGuideSlugs: ["portuguese-language-for-golden-visa-and-citizenship"]
 
 ## Decide whether CIPLE is relevant
 
-The Portuguese Justice portal controls the nationality procedure and the evidence requested for the selected profile. The reviewed sources do not support one list saying that every naturalisation, marriage, Golden Visa or permanent-residence applicant needs CIPLE.
+The Portuguese Justice portal controls the nationality procedure and says the documents vary with the applicant's situation. The opened sources do not support a claim that every naturalisation, marriage, Golden Visa or permanent-residence applicant needs CIPLE.
 
-First select the exact official procedure and confirm the accepted language proof and any exemption. If CIPLE is an accepted option for that procedure, use CAPLE's current CIPLE page to check the exam level, components, centre, session and fee.
+First select the exact official procedure and confirm the accepted language proof and any exception. If CIPLE is an accepted option, CAPLE identifies it as a CEFR A2 product and publishes its components and sessions; verify the current centre, fee and registration terms separately.
 
 CAPLE controls the exam product. It does not decide immigration or nationality eligibility.
 

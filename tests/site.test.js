@@ -7,6 +7,7 @@ require('./commercial-pages.test.js');
 require('./germany-a1-cluster.test.js');
 require('./germany-b1-cluster.test.js');
 require('./germany-testdaf-cluster.test.js');
+require('./p0-five-countries.test.js');
 require('./content-integrity.test.js');
 require('./source-review-render.test.js');
 require('./deploy.test.js');

@@ -112,11 +112,35 @@ try {
   assert.ok(!pendingHtml.includes('Source-reviewed verification responsibilities for this guide'), 'unreviewed Complete/Core content does not manufacture a source fact table');
 
   const highRiskReviewedHtml = fs.readFileSync('dist/guides/ielts-ukvi-uk-visa/index.html', 'utf8');
-  assert.ok(highRiskReviewedHtml.includes('Official sources last checked: <time datetime="2026-07-14">2026-07-14</time>'), 'reviewed high-risk metadata renders its controlled source date');
+  const highRiskReviewedSource = fs.readFileSync('src/content/guides/ielts-ukvi-uk-visa.md', 'utf8');
+  assert.ok(highRiskReviewedHtml.includes('Official sources last checked: <time datetime="2026-07-21">2026-07-21</time>'), 'reviewed high-risk metadata renders its current controlled source date');
   assert.ok(highRiskReviewedHtml.includes('Verification pending'), 'reviewed sources do not promote incomplete high-risk content');
   assert.ok(!highRiskReviewedHtml.includes('Route structure complete') && !highRiskReviewedHtml.includes('Core route structure'), 'verification-pending remains consistent across the article header');
-  assert.ok(highRiskReviewedHtml.includes('"dateModified":"2026-07-01"'), 'Article JSON-LD keeps the editorial updatedDate');
-  assert.ok(!highRiskReviewedHtml.includes('"dateModified":"2026-07-14"'), 'Article JSON-LD does not reinterpret sourceReviewedAt as an editorial update');
+  assert.ok(highRiskReviewedHtml.includes(`"dateModified":"${frontmatterField(highRiskReviewedSource, 'updatedDate')}"`), 'Article JSON-LD keeps the editorial updatedDate');
+
+  const fiveCountryRoutes = {
+    'ielts-ukvi-uk-visa': 'languagecert-selt-uk-visa',
+    'languagecert-selt-uk-visa': '',
+    'tef-canada-immigration': 'tcf-canada-vs-tef',
+    'tcf-canada-vs-tef': '',
+    'cils-b1-cittadinanza-for-italian-citizenship': 'cils-vs-celi-vs-plida-for-italian-citizenship',
+    'cils-vs-celi-vs-plida-for-italian-citizenship': '',
+    'portuguese-language-for-golden-visa-and-citizenship': 'portuguese-ciple-a2-for-citizenship-and-residence',
+    'portuguese-ciple-a2-for-citizenship-and-residence': '',
+    'yki-finnish-citizenship': 'yki-vs-other-finland-options',
+    'yki-vs-other-finland-options': '',
+  };
+  for (const [slug, nextSlug] of Object.entries(fiveCountryRoutes)) {
+    const source = fs.readFileSync(path.join(guideDirectory, `${slug}.md`), 'utf8');
+    const html = fs.readFileSync(path.join('dist/guides', slug, 'index.html'), 'utf8');
+    const renderedNext = html.match(/<a href="([^"]+)"><small>Next guide<\/small>/)?.[1] || '';
+    assert.equal((html.match(/<h1(?:\\s|>)/g) || []).length, 1, `${slug} renders one H1`);
+    assert.ok(html.includes('aria-label="Disclaimer"'), `${slug} renders its disclaimer`);
+    assert.ok(html.includes('Official sources last checked: <time datetime="2026-07-21">2026-07-21</time>'), `${slug} renders the current source-review date`);
+    assert.ok(html.includes('<dt>Reviewed by role</dt><dd>Source review</dd>'), `${slug} renders the source-review role`);
+    assert.ok(html.includes(`"dateModified":"${frontmatterField(source, 'updatedDate')}"`), `${slug} keeps dateModified tied to updatedDate`);
+    assert.equal(renderedNext, nextSlug ? `/guides/${nextSlug}/` : '', `${slug} renders the explicit business next step`);
+  }
 
   const spainHtml = fs.readFileSync('dist/guides/dele-levels-spanish-citizenship/index.html', 'utf8');
   assert.ok(spainHtml.includes('Official sources last checked: <time datetime="2026-07-19">2026-07-19</time>'), 'the Spain pilot renders its agent source re-review date');

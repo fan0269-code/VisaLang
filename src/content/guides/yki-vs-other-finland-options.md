@@ -4,12 +4,11 @@ description: "Compare YKI with other ways to prove Finnish language proficiency 
 category: "finland"
 slug: "yki-vs-other-finland-options"
 publishedDate: "2026-07-01"
-updatedDate: "2026-07-01"
+updatedDate: "2026-07-21"
 contentStatus: "verification-pending"
 decisionStage: "choice"
-nextGuideSlug: "yki-finnish-citizenship"
 comparisonScope: "same-route"
-sourceReviewedAt: "2026-07-14"
+sourceReviewedAt: "2026-07-21"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 primaryIntent: "Finland citizenship language-proof comparison"
@@ -17,13 +16,13 @@ audienceScope: "Readers comparing YKI with other possible evidence for a citizen
 finalDecisionAuthorityType: "Finnish immigration and citizenship authority"
 primaryOfficialAuthorityUrl: "https://migri.fi/en/language-skills"
 examOwnerUrl: "https://www.oph.fi/en/national-certificates-language-proficiency-yki"
-localExecutionPrompt: "Before registering, check the current requirement with the authority that receives your application. This page helps you prepare the questions and official sources to use."
+localExecutionPrompt: "Match your exact certificate or education record to Migri's current evidence conditions; if choosing YKI, confirm the accepted subtest combination before registering."
 author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "Finland · Citizenship"
 route: "finland"
-supportingGuideSlugs: ["yki-finnish-citizenship", "cils-b1-cittadinanza-for-italian-citizenship", "dele-a2-ccse-spanish-citizenship", "dutch-inburgering-a2-b1-for-integration-and-citizenship"]
+supportingGuideSlugs: ["yki-finnish-citizenship"]
 ---
 
 ## Start with Migri's evidence list

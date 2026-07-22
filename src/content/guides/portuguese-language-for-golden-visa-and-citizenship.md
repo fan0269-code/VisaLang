@@ -4,37 +4,37 @@ description: "How Portuguese language proof relates to Golden Visa and citizensh
 category: "portugal"
 slug: "portuguese-language-for-golden-visa-and-citizenship"
 publishedDate: "2026-07-01"
-updatedDate: "2026-07-01"
+updatedDate: "2026-07-21"
 contentStatus: "verification-pending"
 decisionStage: "requirement"
 nextGuideSlug: "portuguese-ciple-a2-for-citizenship-and-residence"
 comparisonScope: "same-route"
-sourceReviewedAt: "2026-07-14"
+sourceReviewedAt: "2026-07-21"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
-primaryIntent: "Portugal residence and citizenship language-proof planning"
-audienceScope: "Readers preparing questions about Portuguese language proof for residence or citizenship"
-finalDecisionAuthorityType: "Portuguese immigration or citizenship authority"
+primaryIntent: "Portuguese nationality language-proof planning after a residence route"
+audienceScope: "Readers selecting a Portuguese nationality procedure after residence, including readers who previously used an investment-residence route"
+finalDecisionAuthorityType: "Portuguese nationality authority"
 primaryOfficialAuthorityUrl: "https://justica.gov.pt/Registos/Nacionalidade/Nacionalidade-portuguesa"
 examOwnerUrl: "https://caple.letras.ulisboa.pt/exame/2/ciple"
-localExecutionPrompt: "Before registering, check the current requirement with the authority that receives your application. This page helps you prepare the questions and official sources to use."
+localExecutionPrompt: "Select your exact nationality profile on Justiça.gov.pt, save its current document list, and confirm accepted language evidence before using CAPLE to choose a CIPLE session."
 author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "Portugal · Citizenship"
 route: "portugal"
-supportingGuideSlugs: ["portuguese-ciple-a2-for-citizenship-and-residence"]
+supportingGuideSlugs: []
 ---
 
 ## Check the nationality route first
 
-The Portuguese Justice portal is the authority source for selecting the nationality profile and the evidence that applies to it. Where that procedure asks for Portuguese-language proof, it identifies a certificate from a recognised assessment centre as one possible form of evidence and directs readers to CAPLE.
+The Portuguese Justice portal says eligibility paths and documents vary with the applicant's situation. Select the exact nationality profile and open its current document list before treating a language certificate as required.
 
-This review did not establish one language rule or one residence-period calculation for every Golden Visa holder. Confirm your nationality profile, how residence is calculated, accepted proof, and any exemption with the authority before choosing an exam.
+Do not infer one language rule or one residence-period calculation for every former Golden Visa holder. Confirm the nationality profile, residence calculation, accepted proof and any exception with the nationality authority before choosing an exam.
 
 ## Then check the exam
 
-CAPLE owns the CIPLE exam information. Use its current CIPLE page to check the assessed level, session, centre and fee. CAPLE product information does not decide citizenship eligibility or whether a particular applicant's evidence will be accepted.
+CAPLE states that CIPLE corresponds to CEFR A2 and publishes the product's components and sessions. CAPLE does not decide nationality eligibility or whether a particular applicant's evidence will be accepted.
 
 ## Official sources
 

@@ -4,12 +4,12 @@ description: "How YKI (National Certificate of Language Proficiency) works for F
 category: "finland"
 slug: "yki-finnish-citizenship"
 publishedDate: "2026-07-01"
-updatedDate: "2026-07-01"
+updatedDate: "2026-07-21"
 contentStatus: "verification-pending"
 decisionStage: "requirement"
 nextGuideSlug: "yki-vs-other-finland-options"
 comparisonScope: "same-route"
-sourceReviewedAt: "2026-07-14"
+sourceReviewedAt: "2026-07-21"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 primaryIntent: "Finland citizenship language-proof planning"
@@ -17,13 +17,13 @@ audienceScope: "Readers considering YKI for a Finnish citizenship application"
 finalDecisionAuthorityType: "Finnish immigration and citizenship authority"
 primaryOfficialAuthorityUrl: "https://migri.fi/en/language-skills"
 examOwnerUrl: "https://www.oph.fi/en/national-certificates-language-proficiency-yki"
-localExecutionPrompt: "Before registering, check the current requirement with the authority that receives your application. This page helps you prepare the questions and official sources to use."
+localExecutionPrompt: "Check Migri's current citizenship evidence and accepted YKI subtest combinations, then verify the intermediate-level session, centre and registration terms with the Finnish National Agency for Education."
 author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "Finland · Citizenship"
 route: "finland"
-supportingGuideSlugs: ["yki-vs-other-finland-options", "cils-b1-cittadinanza-for-italian-citizenship", "dele-a2-ccse-spanish-citizenship", "dutch-inburgering-a2-b1-for-integration-and-citizenship"]
+supportingGuideSlugs: []
 ---
 
 ## What YKI is
@@ -32,14 +32,14 @@ The Finnish National Agency for Education owns YKI and publishes its languages, 
 
 ## Check the citizenship evidence first
 
-YKI intermediate must not be treated as the only possible proof. Use Migri's current language-skills page to confirm the accepted evidence, any exemption, and the required YKI subtest combination for the citizenship case. Citizenship and permanent residence are separate procedures.
+Migri lists YKI level 3 or higher among several ways to demonstrate language skills for citizenship. Use Migri's current page to confirm the accepted evidence, any exception, and the required YKI subtest combination for the citizenship case. Citizenship and permanent residence are separate procedures.
 
 ## What to verify
 
 - Confirm current citizenship eligibility and how the residence period is calculated.
 - Confirm the accepted language evidence and any exemption with Migri.
 - Find a YKI test centre and register through the official Opetushallitus site.
-- Record the exam fee, available dates, and the level you are registering for.
+- Save the selected session, centre, fee and level before completing registration.
 
 ## How to prepare
 

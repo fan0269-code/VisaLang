@@ -4,31 +4,31 @@ description: "How TEF Canada works for Express Entry CRS points and Canadian cit
 category: "canada"
 slug: "tef-canada-immigration"
 publishedDate: "2026-07-01"
-updatedDate: "2026-07-01"
+updatedDate: "2026-07-21"
 contentStatus: "verification-pending"
-decisionStage: "choice"
+decisionStage: "requirement"
 nextGuideSlug: "tcf-canada-vs-tef"
 comparisonScope: "same-route"
-sourceReviewedAt: "2026-07-14"
+sourceReviewedAt: "2026-07-21"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
-primaryIntent: "Canada immigration and citizenship language-test planning"
-audienceScope: "Readers considering TEF Canada for an immigration or citizenship application"
-finalDecisionAuthorityType: "Canadian immigration or citizenship authority"
+primaryIntent: "Canada Express Entry French-language test planning"
+audienceScope: "Readers checking TEF Canada for an Express Entry profile and permanent-residence application"
+finalDecisionAuthorityType: "Immigration, Refugees and Citizenship Canada for Express Entry"
 primaryOfficialAuthorityUrl: "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html"
 examOwnerUrl: "https://www.lefrancaisdesaffaires.fr/tests-diplomes/test-evaluation-francais-tef/tef-canada/"
-localExecutionPrompt: "Before registering, check the current requirement with the authority that receives your application. This page helps you prepare the questions and official sources to use."
+localExecutionPrompt: "Select your exact Express Entry programme on IRCC, save its current language table and result-validity rule, then verify the TEF Canada centre and session with the exam owner."
 author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "Canada · Immigration"
 route: "canada"
-supportingGuideSlugs: ["tcf-canada-vs-tef"]
+supportingGuideSlugs: []
 ---
 
 ## What TEF Canada is
 
-IRCC's reviewed Express Entry page lists TEF Canada and TCF Canada as accepted French tests for Express Entry and uses NCLC to assess French results. This source does not establish acceptance for every immigration or citizenship procedure.
+IRCC lists TEF Canada and TCF Canada for the three Express Entry programmes shown on its current language-results page and uses NCLC for French results. This does not establish acceptance for citizenship or every other Canadian programme.
 
 ## Test sections and scoring
 
@@ -36,7 +36,7 @@ Use IRCC's current, test-specific conversion table rather than converting a TEF 
 
 ## TEF vs TCF Canada
 
-IRCC lists both tests for Express Entry, but each has its own conversion table. This review does not establish equal availability, equal purpose outside Express Entry, or a strategic advantage.
+IRCC lists both tests for Express Entry, but each has its own conversion table. The page does not establish equal availability, equal purpose outside Express Entry, or a strategic advantage.
 
 ## What to verify
 

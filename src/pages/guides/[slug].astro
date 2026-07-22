@@ -34,7 +34,7 @@ const routeIndex = sortedRouteGuides.findIndex((item) => item.data.slug === fron
 const alphabeticalPrevious = routeIndex > 0 ? sortedRouteGuides[routeIndex - 1] : undefined;
 const alphabeticalNext = routeIndex >= 0 && routeIndex < sortedRouteGuides.length - 1 ? sortedRouteGuides[routeIndex + 1] : undefined;
 const explicitNext = routeGuides.find((item) => item.data.slug === frontmatter.nextGuideSlug);
-const usesExplicitRoute = ['germany-a1', 'germany-b1', 'france', 'netherlands'].includes(frontmatter.category);
+const usesExplicitRoute = ['germany-a1', 'germany-b1', 'france', 'netherlands', 'uk', 'canada', 'italy', 'portugal', 'finland'].includes(frontmatter.category);
 const previousGuide = usesExplicitRoute || !alphabeticalPrevious ? undefined : { title: alphabeticalPrevious.data.title, slug: alphabeticalPrevious.data.slug };
 const nextGuideSource = usesExplicitRoute ? explicitNext : alphabeticalNext;
 const nextGuide = nextGuideSource ? { title: nextGuideSource.data.title, slug: nextGuideSource.data.slug } : undefined;

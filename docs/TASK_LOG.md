@@ -2,6 +2,35 @@
 
 Updated: 2026-07-21
 
+## P0 five-country source review and route closure — 2026-07-21
+
+Scope: re-open current first-party sources for the ten UK, Canada, Italy, Portugal and Finland P0 guides; narrow unsupported claims; replace bidirectional next-guide loops with five requirement-to-choice routes; and update controlled source metadata. No new page, maturity promotion, dependency, deployment, push or third-party account change was included.
+
+Completed:
+
+- Saved a claim-level source matrix in `docs/CONTENT_MAP.md`, including final URLs, locators, support limits, stopped inferences and reader verification actions.
+- Re-reviewed all ten pages on 2026-07-21 while retaining `contentStatus: verification-pending` and applicant/local-execution boundaries.
+- Narrowed Canada to Express Entry, Italy to the cited citizenship procedures, Portugal to nationality-procedure selection plus CAPLE product facts, Finland to Migri citizenship evidence, and UK to the current UKVI SELT list and route-specific check.
+- Removed the five direct bidirectional next-guide loops. Each requirement page now points to its choice page; every choice page is terminal.
+- Removed cross-country Finland supporting links and kept supporting links separate from each primary next step.
+- Replaced repeated internal review-template wording with page-specific reader actions and updated `updatedDate` only for the ten materially rewritten guides.
+- Added focused source-status, route-integrity and generated-HTML regression coverage.
+
+Verification:
+
+- `node tests/p0-five-countries.test.js` — passed.
+- `node tests/content-integrity.test.js` — passed.
+- `node tests/germany-a1-cluster.test.js` — passed.
+- `node tests/source-review-render.test.js` — passed.
+- `node tests/site.test.js` and `npm test` — passed.
+- `git diff --check` — passed with no output.
+- `npm run launch-check` — passed; 101 routes, 37 checks, 0 failures, `READY`.
+
+Boundary:
+
+- `sourceReviewStatus: reviewed` covers only the bounded facts retained in each final page. It does not confirm an applicant's eligibility, exception, certificate acceptance, local centre, date, fee, identity rule, cancellation, result process or outcome.
+- No commit, push, deployment, server access or third-party account change is part of this content window.
+
 ## Homepage and stylesheet consolidation closure — 2026-07-21
 
 Scope: finish and verify the existing local homepage/CSS consolidation before starting the separately scoped five-country content review. No content-fact, dependency, deployment, push, or public-site change was included.

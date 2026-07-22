@@ -4,12 +4,11 @@ description: "Compare CILS, CELI and PLIDA for Italian citizenship language proo
 category: "italy"
 slug: "cils-vs-celi-vs-plida-for-italian-citizenship"
 publishedDate: "2026-07-01"
-updatedDate: "2026-07-01"
+updatedDate: "2026-07-21"
 contentStatus: "verification-pending"
 decisionStage: "choice"
-nextGuideSlug: "cils-b1-cittadinanza-for-italian-citizenship"
 comparisonScope: "same-route"
-sourceReviewedAt: "2026-07-14"
+sourceReviewedAt: "2026-07-21"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 primaryIntent: "Italy citizenship language-certificate comparison"
@@ -17,7 +16,7 @@ audienceScope: "Readers comparing Italian-language certificates for a citizenshi
 finalDecisionAuthorityType: "Italian citizenship authority or responsible consulate"
 primaryOfficialAuthorityUrl: "https://www.esteri.it/it/servizi-opportunita/italiani-all-estero/cittadinanza/"
 examOwnerUrl: "https://cils.unistrasi.it/"
-localExecutionPrompt: "Before registering, check the current requirement with the authority that receives your application. This page helps you prepare the questions and official sources to use."
+localExecutionPrompt: "Save the responsible authority or consulate's current evidence instruction, then match it to the exact CILS, CELI or PLIDA product and authorised local session."
 author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
@@ -28,7 +27,7 @@ supportingGuideSlugs: ["cils-b1-cittadinanza-for-italian-citizenship"]
 
 ## What the authority source supports
 
-The reviewed Foreign Ministry page states a language level not lower than B1 for the citizenship applications in its stated scope and lists admitted certification bodies, including the owners of CILS, CELI and PLIDA. Each exam owner controls its own certificate name, format, sessions and centres.
+The Foreign Ministry page states a language level not lower than B1 for the citizenship applications in its stated scope and lists admitted certification bodies, including the owners of CILS, CELI and PLIDA. Each owner controls its own certificate name, format, sessions and centres.
 
 ## How to choose
 
