@@ -47,3 +47,9 @@ For every high-risk factual statement, record the source URL, the date checked, 
 ## Commits and Pull Requests
 
 Use the established imperative prefixes: `feat:`, `fix:`, `content:`, `docs:`, or `style:` (for example, `fix: preserve tool fallback state`). Keep each commit narrowly scoped. Pull requests should state the user-facing effect, affected routes/data, verification commands and results, linked issue where applicable, and screenshots for visual changes. Flag deployment assumptions separately from source-code completion.
+
+## Obsidian Update Sync
+
+After completing any content-facing change, automatically create or update one review record under `/Users/fanlw/Documents/Website-Content-Hub/10-visalang.org网站维护/30-待审核/网站更新记录/`. Follow `/Users/fanlw/Documents/Website-Content-Hub/50-内容模板/网站更新同步记录模板.md` and record the branch, baseline/result commit when available, changed files, content summary, planning basis, official sources, actual verification results, risks, and owner decision needed.
+
+This sync is part of the content task and does not require a separate reminder. Preserve unrelated repository and Vault changes. Set the Vault record to `status: review`, `needs_human_review: true`, `owner_decision: pending`, and `deployment_status: not_started`. Never mark the record approved, previewed, deployed, or published on the owner's behalf. Do not deploy unless the owner separately authorizes deployment after review.
