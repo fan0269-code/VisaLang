@@ -1,10 +1,13 @@
 # VisaLang Operations Status
 
-Updated: 2026-07-22
-Window: Germany A1/B1 support-page source-review production release
+Updated: 2026-07-26
+Window: AdSense low-value content remediation — local review pending
 
 ## Decision at a glance
 
+- **AdSense 整改源码：本地已完成，尚未部署。** 隔离分支 `codex/adsense-low-value-remediation` 从 `0463c3df2fae64485e3baa634f675b7da0bb1896` 建立；默认广告关闭、保守的主要发现门禁、24 页逐页处置记录、noindex/sitemap 同步与主导航降级已完成。该门禁不等于逐页高价值证明。`npm test`、101 页构建和 39 项 launch check 已在最终源码上通过。
+- **生产与账号状态：未改变。** 当前 `visalang.org` 仍是 2026-07-22 发布版本；未核对 Policy center、Auto ads 排除、Crawler access、Search Console、Privacy & messaging / TCF v2.3 或账号首页必做任务，也未点击 `Request review`。
+- **发布门禁：等待所有者审核与单独授权。** 本地构建有 38 张指南卡、33 个 AdSense loader 页面、44 个 noindex 页面和 57 个 sitemap URL；这些数字在部署后必须通过公网重新验证，不能用本地结果代替生产证据。
 - **本地源码状态：已提交并推送。** Germany A1/B1 15 篇备考支持页来源复核与路线修复的应用提交为 `cd0f73cb0f9d4662d73369bb757bdaa02856eb50`；本地和服务器发布门禁均通过。
 - **线上部署状态：已部署并验证。** `visalang.org` 当前不可变发布为 `/var/www/visalang.org/releases/cd0f73cb0f9d`；Nginx 原子切换、服务器 gate、标准公网 smoke 和四页公开标记检查通过。
 - **回滚状态：可用但未触发。** 发布前版本 `/var/www/visalang.org/releases/d2ea2202668a` 保留完整；本次没有发生强制回滚条件。

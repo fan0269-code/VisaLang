@@ -2,16 +2,21 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { zhGermanyA1Guides } from '../data/zh-germany-a1';
-import { guideCategories } from '../data/guide-taxonomy';
-import { contentStatusLabels, resolveGuideContentStatus } from '../data/source-review';
+import { contentStatusLabels, isGuidePrimaryDiscoveryEligible, resolveGuideContentStatus } from '../data/source-review';
 const guides = await getCollection('guides');
-const totalGuideCount = guides.length + zhGermanyA1Guides.length;
-const statusCounts = guides.reduce<Record<string, number>>((counts, guide) => {
+const publishedEnglishGuides = guides.filter((guide) => {
+  const status = resolveGuideContentStatus(guide.data);
+  return isGuidePrimaryDiscoveryEligible(status, guide.data.sourceReviewStatus);
+});
+const withheldEnglishGuideCount = guides.length - publishedEnglishGuides.length;
+const totalGuideCount = publishedEnglishGuides.length + zhGermanyA1Guides.length;
+const publishedCategoryCount = new Set(publishedEnglishGuides.map((guide) => guide.data.category)).size;
+const statusCounts = publishedEnglishGuides.reduce<Record<string, number>>((counts, guide) => {
   const status = resolveGuideContentStatus(guide.data);
   counts[status] = (counts[status] ?? 0) + 1;
   return counts;
 }, {});
-const updated = '2026-07-02';
+const updated = '2026-07-26';
 const jsonLD = { '@context': 'https://schema.org', '@type': 'AboutPage', name: 'About VisaLang' };
 ---
 
@@ -23,11 +28,14 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'AboutPage', name: '
         <p class="guide-summary">VisaLang is a bilingual (English / Chinese) language-exam navigation site for the moment before you book an exam or submit a document that may require language proof.</p>
 
         <h2>What we do</h2>
-        <p>We research official sources, organize the information, add safe preparation guidance, and help you identify what to verify before you pay for an exam. We currently cover <strong>{totalGuideCount} English and Chinese guides</strong> across {guideCategories.length} route categories.</p>
+        <p>We research official sources, organize the information, add safe preparation guidance, and help you identify what to verify before you pay for an exam. The primary library currently contains <strong>{totalGuideCount} English and Chinese guides</strong> across {publishedCategoryCount} developed route categories.</p>
 
         <h2>Content maturity</h2>
-        <p>Each English guide carries a controlled status from its content record. Current counts are:</p>
-        <ul>{Object.entries(contentStatusLabels).map(([status, label]) => <li><strong>{label}:</strong> {statusCounts[status] ?? 0}</li>)}</ul>
+        <p>The primary Guide Library is currently limited to <strong>{publishedEnglishGuides.length} English guides</strong> whose source review is complete and whose controlled status is either a complete or core route. These metadata checks set a conservative discovery boundary; they are not an independent guarantee of page quality or AdSense approval. Current counts are:</p>
+        <ul>{Object.entries(contentStatusLabels).filter(([status]) => status === 'complete-route' || status === 'core-route').map(([status, label]) => <li><strong>{label}:</strong> {statusCounts[status] ?? 0}</li>)}</ul>
+
+        <h2>Current discovery scope</h2>
+        <p>{withheldEnglishGuideCount} additional English research pages remain reachable by direct URL for continuity, but they are excluded from the primary Guide Library, search sitemap, and advertising while their content status is starter or verification pending. Before any held page returns to primary discovery, a page-specific editorial review must record its distinct user task, current official evidence, original decision help, overlap with related pages, and unresolved gaps. Adding words or changing a date is not enough.</p>
 
         <h2>What we do not do</h2>
         <ul>
@@ -51,12 +59,10 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'AboutPage', name: '
           <li><strong>Transparent.</strong> Affiliate relationships are clearly labeled. We never imply official endorsement.</li>
         </ul>
 
-        <h2>Routes we cover</h2>
+        <h2>Published routes and research coverage</h2>
         <ul>
-          <li>German family reunion, settlement, work, and university exams (Goethe, telc, TestDaF)</li>
-          <li>UK visa and citizenship English tests (IELTS UKVI, LanguageCert SELT)</li>
-          <li>Canada French immigration exams (TEF Canada, TCF Canada, TCF IRN)</li>
-          <li>Italian, Spanish, Portuguese, Dutch, Finnish, and French citizenship and residence language exams</li>
+          <li><strong>Published route categories:</strong> Germany A1 family reunion and Germany B1 settlement/citizenship.</li>
+          <li><strong>Research pages held outside primary discovery:</strong> TestDaF, telc work/nursing, UK, Canada, Italy, Spain, Portugal, Netherlands, Finland, and France.</li>
         </ul>
 
         <h2>Our editorial standards</h2>

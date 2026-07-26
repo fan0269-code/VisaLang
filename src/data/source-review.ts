@@ -35,6 +35,10 @@ export interface StatusCtaContext {
 
 export interface StatusCta { label: string; href: string; kind: 'route' | 'official' | 'guide' | 'tool'; }
 
+export function isGuidePrimaryDiscoveryEligible(status: ContentStatus, sourceReviewStatus: SourceReviewStatus): boolean {
+  return sourceReviewStatus === 'reviewed' && (status === 'complete-route' || status === 'core-route');
+}
+
 export function contentStatusCtas(status: ContentStatus, context: StatusCtaContext): StatusCta[] {
   const route = context.routeHref ? [{ label: 'Browse this route', href: context.routeHref, kind: 'route' as const }] : [];
   const authority = context.primaryOfficialAuthorityUrl ? [{ label: 'Check the deciding authority', href: context.primaryOfficialAuthorityUrl, kind: 'official' as const }] : [];

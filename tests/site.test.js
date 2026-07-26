@@ -18,6 +18,7 @@ const src = {
   base: read('src/layouts/BaseLayout.astro'),
   article: read('src/layouts/ArticleLayout.astro'),
   guide: read('src/layouts/GuideLayout.astro'),
+  commercialShell: read('src/components/products/CommercialPageShell.astro'),
   zhGuide: read('src/components/ZhGuideLayout.astro'),
   tool: read('src/layouts/ToolLayout.astro'),
   header: read('src/components/GlobalHeader.astro'),
@@ -26,7 +27,10 @@ const src = {
   css: read('src/styles/global.css'),
   styleArchitecture: read('docs/STYLE_ARCHITECTURE.md'),
   home: read('src/pages/index.astro'),
+  about: read('src/pages/about.astro'),
+  notFound: read('src/pages/404.astro'),
   guides: read('src/pages/guides/index.astro'),
+  guideCategory: read('src/pages/guides/category/[category].astro'),
   filterBar: read('src/components/FilterBar.astro'),
   guideCard: read('src/components/GuideCard.astro'),
   guideTaxonomy: read('src/data/guide-taxonomy.ts'),
@@ -76,7 +80,7 @@ assert.ok(src.base.includes('rel="canonical"'), 'shared layout emits canonical U
 assert.ok(src.base.includes('hreflang'), 'shared layout emits hreflang links');
 const adsenseLoader = 'pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3018617123550799';
 assert.ok(src.base.includes('enableAds?: boolean'), 'BaseLayout exposes an enableAds prop');
-assert.ok(src.base.includes('enableAds = true'), 'BaseLayout enables advertising by default');
+assert.ok(src.base.includes('enableAds = false'), 'BaseLayout keeps advertising off unless a content page opts in');
 assert.equal((src.base.match(/pagead2\.googlesyndication\.com/g) || []).length, 1, 'BaseLayout declares the AdSense host once');
 assert.ok(src.base.includes(adsenseLoader), 'BaseLayout loads the configured AdSense publisher script');
 assert.match(
@@ -88,6 +92,12 @@ assert.ok(!src.base.includes('static.cloudflareinsights.com'), 'shared layout do
 assert.ok(src.tool.includes('enableAds={false}'), 'ToolLayout disables advertising for URL-backed tools');
 assert.ok(src.tools.includes('enableAds={false}'), 'tools index disables advertising');
 assert.ok(src.guides.includes('enableAds={false}'), 'searchable guide library index disables advertising');
+assert.ok(src.home.includes('enableAds={true}'), 'homepage explicitly opts into the AdSense loader for site verification');
+assert.ok(src.guide.includes('isGuidePrimaryDiscoveryEligible') && src.guide.includes('enableAds={primaryDiscoveryEligible}') && src.guide.includes('noindex={!primaryDiscoveryEligible}'), 'guide advertising and indexing use the shared primary-discovery gate');
+assert.ok(src.commercialShell.includes('enableAds={false}') && src.commercialShell.includes("noindex={status !== 'available'}"), 'commercial status and navigation pages stay ad-free while unfinished offers are noindex');
+assert.ok(src.notFound.includes('enableAds={false}'), '404 page explicitly disables advertising');
+assert.ok(src.guideCategory.includes('noindex={!indexEligible}') && src.guideCategory.includes('enableAds={false}'), 'empty or incomplete guide categories are noindex and advertising-free');
+assert.ok(src.sourceReview.includes('isGuidePrimaryDiscoveryEligible'), 'one shared helper controls guide primary-discovery and advertising eligibility');
 assert.equal(src.adsTxt, 'google.com, pub-3018617123550799, DIRECT, f08c47fec0942fa0\n', 'ads.txt declares the approved direct Google seller');
 assert.ok(src.privacy.includes('How VisaLang handles visitor data, advertising choices, URL state, local storage, and server logs.'), 'privacy policy description covers advertising choices');
 for (const text of ['VisaLang uses Google AdSense on ad-eligible content pages', 'Google Privacy & messaging', 'Google Ads Settings', 'places only the non-sensitive values needed to restore that result in the page URL']) {
@@ -115,8 +125,35 @@ for (const page of [
   'dist/tools/exam-comparison/index.html',
   'dist/tools/email-reminders/index.html',
   'dist/guides/index.html',
+  'dist/404.html',
+  'dist/products/a1-practice-pack/index.html',
+  'dist/products/a1-family-reunion-pack/index.html',
+  'dist/route-review/index.html',
+  'dist/partners/index.html',
+  'dist/guides/telc-b1-b2-fees-and-test-centers/index.html',
+  'dist/guides/category/germany-telc/index.html',
 ]) {
   assert.ok(!read(page).includes('pagead2.googlesyndication.com'), `advertising-free generated page excludes AdSense: ${page}`);
+}
+assert.match(read('dist/guides/telc-b1-b2-fees-and-test-centers/index.html'), /<meta name="robots" content="noindex,follow">/, 'starter guide is withheld from indexing under the shared primary-discovery gate');
+assert.doesNotMatch(read('dist/guides/german-family-reunion-language-requirement/index.html'), /<meta name="robots" content="noindex,follow">/, 'reviewed complete guide remains indexable');
+assert.match(read('dist/products/a1-practice-pack/index.html'), /<meta name="robots" content="noindex,follow">/, 'coming-soon product is noindex');
+assert.match(read('dist/partners/index.html'), /<meta name="robots" content="noindex,follow">/, 'contact-only partner page is noindex');
+const qualityGatedGuideIndex = read('dist/guides/index.html');
+assert.ok(qualityGatedGuideIndex.includes('Goethe A1 test centers: verify an official exam centre'), 'guide library retains a reviewed complete guide');
+assert.ok(!qualityGatedGuideIndex.includes('telc B1/B2 Fees and Test Centers'), 'guide library withholds a starter guide from primary discovery');
+const qualityGatedSitemap = read('dist/sitemap-0.xml');
+assert.ok(qualityGatedSitemap.includes('https://visalang.org/guides/goethe-a1-test-centers/'), 'sitemap retains a reviewed complete guide');
+for (const path of [
+  '/guides/telc-b1-b2-fees-and-test-centers/',
+  '/guides/ielts-ukvi-uk-visa/',
+  '/products/a1-practice-pack/',
+  '/products/a1-family-reunion-pack/',
+  '/route-review/',
+  '/partners/',
+  '/guides/category/germany-telc/',
+]) {
+  assert.ok(!qualityGatedSitemap.includes(`https://visalang.org${path}`), `sitemap excludes noindex route: ${path}`);
 }
 assert.equal(read('dist/ads.txt'), 'google.com, pub-3018617123550799, DIRECT, f08c47fec0942fa0\n', 'generated ads.txt retains the approved direct Google seller');
 
@@ -138,6 +175,8 @@ assert.ok(src.css.includes('overflow-x: auto'), 'wide tables and tool navigation
 assert.ok(src.home.includes('Find the right language proof before you book an exam.'), 'homepage has the selected route-planning task');
 assert.ok(src.home.includes('class="route-entry"') && !src.home.includes('route-console'), 'homepage uses a static editorial route entry instead of a console surface');
 assert.ok(src.home.includes('href="/tools/route-finder/">Start with Route Finder'), 'homepage has the required primary action');
+assert.ok(src.about.includes('publishedEnglishGuides') && src.about.includes('Current discovery scope') && src.about.includes('not an independent guarantee of page quality or AdSense approval'), 'About page explains the conservative discovery scope without claiming a quality guarantee');
+assert.ok(!src.siteData.includes("href: '/guides/testdaf-germany-university-admissions/'") && !src.siteData.includes("href: '/guides/telc-b1-b2-germany-work-nursing/'"), 'primary route navigation does not promote incomplete guide drafts');
 assert.ok(src.home.includes('href="/guides/">Browse guides</a>'), 'homepage has the Open Design secondary action');
 assert.ok(src.home.includes('<RouteSelector'), 'homepage uses the shared purpose selector');
 assert.equal((src.home.match(/type="radio"/g) || []).length, 0, 'homepage does not inline radio-based decision controls');
@@ -146,8 +185,8 @@ assert.doesNotMatch(src.home, /aria-pressed=/, 'homepage does not emulate mutual
 assert.ok(!src.home.includes('home-hero__principles') && src.home.includes('<strong>Route first. No invented facts.</strong>'), 'homepage moves route-first principles into the trust statement');
 assert.ok(src.home.includes('trust-statement') && !src.home.includes('trust-band'), 'homepage trust boundary is editorial prose rather than a card wall');
 assert.ok(!src.home.includes('button--accent'), 'homepage does not use warning accent styling for primary actions');
-assert.ok(src.home.includes('guides.length'), 'homepage guide count is data-driven');
-assert.ok(src.home.includes('guideCategories.length'), 'homepage route count is data-driven');
+assert.ok(src.home.includes('publishedGuides.length'), 'homepage guide count follows the primary-discovery scope and is data-driven');
+assert.ok(src.home.includes('publishedCategoryCount'), 'homepage developed-route count follows the primary-discovery scope and is data-driven');
 
 for (const file of ['src/pages/routes/index.astro', 'src/pages/exams/index.astro', 'src/pages/tools/index.astro']) {
   assert.ok(exists(file), `top-level centre page should exist: ${file}`);
@@ -219,8 +258,11 @@ for (const filter of ['purpose', 'country', 'route', 'exam', 'level', 'language'
 for (const sort of ['Recently updated', 'Route relevance', 'Content maturity']) {
   assert.ok(src.filterBar.includes(sort), `guide library includes ${sort} sorting`);
 }
-for (const status of ['Route structure complete', 'Core route structure', 'Starter overview', 'Verification pending']) {
+for (const status of ['Route structure complete', 'Core route structure']) {
   assert.ok(src.guides.includes(status), `guide library includes ${status} status`);
+}
+for (const withheldStatus of ['Starter overview', 'Verification pending']) {
+  assert.ok(!src.guides.includes(`value: '${withheldStatus === 'Starter overview' ? 'starter-overview' : 'verification-pending'}'`), `guide library withholds ${withheldStatus} from primary discovery`);
 }
 for (const oldFilterLabel of ['Complete route', 'Core route']) {
   assert.ok(!src.guides.includes(`label: '${oldFilterLabel}'`), `guide library no longer uses ${oldFilterLabel} as a filter label`);

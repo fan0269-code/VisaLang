@@ -4,7 +4,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ArticleCard from '../../../components/ArticleCard.astro';
 import GuideStatusBadge from '../../../components/GuideStatusBadge.astro';
 import { categoryContentStatus, guideCategories, guideCategoryIntro, guideCategoryMap, inferGuideMeta } from '../../../data/guide-taxonomy';
-import { contentStatusCtas, resolveGuideContentStatus } from '../../../data/source-review';
+import { contentStatusCtas, isGuidePrimaryDiscoveryEligible, resolveGuideContentStatus } from '../../../data/source-review';
 
 export function getStaticPaths() {
   return guideCategories.map((category) => ({
@@ -18,9 +18,11 @@ const guides = await getCollection('guides');
 const categoryGuides = guides
   .filter((guide) => guide.data.category === category.slug)
   .map((guide) => ({ ...guide, meta: inferGuideMeta(guide.data), status: resolveGuideContentStatus(guide.data) }))
+  .filter((guide) => isGuidePrimaryDiscoveryEligible(guide.status, guide.data.sourceReviewStatus))
   .sort((a, b) => b.data.publishedDate.localeCompare(a.data.publishedDate));
 
 const canonicalURL = `https://visalang.org/guides/category/${category.slug}/`;
+const indexEligible = categoryGuides.length > 0;
 const categoryIntro = guideCategoryIntro(category);
 const categoryStatus = categoryContentStatus(categoryGuides.map((guide) => guide.status));
 const categoryCtas = contentStatusCtas(categoryStatus, { routeHref: `/guides/category/${category.slug}/` });
@@ -59,6 +61,8 @@ const jsonLD = {
   description={`Browse VisaLang ${category.name} guides for ${category.desc}. Compare exams, levels, route checks, official sources, and next steps.`}
   canonicalURL={canonicalURL}
   jsonLD={jsonLD}
+  noindex={!indexEligible}
+  enableAds={false}
 >
   <main class="site-main">
     <section class="section-inner">

@@ -1,6 +1,38 @@
 # VisaLang Task Log
 
-Updated: 2026-07-22
+Updated: 2026-07-26
+
+## AdSense low-value content remediation — local implementation — 2026-07-26
+
+Scope: use Google first-party policy evidence and the repository's controlled content states to reduce provable AdSense inventory and low-maturity discovery risks. This window ran in the isolated `codex/adsense-low-value-remediation` worktree from baseline `0463c3df2fae64485e3baa634f675b7da0bb1896`; it did not touch the original dirty TestDaF worktree.
+
+Completed:
+
+- Recorded the official-source audit in `docs/ADSENSE_LOW_VALUE_CONTENT_REVIEW_2026-07-26.md`. Google provides no guaranteed article-count, word-count, traffic or site-age threshold, so the remediation does not use bulk word expansion.
+- Changed advertising to deny-by-default and explicitly enabled it only for the homepage, the Germany A1/B1 route hubs, and 30 source-reviewed complete/core English guides.
+- Removed the AdSense loader from 404, tools, directories, legal/trust pages, Chinese pages, commercial status pages and 24 lower-maturity English guides.
+- Withheld 8 `starter-overview` and 16 `verification-pending` English guides from the primary Guide Library, sitemap and advertising while preserving their old direct URLs with `noindex,follow`.
+- Added a 24-row page-specific disposition record: each page keeps its distinct task and direct URL, but remains withheld until its recorded source, authority, comparison, human-acceptance or substantive decision-help gap is closed. This is a triage decision, not a claim that content deepening is complete.
+- Withheld 10 empty lower-maturity category routes from sitemap and advertising; kept Germany A1/B1 category routes indexable but advertising-free.
+- Changed Study and Work navigation entries to Route Finder instead of promoting incomplete TestDaF and telc pages.
+- Updated the sitemap postbuild step and launch checks so no noindex route can remain in sitemap or load AdSense.
+- Kept the available Pricing page indexable but explicitly ad-free after a page-specific review: its purpose is commercial status/navigation, and advertising would blur that task.
+
+Local verification:
+
+- `npm test` — passed.
+- `npm run build` — passed; 101 pages generated.
+- `npm run launch-check` — passed; 39 checks, 0 failures, `READY.`
+- Generated guide library — 38 cards.
+- Generated AdSense loader scope — 33 pages.
+- Generated `noindex,follow` scope — 44 pages.
+- Generated sitemap — 57 URLs and no noindex canonical.
+
+Boundary:
+
+- Local source and build only. No push, deployment, server access, AdSense account setting, Search Console check, CMP/TCF verification or review request was performed.
+- `ads.txt` remains authorised in the supplied AdSense screenshot, but this does not establish content approval.
+- Push/deployment requires separate owner authorization after review. `Request review` requires a second action-time confirmation after production and account-side checks.
 
 ## Germany A1/B1 support-page production release — 2026-07-22
 

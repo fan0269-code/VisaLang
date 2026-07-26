@@ -105,6 +105,11 @@ const routeFinder = fs.readFileSync(outputFor('/tools/route-finder/'), 'utf8');
 if (routeFinder.includes('href="/tools/" aria-current="location"') && routeFinder.includes('href="/tools/route-finder/" aria-current="page"')) pass('Navigation distinguishes the Tools section from the exact Route Finder page.'); else fail('Navigation aria-current semantics are inconsistent.');
 
 const guidePages = pages.filter(({ route }) => route.startsWith('/guides/') && !route.startsWith('/guides/category/') && route !== '/guides/');
+const adsenseLoader = 'pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3018617123550799';
+const noindexAdFailures = pages
+  .filter(({ html }) => html.includes('<meta name="robots" content="noindex,follow">') && html.includes(adsenseLoader))
+  .map(({ route }) => route);
+if (!noindexAdFailures.length) pass('No noindex route loads the AdSense runtime.'); else fail(`Noindex routes load AdSense: ${noindexAdFailures.slice(0, 8).join(', ')}`);
 const guideFailures = guidePages.filter(({ html }) => {
   const types = jsonLdTypes(html);
   const orderedSections = ['id="direct-answer"', 'id="who-this-applies-to"', 'id="key-decisions"', 'id="detailed-explanation"', 'id="what-to-verify-officially"', 'id="common-mistakes"', 'id="next-action"', 'id="official-sources"'];
@@ -193,8 +198,16 @@ for (const page of pages) {
 if (!internalFailures.length) pass('All generated internal route links resolve.'); else fail(`Broken internal links: ${internalFailures.slice(0, 8).join(', ')}`);
 
 const sitemap = read('dist/sitemap-0.xml');
+const noindexSitemapFailures = pages
+  .filter(({ html }) => html.includes('<meta name="robots" content="noindex,follow">'))
+  .filter(({ html }) => {
+    const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
+    return canonical && sitemap.includes(`<loc>${canonical}</loc>`);
+  })
+  .map(({ route }) => route);
+if (!noindexSitemapFailures.length) pass('No noindex route appears in the sitemap.'); else fail(`Noindex routes remain in sitemap: ${noindexSitemapFailures.slice(0, 8).join(', ')}`);
 for (const slug of ['dutch-inburgering-a2-b1-for-integration-and-citizenship', 'portuguese-language-for-golden-visa-and-citizenship']) {
-  if (sitemap.includes(slug)) pass(`Corrected slug is in sitemap: ${slug}`); else fail(`Corrected slug missing from sitemap: ${slug}`);
+  if (!sitemap.includes(slug)) pass(`Pending corrected slug is withheld from sitemap: ${slug}`); else fail(`Pending corrected slug remains in sitemap: ${slug}`);
 }
 for (const slug of ['dutch-inburgering-a2-b1-for-integration-and-citize/', 'portuguese-language-for-golden-visa-and-citizenshi/']) {
   if (sitemap.includes(slug)) fail(`Truncated slug remains in sitemap: ${slug}`);

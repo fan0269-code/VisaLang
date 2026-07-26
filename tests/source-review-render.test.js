@@ -291,14 +291,23 @@ for (const slug of ['goethe-a1-germany-family-reunion', 'goethe-a1-test-centers'
 }
 assert.ok(!sitemap.includes('__source-review-'), 'test fixtures are removed from the generated sitemap');
 assert.ok(!sitemap.includes('.html'), 'generated sitemap excludes legacy .html URLs');
-const englishGuideSlugs = fs.readdirSync(guideDirectory)
+const englishGuides = fs.readdirSync(guideDirectory)
   .filter((file) => file.endsWith('.md'))
-  .map((file) => frontmatterField(fs.readFileSync(path.join(guideDirectory, file), 'utf8'), 'slug'));
-assert.equal(englishGuideSlugs.length, 54, 'source collection retains exactly 54 English guides');
-for (const slug of englishGuideSlugs) {
+  .map((file) => {
+    const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
+    return {
+      slug: frontmatterField(source, 'slug'),
+      contentStatus: frontmatterField(source, 'contentStatus'),
+      sourceReviewStatus: frontmatterField(source, 'sourceReviewStatus') || 'pending',
+    };
+  });
+assert.equal(englishGuides.length, 54, 'source collection retains exactly 54 English guides');
+for (const guide of englishGuides) {
+  const { slug, contentStatus, sourceReviewStatus } = guide;
   const canonical = `https://visalang.org/guides/${slug}/`;
   const escapedCanonical = canonical.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  assert.equal((sitemap.match(new RegExp(`<loc>${escapedCanonical}</loc>`, 'g')) || []).length, 1, `sitemap contains the English guide canonical exactly once: ${canonical}`);
+  const indexEligible = sourceReviewStatus === 'reviewed' && (contentStatus === 'complete-route' || contentStatus === 'core-route');
+  assert.equal((sitemap.match(new RegExp(`<loc>${escapedCanonical}</loc>`, 'g')) || []).length, indexEligible ? 1 : 0, `sitemap matches the guide primary-discovery gate: ${canonical}`);
 }
 assert.equal((sitemap.match(/<loc>https:\/\/visalang\.org\/zh\/guides\/[^<]+<\/loc>/g) || []).length, 8, 'sitemap contains exactly 8 Chinese guide canonicals');
 for (const canonical of [

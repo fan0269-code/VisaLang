@@ -7,8 +7,8 @@ export const site = {
   lastSystemReview: '2026-07-11',
   routes: [
     { id: 'family-reunion', label: 'Family reunion', zh: '家庭团聚', href: '/germany-family-reunion-a1/', status: 'available' },
-    { id: 'study', label: 'Study', zh: '留学', href: '/guides/testdaf-germany-university-admissions/', status: 'guide' },
-    { id: 'work', label: 'Work', zh: '工作', href: '/guides/telc-b1-b2-germany-work-nursing/', status: 'guide' },
+    { id: 'study', label: 'Study', zh: '留学', href: '/tools/route-finder/', status: 'available' },
+    { id: 'work', label: 'Work', zh: '工作', href: '/tools/route-finder/', status: 'available' },
     { id: 'settlement', label: 'Settlement', zh: '永居', href: '/germany-b1-settlement-citizenship/', status: 'available' },
     { id: 'citizenship', label: 'Citizenship', zh: '入籍', href: '/germany-b1-settlement-citizenship/', status: 'available' },
     { id: 'not-sure', label: 'Not sure yet', zh: '还不确定', href: '/tools/route-finder/', status: 'available' },

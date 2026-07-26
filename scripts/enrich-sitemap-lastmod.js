@@ -13,10 +13,32 @@ function readGuideMetadata(filePath) {
   return { slug, updatedDate };
 }
 
-function addLastmod(xml, loc, lastmod) {
+function sitemapUrlPattern(loc, flags = "") {
   const escapedLoc = loc.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const re = new RegExp(`<url><loc>${escapedLoc}</loc>(?:<lastmod>[^<]+</lastmod>)?</url>`);
-  return xml.replace(re, `<url><loc>${loc}</loc><lastmod>${lastmod}</lastmod></url>`);
+  return new RegExp(`<url><loc>${escapedLoc}</loc>(?:<lastmod>[^<]+</lastmod>)?</url>`, flags);
+}
+
+function addLastmod(xml, loc, lastmod) {
+  return xml.replace(sitemapUrlPattern(loc), `<url><loc>${loc}</loc><lastmod>${lastmod}</lastmod></url>`);
+}
+
+function removeUrl(xml, loc) {
+  return xml.replace(sitemapUrlPattern(loc, "g"), "");
+}
+
+function listHtmlFiles(directory, result = []) {
+  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+    const fullPath = path.join(directory, entry.name);
+    if (entry.isDirectory()) listHtmlFiles(fullPath, result);
+    else if (entry.name.endsWith(".html")) result.push(fullPath);
+  }
+  return result;
+}
+
+function canonicalUrlFromHtml(filePath) {
+  const html = fs.readFileSync(filePath, "utf8");
+  if (!html.includes('<meta name="robots" content="noindex,follow">')) return null;
+  return html.match(/<link rel="canonical" href="([^"]+)"/)?.[1] ?? null;
 }
 
 if (!fs.existsSync(sitemapPath) || !fs.existsSync(guidesDir)) {
@@ -34,6 +56,11 @@ for (const file of guideFiles) {
     `https://visalang.org/guides/${metadata.slug}/`,
     metadata.updatedDate
   );
+}
+
+for (const filePath of listHtmlFiles(path.join(root, "dist"))) {
+  const canonicalUrl = canonicalUrlFromHtml(filePath);
+  if (canonicalUrl) sitemap = removeUrl(sitemap, canonicalUrl);
 }
 
 fs.writeFileSync(sitemapPath, sitemap);

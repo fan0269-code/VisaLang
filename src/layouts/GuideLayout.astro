@@ -11,7 +11,7 @@ import ReportOutdatedInfo from '../components/ReportOutdatedInfo.astro';
 import CopyButton from '../components/CopyButton.astro';
 import PrintButton from '../components/PrintButton.astro';
 import { translatedPaths } from '../data/site';
-import { contentStatusCtas, reviewerRoleLabels, resolveGuideContentStatus } from '../data/source-review';
+import { contentStatusCtas, isGuidePrimaryDiscoveryEligible, reviewerRoleLabels, resolveGuideContentStatus } from '../data/source-review';
 import type { ContentStatus } from '../data/source-review';
 import type { ArticleSections } from '../data/article-sections';
 
@@ -32,6 +32,7 @@ export interface Props {
 
 const { title, description, publishedDate, updatedDate, sourceReviewedAt, sourceReviewStatus = 'pending', reviewedByRole, author, contentStatus, primaryOfficialAuthorityUrl, primaryIntent, audienceScope, finalDecisionAuthorityType, examOwnerUrl, localExecutionPrompt, decisionStage, nextGuideSlug, comparisonScope, slug, category, eyebrow, readingTime = '5', breadcrumbs = [{ label: 'Home', href: '/' }, { label: title }], related = [], previous, next, routeHref, routeLabel, country, exam, level, headings = [], sections } = Astro.props;
 const status = resolveGuideContentStatus({ category: category ?? '', contentStatus, sourceReviewStatus, primaryOfficialAuthorityUrl, primaryIntent, audienceScope, finalDecisionAuthorityType, examOwnerUrl, localExecutionPrompt });
+const primaryDiscoveryEligible = isGuidePrimaryDiscoveryEligible(status, sourceReviewStatus);
 const ctas = contentStatusCtas(status, { routeHref, primaryOfficialAuthorityUrl, examOwnerUrl, nextGuideSlug });
 const reviewedByLabel = reviewedByRole ? reviewerRoleLabels[reviewedByRole] : sourceReviewStatus === 'pending' ? 'Pending' : 'Not applicable';
 const authorityIsVerified = sourceReviewStatus === 'reviewed' && Boolean(sourceReviewedAt && primaryOfficialAuthorityUrl && finalDecisionAuthorityType);
@@ -69,7 +70,7 @@ const jsonLD = {
 };
 ---
 
-<BaseLayout title={title} description={description} canonicalURL={canonicalURL} ogType="article" alternates={alternates} jsonLD={jsonLD}>
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} ogType="article" alternates={alternates} jsonLD={jsonLD} noindex={!primaryDiscoveryEligible} enableAds={primaryDiscoveryEligible}>
   <main class="guide-page od-guide-article">
     <Breadcrumbs path={breadcrumbs} />
     <ArticleLayout articleId="guide-content" headings={tocHeadings}>
