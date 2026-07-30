@@ -1,6 +1,10 @@
 # VisaLang Germany A1/B1 备考支持页来源复核与路线去环 Codex 执行提示词
 
 > 直接将本文件完整内容交给 Codex 执行。不要只复制其中某个章节。
+>
+> **状态说明（2026-07-22）：** 本文件保留为完整专项合同，但其当前执行入口已更新为
+> `docs/prompts/2026-07-22-a1b1-support-pages-next-window-codex.md`。新入口修正了发布状态、
+> claim matrix 落盘路径、备考页 decision stage 和 Obsidian 同步边界；发生冲突时以新入口为准。
 
 ## 一、角色与唯一目标
 

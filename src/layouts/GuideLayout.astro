@@ -21,6 +21,7 @@ export interface Props {
   sourceReviewStatus?: SourceReviewStatus;
   reviewedByRole?: ReviewerRole; author: string;
   contentStatus: ContentStatus; primaryOfficialAuthorityUrl?: string; primaryIntent?: string;
+  noindex?: boolean; enableAds?: boolean;
   audienceScope?: string; finalDecisionAuthorityType?: string; examOwnerUrl?: string; localExecutionPrompt?: string;
   breadcrumbs?: { label: string; href?: string }[]; related?: { title: string; slug: string }[];
   previous?: { title: string; slug: string }; next?: { title: string; slug: string };
@@ -30,9 +31,10 @@ export interface Props {
   decisionStage: DecisionStage; nextGuideSlug?: string; comparisonScope: ComparisonScope;
 }
 
-const { title, description, publishedDate, updatedDate, sourceReviewedAt, sourceReviewStatus = 'pending', reviewedByRole, author, contentStatus, primaryOfficialAuthorityUrl, primaryIntent, audienceScope, finalDecisionAuthorityType, examOwnerUrl, localExecutionPrompt, decisionStage, nextGuideSlug, comparisonScope, slug, category, eyebrow, readingTime = '5', breadcrumbs = [{ label: 'Home', href: '/' }, { label: title }], related = [], previous, next, routeHref, routeLabel, country, exam, level, headings = [], sections } = Astro.props;
+const { title, description, publishedDate, updatedDate, sourceReviewedAt, sourceReviewStatus = 'pending', reviewedByRole, author, contentStatus, noindex = false, enableAds = true, primaryOfficialAuthorityUrl, primaryIntent, audienceScope, finalDecisionAuthorityType, examOwnerUrl, localExecutionPrompt, decisionStage, nextGuideSlug, comparisonScope, slug, category, eyebrow, readingTime = '5', breadcrumbs = [{ label: 'Home', href: '/' }, { label: title }], related = [], previous, next, routeHref, routeLabel, country, exam, level, headings = [], sections } = Astro.props;
 const status = resolveGuideContentStatus({ category: category ?? '', contentStatus, sourceReviewStatus, primaryOfficialAuthorityUrl, primaryIntent, audienceScope, finalDecisionAuthorityType, examOwnerUrl, localExecutionPrompt });
-const primaryDiscoveryEligible = isGuidePrimaryDiscoveryEligible(status, sourceReviewStatus);
+const primaryDiscoveryEligible = isGuidePrimaryDiscoveryEligible(status, sourceReviewStatus) && noindex !== true;
+const advertisingEligible = primaryDiscoveryEligible && enableAds !== false;
 const ctas = contentStatusCtas(status, { routeHref, primaryOfficialAuthorityUrl, examOwnerUrl, nextGuideSlug });
 const reviewedByLabel = reviewedByRole ? reviewerRoleLabels[reviewedByRole] : sourceReviewStatus === 'pending' ? 'Pending' : 'Not applicable';
 const authorityIsVerified = sourceReviewStatus === 'reviewed' && Boolean(sourceReviewedAt && primaryOfficialAuthorityUrl && finalDecisionAuthorityType);
@@ -70,7 +72,7 @@ const jsonLD = {
 };
 ---
 
-<BaseLayout title={title} description={description} canonicalURL={canonicalURL} ogType="article" alternates={alternates} jsonLD={jsonLD} noindex={!primaryDiscoveryEligible} enableAds={primaryDiscoveryEligible}>
+<BaseLayout title={title} description={description} canonicalURL={canonicalURL} ogType="article" alternates={alternates} jsonLD={jsonLD} noindex={!primaryDiscoveryEligible} enableAds={advertisingEligible}>
   <main class="guide-page od-guide-article">
     <Breadcrumbs path={breadcrumbs} />
     <ArticleLayout articleId="guide-content" headings={tocHeadings}>

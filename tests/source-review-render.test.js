@@ -152,20 +152,54 @@ try {
     'cils-vs-celi-vs-plida-for-italian-citizenship': '',
     'portuguese-language-for-golden-visa-and-citizenship': 'portuguese-ciple-a2-for-citizenship-and-residence',
     'portuguese-ciple-a2-for-citizenship-and-residence': '',
-    'yki-finnish-citizenship': 'yki-vs-other-finland-options',
-    'yki-vs-other-finland-options': '',
+    'yki-finnish-citizenship': '',
   };
   for (const [slug, nextSlug] of Object.entries(fiveCountryRoutes)) {
     const source = fs.readFileSync(path.join(guideDirectory, `${slug}.md`), 'utf8');
     const html = fs.readFileSync(path.join('dist/guides', slug, 'index.html'), 'utf8');
     const renderedNext = html.match(/<a href="([^"]+)"><small>Next guide<\/small>/)?.[1] || '';
+    const sourceReviewedAt = frontmatterField(source, 'sourceReviewedAt');
     assert.equal((html.match(/<h1(?:\\s|>)/g) || []).length, 1, `${slug} renders one H1`);
     assert.ok(html.includes('aria-label="Disclaimer"'), `${slug} renders its disclaimer`);
-    assert.ok(html.includes('Official sources last checked: <time datetime="2026-07-21">2026-07-21</time>'), `${slug} renders the current source-review date`);
+    assert.ok(html.includes(`Official sources last checked: <time datetime="${sourceReviewedAt}">${sourceReviewedAt}</time>`), `${slug} renders the current source-review date`);
     assert.ok(html.includes('<dt>Reviewed by role</dt><dd>Source review</dd>'), `${slug} renders the source-review role`);
     assert.ok(html.includes(`"dateModified":"${frontmatterField(source, 'updatedDate')}"`), `${slug} keeps dateModified tied to updatedDate`);
     assert.equal(renderedNext, nextSlug ? `/guides/${nextSlug}/` : '', `${slug} renders the explicit business next step`);
   }
+
+  const ukRequirementHtml = fs.readFileSync('dist/guides/ielts-ukvi-uk-visa/index.html', 'utf8');
+  const ukChoiceHtml = fs.readFileSync('dist/guides/languagecert-selt-uk-visa/index.html', 'utf8');
+  for (const [slug, html] of [['ielts-ukvi-uk-visa', ukRequirementHtml], ['languagecert-selt-uk-visa', ukChoiceHtml]]) {
+    assert.ok(html.includes('Verification pending'), `${slug} remains visibly pending after UK window B-1 content work`);
+    assert.ok(!html.includes('Route structure complete') && !html.includes('Core route structure'), `${slug} does not render mature status while contentStatus is pending`);
+  }
+  assert.ok(ukRequirementHtml.includes('route-first requirement check'), 'IELTS UKVI render states the route-first requirement-check task');
+  assert.ok(ukRequirementHtml.includes('<small>Next guide</small><strong>LanguageCert SELT for UK Visa</strong>'), 'IELTS UKVI render continues to the LanguageCert provider-choice page');
+  assert.ok(ukChoiceHtml.includes('provider-choice') || ukChoiceHtml.includes('SELT product verification'), 'LanguageCert SELT render states the provider-choice product-verification task');
+  assert.ok(!ukChoiceHtml.includes('<small>Next guide</small>'), 'LanguageCert SELT render remains terminal');
+
+  const portugalRequirementHtml = fs.readFileSync('dist/guides/portuguese-language-for-golden-visa-and-citizenship/index.html', 'utf8');
+  const portugalChoiceHtml = fs.readFileSync('dist/guides/portuguese-ciple-a2-for-citizenship-and-residence/index.html', 'utf8');
+  for (const [slug, html] of [
+    ['portuguese-language-for-golden-visa-and-citizenship', portugalRequirementHtml],
+    ['portuguese-ciple-a2-for-citizenship-and-residence', portugalChoiceHtml],
+  ]) {
+    assert.ok(html.includes('Verification pending'), `${slug} remains visibly pending after Portugal window B-2 content work`);
+    assert.ok(!html.includes('Route structure complete') && !html.includes('Core route structure'), `${slug} does not render mature status while contentStatus is pending`);
+    assert.ok(html.includes('2026-07-29'), `${slug} renders the current source recheck date`);
+  }
+  assert.ok(portugalRequirementHtml.includes('nationality-profile requirement check'), 'Portugal requirement render states its requirement-check task');
+  assert.ok(portugalRequirementHtml.includes('<small>Next guide</small><strong>CIPLE A2 Product Check for Portuguese Nationality</strong>'), 'Portugal requirement render continues to the CIPLE product-verification page');
+  assert.ok(portugalChoiceHtml.includes('CIPLE product verification'), 'Portugal choice render states its product-verification task');
+  assert.ok(!portugalChoiceHtml.includes('<small>Next guide</small>'), 'Portugal CIPLE choice render remains terminal');
+
+  const finlandHtml = fs.readFileSync('dist/guides/yki-finnish-citizenship/index.html', 'utf8');
+  assert.ok(finlandHtml.includes('Verification pending'), 'the consolidated Finland guide remains visibly pending');
+  assert.ok(finlandHtml.includes('Official sources last checked: <time datetime="2026-07-29">2026-07-29</time>'), 'the Finland guide renders the current source recheck date');
+  assert.ok(finlandHtml.includes('Migri') && finlandHtml.includes('final authority'), 'the Finland render keeps the decision authority visible');
+  assert.ok(finlandHtml.includes('evidence-path record'), 'the Finland render includes the merged evidence comparison workflow');
+  assert.ok(!finlandHtml.includes('<small>Next guide</small>'), 'the consolidated Finland guide is terminal');
+  assert.ok(!fs.existsSync('dist/guides/yki-vs-other-finland-options/index.html'), 'the retired Finland guide is no longer generated');
 
   const spainHtml = fs.readFileSync('dist/guides/dele-levels-spanish-citizenship/index.html', 'utf8');
   assert.ok(spainHtml.includes('Official sources last checked: <time datetime="2026-07-19">2026-07-19</time>'), 'the Spain pilot renders its agent source re-review date');
@@ -299,15 +333,18 @@ const englishGuides = fs.readdirSync(guideDirectory)
       slug: frontmatterField(source, 'slug'),
       contentStatus: frontmatterField(source, 'contentStatus'),
       sourceReviewStatus: frontmatterField(source, 'sourceReviewStatus') || 'pending',
+      noindex: frontmatterField(source, 'noindex') === 'true',
     };
   });
-assert.equal(englishGuides.length, 54, 'source collection retains exactly 54 English guides');
-for (const guide of englishGuides) {
-  const { slug, contentStatus, sourceReviewStatus } = guide;
+assert.equal(englishGuides.length, 53, 'source collection reflects the Finland consolidation');
+for (const { slug, contentStatus, sourceReviewStatus, noindex } of englishGuides) {
   const canonical = `https://visalang.org/guides/${slug}/`;
   const escapedCanonical = canonical.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const indexEligible = sourceReviewStatus === 'reviewed' && (contentStatus === 'complete-route' || contentStatus === 'core-route');
-  assert.equal((sitemap.match(new RegExp(`<loc>${escapedCanonical}</loc>`, 'g')) || []).length, indexEligible ? 1 : 0, `sitemap matches the guide primary-discovery gate: ${canonical}`);
+  const primaryDiscoveryEligible = sourceReviewStatus === 'reviewed'
+    && (contentStatus === 'complete-route' || contentStatus === 'core-route')
+    && !noindex;
+  const expectedCount = primaryDiscoveryEligible ? 1 : 0;
+  assert.equal((sitemap.match(new RegExp(`<loc>${escapedCanonical}</loc>`, 'g')) || []).length, expectedCount, `sitemap matches the fail-closed discovery gate: ${canonical}`);
 }
 assert.equal((sitemap.match(/<loc>https:\/\/visalang\.org\/zh\/guides\/[^<]+<\/loc>/g) || []).length, 8, 'sitemap contains exactly 8 Chinese guide canonicals');
 for (const canonical of [

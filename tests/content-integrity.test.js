@@ -15,6 +15,7 @@ const arrayField = (source, name) => {
   const raw = source.match(new RegExp(`^${name}:\\s*\\[(.*?)\\]`, 'm'))?.[1] || '';
   return [...raw.matchAll(/["']([^"']+)["']/g)].map((match) => match[1]);
 };
+const bodyOnly = (source) => source.replace(/^---[\s\S]*?---\s*/, '');
 
 const auditedGermanyA1Slugs = [
   'german-family-reunion-language-requirement',
@@ -249,7 +250,7 @@ assert.doesNotMatch(pendingCtaBranch, /Route Finder|checklist/i, 'verification-p
 
 const highRiskCategories = new Set(['portugal', 'spain', 'uk', 'canada', 'italy', 'france', 'finland', 'netherlands']);
 const highRiskEntries = entries.filter(({ source }) => highRiskCategories.has(field(source, 'category')));
-assert.equal(highRiskEntries.length, 16, 'P0-2 audit covers the 16 approved high-risk guides');
+assert.equal(highRiskEntries.length, 15, 'the high-risk collection reflects the consolidated Finland guide');
 for (const { file, source } of highRiskEntries) {
   assert.equal(field(source, 'contentStatus'), 'verification-pending', `${file} remains verification-pending without a reviewed source package`);
   for (const fieldName of ['primaryIntent', 'audienceScope', 'finalDecisionAuthorityType', 'examOwnerUrl', 'localExecutionPrompt']) {
@@ -258,14 +259,13 @@ for (const { file, source } of highRiskEntries) {
   assert.ok(field(source, 'localExecutionPrompt').length >= 40, `${file} provides a concrete non-conclusive verification prompt`);
 }
 
-const fiveCountryRoutes = {
+const activeCountryRoutePairs = {
   uk: ['ielts-ukvi-uk-visa', 'languagecert-selt-uk-visa'],
   canada: ['tef-canada-immigration', 'tcf-canada-vs-tef'],
   italy: ['cils-b1-cittadinanza-for-italian-citizenship', 'cils-vs-celi-vs-plida-for-italian-citizenship'],
   portugal: ['portuguese-language-for-golden-visa-and-citizenship', 'portuguese-ciple-a2-for-citizenship-and-residence'],
-  finland: ['yki-finnish-citizenship', 'yki-vs-other-finland-options'],
 };
-for (const [category, [requirementSlug, choiceSlug]] of Object.entries(fiveCountryRoutes)) {
+for (const [category, [requirementSlug, choiceSlug]] of Object.entries(activeCountryRoutePairs)) {
   const requirement = bySlug.get(requirementSlug)?.source || '';
   const choice = bySlug.get(choiceSlug)?.source || '';
   assert.equal(field(requirement, 'nextGuideSlug'), choiceSlug, `${category} requirement points to its choice page`);
@@ -281,6 +281,78 @@ for (const [category, [requirementSlug, choiceSlug]] of Object.entries(fiveCount
     if (next) assert.notEqual(field(bySlug.get(next)?.source || '', 'nextGuideSlug'), slug, `${slug} has no direct bidirectional next loop`);
   }
 }
+
+const finlandGuide = bySlug.get('yki-finnish-citizenship')?.source || '';
+const finlandBody = bodyOnly(finlandGuide);
+assert.equal(field(finlandGuide, 'contentStatus'), 'verification-pending', 'the consolidated Finland guide remains pending');
+assert.equal(field(finlandGuide, 'sourceReviewStatus'), 'reviewed', 'the Finland source review status remains controlled');
+assert.equal(field(finlandGuide, 'sourceReviewedAt'), '2026-07-29', 'the Finland guide records the current source recheck');
+assert.equal(field(finlandGuide, 'nextGuideSlug'), '', 'the consolidated Finland guide is terminal');
+assert.ok(!bySlug.has('yki-vs-other-finland-options'), 'the duplicate Finland comparison entry is removed');
+assert.match(finlandBody, /Migri.*(?:final authority|decides)|final authority.*Migri/is, 'the Finland guide keeps Migri as final authority');
+assert.match(finlandBody, /YKI.*(?:one|several).*evidence|one.*evidence.*YKI/is, 'the Finland guide presents YKI as one evidence path');
+assert.match(finlandBody, /oral.*written|speaking.*writing|listening.*writing|reading.*speaking/is, 'the Finland guide records the subtest-combination check');
+assert.match(finlandBody, /evidence-path record|verification record/i, 'the Finland guide provides an evidence record');
+assert.match(finlandBody, /Common mistakes/i, 'the Finland guide includes common mistakes');
+assert.match(finlandBody, /Next action/i, 'the Finland guide includes a next action');
+assert.doesNotMatch(finlandBody, /€\s?\d+|\b\d+\s?(?:hours?|days?|weeks?|months?)\b|guaranteed?\s+(?:citizenship|approval|outcome|result)|always accepted|YKI is (?:the )?(?:only|default)/i, 'the Finland guide avoids fixed dynamic facts and outcome promises');
+
+const ukRequirement = bySlug.get('ielts-ukvi-uk-visa')?.source || '';
+const ukChoice = bySlug.get('languagecert-selt-uk-visa')?.source || '';
+assert.equal(field(ukRequirement, 'category'), 'uk', 'IELTS UKVI guide remains in the UK cluster');
+assert.equal(field(ukChoice, 'category'), 'uk', 'LanguageCert SELT guide remains in the UK cluster');
+assert.equal(field(ukRequirement, 'contentStatus'), 'verification-pending', 'IELTS UKVI remains pending after window B-1 content work');
+assert.equal(field(ukChoice, 'contentStatus'), 'verification-pending', 'LanguageCert SELT remains pending after window B-1 content work');
+assert.equal(field(ukRequirement, 'sourceReviewStatus'), 'reviewed', 'IELTS UKVI source review status is not downgraded or promoted');
+assert.equal(field(ukChoice, 'sourceReviewStatus'), 'reviewed', 'LanguageCert SELT source review status is not downgraded or promoted');
+assert.equal(field(ukRequirement, 'sourceReviewedAt'), '2026-07-21', 'IELTS UKVI keeps the real source-review date');
+assert.equal(field(ukChoice, 'sourceReviewedAt'), '2026-07-21', 'LanguageCert SELT keeps the real source-review date');
+assert.notEqual(field(ukRequirement, 'primaryIntent'), field(ukChoice, 'primaryIntent'), 'UK pages record distinct primary intents');
+assert.notEqual(field(ukRequirement, 'audienceScope'), field(ukChoice, 'audienceScope'), 'UK pages record distinct audience scopes');
+assert.notEqual(field(ukRequirement, 'localExecutionPrompt'), field(ukChoice, 'localExecutionPrompt'), 'UK pages record distinct local execution prompts');
+assert.match(field(ukRequirement, 'primaryIntent'), /route-first|requirement|route requirement/i, 'IELTS UKVI records a route-first requirement-check intent');
+assert.match(field(ukChoice, 'primaryIntent'), /provider-choice|product verification|LanguageCert/i, 'LanguageCert SELT records a provider-choice product-verification intent');
+assert.match(field(ukRequirement, 'audienceScope'), /confirming|checking|route requirement|before choosing/i, 'IELTS UKVI audience starts before provider choice');
+assert.match(field(ukChoice, 'audienceScope'), /already confirmed|provider|LanguageCert|product/i, 'LanguageCert SELT audience starts after requirement confirmation');
+assert.match(field(ukRequirement, 'localExecutionPrompt'), /GOV\.UK|Home Office/i, 'IELTS UKVI prompt starts with the deciding authority');
+assert.match(field(ukChoice, 'localExecutionPrompt'), /GOV\.UK|Home Office/i, 'LanguageCert SELT prompt starts with the deciding authority');
+assert.match(field(ukRequirement, 'examOwnerUrl'), /ielts\.org/i, 'IELTS UKVI exam-owner URL remains IELTS-owned');
+assert.match(field(ukChoice, 'examOwnerUrl'), /languagecert\.org/i, 'LanguageCert SELT exam-owner URL remains LanguageCert-owned');
+
+const ukRequirementBody = bodyOnly(ukRequirement);
+const ukChoiceBody = bodyOnly(ukChoice);
+for (const [slug, source] of [['ielts-ukvi-uk-visa', ukRequirementBody], ['languagecert-selt-uk-visa', ukChoiceBody]]) {
+  assert.match(source, /Home Office|GOV\.UK|UKVI/i, `${slug} keeps the UK final decision authority visible`);
+  assert.match(source, /final decision|decides|does not decide|does not prove/i, `${slug} separates final decision authority from guide or provider facts`);
+  assert.match(source, /exam product|provider|booking|approved product/i, `${slug} separates exam product facts from route decisions`);
+  assert.match(source, /before booking|before paying|booking checklist|booking/i, `${slug} gives a pre-booking verification checklist`);
+  assert.match(source, /not replace|does not replace|cannot replace|return to|use.*instead/i, `${slug} explains why the two UK pages cannot replace each other`);
+  assert.match(source, /Common mistakes/i, `${slug} includes UK-specific common mistakes`);
+  assert.match(source, /Next action|next step/i, `${slug} includes a next action section`);
+  assert.doesNotMatch(source, /£\s?\d+|\b\d+\s?(?:hours?|days?|weeks?)\b|guaranteed?\s+(?:visa|citizenship|approval|outcome|result)|all UK visas|always accepted|(?:will|can|must)\s+(?:get|receive|secure|lead to)\s+(?:a\s+)?(?:visa|citizenship|approval|outcome|result)/i, `${slug} avoids fixed dynamic facts and outcome promises`);
+}
+assert.match(ukRequirementBody, /route-first requirement check/i, 'IELTS UKVI body names its route-first requirement-check task');
+assert.match(ukChoiceBody, /provider-choice|SELT product verification/i, 'LanguageCert SELT body names its provider-choice product-verification task');
+
+const portugalRequirement = bySlug.get('portuguese-language-for-golden-visa-and-citizenship')?.source || '';
+const portugalChoice = bySlug.get('portuguese-ciple-a2-for-citizenship-and-residence')?.source || '';
+const portugalRequirementBody = bodyOnly(portugalRequirement);
+const portugalChoiceBody = bodyOnly(portugalChoice);
+assert.match(portugalRequirementBody, /nationality-profile requirement check/i, 'Portugal requirement page names its nationality-profile requirement-check task');
+assert.match(portugalChoiceBody, /CIPLE product verification/i, 'Portugal choice page names its CIPLE product-verification task');
+for (const [slug, source] of [
+  ['portuguese-language-for-golden-visa-and-citizenship', portugalRequirementBody],
+  ['portuguese-ciple-a2-for-citizenship-and-residence', portugalChoiceBody],
+]) {
+  assert.match(source, /Justiça|Portuguese nationality authority/i, `${slug} keeps the nationality authority visible`);
+  assert.match(source, /CAPLE/i, `${slug} identifies the CIPLE product owner`);
+  assert.match(source, /authority record|verification record|before booking/i, `${slug} gives a pre-booking evidence checklist`);
+  assert.match(source, /cannot replace|does not replace/i, `${slug} explains why the two Portugal pages cannot replace each other`);
+  assert.match(source, /Common mistakes/i, `${slug} includes Portugal-specific common mistakes`);
+  assert.match(source, /Next action/i, `${slug} includes a concrete next action`);
+  assert.doesNotMatch(source, /€\s?\d+|\b\d+\s?(?:days?|weeks?|months?|years?)\b|guaranteed?\s+(?:nationality|citizenship|residence|approval|outcome|result)|always accepted|(?:will|can|must)\s+(?:get|receive|secure|lead to)\s+(?:Portuguese\s+)?(?:nationality|citizenship|residence|approval|outcome|result)/i, `${slug} avoids fixed dynamic facts and outcome promises`);
+}
+
 const highRiskAudit = fs.readFileSync('docs/HIGH_RISK_ROUTE_SOURCE_AUDIT.md', 'utf8');
 for (const { file } of highRiskEntries) assert.ok(highRiskAudit.includes(`src/content/guides/${file}`), `${file} appears in the high-risk source audit`);
 

@@ -15,16 +15,18 @@ export function getStaticPaths() {
 
 const { category } = Astro.props;
 const guides = await getCollection('guides');
-const categoryGuides = guides
+const allCategoryGuides = guides
   .filter((guide) => guide.data.category === category.slug)
   .map((guide) => ({ ...guide, meta: inferGuideMeta(guide.data), status: resolveGuideContentStatus(guide.data) }))
-  .filter((guide) => isGuidePrimaryDiscoveryEligible(guide.status, guide.data.sourceReviewStatus))
   .sort((a, b) => b.data.publishedDate.localeCompare(a.data.publishedDate));
+const categoryGuides = allCategoryGuides
+  .filter((guide) => isGuidePrimaryDiscoveryEligible(guide.status, guide.data.sourceReviewStatus) && guide.data.noindex !== true);
+const withheldGuideCount = allCategoryGuides.length - categoryGuides.length;
 
 const canonicalURL = `https://visalang.org/guides/category/${category.slug}/`;
-const indexEligible = categoryGuides.length > 0;
+const indexEligible = categoryGuides.length > 0 && category.noindex !== true;
 const categoryIntro = guideCategoryIntro(category);
-const categoryStatus = categoryContentStatus(categoryGuides.map((guide) => guide.status));
+const categoryStatus = categoryContentStatus(allCategoryGuides.map((guide) => guide.status));
 const categoryCtas = contentStatusCtas(categoryStatus, { routeHref: `/guides/category/${category.slug}/` });
 const jsonLD = {
   '@context': 'https://schema.org',
@@ -71,8 +73,9 @@ const jsonLD = {
         <h1>{category.name} guides</h1>
         <p><GuideStatusBadge status={categoryStatus} /></p>
         <p>
-          {categoryGuides.length} guide{categoryGuides.length === 1 ? '' : 's'} for {category.desc}. {categoryIntro}
+          {categoryGuides.length} guide{categoryGuides.length === 1 ? '' : 's'} currently available in primary discovery for {category.desc}. {categoryIntro}
         </p>
+        {withheldGuideCount > 0 && <p>{withheldGuideCount} guide{withheldGuideCount === 1 ? ' is' : 's are'} withheld from primary discovery while source or content verification remains incomplete.</p>}
         <p>Before booking, verify the current requirement with the authority or institution receiving your proof; then verify the exact test, authorised centre, fee, date, ID rule, and result process with official sources.</p>
         <div class="action-row left">
           {categoryCtas.filter((cta) => cta.href !== canonicalURL && cta.href !== `/guides/category/${category.slug}/`).map((cta) => <a class="secondary-action" href={cta.href}>{cta.label}</a>)}
@@ -100,7 +103,7 @@ const jsonLD = {
           ))}
         </div>
       ) : (
-        <p class="guide-empty-state">No guides in this category yet. Browse all guides or check another route.</p>
+        <p class="guide-empty-state">No guides in this category currently meet the primary discovery gate. Browse reviewed routes or check another category.</p>
       )}
     </section>
   </main>

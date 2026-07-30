@@ -4,18 +4,25 @@ description: "Understand how TestDaF reports TDN results and how to verify wheth
 category: "germany-testdaf"
 slug: "testdaf-levels-and-scoring"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-13"
+updatedDate: "2026-07-23"
+sourceReviewedAt: "2026-07-23"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "starter-overview"
 primaryIntent: "TestDaF Levels (TDN 3/4/5) and How Scoring Works decision support"
 decisionStage: "choice"
-nextGuideSlug: "testdaf-germany-university-admissions"
+nextGuideSlug: "testdaf-vs-goethe-dsh"
 comparisonScope: "same-route"
+audienceScope: "TestDaF candidates and applicants separating the provider's component results from a specific programme's use of those results."
+finalDecisionAuthorityType: "TestDaF or g.a.s.t. for score reporting; target university and specific degree programme for admissions use"
+examOwnerUrl: "https://www.testdaf.de/de/"
+localExecutionPrompt: "Identify the test format, read every component result from the official score record, and compare it only with the exact target programme's current requirement."
 author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "Germany · University"
 route: "germany-testdaf"
-supportingGuideSlugs: ["testdaf-germany-university-admissions", "testdaf-vs-goethe-dsh", "testdaf-preparation-and-practice"]
+supportingGuideSlugs: ["testdaf-germany-university-admissions", "testdaf-preparation-and-practice"]
 ---
 
 ## Separate the score from the admissions decision
@@ -34,6 +41,12 @@ TestDaF uses the TestDaF levels TDN 3, TDN 4, and TDN 5. Its [university informa
 For the digital TestDaF, the [official scoring page](https://www.testdaf.de/de/teilnehmende/der-digitale-testdaf/auswertung-des-digitalen-testdaf/) says that reading, listening, writing, and speaking are assessed separately. On the current digital scale, each component is reported from 0 to 20 points: 0–4 is below TDN 3, 5–9 is TDN 3, 10–15 is TDN 4, and 16–20 is TDN 5. The page also shows a total of 0–80 points.
 
 If you take the paper-based TestDaF, use its [official paper-based scoring page](https://www.testdaf.de/de/teilnehmende/der-papierbasierte-testdaf/auswertung-des-papierbasierten-testdaf/). Do not reuse a raw-score cutoff from another test set: the official page explains that reading and listening thresholds can be adjusted for the difficulty of the test set.
+
+## What the numbers do not decide
+
+A digital total does not replace the four component results, and a raw paper-based score from another test set is not a reusable cutoff. Neither number decides admission on its own.
+
+Keep the result in the format issued by TestDaF. Then compare every result element with the exact wording published by the target programme. Do not convert TDN levels into an unsupported CEFR equivalence, average the components into a homemade admissions threshold, or assume that another programme's decision applies.
 
 ## How to use a result for an application
 
@@ -63,4 +76,4 @@ Keep the programme requirement and the score explanation separate:
 - [uni-assist: Language certificates](https://www.uni-assist.de/en/how-to-apply/assemble-your-documents/language-certificates/)
 - [DAAD: Requirements overview](https://www.daad.de/en/studying-in-germany/requirements/overview/)
 
-Last updated: 2026-07-13. Official verification pending.
+Last updated: 2026-07-23. Source review completed for the TestDaF scoring statements above; the target programme's current use of a result still requires a programme-specific check.

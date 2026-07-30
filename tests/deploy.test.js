@@ -87,6 +87,8 @@ const exactRedirects = {
   '/zh/germany-family-reunion-a1.html': 'https://visalang.org/zh/germany-family-reunion-a1/$is_args$args',
   '/guides/dutch-inburgering-a2-b1-for-integration-and-citize/': 'https://visalang.org/guides/dutch-inburgering-a2-b1-for-integration-and-citizenship/$is_args$args',
   '/guides/portuguese-language-for-golden-visa-and-citizenshi/': 'https://visalang.org/guides/portuguese-language-for-golden-visa-and-citizenship/$is_args$args',
+  '/guides/yki-vs-other-finland-options/': 'https://visalang.org/guides/yki-finnish-citizenship/$is_args$args',
+  '/guides/yki-vs-other-finland-options.html': 'https://visalang.org/guides/yki-finnish-citizenship/$is_args$args',
 };
 assert.ok(redirects.includes('if ($request_uri = /index.html) { return 301 https://visalang.org/$is_args$args; }'), 'Nginx redirects explicit legacy /index.html requests without looping internal index resolution');
 assert.ok(redirects.includes('try_files /index.html =404;'), 'Nginx can still serve the homepage after its internal index resolution');
@@ -149,7 +151,7 @@ const smoke = read('deploy/smoke-test.sh');
 for (const path of ['/', '/guides/', '/robots.txt', '/sitemap-index.xml']) {
   assert.ok(smoke.includes(path), `smoke test checks public path: ${path}`);
 }
-for (const path of ['/index.html', '/germany-family-reunion-a1.html']) {
+for (const path of ['/index.html', '/germany-family-reunion-a1.html', '/guides/yki-vs-other-finland-options/', '/guides/yki-vs-other-finland-options.html']) {
   assert.ok(smoke.includes(path), `smoke test checks legacy redirect: ${path}`);
 }
 assert.ok(smoke.includes('rel="canonical" href="https://visalang.org/"'), 'smoke test verifies the production canonical');

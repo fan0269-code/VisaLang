@@ -21,7 +21,7 @@ const guidePurpose = (route: string) => {
 const guides = (await getCollection('guides')).map((guide) => {
   const meta = inferGuideMeta(guide.data);
   return { ...guide, meta, purpose: guidePurpose(meta.route), status: resolveGuideContentStatus(guide.data) };
-}).filter((guide) => isGuidePrimaryDiscoveryEligible(guide.status, guide.data.sourceReviewStatus))
+}).filter((guide) => isGuidePrimaryDiscoveryEligible(guide.status, guide.data.sourceReviewStatus) && guide.data.noindex !== true)
   .sort((a, b) => b.data.updatedDate.localeCompare(a.data.updatedDate));
 const options = (values: string[]) => Array.from(new Set(values)).sort().map((value) => ({ value, label: value }));
 const filters = [

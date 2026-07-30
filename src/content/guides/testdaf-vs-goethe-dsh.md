@@ -4,18 +4,25 @@ description: "A programme-first framework for comparing TestDaF, Goethe certific
 category: "germany-testdaf"
 slug: "testdaf-vs-goethe-dsh"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-13"
+updatedDate: "2026-07-23"
+sourceReviewedAt: "2026-07-23"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "starter-overview"
 primaryIntent: "TestDaF vs Goethe C1 vs DSH for University Entry decision support"
 decisionStage: "choice"
-nextGuideSlug: "testdaf-germany-university-admissions"
+nextGuideSlug: "testdaf-preparation-and-practice"
 comparisonScope: "same-route"
+audienceScope: "Applicants comparing only the language proofs and result patterns currently listed by a specific German university programme."
+finalDecisionAuthorityType: "Target university and specific degree programme"
+examOwnerUrl: "https://www.testdaf.de/de/"
+localExecutionPrompt: "Save the exact programme accepted-proof list first, then open the official page for each listed product and the selected centre or DSH university before registering."
 author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
 eyebrow: "Germany · University"
 route: "germany-testdaf"
-supportingGuideSlugs: ["testdaf-germany-university-admissions", "testdaf-levels-and-scoring", "testdaf-preparation-and-practice"]
+supportingGuideSlugs: ["testdaf-germany-university-admissions", "testdaf-levels-and-scoring"]
 ---
 
 ## Start with the programme's accepted-proof list
@@ -30,7 +37,7 @@ Once the programme has named the acceptable proofs, use the official source for 
 
 | Option | Official source to use | What still needs the programme or local provider |
 | --- | --- | --- |
-| TestDaF | [TestDaF official information](https://www.testdaf.de/de/) | Whether the programme accepts your TestDaF result; the selected centre's current local terms. |
+| TestDaF | [TestDaF official information](https://www.testdaf.de/de/) | How the programme applies its exact result pattern; the selected centre's current local terms. |
 | Goethe certificate | [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html) | Whether the programme accepts the exact Goethe certificate and result; the selected centre's current local terms. |
 | DSH | The official page of the university that offers the DSH named by the programme | Whether that DSH is an accepted proof for the programme and the university's current DSH information. |
 
@@ -41,6 +48,20 @@ These provider pages can explain their own examinations. They do not establish a
 For the digital TestDaF, the [official test-structure page](https://www.testdaf.de/de/teilnehmende/der-digitale-testdaf/aufbau-des-digitalen-testdaf/) describes four test parts: reading, listening, writing, and speaking. For Goethe-Zertifikat C1, the [Goethe-Institut examinations page](https://www.goethe.de/en/spr/prf.html) describes a C1 certificate with listening, reading, writing, and speaking modules that may be taken and certified individually or together.
 
 These are descriptions of the providers' products. They do not show that a particular programme accepts TestDaF, Goethe C1, a DSH, or any specified result.
+
+No DSH-offering university was selected for this review. This guide therefore makes no general claim about DSH format, result wording, availability, or local procedure. Use the current official page of the university that offers the DSH you are considering.
+
+## Keep one comparison record
+
+For each option that the programme actually lists, save:
+
+1. the programme's exact accepted-proof wording, page URL, and checked date;
+2. the exact exam or certificate name and version;
+3. the official provider page that explains that product;
+4. the programme's required result pattern and application stage; and
+5. the selected centre's terms, or the selected DSH university's current instructions.
+
+If one of these items is missing, keep it as an unresolved check. Do not fill the gap with another university's rule or a general comparison.
 
 ## Questions that keep the comparison useful
 
@@ -69,4 +90,4 @@ Save the programme's accepted-proof wording first. Then open the matching TestDa
 - [TestDaF: digital test structure](https://www.testdaf.de/de/teilnehmende/der-digitale-testdaf/aufbau-des-digitalen-testdaf/)
 - [Goethe-Institut: German examinations](https://www.goethe.de/en/spr/prf.html)
 
-Last updated: 2026-07-13. Official verification pending.
+Last source review: 2026-07-23. The review covers only the cited provider facts and the programme-first verification workflow; the target programme, selected centre, and DSH university remain reader-specific.

@@ -105,11 +105,6 @@ const routeFinder = fs.readFileSync(outputFor('/tools/route-finder/'), 'utf8');
 if (routeFinder.includes('href="/tools/" aria-current="location"') && routeFinder.includes('href="/tools/route-finder/" aria-current="page"')) pass('Navigation distinguishes the Tools section from the exact Route Finder page.'); else fail('Navigation aria-current semantics are inconsistent.');
 
 const guidePages = pages.filter(({ route }) => route.startsWith('/guides/') && !route.startsWith('/guides/category/') && route !== '/guides/');
-const adsenseLoader = 'pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3018617123550799';
-const noindexAdFailures = pages
-  .filter(({ html }) => html.includes('<meta name="robots" content="noindex,follow">') && html.includes(adsenseLoader))
-  .map(({ route }) => route);
-if (!noindexAdFailures.length) pass('No noindex route loads the AdSense runtime.'); else fail(`Noindex routes load AdSense: ${noindexAdFailures.slice(0, 8).join(', ')}`);
 const guideFailures = guidePages.filter(({ html }) => {
   const types = jsonLdTypes(html);
   const orderedSections = ['id="direct-answer"', 'id="who-this-applies-to"', 'id="key-decisions"', 'id="detailed-explanation"', 'id="what-to-verify-officially"', 'id="common-mistakes"', 'id="next-action"', 'id="official-sources"'];
@@ -147,6 +142,23 @@ const contentStatusFailures = guidePages.filter(({ route, html }) => {
   return !expected || !html.includes(`status-badge--${expected}`);
 }).map(({ route }) => route);
 if (!contentStatusFailures.length) pass('Every guide article header uses the shared contentStatus gate.'); else fail(`Guide content-status failures: ${contentStatusFailures.slice(0, 5).join(', ')}`);
+const italyRequirement = fs.readFileSync(outputFor('/guides/cils-b1-cittadinanza-for-italian-citizenship/'), 'utf8');
+const italyComparison = fs.readFileSync(outputFor('/guides/cils-vs-celi-vs-plida-for-italian-citizenship/'), 'utf8');
+if (
+  italyRequirement.includes('citizenship-basis requirement check')
+  && italyRequirement.includes('<small>Next guide</small><strong>CILS vs CELI vs PLIDA After an Italian Citizenship Requirement Check</strong>')
+  && italyComparison.includes('certificate comparison record')
+  && !italyComparison.includes('<small>Next guide</small>')
+) pass('Italy B-4 keeps the authority-first requirement-to-comparison route.'); else fail('Italy B-4 route or task separation is incomplete.');
+const canadaRequirement = fs.readFileSync(outputFor('/guides/tef-canada-immigration/'), 'utf8');
+const canadaComparison = fs.readFileSync(outputFor('/guides/tcf-canada-vs-tef/'), 'utf8');
+if (
+  canadaRequirement.includes('programme-first requirement check')
+  && canadaRequirement.includes('<small>Next guide</small><strong>TEF Canada vs TCF Canada After an Express Entry Requirement Check</strong>')
+  && canadaComparison.includes('test comparison record')
+  && canadaComparison.includes('Raw scores are not interchangeable')
+  && !canadaComparison.includes('<small>Next guide</small>')
+) pass('Canada B-5 keeps the IRCC-first requirement-to-comparison route.'); else fail('Canada B-5 route or task separation is incomplete.');
 if (!home.includes('Official sources last checked') && home.includes('Recently updated')) pass('Homepage keeps recent editing updates separate from source review.'); else fail('Homepage mixes editing and source-review dates.');
 
 const tools = ['/tools/route-finder/', '/tools/checklist-generator/', '/tools/timeline-calculator/', '/tools/exam-comparison/', '/tools/email-reminders/'];
@@ -164,7 +176,12 @@ if (!checks.some((check) => !check.ok && check.message.startsWith('Guide library
 if (guideIndex.includes('<details class="filter-drawer">') && !guideIndex.includes('<details class="filter-drawer" open>') && guideIndex.includes('aria-live="polite"') && guideIndex.includes('data-clear-all')) pass('Guide library keeps advanced filters closed by default and exposes live results plus Clear all.'); else fail('Guide library filter disclosure or feedback controls are incomplete.');
 const guideCardBlocks = [...guideIndex.matchAll(/<article class="article-card guide-card">([\s\S]*?)<\/article>/g)].map((match) => match[1]);
 if (guideCardBlocks.length && guideCardBlocks.every((card) => occurrences(card, /<a(?:\s|>)/g) === 1)) pass('Every rendered Guide Card has one primary link.'); else fail('A rendered Guide Card has zero or multiple links.');
-if (guideIndex.includes('Recently updated') && !guideIndex.includes('Recently verified') && guideIndex.includes('Official verification pending')) pass('Guide cards sort by editing date and expose the pending source-review state.'); else fail('Guide cards mix editing and source-review semantics.');
+if (
+  guideIndex.includes('Recently updated')
+  && !guideIndex.includes('Recently verified')
+  && guideIndex.includes('This primary library contains source-reviewed complete and core route guides.')
+  && !guideIndex.includes('CILS B1 Cittadinanza')
+) pass('Guide cards sort by editing date and exclude pending research pages from primary discovery.'); else fail('Guide cards mix editing, source-review, or primary-discovery semantics.');
 const guideIndexTypes = jsonLdTypes(guideIndex);
 const categorySchemaFailures = pages.filter(({ route }) => route.startsWith('/guides/category/')).filter(({ html }) => {
   const types = jsonLdTypes(html); return !types.has('CollectionPage') || !types.has('ItemList');
@@ -198,23 +215,135 @@ for (const page of pages) {
 if (!internalFailures.length) pass('All generated internal route links resolve.'); else fail(`Broken internal links: ${internalFailures.slice(0, 8).join(', ')}`);
 
 const sitemap = read('dist/sitemap-0.xml');
-const noindexSitemapFailures = pages
-  .filter(({ html }) => html.includes('<meta name="robots" content="noindex,follow">'))
-  .filter(({ html }) => {
-    const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
-    return canonical && sitemap.includes(`<loc>${canonical}</loc>`);
-  })
-  .map(({ route }) => route);
-if (!noindexSitemapFailures.length) pass('No noindex route appears in the sitemap.'); else fail(`Noindex routes remain in sitemap: ${noindexSitemapFailures.slice(0, 8).join(', ')}`);
+const advertisingFreeRoutes = [
+  '/404.html',
+  '/privacy-policy/',
+  '/cookie-policy/',
+  '/terms/',
+  '/editorial-policy/',
+  '/affiliate-disclosure/',
+  '/pricing/',
+  '/partners/',
+  '/route-review/',
+  '/products/a1-family-reunion-pack/',
+  '/products/a1-practice-pack/',
+  '/guides/category/uk/',
+  '/guides/category/canada/',
+  '/guides/category/italy/',
+  '/guides/category/spain/',
+  '/guides/category/france/',
+  '/guides/category/finland/',
+  '/guides/category/netherlands/',
+  '/guides/category/portugal/',
+  '/guides/category/germany-testdaf/',
+  '/guides/category/germany-telc/',
+  '/guides/cils-b1-cittadinanza-for-italian-citizenship/',
+  '/guides/cils-vs-celi-vs-plida-for-italian-citizenship/',
+  '/guides/testdaf-germany-university-admissions/',
+  '/guides/telc-b1-b2-fees-and-test-centers/',
+];
+const advertisingRiskFailures = advertisingFreeRoutes.filter((route) => read(path.relative(root, outputFor(route))).includes('pagead2.googlesyndication.com'));
+if (!advertisingRiskFailures.length) pass('404, noindex, commercial-placeholder, and thin country category routes exclude the AdSense runtime.'); else fail(`AdSense risk-route failures: ${advertisingRiskFailures.join(', ')}`);
+
+const commercialPlaceholderRoutes = [
+  '/pricing/',
+  '/partners/',
+  '/route-review/',
+  '/products/a1-family-reunion-pack/',
+  '/products/a1-practice-pack/',
+];
+const commercialIndexFailures = commercialPlaceholderRoutes.filter((route) => {
+  const html = read(path.relative(root, outputFor(route)));
+  return !html.includes('<meta name="robots" content="noindex,follow">') || sitemap.includes(`<loc>https://visalang.org${route}</loc>`);
+});
+if (!commercialIndexFailures.length) pass('All five commercial placeholder routes are noindex and excluded from the sitemap.'); else fail(`Commercial placeholder index failures: ${commercialIndexFailures.join(', ')}`);
+
+const guideDiscoveryFailures = guidePages.filter(({ route, html }) => {
+  const slug = route.split('/').filter(Boolean).at(-1);
+  const source = read(`src/content/guides/${slug}.md`);
+  const status = frontmatterField(source, 'contentStatus');
+  const sourceReviewStatus = frontmatterField(source, 'sourceReviewStatus') || 'pending';
+  const explicitlyNoindex = frontmatterField(source, 'noindex') === 'true';
+  const explicitlyAdsIneligible = frontmatterField(source, 'adsEligible') === 'false';
+  const eligible = sourceReviewStatus === 'reviewed'
+    && (status === 'complete-route' || status === 'core-route')
+    && !explicitlyNoindex
+    && !explicitlyAdsIneligible;
+  const hasNoindex = html.includes('<meta name="robots" content="noindex,follow">');
+  const hasAds = html.includes('pagead2.googlesyndication.com');
+  const inSitemap = sitemap.includes(`<loc>https://visalang.org${route}</loc>`);
+  return eligible ? hasNoindex || !hasAds || !inSitemap : !hasNoindex || hasAds || inSitemap;
+}).map(({ route }) => route);
+const guideTaxonomySource = read('src/data/guide-taxonomy.ts');
+const explicitlyNoindexCategorySlugs = new Set(
+  [...guideTaxonomySource.matchAll(/\{[^{}]*slug: '([^']+)'[^{}]*noindex: true[^{}]*\}/g)].map((match) => match[1])
+);
+const categoryDiscoveryFailures = pages.filter(({ route }) => route.startsWith('/guides/category/')).filter(({ route, html }) => {
+  const categorySlug = route.split('/').filter(Boolean).at(-1);
+  const hasEligibleGuide = guidePages.some(({ route: guideRoute }) => {
+    const slug = guideRoute.split('/').filter(Boolean).at(-1);
+    const source = read(`src/content/guides/${slug}.md`);
+    const category = frontmatterField(source, 'category');
+    const status = frontmatterField(source, 'contentStatus');
+    const sourceReviewStatus = frontmatterField(source, 'sourceReviewStatus') || 'pending';
+    const explicitlyNoindex = frontmatterField(source, 'noindex') === 'true';
+    return route === `/guides/category/${category}/`
+      && sourceReviewStatus === 'reviewed'
+      && (status === 'complete-route' || status === 'core-route')
+      && !explicitlyNoindex;
+  });
+  const hasNoindex = html.includes('<meta name="robots" content="noindex,follow">');
+  const hasAds = html.includes('pagead2.googlesyndication.com');
+  const inSitemap = sitemap.includes(`<loc>https://visalang.org${route}</loc>`);
+  const eligible = hasEligibleGuide && !explicitlyNoindexCategorySlugs.has(categorySlug);
+  return eligible ? hasNoindex || hasAds || !inSitemap : !hasNoindex || hasAds || inSitemap;
+});
+if (!guideDiscoveryFailures.length && !categoryDiscoveryFailures.length) pass('All guide and category routes follow the fail-closed discovery, sitemap, and advertising gate.'); else fail(`Discovery-policy failures: ${[...guideDiscoveryFailures, ...categoryDiscoveryFailures].slice(0, 8).join(', ')}`);
+
+const germanyCategoryRoute = '/guides/category/germany-a1/';
+const germanyCategoryHtml = read(path.relative(root, outputFor(germanyCategoryRoute)));
+if (!germanyCategoryHtml.includes('<meta name="robots" content="noindex,follow">') && sitemap.includes(`<loc>https://visalang.org${germanyCategoryRoute}</loc>`)) pass('Germany A1 category remains indexable and in the sitemap.'); else fail('Germany A1 category index policy was changed unexpectedly.');
+
+const netherlandsWindowBRoutes = [
+  '/guides/dutch-inburgering-a2-b1-for-integration-and-citizenship/',
+  '/guides/staatsexamen-nt2-for-work-and-higher-education/',
+  '/guides/category/netherlands/',
+];
+const netherlandsWindowBFailures = netherlandsWindowBRoutes.filter((route) => {
+  const html = read(path.relative(root, outputFor(route)));
+  return !html.includes('<meta name="robots" content="noindex,follow">')
+    || html.includes('pagead2.googlesyndication.com')
+    || sitemap.includes(`<loc>https://visalang.org${route}</loc>`);
+});
+const netherlandsInburgeringSource = read('src/content/guides/dutch-inburgering-a2-b1-for-integration-and-citizenship.md');
+const netherlandsNt2Html = read(path.relative(root, outputFor('/guides/staatsexamen-nt2-for-work-and-higher-education/')));
+const netherlandsInburgeringHtml = read(path.relative(root, outputFor('/guides/dutch-inburgering-a2-b1-for-integration-and-citizenship/')));
+if (
+  !netherlandsWindowBFailures.length
+  && netherlandsInburgeringSource.includes('## Start with a procedure-first route check')
+  && netherlandsInburgeringSource.includes('## A2/B1 stop rule')
+  && netherlandsInburgeringSource.includes('| IND |')
+  && netherlandsInburgeringSource.includes('| Municipality |')
+  && netherlandsInburgeringSource.includes('| DUO / Inburgeren |')
+  && netherlandsInburgeringSource.includes('| Mijn Inburgering / PIP |')
+  && !netherlandsInburgeringHtml.includes('<small>Next guide</small>')
+  && !netherlandsNt2Html.includes('<small>Next guide</small>')
+) pass('Netherlands B-6 keeps both guides terminal and all three routes noindex, advertising-free, and outside the sitemap.'); else fail(`Netherlands B-6 failures: ${netherlandsWindowBFailures.join(', ') || 'content or terminal-route contract'}`);
+
 for (const slug of ['dutch-inburgering-a2-b1-for-integration-and-citizenship', 'portuguese-language-for-golden-visa-and-citizenship']) {
-  if (!sitemap.includes(slug)) pass(`Pending corrected slug is withheld from sitemap: ${slug}`); else fail(`Pending corrected slug remains in sitemap: ${slug}`);
+  if (!sitemap.includes(slug)) pass(`Pending corrected slug remains outside sitemap: ${slug}`); else fail(`Pending corrected slug leaked into sitemap: ${slug}`);
 }
 for (const slug of ['dutch-inburgering-a2-b1-for-integration-and-citize/', 'portuguese-language-for-golden-visa-and-citizenshi/']) {
   if (sitemap.includes(slug)) fail(`Truncated slug remains in sitemap: ${slug}`);
 }
 
 const redirects = read('dist/_redirects');
-if (redirects.includes('/do-i-need-german-a1.html /tools/route-finder/ 301') && redirects.includes('/guides/:slug.html /guides/:slug/ 301')) pass('Legacy static helpers and guide files have 301 redirects.'); else fail('Legacy redirects are incomplete.');
+if (
+  redirects.includes('/do-i-need-german-a1.html /tools/route-finder/ 301')
+  && redirects.includes('/guides/yki-vs-other-finland-options/ /guides/yki-finnish-citizenship/ 301')
+  && redirects.includes('/guides/yki-vs-other-finland-options.html /guides/yki-finnish-citizenship/ 301')
+  && redirects.includes('/guides/:slug.html /guides/:slug/ 301')
+) pass('Legacy static helpers and retired guide URLs have direct 301 redirects.'); else fail('Legacy redirects are incomplete.');
 
 const css = read('dist/_astro/' + fs.readdirSync(path.join(dist, '_astro')).find((file) => file.endsWith('.css')));
 if (css.includes('prefers-reduced-motion') && css.includes('overflow-x:auto') && css.includes('min-height:44px')) pass('Built CSS includes reduced-motion, overflow, and target-size protections.'); else fail('Built accessibility or responsive CSS protections are incomplete.');

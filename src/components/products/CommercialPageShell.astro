@@ -14,7 +14,7 @@ export interface Props {
 const { title, description, eyebrow, summary, updated = '2026-07-11', status = 'contact-only' } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description} noindex={status !== 'available'} enableAds={false}>
+<BaseLayout title={title} description={description} noindex={true} enableAds={false}>
   <main class="page-shell">
     <article class="guide-article narrow-page">
       <p class="eyebrow">{eyebrow}</p>

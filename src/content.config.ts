@@ -13,6 +13,8 @@ const guideSchema = z.object({
   sourceReviewStatus: z.enum(sourceReviewStatuses).default('pending'),
   reviewedByRole: z.enum(reviewerRoles).optional(),
   contentStatus: z.enum(contentStatuses),
+  noindex: z.boolean().default(false),
+  adsEligible: z.boolean().default(true),
   primaryIntent: z.string().min(1).optional(),
   decisionStage: z.enum(decisionStages).default('requirement'),
   nextGuideSlug: z.string().min(1).optional(),

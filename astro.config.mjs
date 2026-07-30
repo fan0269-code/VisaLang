@@ -7,6 +7,15 @@ const noindexSitemapPaths = [
   '/editorial-policy/',
   '/privacy-policy/',
   '/terms/',
+  '/partners/',
+  '/pricing/',
+  '/products/a1-family-reunion-pack/',
+  '/products/a1-practice-pack/',
+  '/route-review/',
+  '/guides/yki-finnish-citizenship/',
+  '/guides/category/uk/',
+  '/guides/category/finland/',
+  '/guides/category/portugal/',
 ];
 
 export default defineConfig({

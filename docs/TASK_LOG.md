@@ -1,6 +1,245 @@
 # VisaLang Task Log
 
-Updated: 2026-07-26
+Updated: 2026-07-30
+
+## Accumulated AdSense release-readiness review — 2026-07-30
+
+Scope: audited the complete local Window A, UK B-1 through Netherlands B-6, and TestDaF P3.1-P3.3 change set for commit, push, and production deployment. This review did not treat local tests or an Agent review as human content approval or account-side AdSense/CMP evidence.
+
+Completed:
+
+- Fetched and identified the one remote-only `origin/main` commit, `f2c09f4`, plus its remote-only AdSense audit and operations records. The final release tree must retain that commit without force-push and be re-reviewed after integration.
+- Explicitly excluded the untracked `.claude/` local settings and nested worktrees from the release scope; release staging must use an exact file list rather than `git add .`.
+- Added the missing UK B-1 and TestDaF P3.1-P3.3 combined Vault review record with `status: review`, `needs_human_review: true`, `owner_decision: pending`, and `deployment_status: not_started`.
+- Fixed the Finland, Italy, and Canada focused tests so each builds current source and unconditionally checks generated noindex, advertising, sitemap, and route output instead of skipping the assertions when `dist/` is absent.
+- Aligned the launch-check discovery gate with the rendering contract by treating explicit `adsEligible: false` as an advertising veto even for a reviewed mature guide.
+
+Verification:
+
+- Finland, Italy, Canada, and Netherlands focused tests passed after the test fixes.
+- `npm test` passed.
+- `npm run launch-check` passed: 100 routes, 44 checks, 0 failures, `READY.`
+- `git diff --check` and deployment shell syntax checks passed.
+- Production preflight was read-only: current release and rollback point `cd0f73cb0f9d`, clean server `main`, Node.js `v22.23.1`, valid Nginx configuration, and sufficient disk space.
+
+Open release gates:
+
+- Deployment remains blocked by the repository production contract until current Google Privacy & messaging/CMP publish state, the real non-consent and withdrawal paths, Auto ads state and `/tools/*` plus `/guides/` exclusions, and current Policy Center/ads.txt evidence are recorded, or the project owner explicitly chooses a separately reviewed ad-disabled release strategy.
+- Advertising-eligible high-risk pages still require a traceable real human spot-check. An independent Agent review is not recorded as that human check.
+- The exact remote-integrated tree still requires the original independent reviewer to return `PASS` before push or deployment.
+- No commit, push, production switch, public smoke test, AdSense review request, or account change was performed in this entry.
+
+## AdSense window B-6 Netherlands Inburgering P0 — 2026-07-30
+
+Scope: processed only `dutch-inburgering-a2-b1-for-integration-and-citizenship`, the noindex/advertising/sitemap contract for `/guides/category/netherlands/`, the corresponding tests and ledgers, and the review-only record. The adjacent `staatsexamen-nt2-for-work-and-higher-education` source remained byte-for-byte unchanged and bounded to the named UvA Dutch-taught bachelor's admissions task.
+
+Completed:
+
+- Re-opened the current IND civic-integration and naturalisation pages plus the DUO / Inburgeren exam and course-selection pages on 2026-07-30.
+- Reworked the Inburgering guide into a procedure-first check that separates a named more-secure residence requirement, a naturalisation requirement, the civic-integration obligation in the Netherlands, and the separate UvA/NT2 admissions task.
+- Added an IND / municipality / DUO / Mijn Inburgering-PIP responsibility table, a personal route record, an A2/B1 stop rule, common mistakes, and a terminal next action.
+- Kept the authority boundary explicit: IND owns named residence requirements and the final naturalisation decision; the naturalisation municipality handles application intake and evidence review; municipalities set the Wi 2021 PIP route; DUO / Inburgeren owns obligation and exam execution information; Mijn Inburgering and the PIP hold the personal dynamic record.
+- Preserved `contentStatus: verification-pending`, `sourceReviewStatus: reviewed`, and `reviewedByRole: source-review`; recorded the actual source recheck and editorial date as `2026-07-30`.
+- Explicitly set the Inburgering guide and Netherlands taxonomy row to `noindex: true` and `adsEligible: false`. The Inburgering guide, read-only NT2 guide, and Netherlands category are noindex, advertising-free, absent from the generated sitemap, and terminal rather than sequential.
+- Added `tests/netherlands-window-b.test.js`, its full-suite entry, and a B-6 launch-check contract. The focused test also fixes the NT2 source SHA-256 baseline so this window cannot silently modify the reference page.
+
+Verification:
+
+- `node tests/netherlands-window-b.test.js` — failed first on the old `2026-07-14` source-review date, then passed after the bounded implementation.
+- `npm test` — passed, including the Netherlands B-6 focused contract and byte-for-byte NT2 guard.
+- `git diff --check` — passed with no output before the build gate.
+- `npm run build` — passed; 100 pages generated.
+- `npm run launch-check` — passed; 100 routes, 44 checks, 0 failures, `READY.`
+- Independent review under the repository's separate-agent rule found and closed two focused-test P2s. The first specification review found that generated-page assertions could be skipped when `dist/` was absent. A fresh standards reviewer then found that merely requiring ignored `dist/` still made the focused command fail on a clean checkout. The focused test now builds current source itself before requiring the sitemap and three Netherlands HTML outputs, then checks noindex, advertising, sitemap and terminal-route behavior. Focused/full/build/launch gates passed again, and the original fresh Standards and Spec reviewers both returned `PASS` with no remaining P0/P1/P2.
+
+Boundary:
+
+- No universal A2/B1 rule, deadline, residence period, cohort, learning route, component list, exemption, dispensation, evidence-acceptance conclusion, residence result, naturalisation result, UvA admission result, official endorsement, or human-review claim was added.
+- No form, payment, email collection, commercial function, account setting, commit, push, merge, deployment, or production verification was performed.
+- These local content, noindex, sitemap, advertising and test results reduce thin/pending exposure; they do not prove public deployment, AdSense account state, review acceptance, or approval.
+
+## AdSense window B-5 Canada cluster remediation — 2026-07-30
+
+Scope: processed only the Canada country cluster from window B: `tef-canada-immigration`, `tcf-canada-vs-tef`, and `/guides/category/canada/`. The reviewed scope is Express Entry French-language testing; this window did not establish Canadian citizenship evidence, another immigration programme, individual points, invitation, eligibility, permanent-residence outcome, account-side AdSense/CMP/Search Console state, or production state.
+
+Completed:
+
+- Re-opened IRCC's current Express Entry language-test page, the current TEF Canada candidate and registration pages from Le français des affaires, and the current TCF Canada page from France Éducation international.
+- Kept IRCC as the authority for the exact Express Entry programme, accepted test, result-validity instruction and test-specific conversion. Kept the exam owners and selected official centres responsible for product and local-execution facts.
+- Reworked `tef-canada-immigration` into a programme-first requirement check with an IRCC record covering the programme, language role, exact accepted product, matching table, validity checkpoints and unresolved profile/result questions.
+- Reworked `tcf-canada-vs-tef` into a product comparison after the IRCC record is complete, with authority/product separation, a non-ranking comparison, separate test records, stop conditions, common mistakes and a terminal next action.
+- Removed citizenship from the requirement page's title and description and explicitly stated that the two-page cluster does not review citizenship evidence or non-Express Entry programmes.
+- Preserved both guides as `contentStatus: verification-pending` and `sourceReviewStatus: reviewed`; recorded the real source recheck and editorial date as `2026-07-30` without inventing a human reviewer or promoting maturity.
+- Marked the Canada category explicitly noindex while retaining `adsEligible: false`; both guides and the category remain outside primary discovery, advertising runtime and the generated sitemap.
+- Added a focused Canada B-5 test and launch-check route assertion, updated the five-country review date, content ledger and rolling window B decision table. Netherlands Inburgering is the next proposed P0 content window.
+
+Verification:
+
+- `node tests/canada-window-b.test.js` — failed first on the old `2026-07-21` source-review date, then exposed two assertion/content wording mismatches, and passed after the bounded implementation and test wording correction.
+- `node tests/p0-five-countries.test.js` — passed after recording Canada's actual source-recheck date.
+- `npm run build` — passed; 100 pages generated.
+- `npm test` — passed, including the focused Canada B-5 contract.
+- `npm run launch-check` — passed; 100 routes, 43 checks, 0 failures, `READY.`
+- `git diff --check` — passed; the new untracked Canada test, decision record and Obsidian review record also passed trailing-whitespace checks.
+- Independent standards and specification reviews found only two documentation-closeout gaps: the rolling decision overview still ended at B-4, and this task log plus the Obsidian record still described final gates as pending. The overview and result records were corrected; both final read-only rechecks returned `PASS`.
+
+Boundary:
+
+- No fixed fee, test date, seat availability, result timing, raw-score equivalence table, individual score/points calculation, invitation, eligibility, application outcome, provider ranking, official endorsement or human-review claim was added.
+- The current sources support bounded Express Entry accepted-test/programme paths and exam-product facts only. Applicant profile facts, historical-result notices and current local execution remain reader-side official checks.
+- No form, payment, email collection, new commercial function, account setting, commit, push, merge, deployment or production verification was performed.
+- These local content, noindex, sitemap, advertising and test results reduce thin/pending exposure; they do not prove public deployment, AdSense account state, review acceptance or approval.
+
+## AdSense window B-4 Italy cluster remediation and fail-closed reconciliation — 2026-07-30
+
+Scope: reconciled the inherited global discovery policy and processed only the Italy country cluster from window B: `cils-b1-cittadinanza-for-italian-citizenship`, `cils-vs-celi-vs-plida-for-italian-citizenship`, and `/guides/category/italy/`. No other country-guide body, account-side AdSense/CMP/Search Console setting, commit, push, deployment, or production state was changed in this window.
+
+Completed:
+
+- Adopted the inherited fail-closed rule as the single discovery policy: only guides that are both `sourceReviewStatus: reviewed` and `contentStatus: complete-route` or `core-route` may enter primary library/category discovery, the sitemap, or advertising runtime.
+- Applied that rule at render time, in the Guide Library and category listings, during sitemap post-processing, and in launch checks. Starter and pending guides remain directly reachable for review but render noindex, do not load ads, and are omitted from the generated sitemap.
+- Re-opened the current Italian Interior Ministry application guidance, Foreign Ministry citizenship guidance, CILS B1 product page, CELI calendar, and PLIDA product/calendar entry. Kept the competent Interior Ministry office, prefecture, or consulate as the dossier decision owner and the exam bodies as product/local-execution owners.
+- Reworked the CILS guide into a citizenship-basis and evidence-requirement check before product selection. Reworked the comparison guide into a CILS/CELI/PLIDA choice record only after the authority requirement is confirmed.
+- Added distinct authority records, requirement-to-comparison handoff, product comparison criteria, stop conditions, common mistakes, and concrete terminal next actions.
+- Preserved both guides as `contentStatus: verification-pending` and `sourceReviewStatus: reviewed`; recorded the real source recheck and editorial date as `2026-07-30` without inventing a human reviewer or promoting content maturity.
+- Marked the Italy category explicitly noindex while retaining `adsEligible: false`; both Italy guides and the category are absent from the generated sitemap and advertising runtime under the global gate.
+- Updated the content ledger and window B decision table. Canada comparison is the next proposed P0 content window.
+
+Verification:
+
+- `node tests/italy-window-b.test.js` — failed first on the old review date, then passed after the bounded source and content update.
+- `npm run build` — passed; 100 pages generated.
+- `npm test` — passed after the reviewed category-boundary copy and its source assertion were aligned.
+- `npm run launch-check` — passed; 100 routes, 42 checks, 0 failures, `READY.`
+- `git diff --check` — passed; the new untracked Italy test, decision record and Obsidian review record also passed trailing-whitespace checks.
+- Independent standards and specification reviews initially found one decision-ledger boundary conflict, one misleading category empty state and one category-noindex test blind spot. All were corrected; both final read-only rechecks returned `PASS`.
+
+Boundary:
+
+- No fixed fee, test date, seat availability, result timing, individual citizenship eligibility, exemption decision, evidence-acceptance guarantee, provider ranking, official endorsement, or human-review claim was added.
+- The current official pages support bounded process and product facts only; the responsible office and selected authorised centre remain the current sources for an individual case and local execution.
+- No form, payment, email collection, new commercial function, account setting, commit, push, merge, deployment, or production verification was performed.
+- These local content, noindex, sitemap, advertising and test results reduce thin/pending exposure; they do not prove public deployment, AdSense account state, review acceptance, or approval.
+
+## AdSense window B-3 Finland cluster consolidation — 2026-07-29
+
+Scope: processed only the Finland country cluster from window B: `yki-finnish-citizenship`, the retired `yki-vs-other-finland-options` route, and `/guides/category/finland/`. This window did not change Italy, Canada, Netherlands, Spain, France, telc, TestDaF, commercial pages, account-side AdSense/CMP/Search Console settings, or production state.
+
+Completed:
+
+- Re-opened Migri's current language-skills and YKI-combination pages and the Finnish National Agency for Education's current YKI overview and selection pages. Kept Migri as the citizenship evidence authority and OPH as the YKI product owner.
+- Confirmed that the comparison page did not have enough independent value to remain separate. Merged its useful evidence-comparison task into `yki-finnish-citizenship` and removed the duplicate Markdown source.
+- Expanded the retained guide with a Migri-first evidence-path record, non-YKI evidence boundaries, the current oral-plus-written YKI combination check, authority/product separation, pre-registration checks, common mistakes and a concrete next action.
+- Preserved the retained guide as `contentStatus: verification-pending` and `sourceReviewStatus: reviewed`; updated the real editorial and source-recheck dates to `2026-07-29` without inventing a human reviewer or promoting content maturity.
+- Because the retained guide remains pending, marked it noindex, disabled its AdSense runtime and excluded it from the generated sitemap.
+- Added direct 301 redirects for both `/guides/yki-vs-other-finland-options/` and its legacy `.html` URL in the static redirect manifest and production Nginx configuration, with production smoke-check entries.
+- Removed both Finland URLs from the legacy sitemap and changed the two legacy HTML fallbacks to noindex with canonicals pointing to the consolidated current route.
+- Marked the Finland category as noindex while preserving `adsEligible: false`, and excluded `/guides/category/finland/` from the generated sitemap.
+- Updated the content ledger and window B decision table so Finland is recorded as B-3 complete and Italy becomes the next proposed P0 content window.
+
+Verification:
+
+- `node tests/finland-window-b.test.js` — failed first because the duplicate source still existed, then passed after consolidation and a fresh build.
+- `node tests/p0-five-countries.test.js` — passed.
+- `node tests/content-integrity.test.js` — passed.
+- `node tests/deploy.test.js` — passed.
+- `node tests/source-review-render.test.js` — passed after the guide-count assertion was updated from the pre-consolidation inventory.
+- `node tests/adsense-risk-exposure.test.js` — passed.
+- `npm test` — passed.
+- `npm run build` — passed; 100 pages generated.
+- `npm run launch-check` — passed; 100 routes, 41 checks, 0 failures, `READY.`
+- `git diff --check` — passed after documentation and review-record updates; the new untracked decision/test/review records also passed no-index whitespace checks.
+
+Boundary:
+
+- No fixed fee, test date, seat availability, result timing, citizenship eligibility conclusion, exception decision, evidence-acceptance guarantee, official endorsement or human-review claim was added.
+- The retired source remains recoverable from Git history; the old public URL is preserved through a 301 redirect.
+- No form, payment, email collection, commercial function, new ad placement, account setting, commit, push or deployment was added.
+- These local content, redirect, noindex, sitemap and test results reduce duplicate/thin-content exposure; they do not prove public deployment, AdSense account state or approval.
+
+## AdSense window B-2 Portugal cluster remediation — 2026-07-29
+
+Scope: processed only the Portugal country cluster from window B: `portuguese-language-for-golden-visa-and-citizenship`, `portuguese-ciple-a2-for-citizenship-and-residence`, and `/guides/category/portugal/`. This window did not change Finland, Italy, Canada, Netherlands, Spain, France, telc, TestDaF, commercial pages, account-side AdSense/CMP/Search Console settings, or production state.
+
+Completed:
+
+- Re-opened the current Justiça Portuguese-nationality overview and profile guide. The CAPLE CIPLE direct fetch returned 502 in the research tool, while the current CAPLE official-domain result crawled the previous day exposed the A2 product and exam-entry content. Kept Justiça/IRN as the nationality-procedure authority and CAPLE or the selected authorised centre as the exam-product/local-execution source.
+- Reworked the residence-route guide into a nationality-profile requirement check with an authority record, Golden Visa boundary, unresolved-evidence path, common mistakes and a controlled handoff to CIPLE.
+- Reworked the CIPLE guide into product verification after the requirement check, with an authority/product responsibility table, pre-booking record, common mistakes and a terminal next action.
+- Preserved both guides as `contentStatus: verification-pending` and `sourceReviewStatus: reviewed`; updated the real source-check and editorial dates to `2026-07-29` without inventing a human reviewer or promoting content maturity.
+- Marked the Portugal country category as noindex while preserving `adsEligible: false`, and excluded `/guides/category/portugal/` from the generated sitemap. The six remaining unprocessed thin country categories were not changed.
+- Updated the window B decision table so Portugal is recorded as B-2 complete and Finland becomes the next proposed content window.
+
+Verification:
+
+- `node tests/content-integrity.test.js` — failed first because the two pages did not name distinct requirement/product tasks, then passed after the bounded rewrites.
+- `node tests/adsense-risk-exposure.test.js` — failed first because the Portugal category was still indexable and present in the sitemap, then passed after the category policy change.
+- `node tests/source-review-render.test.js` — passed after rebuilding the generated Portugal pages and checking pending status, current source date, task labels and terminal routing.
+- `node tests/p0-five-countries.test.js` — failed on the historical shared review-date snapshot, then passed after recording Portugal's actual `2026-07-29` source-check date without changing the other four countries.
+- `npm test` — passed.
+- `npm run build` — passed; 101 pages generated.
+- `npm run launch-check` — passed; 101 routes, 41 checks, 0 failures, `READY.`
+- `git diff --check` — run after documentation updates as the final whitespace gate.
+
+Boundary:
+
+- No fixed fee, test date, seat availability, result timing, residence calculation, accepted-evidence conclusion, exception, nationality outcome, official endorsement or human-review claim was added.
+- CAPLE should be opened once in a normal human browser before publication because the direct research-tool fetch returned 502 even though the current official-domain result was available.
+- No form, payment, email collection, commercial function, new ad placement, account setting, commit, push or deployment was added.
+- These local content, noindex, sitemap and test results reduce explicit low-value-content exposure; they do not prove public deployment, AdSense account state or approval.
+
+## AdSense window B-1 UK cluster remediation — 2026-07-29
+
+Scope: processed only the UK country cluster from window B: `ielts-ukvi-uk-visa`, `languagecert-selt-uk-visa`, and `/guides/category/uk/`. This window did not change Portugal, Finland, Italy, Canada, Netherlands, Spain, France, telc, TestDaF, commercial pages, account-side AdSense/CMP/Search Console settings, or production state.
+
+Completed:
+
+- Reworked the IELTS UKVI guide into a route-first requirement check that starts from Home Office / GOV.UK, separates final decision authority from IELTS product facts, and points readers to LanguageCert only after the route requirement is known.
+- Reworked the LanguageCert SELT guide into a provider-choice / SELT product verification page for readers who have already confirmed the route requirement, while keeping it terminal in the UK sequence.
+- Kept both UK guides `contentStatus: verification-pending`, `sourceReviewStatus: reviewed`, `sourceReviewedAt: 2026-07-21`, and `reviewedByRole: source-review`; this window did not use status fields to imply maturity.
+- Marked the UK country category as noindex while preserving `adsEligible: false`, and excluded `/guides/category/uk/` from the generated sitemap. Non-UK thin country categories remain unchanged in this window.
+- Added focused tests and launch-check assertions for UK category noindex/sitemap exclusion, Germany A1 category control behavior, UK guide task differentiation, pending-status rendering, and avoidance of fixed dynamic facts or outcome promises.
+
+Verification:
+
+- `node tests/content-integrity.test.js` — failed first on an overbroad outcome-promise regex that matched boundary wording, then passed after narrowing the assertion.
+- `node tests/source-review-render.test.js` — passed after the UK render assertions were added.
+- `node tests/adsense-risk-exposure.test.js` — passed.
+- `npm test` — passed.
+- `npm run build` — passed; 101 pages generated.
+- `npm run launch-check` — passed; 101 routes, 41 checks, 0 failures, `READY.`
+- `git diff --check` — passed with no output.
+- Follow-up review on 2026-07-30 identified that the generated-output risk test could read a stale `dist/`; `tests/adsense-risk-exposure.test.js` now builds current source before asserting HTML and sitemap behavior. A fresh whole-worktree recheck then passed the three focused tests, `npm test`, `npm run build` (100 pages after later window B consolidation), `npm run launch-check` (43 checks, 0 failures, `READY.`), and `git diff --check`.
+
+Boundary:
+
+- No fixed fees, test dates, seat availability, result timing, visa/citizenship outcome, official endorsement, human reviewer identity, commercial function, form, payment, email collection, account setting, commit, push, or deployment was added.
+- This local content and SEO-risk reduction can reduce obvious AdSense low-value-content exposure, but it cannot guarantee AdSense approval.
+
+## AdSense P0 window A risk-exposure stop — 2026-07-27
+
+Scope: stop advertising and index exposure on the page types identified by the 2026-07-27 sitewide AdSense audit. This window did not change guide facts, pending-guide status, content depth, authorship/reviewer records, TestDaF/telc content, dependencies, external accounts, or production state.
+
+Completed:
+
+- Disabled the AdSense runtime on the 404 page and the five existing noindex legal/policy pages.
+- Disabled the AdSense runtime on the eight current two-guide country category pages: UK, Canada, Italy, Spain, France, Finland, Netherlands, and Portugal. The four larger Germany exam categories remain ad-eligible in this window.
+- Made the shared commercial placeholder shell noindex and advertising-free for Pricing, Partners, Route Review, A1 Family Reunion Pack, and A1 Practice Pack.
+- Excluded those five commercial placeholder routes from the generated sitemap while keeping them generated as honest status pages.
+- Kept Pricing and Partners in the existing secondary About-menu/footer locations; neither is a primary top-level navigation item.
+- Added a focused generated-output test and launch-check assertions for the advertising, noindex, and sitemap contracts.
+
+Verification:
+
+- `node tests/adsense-risk-exposure.test.js` — failed first on the existing 404 AdSense loader, then passed after the minimal implementation.
+- `npm test` — passed.
+- `npm run build` — passed; 101 pages generated.
+- `npm run launch-check` — passed; 101 routes, 39 checks, 0 failures, `READY.`
+
+Boundary:
+
+- No guide Markdown, source-review metadata, content ledger, author/reviewer model, telc/TestDaF content, dependency, account-side Auto ads/CMP/Policy Center setting, commit, push, deployment, server, DNS, or TLS state was changed.
+- Source and generated-output checks prove only the local page contract. They do not prove current AdSense account exclusions, live public behavior, policy approval, or future AdSense acceptance.
 
 ## AdSense low-value content remediation — local implementation — 2026-07-26
 
@@ -33,6 +272,91 @@ Boundary:
 - Local source and build only. No push, deployment, server access, AdSense account setting, Search Console check, CMP/TCF verification or review request was performed.
 - `ads.txt` remains authorised in the supplied AdSense screenshot, but this does not establish content approval.
 - Push/deployment requires separate owner authorization after review. `Request review` requires a second action-time confirmation after production and account-side checks.
+
+## Germany TestDaF P3.3 cluster connectivity and pre-release gate — 2026-07-26
+
+Scope: connect the four existing TestDaF guides in their controlled decision order, align generated next-guide navigation, and complete the TestDaF cluster regression and local pre-release gate. This window did not re-run P3.1/P3.2 source review, change their bounded factual statements, enter telc or dependencies, or create a commit, push or deployment.
+
+Completed:
+
+- Replaced the circular TestDaF next-guide graph with the terminal sequence programme requirement -> TestDaF scoring -> accepted-proof comparison -> official preparation.
+- Reclassified only the admissions entry from `choice` to `requirement`; retained scoring/comparison as `choice`, preparation as `local-execution`, and all four guides as `contentStatus: starter-overview`.
+- Removed each primary next target from that page's supporting links and kept the remaining same-route links in decision order. All related slugs resolve to one of the existing four guides.
+- Added `germany-testdaf` to the existing explicit-route renderer so generated pages show the controlled Next guide, no alphabetic Previous guide, and no Next guide on the terminal preparation page.
+- Expanded `tests/germany-testdaf-cluster.test.js` to cover the four-guide scope, 2026-07-23 reviewed metadata, official-source sections, reader-side verification actions, exact route/supporting mappings, resolved related links, cycle-free termination, and explicit generated-page routing.
+- Updated the TestDaF audit and content ledger without changing the reviewed English source count: reviewed 50, pending 4.
+
+Verification:
+
+- `node tests/germany-testdaf-cluster.test.js` — passed after the expected RED failure and minimal route implementation.
+- `node tests/content-integrity.test.js` — passed.
+- `node tests/source-review-render.test.js` — passed.
+- Generated-output inspection confirmed the controlled TestDaF Next targets, no alphabetic Previous targets, and a terminal preparation page.
+- `npm test` — passed.
+- `git diff --check` — passed with no output.
+- `npm run build` — passed; 101 pages generated.
+- `npm run launch-check` — passed; 101 routes, 37 checks, 0 failures, `READY.`
+
+Boundary:
+
+- No target university/programme, selected centre, DSH-offering university, local mission, candidate timeline, or applicant decision was supplied or inferred. The existing reader-side checks remain required.
+- No fee, date, deadline, result timing, eligibility, exemption, certificate-acceptance guarantee, admission result, visa result, or outcome statement was added.
+- No telc content, dependency file, protected prompt, external Vault, commit, push, deployment, server, DNS, TLS, CMP, advertising, analytics, form, payment or email-delivery state was changed.
+
+## Germany TestDaF P3.2 source review — 2026-07-23
+
+Scope: recheck and complete the bounded source review for `testdaf-vs-goethe-dsh` and `testdaf-preparation-and-practice` only. This window did not enter P3.3, change TestDaF related links, touch telc or dependencies, or create a commit, push or deployment.
+
+Completed:
+
+- Opened the current final TestDaF digital-structure, digital-preparation and paper-based-preparation pages and the Goethe-Institut German-examinations page.
+- Preserved the comparison guide's programme-first structure. Limited provider facts to the cited digital TestDaF structure and Goethe-Zertifikat C1 module descriptions, added a five-item evidence record, and kept all DSH product and local-procedure claims unresolved because no DSH-offering university was supplied.
+- Distinguished official digital tutorials, example tasks and original material from official paper-based model tests, tutorials, tips and original material. Labelled the adjustable practice loop as VisaLang editorial advice and rejected fixed-duration, readiness, score, registration and admissions conclusions.
+- Recorded `sourceReviewStatus: reviewed`, `sourceReviewedAt: 2026-07-23`, `reviewedByRole: source-review` and bounded authority/exam-owner prompts for the two P3.2 guides. Both remain `contentStatus: starter-overview`.
+- Updated the TestDaF audit and content ledger for these two guides and the controlled English source-review count. Updated only the existing TestDaF date/status assertions; related-link assertions were not changed.
+
+Verification:
+
+- `node tests/germany-testdaf-cluster.test.js` — passed.
+- `node tests/content-integrity.test.js` — passed.
+- `node tests/source-review-render.test.js` — passed.
+- `npm test` — passed.
+- `git diff --check` — passed with no output.
+- `npm run build` — passed; 101 pages generated.
+- `npm run launch-check` — passed; 101 routes, 37 checks, 0 failures, `READY.`
+
+Boundary:
+
+- No target programme, selected TestDaF or Goethe centre, DSH-offering university, TestDaF format or candidate timeline was supplied. Acceptance, result pattern, DSH details, centre terms, readiness and outcomes therefore remain reader-specific checks rather than published conclusions.
+- No P3.3 related-link work, telc content, dependency update, commit, push, deployment, server access or third-party account change was performed.
+
+## Germany TestDaF P3.1 source review — 2026-07-23
+
+Scope: recheck and complete the bounded source review for `testdaf-germany-university-admissions` and `testdaf-levels-and-scoring` only. This window did not enter the TestDaF comparison/preparation batch, change TestDaF related links, touch telc or dependencies, or create a commit, push or deployment.
+
+Completed:
+
+- Opened the current final uni-assist language-certificate page and the TestDaF university, digital-scoring and paper-based-scoring pages. A direct DAAD source check returned HTTP 200 for the requirements overview.
+- Preserved the existing programme-first structure instead of rewriting both guides. Recorded the current uni-assist certificate-list statement and TestDaF/RO-DT TDN 4 framework, then separated those general facts from one programme's differentiated result, document, stage and submission requirements. Added a dated programme-evidence record instead of inventing a university example.
+- Retained the official digital 0–20 component ranges and paper-based test-set adjustment boundary. Added an explicit warning against homemade component averages, unsupported CEFR conversion and using a provider result as an admissions decision.
+- Recorded `sourceReviewStatus: reviewed`, `sourceReviewedAt: 2026-07-23`, `reviewedByRole: source-review` and bounded authority/exam-owner prompts for the two P3.1 guides. Both remain `contentStatus: starter-overview`.
+- Updated the TestDaF audit and content ledger for these two guides only. `testdaf-vs-goethe-dsh` and `testdaf-preparation-and-practice` remain dated 2026-07-13 with source review pending.
+- With explicit project-owner authorization, narrowed the existing TestDaF regression assertions so the two P3.1 guides require the new review date/status while the two P3.2 guides remain locked to their pending baseline. Related-link assertions were not changed.
+
+Verification:
+
+- `node tests/germany-testdaf-cluster.test.js` — passed.
+- `node tests/content-integrity.test.js` — passed.
+- `node tests/source-review-render.test.js` — passed.
+- `npm test` — passed.
+- `git diff --check` — passed with no output.
+- `npm run build` — passed; 101 pages generated.
+- `npm run launch-check` — passed; 101 routes, 37 checks, 0 failures, `READY.`
+
+Boundary:
+
+- The page-level source review covers only the bounded public statements. No target university or programme was supplied, so current accepted proof, result pattern, application stage, materials, route, deadline and admission decision remain programme-specific checks.
+- No P3.2 or P3.3 related-link work, telc content, dependency update, commit, push, deployment, server access or third-party account change was performed.
 
 ## Germany A1/B1 support-page production release — 2026-07-22
 

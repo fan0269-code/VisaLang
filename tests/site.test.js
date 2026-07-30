@@ -4,10 +4,15 @@ const path = require('node:path');
 
 require('./route-tools.test.js');
 require('./commercial-pages.test.js');
+require('./adsense-risk-exposure.test.js');
 require('./germany-a1-cluster.test.js');
 require('./germany-b1-cluster.test.js');
 require('./germany-testdaf-cluster.test.js');
 require('./p0-five-countries.test.js');
+require('./finland-window-b.test.js');
+require('./italy-window-b.test.js');
+require('./canada-window-b.test.js');
+require('./netherlands-window-b.test.js');
 require('./content-integrity.test.js');
 require('./source-review-render.test.js');
 require('./deploy.test.js');
@@ -44,6 +49,7 @@ const src = {
   headers: read('public/_headers'),
   adsTxt: exists('public/ads.txt') ? read('public/ads.txt') : '',
   sourceReview: read('src/data/source-review.ts'),
+  launchCheck: read('scripts/launch-check.js'),
   guideStatusBadge: read('src/components/GuideStatusBadge.astro'),
   navigationCurrent: exists('src/lib/navigation-current.ts') ? read('src/lib/navigation-current.ts') : '',
 };
@@ -92,12 +98,13 @@ assert.ok(!src.base.includes('static.cloudflareinsights.com'), 'shared layout do
 assert.ok(src.tool.includes('enableAds={false}'), 'ToolLayout disables advertising for URL-backed tools');
 assert.ok(src.tools.includes('enableAds={false}'), 'tools index disables advertising');
 assert.ok(src.guides.includes('enableAds={false}'), 'searchable guide library index disables advertising');
-assert.ok(src.home.includes('enableAds={true}'), 'homepage explicitly opts into the AdSense loader for site verification');
-assert.ok(src.guide.includes('isGuidePrimaryDiscoveryEligible') && src.guide.includes('enableAds={primaryDiscoveryEligible}') && src.guide.includes('noindex={!primaryDiscoveryEligible}'), 'guide advertising and indexing use the shared primary-discovery gate');
-assert.ok(src.commercialShell.includes('enableAds={false}') && src.commercialShell.includes("noindex={status !== 'available'}"), 'commercial status and navigation pages stay ad-free while unfinished offers are noindex');
+assert.ok(src.home.includes('enableAds={true}'), 'homepage explicitly opts into the AdSense loader');
+assert.ok(src.guide.includes('isGuidePrimaryDiscoveryEligible') && src.guide.includes('enableAds={advertisingEligible}') && src.guide.includes('noindex={!primaryDiscoveryEligible}'), 'guide advertising and indexing use the shared fail-closed gate');
 assert.ok(src.notFound.includes('enableAds={false}'), '404 page explicitly disables advertising');
-assert.ok(src.guideCategory.includes('noindex={!indexEligible}') && src.guideCategory.includes('enableAds={false}'), 'empty or incomplete guide categories are noindex and advertising-free');
-assert.ok(src.sourceReview.includes('isGuidePrimaryDiscoveryEligible'), 'one shared helper controls guide primary-discovery and advertising eligibility');
+assert.ok(src.guideCategory.includes('noindex={!indexEligible}') && src.guideCategory.includes('enableAds={false}'), 'guide categories are indexed only when they contain discovery-eligible guides and remain ad-free');
+assert.ok(src.guideCategory.includes('allCategoryGuides') && src.guideCategory.includes('withheldGuideCount') && src.guideCategory.includes('currently meet the primary discovery gate'), 'withheld category guides are described accurately without returning them to primary discovery');
+assert.ok(src.launchCheck.includes('explicitlyNoindexCategorySlugs') && src.launchCheck.includes('!explicitlyNoindexCategorySlugs.has(categorySlug)'), 'launch check respects the taxonomy noindex veto for categories');
+assert.ok(src.sourceReview.includes('isGuidePrimaryDiscoveryEligible'), 'one shared helper controls primary-discovery eligibility');
 assert.equal(src.adsTxt, 'google.com, pub-3018617123550799, DIRECT, f08c47fec0942fa0\n', 'ads.txt declares the approved direct Google seller');
 assert.ok(src.privacy.includes('How VisaLang handles visitor data, advertising choices, URL state, local storage, and server logs.'), 'privacy policy description covers advertising choices');
 for (const text of ['VisaLang uses Google AdSense on ad-eligible content pages', 'Google Privacy & messaging', 'Google Ads Settings', 'places only the non-sensitive values needed to restore that result in the page URL']) {
@@ -126,35 +133,18 @@ for (const page of [
   'dist/tools/email-reminders/index.html',
   'dist/guides/index.html',
   'dist/404.html',
-  'dist/products/a1-practice-pack/index.html',
-  'dist/products/a1-family-reunion-pack/index.html',
-  'dist/route-review/index.html',
-  'dist/partners/index.html',
-  'dist/guides/telc-b1-b2-fees-and-test-centers/index.html',
-  'dist/guides/category/germany-telc/index.html',
+  'dist/guides/cils-b1-cittadinanza-for-italian-citizenship/index.html',
+  'dist/guides/testdaf-germany-university-admissions/index.html',
+  'dist/guides/category/italy/index.html',
+  'dist/guides/category/germany-testdaf/index.html',
 ]) {
   assert.ok(!read(page).includes('pagead2.googlesyndication.com'), `advertising-free generated page excludes AdSense: ${page}`);
 }
-assert.match(read('dist/guides/telc-b1-b2-fees-and-test-centers/index.html'), /<meta name="robots" content="noindex,follow">/, 'starter guide is withheld from indexing under the shared primary-discovery gate');
+assert.match(read('dist/guides/cils-b1-cittadinanza-for-italian-citizenship/index.html'), /<meta name="robots" content="noindex,follow">/, 'pending guide is withheld from indexing');
 assert.doesNotMatch(read('dist/guides/german-family-reunion-language-requirement/index.html'), /<meta name="robots" content="noindex,follow">/, 'reviewed complete guide remains indexable');
-assert.match(read('dist/products/a1-practice-pack/index.html'), /<meta name="robots" content="noindex,follow">/, 'coming-soon product is noindex');
-assert.match(read('dist/partners/index.html'), /<meta name="robots" content="noindex,follow">/, 'contact-only partner page is noindex');
 const qualityGatedGuideIndex = read('dist/guides/index.html');
 assert.ok(qualityGatedGuideIndex.includes('Goethe A1 test centers: verify an official exam centre'), 'guide library retains a reviewed complete guide');
-assert.ok(!qualityGatedGuideIndex.includes('telc B1/B2 Fees and Test Centers'), 'guide library withholds a starter guide from primary discovery');
-const qualityGatedSitemap = read('dist/sitemap-0.xml');
-assert.ok(qualityGatedSitemap.includes('https://visalang.org/guides/goethe-a1-test-centers/'), 'sitemap retains a reviewed complete guide');
-for (const path of [
-  '/guides/telc-b1-b2-fees-and-test-centers/',
-  '/guides/ielts-ukvi-uk-visa/',
-  '/products/a1-practice-pack/',
-  '/products/a1-family-reunion-pack/',
-  '/route-review/',
-  '/partners/',
-  '/guides/category/germany-telc/',
-]) {
-  assert.ok(!qualityGatedSitemap.includes(`https://visalang.org${path}`), `sitemap excludes noindex route: ${path}`);
-}
+assert.ok(!qualityGatedGuideIndex.includes('CILS B1 Cittadinanza for Italian Citizenship'), 'guide library withholds a pending guide');
 assert.equal(read('dist/ads.txt'), 'google.com, pub-3018617123550799, DIRECT, f08c47fec0942fa0\n', 'generated ads.txt retains the approved direct Google seller');
 
 for (const token of ['--page-max', '--reading-max', '--text-2xl', '--space-8', '--radius', '--shadow-md', '--primary', '--risk', '--success', '--focus', '--disabled']) {
@@ -175,8 +165,6 @@ assert.ok(src.css.includes('overflow-x: auto'), 'wide tables and tool navigation
 assert.ok(src.home.includes('Find the right language proof before you book an exam.'), 'homepage has the selected route-planning task');
 assert.ok(src.home.includes('class="route-entry"') && !src.home.includes('route-console'), 'homepage uses a static editorial route entry instead of a console surface');
 assert.ok(src.home.includes('href="/tools/route-finder/">Start with Route Finder'), 'homepage has the required primary action');
-assert.ok(src.about.includes('publishedEnglishGuides') && src.about.includes('Current discovery scope') && src.about.includes('not an independent guarantee of page quality or AdSense approval'), 'About page explains the conservative discovery scope without claiming a quality guarantee');
-assert.ok(!src.siteData.includes("href: '/guides/testdaf-germany-university-admissions/'") && !src.siteData.includes("href: '/guides/telc-b1-b2-germany-work-nursing/'"), 'primary route navigation does not promote incomplete guide drafts');
 assert.ok(src.home.includes('href="/guides/">Browse guides</a>'), 'homepage has the Open Design secondary action');
 assert.ok(src.home.includes('<RouteSelector'), 'homepage uses the shared purpose selector');
 assert.equal((src.home.match(/type="radio"/g) || []).length, 0, 'homepage does not inline radio-based decision controls');
@@ -185,8 +173,10 @@ assert.doesNotMatch(src.home, /aria-pressed=/, 'homepage does not emulate mutual
 assert.ok(!src.home.includes('home-hero__principles') && src.home.includes('<strong>Route first. No invented facts.</strong>'), 'homepage moves route-first principles into the trust statement');
 assert.ok(src.home.includes('trust-statement') && !src.home.includes('trust-band'), 'homepage trust boundary is editorial prose rather than a card wall');
 assert.ok(!src.home.includes('button--accent'), 'homepage does not use warning accent styling for primary actions');
-assert.ok(src.home.includes('publishedGuides.length'), 'homepage guide count follows the primary-discovery scope and is data-driven');
-assert.ok(src.home.includes('publishedCategoryCount'), 'homepage developed-route count follows the primary-discovery scope and is data-driven');
+assert.ok(src.home.includes('publishedGuides.length'), 'homepage guide count follows the primary-discovery scope');
+assert.ok(src.home.includes('publishedCategoryCount'), 'homepage category count follows the primary-discovery scope');
+assert.ok(src.about.includes('publishedEnglishGuides') && src.about.includes('Current discovery scope') && src.about.includes('not an independent guarantee of page quality or AdSense approval'), 'About explains the conservative discovery boundary');
+assert.ok(!src.siteData.includes("href: '/guides/testdaf-germany-university-admissions/'") && !src.siteData.includes("href: '/guides/telc-b1-b2-germany-work-nursing/'"), 'primary route navigation does not promote withheld guides');
 
 for (const file of ['src/pages/routes/index.astro', 'src/pages/exams/index.astro', 'src/pages/tools/index.astro']) {
   assert.ok(exists(file), `top-level centre page should exist: ${file}`);
@@ -261,8 +251,8 @@ for (const sort of ['Recently updated', 'Route relevance', 'Content maturity']) 
 for (const status of ['Route structure complete', 'Core route structure']) {
   assert.ok(src.guides.includes(status), `guide library includes ${status} status`);
 }
-for (const withheldStatus of ['Starter overview', 'Verification pending']) {
-  assert.ok(!src.guides.includes(`value: '${withheldStatus === 'Starter overview' ? 'starter-overview' : 'verification-pending'}'`), `guide library withholds ${withheldStatus} from primary discovery`);
+for (const status of ['starter-overview', 'verification-pending']) {
+  assert.ok(!src.guides.includes(`value: '${status}'`), `guide library withholds ${status} from primary discovery`);
 }
 for (const oldFilterLabel of ['Complete route', 'Core route']) {
   assert.ok(!src.guides.includes(`label: '${oldFilterLabel}'`), `guide library no longer uses ${oldFilterLabel} as a filter label`);
@@ -293,7 +283,7 @@ assert.ok(src.guide.includes('showSourceFactTable') && src.guide.includes('sourc
 assert.ok(src.guide.includes('Who decides this?') && src.guide.includes('Official verification pending.'), 'English guides expose the deciding-authority boundary');
 assert.ok(src.zhGuide.includes('谁最终决定？') && src.zhGuide.includes('独立中文来源复核待完成'), 'Chinese guides preserve an explicit pending source boundary');
 assert.ok(src.guide.includes("author: { '@type': 'Organization', name: author }") && src.zhGuide.includes("author: { '@type': 'Organization', name: guideRecord.author }"), 'Article JSON-LD authors use a controlled Organization type with the same controlled name, without inventing a Person');
-assert.ok(src.guideTaxonomy.includes('starter overview guides'), 'other categories retain starter overview framing');
+assert.ok(src.guideTaxonomy.includes('Guides remain outside primary discovery until their source and content status meet the publication gate.'), 'other categories explain the fail-closed discovery boundary');
 assert.ok(src.guides.includes('history.replaceState'), 'guide filters persist to URL parameters');
 assert.ok(src.guides.includes("params.get('q')") && src.guides.includes('params.get(filter.name)') && src.guides.includes("params.get('sort')"), 'guide filters restore search, facets, and sort from URL parameters');
 assert.ok(src.guides.includes('guide-empty-state'), 'guide library has an empty state');
@@ -337,11 +327,14 @@ for (const page of ['a1-family-reunion-pack.astro', 'a1-practice-pack.astro']) {
 assert.ok(src.redirects.includes('/do-i-need-german-a1.html /tools/route-finder/ 301'), 'legacy helper has a 301 redirect');
 assert.ok(src.redirects.includes('dutch-inburgering-a2-b1-for-integration-and-citizenship'), 'truncated Dutch slug redirects to corrected slug');
 assert.ok(src.redirects.includes('portuguese-language-for-golden-visa-and-citizenship'), 'truncated Portuguese slug redirects to corrected slug');
+assert.ok(src.redirects.includes('/guides/yki-vs-other-finland-options/ /guides/yki-finnish-citizenship/ 301'), 'the retired Finland comparison URL redirects to the consolidated guide');
+assert.ok(src.redirects.includes('/guides/yki-vs-other-finland-options.html /guides/yki-finnish-citizenship/ 301'), 'the retired Finland legacy HTML URL redirects directly to the consolidated guide');
 assert.ok(exists('src/content/guides/dutch-inburgering-a2-b1-for-integration-and-citizenship.md'), 'correct Dutch source slug exists');
 assert.ok(exists('src/content/guides/portuguese-language-for-golden-visa-and-citizenship.md'), 'correct Portuguese source slug exists');
+assert.ok(!exists('src/content/guides/yki-vs-other-finland-options.md'), 'the duplicate Finland guide source is retired');
 
 const contentFiles = fs.readdirSync('src/content/guides').filter((file) => file.endsWith('.md'));
-assert.equal(contentFiles.length, 54, 'guide collection retains all 54 guides');
+assert.equal(contentFiles.length, 53, 'guide collection reflects the Finland consolidation');
 for (const file of contentFiles) {
   const source = read(path.join('src/content/guides', file));
   for (const field of ['title', 'description', 'category', 'slug', 'publishedDate', 'updatedDate', 'contentStatus', 'readingTime']) {

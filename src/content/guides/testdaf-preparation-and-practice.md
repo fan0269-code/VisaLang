@@ -4,12 +4,18 @@ description: "A flexible TestDaF preparation workflow using official materials a
 category: "germany-testdaf"
 slug: "testdaf-preparation-and-practice"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-13"
+updatedDate: "2026-07-23"
+sourceReviewedAt: "2026-07-23"
+sourceReviewStatus: "reviewed"
+reviewedByRole: "source-review"
 contentStatus: "starter-overview"
 primaryIntent: "TestDaF Preparation Plan and Official Practice Sources decision support"
 decisionStage: "local-execution"
-nextGuideSlug: "testdaf-germany-university-admissions"
 comparisonScope: "same-route"
+audienceScope: "Applicants preparing for a selected TestDaF format after confirming that the target programme accepts the intended proof and result pattern."
+finalDecisionAuthorityType: "TestDaF or g.a.s.t. for official preparation material; target programme for admissions use; selected centre for local registration"
+examOwnerUrl: "https://www.testdaf.de/de/"
+localExecutionPrompt: "Confirm the programme requirement and selected TestDaF format, use the matching official practice page, and recheck the selected centre's current instructions before registering."
 author: "VisaLang Editorial team"
 readingTime: "5"
 featured: false
@@ -28,16 +34,22 @@ If the programme requirement is unclear, ask the programme before treating a stu
 
 Choose the preparation page that matches the TestDaF format you intend to take:
 
-- [Digital TestDaF preparation](https://www.testdaf.de/de/teilnehmende/der-digitale-testdaf/vorbereitung-auf-den-digitalen-testdaf/) provides official preparation material, tutorials, sample tasks, and links to the digital test format.
-- [Paper-based TestDaF preparation](https://www.testdaf.de/de/teilnehmende/der-papierbasierte-testdaf/vorbereitung-auf-den-papierbasierten-testdaf/) provides the official route for the paper-based format.
+- [Digital TestDaF preparation](https://www.testdaf.de/de/teilnehmende/der-digitale-testdaf/vorbereitung-auf-den-digitalen-testdaf/) provides official tutorials, example tasks, and original training material for the digital format.
+- [Paper-based TestDaF preparation](https://www.testdaf.de/de/teilnehmende/der-papierbasierte-testdaf/vorbereitung-auf-den-papierbasierten-testdaf/) provides official model tests, tutorials, tips, and original training material for the paper-based format.
 
 Use only current official sample material or clearly labelled original learning material. Do not use leaked questions, copied live exam content, or claims that a resource guarantees a score or admission.
 
-## Build an adjustable practice routine
+## Use an adjustable editorial practice loop
 
-Use the official material to become familiar with the tasks for reading, listening, writing, and speaking. Keep a simple record after each practice session: the task type, what you could complete, what needs more work, and the source you used.
+The following loop is VisaLang editorial study advice, not an official TestDaF schedule:
 
-Set your own weekly schedule around your confirmed exam and application plans. Do not assume a fixed preparation period, a predicted score, or a registration outcome from a practice routine.
+1. Choose one task from the official page for your format.
+2. Attempt it under conditions you can repeat.
+3. Review the official solution or guidance supplied with that material.
+4. Record the task type, source, evidence of difficulty, correction, and next practice action.
+5. Repeat the weakest task type and recheck the official page for current material.
+
+Set your own schedule around confirmed exam and application plans. Do not infer a fixed preparation period, an official score, readiness, admission, or a registration outcome from this loop.
 
 ## Keep practice, scoring, and admission separate
 
@@ -65,4 +77,4 @@ Before changing an exam plan, return to the decision sequence:
 - [TestDaF: paper-based preparation](https://www.testdaf.de/de/teilnehmende/der-papierbasierte-testdaf/vorbereitung-auf-den-papierbasierten-testdaf/)
 - [TestDaF: digital scoring](https://www.testdaf.de/de/teilnehmende/der-digitale-testdaf/auswertung-des-digitalen-testdaf/)
 
-Last updated: 2026-07-13. Official verification pending.
+Last source review: 2026-07-23. The review covers the cited official preparation paths and the bounded editorial practice loop; programme acceptance, selected-centre terms, readiness, and outcomes remain separate checks.

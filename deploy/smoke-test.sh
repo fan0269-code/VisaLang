@@ -28,6 +28,8 @@ done
 
 check_redirect "$BASE_URL/index.html" "https://visalang.org/"
 check_redirect "$BASE_URL/germany-family-reunion-a1.html" "https://visalang.org/germany-family-reunion-a1/"
+check_redirect "$BASE_URL/guides/yki-vs-other-finland-options/" "https://visalang.org/guides/yki-finnish-citizenship/"
+check_redirect "$BASE_URL/guides/yki-vs-other-finland-options.html" "https://visalang.org/guides/yki-finnish-citizenship/"
 check_redirect "$WWW_URL/" "https://visalang.org/"
 
 homepage="$(curl -fsS "$BASE_URL/")"

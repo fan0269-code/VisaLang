@@ -10,11 +10,10 @@ import { zhGermanyA1Guides } from '../data/zh-germany-a1';
 const guides = await getCollection('guides');
 const publishedGuides = guides
   .map((guide) => ({ ...guide, status: resolveGuideContentStatus(guide.data) }))
-  .filter((guide) => isGuidePrimaryDiscoveryEligible(guide.status, guide.data.sourceReviewStatus));
+  .filter((guide) => isGuidePrimaryDiscoveryEligible(guide.status, guide.data.sourceReviewStatus) && guide.data.noindex !== true);
 const updated = [...publishedGuides]
   .sort((a, b) => b.data.updatedDate.localeCompare(a.data.updatedDate))
-  .slice(0, 3)
-  .map((guide) => ({ ...guide }));
+  .slice(0, 3);
 const totalGuideCount = publishedGuides.length + zhGermanyA1Guides.length;
 const publishedCategoryCount = new Set(publishedGuides.map((guide) => guide.data.category)).size;
 const jsonLD = { '@context': 'https://schema.org', '@type': 'WebSite', name: site.name, url: `${site.url}/`, description: 'Official-source-first language-proof route decisions.' };

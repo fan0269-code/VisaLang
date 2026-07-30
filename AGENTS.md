@@ -32,6 +32,12 @@ Follow existing Astro and TypeScript formatting: two-space indentation, single q
 
 Add or update a focused assertion in `tests/` when behavior, a route, or a required link changes. Content front matter must retain the required fields (including `slug`, `publishedDate`, `updatedDate`, and `readingTime`). Visa, exam, fee, and eligibility claims must be official-source-first: do not invent requirements or imply legal advice, payment, delivery, or service completion without a confirmed implementation. Update `docs/TASK_LOG.md` for a completed maintenance window.
 
+## Independent Agent Review
+
+The agent that implements a change must not be the sole reviewer and must not mark its own work as review-passed. Before reporting an implementation or content change as complete, assign at least one separate agent that did not participate in the implementation to perform a read-only review against the task specification and repository standards.
+
+The implementing agent must address all scoped P0, P1, and P2 findings. The original reviewing agent must then re-review the corrected work and return `PASS`; if that cannot be achieved within the authorised scope, report the blocker instead of self-approving. Automated tests and the implementing agent's own inspection are verification inputs, not substitutes for the independent agent review.
+
 ## Authority-First Content Policy
 
 VisaLang is a verification navigator, not the deciding authority or a replacement for official sources. Every new or materially updated route guide must identify who has authority over each claim before drafting it. Do not treat a general national overview as proof of a local, programme-specific, centre-specific, or individual outcome.
