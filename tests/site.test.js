@@ -104,6 +104,12 @@ assert.ok(src.notFound.includes('enableAds={false}'), '404 page explicitly disab
 assert.ok(src.guideCategory.includes('noindex={!indexEligible}') && src.guideCategory.includes('enableAds={false}'), 'guide categories are indexed only when they contain discovery-eligible guides and remain ad-free');
 assert.ok(src.guideCategory.includes('allCategoryGuides') && src.guideCategory.includes('withheldGuideCount') && src.guideCategory.includes('currently meet the primary discovery gate'), 'withheld category guides are described accurately without returning them to primary discovery');
 assert.ok(src.launchCheck.includes('explicitlyNoindexCategorySlugs') && src.launchCheck.includes('!explicitlyNoindexCategorySlugs.has(categorySlug)'), 'launch check respects the taxonomy noindex veto for categories');
+assert.ok(
+  src.launchCheck.includes('const advertisingEligible = primaryDiscoveryEligible && !explicitlyAdsIneligible')
+    && src.launchCheck.includes('const discoveryFailure = primaryDiscoveryEligible')
+    && src.launchCheck.includes('const advertisingFailure = advertisingEligible ? !hasAds : hasAds'),
+  'launch check keeps guide discovery eligibility separate from the explicit advertising veto',
+);
 assert.ok(src.sourceReview.includes('isGuidePrimaryDiscoveryEligible'), 'one shared helper controls primary-discovery eligibility');
 assert.equal(src.adsTxt, 'google.com, pub-3018617123550799, DIRECT, f08c47fec0942fa0\n', 'ads.txt declares the approved direct Google seller');
 assert.ok(src.privacy.includes('How VisaLang handles visitor data, advertising choices, URL state, local storage, and server logs.'), 'privacy policy description covers advertising choices');

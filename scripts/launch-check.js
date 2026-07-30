@@ -265,14 +265,18 @@ const guideDiscoveryFailures = guidePages.filter(({ route, html }) => {
   const sourceReviewStatus = frontmatterField(source, 'sourceReviewStatus') || 'pending';
   const explicitlyNoindex = frontmatterField(source, 'noindex') === 'true';
   const explicitlyAdsIneligible = frontmatterField(source, 'adsEligible') === 'false';
-  const eligible = sourceReviewStatus === 'reviewed'
+  const primaryDiscoveryEligible = sourceReviewStatus === 'reviewed'
     && (status === 'complete-route' || status === 'core-route')
-    && !explicitlyNoindex
-    && !explicitlyAdsIneligible;
+    && !explicitlyNoindex;
+  const advertisingEligible = primaryDiscoveryEligible && !explicitlyAdsIneligible;
   const hasNoindex = html.includes('<meta name="robots" content="noindex,follow">');
   const hasAds = html.includes('pagead2.googlesyndication.com');
   const inSitemap = sitemap.includes(`<loc>https://visalang.org${route}</loc>`);
-  return eligible ? hasNoindex || !hasAds || !inSitemap : !hasNoindex || hasAds || inSitemap;
+  const discoveryFailure = primaryDiscoveryEligible
+    ? hasNoindex || !inSitemap
+    : !hasNoindex || inSitemap;
+  const advertisingFailure = advertisingEligible ? !hasAds : hasAds;
+  return discoveryFailure || advertisingFailure;
 }).map(({ route }) => route);
 const guideTaxonomySource = read('src/data/guide-taxonomy.ts');
 const explicitlyNoindexCategorySlugs = new Set(
