@@ -4,7 +4,7 @@ Updated: 2026-08-18
 
 ## FAN-254 post-release dependency advisory remediation — 2026-08-18
 
-Scope: restored the original `package.json` Astro range after FAN-255 review, synchronized the lockfile root range, and retained the lockfile-only dependency remediation after FAN-253 release verification. No source routes, guide content, authority boundaries, discovery/advertising gates, deployment configuration, production state, DNS/TLS, or AdSense/CMP accounts were changed.
+Scope: restored the original `package.json` Astro range after FAN-255 review, synchronized the lockfile root range, preserved the `VisaLang` lockfile project metadata, and retained the lockfile-only dependency remediation after FAN-253 release verification. No source routes, guide content, authority boundaries, discovery/advertising gates, deployment configuration, production state, DNS/TLS, or AdSense/CMP accounts were changed.
 
 Completed:
 
