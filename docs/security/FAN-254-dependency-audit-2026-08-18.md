@@ -24,8 +24,8 @@ The baseline official `npm audit --json` metadata contained 1 moderate and 5 hig
 After restoring the original `package.json` range `astro: ^7.0.7`, synchronizing the package-lock root to `astro: ^7.0.7`, and retaining the remediated lock resolution, a final official audit was re-run and reported:
 
 - `npm audit --json` metadata: `moderate: 0`, `high: 0`, `critical: 0`, `total: 0`
-- Node modules in lockfile: `astro@7.2.2`, `sharp@0.35.3`, `svgo@4.0.2`
-- `npm ci`: exit `0`, 281 packages installed; vulnerability status is recorded separately by the final `npm audit --json`
+- Node modules in lockfile: `astro@7.1.1`, `sharp@0.35.3`, `svgo@4.0.2`
+- `npm ci`: exit `0`, 274 packages installed; vulnerability status is recorded separately by the final `npm audit --json`
 - `npm audit --json`: exit `0`, `info: 0`, `low: 0`, `moderate: 0`, `high: 0`, `critical: 0`, `total: 0`
 - `npm test`: exit `0`
 - `npm run launch-check`: exit `0`, 100 pages, 44/44 checks, `READY`
@@ -38,7 +38,7 @@ The manifest range was restored rather than widened: `package.json` and the lock
 
 | Package | Remediated version |
 | --- | ---: |
-| `astro` | `7.2.2` |
+| `astro` | `7.1.1` |
 | `sharp` | `0.35.3` |
 | `svgo` | `4.0.2` |
 | `js-yaml` | `4.3.1` |
@@ -46,5 +46,7 @@ The manifest range was restored rather than widened: `package.json` and the lock
 | `nanoid` | `3.3.18` |
 
 The post-fix official `npm audit --json` result was exit `0`, with `info: 0`, `low: 0`, `moderate: 0`, `high: 0`, `critical: 0`, and `total: 0`. Residual accepted advisories: none.
+
+Version selection: GHSA-4g3v-8h47-v7g6 lists `astro@7.1.0` as the patched version for the baseline Astro advisory, while the separate official GHSA-hpcx-pg6g-x697 record identifies the exact `7.1.0` tarball as a malicious registry package with no patched version. The first version after that excluded release, `astro@7.1.1`, was selected as the smallest compatible candidate and independently checked with official registry metadata and `npm audit --json` on 2026-08-18; it returned zero vulnerabilities. Sources: [GHSA-4g3v-8h47-v7g6](https://github.com/advisories/GHSA-4g3v-8h47-v7g6), [GHSA-hpcx-pg6g-x697](https://github.com/advisories/GHSA-hpcx-pg6g-x697), and [Astro 7.1.1 npm metadata](https://registry.npmjs.org/astro/7.1.1).
 
 The generic generated file `docs/security/audit.json` is not delivered. This named record is the authoritative evidence artifact; it was generated from the repository root on 2026-08-18 using the official npm registry advisory data and the commands listed above. This record is dependency evidence for a future separately authorised release. It is not deployment, production approval, DNS/TLS approval, or AdSense/CMP account approval.

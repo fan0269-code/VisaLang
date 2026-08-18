@@ -9,13 +9,13 @@ Scope: restored the original `package.json` Astro range after FAN-255 review, sy
 Completed:
 
 - Recorded the baseline official `npm audit --json` result as 1 moderate and 5 high vulnerable package entries, with the table separately identifying 1 moderate plus 7 high GHSA IDs, exact npm paths, affected ranges, advisory URLs, and dependency ownership in `docs/security/FAN-254-dependency-audit-2026-08-18.md`.
-- Restored the original `package.json` range `astro: ^7.0.7` and synchronized the lockfile root to that range; the lockfile still resolves Astro `7.2.2`, sharp `0.35.3`, svgo `4.0.2`, js-yaml `4.3.1`, postcss `8.5.26`, and nanoid `3.3.18`.
+- Restored the original `package.json` range `astro: ^7.0.7` and synchronized the lockfile root to that range; the lockfile now resolves the smallest verified safe Astro candidate `7.1.1`, plus sharp `0.35.3`, svgo `4.0.2`, js-yaml `4.3.1`, postcss `8.5.26`, and nanoid `3.3.18`.
 - The generated generic `docs/security/audit.json` is excluded from the deliverable; the named Markdown record is the authoritative evidence artifact and records its generation context.
 - Recorded the post-fix official audit result as zero vulnerabilities with no residual accepted advisories.
 
 Verification and boundary:
 
-- Final manifest/lockfile verification: `npm ci` exit 0 and installed 281 packages; `npm audit --json` exit 0 with `info: 0`, `low: 0`, `moderate: 0`, `high: 0`, `critical: 0`, `total: 0`; `npm test` exit 0; `npm run launch-check` exit 0 with 100 pages and 44/44 checks (`READY`); `for f in deploy/*.sh; do bash -n "$f" || exit; done` exit 0; and `git diff --check` exit 0.
+- Final manifest/lockfile verification: `npm ci` exit 0 and installed 274 packages; `npm audit --json` exit 0 with `info: 0`, `low: 0`, `moderate: 0`, `high: 0`, `critical: 0`, `total: 0`; `npm test` exit 0; `npm run launch-check` exit 0 with 100 pages and 44/44 checks (`READY`); `for f in deploy/*.sh; do bash -n "$f" || exit; done` exit 0; and `git diff --check` exit 0.
 - Independent read-only review and same-reviewer `PASS` remain required before this issue is complete.
 - No commit, push, deployment, DNS/TLS change, production access, public smoke check, or external account change was performed.
 
