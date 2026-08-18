@@ -23,6 +23,7 @@ require('./fan-43-germany-b1-recheck.test.js');
 require('./content-integrity.test.js');
 require('./source-review-render.test.js');
 require('./deploy.test.js');
+require('./fan-256-dependency-audit.test.js');
 
 const read = (file) => fs.readFileSync(file, 'utf8');
 const exists = (file) => fs.existsSync(file);
