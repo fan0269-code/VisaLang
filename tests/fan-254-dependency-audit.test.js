@@ -7,15 +7,21 @@ const auditRecord = fs.readFileSync('docs/security/FAN-254-dependency-audit-2026
 const taskLog = fs.readFileSync('docs/TASK_LOG.md', 'utf8');
 const lockPackages = packageLock.packages;
 const astroPackage = lockPackages['node_modules/astro'];
+const markdownRemarkPackage = lockPackages['node_modules/@astrojs/markdown-remark'];
+const markdownSatteriPackage = lockPackages['node_modules/@astrojs/markdown-satteri'];
 const internalHelpersPackage = lockPackages['node_modules/@astrojs/internal-helpers'];
 const vitePackage = lockPackages['node_modules/vite'];
 const postcssPackage = lockPackages['node_modules/postcss'];
 
 assert.equal(packageJson.dependencies.astro, '^7.0.7', 'manifest keeps the original Astro range');
+assert.equal(packageLock.name, 'VisaLang', 'lockfile preserves the project name');
 assert.equal(packageLock.packages[''].dependencies.astro, '^7.0.7', 'lockfile root mirrors the original Astro range');
 assert.equal(astroPackage.dependencies['@astrojs/internal-helpers'], '0.10.1', 'Astro pins its internal helpers');
 assert.equal(astroPackage.optionalDependencies.sharp, '^0.34.0 || ^0.35.0', 'Astro reaches sharp through its optional dependency');
+assert.equal(astroPackage.dependencies['js-yaml'], '^4.1.1', 'Astro reaches js-yaml directly');
 assert.equal(astroPackage.dependencies.svgo, '^4.0.1', 'Astro reaches svgo through its dependency');
+assert.equal(markdownRemarkPackage.dependencies['@astrojs/internal-helpers'], '0.10.1', 'root Markdown integration reaches js-yaml through internal helpers');
+assert.equal(markdownSatteriPackage.dependencies['@astrojs/internal-helpers'], '0.10.1', 'Astro Markdown integration reaches js-yaml through internal helpers');
 assert.equal(internalHelpersPackage.dependencies['js-yaml'], '^4.1.1', 'Astro internal helpers reach js-yaml');
 assert.equal(vitePackage.dependencies.postcss, '^8.5.16', 'Astro Vite reaches postcss');
 assert.equal(postcssPackage.dependencies.nanoid, '^3.3.17', 'PostCSS reaches nanoid');
@@ -38,6 +44,10 @@ for (const [name, version] of Object.entries(remediatedVersions)) {
 
 assert.match(auditRecord, /1 moderate and 5 high vulnerable package entries/);
 assert.match(auditRecord, /1 moderate plus 7 high GHSA IDs/);
+assert.match(auditRecord, /root -> astro -> js-yaml/);
+assert.match(auditRecord, /root -> astro -> @astrojs\/internal-helpers -> js-yaml/);
+assert.match(auditRecord, /root -> astro -> @astrojs\/markdown-satteri -> @astrojs\/internal-helpers -> js-yaml/);
+assert.match(auditRecord, /root -> @astrojs\/markdown-remark -> @astrojs\/internal-helpers -> js-yaml/);
 assert.match(auditRecord, /astro -> sharp/);
 assert.match(auditRecord, /astro -> svgo/);
 for (const name of Object.keys(remediatedVersions)) {

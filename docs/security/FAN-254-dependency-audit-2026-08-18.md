@@ -17,7 +17,14 @@ The release baseline resolved the following paths and versions:
 | `node_modules/sharp` | `0.34.5` | `<0.35.0` | high | [GHSA-f88m-g3jw-g9cj](https://github.com/advisories/GHSA-f88m-g3jw-g9cj) |
 | `node_modules/svgo` | `4.0.1` | `>=4.0.0 <4.0.2` | high | [GHSA-2p49-hgcm-8545](https://github.com/advisories/GHSA-2p49-hgcm-8545) |
 
-The baseline official `npm audit --json` metadata contained 1 moderate and 5 high vulnerable package entries (not advisory IDs): `moderate: 1`, `high: 5`, `critical: 0`, `total: 6`. The table contains 1 moderate plus 7 high GHSA IDs because several vulnerable package entries map to more than one advisory. The exact dependency paths were rooted in `astro`: `astro -> sharp`, `astro -> svgo`, `astro -> vite -> postcss -> nanoid`, and `astro -> @astrojs/internal-helpers -> js-yaml`.
+The baseline official `npm audit --json` metadata contained 1 moderate and 5 high vulnerable package entries (not advisory IDs): `moderate: 1`, `high: 5`, `critical: 0`, `total: 6`. The table contains 1 moderate plus 7 high GHSA IDs because several vulnerable package entries map to more than one advisory. The exact ownership paths to the hoisted `node_modules/js-yaml` package were recorded from the lockfile and `npm explain js-yaml` as:
+
+- `root -> astro -> js-yaml`
+- `root -> astro -> @astrojs/internal-helpers -> js-yaml`
+- `root -> astro -> @astrojs/markdown-satteri -> @astrojs/internal-helpers -> js-yaml`
+- `root -> @astrojs/markdown-remark -> @astrojs/internal-helpers -> js-yaml`
+
+The other audited paths were `root -> astro -> sharp`, `root -> astro -> svgo`, and `root -> astro -> vite -> postcss -> nanoid`.
 
 ## Post-change verification (2026-08-18)
 
