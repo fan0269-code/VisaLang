@@ -1,6 +1,111 @@
 # VisaLang Task Log
 
-Updated: 2026-07-30
+Updated: 2026-08-17
+
+## FAN-237 sitewide bug audit and Timeline Planner timezone fix — 2026-08-17
+
+Scope: audited the current Astro source, generated output and public route inventory, then fixed the one reproducible user-facing defect found in the Timeline Planner. Existing unrelated content, UI, source-review and documentation changes in the shared worktree were preserved.
+
+Completed:
+
+- Ran the standard source suite and the generated-site launch gate across 100 local routes. The launch gate passed all 44 checks covering route output, H1s, metadata, canonical URLs, JSON-LD, navigation, guide structure, hreflang, internal links, sitemap, noindex and advertising boundaries.
+- Checked 904 generated internal fragment links; every target route and fragment resolved.
+- Requested the same 100 known routes from `https://visalang.org`; 99 content routes returned HTTP 200, `/404.html` returned HTTP 404 as intended, and all responses retained an HTML title and the shared `main-content` target. This was a route-availability audit, not evidence that the uncommitted fix is deployed.
+- Reproduced a Timeline Planner defect under `Pacific/Kiritimati`: a target date of `2026-08-20` with zero buffers rendered `2026-08-19`. The cause was mixing a local-time `Date` with UTC ISO serialization.
+- Changed `calculateTimeline` to parse, validate and subtract calendar dates entirely in UTC, preventing timezone-dependent day shifts and rejecting normalized invalid calendar dates.
+- Added zero-buffer and multi-buffer UTC+14 regression cases to the standard-suite-loaded `tests/route-tools.test.js` contract.
+
+Verification:
+
+- The new focused regression failed before the fix with `2026-08-19`, then `node tests/route-tools.test.js` passed after the UTC correction.
+- The original three-timezone repro passed for `UTC`, `Asia/Shanghai` and `Pacific/Kiritimati`, each returning `2026-08-20` for a zero-buffer target of `2026-08-20`.
+- `npm test` passed.
+- `npm run launch-check` built 100 pages, passed 44/44 checks and returned `READY`.
+- `git diff --check` passed.
+
+Boundary and independent review:
+
+- No visa, exam, fee, eligibility, authority, source-review or other editorial claim changed; no new official source was required for this pure date-arithmetic correction.
+- No commit, push, preview, deployment or publication was performed. The current public site should not be described as containing the Timeline Planner fix until a separately authorised deployment is completed and verified.
+- Independent read-only review found two P2 date-boundary gaps: `Date.UTC` remapped four-digit years below 0100, and normalized invalid dates lacked a focused assertion. The implementation now uses `setUTCFullYear`, and the standard test covers both `0099-12-31` preservation and `2026-02-30` rejection.
+- The same independent reviewer re-ran the corrected scope and returned `PASS` with no remaining P0/P1/P2. Expanded probes covered UTC−12, UTC, Asia/Shanghai, Pacific/Apia and UTC+14, including leap-day and month/year boundaries.
+
+## FAN-75 Stage C controlled CSS cascade cleanup — 2026-08-17
+
+Scope: remove only proven later-overridden rules in the Tools domain and reduce non-semantic left accents across Guide and Tools surfaces. File ownership for this slice was limited to `src/styles/global.css`, the focused FAN-75 test, its `tests/site.test.js` loader line, this log, and `docs/evidence/fan-75/`. Existing unrelated local changes were preserved.
+
+Completed:
+
+- Removed the earlier Tools base rules whose complete property sets were replaced by the later Open Design rules (`tool-page`, `tool-nav`, `tool-stepper`, `tool-workspace`, form/result panels, result support, support grid, and checklist); retained the few foundation-only declarations such as field minimum width and heading paragraph margin.
+- Removed the earlier navigation disclosure glyph declarations because the later Header rules replace them at equal specificity.
+- Replaced decorative left accents on ordinary decision-authority, direct-summary, official-source, storage, and tool-notice surfaces with neutral full borders. Semantic left accents remain on verification alerts, pending states, guide disclaimers, and compliance/risk states.
+- Kept the active Tools navigation target at 44px and preserved the single stylesheet, public-service tokens, dark-mode tokens, print rules, and reduced-motion rule.
+- Added `tests/fan-75-css-cascade.test.js` to lock the cascade and semantic-accent boundaries.
+
+Verification:
+
+- `node tests/fan-75-css-cascade.test.js` and `node tests/site.test.js` passed.
+- `npm test` passed.
+- `npm run launch-check` passed: 100 routes, 44 checks, 0 failures, `READY`.
+- `git diff --check` passed.
+- `docs/evidence/fan-75/` contains 42 before/after screenshots for English home, Chinese home, Guide Library, one mature guide, one pending guide, one tool, and one route hub at 1440, 768, and 390 widths. All 42 viewport measurements had one H1 and no horizontal overflow.
+- `browser-checks.json` records seven 390px keyboard paths (84 visible focus targets) and seven successful dark-mode media checks. The Impeccable detector reports four remaining `side-tab` warnings at the intentionally retained semantic states: `.verification-alert`, `.verification-pending`, `.guide-disclaimer`, and `.compliance-line`. These warnings are reviewed exceptions within FAN-75's risk/verification boundary and are locked by the focused test; ordinary information accents were removed.
+
+Boundary and remaining gate:
+
+- No content claim, theme layer, dependency, commit, push, deploy, publication, production access, or external account change was made.
+- FAN-76 remains the required independent review. FAN-75 must not be marked review-passed until that assigned reviewer resolves all P0/P1/P2 findings and returns final `PASS`.
+
+## FAN-236 Stage C CSS cascade P2 correction — 2026-08-17
+
+Scope: corrected only the three CSS completeness findings returned from the independent Stage C review: Guide Library search control sizing/appearance, semantic verification/disclaimer accents, and effective print colours. No content facts, routes, production state, deployment, publication, or commit were changed.
+
+Completed:
+
+- Restored a complete tokenized `.search-input input` rule in the consolidated Open Design layer: `width`, `min-height`, padding, border, radius, background, and foreground; the old broad compound Tools rule remains removed.
+- Added final consolidated semantic overrides so warning verification uses `--warning`, risk verification and disclaimers use `--risk`, while summaries and ordinary authority/source/storage/tool notices retain neutral borders.
+- Moved the print block after the consolidated screen rules so final computed `body` colours are white/near-black while header/footer hiding and article full-width border/shadow removal remain active.
+- Upgraded `tests/fan-75-css-cascade.test.js` to inspect parsed final declarations and print-rule order rather than only selector or `border-left` presence.
+
+Verification:
+
+- `node tests/fan-75-css-cascade.test.js` passed.
+- `npm test` passed after a clean serial retry; `npm run launch-check` passed 44/44 with `READY`; `npm run build` passed; `git diff --check` passed.
+- Impeccable detector reports only the four intentionally retained semantic side accents (`.verification-alert`, `.verification-pending`, `.guide-disclaimer`, `.compliance-line`); ordinary accents remain absent.
+- Existing `docs/evidence/fan-75/` contains the prior 1440/768/390 light/dark and 390 keyboard evidence set for Guide Library, mature guide, pending guide, and related surfaces. This environment has no browser binary or screenshot tool, so fresh post-fix captures were not generated in this run and remain a reviewer-environment action.
+
+Boundary and remaining gate:
+
+- No content-facing source review or Obsidian sync was required; this was an implementation/test-only CSS correction.
+- Independent read-only reviewer approval is still required before closing the parent review loop. No commit, push, deploy, publish, or self-approval is claimed.
+
+## FAN-73 阶段 A：指南信任与关键交互层级 — 2026-08-14
+
+Scope: Stage A fail-closed trust slice from FAN-21 for guide library Chinese metadata consistency and critical interaction target sizing. Changes were limited to existing guide surfaces and tests, with no theme layer expansion.
+
+Completed:
+
+- Updated `src/pages/guides/index.astro` to normalize China family-reunion A1 guide cards through `getPrimaryDiscoveryZhGuides`, preserve real review metadata, apply the shared primary-discovery gate, and sort the eligible records by updated date.
+- Updated `src/layouts/GuideLayout.astro` to remove nested emphasis from the Direct Answer section and keep one answer container plus a scan-friendly responsibility line.
+- Confirmed interaction targets for primary navigation, mobile-menu summary control, filter drawer summary, and active filter chips use 44px minimum hit targets in `src/styles/global.css`.
+- Refined `tests/fan-73-guide-trust.test.js` with executable reviewed, pending, and missing-status fixtures; the test proves pending/missing records are excluded from the collection used by cards, counts, and JSON-LD.
+- Moved the existing `report-outdated` stack/wrap behavior to the 768px narrow-screen breakpoint so the complete correction CTA remains visible at 390px.
+- Updated this task log with verification evidence and remaining risk flags.
+- Revalidated in this workspace run: `npm test` passed 100%, and `npm run launch-check` passed 100%/44 checks on a clean retry (the first run saw a transient Astro `.astro/content-assets.mjs.tmp` rename ENOENT).
+
+Verification:
+
+- `npm test` passed with focused FAN-73 assertions and no regressions in existing contracts.
+- `npm run launch-check` passed: 100 routes, 44 checks, 0 failures, `READY`.
+- `git diff --check` passed.
+- Affected guide-library and guide article evidence screenshots are under `/Users/fanlw/Documents/Website-Content-Hub/10-visalang.org网站维护/30-待审核/网站更新记录/2026-08-14-visalang-fan-73-evidence/`. The corrected bottom state is recorded in `guide-article-390-bottom.png` and `keyboard-navigation.json`: at a true 390 CSS px viewport Chrome exposed a 375px layout width beside its scrollbar, with `clientWidth=375`, `scrollWidth=375`, CTA bounds `41..334`, height `48`, and all overflow/visibility checks passed.
+
+Boundary:
+
+- No commit, push, deploy, or publication was performed.
+- No fees, timeline, eligibility, outcome, or new-country/exam content decisions were added.
+- Authority-first requirement and independent reviewer requirements remain unchanged and in force.
+- Current controlled Chinese inventory is 8 reviewed and 0 pending. Missing-status input falls back to pending and is fail-closed; no ninth content record was fabricated to satisfy the earlier plan wording.
 
 ## Accumulated AdSense release-readiness review — 2026-07-30
 
@@ -3146,3 +3251,105 @@ Remaining:
 - Content queue result: removed the completed Spain wording gate. The next Agent-capable item is the separately scoped review of the ten remaining pending English Germany A1 support pages.
 - Verification: the updated acceptance assertion failed against the old `PENDING` record, then passed after the scoped documentation change; `npm test`, `npm run launch-check` and `git diff --check` passed; independent standards and specification reviews both returned `PASS`.
 - Delivery boundary: this entry records the accepted candidate before commit and production publication. Deployment evidence must be recorded separately after the immutable release is verified.
+
+## 2026-08-13 — Bilingual homepage targeted visual optimization
+
+- Scope: implemented the approved targeted evolution for the English and Chinese homepages without changing routes, navigation labels, guide frontmatter, structured-data contracts, advertising configuration, legal copy, or authority-first content rules.
+- Shared UI: added `HomeHero.astro`, a generated 4:3 route-verification visual under `src/assets/`, responsive Astro AVIF/WebP output, an explicit responsive preload, one featured-route spotlight, consistent CTA language, and matching bilingual homepage information rhythm.
+- Design system: retained `global.css` as the only production stylesheet; unified English and Chinese system sans typography, 8px-based spacing, blue actions, semantic success/warning colours, 8/12/16px control-panel-visual radii, same-theme footer, 150–220ms state feedback, dark mode, reduced motion and accessible focus states.
+- Content boundary: kept the Germany A1 emphasis and dynamic primary-discovery counts; no new requirement, acceptance, price, timeline, outcome, social-proof or official-status claim was added.
+- Verification: focused UI assertions and `npm test` passed; `npm run build` generated 100 pages; `npm run launch-check` passed 44/44 and ended `READY`; `git diff --check` passed. Responsive checks covered 1440, 1024, 768 and 375px across both homepages, the guide library, one representative guide, a route page and Route Finder with no horizontal overflow. Final Lighthouse measured homepage Performance 100 / LCP 1.16s / CLS 0 / TBT 80ms and representative-guide Performance 100 / LCP 0.76s / CLS 0 / TBT 62ms; lab runs do not provide field INP.
+- Review and delivery boundary: independent read-only review found no P0/P1 and identified scoped P2 corrections; after those fixes, the same reviewer returned `PASS`. This window does not commit, push, deploy, preview publicly, approve content, or alter the three pre-existing untracked user planning surfaces.
+
+## 2026-08-14 — FAN-24 content update plan draft
+
+- Scope: created `docs/CONTENT_UPDATE_PLAN_2026-08-14.md` as a six-week, approval-gated content maintenance plan; no guide, route, data module, UI, deployment file or external account was changed.
+- Baseline: a read-only inventory of `src/content/guides/*.md` found 53 English guides, 49 with `sourceReviewStatus: reviewed`, 4 telc guides without source-review metadata, 15 `verification-pending` guides, 8 `starter-overview` guides, 17 `complete-route` guides and 13 `core-route` guides.
+- Plan order: close the four telc source gaps first, then use Search Console 28/90-day aggregates to select two `verification-pending` country clusters, maintain the highest-demand Germany A1/B1 pages, and allow at most one or two new pages only after evidence and demand gates pass.
+- First slice: after plan approval, update `telc-vs-goethe-for-german-visa` end to end within three working days, including authority/source boundaries, focused assertions, ledger/log/Vault sync and independent review. Publication remains separately authorised.
+- Data boundary: no Search Console, Analytics, AdSense, production server, production secret, billing or personal data was accessed. Missing search-demand data is an explicit decision input; without it, the plan falls back to source-safety work and does not infer traffic priority.
+- Verification: plan-specific repository checks and Paperclip confirmation evidence are recorded in FAN-24. Existing unrelated homepage UI changes remain untouched and unstaged by this task.
+
+## 2026-08-14 — FAN-34 telc vs Goethe authority-first content slice
+
+- Scope: implemented only the first FAN-24 content slice for `telc-vs-goethe-for-german-visa`; the other three telc guides, production state, external accounts and unrelated homepage/UI work remain unchanged.
+- Source review: checked the Federal Foreign Office visa entry and certificate guidance, Goethe-Institut exam catalogue, telc exam catalogue, centre finder and FAQ, plus bounded BAMF and German-government route pages. The claim matrix is recorded in `docs/TELC_GOETHE_VISA_SOURCE_REVIEW_2026-08-14.md` with authority, URL, check date, permitted support, boundary and reader action.
+- Content result: removed unsupported brand-default, popularity, work-route, nursing-frequency and profession-specific exclusivity claims. Replaced them with a three-layer workflow: save the competent authority's route-specific instruction, compare only exact exam products, then verify current local execution with the selected official or authorised centre.
+- Gate result: the page remains `starter-overview`, explicitly `noindex` and advertising-free. Bounded source review is recorded as `reviewed` on 2026-08-14, increasing the controlled English source-review count from 49 to 50 while leaving three telc pages pending.
+- Verification: the focused test failed first on the old 2026-06-30 metadata, then passed after the bounded rewrite. `npm test` passed with the new contract included; `npm run launch-check` built 100 pages and passed 44/44 checks with `READY`; `git diff --check` passed.
+- Review and delivery boundary: independent Standards review initially found two P2 documentation/template gaps, and independent Spec review found one P2 handoff-boundary gap. All were corrected; the original reviewers rechecked the corrected scope and each returned `PASS` with no remaining P0/P1/P2. No commit, push, preview, deployment, publication or owner approval is claimed; the Vault record remains in human-review state.
+
+## 2026-08-14 — FAN-36 reviewed-source rendering correction
+
+- Review finding: the Founding Engineer found one P1 in the generated `telc-vs-goethe-for-german-visa` route: its reviewed authority metadata rendered correctly in the header, but the shared `GuideLayout` still showed `Official verification pending` because the source fact table was coupled to mature content status.
+- Minimal correction: `GuideLayout` now renders the source-reviewed responsibility table whenever the bounded authority metadata is verified. The guide remains `starter-overview`, `noindex` and advertising-free; discovery and content-maturity gates were not changed.
+- Regression seam: `tests/telc-window-1.test.js` now builds and reads the generated route, rejects the conflicting pending message, requires the bounded authority/source table and final-decision boundary, and confirms the visible status remains `Starter overview` rather than a mature state.
+- Verification: the new rendered-route assertion failed against the old layout, then passed after the one-line condition change. Serial `node tests/telc-window-1.test.js`, `npm test` and `npm run launch-check` passed; launch check built 100 pages, passed 44/44 checks and returned `READY`. Final `git diff --check` is recorded with the FAN-36 resubmission.
+- Review and delivery boundary: this correction is awaiting re-review by the same Founding Engineer. No commit, push, preview, deployment, publication or owner approval is claimed.
+
+## 2026-08-14 — FAN-37 telc B1/B2 format and preparation source slice
+
+- Scope: processed only `telc-b1-b2-exam-format-and-preparation`; no other guide, production state, external account or unrelated working-tree change was modified. The page disposition is retain and deepen while continuing `starter-overview`, explicit `noindex` and advertising-free status.
+- Source review: checked the current telc product pages for the general `Zertifikat Deutsch / telc Deutsch B1` and `telc Deutsch B2`, downloaded their linked official mock packages, inspected each exact-product scoring section, and checked the telc exam FAQ plus B2 preparation tips. `docs/TELC_B1_B2_FORMAT_SOURCE_REVIEW_2026-08-14.md` records each claim, authority, URL, check date, permitted support, boundary and reader action.
+- Content result: separated B1 and B2 timings and delivery formats, recorded the written/oral scoring boundary, qualified telc's current result interval as a non-guaranteed general estimate, and routed current registration, day plan, accessibility and result handover to the selected telc examination centre. Added a product record, official-mock baseline, diagnostic record and repeatable training loop; school, business, nursing, medical and dual-level variants remain out of scope.
+- Navigation and maturity: removed the outgoing sequential link to the fee/centre page to avoid the pre-existing two-page next loop. The fee/centre page remains supporting context. Bounded source review increased the controlled English state to 51 reviewed and 2 pending without promoting discovery or content maturity.
+- Verification: the new FAN-37 assertion first failed against the old `updatedDate: 2026-06-30`. The review correction then isolated the later FAN-38 contract from the FAN-37 focused file and replaced per-slice front-matter parsers with one shared `frontmatterField(source, name)` helper. After correction, `node tests/telc-window-1.test.js` exited 0 with only the FAN-34 and FAN-37 contracts; the first `npm test` attempt hit a non-assertion concurrent `dist/.prerender` missing-chunk error, then the serial rerun exited 0 with the split FAN-38 contract still covered; `npm run launch-check` built 100 pages, passed 44/44 checks and returned `READY`; final `git diff --check` passed.
+- Review and delivery boundary: the P1 reproducibility and P2 duplication findings are corrected and ready for re-review by the same Founding Engineer. No implementation self-approval, commit, push, preview, deployment, publication or owner approval is claimed; the Vault record remains `review` / `pending` / `not_started`.
+
+## 2026-08-14 — FAN-38 telc B1/B2 fees and test centres source slice
+
+- Scope: processed only `telc-b1-b2-fees-and-test-centers`; no other guide, production state, external account or unrelated working-tree change was modified. The page disposition is retain and deepen while continuing `starter-overview`, explicit `noindex` and advertising-free status.
+- Source review: checked the current telc centre finder, language-examinations FAQ, Rules and Regulations for telc Examinations and the two exact general B1/B2 product pages. `docs/TELC_B1_B2_FEES_CENTRES_SOURCE_REVIEW_2026-08-14.md` records each claim, authority, URL, check date, permitted support, boundary and reader action.
+- Content result: separated telc as exam owner/licensor, the first-party centre finder as a discovery record, and the selected telc examination centre as the candidate's local contract and invoicing party. Added exact-product, centre and written fee-comparison records; routed current price, date, seat, candidate deadline, cancellation, transfer, refund and regional terms to the selected centre without publishing fixed local values.
+- Boundary corrections: removed unsupported reasons for centre price differences, prevented the telc centre-administration deadline from becoming a candidate deadline, and made clear that a finder result does not prove an exact product, sitting, seat or fee. A centre quote remains evidence only for its named product, sitting, location and check date.
+- Ledger and maturity: bounded source review increased the controlled English state to 52 reviewed and 1 pending without promoting discovery or content maturity. FAN-38 was removed from the immediate queue; the separately scoped work/nursing route remains pending.
+- Verification: the new FAN-38 assertion first failed against the old `updatedDate: 2026-06-30`. After review found that the shared window test had been overwritten, the contract was restored as the independent `tests/telc-fees-centres.test.js` and loaded explicitly by `tests/site.test.js`. The focused command and serial `npm test` pass with the FAN-38 contract visible in output; `npm run launch-check` and final `git diff --check` are recorded with the re-review handoff. Earlier full-suite retries were interrupted by concurrent Astro output cleanup, not an assertion failure.
+- Review and delivery boundary: the requested P1 test-isolation correction is ready for re-review by the same Founding Engineer. No implementation self-approval, commit, push, preview, deployment, publication or owner approval is claimed; the Vault record remains `review` / `pending` / `not_started`.
+
+## 2026-08-14 — FAN-39 telc work and nursing authority-first source slice
+
+- Scope: processed only `telc-b1-b2-germany-work-nursing`; no other guide, production state, external account or unrelated working-tree change was modified. The page disposition is retain and rewrite while continuing `starter-overview`, explicit `noindex` and advertising-free status.
+- Source review: checked the Recognition in Germany procedure and General nurse profile, the current Make it in Germany work-visa-for-qualified-professionals page, the exact `telc Deutsch B1·B2 Pflege` product page and telc exam FAQ. `docs/TELC_WORK_NURSING_SOURCE_REVIEW_2026-08-14.md` records every retained claim's authority, URL, check date, permitted support, boundary and reader action.
+- Content result: deleted the unsupported nationwide nursing, work-permit, Blue Card, settlement and citizenship certificate claims. Replaced them with four separate decision records for the competent professional recognition authority, employer, responsible German mission or foreigners authority, and telc plus the selected telc examination centre.
+- Reader workflow: requires the exact profession and work location, Recognition Finder result, employer's written job expectations, route-specific immigration instruction, exact accepted certificate and current selected-centre terms. A product page, employer request or national overview cannot decide another authority's question.
+- Ledger and maturity: bounded source review increased the controlled English state to 53 reviewed and 0 pending. The four-page telc source-gap queue is complete in the uncommitted review package, without promoting any telc starter page into primary discovery, the sitemap or advertising.
+- Verification: the new standalone FAN-39 assertion first failed against the old `updatedDate: 2026-06-30`, then `node tests/telc-work-nursing.test.js` passed after implementation. Review found that the standalone contract was not loaded by the standard suite, so `tests/site.test.js` now requires `telc-work-nursing.test.js`; the final clean `npm test` run passed and printed `FAN-39 telc work and nursing contract passed`. Three earlier suite attempts collided with other active builds writing the shared `dist/` directory and failed with `.prerender` or generated-image `ENOENT` errors before reaching FAN-39; after those processes ended, the serial rerun passed. `npm run launch-check` then built 100 pages, passed 44/44 checks and returned `READY`; `git diff --check` passed.
+- Review and delivery boundary: the configured Founding Engineer requested one P1 correction for the missing standard-suite integration. That correction and its documentation update are complete and ready for re-review by the same reviewer. No implementation self-approval, commit, push, preview, deployment, publication or owner approval is claimed; the Vault record remains `review` / `pending` / `not_started`.
+
+## 2026-08-14 — FAN-73 guide trust consistency and interaction hierarchy
+
+- Scope: implemented only the approved Stage A guide-library and shared English-guide trust slice. No guide facts, source-review decisions, routes, product strategy, deployment files, external accounts, commits, pushes or production state were changed.
+- Trust consistency: Chinese Guide Library cards now read `sourceReviewStatus`, `sourceReviewedAt`, `updatedDate` and `readingTime` from each controlled `zh-germany-a1.ts` record. The index retains eight reviewed Chinese records and an explicit missing-status `pending` fallback; it no longer borrows an English-card state or publishes the legacy hard-coded date and reading time. Default updated-date sorting now uses each Chinese record's real `updatedDate`.
+- Guide hierarchy: the shared English `GuideLayout` now renders one Direct answer container instead of a callout nested inside another callout. A compact Responsibility line names the controlled final authority when verified, otherwise tells the reader to confirm it; VisaLang remains a verification workflow rather than an individual decision maker.
+- Interaction targets: desktop primary navigation links and disclosure buttons, the mobile menu trigger, the More filters disclosure and active-filter removal chips now have a computed minimum 44px hit area while retaining the current type, spacing and one-stylesheet token system.
+- Regression seam: added `tests/fan-73-guide-trust.test.js` and loaded it through `tests/site.test.js`. The focused assertion first failed on the legacy hard-coded Chinese pending state, then passed after the controlled metadata, fail-closed, sorting, answer hierarchy and target-size corrections.
+- Verification: `node tests/fan-73-guide-trust.test.js` passed; the final shared-workspace `npm test` passed; `npm run launch-check` built 100 pages and passed 44/44 checks with `READY`; final `git diff --check` is recorded with the review handoff. Earlier full-suite attempts were interrupted by another workspace process cleaning the shared `.astro` or `dist` output; the same suite first passed in an isolated run snapshot and then passed in the shared workspace once the competing process ended.
+- Visual and keyboard evidence: local Chrome CDP captures cover the Guide Library and a representative GuideLayout article at 1440, 768 and true 390 CSS px, plus a dedicated 390px bottom-state capture. The corrected article measured `clientWidth=375` and `scrollWidth=375`; the full correction CTA stayed within `41..334` and measured 48px high. Computed targets were 44px for every desktop primary-nav control, the mobile Menu trigger, More filters and the active filter chip. The closed-state keyboard path was Search -> Purpose -> Country -> More filters -> Active filter; the closed mobile disclosure correctly skipped its hidden links.
+- Review and delivery boundary: implementation verification is complete but independent review is still required. The same uninvolved reviewer must resolve the FAN-73 review loop and return `PASS` after any P0/P1/P2 corrections. No self-approval, commit, push, deployment, publication, preview approval or owner approval is claimed; the Vault record stays `review` / `pending` / `not_started`.
+
+## 2026-08-15 — FAN-40 Netherlands Inburgering verification-pending slice
+
+- Selection boundary: FAN-35 revision 3 selected only `dutch-inburgering-a2-b1-for-integration-and-citizenship` through the no-data risk fallback. Search Console had no complete shared 28/90-day window, so this is not presented as a traffic, ranking, click or revenue priority. The separate UvA/NT2 page remains outside the editing scope.
+- Source review: reopened the two current IND pages and the two current DUO/Inburgeren pages on 2026-08-15. `docs/NETHERLANDS_INBURGERING_SOURCE_REVIEW_2026-08-15.md` records each authority, URL, permitted support, boundary and reader verification action.
+- Disposition: retain and deepen the existing page without merging or restoring discovery. It remains `verification-pending`, explicit noindex, advertising-free and terminal because individual law/cohort, PIP route, level, components, deadline, exemption, evidence and outcome remain authority-specific.
+- Reader workflow and internal links: preserve the IND -> municipality -> DUO -> Mijn Inburgering/PIP responsibility split, require a personal route record, and keep UvA/NT2 as non-sequential supporting context rather than a next step.
+- Regression seam: updated the standard-suite-loaded `tests/netherlands-window-b.test.js` contract to require the 2026-08-15 source-review metadata and visible source-check date while retaining discovery, authority, terminal-route and UvA/NT2 byte-boundary assertions.
+- Verification: `node tests/netherlands-window-b.test.js` passed. After the reviewer requested current reproducibility evidence, two shared-worktree `npm test` attempts hit an Astro optimized-image `ENOENT` while other active work cleaned the same `dist/`; the unchanged working tree was copied to the Paperclip run-owned scratch directory and the isolated `npm test` exited 0, including `Netherlands window B remediation rules passed`. In that same isolated snapshot, `npm run launch-check` built 100 pages, passed 44/44 checks and ended `READY`; final repository `git diff --check` passed. Independent reviewer PASS remains required before completion.
+- Delivery boundary: no commit, push, deployment, publication or external-account access is authorised or claimed. The required Vault record remains a human-review artifact, not approval or publication evidence.
+
+## 2026-08-15 — FAN-43 Germany B1 timeline core-page recheck
+
+- Scope and selection: rechecked only `germany-b1-settlement-citizenship-timeline`, the page selected by FAN-35 revision 3 before implementation. This corrects the first review submission, which incorrectly used the no-data fallback and reviewed the citizenship language-proof page. No other Germany B1 page, template or Chinese content was changed for FAN-43.
+- Source result: BAMF-NAvI remains an authority locator; the German Government naturalisation process still directs readers to their competent nationality authority and states that processing varies by individual case; Goethe and telc still provide product/centre lookup rather than a reader-specific seat, deadline, result or acceptance decision. The exact sources, check date, permitted support and boundaries are recorded in `docs/GERMANY_B1_TIMELINE_SOURCE_RECHECK_2026-08-15.md`.
+- No-change disposition: the selected page already names the correct authority/centre split, requires reader-entered or officially confirmed dates, rejects eligibility and standard-duration calculations, preserves the reviewed/core discovery gate, and links to both requirement branches and the terminal checklist. No public claim required correction, so `updatedDate` and `sourceReviewedAt` were not refreshed merely for recency.
+- Regression seam: `tests/fan-43-germany-b1-recheck.test.js`, loaded by the standard suite, fails if FAN-35's selected page loses required front matter, the authority/centre timing boundary, the no-change date discipline, the reader action or its three route links.
+- Verification: `node tests/fan-43-germany-b1-recheck.test.js` and `git diff --check` passed in the workspace. Two workspace-local `npm test` attempts passed the FAN-43 assertion but failed later when another process removed shared Astro image/prerender output. The same current source snapshot was therefore verified in `$PAPERCLIP_RUN_SCRATCH_DIR/fan-43-verify`: `npm test` exited 0, and `npm run launch-check` built 100 pages, passed 44/44 checks and returned `READY` using an isolated `dist`.
+- Delivery boundary: no commit, push, deployment, publication, production/account access or Chinese sync is claimed. Verification, Obsidian sync and independent review are recorded separately once completed.
+## 2026-08-15 — FAN-42 Germany A1 requirement root review
+
+- Scope and selection: reviewed only `german-family-reunion-language-requirement`, selected by FAN-35 revision 3 as a non-traffic priority because it is the high-risk requirement root and its source review dated 2026-07-18. Search Console remained in processing, so no ranking, click or revenue inference was used.
+- Source result: checked BAMF's family-route overview and third-country-sponsor route, the Federal Foreign Office language-proof FAQ and German-spouse application workflow, and Goethe's exam catalogue. `docs/GERMANY_A1_REQUIREMENT_SOURCE_REVIEW_2026-08-15.md` records the authority, URL, check date, allowed support, boundary and reader action for each retained claim.
+- Content result: retained the route-first structure and `complete-route` discovery state; clarified that the mission/competent immigration authority controls visa-route and document instructions while the selected exam centre controls only local booking/test-day execution; added the route-specific mission-to-foreigners-authority workflow. Only this English page's actual review dates changed. The already-correct Chinese authority split was not refreshed.
+- Regression seam: `tests/fan-42-germany-a1-requirement.test.js` fails if the selected slug/date, official handoff, authority split, Route Finder action or next-guide link regresses, and is loaded by the standard suite. After independent review found the shared content-integrity contract still expected the page's pre-review date, `tests/content-integrity.test.js` was narrowed to expect `2026-08-15` only for this substantively updated slug; the other Germany A1 date contracts remain unchanged.
+- Verification: after the P1 correction, `node tests/fan-42-germany-a1-requirement.test.js` and `node tests/germany-a1-cluster.test.js` passed. The first combined standard-suite attempt hit a concurrent optimized-image `ENOENT` in shared `dist/`; the clean serial `npm test` rerun exited 0 and printed the FAN-42 contract. `npm run launch-check` then built 100 pages, passed 44/44 checks and returned `READY`; final `git diff --check` passed.
+- Review boundary: implementation and automated verification are complete. The configured uninvolved reviewer must still close P0/P1/P2 and return `PASS`; no self-approval, commit, push, deploy, publication or owner approval is claimed.

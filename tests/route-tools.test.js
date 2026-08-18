@@ -39,6 +39,30 @@ assert.deepEqual(
   { targetDate: '2026-12-31', latestTestDate: '2026-12-03', cautiousTestDate: '2026-11-05', totalPlanningDays: 56 }
 );
 assert.equal(routeTools.calculateTimeline({ targetDate: 'not-a-date' }), null);
+assert.equal(routeTools.calculateTimeline({ targetDate: '2026-02-30' }), null, 'Invalid calendar dates should be rejected');
+assert.deepEqual(
+  routeTools.calculateTimeline({ targetDate: '0099-12-31', resultWaitDays: 0, retakeBufferDays: 0, translationDays: 0 }),
+  { targetDate: '0099-12-31', latestTestDate: '0099-12-31', cautiousTestDate: '0099-12-31', totalPlanningDays: 0 },
+  'Four-digit years below 0100 should not be remapped into the 1900s'
+);
+
+const originalTimezone = process.env.TZ;
+try {
+  process.env.TZ = 'Pacific/Kiritimati';
+  assert.deepEqual(
+    routeTools.calculateTimeline({ targetDate: '2026-08-20', resultWaitDays: 0, retakeBufferDays: 0, translationDays: 0 }),
+    { targetDate: '2026-08-20', latestTestDate: '2026-08-20', cautiousTestDate: '2026-08-20', totalPlanningDays: 0 },
+    'Timeline dates should not move to the previous day in UTC+14'
+  );
+  assert.deepEqual(
+    routeTools.calculateTimeline({ targetDate: '2026-08-20', resultWaitDays: 10, retakeBufferDays: 5, translationDays: 2 }),
+    { targetDate: '2026-08-20', latestTestDate: '2026-08-08', cautiousTestDate: '2026-08-03', totalPlanningDays: 17 },
+    'Timeline subtraction should be timezone-independent'
+  );
+} finally {
+  if (originalTimezone === undefined) delete process.env.TZ;
+  else process.env.TZ = originalTimezone;
+}
 
 for (const dimension of routeTools.examComparisonDimensions.filter((dimension) => ['Fees', 'Result timing', 'Centre coverage and dates'].includes(dimension.label))) {
   assert.equal(dimension.value, 'Please verify with the official centre.');

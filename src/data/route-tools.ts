@@ -94,11 +94,19 @@ export function calculateTimeline(input) {
   const translationDays = Number(input.translationDays || 0);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(target)) return null;
 
-  const targetDate = new Date(`${target}T12:00:00`);
-  if (Number.isNaN(targetDate.getTime())) return null;
+  const [year, month, day] = target.split('-').map(Number);
+  const targetDate = new Date(0);
+  targetDate.setUTCHours(0, 0, 0, 0);
+  targetDate.setUTCFullYear(year, month - 1, day);
+  if (
+    targetDate.getUTCFullYear() !== year
+    || targetDate.getUTCMonth() !== month - 1
+    || targetDate.getUTCDate() !== day
+  ) return null;
+  const targetTime = targetDate.getTime();
   const subtractDays = (days) => {
-    const date = new Date(targetDate);
-    date.setDate(date.getDate() - days);
+    const date = new Date(targetTime);
+    date.setUTCDate(date.getUTCDate() - days);
     return date.toISOString().slice(0, 10);
   };
 

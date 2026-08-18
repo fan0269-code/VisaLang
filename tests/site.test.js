@@ -6,6 +6,9 @@ require('./route-tools.test.js');
 require('./commercial-pages.test.js');
 require('./adsense-risk-exposure.test.js');
 require('./germany-a1-cluster.test.js');
+require('./fan-42-germany-a1-requirement.test.js');
+require('./fan-73-guide-trust.test.js');
+require('./fan-75-css-cascade.test.js');
 require('./germany-b1-cluster.test.js');
 require('./germany-testdaf-cluster.test.js');
 require('./p0-five-countries.test.js');
@@ -13,6 +16,10 @@ require('./finland-window-b.test.js');
 require('./italy-window-b.test.js');
 require('./canada-window-b.test.js');
 require('./netherlands-window-b.test.js');
+require('./telc-window-1.test.js');
+require('./telc-fees-centres.test.js');
+require('./telc-work-nursing.test.js');
+require('./fan-43-germany-b1-recheck.test.js');
 require('./content-integrity.test.js');
 require('./source-review-render.test.js');
 require('./deploy.test.js');
@@ -29,9 +36,11 @@ const src = {
   header: read('src/components/GlobalHeader.astro'),
   mobile: read('src/components/MobileNavigation.astro'),
   footer: read('src/components/GlobalFooter.astro'),
+  homeHero: read('src/components/HomeHero.astro'),
   css: read('src/styles/global.css'),
   styleArchitecture: read('docs/STYLE_ARCHITECTURE.md'),
   home: read('src/pages/index.astro'),
+  zhHome: read('src/pages/zh/index.astro'),
   about: read('src/pages/about.astro'),
   notFound: read('src/pages/404.astro'),
   guides: read('src/pages/guides/index.astro'),
@@ -55,7 +64,7 @@ const src = {
 };
 
 const requiredComponents = [
-  'GlobalHeader', 'MobileNavigation', 'Breadcrumbs', 'PageHero', 'RouteSelector', 'RouteProgress',
+  'GlobalHeader', 'MobileNavigation', 'Breadcrumbs', 'PageHero', 'HomeHero', 'RouteSelector', 'RouteProgress',
   'TrustNotice', 'VerificationAlert', 'SourceCard', 'LastCheckedBadge', 'GuideCard', 'GuideStatusBadge',
   'FilterBar', 'SearchInput', 'ArticleTOC', 'ComparisonTable', 'DecisionTable', 'ToolStepper',
   'ToolResultPanel', 'CopyButton', 'PrintButton', 'ExportButton', 'RelatedGuides',
@@ -168,11 +177,19 @@ assert.ok(src.css.includes('@media (max-width: 375px)'), 'design system defines 
 assert.ok(src.css.includes('min-height: 44px'), 'interactive controls use a reasonable hit area');
 assert.ok(src.css.includes('overflow-x: auto'), 'wide tables and tool navigation can scroll safely');
 
-assert.ok(src.home.includes('Find the right language proof before you book an exam.'), 'homepage has the selected route-planning task');
-assert.ok(src.home.includes('class="route-entry"') && !src.home.includes('route-console'), 'homepage uses a static editorial route entry instead of a console surface');
-assert.ok(src.home.includes('href="/tools/route-finder/">Start with Route Finder'), 'homepage has the required primary action');
-assert.ok(src.home.includes('href="/guides/">Browse guides</a>'), 'homepage has the Open Design secondary action');
+assert.ok(src.home.includes('Verify language proof first.'), 'homepage has the concise route-planning task');
+assert.ok(src.home.includes('<HomeHero') && src.zhHome.includes('<HomeHero'), 'English and Chinese homepages share the HomeHero composition');
+assert.ok(src.homeHero.includes("import { Picture } from 'astro:assets'") && src.homeHero.includes("formats={['avif', 'webp']}") && src.homeHero.includes('fetchpriority="high"'), 'HomeHero uses responsive high-priority Astro image output');
+assert.ok(src.base.includes('rel="preload"') && src.base.includes('imagesrcset={heroPreloadSrcset}') && src.base.includes('type="image/avif"'), 'BaseLayout preloads the responsive AVIF candidate selected for the home hero');
+assert.ok(exists('src/assets/home-route-verification.png'), 'homepage visual source is a local managed asset');
+assert.ok(src.homeHero.includes('home-route-spotlight') && !src.home.includes('route-entry') && !src.home.includes('route-console'), 'featured route uses a dedicated editorial strip instead of the old card or console');
+assert.ok(src.home.includes("label: 'Use Route Finder'") && src.home.includes("label: 'Browse guides'"), 'homepage has consistent primary and secondary action labels');
 assert.ok(src.home.includes('<RouteSelector'), 'homepage uses the shared purpose selector');
+assert.ok(src.zhHome.includes('<RouteSelector locale="zh-CN"') && src.zhHome.includes('bodyClass="home-view"'), 'Chinese homepage shares the route selector and home design scope');
+assert.ok(src.zhHome.includes('publishedCategoryCount') && !src.zhHome.includes('guideCategories.length'), 'Chinese homepage reports only dynamically published route categories');
+assert.ok(src.zhHome.includes('<GuideStatusBadge status={zhUpdated[0].contentStatus} locale="zh-CN"'), 'Chinese homepage localizes its guide status badge');
+assert.ok(src.home.includes('heroPreload={homeRouteVisual}') && src.zhHome.includes('heroPreload={homeRouteVisual}'), 'both homepages preload the same managed hero asset used by HomeHero');
+assert.ok(src.home.includes('latest-layout') && src.zhHome.includes('latest-layout'), 'both homepages use the one-feature plus compact-list update layout');
 assert.equal((src.home.match(/type="radio"/g) || []).length, 0, 'homepage does not inline radio-based decision controls');
 assert.ok(!src.home.includes('<fieldset class="choice-group">') && !src.home.includes('<legend>Purpose</legend>') && !src.home.includes('<legend>Status</legend>'), 'homepage does not duplicate Route Finder controls');
 assert.doesNotMatch(src.home, /aria-pressed=/, 'homepage does not emulate mutually exclusive radio choices with aria-pressed buttons');
@@ -181,6 +198,7 @@ assert.ok(src.home.includes('trust-statement') && !src.home.includes('trust-band
 assert.ok(!src.home.includes('button--accent'), 'homepage does not use warning accent styling for primary actions');
 assert.ok(src.home.includes('publishedGuides.length'), 'homepage guide count follows the primary-discovery scope');
 assert.ok(src.home.includes('publishedCategoryCount'), 'homepage category count follows the primary-discovery scope');
+assert.ok(src.css.includes('--font-display: var(--font-sans)') && src.css.includes('background: var(--od-surface);\n  color: var(--od-copy);'), 'shared typography and footer stay in the page theme');
 assert.ok(src.about.includes('publishedEnglishGuides') && src.about.includes('Current discovery scope') && src.about.includes('not an independent guarantee of page quality or AdSense approval'), 'About explains the conservative discovery boundary');
 assert.ok(!src.siteData.includes("href: '/guides/testdaf-germany-university-admissions/'") && !src.siteData.includes("href: '/guides/telc-b1-b2-germany-work-nursing/'"), 'primary route navigation does not promote withheld guides');
 

@@ -14,6 +14,7 @@ const labels = locale === 'zh-CN' ? { current: '当前步骤', complete: '已完
       progress.querySelectorAll<HTMLElement>('[data-route-step]').forEach((item) => {
         const index = Number(item.dataset.routeStep);
         item.classList.toggle('is-current', index === current);
+        item.classList.toggle('is-complete', index < current);
         if (index === current) item.setAttribute('aria-current', 'step'); else item.removeAttribute('aria-current');
         const status = item.querySelector<HTMLElement>('.route-progress__status');
         if (status) status.textContent = index < current ? progress.dataset.labelComplete || 'Completed' : index === current ? progress.dataset.labelCurrent || 'Current step' : progress.dataset.labelNext || 'Next';

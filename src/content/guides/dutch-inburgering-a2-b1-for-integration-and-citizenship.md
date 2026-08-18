@@ -4,11 +4,11 @@ description: "Separate a named IND residence or naturalisation procedure from th
 category: "netherlands"
 slug: "dutch-inburgering-a2-b1-for-integration-and-citizenship"
 publishedDate: "2026-07-01"
-updatedDate: "2026-07-30"
+updatedDate: "2026-08-15"
 contentStatus: "verification-pending"
 decisionStage: "requirement"
 comparisonScope: "same-route"
-sourceReviewedAt: "2026-07-30"
+sourceReviewedAt: "2026-08-15"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 noindex: true
@@ -96,7 +96,7 @@ Choose one named task only. Open the responsible official source, fill every row
 
 Stop when that record is saved. Do not continue to the UvA/NT2 page unless a separate, named UvA Dutch-taught bachelor's admissions task applies.
 
-## Official sources checked on 30 July 2026
+## Official sources checked on 15 August 2026
 
 - [IND — civic integration for more secure residence or naturalisation](https://ind.nl/en/living-in-the-netherlands-with-a-residence-permit/civic-integration-for-more-secure-residence-permit-and-naturalisation) — supports the distinction between the named application requirement and the civic-integration obligation, plus the authority and evidence boundary.
 - [IND — becoming a Dutch national through naturalisation](https://ind.nl/en/dutch-citizenship/becoming-a-dutch-national-through-naturalisation) — supports the municipality application step and the IND decision boundary; it is not used here to decide an individual residence history or result.

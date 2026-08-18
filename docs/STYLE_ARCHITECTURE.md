@@ -8,16 +8,17 @@ The former `src/styles/open-design.css` override layer has been removed after it
 
 The existing exam-learning compatibility block remains active inside `global.css`. Its remaining declarations are observable on the approved pages, including the page background treatment, so this pass preserves their cascade instead of guessing that they are unused. Reduce it only through a separate selector-by-selector visual audit.
 
-## Editorial authority pass — 2026-07-18
+## Editorial authority pass - 2026-07-18
 
-- Body copy uses the stable humanist sans stack behind `--font-sans`; headings use the distinct serif stack behind `--font-display`. Both retain `Noto Sans SC` / `Noto Serif SC`, system and generic fallbacks.
-- No font files or runtime font requests were added. Self-hosted fonts remain deferred until licensed WOFF2 assets are available.
+- Body copy and headings share the system sans stack behind `--font-sans`; `--font-display` points to that same stack. English and Chinese therefore keep a consistent interface voice without a runtime font request.
+- No font files or runtime font requests are used. The stack prefers Apple, Windows and common CJK system faces before generic fallbacks.
 - `global.css` remains the only production stylesheet. The former inactive `open-design.css` migration reference has been removed.
 - Primary actions use `--primary` and `--primary-hover`. Warning colour is reserved for verification-pending and other warning states.
-- The active page glow is limited to low-opacity blue/teal values at or below `.025`; the warm yellow glow was removed.
-- Starter overview badges use the secondary teal treatment; verification-pending badges retain the warning treatment.
+- The active page glow is limited to low-opacity primary blue; warm yellow and decorative teal glows are not used.
+- Starter overview badges use the primary blue treatment; verification-pending badges retain the warning treatment. Teal is reserved for verified or successful states.
 - Viewport layout continues to use only 1024px, 768px and 375px. Article TOC behaviour switches at 768px.
-- The homepage now uses a static `.route-entry`, a numbered editorial stage list and compact trust prose instead of the Route Console, signal cards and trust-card wall.
+- English and Chinese homepages share `HomeHero.astro`, a responsive Astro `Picture`, a dedicated `.home-route-spotlight`, a numbered editorial stage list and compact trust prose.
+- The homepage image source lives under `src/assets/`; Astro generates AVIF and WebP widths while the original source remains outside `public/`.
 - Proven-zero active selectors for the old Route Console, signal cards, result actions and earlier journey/atlas/practice hero surfaces were removed. The inactive archived override file was removed after consolidation.
 
 ## Pre-consolidation mapping
@@ -56,7 +57,7 @@ Only `max-width: 1024px`, `max-width: 768px`, and `max-width: 375px` may be adde
 ## Core component ownership
 
 - Header: `.global-header*`, `.nav-menu*`, `.mobile-navigation*` in `global.css`.
-- Home Hero: `.home-hero*`, `.route-entry`, `.stage-list`, `.stage-card` and `.trust-statement` in `global.css`.
+- Home Hero: `.home-hero*`, `.home-route-spotlight*`, `.stage-list`, `.stage-card`, `.latest-*` and `.trust-statement` in `global.css`.
 - Guide Card and Library: `.guide-card*`, `.od-guide-library*`, `.guide-filter-form`, `.filter-*` in `global.css`.
 - Guide Article: `.guide-layout`, `.guide-article*`, `.article-toc`, `.decision-authority`, `.source-fact-table`, `.od-guide-article*` in `global.css`.
 - Tool Form: `.tool-page*`, `.tool-form*`, `.tool-field-*`, `.tool-stepper`, `.tool-table-*`, `.tool-error-*` in `global.css`.

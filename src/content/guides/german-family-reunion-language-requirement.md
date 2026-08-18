@@ -4,8 +4,8 @@ description: "Check the relevant family-reunion route, the sponsor's residence c
 category: "germany-a1"
 slug: "german-family-reunion-language-requirement"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-18"
-sourceReviewedAt: "2026-07-18"
+updatedDate: "2026-08-15"
+sourceReviewedAt: "2026-08-15"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "complete-route"
@@ -42,6 +42,8 @@ Use the responsible German mission's current family-reunion instructions for the
 
 The Federal Foreign Office FAQ directs applicants to BAMF information and the responsible German mission. It does not replace the mission's current route-specific document instructions or decide an individual exception.
 
+For a non-EU applicant joining a German spouse, the Federal Foreign Office also says to apply through the competent German mission abroad; that mission forwards the application to the foreigners authority and points applicants to the competent mission for the current document list. Use that workflow only for the matching route, not as a rule for every family-reunion category.
+
 ## Next action
 
 Save the current mission instruction for your route, then ask the mission or responsible authority to clarify any unresolved language-proof question before payment, booking, or submission.
@@ -51,13 +53,14 @@ Save the current mission instruction for your route, then ask the mission or res
 - [BAMF family reunification](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html)
 - [BAMF family reunification for third-country nationals](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/NachzugZuDrittstaatlern/nachzug-zu-drittstaatlern-node.html)
 - [German Federal Foreign Office: proof of German language skills FAQ](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682)
+- [German Federal Foreign Office: joining a German spouse](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/04-dtehepartner-606680)
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
 
 ## A1 route FAQ
 
 ### Can this page confirm whether I need A1?
 
-No. It separates the questions you need to ask; the official centre and the German mission or authority decide their current document instructions.
+No. It separates the questions you need to ask; the responsible German mission or competent immigration authority decides the visa route and its document instructions. A selected exam centre controls only its current booking and test-day process.
 
 ### What if local instructions conflict?
 

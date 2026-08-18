@@ -19,8 +19,8 @@ const nt2 = read(`src/content/guides/${nt2Slug}.md`);
 
 assert.equal(field(inburgering, 'contentStatus'), 'verification-pending', 'the Inburgering guide remains verification-pending');
 assert.equal(field(inburgering, 'sourceReviewStatus'), 'reviewed', 'the Inburgering guide keeps the controlled source-review state');
-assert.equal(field(inburgering, 'sourceReviewedAt'), '2026-07-30', 'the Inburgering guide records the current official-source check');
-assert.equal(field(inburgering, 'updatedDate'), '2026-07-30', 'the Inburgering guide records the current editorial update');
+assert.equal(field(inburgering, 'sourceReviewedAt'), '2026-08-15', 'the Inburgering guide records the FAN-40 official-source recheck');
+assert.equal(field(inburgering, 'updatedDate'), '2026-08-15', 'the Inburgering guide records the FAN-40 editorial update');
 assert.equal(field(inburgering, 'reviewedByRole'), 'source-review', 'the Inburgering guide records the controlled reviewer role');
 assert.equal(field(inburgering, 'noindex'), 'true', 'the pending Inburgering guide explicitly remains outside indexing');
 assert.equal(field(inburgering, 'adsEligible'), 'false', 'the pending Inburgering guide explicitly remains advertising-free');
@@ -35,6 +35,7 @@ assert.match(inburgering, /personal route record/i, 'the guide gives the reader 
 assert.match(inburgering, /A2\/B1 stop rule/i, 'the guide includes an explicit A2/B1 stop rule');
 assert.match(inburgering, /Common mistakes/i, 'the guide includes Netherlands-specific common mistakes');
 assert.match(inburgering, /Next action/i, 'the guide ends with a concrete next action');
+assert.match(inburgering, /Official sources checked on 15 August 2026/i, 'the guide exposes the current FAN-40 source-check date');
 assert.match(inburgering, /Inburgering.*UvA\/NT2|UvA\/NT2.*Inburgering/is, 'the guide distinguishes Inburgering from the UvA/NT2 admissions task');
 
 for (const url of [

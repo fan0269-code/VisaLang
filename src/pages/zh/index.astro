@@ -1,22 +1,20 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import HomeHero from '../../components/HomeHero.astro';
 import { getCollection } from 'astro:content';
 import { zhGermanyA1Guides } from '../../data/zh-germany-a1';
-import { guideCategories } from '../../data/guide-taxonomy';
-import PageHero from '../../components/PageHero.astro';
-import TrustNotice from '../../components/TrustNotice.astro';
 import RouteSelector from '../../components/RouteSelector.astro';
+import GuideStatusBadge from '../../components/GuideStatusBadge.astro';
+import homeRouteVisual from '../../assets/home-route-verification.png';
+import { isGuidePrimaryDiscoveryEligible, resolveGuideContentStatus } from '../../data/source-review';
 
 const guides = await getCollection('guides');
-
-const categories = [
-  { name: '德国 A1', slug: 'germany-a1', desc: '家庭团聚与配偶团聚语言证明' },
-  { name: '德国 B1+', slug: 'germany-b1', desc: '永居、工作与入籍路径' },
-  { name: 'TestDaF', slug: 'germany-testdaf', desc: '德国大学申请语言考试' },
-  { name: '英国签证英语', slug: 'uk', desc: 'UKVI、SELT 与入籍英语' },
-  { name: '意大利入籍', slug: 'italy', desc: 'CILS、CELI、PLIDA 选择' },
-  { name: '西班牙入籍', slug: 'spain', desc: 'DELE 与 CCSE 路线' },
-];
+const publishedGuides = guides
+  .map((guide) => ({ ...guide, status: resolveGuideContentStatus(guide.data) }))
+  .filter((guide) => isGuidePrimaryDiscoveryEligible(guide.status, guide.data.sourceReviewStatus) && guide.data.noindex !== true);
+const totalGuideCount = publishedGuides.length + zhGermanyA1Guides.length;
+const publishedCategoryCount = new Set(publishedGuides.map((guide) => guide.data.category)).size;
+const zhUpdated = [...zhGermanyA1Guides].sort((a, b) => b.updatedDate.localeCompare(a.updatedDate)).slice(0, 3);
 
 const jsonLD = {
   '@context': 'https://schema.org',
@@ -39,75 +37,89 @@ const jsonLD = {
     { lang: 'x-default', href: 'https://visalang.org/' },
   ]}
   jsonLD={jsonLD}
+  bodyClass="home-view"
+  heroPreload={homeRouteVisual}
 >
   <main class="site-main">
-    <PageHero eyebrow="签证、永居与入籍语言考试" title="先判断路线，再决定报哪一场语言考试" description="确认目的与接收材料的机构，再核验准确的语言证明。" primary={{ href: '/zh/germany-family-reunion-a1/', label: '先看德国 A1 中文路线' }} secondary={{ href: '#zh-guides', label: '浏览中文核心指南' }} />
-    <TrustNotice items={['官方来源优先', '要求因路线而异', '报名前务必再次核验']} />
-    <section class="content-section" aria-labelledby="zh-purpose-title"><div class="section-header"><h2 id="zh-purpose-title">你准备办理什么？</h2><p>目前德国 A1 家庭团聚有完整中文路径，其余入口会明确进入英文页面。</p></div><RouteSelector locale="zh-CN" /></section>
-    <div class="stat-grid"><div class="stat-card"><span class="stat-value">{guides.length + zhGermanyA1Guides.length}</span><span class="stat-label">中英文指南</span></div><div class="stat-card"><span class="stat-value">{guideCategories.length}</span><span class="stat-label">路线分类</span></div><div class="stat-card"><span class="stat-value">官方优先</span><span class="stat-label">内容原则</span></div></div>
+    <HomeHero
+      locale="zh-CN"
+      eyebrow="官方来源优先"
+      title="先核验语言证明，再决定报考。"
+      description="确认接收材料的机构，比较可能适用的考试，再回到当前官方说明核验。"
+      primary={{ href: '/tools/route-finder/', label: '使用路线查找器（英文）' }}
+      secondary={{ href: '#zh-guides', label: '浏览中文指南' }}
+      visual={homeRouteVisual}
+      visualAlt="用于核验语言证明要求的笔记本与路线图"
+      featuredRoute={{
+        label: '最完整的中文路线',
+        title: '德国配偶团聚 / 家庭团聚 A1',
+        description: '从是否需要 A1 开始，依次核验证书、考点、报名、材料与备考安排。',
+        href: '/zh/germany-family-reunion-a1/',
+        linkLabel: '进入德国 A1 中文路线',
+      }}
+    />
 
-    <section class="section-inner content-section compact">
-      <div class="feature-route feature-route-grid" aria-labelledby="zh-focus-title">
-      <div>
-        <p class="eyebrow">当前优先方向</p>
-        <h2 id="zh-focus-title">德国配偶团聚 / 家庭团聚 A1</h2>
-        <p>这是目前最完整的中文决策路径：从“是否真的需要 A1”开始，依次处理证书选择、报名、材料、备考和重考缓冲。不要先被“最近考位”或“哪个简单”带着走。</p>
-      </div>
-      <div class="stacked-actions">
-        <a class="primary-action" href="/zh/germany-family-reunion-a1/">进入中文专题</a>
-        <a class="secondary-action" href="/zh/guides/goethe-a1-30-day-study-plan/">查看 30 天备考计划</a>
-      </div>
-      </div>
-    </section>
+    <hr class="rule" />
 
-    <section class="section-inner content-section compact">
-      <div class="route-finder">
-        <div class="finder-copy">
-          <p class="eyebrow">中文用户怎么使用本站</p>
-          <h2>把指南当作提问清单，不当作官方结论。</h2>
-          <p>先确定申请地、目的和时间节点；再去德国使领馆、BAMF、Goethe、telc 或当地考点页面核验。费用、日期、考点、证书接受范围和豁免条件都可能变化。</p>
-        </div>
-        <ol class="finder-steps">
-          <li><span class="step-number">01</span><span><strong>先看是否适用。</strong><br />不要因为别人需要 A1，就跳过自己的使领馆或主管机关清单。</span></li>
-          <li><span class="step-number">02</span><span><strong>再比证书与考点。</strong><br />确认准确的考试名称、报名姓名、费用、出分和退改规则。</span></li>
-          <li><span class="step-number">03</span><span><strong>保存官方记录。</strong><br />保留网页、咨询回复、报名确认和查看日期。</span></li>
+    <section class="section" aria-labelledby="zh-stage-title">
+      <h2 class="section-title" id="zh-stage-title">用四次核验完成决定</h2>
+      <div class="lane-grid">
+        <ol class="stage-list">
+          <li class="stage-card"><div><h3>确认接收材料的机构</h3><p>先找到负责签证、入籍、留学或职业注册决定的官方机构。</p><a href="/tools/route-finder/">选择办理目的（英文）</a></div></li>
+          <li class="stage-card"><div><h3>确认语言等级与证明</h3><p>不要根据他人的路线直接套用 A1、B1 或其他等级。</p><a href="/zh/guides/german-family-reunion-language-requirement/">查看是否需要 A1</a></div></li>
+          <li class="stage-card"><div><h3>比较可能接受的考试</h3><p>先确认接收机构的要求，再比较 Goethe、telc 或其他准确考试产品。</p><a href="/zh/guides/goethe-a1-vs-telc-a1/">比较 Goethe 与 telc</a></div></li>
+          <li class="stage-card"><div><h3>行动前再次核验</h3><p>付款前重查考点、日期、费用、证件、退改、出分和材料要求。</p><a href="/zh/guides/german-a1-documents-checklist/">查看材料清单</a></div></li>
         </ol>
+        <aside class="sidebar-panel">
+          <h3>最终以接收材料的机构为准。</h3>
+          <p>本站帮助你整理问题与核验顺序，不替代主管机关或考试主办方作出决定。</p>
+          <ul class="check-list">
+            <li>核对负责你申请地和个案的官方机构。</li>
+            <li>核对考试主办方与所选官方或授权考点。</li>
+            <li>保存页面、回复、报名确认和查看日期。</li>
+          </ul>
+        </aside>
       </div>
     </section>
 
-    <section class="section-inner content-section" id="zh-guides">
-      <div class="section-header">
-        <h2>德国 A1 中文核心指南</h2>
-        <p>先覆盖中文用户最需要的 5 个问题：是否需要 A1、Goethe vs telc、报名、材料和备考。</p>
-      </div>
-      <div class="guide-related-grid">
-        {zhGermanyA1Guides.map(g => (
-          <a href={g.href} class="article-card">
-            <p class="card-category">德国 A1 中文指南</p>
-            <h3>{g.title}</h3>
-            <p class="card-meta">{g.description}</p>
-          </a>
-        ))}
+    <hr class="rule" />
+
+    <section class="section" aria-labelledby="zh-resources-title">
+      <h2 class="section-title" id="zh-resources-title">从工具或指南进入</h2>
+      <p class="section-lede">工具帮助缩小路线，指南说明核验边界、官方入口与下一步。</p>
+      <div class="resource-layout">
+        <div class="resource-lead">
+          <h3>路线还不清楚时，先使用工具。</h3>
+          <p>从目的、国家和当前说明状态开始，不必先浏览一长串文章。</p>
+          <div class="button-row"><a class="button button--primary" href="/tools/route-finder/">使用路线查找器（英文）</a></div>
+        </div>
+        <div class="resource-list">
+          <a class="resource-link" href="/tools/route-finder/"><div><h3>路线查找器（英文）</h3><p>从目的、国家和当前说明状态开始。</p></div><span>使用</span></a>
+          <a class="resource-link" href="#zh-guides"><div><h3>中文核心指南</h3><p>查看德国 A1 的要求、证书、考点、报名和材料核验。</p></div><span>浏览</span></a>
+          <a class="resource-link" href="/zh/germany-family-reunion-a1/"><div><h3>德国 A1 中文路线</h3><p>按照决定顺序查看目前最完整的中文专题。</p></div><span>查看</span></a>
+        </div>
       </div>
     </section>
 
-    <section class="section-inner content-section">
-      <div class="section-header">
-        <h2>按路线浏览</h2>
-        <p>除德国 A1 中文核心路径外，其它路线暂时仍进入英文资料库，作为路线概览使用；不要把英文 starter guide 当作对个人签证、入籍或职业路径的最终判断。</p>
+    <hr class="rule" />
+
+    <section class="section section--tight" aria-labelledby="zh-purpose-title">
+      <h2 class="section-title" id="zh-purpose-title">你准备办理什么？</h2>
+      <p class="section-lede">德国 A1 家庭团聚已有完整中文路径，其余入口会明确进入英文页面。</p>
+      <RouteSelector locale="zh-CN" />
+    </section>
+
+    <section class="section" id="zh-guides" aria-labelledby="zh-guides-title">
+      <div class="section-header"><h2 id="zh-guides-title">最近更新的中文指南</h2><p>当前中英文主资料库共 {totalGuideCount} 篇指南，覆盖 {publishedCategoryCount} 个已发布路线分类。</p></div>
+      <div class="latest-layout">
+        {zhUpdated[0] && <a class="latest-feature" href={zhUpdated[0].href}><GuideStatusBadge status={zhUpdated[0].contentStatus} locale="zh-CN" /><h3>{zhUpdated[0].title}</h3><p>{zhUpdated[0].description}</p><span class="last-checked">更新于 {zhUpdated[0].updatedDate}</span></a>}
+        <div class="latest-list">{zhUpdated.slice(1).map((guide) => <a class="latest-item" href={guide.href}><div><h3>{guide.title}</h3><p>{guide.description}</p></div><span class="last-checked">更新于 {guide.updatedDate}</span></a>)}</div>
       </div>
-      <div class="route-grid">
-        {categories.map(cat => {
-          const count = guides.filter(g => g.data.category === cat.slug).length;
-          return (
-            <a href={`/guides/category/${cat.slug}/`} class="route-card">
-              <span>{cat.name}</span>
-              <strong>{cat.desc}</strong>
-              <small>{count} 篇指南</small>
-            </a>
-          );
-        })}
-      </div>
+    </section>
+
+    <section class="section section--tight" aria-labelledby="zh-trust-title">
+      <h2 class="section-title" id="zh-trust-title">可信度来自清楚的边界</h2>
+      <p class="trust-statement"><strong>路线优先，不编造事实。</strong>先识别接收材料的机构，再用其当前官方说明核验语言等级、证明、材料形式、期限和个案例外。政府机关、学校、雇主、考试主办方与所选考点仍是相应要求的最终来源。</p>
     </section>
   </main>
 </BaseLayout>

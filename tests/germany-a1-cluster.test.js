@@ -108,7 +108,9 @@ const sourceReviewedOnJuly22 = new Set([
 for (const file of germanyA1Guides) {
   const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
   assert.ok(source.includes('contentStatus: "complete-route"'), `${file} retains the complete-route baseline`);
-  const expectedUpdateDate = sourceReviewedOnJuly22.has(file)
+  const expectedUpdateDate = file === 'german-family-reunion-language-requirement.md'
+    ? '2026-08-15'
+    : sourceReviewedOnJuly22.has(file)
     ? '2026-07-22'
     : sourceReviewedOnJuly19.has(file)
       ? '2026-07-19'

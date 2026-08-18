@@ -38,7 +38,7 @@ const advertisingEligible = primaryDiscoveryEligible && enableAds !== false;
 const ctas = contentStatusCtas(status, { routeHref, primaryOfficialAuthorityUrl, examOwnerUrl, nextGuideSlug });
 const reviewedByLabel = reviewedByRole ? reviewerRoleLabels[reviewedByRole] : sourceReviewStatus === 'pending' ? 'Pending' : 'Not applicable';
 const authorityIsVerified = sourceReviewStatus === 'reviewed' && Boolean(sourceReviewedAt && primaryOfficialAuthorityUrl && finalDecisionAuthorityType);
-const showSourceFactTable = (status === 'complete-route' || status === 'core-route') && authorityIsVerified;
+const showSourceFactTable = authorityIsVerified;
 const nextActionCopy = {
   requirement: 'Confirm the current requirement with the organisation that will receive your proof.',
   choice: 'Compare only the options that the receiving organisation currently accepts, then verify the exact exam with its owner.',
@@ -80,10 +80,11 @@ const jsonLD = {
           {eyebrow && <p class="page-kicker">{eyebrow}</p>}
           <div class="guide-scope-line"><GuideStatusBadge status={status} />{country && <span>Country: {country}</span>}{routeLabel && <span>Route: {routeLabel}</span>}</div>
           <h1>{title}</h1>
-          <section class="guide-summary-box" id="direct-answer" aria-labelledby="direct-answer-title">
-            <h2 id="direct-answer-title">Direct answer</h2>
-            <p class="guide-summary">{description}</p>
-          </section>
+        <section class="guide-summary-box" id="direct-answer" aria-labelledby="direct-answer-title">
+          <h2 id="direct-answer-title">Direct answer</h2>
+          <p class="guide-summary-answer">{description}</p>
+          <p class="guide-summary-responsibility">Responsibility: {authorityIsVerified ? `The final decision sits with ${finalDecisionAuthorityType}; VisaLang helps you follow the verification path.` : 'Confirm the final decision authority before acting; VisaLang does not decide individual outcomes.'}</p>
+        </section>
           <dl class="guide-meta" aria-label="Article responsibility and review information">
             <div><dt>Updated</dt><dd><time datetime={updatedDate}>{updatedDate}</time></dd></div>
             <div><dt>Source review</dt><dd><LastCheckedBadge date={sourceReviewedAt} status={sourceReviewStatus} /></dd></div>
