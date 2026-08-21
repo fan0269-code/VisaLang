@@ -1,5 +1,6 @@
 ---
 title: "Goethe A1 official links and practice resources: where to verify"
+seoTitle: "Goethe A1 official links and practice"
 description: "A safe source map for Goethe A1 family reunion planning: requirement, exam format, local centre rules, telc comparison, and practice material."
 category: "germany-a1"
 slug: "goethe-a1-official-links-practice-resources"

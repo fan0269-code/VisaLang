@@ -1,5 +1,6 @@
 ---
 title: "Goethe A1 vs telc A1: choose a family reunion exam"
+seoTitle: "Goethe A1 vs telc A1 for family reunion"
 description: "How to compare Goethe A1 and telc A1 for Germany family reunion without assuming which certificate, centre, fee, or timeline applies to you."
 category: "germany-a1"
 slug: "goethe-a1-vs-telc-a1"

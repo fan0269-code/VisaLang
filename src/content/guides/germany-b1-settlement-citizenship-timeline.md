@@ -1,5 +1,6 @@
 ---
 title: "Germany B1 settlement and citizenship timeline: plan from confirmed dates"
+seoTitle: "Germany B1 settlement and citizenship timeline"
 description: "Build a Germany B1 evidence timeline from authority- and centre-confirmed dates without calculating eligibility or inventing standard buffers."
 category: "germany-b1"
 slug: "germany-b1-settlement-citizenship-timeline"

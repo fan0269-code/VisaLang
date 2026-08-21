@@ -1,5 +1,6 @@
 ---
 title: "Goethe A1 pre-booking checklist: verify before paying"
+seoTitle: "Goethe A1 pre-booking checklist"
 description: "A practical Goethe A1 pre-booking checklist for the requirement, exact exam, official centre, timing, documents, fee, and local terms."
 category: "germany-a1"
 slug: "goethe-a1-pre-booking-checklist"

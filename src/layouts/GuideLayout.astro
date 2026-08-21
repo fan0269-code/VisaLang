@@ -16,7 +16,7 @@ import type { ContentStatus } from '../data/source-review';
 import type { ArticleSections } from '../data/article-sections';
 
 export interface Props {
-  title: string; description: string; publishedDate: string; updatedDate: string; slug: string;
+  title: string; seoTitle?: string; description: string; publishedDate: string; updatedDate: string; slug: string;
   category?: string; route?: string; eyebrow?: string; readingTime?: string; sourceReviewedAt?: string;
   sourceReviewStatus?: SourceReviewStatus;
   reviewedByRole?: ReviewerRole; author: string;
@@ -31,7 +31,7 @@ export interface Props {
   decisionStage: DecisionStage; nextGuideSlug?: string; comparisonScope: ComparisonScope;
 }
 
-const { title, description, publishedDate, updatedDate, sourceReviewedAt, sourceReviewStatus = 'pending', reviewedByRole, author, contentStatus, noindex = false, enableAds = true, primaryOfficialAuthorityUrl, primaryIntent, audienceScope, finalDecisionAuthorityType, examOwnerUrl, localExecutionPrompt, decisionStage, nextGuideSlug, comparisonScope, slug, category, eyebrow, readingTime = '5', breadcrumbs = [{ label: 'Home', href: '/' }, { label: title }], related = [], previous, next, routeHref, routeLabel, country, exam, level, headings = [], sections } = Astro.props;
+const { title, seoTitle, description, publishedDate, updatedDate, sourceReviewedAt, sourceReviewStatus = 'pending', reviewedByRole, author, contentStatus, noindex = false, enableAds = true, primaryOfficialAuthorityUrl, primaryIntent, audienceScope, finalDecisionAuthorityType, examOwnerUrl, localExecutionPrompt, decisionStage, nextGuideSlug, comparisonScope, slug, category, eyebrow, readingTime = '5', breadcrumbs = [{ label: 'Home', href: '/' }, { label: title }], related = [], previous, next, routeHref, routeLabel, country, exam, level, headings = [], sections } = Astro.props;
 const status = resolveGuideContentStatus({ category: category ?? '', contentStatus, sourceReviewStatus, primaryOfficialAuthorityUrl, primaryIntent, audienceScope, finalDecisionAuthorityType, examOwnerUrl, localExecutionPrompt });
 const primaryDiscoveryEligible = isGuidePrimaryDiscoveryEligible(status, sourceReviewStatus) && noindex !== true;
 const advertisingEligible = primaryDiscoveryEligible && enableAds !== false;
@@ -72,7 +72,7 @@ const jsonLD = {
 };
 ---
 
-<BaseLayout title={title} description={description} canonicalURL={canonicalURL} ogType="article" alternates={alternates} jsonLD={jsonLD} noindex={!primaryDiscoveryEligible} enableAds={advertisingEligible}>
+<BaseLayout title={seoTitle ?? title} description={description} canonicalURL={canonicalURL} ogType="article" alternates={alternates} jsonLD={jsonLD} noindex={!primaryDiscoveryEligible} enableAds={advertisingEligible}>
   <main class="guide-page od-guide-article">
     <Breadcrumbs path={breadcrumbs} />
     <ArticleLayout articleId="guide-content" headings={tocHeadings}>

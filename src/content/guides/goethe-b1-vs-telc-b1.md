@@ -1,5 +1,6 @@
 ---
 title: "DTZ vs Goethe B1 vs telc B1: confirm acceptance before comparing"
+seoTitle: "DTZ vs Goethe B1 vs telc B1"
 description: "Compare DTZ, Goethe-Zertifikat B1 and telc Deutsch B1 only after the competent authority confirms which proof may fit your route."
 category: "germany-b1"
 slug: "goethe-b1-vs-telc-b1"

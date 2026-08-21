@@ -1,5 +1,6 @@
 ---
 title: "Goethe A1 study plan for working adults: realistic 8-week routine"
+seoTitle: "Goethe A1 study plan for working adults"
 description: "A flexible eight-week Goethe A1 routine for working adults, with short weekday blocks, a weekly review, official practice, and extension rules."
 category: "germany-a1"
 slug: "goethe-a1-study-plan-working-adults"

@@ -1,5 +1,6 @@
 ---
 title: "German A1 family reunion FAQ: language proof questions"
+seoTitle: "German A1 family reunion FAQ"
 description: "Common questions about German A1 language proof for family reunion, including who may need it, exemptions, certificates, and official checks."
 category: "germany-a1"
 slug: "german-a1-family-reunion-faq"

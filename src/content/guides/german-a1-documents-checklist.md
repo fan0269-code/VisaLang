@@ -1,5 +1,6 @@
 ---
 title: "German A1 documents checklist: booking, test day, visa"
+seoTitle: "German A1 documents checklist"
 description: "A three-stage German A1 checklist for exam booking, test day, and A1 certificate checks in a family reunion visa file."
 category: "germany-a1"
 slug: "german-a1-documents-checklist"

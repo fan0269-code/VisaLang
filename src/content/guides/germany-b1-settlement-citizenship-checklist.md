@@ -1,5 +1,6 @@
 ---
 title: "Germany B1 settlement and citizenship checklist: recheck before submission"
+seoTitle: "Germany B1 submission checklist"
 description: "Use a non-legal Germany B1 checklist to recheck authority instructions, language evidence and the wider file before submission."
 category: "germany-b1"
 slug: "germany-b1-settlement-citizenship-checklist"

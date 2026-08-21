@@ -1,5 +1,6 @@
 ---
 title: "Leben in Deutschland and B1: keep civic knowledge and language separate"
+seoTitle: "B1 and Leben in Deutschland explained"
 description: "Understand the separate roles of B1 language evidence and Leben in Deutschland without assuming one replaces the other for every route."
 category: "germany-b1"
 slug: "germany-b1-leben-in-deutschland-and-language-proof"

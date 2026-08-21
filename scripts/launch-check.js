@@ -74,6 +74,33 @@ for (const page of pages) {
 }
 if (!metadataFailures.length) pass('Titles, descriptions, and canonical URLs are complete and unique.'); else fail(`Metadata failures: ${metadataFailures.slice(0, 5).join(', ')}`);
 
+const indexableEnglishPages = pages.filter(({ route, html }) => route !== '/404.html'
+  && html.includes('<html lang="en">')
+  && !html.includes('<meta name="robots" content="noindex,follow">'));
+const searchSnippetFailures = indexableEnglishPages.filter(({ html }) => {
+  const title = html.match(/<title>(.*?)<\/title>/)?.[1] || '';
+  const description = html.match(/<meta name="description" content="([^"]+)"/)?.[1] || '';
+  return title.length > 60 || description.length > 170;
+}).map(({ route }) => route);
+if (!searchSnippetFailures.length) pass('Indexable English titles and descriptions stay within the search-snippet budget.'); else fail(`Search-snippet length failures: ${searchSnippetFailures.slice(0, 8).join(', ')}`);
+
+const socialMetadataFailures = pages.filter(({ html }) => {
+  const ogImage = html.match(/<meta property="og:image" content="([^"]+)"/)?.[1] || '';
+  const twitterImage = html.match(/<meta name="twitter:image" content="([^"]+)"/)?.[1] || '';
+  const expectedLocale = html.includes('<html lang="zh-CN">') ? 'zh_CN' : 'en_US';
+  const indexable = !html.includes('<meta name="robots" content="noindex,follow">');
+  return !ogImage.endsWith('/images/og-default.png')
+    || twitterImage !== ogImage
+    || !html.includes('<meta property="og:site_name" content="VisaLang">')
+    || !html.includes(`<meta property="og:locale" content="${expectedLocale}">`)
+    || !html.includes('<meta property="og:image:alt" content="VisaLang — Find the right language exam for your next move">')
+    || !html.includes('<meta property="og:image:width" content="1200">')
+    || !html.includes('<meta property="og:image:height" content="630">')
+    || !html.includes('<meta name="twitter:image:alt" content="VisaLang — Find the right language exam for your next move">')
+    || (indexable && !html.includes('<meta name="robots" content="index,follow,max-image-preview:large">'));
+}).map(({ route }) => route);
+if (!socialMetadataFailures.length) pass('Every route emits complete PNG social-card metadata and an explicit crawler directive.'); else fail(`Social metadata failures: ${socialMetadataFailures.slice(0, 8).join(', ')}`);
+
 const invalidJsonLd = pages.filter(({ html }) => jsonLdTypes(html).has('__INVALID__')).map(({ route }) => route);
 if (!invalidJsonLd.length) pass('Every JSON-LD block parses successfully.'); else fail(`Invalid JSON-LD: ${invalidJsonLd.slice(0, 5).join(', ')}`);
 const organizationFailures = pages.filter(({ html }) => !jsonLdTypes(html).has('Organization')).map(({ route }) => route);

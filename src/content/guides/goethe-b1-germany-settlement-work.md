@@ -1,5 +1,6 @@
 ---
 title: "Germany settlement permit and B1: verify the route before choosing proof"
+seoTitle: "Germany settlement permit B1 proof"
 description: "Check a Germany settlement-permit language-proof question without treating B1 as approval or overlooking the route's other requirements."
 category: "germany-b1"
 slug: "goethe-b1-germany-settlement-work"

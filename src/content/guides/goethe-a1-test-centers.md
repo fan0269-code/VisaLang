@@ -1,5 +1,6 @@
 ---
 title: "Goethe A1 test centers: verify an official exam centre"
+seoTitle: "Goethe A1 test centers"
 description: "How to verify an official Goethe A1 or telc A1 exam centre, confirm the exact test, and avoid booking the wrong service."
 category: "germany-a1"
 slug: "goethe-a1-test-centers"

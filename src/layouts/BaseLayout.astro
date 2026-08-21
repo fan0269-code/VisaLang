@@ -11,6 +11,9 @@ export interface Props {
   description?: string;
   canonicalURL?: string;
   ogImage?: string;
+  ogImageAlt?: string;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
   ogType?: string;
   noindex?: boolean;
   lang?: string;
@@ -25,7 +28,10 @@ const {
   title,
   description = 'Find the right language exam for your visa, residency, citizenship, or work-registration path.',
   canonicalURL = Astro.url.href,
-  ogImage = '/images/og-default.svg',
+  ogImage: providedOgImage,
+  ogImageAlt: providedOgImageAlt,
+  ogImageWidth: providedOgImageWidth,
+  ogImageHeight: providedOgImageHeight,
   ogType = 'website',
   noindex = false,
   lang = 'en',
@@ -44,8 +50,16 @@ const heroPreloadCandidates = heroPreload
 const heroPreloadSrcset = heroPreloadCandidates.map((candidate, index) => `${candidate.src} ${heroPreloadWidths[index]}w`).join(', ');
 
 const pageTitle = /(^|\s|\|)VisaLang($|\s)/i.test(title) ? title : `${title} | VisaLang`;
+const ogImage = providedOgImage ?? '/images/og-default.png';
+const ogImageAlt = providedOgImageAlt ?? (providedOgImage ? undefined : 'VisaLang — Find the right language exam for your next move');
+const ogImageWidth = providedOgImageWidth ?? (providedOgImage ? undefined : 1200);
+const ogImageHeight = providedOgImageHeight ?? (providedOgImage ? undefined : 630);
 const absoluteOgImage = new URL(ogImage, site.url).href;
 const locale = lang.startsWith('zh') ? 'zh-CN' : 'en';
+const openGraphLocale = locale === 'zh-CN' ? 'zh_CN' : 'en_US';
+const alternateOpenGraphLocales = Array.from(new Set(alternates
+  .filter((alternate) => alternate.lang !== 'x-default' && alternate.lang !== lang && alternate.lang !== locale)
+  .map((alternate) => alternate.lang.startsWith('zh') ? 'zh_CN' : 'en_US')));
 const structuredData = [
   { '@context': 'https://schema.org', ...organisationJsonLD },
   ...(Array.isArray(jsonLD) ? jsonLD : jsonLD ? [jsonLD] : []),
@@ -59,7 +73,7 @@ const structuredData = [
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{pageTitle}</title>
   <meta name="description" content={description}>
-  {noindex && <meta name="robots" content="noindex,follow">}
+  <meta name="robots" content={noindex ? 'noindex,follow' : 'index,follow,max-image-preview:large'}>
   <link rel="canonical" href={canonicalURL}>
   {alternates.map((alternate) => (
     <link rel="alternate" hreflang={alternate.lang} href={alternate.href}>
@@ -68,10 +82,18 @@ const structuredData = [
   <meta property="og:description" content={description}>
   <meta property="og:url" content={canonicalURL}>
   <meta property="og:type" content={ogType}>
+  <meta property="og:site_name" content={site.name}>
+  <meta property="og:locale" content={openGraphLocale}>
+  {alternateOpenGraphLocales.map((alternateLocale) => <meta property="og:locale:alternate" content={alternateLocale}>)}
   <meta property="og:image" content={absoluteOgImage}>
+  {ogImageAlt && <meta property="og:image:alt" content={ogImageAlt}>}
+  {ogImageWidth && <meta property="og:image:width" content={String(ogImageWidth)}>}
+  {ogImageHeight && <meta property="og:image:height" content={String(ogImageHeight)}>}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content={pageTitle}>
   <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={absoluteOgImage}>
+  {ogImageAlt && <meta name="twitter:image:alt" content={ogImageAlt}>}
   {heroPreloadCandidates.length > 0 && <link rel="preload" as="image" href={heroPreloadCandidates.at(-1)?.src} imagesrcset={heroPreloadSrcset} imagesizes={heroPreloadSizes} type="image/avif" fetchpriority="high">}
   <link rel="icon" href="https://visalang.org/favicon.svg" type="image/svg+xml">
   {enableAds && <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3018617123550799" crossorigin="anonymous"></script>}

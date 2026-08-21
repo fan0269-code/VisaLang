@@ -1,5 +1,6 @@
 ---
 title: "Goethe A1 listening practice: a safe daily routine"
+seoTitle: "Goethe A1 listening practice"
 description: "How to practise Goethe A1 listening with official material, short daily drills, error review, and no reliance on leaked questions."
 category: "germany-a1"
 slug: "goethe-a1-listening-practice"

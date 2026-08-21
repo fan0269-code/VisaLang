@@ -1,6 +1,25 @@
 # VisaLang Task Log
 
-Updated: 2026-08-18
+Updated: 2026-08-20
+
+## FAN-270 sitewide content and SEO optimisation — 2026-08-20
+
+Scope: audited the current 100-route Astro build and improved search/social metadata without reopening high-risk immigration, exam, fee, eligibility, acceptance, authority, or source-review claims. Existing unrelated workspace files were preserved.
+
+Completed:
+
+- Confirmed the existing canonical, structured-data, hreflang, sitemap, noindex, advertising, and internal-link gates remained coherent across 100 generated routes and 56 indexable routes.
+- Added schema-limited guide `seoTitle` metadata and concise titles for 16 indexable Germany A1/B1 guides, preserving their visible H1s, Article headlines, breadcrumbs, related-guide labels, and authority boundaries.
+- Shortened the Germany B1 route-hub metadata title plus the Germany B1 hub and Timeline Planner descriptions.
+- Replaced the default social-card reference with a 1200×630 PNG rendition of the existing VisaLang artwork and added Open Graph site/locale/image metadata, Twitter image metadata, image alt text, and explicit crawler directives through the shared layout.
+- Added `tests/fan-270-seo.test.js` and extended the production launch check to enforce the indexable-English snippet budget and complete social/crawler metadata.
+- Recorded the complete audit and boundaries in `docs/FAN-270_SEO_AUDIT_2026-08-20.md`.
+
+Verification and boundary:
+
+- `node tests/fan-270-seo.test.js` passed; `npm test` passed; `npm run launch-check` built 100 routes and passed 46/46 checks with `READY`; `git diff --check` passed.
+- Independent read-only review initially found five P2 gaps: artwork-alt accuracy, custom-image metadata coupling, empty `seoTitle` validation, alternate-locale coverage, and an unsupported documentation approval claim. All were corrected; the same reviewer re-reviewed the corrected work and returned `PASS` with no remaining P0/P1/P2 findings.
+- No visible guide headline, authority assignment, source date/status, route, canonical, hreflang pair, sitemap membership, content maturity, advertising gate, legal/visa/exam claim, commit, push, preview, deployment, publication, Search Console setting, or production state changed.
 
 ## FAN-254 post-release dependency advisory remediation — 2026-08-18
 

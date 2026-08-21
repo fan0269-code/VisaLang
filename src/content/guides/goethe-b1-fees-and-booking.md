@@ -1,5 +1,6 @@
 ---
 title: "Goethe B1 fees and booking: verify the selected centre before paying"
+seoTitle: "Goethe B1 fees and booking"
 description: "Verify the exact Goethe B1 product, current centre fee and booking terms after the receiving authority confirms possible proof."
 category: "germany-b1"
 slug: "goethe-b1-fees-and-booking"

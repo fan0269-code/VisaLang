@@ -1,5 +1,6 @@
 ---
 title: "Goethe A1 writing practice: short forms and messages"
+seoTitle: "Goethe A1 writing practice"
 description: "Build a safe Goethe A1 writing-practice routine for short forms and messages, then verify the current local format with official materials."
 category: "germany-a1"
 slug: "goethe-a1-writing-practice"

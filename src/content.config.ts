@@ -4,6 +4,7 @@ import { comparisonScopes, contentStatuses, decisionStages, highRiskRouteCategor
 
 const guideSchema = z.object({
   title: z.string(),
+  seoTitle: z.string().trim().min(1).max(49).optional(),
   description: z.string(),
   category: z.string(),
   slug: z.string(),

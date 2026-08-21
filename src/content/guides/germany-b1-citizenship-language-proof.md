@@ -1,5 +1,6 @@
 ---
 title: "Germany B1 for citizenship: separate language proof from the full file"
+seoTitle: "German citizenship B1 language proof"
 description: "Check the B1 language-evidence step for German naturalisation while keeping civic knowledge, other conditions and local procedure separate."
 category: "germany-b1"
 slug: "germany-b1-citizenship-language-proof"
