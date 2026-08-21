@@ -22,6 +22,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <input id="not-found-query" name="q" type="search" placeholder="Example: Germany family reunion A1" autocomplete="off" enterkeyhint="search" />
           <button class="button button--primary" type="submit">Search guides</button>
         </div>
+        <noscript>
+          <p class="not-found-search__fallback">Search filtering needs JavaScript. You can still <a href="/guides/">browse all reviewed guides</a>.</p>
+        </noscript>
       </form>
 
       <nav class="not-found-options" aria-label="Recovery options">

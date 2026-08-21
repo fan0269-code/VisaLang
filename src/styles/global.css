@@ -1123,12 +1123,12 @@ p, li { line-height: 1.7; }
   align-items: end;
   gap: 32px;
   padding-bottom: 32px;
-  border-bottom: 1px solid var(--od-line);
+  border-bottom: 1px solid var(--border);
 }
 
 .not-found-code {
   margin: 0;
-  color: var(--od-primary);
+  color: var(--primary);
   font-size: clamp(4.5rem, 10vw, 6rem);
   font-weight: 850;
   letter-spacing: -.04em;
@@ -1142,7 +1142,7 @@ p, li { line-height: 1.7; }
 
 .not-found-heading div > p {
   margin: 0;
-  color: var(--od-copy);
+  color: var(--text-muted);
   font-size: var(--text-lg);
 }
 
@@ -1150,9 +1150,9 @@ p, li { line-height: 1.7; }
   display: grid;
   gap: 18px;
   padding: 24px;
-  border: 1px solid var(--od-line);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
-  background: var(--od-surface);
+  background: var(--surface);
   box-shadow: var(--shadow-sm);
 }
 
@@ -1166,7 +1166,7 @@ p, li { line-height: 1.7; }
 }
 
 .not-found-search label span {
-  color: var(--od-copy);
+  color: var(--text-muted);
   font-size: var(--text-sm);
 }
 
@@ -1181,19 +1181,25 @@ p, li { line-height: 1.7; }
   min-height: 48px;
   min-width: 0;
   padding: 11px 14px;
-  border: 1px solid var(--od-line);
+  border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  background: var(--od-surface-alt);
-  color: var(--od-ink);
+  background: var(--surface-subtle);
+  color: var(--text);
   font-size: 16px;
 }
 
 .not-found-search input::placeholder {
-  color: var(--od-muted);
+  color: var(--text-muted);
 }
 
 .not-found-search .button {
   min-height: 48px;
+}
+
+.not-found-search__fallback {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
 }
 
 .not-found-options h2 {
@@ -1204,12 +1210,12 @@ p, li { line-height: 1.7; }
 .not-found-options ul {
   margin: 0;
   padding: 0;
-  border-block: 1px solid var(--od-line);
+  border-block: 1px solid var(--border);
   list-style: none;
 }
 
 .not-found-options li + li {
-  border-top: 1px solid var(--od-line-soft);
+  border-top: 1px solid var(--border);
 }
 
 .not-found-option {
@@ -1219,17 +1225,17 @@ p, li { line-height: 1.7; }
   align-items: center;
   gap: 24px;
   padding: 16px 8px;
-  color: var(--od-ink);
+  color: var(--text);
   overflow-wrap: anywhere;
   text-decoration: none;
 }
 
 .not-found-option span {
-  color: var(--od-copy);
+  color: var(--text-muted);
 }
 
 .not-found-option:hover strong {
-  color: var(--od-primary);
+  color: var(--primary);
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: .25em;
