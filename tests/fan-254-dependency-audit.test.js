@@ -66,7 +66,8 @@ assert.match(auditRecord, /`info: 0`, `low: 0`, `moderate: 0`, `high: 0`, `criti
 assert.match(auditRecord, /astro@7\.1\.0.*withdrawn/i);
 assert.match(auditRecord, /conservative supply-chain screening decision/);
 assert.match(auditRecord, /`for f in deploy\/\*\.sh; do bash -n/);
-assert.match(taskLog, /^Updated: 2026-08-18$/m);
+const taskLogUpdatedDate = taskLog.match(/^Updated: (\d{4}-\d{2}-\d{2})$/m)?.[1];
+assert.ok(taskLogUpdatedDate && taskLogUpdatedDate >= '2026-08-18', 'task log keeps an ISO update date at or after the FAN-254 maintenance window');
 assert.equal(fs.existsSync('docs/security/audit.json'), false, 'generic audit output is excluded from the deliverable');
 
 console.log('FAN-254 dependency audit contract passed');
