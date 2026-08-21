@@ -1,64 +1,72 @@
 # VisaLang
 
-VisaLang is a pre-launch static MVP for a bilingual language-exam navigation site. It helps users identify language exams for visa, residency, citizenship, and work-registration paths.
+VisaLang is a live, official-source-first language-exam navigation site for visa, residency, citizenship, study and work-registration paths. Its strongest public routes are Germany A1 family reunion and Germany B1 settlement/citizenship.
 
-## What Exists
+VisaLang is an independent information and verification navigator. It does not decide eligibility, certificate acceptance, visa outcomes or individual legal questions.
 
-- Bilingual homepage: English and Chinese toggle.
-- Hero route finder: goal, country, language, and recommended official path.
-- Supporting tools: cost calculator and speaking mock entry.
-- Exam library: 50 sourced exam seeds and 200 high-intent guide-page seeds.
-- Official-source map and safe-preparation disclaimer.
+## Current Stack
 
-## How To Preview
+- Astro static site with TypeScript
+- Markdown guide collection under `src/content/guides/`
+- Shared layouts and components under `src/layouts/` and `src/components/`
+- Static output in `dist/`
+- `@astrojs/sitemap`, structured data, canonical/hreflang and fail-closed discovery/advertising gates
+- Node assertion suites and a production-oriented launch check
 
-Open `index.html` directly in a browser, or run a local preview server:
+Root-level HTML/CSS/JS files are legacy compatibility assets. Do not use them as the source for new work and do not deploy them instead of the Astro `dist/` output.
+
+## Local Development
+
+Run from the repository root:
 
 ```bash
-python3 -m http.server 4173
+npm ci
+npm run dev
 ```
 
-Then open:
+Then open the URL printed by Astro. Do not preview the current application by opening the legacy root `index.html` directly.
 
-```text
-http://127.0.0.1:4173/index.html
-```
-
-## How To Check
+## Verification
 
 ```bash
 npm test
+npm run build
+npm run launch-check
+git diff --check
 ```
 
-The test checks the core data shape, brand, bilingual setup, hero route finder, and launch-safe page elements.
+`npm run launch-check` rebuilds the site and validates generated routes, metadata, links, structured data, discovery gates and advertising exclusions. A successful local check is not deployment or owner approval.
 
-## Planning Docs
+## Source of Truth
 
-- `docs/PM_AUDIT.md`: launch-readiness audit and staged product plan.
-- `docs/LAUNCH_CHECKLIST.md`: operational go/no-go checklist.
-- `docs/CONTENT_WORKFLOW.md`: source-backed guide publishing rules.
-- `docs/MONETIZATION_ROADMAP.md`: phased revenue plan and trust boundaries.
-- `docs/TRAFFIC_SITE_ROADMAP.md`: SEO-first traffic-site plan.
-- `docs/AD_NETWORK_ONBOARDING.md`: AdSense-first ad network onboarding checklist.
-- `docs/DAILY_TRAFFIC_MONITORING_PROMPT.md`: daily Search Console / Analytics analysis prompt.
-- `docs/CONTENT_UPDATE_PROMPT.md`: high-quality source-backed content prompt.
-- `docs/CEO_OPERATING_AUDIT_PROMPT.md`: CEO-level operating audit prompt.
-- `docs/COO_OPERATING_PLAYBOOK_PROMPT.md`: COO-level weekly execution prompt.
-- `docs/WEEKLY_OPERATING_REVIEW.md`: weekly operating review template.
+- `src/pages/`: public routes
+- `src/content/guides/`: English guide content
+- `src/components/`, `src/layouts/`: shared UI and page shells
+- `src/data/`: route, product and navigation data
+- `src/styles/global.css`: design system and global styles
+- `public/`: deployment-facing static assets, redirects, robots and headers
+- `tests/`: regression contracts
+- `scripts/`: build, sitemap, launch and production smoke helpers
 
-## Main Files
+Do not hand-edit `dist/`, `.astro/` or `node_modules/`.
 
-- `index.html`: page structure and translatable text hooks.
-- `styles.css`: responsive visual design.
-- `app-data.js`: exam data, source links, i18n copy, tool logic.
-- `app.js`: rendering, language toggle, calculators, and interactions.
-- `tests/site.test.js`: lightweight project checks.
+## Current Execution Authority
 
-## Beginner Next Steps
+Read these documents in order before starting maintenance:
 
-1. Pick a first niche: Germany family visa, European citizenship language exams, or UKVI English.
-2. Verify 20 official pages manually before publishing content.
-3. Connect the waitlist form to an email tool.
-4. Deploy to a simple static host.
-5. Add analytics and search-console tracking.
-6. Publish only pages with official source links and `Last Updated` dates.
+1. `docs/OPERATIONS_STATUS.md`
+2. `docs/SPLIT_REATTEST_EXECUTION_2026-08-21.md`
+3. `docs/RELEASE_CANDIDATE_MANIFEST_2026-08-21.md`
+4. `docs/NEXT_STAGE_PHASE_0_EXECUTION_PLAN_2026-08-21.md`
+5. `docs/NEXT_STAGE_EXECUTION_TASKBOOK_2026-08-21.md`
+6. `docs/MASTER_EXECUTION_PLAN.md`
+7. `PROJECT_CONTEXT.md`
+8. `AGENTS.md`
+
+Historical planning and launch documents remain useful evidence but do not independently authorize new pages, analytics, forms, advertising changes, payments, commits, pushes or deployment.
+
+## Current Boundary
+
+The ordered Security/App application release is complete at `80c6d04`. The docs-only governance commit containing this record is its authorised successor and does not change product source or generated site behavior. Preserve the dirty local `main`; after this successor reaches `origin/main`, local `9e33c5c` is behind by two commits. The next work package is real Search Console/analytics/CMP evidence before any content expansion or commercial change. The old daily-20 content automation remains paused and is not an authorized execution plan.
+
+Any commit, push, deployment, production change or external-account action requires separate explicit owner authorization.

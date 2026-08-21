@@ -1,21 +1,45 @@
 # VisaLang Operations Status
 
-Updated: 2026-07-26
-Window: AdSense low-value content remediation — local review pending
+Updated: 2026-08-21
+Window: split Security/App production release and post-release reconciliation
 
 ## Decision at a glance
 
-- **AdSense 整改源码：本地已完成，尚未部署。** 隔离分支 `codex/adsense-low-value-remediation` 从 `0463c3df2fae64485e3baa634f675b7da0bb1896` 建立；默认广告关闭、保守的主要发现门禁、24 页逐页处置记录、noindex/sitemap 同步与主导航降级已完成。该门禁不等于逐页高价值证明。`npm test`、101 页构建和 39 项 launch check 已在最终源码上通过。
-- **生产与账号状态：未改变。** 当前 `visalang.org` 仍是 2026-07-22 发布版本；未核对 Policy center、Auto ads 排除、Crawler access、Search Console、Privacy & messaging / TCF v2.3 或账号首页必做任务，也未点击 `Request review`。
-- **发布门禁：等待所有者审核与单独授权。** 本地构建有 38 张指南卡、33 个 AdSense loader 页面、44 个 noindex 页面和 57 个 sitemap URL；这些数字在部署后必须通过公网重新验证，不能用本地结果代替生产证据。
-- **本地源码状态：已提交并推送。** Germany A1/B1 15 篇备考支持页来源复核与路线修复的应用提交为 `cd0f73cb0f9d4662d73369bb757bdaa02856eb50`；本地和服务器发布门禁均通过。
-- **线上部署状态：已部署并验证。** `visalang.org` 当前不可变发布为 `/var/www/visalang.org/releases/cd0f73cb0f9d`；Nginx 原子切换、服务器 gate、标准公网 smoke 和四页公开标记检查通过。
-- **回滚状态：可用但未触发。** 发布前版本 `/var/www/visalang.org/releases/d2ea2202668a` 保留完整；本次没有发生强制回滚条件。
-- **内容复核状态：15 篇支持页均为 reviewed，读者个案和当地执行仍待核验。** 上线不决定个人路线、例外、证书接受性、考点、日期、费用、证件、取消、出分或证书交付。
-- **广告/CMP 状态：本轮未改变且账户侧核验被明确跳过。** 项目所有者明确授权按内容发布继续；标准 smoke 只验证现有 loader、广告排除页和 `ads.txt`，未核验账户侧 CMP、Auto ads、Policy Center、CLS 或浏览器网络行为。
-- **依赖状态：存在待修复的既有风险。** 服务器 `npm ci` 和 npm 官方审计报告 1 个 moderate、2 个 high（Astro、sharp、svgo）；`package.json` 与 `package-lock.json` 相对回滚版本未变化，因此不是本轮内容改动引入。依赖升级需单独窗口。
-- **历史边界：** 下方 `flowlight.me`、无广告状态和旧 `/public/dist` 发布记录仅为带日期的历史证据，不证明当前 `visalang.org` 线上状态。
-- **未处理范围：** 本窗口未新增 analytics、表单、支付、邮件投递或其他服务集成，也未修改 DNS、TLS、CMP 或广告账户配置。
+- **当前应用基线与治理后继。** 生产应用 payload 已在 `80c6d04c4ccd3d5ee9af069703f7a56534939c3e` 直接核验。包含本记录的 docs-only governance commit 是获批后继；成功部署后，`origin/main`、server source 与 `current` 指向该包含本记录的 commit，其 release 目录使用该 commit 的 12 位短 ID，生成站点行为不变。
+- **生产健康：通过。** Security RC 与 App RC 均由服务器 Node 22 门禁构建并原子切换；最终 smoke、404 recovery、SEO title/H1、OG PNG、广告排除和安全头检查通过。
+- **回滚状态：可用。** governance-only 后继部署后的直接回滚目标是已验证 App release `/var/www/visalang.org/releases/80c6d04c4ccd`；Security release `/var/www/visalang.org/releases/f680c6234611` 是再前一层。
+- **内容台账：物理部署已完成。** 原先未部署的 FAN-254 与 FAN-270 已进入生产谱系，FAN-273 同批上线；Website Content Hub 的既有 `review` 状态未在本轮擅自改写为人工内容批准。
+- **内容自动化：仍暂停。** `visalang-20` 保持 `PAUSED`，本次发布不恢复自动内容生产。
+- **本地与远端。** governance-only 后继进入 `origin/main`/生产后，本地 dirty `main` 仍为 `9e33c5c`，ahead 0 / behind 2；既有未提交测试/证据保持 preserved，未 reset 或覆盖。
+- **发布治理：完成。** Security RC 和 App RC 均完成独立审计；owner 随后明确授权只读账号核验及在账号证据不可得时豁免，并授权按 Security → App 两阶段上线。
+- **账号/浏览器边界：显式豁免。** 当前会话没有可用的已认证 AdSense/CMP 浏览器上下文，未读取或修改账号设置；owner 以“1+2”明确同时授权只读核验和本次豁免。生产源码 smoke 覆盖 AdSense loader、广告排除与 `ads.txt`，但不声称 CMP choices、Auto ads placement、Policy Center、CLS 或 clean-profile 网络行为已验证。
+
+
+## Governance-only successor release — 2026-08-21
+
+- The commit containing this record is the approved docs-only successor of App commit `80c6d04`; it changes governance documentation only and does not change product source or generated site behavior.
+- After successful push/deploy, `origin/main`, server source and `current` must resolve to that containing commit; the immutable release directory uses its 12-character short ID.
+- Server Node 22 gates and public smoke must pass again. If they do not, roll back to verified App release `/var/www/visalang.org/releases/80c6d04c4ccd`.
+- Local dirty `main` remains preserved at `9e33c5c` and is then behind by two commits.
+
+## Split Security and App production release — 2026-08-21
+
+- Release sequence: production `6a1cb43` → Security `f680c62` → App `80c6d04`; no stage was skipped.
+- Security release: origin and server fast-forwarded to `f680c6234611606c0f308bbf386ee714b027385a`; server Node `v22.23.1`, locked install, tests, 100-page build and launch 44/44 READY passed; immutable release `/var/www/visalang.org/releases/f680c6234611` was switched and public smoke passed.
+- App release: after Security became the verified production baseline, App `80c6d04c4ccd3d5ee9af069703f7a56534939c3e` was rechecked with Node 22, official registry, audit 0, tests, 100-page build, launch 46/46 READY and independent PASS; origin and server then fast-forwarded and switched to `/var/www/visalang.org/releases/80c6d04c4ccd`.
+- Final production smoke: homepage, Guides, robots and sitemap returned 200; legacy and `www` redirects returned expected 301; source HEAD/current symlink matched `80c6d04`; server source remained clean.
+- Public App markers: a synthetic missing URL returned 404 with `noindex`, the recovery search `q` flow and no AdSense loader; the Goethe A1 pre-booking guide kept its long visible H1 while using the shorter SEO title; the default Open Graph PNG returned 200 as `image/png`.
+- Rollback: `/var/www/visalang.org/releases/f680c6234611` is the immediate verified previous release. No rollback trigger occurred.
+- Evidence: `/private/tmp/visalang-production-security-deploy-20260821.log`, `/private/tmp/visalang-production-security-smoke-20260821.log`, `/private/tmp/visalang-app-after-production-security-predeploy-20260821.log`, `/private/tmp/visalang-production-app-deploy-20260821.log`, `/private/tmp/visalang-production-app-smoke-20260821.log`.
+- Account boundary: no authenticated account context was available and no account configuration changed. Owner explicitly authorised the release with an account-evidence waiver; therefore this release does not claim account-side CMP/Auto Ads/Policy Center or clean-profile browser verification.
+
+## Historical production reconciliation snapshot — before the split release
+
+- Full record: `docs/RELEASE_RECONCILIATION_2026-08-21.md`.
+- Production source/release pair: `6a1cb43239200ceae1d43700cdc0241bdbc2e861` / `/var/www/visalang.org/releases/6a1cb4323920`.
+- Release directory mtime observed in that snapshot: `2026-08-18T11:20:52+08:00`.
+- Immediate rollback candidate: `cd0f73cb0f9d4662d73369bb757bdaa02856eb50` / `/var/www/visalang.org/releases/cd0f73cb0f9d`.
+- This reconciliation made no production change. It corrected repository/Vault records to match the already observed deployment.
 
 ## Germany A1/B1 support-page source-review release — 2026-07-22
 
@@ -154,7 +178,9 @@ The URLs below returned HTTP 200 during the Astro 7 post-release review. This pr
 
 Current read-only check at 2026-07-13 20:20 CST: `https://flowlight.me/`, `https://www.flowlight.me/`, `https://flowlight.me/sitemap-index.xml`, `https://flowlight.me/contact/`, `https://flowlight.me/privacy-policy/`, and `https://flowlight.me/cookie-policy/` returned HTTP 200. Both public homepages contained the Cloudflare Web Analytics beacon; the contact page displayed `hello@flowlight.me`; the two policy pages mentioned Cloudflare Web Analytics and Google AdSense. No server login or deploy-version marker was available, so the precise live commit remains **待业务方确认**.
 
-## Phase 1 entry-responsibility verification
+## Historical Phase 1 entry-responsibility snapshot — 2026-07-13
+
+The production facts in this historical table are superseded by the 2026-08-21 reconciliation at the top of this file. Its governance gaps remain open unless separately closed; old domains, paths and account observations below are not current-state evidence.
 
 Checked: 2026-07-13 20:20 CST (repository-visible source and documentation plus read-only public URL checks). No account or server was accessed, no service was configured, no email was sent, and no personal data was used.
 
@@ -170,9 +196,9 @@ Status definitions: **已确认** requires a real named person or business-appro
 | 6. 发布 | 授权发布负责人：待业务方确认；备份或升级方式：待业务方确认 | 待业务方确认 | `docs/OPERATIONS_STATUS.md` 和 `docs/TASK_LOG.md` 含历史发布技术记录，可定位历史 branch、commit、构建、DNS、冒烟检查和产物路径；未提供下一次发布的授权或目标 commit 批准证据。 | 授权负责人、备份/升级方式、发布批准点、目标 commit 批准证据和发布验证记录保存位置均待业务方确认。历史执行记录不等于当前授权。 | 最小材料：授权负责人；不能执行时的备份/升级路径；发布前批准点；批准人对目标 commit 的可定位记录；每次发布验证记录的固定保存位置和模板。 |
 | 7. 回滚 | 回滚负责人：待业务方确认；授权人：待业务方确认 | 历史路径有记录，当前责任、路径与演练待确认 | 历史记录保存了发布目录 `/var/www/flowlight.me/public/dist` 及两个发布前产物路径；未登录服务器，故未核验当前生产主机、目录、产物可用性或实际恢复路径，也未发现有效演练证据。 | 回滚负责人/授权人、触发阈值、当前生产主机和发布目录、当前实际回滚步骤、沟通/批准流程、恢复验证方式及有效演练证据均待业务方确认。 | 最小材料：负责人和授权人；可执行触发阈值；当前主机/目录及由获准人员提供的查看证据；实际回滚 SOP；沟通与批准链；恢复检查清单；最近演练日期、目标、结果和证据位置。演练须另开获批窗口。 |
 
-## Explicit Phase 1 gate
+## Historical explicit Phase 1 gate
 
-**Result: 暂不启动阶段 1。** 七项中只有部分技术事实可检查；Search Console/等价监测、Analytics 与隐私责任、联系收件/分流/保留、联系 SLA、官方事实复核、发布和回滚均未同时具备已命名负责人及可检查运营证据。
+**Result at that 2026-07-13 snapshot: 暂不启动阶段 1。** 七项中只有部分技术事实可检查；Search Console/等价监测、Analytics 与隐私责任、联系收件/分流/保留、联系 SLA、官方事实复核、发布和回滚均未同时具备已命名负责人及可检查运营证据。
 
 Until the gate is opened in writing:
 

@@ -1,6 +1,39 @@
 # VisaLang Task Log
 
-Updated: 2026-08-20
+Updated: 2026-08-21
+
+## Governance-only successor release — 2026-08-21
+
+- The commit containing this record is the approved docs-only successor of App commit `80c6d04`; it contains governance documentation only and leaves product source/output unchanged.
+- After successful deployment, origin/server/current advance to that containing commit and the immediate rollback target becomes verified App release `80c6d04c4ccd`.
+- Local dirty `main` remains at `9e33c5c` and is then behind by two commits; it is not reset or overwritten.
+
+## Split Security and App production release — 2026-08-21
+
+- Owner authorised both read-only account verification and an explicit account-evidence waiver, then authorised the full ordered release. No authenticated AdSense/CMP context was available; no account setting changed and no account-side verification is claimed.
+- Pushed and deployed Security RC `f680c6234611606c0f308bbf386ee714b027385a` first. Server Node 22 gates passed with 100 pages and launch 44/44 READY; immutable release `f680c6234611` and production smoke passed.
+- Confirmed production source/current were exactly `f680c62`, then revalidated App RC `80c6d04c4ccd3d5ee9af069703f7a56534939c3e` against that actual baseline: official registry, audit 0, test PASS, 100 pages, launch 46/46 READY, diff/status clean, independent Auditor PASS with P0/P1/P2=0.
+- Pushed and deployed App RC. Final production source and `current` resolve to `80c6d04c4ccd3d5ee9af069703f7a56534939c3e` / `/var/www/visalang.org/releases/80c6d04c4ccd`; server source is clean.
+- Final smoke passed for homepage, Guides, robots, sitemap, canonical redirects, AdSense source rules, `ads.txt` and security headers. Focused public checks passed for 404/noindex/search/no-ads recovery, separated SEO title versus visible H1, and the default OG PNG.
+- Immediate rollback is the verified Security release `/var/www/visalang.org/releases/f680c6234611`; no rollback trigger occurred.
+- Local dirty `main` and all unrelated governance/evidence work remained preserved and were not reset or swept into the release.
+
+## Historical VisaLang production and content-ledger reconciliation snapshot — 2026-08-21
+
+- Paused the Codex automation `visalang-20`. Its old `ACTIVE` prompt explicitly required 20 new articles per day; the preserved automation configuration now reports `status = "PAUSED"`, preventing the next 09:00 run.
+- Direct production evidence: `/var/www/visalang.org/current` resolves to `/var/www/visalang.org/releases/6a1cb4323920`; server source HEAD is `6a1cb43239200ceae1d43700cdc0241bdbc2e861` and clean. The release directory mtime is `2026-08-18T11:20:52+08:00`.
+- Rollback evidence: `/var/www/visalang.org/releases/cd0f73cb0f9d` is complete and maps to ancestor commit `cd0f73cb0f9d4662d73369bb757bdaa02856eb50`. It is an available candidate, not a completed rollback drill.
+- Production smoke passed from the production host for homepage, Guide Library, robots, sitemap, legacy/`www` redirects and the repository's canonical, advertising-exclusion, `ads.txt`, robots and security-header assertions.
+- Reconciled all 21 Website Content Hub update records. Nineteen records now reflect physical deployment through the current production lineage; FAN-254 and FAN-270 remain `not_started`. All 21 retain `status: review`, `needs_human_review: true` and `owner_decision: pending`; no approval identity or time was fabricated.
+- Corrected the FAN-254 Hub `result_commit` from non-ancestor `ea07fb7d94d61d774ad3698cd954d0400c2f5e2a` to current local candidate `f680c6234611606c0f308bbf386ee714b027385a`. The seven local FAN-254 commits remain ahead of `origin/main` and are not deployed.
+- FAN-270 remains an uncommitted local SEO candidate. This window did not commit, push, deploy, rollback or alter source/content implementation, DNS/TLS, AdSense/CMP, Search Console or other external accounts.
+- Full mapping and remaining owner/review gates are recorded in `docs/RELEASE_RECONCILIATION_2026-08-21.md`.
+
+### Pre-release local candidate snapshot — superseded by the production release above
+
+- The reconciliation bullets above are a point-in-time record. Local `main` subsequently advanced to `9e33c5c`, now 11 commits ahead of `origin/main`: seven FAN-254 commits, three FAN-273 commits and the committed FAN-270 candidate.
+- These local commits remain outside production. The working tree also retains pre-existing uncommitted reconciliation/governance files. `docs/RELEASE_CANDIDATE_MANIFEST_2026-08-21.md` is the current package-to-commit matrix.
+- At that reconciliation point, the decision remained `NO-GO / OWNER_DECISION_REQUIRED`; this historical note did not authorise commit, push or deployment. The later authorised production result is recorded in the release section above.
 
 ## FAN-270 sitewide content and SEO optimisation — 2026-08-20
 

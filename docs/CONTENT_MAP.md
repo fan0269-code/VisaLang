@@ -126,7 +126,7 @@ Exam-execution fields for the matrix: exact products are IELTS for UKVI / IELTS 
 
 ## Immediate execution queue
 
-The four-page telc source-gap queue is complete in the current uncommitted review package. FAN-40 retains and deepens only `dutch-inburgering-a2-b1-for-integration-and-citizenship` under the no-data risk fallback; it remains `verification-pending`, noindex, advertising-free and terminal pending independent review. FAN-42 and FAN-43 remain separately governed; this ledger does not start those tasks.
+The four-page telc source-gap queue, FAN-40, FAN-42 and FAN-43 entered the production lineage by `6a1cb43239200ceae1d43700cdc0241bdbc2e861` and remain included in the production application payload baseline `80c6d04c4ccd3d5ee9af069703f7a56534939c3e`, verified on 2026-08-21; the authorised docs-only governance successor does not change that payload. FAN-40 remains `verification-pending`, noindex, advertising-free and terminal; physical publication does not promote its evidence state. Their Website Content Hub records still require human disposition and unresolved independent re-review must not be inferred from deployment. The bounded 20-natural-day plan remains pending CEO confirmation, so this ledger does not authorise another content batch or any new page.
 
 ## Maintenance rule
 

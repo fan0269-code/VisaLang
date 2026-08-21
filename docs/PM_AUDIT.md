@@ -1,3 +1,5 @@
+> **Historical audit:** Retained for planning history. It does not override the current Astro architecture, production reconciliation or next-stage taskbook. See `README.md`, `docs/OPERATIONS_STATUS.md` and `docs/NEXT_STAGE_EXECUTION_TASKBOOK_2026-08-21.md`.
+
 # VisaLang PM Audit
 
 Date: 2026-06-30

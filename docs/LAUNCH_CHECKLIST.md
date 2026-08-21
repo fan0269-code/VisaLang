@@ -1,3 +1,5 @@
+> **Historical checklist:** Formspree, root `index.html`, old sitemap and analytics items below describe an earlier static-site plan. They are not current implementation facts or execution authorization. Use `README.md`, `docs/OPERATIONS_STATUS.md` and `docs/NEXT_STAGE_PHASE_0_EXECUTION_PLAN_2026-08-21.md` for the current Astro release gates.
+
 # VisaLang Launch Checklist
 
 > Status legend: `[x]` done automatically · `[~]` ready, needs your account/action · `[ ]` still TODO

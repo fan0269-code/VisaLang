@@ -34,9 +34,11 @@ Add or update a focused assertion in `tests/` when behavior, a route, or a requi
 
 ## Independent Agent Review
 
-The agent that implements a change must not be the sole reviewer and must not mark its own work as review-passed. Before reporting an implementation or content change as complete, assign at least one separate agent that did not participate in the implementation to perform a read-only review against the task specification and repository standards.
+The agent that implements a change must not be the sole reviewer and must not mark its own work as review-passed. Before reporting an implementation or content change as complete, assign the separate, read-only **VisaLang Independent Auditor** described in `docs/VISALANG_INDEPENDENT_AUDITOR_AGENT.md`. Its recorded `PASS` is the required independent content/implementation review result; it replaces a manual content-review step.
 
-The implementing agent must address all scoped P0, P1, and P2 findings. The original reviewing agent must then re-review the corrected work and return `PASS`; if that cannot be achieved within the authorised scope, report the blocker instead of self-approving. Automated tests and the implementing agent's own inspection are verification inputs, not substitutes for the independent agent review.
+The implementing agent must address all scoped P0, P1, and P2 findings. The same Auditor must then re-review the corrected scope and return `PASS`; if that cannot be achieved within the authorised scope, report the blocker instead of self-approving. Automated tests and the implementing agent's own inspection are verification inputs, not substitutes for the Auditor.
+
+The Auditor never approves a deployment, changes an external account, asserts an individual immigration/exam outcome, or impersonates an owner. A separately explicit owner authorization is still required for any commit/push/deployment or external action.
 
 ## Authority-First Content Policy
 

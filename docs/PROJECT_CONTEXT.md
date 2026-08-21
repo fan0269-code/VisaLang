@@ -1,3 +1,5 @@
+> **Historical note (2026-08-21):** This file contains dated `flowlight.me` and legacy deployment observations. For current architecture use root `PROJECT_CONTEXT.md`; for current production/release state use `docs/OPERATIONS_STATUS.md` and `docs/RELEASE_CANDIDATE_MANIFEST_2026-08-21.md`. Do not execute deployment or product work from historical sections below.
+
 # VisaLang Project Context
 
 Updated: 2026-07-13

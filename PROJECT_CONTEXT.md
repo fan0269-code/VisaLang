@@ -2,6 +2,14 @@
 
 This document is a working map for future agent windows. It records the project as it exists in this checkout, not only the older README/CLAUDE notes.
 
+## Current operations baseline — 2026-08-21
+
+- The production application payload baseline is App commit `80c6d04c4ccd3d5ee9af069703f7a56534939c3e`. The docs-only governance commit containing this record is its authorised successor; after deployment, `origin/main`, server source and `current` resolve to that containing commit while generated site behavior remains unchanged.
+- Security commit `f680c6234611606c0f308bbf386ee714b027385a` was released and smoke-verified first. After the governance-only successor is deployed, App release `/var/www/visalang.org/releases/80c6d04c4ccd` is the immediate verified rollback release; Security remains the next earlier rollback point.
+- Local dirty `main` remains at `9e33c5c`; after the governance successor reaches `origin/main`, it is behind by the App integration commit plus this governance commit (2 commits). Preserve it; do not reset, pull over, or sweep unrelated tracked/untracked material into a candidate.
+- The next safe work package is post-release stabilization and an isolated governance/documentation candidate. Bulk content generation remains paused.
+- Account-side CMP/Auto Ads/Policy Center/CLS evidence was explicitly waived for the completed release and must not be represented as verified.
+
 ## 1. 网站定位
 
 VisaLang is an official-source-first language exam navigation site for visa, residency, citizenship, study, and work-registration paths.
@@ -56,11 +64,11 @@ Historical/static layer still present:
 - `src/pages/zh/index.astro`: real Chinese homepage route.
 - `src/layouts/`: shared page layouts.
 - `src/components/`: reusable Astro components.
-- `src/content/guides/`: Markdown source for guide pages. There are currently 54 guide Markdown files.
+- `src/content/guides/`: Markdown source for guide pages. There are currently 53 guide Markdown files.
 - `src/content.config.ts`: Astro content collection schema for guides.
 - `src/data/app-data.ts`: Astro-era data, brand, i18n, exam list, tools, source list, and planner helpers.
 - `src/styles/global.css`: primary design system and shared styles for Astro pages.
-- `public/`: static assets and deploy-facing files copied by Astro, including `public/robots.txt` and `public/images/og-default.svg`.
+- `public/`: static assets and deploy-facing files copied by Astro, including `public/robots.txt` and the current default social card `public/images/og-default.png` (`og-default.svg` is a retained older asset).
 - `scripts/`: verification and sitemap helper scripts.
 - `tests/site.test.js`: high-value project assertions; treat it as part of the spec.
 - `docs/`: operating, launch, monetization, content workflow, traffic, and agent notes.
@@ -138,17 +146,17 @@ Style rule of thumb:
 
 Current SEO foundations:
 
-- `astro.config.mjs` sets `site: "https://flowlight.me"` and `trailingSlash: "always"`.
+- `astro.config.mjs` sets `site: "https://visalang.org"` and `trailingSlash: "always"`.
 - `@astrojs/sitemap` is enabled.
-- Sitemap filter excludes noindex/legal/trust paths from generated sitemap: affiliate disclosure, cookie policy, editorial policy, privacy policy, and terms.
+- Sitemap exclusions are defined by `astro.config.mjs` `noindexSitemapPaths`; `scripts/enrich-sitemap-lastmod.js` also removes generated pages whose final HTML is `noindex,follow`. Do not maintain a second copied list in documentation.
 - `scripts/enrich-sitemap-lastmod.js` enriches generated sitemap entries from guide `updatedDate` metadata.
-- `public/robots.txt` points to `https://flowlight.me/sitemap-index.xml`.
-- Root `robots.txt` still points to `https://flowlight.me/sitemap.xml`, so be careful which layer a deployment uses.
+- `public/robots.txt` points to `https://visalang.org/sitemap-index.xml`.
+- Root `robots.txt` is a legacy/static artifact that points to the old domain and must never be used for the current deployment; Astro publishes `public/robots.txt` through `dist/`.
 - `BaseLayout.astro` centralizes title, description, canonical, hreflang alternates, OG/Twitter metadata, and JSON-LD injection.
 - Guide pages emit `Article` and `BreadcrumbList` JSON-LD.
 - Guide index emits `CollectionPage` and `ItemList` JSON-LD.
 - English and Chinese homepages use real `/` and `/zh/` routes with hreflang alternates.
-- Guide content schema requires title, description, category, slug, publishedDate, updatedDate, author, readingTime, featured, eyebrow, route, and related fields.
+- `src/content.config.ts` is the only authoritative guide-schema definition; do not copy its evolving field list into planning documents.
 
 SEO risk notes:
 
