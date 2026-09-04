@@ -65,11 +65,12 @@ for (const [property, value] of [
 }
 
 assert.equal(declarationsFor('.guide-summary-box').get('border-color'), 'var(--od-line)', 'ordinary summaries keep a neutral border');
-assert.equal(declarationsFor('.verification-alert').get('border-left-color'), 'var(--warning)', 'warning verification keeps the warning accent');
-assert.equal(declarationsFor('.verification-alert--risk').get('border-left-color'), 'var(--risk)', 'risk verification keeps the risk accent');
-assert.equal(declarationsFor('.guide-disclaimer').get('border-left-color'), 'var(--risk)', 'disclaimers keep the risk accent');
+assert.equal(declarationsFor('.verification-alert').get('border'), '1px solid var(--border)', 'warning verification uses a restrained full border');
+assert.equal(declarationsFor('.verification-alert > strong').get('color'), 'var(--warning)', 'warning verification keeps a semantic warning accent');
+assert.equal(declarationsFor('.verification-alert--risk > strong').get('color'), 'var(--risk)', 'risk verification keeps a semantic risk accent');
+assert.equal(declarationsFor('.guide-disclaimer').get('border'), '1px solid var(--risk)', 'disclaimers use a restrained full border');
 for (const selector of ['.verification-pending', '.compliance-line']) {
-  assert.match(css, new RegExp(`\\${selector}[^}]*border-left`), `${selector} keeps a semantic risk or verification accent`);
+  assert.match(css, new RegExp(`\\${selector}[^}]*border: 1px solid var\\(--risk\\)`), `${selector} keeps a semantic risk border`);
 }
 
 const printBody = declarationsFor('body', { media: 'print' });

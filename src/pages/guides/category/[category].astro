@@ -84,24 +84,27 @@ const jsonLD = {
       </header>
 
       {categoryGuides.length > 0 ? (
-        <div class="guide-related-grid">
-          {categoryGuides.map((guide) => (
-            <ArticleCard
-              title={guide.data.title}
-              slug={guide.data.slug}
-              category={guide.data.eyebrow ?? (guideCategoryMap[guide.data.category]?.name ?? guide.data.category)}
-              status={guide.status}
-              description={guide.data.description}
-              readingTime={guide.data.readingTime}
-              country={guide.meta.country}
-              route={guide.meta.route}
-              exam={guide.meta.exam}
-              level={guide.meta.level}
-              updatedDate={guide.data.updatedDate}
-              relatedRouteHref="/guides/"
-            />
-          ))}
-        </div>
+        <section aria-labelledby="category-results-title">
+          <h2 class="section-title" id="category-results-title">Guides in this category</h2>
+          <div class="guide-related-grid">
+            {categoryGuides.map((guide) => (
+              <ArticleCard
+                title={guide.data.title}
+                slug={guide.data.slug}
+                category={guide.data.eyebrow ?? (guideCategoryMap[guide.data.category]?.name ?? guide.data.category)}
+                status={guide.status}
+                description={guide.data.description}
+                readingTime={guide.data.readingTime}
+                country={guide.meta.country}
+                route={guide.meta.route}
+                exam={guide.meta.exam}
+                level={guide.meta.level}
+                updatedDate={guide.data.updatedDate}
+                relatedRouteHref="/guides/"
+              />
+            ))}
+          </div>
+        </section>
       ) : (
         <p class="guide-empty-state">No guides in this category currently meet the primary discovery gate. Browse reviewed routes or check another category.</p>
       )}

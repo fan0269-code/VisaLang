@@ -8,8 +8,27 @@ const labels = locale === 'zh-CN' ? { current: '当前步骤', complete: '已完
 <script>
   document.querySelectorAll<HTMLOListElement>('[data-route-progress]').forEach((progress) => {
     const key = `visalang-route:${progress.dataset.routeProgress}`;
-    const initial = Number(progress.dataset.initialStep || 0);
-    const saved = Math.max(0, Math.min(progress.children.length - 1, Number(localStorage.getItem(key) || initial)));
+    const parsedInitial = Number(progress.dataset.initialStep || 0);
+    const initial = Number.isInteger(parsedInitial) ? parsedInitial : 0;
+    const readSaved = () => {
+      try {
+        const stored = localStorage.getItem(key);
+        if (stored === null) return initial;
+        const normalized = stored.trim();
+        const value = Number(normalized);
+        return normalized && Number.isInteger(value) ? value : initial;
+      } catch {
+        return initial;
+      }
+    };
+    const save = (value: number) => {
+      try {
+        localStorage.setItem(key, String(value));
+      } catch {
+        // Continue without persistence when storage is blocked.
+      }
+    };
+    const saved = Math.max(0, Math.min(progress.children.length - 1, readSaved()));
     const render = (current: number) => {
       progress.querySelectorAll<HTMLElement>('[data-route-step]').forEach((item) => {
         const index = Number(item.dataset.routeStep);
@@ -23,7 +42,7 @@ const labels = locale === 'zh-CN' ? { current: '当前步骤', complete: '已完
     render(saved);
     progress.querySelectorAll<HTMLButtonElement>('[data-route-next]').forEach((button) => button.addEventListener('click', () => {
       const next = Math.min(progress.children.length - 1, Number(button.dataset.routeNext) + 1);
-      localStorage.setItem(key, String(next));
+      save(next);
       render(next);
       progress.querySelector<HTMLElement>(`[data-route-step="${next}"]`)?.focus({ preventScroll: true });
       progress.querySelector<HTMLElement>(`[data-route-step="${next}"]`)?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
