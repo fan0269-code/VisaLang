@@ -120,6 +120,24 @@ for (const file of germanyA1Guides) {
   assert.ok(source.includes(`updatedDate: "${expectedUpdateDate}"`), `${file} should show its expected update date`);
 }
 
+const batch1RecheckDocs = fs.readFileSync('docs/GERMANY_A1_BATCH1_SOURCE_RECHECK_2026-10-21.md', 'utf8');
+assert.match(batch1RecheckDocs, /Checked: 2026-10-21/, 'batch 1 recheck docs record the Asia/Shanghai check date');
+assert.match(batch1RecheckDocs, /no public-content change/, 'batch 1 recheck docs record the no-content-change disposition');
+
+const batch1SourceReviewedAt = new Set([
+  'goethe-a1-vs-telc-a1.md',
+  'german-a1-documents-checklist.md',
+  'german-a1-exam-booking-timeline.md',
+  'goethe-a1-fees-by-country.md',
+  'goethe-a1-test-centers.md',
+  'goethe-a1-retake-policy.md',
+  'goethe-a1-germany-family-reunion.md',
+]);
+for (const file of batch1SourceReviewedAt) {
+  const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
+  assert.equal(field(source, 'sourceReviewedAt'), '2026-10-21', `${file} records the batch-1 open-check date without inventing an updatedDate`);
+}
+
 const supportGuideExpectations = {
   'goethe-a1-germany-family-reunion.md': { stage: 'requirement', next: 'goethe-a1-vs-telc-a1' },
   'german-a1-family-reunion-faq.md': { stage: 'requirement', next: 'goethe-a1-vs-telc-a1' },
@@ -133,11 +151,16 @@ const supportGuideExpectations = {
   'goethe-a1-pre-booking-checklist.md': { stage: 'local-execution', next: 'german-a1-exam-booking-timeline' },
 };
 
+const batch1SourceRecheckedOn20261021 = new Set([
+  'goethe-a1-germany-family-reunion.md',
+]);
+
 for (const [file, expected] of Object.entries(supportGuideExpectations)) {
   const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
   const body = source.split(/^---\s*$/m).slice(2).join('---');
   assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${file} records the completed source review`);
-  assert.equal(field(source, 'sourceReviewedAt'), '2026-07-22', `${file} records the actual source-review date`);
+  const expectedSourceReviewedAt = batch1SourceRecheckedOn20261021.has(file) ? '2026-10-21' : '2026-07-22';
+  assert.equal(field(source, 'sourceReviewedAt'), expectedSourceReviewedAt, `${file} records the actual source-review date`);
   assert.equal(field(source, 'reviewedByRole'), 'source-review', `${file} records the controlled reviewer role`);
   assert.equal(field(source, 'decisionStage'), expected.stage, `${file} uses the agreed decision stage`);
   assert.equal(field(source, 'nextGuideSlug'), expected.next, `${file} uses the agreed primary next step`);

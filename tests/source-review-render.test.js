@@ -126,9 +126,10 @@ try {
     const source = fs.readFileSync(path.join(guideDirectory, `${slug}.md`), 'utf8');
     const html = fs.readFileSync(path.join('dist/guides', slug, 'index.html'), 'utf8');
     const renderedNext = html.match(/<a href="([^"]+)"><small>Next guide<\/small>/)?.[1] || '';
+    const sourceReviewedAt = frontmatterField(source, 'sourceReviewedAt');
     assert.equal((html.match(/<h1(?:\s|>)/g) || []).length, 1, `${slug} renders exactly one H1`);
     assert.ok(html.includes('aria-label="Disclaimer"'), `${slug} renders the planning disclaimer`);
-    assert.ok(html.includes('Official sources last checked: <time datetime="2026-07-22">2026-07-22</time>'), `${slug} renders the current source-review date`);
+    assert.ok(html.includes(`Official sources last checked: <time datetime="${sourceReviewedAt}">${sourceReviewedAt}</time>`), `${slug} renders the current source-review date`);
     assert.ok(html.includes('<dt>Reviewed by role</dt><dd>Source review</dd>'), `${slug} renders the source-review role`);
     assert.ok(!html.includes('Official verification pending'), `${slug} does not render a conflicting pending state`);
     assert.ok(html.includes(`"dateModified":"${frontmatterField(source, 'updatedDate')}"`), `${slug} keeps dateModified tied to updatedDate`);
