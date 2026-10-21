@@ -1,4 +1,10 @@
-User-agent: *
-Allow: /
+# DO NOT DEPLOY / DO NOT USE AS PRODUCTION robots.txt
+# Canonical robots for the live site is public/robots.txt
+# (copied into dist/ by Astro build; deploy/deploy.sh publishes only dist/).
+# This root file is a legacy leftover. Prefer public/robots.txt.
+#
+# Intentionally not mirroring production Allow/Sitemap rules here
+# so this path cannot be mistaken for the live robots policy.
 
-Sitemap: https://visalang.org/sitemap.xml
+User-agent: *
+Disallow: /
