@@ -40,19 +40,30 @@ const newlyReviewedLocalSourceSlugs = new Set([
   'goethe-a1-fees-by-country',
   'goethe-a1-retake-policy',
 ]);
+const batch1SourceRecheckedSlugs = new Set([
+  'goethe-a1-vs-telc-a1',
+  'german-a1-documents-checklist',
+  'german-a1-exam-booking-timeline',
+  'goethe-a1-test-centers',
+  'goethe-a1-fees-by-country',
+  'goethe-a1-retake-policy',
+]);
 for (const slug of auditedGermanyA1Slugs) {
   const source = bySlug.get(slug)?.source || '';
   assert.equal(field(source, 'contentStatus'), 'complete-route', `${slug} keeps content maturity independent from source review`);
-  const expectedReviewDate = slug === 'german-family-reunion-language-requirement'
+  const expectedUpdateDate = slug === 'german-family-reunion-language-requirement'
     ? '2026-08-15'
     : newlyReviewedLocalSourceSlugs.has(slug) ? '2026-07-19' : '2026-07-18';
-  assert.equal(field(source, 'updatedDate'), expectedReviewDate, `${slug} records the substantive visible update`);
+  const expectedSourceReviewedAt = slug === 'german-family-reunion-language-requirement'
+    ? '2026-08-15'
+    : batch1SourceRecheckedSlugs.has(slug) ? '2026-10-21' : expectedUpdateDate;
+  assert.equal(field(source, 'updatedDate'), expectedUpdateDate, `${slug} records the substantive visible update`);
   for (const fieldName of ['audienceScope', 'finalDecisionAuthorityType', 'primaryOfficialAuthorityUrl', 'examOwnerUrl', 'localExecutionPrompt']) {
     assert.ok(field(source, fieldName), `${slug} records ${fieldName}`);
   }
   if (reviewedGermanyA1Slugs.has(slug)) {
     assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${slug} records the completed source review`);
-    assert.equal(field(source, 'sourceReviewedAt'), expectedReviewDate, `${slug} records the real source-review date`);
+    assert.equal(field(source, 'sourceReviewedAt'), expectedSourceReviewedAt, `${slug} records the real source-review date`);
     assert.equal(field(source, 'reviewedByRole'), 'source-review', `${slug} records the source-review role`);
   }
 }
