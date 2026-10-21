@@ -10,6 +10,7 @@ Source of truth: `src/content/guides/*.md`, `src/data/zh-germany-a1.ts`, and the
 - English controlled source-review state: reviewed 53, pending 0.
 - Core-route source review: Germany A1 has 17 reviewed English guides; Germany B1 has 13 reviewed English guides, including the five preparation-support guides reviewed on 2026-07-22.
 - Chinese Germany A1 evidence state: 8 reviewed with independent source and translation review recorded on 2026-07-19.
+- 2026-10-21: AdSense P0 depth remediation sample on Germany A1/B1 hubs + selected core supports; see `docs/ADSENSE_P0_DEPTH_REMEDIATION_2026-10-21.md` and `/content-update-log/`.
 - Germany TestDaF: P3.1/P3.2 bounded source review and P3.3 route connectivity are complete across the existing four starter-overview guides.
 - FAN-43 rechecked FAN-35's selected `germany-b1-settlement-citizenship-timeline` against the current authority, naturalisation-process and exam-centre sources on 2026-08-15. Its confirmed-date workflow, no-calculation boundary, discovery gate and in-route links remain correct, so the public page and its substantive `updatedDate` / `sourceReviewedAt` were intentionally not refreshed; see `docs/GERMANY_B1_TIMELINE_SOURCE_RECHECK_2026-08-15.md`.
 - Content maturity is not evidence maturity. An updated or mature page may still have pending official-source review.

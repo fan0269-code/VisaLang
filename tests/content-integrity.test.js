@@ -40,11 +40,16 @@ const newlyReviewedLocalSourceSlugs = new Set([
   'goethe-a1-fees-by-country',
   'goethe-a1-retake-policy',
 ]);
+const depthRemediatedA1Slugs = new Set([
+  'german-family-reunion-language-requirement',
+  'goethe-a1-vs-telc-a1',
+  'german-a1-documents-checklist',
+]);
 for (const slug of auditedGermanyA1Slugs) {
   const source = bySlug.get(slug)?.source || '';
   assert.equal(field(source, 'contentStatus'), 'complete-route', `${slug} keeps content maturity independent from source review`);
-  const expectedReviewDate = slug === 'german-family-reunion-language-requirement'
-    ? '2026-08-15'
+  const expectedReviewDate = depthRemediatedA1Slugs.has(slug)
+    ? '2026-10-21'
     : newlyReviewedLocalSourceSlugs.has(slug) ? '2026-07-19' : '2026-07-18';
   assert.equal(field(source, 'updatedDate'), expectedReviewDate, `${slug} records the substantive visible update`);
   for (const fieldName of ['audienceScope', 'finalDecisionAuthorityType', 'primaryOfficialAuthorityUrl', 'examOwnerUrl', 'localExecutionPrompt']) {

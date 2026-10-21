@@ -51,15 +51,57 @@ const jsonLD = { '@context': 'https://schema.org', '@graph': [
     <div class="card-footer"><span class="last-checked">Route content updated: <time datetime={updatedDate}>{updatedDate}</time></span><LastCheckedBadge status="pending" /><span>{guides.length} supporting guides</span></div>
     <VerificationAlert title="Who this route is for"><p>Use this route if you are preparing a German spouse or family-reunion application and still need to organise the language-proof decision. It cannot determine whether an exemption or certificate applies to your individual case.</p></VerificationAlert>
 
+    <section class="content-section" aria-labelledby="hub-decision-order"><div class="section-header"><h2 id="hub-decision-order">Decision order (do not skip ahead)</h2><p>Each step has a separate guide. Move forward only when the responsible source has answered the current step.</p></div>
+      <ol>
+        <li><strong>Requirement:</strong> confirm whether language proof applies and which authority handles the file.</li>
+        <li><strong>Accepted proof:</strong> match an exact adult certificate name to that authority’s wording.</li>
+        <li><strong>Exam options:</strong> compare only products the authority named—not brand popularity.</li>
+        <li><strong>Centre and booking:</strong> verify official centre status and local terms before payment.</li>
+        <li><strong>Timeline:</strong> enter only reader-held or locally confirmed dates.</li>
+        <li><strong>Documents:</strong> keep booking, test-day, and visa-file stacks separate.</li>
+        <li><strong>Submission recheck:</strong> re-open the mission checklist before you file.</li>
+      </ol>
+    </section>
+
+    <section class="content-section" aria-labelledby="hub-responsibility"><div class="section-header"><h2 id="hub-responsibility">Responsibility split</h2><p>VisaLang organises the sequence. It does not decide your case.</p></div>
+      <div class="table-wrap"><table><thead><tr><th scope="col">Question</th><th scope="col">Who decides</th><th scope="col">Hub next step</th></tr></thead><tbody>
+        <tr><th scope="row">Is proof required / any exception?</th><td>German mission or competent immigration authority</td><td>Requirement guide</td></tr>
+        <tr><th scope="row">Exact certificate accepted</th><td>Same mission / authority</td><td>Accepted proof + comparison guides</td></tr>
+        <tr><th scope="row">Seat, fee, ID, result, certificate delivery</th><td>Exam owner + authorised centre</td><td>Centre / booking / timeline guides</td></tr>
+        <tr><th scope="row">Visa-file format and outcome</th><td>Mission / foreigners authority</td><td>Documents + FAQ / recheck</td></tr>
+      </tbody></table></div>
+    </section>
+
+    <section class="content-section" aria-labelledby="hub-pitfalls"><div class="section-header"><h2 id="hub-pitfalls">Route-level pitfalls</h2></div>
+      <ul>
+        <li>Booking an exam before the mission confirms the requirement and accepted proof.</li>
+        <li>Treating two “A1” product labels as interchangeable.</li>
+        <li>Using another applicant’s certificate as evidence for your file.</li>
+        <li>Planning a visa appointment on an assumed result date the centre never confirmed.</li>
+        <li>Mixing exam-day ID rules with the mission’s visa document checklist.</li>
+      </ul>
+    </section>
+
+    <section class="content-section" aria-labelledby="hub-record"><div class="section-header"><h2 id="hub-record">Minimum route record</h2><p>Copy this into private notes. Leave blanks where official confirmation is missing.</p></div>
+      <div class="table-wrap"><table><thead><tr><th scope="col">Field</th><th scope="col">Entry</th><th scope="col">Source + date</th></tr></thead><tbody>
+        <tr><th scope="row">Mission / authority</th><td></td><td></td></tr>
+        <tr><th scope="row">Requirement status</th><td></td><td></td></tr>
+        <tr><th scope="row">Accepted proof wording</th><td></td><td></td></tr>
+        <tr><th scope="row">Chosen product + centre</th><td></td><td></td></tr>
+        <tr><th scope="row">Confirmed dates only</th><td></td><td></td></tr>
+        <tr><th scope="row">Stop rule before pay/file</th><td></td><td></td></tr>
+      </tbody></table></div>
+    </section>
+
     <section id="route-progress" class="content-section" aria-labelledby="progress-title"><div class="section-header"><h2 id="progress-title">Your 7-step route</h2><p>Your current step is stored in this browser. Move forward only when the responsible source gives you enough information for the next decision.</p></div><RouteProgress steps={steps} current={0} routeId="germany-family-reunion-a1" /></section>
 
-    <section class="content-section" aria-labelledby="recommended-tools"><div class="section-header"><h2 id="recommended-tools">Recommended tools</h2><p>Tools save your planning work locally and never turn an unsupported route into a result.</p></div><div class="tool-grid"><a class="article-card" href="/tools/route-finder/"><h3>Route Finder</h3><p class="card-meta">Start with the requirement and receiving authority.</p></a><a class="article-card" href="/tools/checklist-generator/"><h3>Requirement Checklist</h3><p class="card-meta">Track confirmed evidence and unresolved checks.</p></a><a class="article-card" href="/tools/timeline-calculator/"><h3>Timeline Planner</h3><p class="card-meta">Use only locally verified timing inputs.</p></a><a class="article-card" href="/tools/email-reminders/"><h3>Reminder Planner</h3><p class="card-meta">Create a calendar or printable recheck reminder.</p></a></div></section>
+    <section class="content-section" aria-labelledby="recommended-tools"><div class="section-header"><h2 id="recommended-tools">Recommended tools</h2><p>Tools save your planning work locally and never turn an unsupported route into a result.</p></div><div class="tool-grid"><a class="article-card" href="/tools/route-finder/"><h3>Route Finder</h3><p class="card-meta">Start with the requirement and receiving authority.</p></a><a class="article-card" href="/tools/checklist-generator/"><h3>Requirement Checklist</h3><p class="card-meta">Track confirmed evidence and unresolved checks.</p></a><a class="article-card" href="/tools/timeline-calculator/"><h3>Timeline Planner</h3><p class="card-meta">Use only locally verified timing inputs.</p></a><a class="article-card" href="/tools/exam-comparison/"><h3>Exam Comparison</h3><p class="card-meta">Equalise acceptance and local-term questions—not rankings.</p></a><a class="article-card" href="/tools/email-reminders/"><h3>Reminder Planner</h3><p class="card-meta">Create a calendar or printable recheck reminder.</p></a></div></section>
 
     <section class="content-section" aria-labelledby="route-guides"><div class="section-header"><h2 id="route-guides">Related guides</h2><p>Read in route order, not as a random article list.</p></div><div class="guide-related-grid">{orderedRouteGuides.map((guide) => <a class="article-card" href={`/guides/${guide.data.slug}/`}><h3>{guide.data.title}</h3><p class="card-meta">{guide.data.description}</p><LastCheckedBadge date={guide.data.sourceReviewedAt} status={guide.data.sourceReviewStatus} /></a>)}</div><div class="button-row"><a class="button button--secondary" href="/guides/category/germany-a1/">View all Germany A1 guides</a></div></section>
 
     <section class="content-section" aria-labelledby="official-entry"><div class="section-header"><h2 id="official-entry">Official verification entry points</h2><p>Start with the authority for the route, then use exam-owner and authorised-centre information for the booking. This route does not currently record a separate source-check date.</p></div><div class="guide-related-grid"><SourceCard name="BAMF family reunification" href="https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html" /><SourceCard name="German Federal Foreign Office" href="https://www.auswaertiges-amt.de/en" /><SourceCard name="Goethe-Institut examinations" href="https://www.goethe.de/en/spr/prf.html" /><SourceCard name="telc Deutsch A1" href="https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/" /></div></section>
 
-    <section class="content-section" aria-labelledby="route-faq"><div class="section-header"><h2 id="route-faq">Route FAQ</h2></div><details><summary>Do I need German A1 for family reunion?</summary><p>The requirement and any exemption depend on the individual route and responsible authority. Confirm before booking.</p></details><details><summary>Should I choose an exam before checking the requirement?</summary><p>No. Confirm whether proof is required and which exact certificate is accepted first.</p></details></section>
+    <section class="content-section" aria-labelledby="route-faq"><div class="section-header"><h2 id="route-faq">Route FAQ</h2></div><details><summary>Do I need German A1 for family reunion?</summary><p>The requirement and any exemption depend on the individual route and responsible authority. Confirm before booking.</p></details><details><summary>Should I choose an exam before checking the requirement?</summary><p>No. Confirm whether proof is required and which exact certificate is accepted first.</p></details><details><summary>Can VisaLang tell me which certificate will be accepted?</summary><p>No. Compare only products named by the responsible mission or authority, then verify the selected centre’s current terms.</p></details><details><summary>What if centre and mission instructions conflict?</summary><p>Pause, save both sources with dates, and ask the owner of that stage which instruction applies before paying or filing.</p></details></section>
     <ReportOutdatedInfo pageTitle="Germany A1 family reunion route" />
   </main>
 </BaseLayout>

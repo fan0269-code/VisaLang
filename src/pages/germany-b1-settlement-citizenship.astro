@@ -6,12 +6,16 @@ const canonicalURL = 'https://visalang.org/germany-b1-settlement-citizenship/';
 const description = 'Follow a Germany B1 route for settlement-permit and citizenship questions: find the competent authority, verify possible proof, and plan the next check.';
 const headings = [
   { text: 'Who decides and what to confirm first', id: 'who-decides', depth: 2 },
+  { text: 'Decision order for settlement vs citizenship', id: 'decision-order', depth: 2 },
+  { text: 'Responsibility split', id: 'responsibility-split', depth: 2 },
   { text: 'Choose the correct route entry', id: 'route-entry', depth: 2 },
   { text: 'Keep language and civic knowledge separate', id: 'separate-evidence', depth: 2 },
   { text: 'Compare only possible proof', id: 'compare-proof', depth: 2 },
   { text: 'Verify the selected centre', id: 'verify-centre', depth: 2 },
   { text: 'Build the timeline from confirmed dates', id: 'build-timeline', depth: 2 },
   { text: 'Finish with a submission recheck', id: 'submission-recheck', depth: 2 },
+  { text: 'Route-level pitfalls', id: 'pitfalls', depth: 2 },
+  { text: 'Minimum route record', id: 'route-record', depth: 2 },
   { text: 'Optional preparation support', id: 'preparation-support', depth: 2 },
   { text: 'Planning tools and their limits', id: 'tool-boundary', depth: 2 },
 ];
@@ -72,6 +76,28 @@ const jsonLD = {
       <p>For a settlement-permit question, identify the statutory route and competent local foreigners authority. For naturalisation, use the competent nationality authority. Germany has different settlement routes, and their language thresholds and cross-references are not identical. Do not convert a general B1 statement into a conclusion about your case.</p>
       <p>Save the authority's current page, portal, form or written reply, the route it names, and the date checked. An exam provider can define its product, but it cannot decide whether that proof fits your application.</p>
 
+      <h2 id="decision-order">Decision order for settlement vs citizenship</h2>
+      <ol>
+        <li>Identify whether you are checking a <strong>settlement-permit</strong> procedure, a <strong>naturalisation</strong> procedure, or both as separate files.</li>
+        <li>Locate the competent authority for that procedure (foreigners authority vs nationality authority).</li>
+        <li>Confirm the statutory route or application category the authority names.</li>
+        <li>Separate language proof from civic-knowledge evidence and from every other condition.</li>
+        <li>Ask which language documents are accepted and in what form.</li>
+        <li>Compare only named exam products, then verify a centre, timeline, and submission recheck.</li>
+      </ol>
+      <p>Do not apply one universal “B1 rule” across settlement and citizenship. Keep two folders if you are pursuing both.</p>
+
+      <h2 id="responsibility-split">Responsibility split</h2>
+      <table>
+        <thead><tr><th scope="col">Question</th><th scope="col">Who decides</th><th scope="col">Start here</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Settlement route and full eligibility</th><td>Competent local foreigners authority</td><td><a href="/guides/goethe-b1-germany-settlement-work/">Settlement permit and B1</a></td></tr>
+          <tr><th scope="row">Naturalisation route and full file</th><td>Competent nationality authority</td><td><a href="/guides/germany-b1-citizenship-language-proof/">Citizenship language proof</a></td></tr>
+          <tr><th scope="row">Civic-knowledge evidence</th><td>Same nationality authority (when required)</td><td><a href="/guides/germany-b1-leben-in-deutschland-and-language-proof/">Language and civic knowledge</a></td></tr>
+          <tr><th scope="row">Exam product execution</th><td>Exam owner + authorised centre</td><td><a href="/guides/goethe-b1-vs-telc-b1/">DTZ / Goethe / telc comparison</a></td></tr>
+        </tbody>
+      </table>
+
       <h2 id="route-entry">Choose the correct route entry</h2>
       <div class="guide-related-grid">
         <a class="article-card" href="/guides/goethe-b1-germany-settlement-work/"><p class="card-category">Settlement permit</p><h3>Identify the route before treating B1 as relevant</h3><p>Separate the language question from all other permit conditions.</p></a>
@@ -92,6 +118,28 @@ const jsonLD = {
 
       <h2 id="submission-recheck">Finish with a submission recheck</h2>
       <p>Use the <a href="/guides/germany-b1-settlement-citizenship-checklist/">settlement and citizenship checklist</a> as the terminal route step. Compare every note with the authority's current instructions, resolve mismatches, and leave unresolved items open rather than forcing the route back into a loop.</p>
+
+      <h2 id="pitfalls">Route-level pitfalls</h2>
+      <ul>
+        <li>Treating a B1 exam booking as proof that the whole settlement or citizenship file is ready.</li>
+        <li>Merging settlement-permit answers into a naturalisation folder without authority confirmation.</li>
+        <li>Treating language proof and Leben in Deutschland / civic-knowledge evidence as the same item.</li>
+        <li>Ranking Goethe vs telc by brand before the authority names acceptable proof.</li>
+        <li>Entering default retake or processing buffers the centre or authority never confirmed.</li>
+      </ul>
+
+      <h2 id="route-record">Minimum route record</h2>
+      <table>
+        <thead><tr><th scope="col">Field</th><th scope="col">Entry</th><th scope="col">Source + date</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Procedure (settlement / citizenship / both)</th><td></td><td></td></tr>
+          <tr><th scope="row">Competent authority</th><td></td><td></td></tr>
+          <tr><th scope="row">Route / provision named</th><td></td><td></td></tr>
+          <tr><th scope="row">Language proof wording</th><td></td><td></td></tr>
+          <tr><th scope="row">Civic-knowledge wording (if any)</th><td></td><td></td></tr>
+          <tr><th scope="row">Stop rule before exam payment</th><td></td><td></td></tr>
+        </tbody>
+      </table>
 
       <h2 id="preparation-support">Optional preparation support</h2>
       <p>Preparation becomes useful only after the exam product is relevant and clear. Start with the <a href="/guides/goethe-b1-study-plan/">adjustable study plan</a>, then use the support page that matches a real gap:</p>
@@ -117,7 +165,7 @@ const jsonLD = {
         </ul>
       </section>
       <p class="compliance-line">Verify current route, evidence, local execution and submission instructions with the competent authority and selected official or authorised centre before acting.</p>
-      <p class="last-updated">Last updated: 2026-07-19</p>
+      <p class="last-updated">Last updated: 2026-10-21</p>
     </article>
   </main>
 </BaseLayout>

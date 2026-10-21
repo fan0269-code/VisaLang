@@ -105,11 +105,18 @@ const sourceReviewedOnJuly22 = new Set([
   'goethe-a1-pre-booking-checklist.md',
 ]);
 
+const depthRemediatedOn20261021 = new Set([
+  'german-family-reunion-language-requirement.md',
+  'goethe-a1-germany-family-reunion.md',
+  'goethe-a1-vs-telc-a1.md',
+  'german-a1-documents-checklist.md',
+]);
+
 for (const file of germanyA1Guides) {
   const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
   assert.ok(source.includes('contentStatus: "complete-route"'), `${file} retains the complete-route baseline`);
-  const expectedUpdateDate = file === 'german-family-reunion-language-requirement.md'
-    ? '2026-08-15'
+  const expectedUpdateDate = depthRemediatedOn20261021.has(file)
+    ? '2026-10-21'
     : sourceReviewedOnJuly22.has(file)
     ? '2026-07-22'
     : sourceReviewedOnJuly19.has(file)
@@ -137,7 +144,7 @@ for (const [file, expected] of Object.entries(supportGuideExpectations)) {
   const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
   const body = source.split(/^---\s*$/m).slice(2).join('---');
   assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${file} records the completed source review`);
-  assert.equal(field(source, 'sourceReviewedAt'), '2026-07-22', `${file} records the actual source-review date`);
+  assert.equal(field(source, 'sourceReviewedAt'), file === 'goethe-a1-germany-family-reunion.md' ? '2026-10-21' : '2026-07-22', `${file} records the actual source-review date`);
   assert.equal(field(source, 'reviewedByRole'), 'source-review', `${file} records the controlled reviewer role`);
   assert.equal(field(source, 'decisionStage'), expected.stage, `${file} uses the agreed decision stage`);
   assert.equal(field(source, 'nextGuideSlug'), expected.next, `${file} uses the agreed primary next step`);
