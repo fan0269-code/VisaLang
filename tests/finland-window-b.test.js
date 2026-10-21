@@ -78,16 +78,11 @@ assert.ok(!primaryHtml.includes('<small>Next guide</small>'), 'the consolidated 
 assert.ok(categoryHtml.includes('<meta name="robots" content="noindex,follow">'), 'the Finland category renders noindex');
 assert.ok(!categoryHtml.includes('pagead2.googlesyndication.com'), 'the Finland category remains advertising-free');
 
-const legacyHtml = read(`guides/${retiredSlug}.html`);
-assert.ok(legacyHtml.includes('<meta name="robots" content="noindex,follow">'), 'the retired legacy HTML fallback is noindex');
-assert.ok(legacyHtml.includes(`rel="canonical" href="https://visalang.org/guides/${primarySlug}/"`), 'the retired legacy HTML fallback points canonical to the consolidated guide');
-assert.doesNotMatch(legacyHtml, /YKI is the (?:only|default)|Join waitlist/i, 'the retired legacy fallback does not retain unsafe claims or a commercial CTA');
-const legacyPrimaryHtml = read(`guides/${primarySlug}.html`);
-assert.ok(legacyPrimaryHtml.includes('<meta name="robots" content="noindex,follow">'), 'the legacy HTML fallback for the pending primary guide is noindex');
-assert.ok(legacyPrimaryHtml.includes(`rel="canonical" href="https://visalang.org/guides/${primarySlug}/"`), 'the legacy primary HTML fallback points canonical to the current guide');
-assert.doesNotMatch(legacyPrimaryHtml, /\b5 years\b|Join waitlist/i, 'the legacy primary fallback does not retain stale eligibility claims or a commercial CTA');
-const legacySitemap = read('sitemap.xml');
-assert.ok(!legacySitemap.includes(`/guides/${retiredSlug}.html`), 'the legacy sitemap removes the retired Finland URL');
-assert.ok(!legacySitemap.includes(`/guides/${primarySlug}.html`), 'the legacy sitemap removes the still-pending Finland primary URL');
+// Dual-stack root/guides HTML and root sitemap.xml are deleted; old .html URLs
+// are handled by public/_redirects + deploy/legacy-redirects.conf (asserted above).
+assert.ok(!fs.existsSync(`guides/${retiredSlug}.html`), 'retired Finland legacy HTML is removed from the repo');
+assert.ok(!fs.existsSync(`guides/${primarySlug}.html`), 'pending Finland primary legacy HTML is removed from the repo');
+assert.ok(!fs.existsSync('sitemap.xml'), 'misleading root sitemap.xml is removed (Astro emits dist/sitemap-index.xml)');
+assert.ok(!fs.existsSync('guides'), 'legacy guides/ HTML directory is removed');
 
 console.log('Finland window B consolidation rules passed');
