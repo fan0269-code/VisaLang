@@ -1,6 +1,6 @@
 # VisaLang
 
-> **部署警告（遗留双栈）**：生产只发布 `npm run build` 生成的 `dist/`（见 `deploy/deploy.sh`）。根目录 `*.html` / `app.js` / `app-data.js` / `styles.css` / 根 `robots.txt` / 根 `sitemap.xml` 均为遗留兼容物，**勿当作真相源，勿随仓库根目录整包部署**。权威 robots/sitemap 在 `public/` → `dist/`。
+> **部署说明**：生产只发布 `npm run build` 生成的 `dist/`（见 `deploy/deploy.sh`）。仓库根目录的双栈遗留 HTML/JS/CSS 与误导性根 `robots.txt`/`sitemap.xml` **已删除**；旧 `.html` URL 由 `deploy/legacy-redirects.conf` 与 `public/_redirects` 做 301。权威 robots/sitemap 在 `public/` → `dist/`。
 
 VisaLang is a live, official-source-first language-exam navigation site for visa, residency, citizenship, study and work-registration paths. Its strongest public routes are Germany A1 family reunion and Germany B1 settlement/citizenship.
 
@@ -15,7 +15,7 @@ VisaLang is an independent information and verification navigator. It does not d
 - `@astrojs/sitemap`, structured data, canonical/hreflang and fail-closed discovery/advertising gates
 - Node assertion suites and a production-oriented launch check
 
-Root-level HTML/CSS/JS files are legacy compatibility assets. Do not use them as the source for new work and do not deploy them instead of the Astro `dist/` output.
+Pre-Astro dual-stack root HTML/CSS/JS files have been removed. Do not reintroduce them; old `.html` URLs are handled by `deploy/legacy-redirects.conf` and `public/_redirects` (301). Publish only the Astro `dist/` output.
 
 ## Local Development
 
@@ -26,7 +26,7 @@ npm ci
 npm run dev
 ```
 
-Then open the URL printed by Astro. Do not preview the current application by opening the legacy root `index.html` directly.
+Then open the URL printed by Astro. There is no root `index.html`; use `npm run preview` after build if you need a static preview.
 
 ## Verification
 

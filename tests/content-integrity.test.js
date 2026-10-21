@@ -473,7 +473,7 @@ for (const requiredSource of ['Goethe-Institut', 'telc', 'TestDaF', 'BAMF']) {
   assert.ok(appData.includes(requiredSource), `app data retains official source: ${requiredSource}`);
 }
 for (const legacy of ['index.html', 'about.html', 'contact.html', 'privacy-policy.html', 'terms.html', 'cookie-policy.html', 'editorial-policy.html', 'affiliate-disclosure.html']) {
-  assert.ok(fs.existsSync(legacy), `legacy file remains available until hosting source-of-truth is confirmed: ${legacy}`);
+  assert.ok(!fs.existsSync(legacy), `dual-stack legacy root HTML must be removed (Astro dist/ is the only publishable site): ${legacy}`);
 }
 
 const deployScript = fs.readFileSync('deploy/deploy.sh', 'utf8');
@@ -485,4 +485,4 @@ assert.match(deployScript, /SOURCE_DIR\/dist\/index\.html/, 'deployment blocks p
 assert.match(deployScript, /cp -a "\$SOURCE_DIR\/dist\/\." "\$RELEASE_DIR\//, 'deployment publishes the complete Astro dist output to a release candidate');
 assert.match(deployScript, /SUDO="sudo"/, 'deployment supports the ubuntu plus sudo server account');
 
-console.log('guide sources, related links, compliance, app data, legacy handoff, and deployment checks passed');
+console.log('guide sources, related links, compliance, app data, dual-stack removal, and deployment checks passed');

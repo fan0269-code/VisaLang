@@ -8,7 +8,7 @@ VisaLang is an Astro static site for language-exam and immigration-route guidanc
 - `src/components/` contains reusable Astro UI; `src/components/tools/` is reserved for shared tool surfaces.
 - `src/content/guides/` holds Markdown guide content and front matter; route/tool data belongs in `src/data/`.
 - `src/layouts/` provides shared page shells, and `src/styles/global.css` contains design tokens and global styles.
-- `tests/` contains Node assertion suites. `docs/` records operational and content decisions. Root-level HTML/CSS/JS files are legacy compatibility assets; do not use them for new features unless a redirect or deployment task requires it.
+- `tests/` contains Node assertion suites. `docs/` records operational and content decisions. Pre-Astro dual-stack root HTML/CSS/JS have been removed; do not reintroduce them. Old `.html` URLs are covered by `deploy/legacy-redirects.conf` and `public/_redirects` (301).
 
 ## Build, Test, and Development Commands
 
