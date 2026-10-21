@@ -64,10 +64,14 @@ for (const file of germanyB1Guides) {
   assert.ok(source.includes('eligibility') || source.includes('accepted language proof') || source.includes('proof acceptance'), `${file} should separate practice from eligibility or proof acceptance`);
 }
 
+const depthRemediatedB1Core = new Set([
+  'goethe-b1-germany-settlement-work.md',
+  'germany-b1-citizenship-language-proof.md',
+]);
 for (const file of requiredCoreGuides) {
   const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
-  assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${file} records the completed 2026-07-19 source review`);
-  assert.equal(field(source, 'sourceReviewedAt'), '2026-07-19', `${file} records the actual source-review date`);
+  assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${file} records the completed source review`);
+  assert.equal(field(source, 'sourceReviewedAt'), depthRemediatedB1Core.has(file) ? '2026-10-21' : '2026-07-19', `${file} records the actual source-review date`);
   assert.equal(field(source, 'reviewedByRole'), 'source-review', `${file} records the source-review role`);
   assert.doesNotMatch(markdownBody(source), /Official verification pending/i, `${file} does not contradict reviewed metadata in public copy`);
   assert.doesNotMatch(markdownBody(source), /Reader decision and search intent|Manual checks still needed|Before you rely on this page|Proposed B1 practice pack interest/i, `${file} does not expose internal editorial language`);

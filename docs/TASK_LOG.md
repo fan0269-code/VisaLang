@@ -3431,3 +3431,8 @@ Remaining:
 - Regression seam: added `tests/fan-273-404-recovery.test.js` and loaded it through `tests/site.test.js`. The focused contract first failed against the old one-link page, then passed after implementation.
 - Verification: the focused test and scoped `git diff --check` passed; `npm test` passed with the FAN-273 contract visible; `npm run launch-check` built 100 pages, passed 46/46 checks and returned `READY`. Desktop 1440px and true 390px Chrome captures passed visual inspection. The Impeccable detector reported only four pre-existing side-border warnings outside the FAN-273 selectors.
 - Review and delivery boundary: application commit `c31ca2a` records the initial implementation/test scope, and `54fbc3c` closes the semantic-token, maintenance-log and no-script-boundary findings. The same uninvolved Standards and Spec reviewers rechecked the corrected range and each returned `PASS` with no remaining P0/P1/P2. No push, preview publication, deployment, production/account access or owner approval is claimed; the Vault record remains `review` / `pending` / `not_started`.
+
+## 2026-10-21 — AdSense P0 depth remediation
+
+- Branch `chore/adsense-p0-depth-remediation`: deepen Germany A1/B1 hubs + selected core supports; Editorial Method / Content Update Log; tests updated for 2026-10-21 review dates.
+- Ledger: `docs/ADSENSE_P0_DEPTH_REMEDIATION_2026-10-21.md`.

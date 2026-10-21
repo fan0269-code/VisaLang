@@ -16,7 +16,7 @@ const statusCounts = publishedEnglishGuides.reduce<Record<string, number>>((coun
   counts[status] = (counts[status] ?? 0) + 1;
   return counts;
 }, {});
-const updated = '2026-07-30';
+const updated = '2026-10-21';
 const jsonLD = { '@context': 'https://schema.org', '@type': 'AboutPage', name: 'About VisaLang' };
 ---
 
@@ -64,6 +64,10 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'AboutPage', name: '
           <li><strong>Published route categories:</strong> Germany A1 family reunion and Germany B1 settlement/citizenship.</li>
           <li><strong>Research pages held outside primary discovery:</strong> TestDaF, telc work/nursing, UK, Canada, Italy, Spain, Portugal, Netherlands, Finland, and France.</li>
         </ul>
+
+        <h2>Editorial method</h2>
+        <p>Each mature guide starts from a single user task, maps who finally decides each claim, records official URLs with check dates, and adds original decision help (trees, checklists, responsibility splits, comparison tables, scenario pitfalls, or record templates). We do not invent fees, seats, acceptance outcomes, or personal professional licences. AI may assist drafting; humans verify high-risk facts against official sources.</p>
+        <p>See the <a href="/editorial-policy/">Editorial Policy</a> for the full hierarchy, and the <a href="/content-update-log/">Content Update Log</a> for dated deepenings and rechecks.</p>
 
         <h2>Our editorial standards</h2>
         <p>See our <a href="/editorial-policy/">Editorial Policy</a> for how we research and maintain content.</p>
