@@ -1,5 +1,7 @@
 # VisaLang
 
+> **部署警告（遗留双栈）**：生产只发布 `npm run build` 生成的 `dist/`（见 `deploy/deploy.sh`）。根目录 `*.html` / `app.js` / `app-data.js` / `styles.css` / 根 `robots.txt` / 根 `sitemap.xml` 均为遗留兼容物，**勿当作真相源，勿随仓库根目录整包部署**。权威 robots/sitemap 在 `public/` → `dist/`。
+
 VisaLang is a live, official-source-first language-exam navigation site for visa, residency, citizenship, study and work-registration paths. Its strongest public routes are Germany A1 family reunion and Germany B1 settlement/citizenship.
 
 VisaLang is an independent information and verification navigator. It does not decide eligibility, certificate acceptance, visa outcomes or individual legal questions.
