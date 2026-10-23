@@ -1,6 +1,15 @@
 # VisaLang Task Log
 
-Updated: 2026-08-21
+Updated: 2026-10-23
+
+## Dependency security remediation — 2026-10-23
+
+- Scope: dependency manifests, the lockfile, the dependency-audit regression contract, and the security record only. No page, guide, route, metadata, deployment file, or external account changed.
+- Baseline: a clean `npm ci` of the committed lockfile (`astro@7.1.1`) followed by `npm audit --json` reproducibly reported `critical: 1`, `high: 8`, `low: 0`, `total: 9`, led by the critical Astro AVIF remote-code-execution advisory GHSA-26w7-cxv4-gfx2 (fixed in `7.2.8`). An earlier in-place run reported 18 entries; that count was not reproducible on a clean install.
+- Remediation: `astro` pinned exactly to `7.4.1`, `@astrojs/markdown-remark` to `^7.3.4`, `@astrojs/sitemap` to `^3.7.4`, plus a `@astrojs/prism` override to `4.1.0`. `7.4.2` is excluded because its `engines.node` is `>=22.23.4`, above the recorded production Node `v22.23.1`; `4.1.1` has the same floor.
+- Verification: final `npm audit --json` reports 0 vulnerabilities; `npm test` passed all 25 suites; `npm run launch-check` built 101 pages and passed 46/46 checks with `READY`; `git diff --check` passed.
+- Evidence: `docs/security/DEPENDENCY_REMEDIATION_2026-10-23.md`.
+- Boundary: no commit, push, deployment, publication, or owner approval is claimed; independent Auditor review and owner authorization remain separate gates.
 
 ## Governance-only successor release — 2026-08-21
 
