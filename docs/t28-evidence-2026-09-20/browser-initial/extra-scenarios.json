@@ -1,0 +1,56 @@
+[
+  {
+    "id": "stale-ruleVersion",
+    "precondition": "Local Chrome, synthetic storage fixtures only",
+    "steps": "Inject outdated ruleVersion into previously valid state; reload; clear and re-enter",
+    "expected": "Reconfirm required, no automatic old result; successful recovery",
+    "status": "pass",
+    "actual": {
+      "status": "A saved plan uses an incompatible schema, rule or claim version. Clear the shared plan and re-enter the current facts before relying on a result."
+    }
+  },
+  {
+    "id": "stale-claimVersions",
+    "precondition": "Local Chrome, synthetic storage fixtures only",
+    "steps": "Inject outdated claimVersions into previously valid state; reload; clear and re-enter",
+    "expected": "Reconfirm required, no automatic old result; successful recovery",
+    "status": "pass",
+    "actual": {
+      "status": "A saved plan uses an incompatible schema, rule or claim version. Clear the shared plan and re-enter the current facts before relying on a result."
+    }
+  },
+  {
+    "id": "expired-device",
+    "precondition": "Local Chrome, synthetic storage fixtures only",
+    "steps": "Inject valid 30-day snapshot that expired yesterday; remove session and reload",
+    "expected": "Expired device copy removed and fields not restored",
+    "status": "pass",
+    "actual": {
+      "removed": true
+    }
+  },
+  {
+    "id": "malformed-storage",
+    "precondition": "Local Chrome, synthetic storage fixtures only",
+    "steps": "Set malformed JSON in session and device, reload then use tool",
+    "expected": "Invalid device removed; tool remains usable without false result",
+    "status": "pass",
+    "actual": {
+      "result": "Status: Guidance available\n\nGermany family reunion: A1 verification route\nSelection summary\nCountry\nGermany\nPurpose\nFamily reunion\nApplication region\nGerman mission responsible for a China application location\nRelationship\nSpouse reunification\nCertificate\nNo certificate yet\nWhat the current evidence supports\n\nUse the applicant’s ordinary residence to identify the competent German mission, save its current instruction, and keep application-proof questions separate from Goethe product and selected-centre booking questions.\n\nInformation still missing or unconfirmed\nThe current local mission instruction and exact route details have to be checked for the applicant’s location.\nVersioned evidence basis\n\nRule germany-family-reunion-a1-authority-guidance, version 2026-09-09.1.\n\nClaim germany-family-reunion-a1-general-starting-rule, version 2026-09-08.1; source checked 2026-09-08.\nGerman Federal Foreign Office — Not proof of every family-reunion category, exception, accepted certificate, or individual result.\nClaim germany-family-reunion-a1-authority-split, version 2026-09-08.1; source checked 2026-09-08.\nGerman Federal Foreign Office — Specific to the described scenario; it does not determine every family route or an individual result.\nGerman Federal Foreign Office — Residence facts are required to identify a particular mission; this is not an eligibility decision.\nWho is responsible\nthe local German mission or competent German authority handling your application\nThe exam owner and selected official or authorised test centre\nNext steps\nVerify the language-proof question and any exception with the competent German mission or receiving authority.\nConfirm the exact accepted adult A1 product before comparing local booking options.\nOpen the working checklist, then use Timeline only after you have current local dates and planning assumptions.\n\nBoundary: Guidance identifies the verification order only. It does not decide whether proof is required, whether an exception applies, or whether a certificate will be accepted.\n\nGermany A1 family reunion guide / Open Checklist / Open Timeline\n\nInformational guidance only. This tool organises planning questions; it does not decide visa eligibility, certificate acceptance, exam availability, or an individual application outcome.\nOfficial check before you act\n\nConfirm the exact requirement, accepted certificate, documents, date, fee, result process, and local centre rules with the authority or official centre that receives your file.\n\nContinue your plan\n\nBrowse route guides\n\nOpen Checklist / Open Timeline\n\nCopy result\nPrint planExport text file"
+    }
+  },
+  {
+    "id": "stale-finder-result",
+    "steps": "Generate valid result, clear country and submit",
+    "expected": "Invalid input must not retain visible prior result",
+    "status": "fail",
+    "actual": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\ntrue !== false\n"
+  },
+  {
+    "id": "stale-comparison-result",
+    "steps": "Generate valid A1 comparison, clear first product and submit",
+    "expected": "Invalid input must not retain visible prior comparison",
+    "status": "fail",
+    "actual": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n1 !== 0\n"
+  }
+]

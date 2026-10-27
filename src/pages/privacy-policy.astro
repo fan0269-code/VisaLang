@@ -1,10 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const jsonLD = { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Privacy Policy' };
-const updated = '2026-07-17';
+const updated = '2026-09-24';
 ---
 
-<BaseLayout title="Privacy Policy" description="How VisaLang handles visitor data, advertising choices, URL state, local storage, and server logs." jsonLD={jsonLD} noindex={true} enableAds={false}>
+<BaseLayout title="Privacy Policy" description="How VisaLang handles visitor data, advertising choices, shared tool state, browser storage, URL cleanup, and server logs." jsonLD={jsonLD} noindex={true} enableAds={false}>
   <main class="page-shell">
     <article class="guide-article narrow-page">
         <p class="eyebrow">Legal</p>
@@ -12,14 +12,18 @@ const updated = '2026-07-17';
         <p class="guide-summary">Last updated: {updated}</p>
 
         <h2>Overview</h2>
-        <p>VisaLang (visalang.org) is a static informational website. We do not require you to create an account, and we do not collect sensitive personal data such as passport numbers, immigration documents, or payment details.</p>
+        <p>VisaLang (visalang.org) provides informational pages and optional tools. We do not require an account. Please do not enter passport numbers, immigration documents, payment details or other sensitive case information.</p>
 
         <h2>Services and information we use</h2>
         <ul>
-          <li><strong>Advertising:</strong> VisaLang uses Google AdSense on ad-eligible content pages. Google Privacy & messaging provides the European regulations consent message for covered visitors. Google and advertising partners may use cookies, local storage, or related identifiers according to your choices and applicable settings. Tool pages and the searchable Guide Library index do not load the AdSense runtime. Cloudflare Web Analytics is not enabled.</li>
-          <li><strong>Tool and route progress:</strong> after a tool successfully generates a result, it places only the non-sensitive values needed to restore that result in the page URL. Use the tool’s restart control to remove those URL values. Route pages separately store the current route step in your browser’s local storage; clear site data to remove that route-step progress.</li>
+          <li><strong>Optional purpose suggestion:</strong> clicking “Suggest a purpose” in Route Finder sends the short text you enter to TypeSafe AI, Inc. for processing in the United States. TypeSafe’s <a href="https://typesafe.ai/legal/privacy-policy" target="_blank" rel="noopener noreferrer">privacy policy</a> says its services are hosted in the United States and that it may retain personal data as reasonably necessary to provide services or support its business. Do not enter names, identity numbers, immigration details or case documents. VisaLang does not add this text to shared plans or URLs, but the current form keeps it in the page until you clear it, apply a suggestion, restart the tool or leave the page. VisaLang's service and proxy do not log request bodies; deployment-side technical request logging is described below. Suggestions are fallible and require your confirmation. You can use the manual purpose choices without sending text.</li>
+          <li><strong>Advertising source boundary:</strong> the current Astro source can emit the Google AdSense loader only on the publication manifest’s ad-eligible English guide pages. Tool pages, the searchable Guide Library index, home, route hubs, policy pages, and commercial pages disable that loader. This repository does not verify a current AdSense account, served ads, Auto ads settings, Google Privacy &amp; messaging/CMP behavior, regional consent behavior, or partner identifiers. Google Analytics, Cloudflare Web Analytics, and custom measurement events are not loaded or sent by the current Astro source.</li>
+          <li><strong>Shared tool plan:</strong> after a tool successfully generates a result, schema-approved fields such as fixed route/region/answer/exam IDs, a target date, bounded planning buffers, and stable checklist booleans are stored in browser <code>sessionStorage</code> by default so another tool in the same tab can restore them. Reminder dates, optional source URLs, free text, identity data, document contents and payment data are not part of the shared plan. No new tool result is written to a page URL.</li>
+          <li><strong>Optional device copy:</strong> only when you choose “Save on this device for 30 days” does the current shared-plan snapshot go to browser <code>localStorage</code>. It is ignored and removed on a later visit after its 30-day expiry; this is not a background deletion promise. Later session edits do not update that snapshot unless you save again.</li>
+          <li><strong>Legacy per-tool local storage:</strong> current tool pages attempt to remove the fixed <code>visalang-tool:...</code> local-storage copies created by older tool versions on the same site origin. “Clear shared plan” also attempts to remove every known same-origin legacy per-tool key. Browser blocking can prevent that cleanup, and one domain cannot read or delete another domain’s storage, so browser site-data settings remain the complete removal path for an old origin.</li>
+          <li><strong>Route progress:</strong> route pages separately store the current route step in browser local storage under a different key and without a site-defined automatic expiry. “Clear shared plan” does not clear that route-step record; clear site data in browser settings to remove both systems.</li>
           <li><strong>Direct contact:</strong> if you email us, your email provider and ours process the address, message, and any information you choose to include.</li>
-          <li><strong>Server logs:</strong> standard web server logs (IP address, user agent, timestamp) retained for security and debugging purposes.</li>
+          <li><strong>Hosting logs:</strong> a hosting, CDN, proxy, or security layer may record technical request data such as IP address, user agent, and timestamp. Retention, access, and deletion are deployment-side settings that this repository does not verify.</li>
         </ul>
 
         <h2>Please do not send sensitive case documents</h2>
@@ -33,14 +37,17 @@ const updated = '2026-07-17';
 
         <h2>Cookies and privacy choices</h2>
         <p>Where the Google consent message is shown, use Consent, Manage options, or the available non-consent path to make a choice. You can reopen or change advertising choices through the Google privacy control where it is available. You can also manage personalised advertising through <a href="https://adssettings.google.com/" rel="nofollow noopener noreferrer">Google Ads Settings</a>.</p>
-        <p>Use a tool’s restart control to remove its URL values, and clear site data to remove route-step progress. Tool routes and the searchable Guide Library index do not load the AdSense runtime.</p>
+        <p>“Restart this tool” resets the current form and the plan fields owned by that tool. The shared route remains when Checklist or Reminder is restarted; date or exam choices shared with other tools can be cleared when their owning tool is restarted. Use “Clear shared plan” to request removal of the tab-session plan, optional 30-day device copy, and known same-origin legacy per-tool local storage; current visible fields remain until you restart the current tool. Browser settings can clear all VisaLang site storage, including separate route-step progress. Tool routes and the searchable Guide Library index do not load the AdSense runtime.</p>
+
+        <h2>Legacy URL cleanup</h2>
+        <p>Older tool links may contain query values. A current tool validates compatible fixed values into session storage where possible, discards unsupported or free-text values, and removes the query from the address bar while preserving the page path and fragment. This cleanup cannot erase a URL already copied, recorded in browser history, sent in an earlier request, or retained in historical server, proxy, CDN, analytics, or security logs. Clear browser history separately where appropriate.</p>
 
         <h2>Third-party links</h2>
         <p>Our guides link to official exam providers and government authorities. Once you leave visalang.org, their privacy policies apply. We are not responsible for practices on external sites.</p>
 
-        <h2>Advertising</h2>
-        <p>Third-party vendors, including Google, use cookies to serve ads based on your previous visits to VisaLang or other websites. Google’s advertising cookies enable Google and its partners to serve personalised ads based on those visits. Non-personalised ads may still use cookies or identifiers for purposes such as frequency capping and aggregated reporting where permitted by your choices and applicable settings.</p>
-        <p>Auto ads is configured in the AdSense account for ad-eligible content pages. VisaLang does not add manual ad units in this source phase. The authorised-seller entry in <a href="https://visalang.org/ads.txt">ads.txt</a> identifies Google as a direct seller; it is not proof of consent or legal approval.</p>
+        <h2>Advertising and measurement boundary</h2>
+        <p>Where a deployed, account-authorised AdSense configuration is active, Google and its partners may process advertising signals according to the applicable Google settings and your choices. The source-level loader and <a href="https://visalang.org/ads.txt">ads.txt</a> entry do not prove account approval, served ads, consent, regional behavior, or legal approval.</p>
+        <p>The <code>t27.v1</code> measurement contract is local and definition-only. It sends no events and stores no measurement records. It permits only fixed tool IDs, the <code>en</code>/<code>zh-CN</code> locale enum, finite result states, and explicit takeaway actions. It excludes names, email addresses, IP addresses, full URLs or queries, free text, dates, raw answers, document contents, notes, and third-party identifiers. It does not create a traffic baseline or count a fallback as a successful completion.</p>
 
         <h2>Your rights</h2>
         <p>If you contacted us and want your message or email address removed where applicable, contact <a href="/contact/">us</a>. Residents of the EU, UK, and California may have additional rights under GDPR or CCPA.</p>

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "VL-PMAP-20260923-03-visual-r1",
+  "reviewedAt": "2026-09-23T03:47:50+00:00",
+  "reviewerCapability": "image-capable-agent",
+  "status": "passed",
+  "artifact": {
+    "path": "docs/planning-map/visalang-overall-build-plan.html",
+    "sha256": "f8ea3ae223ee76c9ddba529eb6714e1eae35305d0a1c190db3c0bc866cc47e1d"
+  },
+  "browserEvidence": {
+    "path": "docs/planning-map/visalang-overall-build-plan.visual-check.json",
+    "sha256": "70b029a4380adb8b63883e60a25362b06bf2f6341c4d7d191e873a4f60b1d744"
+  },
+  "screenshots": [
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.1440x900.dark.png",
+      "sha256": "812a9f9caf193ce5932c521def68a3c8e9d185cbd7057bdb1e7927cb9e9a9530",
+      "width": 1440,
+      "height": 900,
+      "theme": "dark"
+    },
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.1440x900.light.png",
+      "sha256": "9af5f5e690d3d9f73886d7d0291f838ac711af931b4282dbaba9325e8df144d2",
+      "width": 1440,
+      "height": 900,
+      "theme": "light"
+    },
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.2048x1320.dark.png",
+      "sha256": "87135e0a3908fcd926b66f0c70a2167eb99c630b0f3e5a4048f616de655d399b",
+      "width": 2048,
+      "height": 1320,
+      "theme": "dark"
+    },
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.2048x1320.light.png",
+      "sha256": "f0331b4506beec9a5a6e0a50cbdce5e5363fe2b5bdd67961e667afc874baa0a9",
+      "width": 2048,
+      "height": 1320,
+      "theme": "light"
+    }
+  ],
+  "findings": [],
+  "correctionRounds": 0,
+  "notes": "Root image-capable agent inspected all four exact 1440x900/2048x1320 light/dark PNGs. Parallel LP00/LP01a root, reader-only core edge and dual-evidence Laya branch are legible with no node crossings or clipped labels. Common governance and independent ads/B1 remain visible. Cards clearly preserve pending decoupling, no automatic expanded investment without readers, and the complete wrapped digest. Large-desktop layout remains balanced and contained. Four-viewport automated results are independently recorded in the browser receipt. No post-delivery visual correction."
+}

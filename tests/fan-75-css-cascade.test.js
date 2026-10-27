@@ -81,6 +81,11 @@ assert.match(css, /\.global-header, \.global-footer,[\s\S]*?display: none !impor
 assert.match(css, /\.site-main, \.page-shell, \.guide-page, \.guide-article[\s\S]*?width: 100%;[\s\S]*?border: 0;[\s\S]*?box-shadow: none;/, 'print keeps article full-width and removes framing');
 
 assert.match(css, /prefers-color-scheme: dark/, 'dark-mode tokens remain present');
+assert.match(css, /--od-action-bg: #2f63c9/, 'dark-mode solid actions use a dedicated high-contrast background token');
+assert.match(css, /\.primary-action \{ border-color: var\(--od-action-bg\); background: var\(--od-action-bg\); color: var\(--od-action-text\);/, 'primary actions do not reuse the light link color as their dark background');
+assert.match(css, /minmax\(min\(290px, 100%\), 1fr\)/, 'related-guide columns cannot force overflow below 290px');
+assert.match(css, /main :is\(section, h2, h3\)\[id\][^}]+scroll-margin-top: calc\(var\(--header-height\) \+ 1rem\)/, 'anchored headings retain space below the sticky header');
+assert.match(css, /transition-duration: \.01ms !important/, 'reduced-motion also suppresses decorative transitions');
 assert.match(css, /prefers-reduced-motion: reduce/, 'reduced-motion protection remains present');
 assert.match(css, /@media print/, 'print styles remain present');
 

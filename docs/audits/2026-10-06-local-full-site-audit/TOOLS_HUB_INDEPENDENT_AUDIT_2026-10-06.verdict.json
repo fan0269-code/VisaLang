@@ -1,0 +1,40 @@
+{
+  "agent": "visalang-independent-auditor",
+  "reviewer_independent": true,
+  "review_date": "2026-10-06",
+  "baseline": {
+    "branch": "codex/scheme-3-one-week-content",
+    "head": "4cb57e8744c752fed1881281e69e7b24cc7281c4",
+    "upstream": "origin/codex/scheme-3-one-week-content",
+    "ahead": 0,
+    "behind": 0,
+    "staged_changes": 0,
+    "dirty_worktree": "Existing unrelated dirty and untracked work preserved; tests/site.test.js was dirty before this scoped addition.",
+    "tests_site_pre_edit_sha256": "4bce5115c3995c3d641c6eb1c4b7b961e1990e7795b1b7dec20f6feee9da3a37"
+  },
+  "scope": [
+    "src/pages/tools/index.astro",
+    "tests/site.test.js (only the tool-hub assertions added in this window)"
+  ],
+  "agent_review_status": "blocked",
+  "overall_verdict": "BLOCKED",
+  "scoped_code_review": "clean; no scoped P0/P1/P2 findings",
+  "findings": [],
+  "verification": {
+    "npm_test": "Submitter-reported build and preceding assertions ran; final planning-map governance check failed on stale tests/site.test.js byte binding. Not independently rerun by Auditor.",
+    "current_window_browser_and_perceptual_review": "not_available; no current automated browser receipt, screenshots, or image-capable review"
+  },
+  "blockers": [
+    "No updated current-window planning-map sync and exact classified scope manifest; the scope cannot be frozen against the existing sync.",
+    "No current-window generated Archify delivery, automated browser receipt/screenshots, or image-capable perceptual review.",
+    "The existing sync is VL-PMAP-20261005-02 with unresolved drift and retains the pre-edit tests/site.test.js byte binding."
+  ],
+  "candidate_scope_digest": null,
+  "candidate_scope_digest_note": "No current-window planning-map manifest exists to bind the frozen changed-path scope.",
+  "diagram_source_sha256": "1bbe4f4686af3b6ceaf1488b921dee1b4643ed22c3dcbf52fe9dc771b7c9085c",
+  "diagram_artifact_sha256": "da9dc5811eb9f0a35de2cb8cc7d9ecf123c068cae3fe737627ee558772d2f177",
+  "sync_receipt_sha256": "0e2191b14c712e260441436267432a520943b3f3c6f49de542a376066b9fd688",
+  "planning_drift_status": "unresolved",
+  "owner_authorization": "pending",
+  "deployment_status": "not_started"
+}

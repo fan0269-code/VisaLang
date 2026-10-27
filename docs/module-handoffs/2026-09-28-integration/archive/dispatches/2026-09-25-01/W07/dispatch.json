@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "batchId": "2026-09-25-01",
+  "moduleId": "W07/LC07 + W15/local technical acceptance",
+  "promptId": "P04",
+  "planningPackages": [
+    "LC07",
+    "LP04 (partial local technical acceptance only)"
+  ],
+  "baselineId": "b7a9fddd658d95279e05127f32e2ec2cddec7fa8e90c2e254f55df89ff1942b5",
+  "sourceRoot": "/Users/a1-6/Documents/2.codex/1.visalang.org",
+  "workspacePath": "/private/tmp/visalang-W00-2026-09-25-01/W07",
+  "snapshotPath": "/private/tmp/visalang-W00-2026-09-25-01/baseline",
+  "baselineManifestPath": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-25-01/baseline-manifest.json",
+  "byteVerificationPath": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-25-01/W07-byte-verification.json",
+  "promptPath": "docs/prompts/2026-09-24-next-stage/P04-results-and-journey.md",
+  "promptSha256": "afbd6d9de611785fa74e164c6e80560220ad2e978165ef67d68887cd2ea13f1c",
+  "requiredCommonPath": "docs/prompts/2026-09-23-module-build/COMMON.md",
+  "commonSha256": "139214dd05bc391d432e389a9da6b3363b58aabef21c10f8e58e51744ceb54f8",
+  "assignmentStatus": "assigned",
+  "implementationStatus": "not_started",
+  "assignedBy": "Owner selected W00 allocation in current task; local P04 only",
+  "allowedWritePaths": [
+    "src/components/tools/ToolShell.astro",
+    "src/components/tools/ToolResultSupport.astro",
+    "src/scripts/tool-form.ts",
+    "src/scripts/plan-state.ts",
+    "src/pages/tools/route-finder.astro",
+    "src/pages/tools/checklist-generator.astro",
+    "src/pages/zh/tools/route-finder.astro",
+    "src/pages/zh/tools/checklist-generator.astro",
+    "src/styles/global.css",
+    "tests/m2a-plan-state-integration.test.mjs",
+    "tests/m2b-route-finder.test.mjs",
+    "tests/m2b-checklist-export.test.mjs",
+    "tests/m3-chinese-tool-contract.test.mjs",
+    "tests/t28-stale-results.test.mjs",
+    "docs/module-handoffs/2026-09-25-01/W07/**"
+  ],
+  "runtimeWritePaths": [
+    "node_modules/**",
+    "dist/**",
+    ".astro/**",
+    ".runtime/**"
+  ],
+  "runtimeRules": "Independent candidate dependency/build paths only; no install/download, lockfile change, credential reads or shared writable outputs. User-authorized local tests/build only.",
+  "evidenceDependencies": [
+    {
+      "evidencePath": "docs/module-handoffs/2026-09-25-01/snapshot-verification.json",
+      "status": "verified",
+      "sha256": "3749f480628c56b6fe7bcec674f3a582c049c725c61087d3b8efe4b685d33920"
+    },
+    {
+      "evidencePath": "docs/module-handoffs/2026-09-25-01/reused-factual-assets.json",
+      "status": "registered_existing_W04_W06_assets; facts read-only",
+      "sha256": "e1793c0839344ca7b209b021ac921d0e497bdadff938e02beede641a4b13a5a5"
+    },
+    {
+      "evidencePath": "docs/PROJECT_SCAN_2026-09-24.md",
+      "status": "confirmed_local_UI_defect_and_test_matrix; not human/production evidence",
+      "sha256": "73bed7daafecb7ba8b1050b6d0d1a8fec8c68d8b9fbab0a57dd17346208dc1f1"
+    },
+    {
+      "evidencePath": "docs/module-handoffs/2026-09-24-01/W04/dispatch.json",
+      "status": "historical_P02_prepared_not_started; not counted as handoff",
+      "sha256": "834482a27c788079cb629367d6c6443e49a2412434d42c461ed8cb20e2ae2766"
+    }
+  ],
+  "reusedFactAssetRefs": [
+    "docs/module-handoffs/2026-09-25-01/reused-factual-assets.json"
+  ],
+  "evidenceDependenciesStatus": "registered current asset reuse; P04 may proceed without modifying W04/W06 facts",
+  "w15Mode": "Sequential local technical acceptance of W07 candidate in the same isolated workspace; no independent auditor PASS implied.",
+  "externalActionsAuthorized": [],
+  "limitations": [
+    "LP04 remains partial without real-reader task evidence and calendar-client import; no T/LP/LC gate changes.",
+    "Real devices, real readers, calendar import and production remain untested/not authorized.",
+    "No formulas, legal rules, fee facts, claim versions or checked dates may change."
+  ]
+}

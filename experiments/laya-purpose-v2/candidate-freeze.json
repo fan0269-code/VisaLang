@@ -1,0 +1,23 @@
+{
+  "frozen_at": "2026-09-22T12:41:16.876177+00:00",
+  "version": "v2.1; one candidate set; no tuning after outcome disclosure",
+  "candidate_runs_before_freeze": 0,
+  "sha256": {
+    "questions-a.json": "3224d9b9d3a1494702e167e9d7ae227b4639dfe420bd1a7b8f870cb1a49180d0",
+    "questions-b.json": "0cd42acad4c977e5e79297147bec5d5f054fd9ed3d0888ec9109fc7e056d798a",
+    "questions-c-gate.json": "e5ffcb45e8de247c4416cb4c29442a621228ed98864aeee7710caf0b3143ce7e",
+    "labels.json": "1e6c4d292735ad35e2ec932f3fb85cae9bf590b7b1dac991021df2e119633cc0",
+    "rules.py": "172fef546a392d2b189c0fafda2e7d4414ae70dff37da0e260d114e1fe504071",
+    "worker.py": "ed609c70a3020c9088fdb4e836d0fdd02b570df60948640f55884d31e2a5fa27",
+    "demo.mjs": "73a6c5f27fdc7dd88611a95dfa8cbdef845303dc811e7dde1c1266471342b58d",
+    "analyze.mjs": "c077902dd5076180a6542fc0b0989983530dce1cf7efe79204ad87502507edc9"
+  },
+  "amendments": [
+    {
+      "at": "2026-09-22T12:41:39.384136+00:00",
+      "reason": "Offline resolver initially requested uncached unrelated repository files. Restrict allow_patterns to checkpoint files as Laya does. Failure occurred before model load or any inference; no candidate outputs seen.",
+      "file": "worker.py",
+      "previous_sha256": "4065c75da129061abb71a2feef6ede98e769f137049e2eb48145770c6a03baf0"
+    }
+  ]
+}

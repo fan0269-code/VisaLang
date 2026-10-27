@@ -1,0 +1,1077 @@
+--- a/src/components/tools/ToolShell.astro
++++ b/src/components/tools/ToolShell.astro
+@@ -14,6 +14,10 @@
+ const { eyebrow, title, description, current, locale = 'en' } = Astro.props;
+ const copy = commonToolCopy[locale];
+ const toolLinks = getToolLinks(locale);
++const planSummary = locale === 'zh-CN'
++  ? '计划默认仅保留在此标签页；可选择在此设备保存 30 天。'
++  : 'Your plan stays in this tab by default; you can optionally save it on this device for 30 days.';
++const detailSummary = locale === 'zh-CN' ? '隐私、重置与保存说明' : 'Privacy, restart, and save details';
+ const toolNav = [
+   { id: 'finder', label: copy.nav.finder, href: toolLinks.finder },
+   { id: 'checklist', label: copy.nav.checklist, href: toolLinks.checklist },
+@@ -36,14 +40,18 @@
+   <section class="tool-plan-controls" aria-labelledby="shared-plan-title">
+     <div>
+       <h2 id="shared-plan-title">{copy.sharedTitle}</h2>
+-      <p><strong>{copy.sharedPrivacyLead}</strong> {copy.sharedPrivacy}</p>
+-      <p><strong>{copy.restartLead}</strong> {copy.restartBoundary}</p>
++      <p class="tool-plan-summary">{planSummary}</p>
+     </div>
+     <div class="button-row tool-plan-actions">
+       <button class="button button--secondary" type="button" data-plan-save-device>{copy.save}</button>
+       <button class="button button--secondary" type="button" data-plan-clear>{copy.clear}</button>
+     </div>
+     <p class="tool-plan-status" data-plan-status aria-live="polite">{copy.initialStatus}</p>
++    <details class="tool-plan-details">
++      <summary>{detailSummary}</summary>
++      <p><strong>{copy.sharedPrivacyLead}</strong> {copy.sharedPrivacy}</p>
++      <p><strong>{copy.restartLead}</strong> {copy.restartBoundary}</p>
++    </details>
+   </section>
+   <noscript><p class="tool-notice"><strong>{copy.noScriptLead}</strong> {copy.noScript}</p></noscript>
+   <slot />
+--- a/src/pages/tools/route-finder.astro
++++ b/src/pages/tools/route-finder.astro
+@@ -3,7 +3,7 @@
+ import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
+ import PurposeSuggestion from '../../components/tools/PurposeSuggestion.astro';
+ import { applicationRegionOptions, familyRelationshipOptions } from '../../data/plan-state';
+-import { getToolCopy, type ToolLocale } from '../../data/tool-copy';
++import { commonToolCopy, getToolCopy, type ToolLocale } from '../../data/tool-copy';
+ 
+ export interface Props { locale?: ToolLocale; }
+ const { locale = 'en' } = Astro.props;
+@@ -36,7 +36,19 @@
+ 
+       <section id="route-finder-result" class="tool-result" hidden aria-live="polite" tabindex="-1">
+         <div id="route-finder-summary"></div>
+-        <ToolResultSupport resultId="route-finder-summary" locale={locale} />
++        <ToolResultSupport resultId="route-finder-summary" showActions={false} locale={locale} />
++        <div class="tool-cta-row" data-route-actions hidden>
++          <button class="button button--secondary" type="button" data-route-copy disabled>{commonToolCopy[locale].copy}</button>
++          <button class="button button--secondary" type="button" data-route-print disabled>{commonToolCopy[locale].print}</button>
++          <button class="button button--secondary" type="button" data-route-export disabled>{commonToolCopy[locale].export}</button>
++        </div>
++        <p class="tool-action-feedback" role="status" aria-live="polite" data-route-feedback></p>
++        <section class="tool-copy-fallback" data-route-copy-fallback hidden aria-labelledby="route-copy-fallback-title">
++          <h2 id="route-copy-fallback-title">{locale === 'zh-CN' ? '选择并复制以下路线结果' : 'Select and copy this route result'}</h2>
++          <p>{commonToolCopy[locale].copyUnavailable}</p>
++          <textarea readonly rows="12" aria-label={locale === 'zh-CN' ? '用于手动复制的路线结果' : 'Route result for manual copying'}></textarea>
++        </section>
++        <div id="route-finder-evidence-details" data-route-evidence></div>
+       </section>
+     </div>
+ 
+@@ -76,7 +88,7 @@
+ 
+ <script>
+   import { getRouteFinderQuestionRelevance, resolveRouteFinder } from '../../data/route-tools';
+-  import { getToolCopy, getToolLinks } from '../../data/tool-copy';
++  import { commonToolCopy, getToolCopy } from '../../data/tool-copy';
+   import { setupSharedPlan } from '../../scripts/plan-state';
+   import { setupToolForm } from '../../scripts/tool-form';
+   import { setupPurposeSuggestion } from '../../scripts/purpose-suggestion';
+@@ -84,12 +96,18 @@
+   const form = document.querySelector<HTMLFormElement>('#route-finder-form');
+   const resultPanel = document.querySelector<HTMLElement>('#route-finder-result');
+   const summary = document.querySelector<HTMLElement>('#route-finder-summary');
++  const evidenceRoot = document.querySelector<HTMLElement>('[data-route-evidence]');
+   const sharedContinuation = resultPanel?.querySelector<HTMLElement>('[data-tool-continuation]');
++  const actions = resultPanel?.querySelector<HTMLElement>('[data-route-actions]');
++  const actionControls = [...(resultPanel?.querySelectorAll<HTMLButtonElement>('[data-route-actions] button') || [])];
++  const feedback = resultPanel?.querySelector<HTMLElement>('[data-route-feedback]');
++  const fallback = resultPanel?.querySelector<HTMLElement>('[data-route-copy-fallback]');
++  const fallbackText = fallback?.querySelector<HTMLTextAreaElement>('textarea');
+   const followUpFields = [...(form?.querySelectorAll<HTMLSelectElement>('[data-route-question] select') || [])];
+   const locale = document.documentElement.lang === 'zh-CN' ? 'zh-CN' : 'en';
+   const isZh = locale === 'zh-CN';
+   const copy = getToolCopy('finder', locale);
+-  const toolLinks = getToolLinks(locale);
++  let routeExportText = '';
+ 
+   const syncRelevantQuestions = () => {
+     const relevant = new Set(getRouteFinderQuestionRelevance({
+@@ -112,8 +130,49 @@
+     return element;
+   };
+ 
++  const serializeRouteResult = (result: ReturnType<typeof resolveRouteFinder>) => {
++    const lines = [
++      isZh ? 'VisaLang 路线查找结果' : 'VisaLang Route Finder result',
++      `${isZh ? '状态' : 'Status'}: ${result.statusLabel}`,
++      `${isZh ? '路线' : 'Route'}: ${result.title}`,
++      `${isZh ? '适用范围与边界' : 'Scope and boundary'}: ${result.boundary}`,
++      '',
++      isZh ? '选择摘要' : 'Selection summary',
++      ...result.selectionSummary.map((item) => `- ${item.label}: ${item.value}`),
++      '',
++      isZh ? '下一步' : 'Next steps',
++      ...result.nextSteps.map((step, index) => `${index + 1}. ${step}`),
++      '',
++      isZh ? '待核实' : 'To verify',
++      ...result.missingInformation.map((item) => `- ${item}`),
++      ...result.responsibleParties.map((item) => `${isZh ? '负责核实方' : 'Responsible party'}: ${item}`),
++    ];
++    if (result.guidance) lines.push('', isZh ? '当前路线' : 'Current route', result.guidance);
++    if (result.basis) {
++      lines.push('', isZh ? '版本化证据' : 'Versioned evidence', `${isZh ? '规则版本' : 'Rule version'}: ${result.basis.ruleVersion}`);
++      result.basis.claims.forEach((claim) => {
++        lines.push(
++          `${isZh ? '声明' : 'Claim'}: ${claim.claimId}@${claim.version}`,
++          `${isZh ? '来源核验日期' : 'Checked'}: ${claim.sourceCheckedAt || (isZh ? '不可用' : 'unavailable')}`,
++        );
++        claim.sources.forEach((source) => lines.push(
++          `- ${source.publisher}: ${source.url}`,
++          `${isZh ? '  来源边界' : '  Source boundary'}: ${source.boundary}`,
++        ));
++      });
++    }
++    return lines.join('\n');
++  };
++
+   const plan = setupSharedPlan({ toolId: 'finder', form });
+-  const controller = form ? setupToolForm(form, { locale, onRestart: () => plan.restartCurrentTool() }) : undefined;
++  const controller = form ? setupToolForm(form, { locale, onRestart: () => {
++    plan.restartCurrentTool();
++    routeExportText = '';
++    if (actions) actions.hidden = true;
++    actionControls.forEach((control) => { control.disabled = true; });
++    if (feedback) feedback.textContent = '';
++    if (fallback) fallback.hidden = true;
++  } }) : undefined;
+   if (form) setupPurposeSuggestion(form);
+   form?.elements.namedItem('country')?.addEventListener('change', syncRelevantQuestions);
+   form?.elements.namedItem('purpose')?.addEventListener('change', syncRelevantQuestions);
+@@ -136,6 +195,12 @@
+     if (!summary || !resultPanel) return;
+ 
+     summary.replaceChildren();
++    evidenceRoot?.replaceChildren();
++    routeExportText = '';
++    if (feedback) feedback.textContent = '';
++    if (fallback) fallback.hidden = true;
++    if (actions) actions.hidden = true;
++    actionControls.forEach((control) => { control.disabled = true; });
+     const statusClasses = {
+       guidance_available: 'tool-result-status--available',
+       needs_information: 'tool-result-status--information',
+@@ -154,75 +219,91 @@
+       addText(selection, 'dd', item.value);
+     });
+     summary.append(selection);
++    addText(summary, 'p', `${isZh ? '范围与边界' : 'Scope and boundary'}: ${result.boundary}`);
+ 
+     if (result.guidance) {
+-      addText(summary, 'h3', isZh ? '当前证据可支持什么' : 'What the current evidence supports');
++      addText(summary, 'h3', isZh ? '当前路线' : 'Current route');
+       addText(summary, 'p', result.guidance);
+     }
++
++    addText(summary, 'h3', isZh ? '下一步' : 'Next step');
++    const nextSteps = document.createElement('ol');
++    result.nextSteps.forEach((step) => addText(nextSteps, 'li', step));
++    summary.append(nextSteps);
++
+     if (result.missingInformation.length) {
+-      addText(summary, 'h3', result.status === 'unsupported' ? (isZh ? '覆盖缺口' : 'Coverage gap') : (isZh ? '仍缺少或尚未确认的信息' : 'Information still missing or unconfirmed'));
++      addText(summary, 'h3', result.status === 'unsupported' ? (isZh ? '待核实：当前覆盖' : 'To verify: route coverage') : (isZh ? '待核实' : 'To verify'));
+       const missing = document.createElement('ul');
+       result.missingInformation.forEach((item) => addText(missing, 'li', item));
+       summary.append(missing);
+     }
+-    if (result.basis) {
+-      addText(summary, 'h3', isZh ? '带版本的证据依据' : 'Versioned evidence basis');
+-      addText(summary, 'p', isZh ? `规则 ${result.basis.ruleId}，版本 ${result.basis.ruleVersion}。` : `Rule ${result.basis.ruleId}, version ${result.basis.ruleVersion}.`);
++
++    addText(summary, 'h3', isZh ? '由谁核实' : 'Who to ask');
++    const authorities = document.createElement('ul');
++    result.responsibleParties.forEach((owner) => addText(authorities, 'li', owner));
++    summary.append(authorities);
++
++    if (result.basis && evidenceRoot) {
++      const details = document.createElement('details');
++      details.className = 'tool-evidence-details';
++      const detailsSummary = document.createElement('summary');
++      detailsSummary.textContent = isZh ? '证据详情（规则、来源、版本与检查日）' : 'Evidence details (rules, sources, versions, and check dates)';
++      details.append(detailsSummary);
++      const rule = document.createElement('p');
++      rule.textContent = isZh ? `规则 ${result.basis.ruleId}，版本 ${result.basis.ruleVersion}。` : `Rule ${result.basis.ruleId}, version ${result.basis.ruleVersion}.`;
++      details.append(rule);
+       const claims = document.createElement('ul');
+       result.basis.claims.forEach((claim) => {
+         const item = document.createElement('li');
+-        item.append(isZh ? `声明 ${claim.claimId}，版本 ${claim.version}；来源核验日期 ${claim.sourceCheckedAt || '日期不可用'}。` : `Claim ${claim.claimId}, version ${claim.version}; source checked ${claim.sourceCheckedAt || 'date unavailable'}.`);
+-        if (claim.sources.length) {
+-          const sources = document.createElement('ul');
+-          claim.sources.forEach((source) => {
+-            const sourceItem = document.createElement('li');
+-            const sourceLink = document.createElement('a');
+-            sourceLink.href = source.url;
+-            sourceLink.target = '_blank';
+-            sourceLink.rel = 'noreferrer';
+-            sourceLink.textContent = source.publisher;
+-            sourceItem.append(sourceLink, isZh ? ' — 请按链接范围核验；此来源不替代接收机关或所选考点的决定。' : ` — ${source.boundary}`);
+-            sources.append(sourceItem);
+-          });
+-          item.append(sources);
+-        }
++        item.append(isZh ? `声明 ${claim.claimId}@${claim.version}；来源核验日期 ${claim.sourceCheckedAt || '日期不可用'}。` : `Claim ${claim.claimId}@${claim.version}; source checked ${claim.sourceCheckedAt || 'date unavailable'}.`);
++        const sources = document.createElement('ul');
++        claim.sources.forEach((source) => {
++          const sourceItem = document.createElement('li');
++          const sourceLink = document.createElement('a');
++          sourceLink.href = source.url;
++          sourceLink.target = '_blank';
++          sourceLink.rel = 'noreferrer';
++          sourceLink.textContent = source.publisher;
++          sourceItem.append(sourceLink, ` — ${source.boundary}`);
++          sources.append(sourceItem);
++        });
++        item.append(sources);
+         claims.append(item);
+       });
+-      summary.append(claims);
+-    }
+-
+-    addText(summary, 'h3', isZh ? '由谁负责' : 'Who is responsible');
+-    const authorities = document.createElement('ul');
+-    result.responsibleParties.forEach((owner) => addText(authorities, 'li', owner));
+-    summary.append(authorities);
+-    addText(summary, 'h3', isZh ? '下一步' : 'Next steps');
+-    const nextSteps = document.createElement('ol');
+-    result.nextSteps.forEach((step) => addText(nextSteps, 'li', step));
+-    summary.append(nextSteps);
+-    addText(summary, 'p', `${isZh ? '边界' : 'Boundary'}: ${result.boundary}`);
+-
+-    const nextActions = document.createElement('p');
+-    if (result.guide?.href) {
+-      const guideLink = document.createElement('a');
+-      guideLink.href = result.guide.href;
+-      guideLink.textContent = result.guide.label || (isZh ? '继续查看指南' : 'Continue with guide');
+-      nextActions.append(guideLink);
+-    }
+-    if (result.allowChecklist) {
+-      const checklistLink = document.createElement('a');
+-      checklistLink.href = toolLinks.checklist;
+-      checklistLink.textContent = isZh ? '打开要求核对清单' : 'Open Checklist';
+-      const timelineLink = document.createElement('a');
+-      timelineLink.href = toolLinks.timeline;
+-      timelineLink.textContent = isZh ? '打开时间线规划器' : 'Open Timeline';
+-      if (nextActions.childNodes.length) nextActions.append(' / ');
+-      nextActions.append(checklistLink, ' / ', timelineLink);
+-    }
+-    if (nextActions.childNodes.length) summary.append(nextActions);
++      details.append(claims);
++      evidenceRoot.append(details);
++    }
++    routeExportText = serializeRouteResult(result);
++    if (fallbackText) fallbackText.value = routeExportText;
++    if (actions) actions.hidden = false;
++    actionControls.forEach((control) => { control.disabled = false; });
+     if (sharedContinuation) sharedContinuation.hidden = !result.allowChecklist;
+     resultPanel.hidden = false;
+     controller.markResult();
+     resultPanel.focus();
+   });
++  resultPanel?.querySelector<HTMLButtonElement>('[data-route-copy]')?.addEventListener('click', async () => {
++    if (!routeExportText) return;
++    try {
++      if (!navigator.clipboard?.writeText) throw new Error('Clipboard API unavailable');
++      await navigator.clipboard.writeText(routeExportText);
++      if (feedback) feedback.textContent = commonToolCopy[locale].copied;
++      if (fallback) fallback.hidden = true;
++    } catch {
++      if (fallback) fallback.hidden = false;
++      if (fallbackText) { fallbackText.value = routeExportText; fallbackText.focus(); fallbackText.select(); }
++      if (feedback) feedback.textContent = commonToolCopy[locale].copyUnavailable;
++    }
++  });
++  resultPanel?.querySelector<HTMLButtonElement>('[data-route-export]')?.addEventListener('click', () => {
++    if (!routeExportText) return;
++    const blob = new Blob([routeExportText], { type: 'text/plain;charset=utf-8' });
++    const link = document.createElement('a');
++    link.href = URL.createObjectURL(blob);
++    link.download = 'visalang-route-result.txt';
++    link.click();
++    setTimeout(() => URL.revokeObjectURL(link.href), 0);
++  });
++  resultPanel?.querySelector<HTMLButtonElement>('[data-route-print]')?.addEventListener('click', () => window.print());
+   controller?.activate();
+ </script>
+--- a/src/pages/tools/checklist-generator.astro
++++ b/src/pages/tools/checklist-generator.astro
+@@ -27,6 +27,7 @@
+           <button class="button button--secondary" type="button" data-checklist-print disabled>{copy.text.print}</button>
+           <button class="button button--secondary" type="button" data-checklist-export disabled>{copy.text.export}</button>
+         </div>
++        <div id="checklist-evidence-details" data-checklist-evidence></div>
+         <p class="tool-action-feedback" role="status" aria-live="polite" data-checklist-feedback></p>
+         <section class="tool-copy-fallback" data-checklist-copy-fallback hidden aria-labelledby="checklist-copy-fallback-title">
+           <h2 id="checklist-copy-fallback-title">{copy.text.fallbackTitle}</h2>
+@@ -71,6 +72,7 @@
+ </ToolLayout>
+ 
+ <script>
++  import { claimRegistry, routeRules } from '../../data/claim-registry';
+   import { serializeChecklist, syncChecklistTakeawayUi } from '../../data/checklist-export';
+   import { buildChecklist, getLocalCalendarDate, routeRegistry, safeRouteResult } from '../../data/route-tools';
+   import { checklistStageLabels, getApplicationRegionLabel, getCertificateLabel, getRouteLabel, getToolCopy } from '../../data/tool-copy';
+@@ -85,6 +87,7 @@
+   const actionControls = [...document.querySelectorAll<HTMLButtonElement>('[data-checklist-actions] button')];
+   const feedback = document.querySelector<HTMLElement>('[data-checklist-feedback]');
+   const fallback = document.querySelector<HTMLElement>('[data-checklist-copy-fallback]');
++  const evidenceRoot = document.querySelector<HTMLElement>('[data-checklist-evidence]');
+   const fallbackText = fallback?.querySelector<HTMLTextAreaElement>('textarea');
+   let serializedChecklist = '';
+   const locale = document.documentElement.lang === 'zh-CN' ? 'zh-CN' : 'en';
+@@ -111,25 +114,57 @@
+     if (!summary || !resultPanel) return;
+     const route = routeRegistry.find((item) => item.id === routeId);
+     const checklist = buildChecklist({ routeId }, { locale });
++    const routeRule = routeRules.find((candidate) => candidate.routeId === routeId);
++    const evidence = routeRule ? {
++      ruleId: routeRule.ruleId,
++      ruleVersion: routeRule.version,
++      claims: routeRule.claimRefs.flatMap((ref) => {
++        const claim = claimRegistry.find((candidate) => candidate.claimId === ref.claimId && candidate.version === ref.version);
++        return claim ? [{
++          claimId: claim.claimId,
++          version: claim.version,
++          sourceCheckedAt: claim.sourceCheckedAt,
++          sources: claim.sourceRefs,
++        }] : [];
++      }),
++    } : undefined;
+     summary.replaceChildren();
++    evidenceRoot?.replaceChildren();
+     syncTakeaway(false);
++    const status = document.createElement('p');
++    status.className = `tool-result-status ${route?.availability === 'configured' ? 'tool-result-status--available' : 'tool-result-status--information'}`;
++    status.textContent = route?.availability === 'configured'
++      ? (isZh ? '状态：已配置的核对流程' : 'Status: configured checklist')
++      : (isZh ? '状态：仅提供核验起点' : 'Status: verify-first path');
+     const heading = document.createElement('h2');
+     const routeLabel = getRouteLabel(routeId, route?.shortTitle || 'Route', locale);
+     heading.textContent = checklist.status === 'guidance_available' ? (isZh ? `${routeLabel} 核对清单` : `${routeLabel} checklist`) : (isZh ? '此路线清单尚未配置' : 'Checklist coming soon');
+-    summary.append(heading);
++    summary.append(status, heading);
+     const intro = document.createElement('p');
+     intro.textContent = route?.availability === 'configured'
+       ? (isZh ? '完成你自己的官方核验后，再勾选对应项目。' : 'Mark each item when you have completed your own official check.')
+       : (isZh ? '此路线尚未配置。VisaLang 不会生成可能被误解为官方或完整结果的清单。' : 'This route is not configured. VisaLang will not generate a checklist that could look like an official or complete result.');
+-    summary.append(intro);
++    const boundary = document.createElement('p');
++    boundary.className = 'tool-result-boundary';
++    boundary.textContent = `${isZh ? '范围与边界' : 'Scope and boundary'}: ${checklist.boundary}`;
++    summary.append(intro, boundary);
++    const generatedDate = getLocalCalendarDate();
++    const generated = document.createElement('p');
++    generated.className = 'tool-result-generated';
++    generated.textContent = `${isZh ? '生成日期' : 'Generated'}: ${generatedDate}`;
++    summary.append(generated);
+     if (checklist.status !== 'guidance_available') {
++      const nextHeading = document.createElement('h3');
++      nextHeading.textContent = isZh ? '下一步' : 'Next step';
+       const next = document.createElement('p');
+       next.textContent = isZh ? '选择考试前，先确认接收证明的机构并使用其当前说明。' : 'Identify the organisation receiving your proof and use its current instructions before choosing an exam.';
++      const verifyHeading = document.createElement('h3');
++      verifyHeading.textContent = isZh ? '待核实' : 'To verify';
+       const official = document.createElement('p');
+       const officialLink = document.createElement('a'); officialLink.href = safeRouteResult.officialEntry.href; officialLink.textContent = isZh ? '德国联邦外交部签证服务入口' : safeRouteResult.officialEntry.label;
+       official.append(isZh ? '官方起点：' : 'Official starting point: ', officialLink);
+       const questions = document.createElement('ul'); safeRouteResult.questions.forEach((question: string, index: number) => { const item = document.createElement('li'); item.textContent = isZh ? ['确认哪个机关或机构接收你的申请。', '询问该机关要求哪种准确语言证明。', '再向考试主办方和所选考点分别核验产品与当地交易。'][index] || '向负责机关核验后再行动。' : question; questions.append(item); });
+-      summary.append(next, official, questions);
++      summary.append(nextHeading, next, verifyHeading, official, questions);
+       resultPanel.hidden = false;
+       controller.markResult();
+       resultPanel.focus();
+@@ -138,6 +173,15 @@
+     const stageLabels = checklistStageLabels[locale];
+     const checklistContainer = document.createElement('div');
+     checklistContainer.className = 'tool-checklist-groups';
++    const firstTask = checklist.groups.flatMap((group) => group.items)[0];
++    const nextHeading = document.createElement('h3');
++    nextHeading.textContent = isZh ? '下一步' : 'Next step';
++    const nextAction = document.createElement('p');
++    nextAction.className = 'tool-result-next-step';
++    nextAction.textContent = firstTask?.action || (isZh ? '先确认接收你材料的主管机关。' : 'Identify the authority receiving your application.');
++    const verifyHeading = document.createElement('h3');
++    verifyHeading.textContent = isZh ? '待核实' : 'To verify';
++    summary.append(nextHeading, nextAction, verifyHeading);
+     checklist.groups.forEach((group) => {
+       const section = document.createElement('section');
+       const stageHeading = document.createElement('h3');
+@@ -163,8 +207,11 @@
+         owner.textContent = `${isZh ? '负责方' : 'Owner'}: ${entry.owner}`;
+         text.append(action, itemStatus, completionCriterion, owner);
+         label.append(checkbox, text);
++        const sourceDetails = document.createElement('details');
++        sourceDetails.className = 'tool-checklist-sources';
++        const sourceSummary = document.createElement('summary');
++        sourceSummary.textContent = isZh ? '来源与核验日期' : 'Sources and check dates';
+         const sources = document.createElement('ul');
+-        sources.className = 'tool-checklist-sources';
+         entry.sourceRefs.forEach((sourceRef) => {
+           const sourceItem = document.createElement('li');
+           const sourceLink = document.createElement('a');
+@@ -175,19 +222,13 @@
+           sourceItem.append(sourceLink, isZh ? ` — 核验日期 ${sourceRef.sourceCheckedAt}；${sourceRef.boundary}` : ` — checked ${sourceRef.sourceCheckedAt}; ${sourceRef.boundary}`);
+           sources.append(sourceItem);
+         });
+-        item.append(label, sources);
++        sourceDetails.append(sourceSummary, sources);
++        item.append(label, sourceDetails);
+         list.append(item);
+       });
+       section.append(stageHeading, list);
+       checklistContainer.append(section);
+     });
+-    const boundary = document.createElement('p');
+-    boundary.textContent = checklist.boundary;
+-    const generatedDate = getLocalCalendarDate();
+-    const generated = document.createElement('p');
+-    generated.textContent = `${isZh ? '生成日期' : 'Generated'}: ${generatedDate}`;
+-    const scope = document.createElement('p');
+-    scope.textContent = `${isZh ? '适用范围' : 'Scope'}: ${checklist.boundary}`;
+     const completion = document.createElement('p');
+     completion.className = 'tool-completion-status';
+     const updateCompletion = () => {
+@@ -210,7 +251,7 @@
+       const localizedCertificateStatus = certificateStatus
+         ? getCertificateLabel(plan.state.answers.certificate || '', certificateStatus, locale)
+         : null;
+-      serializedChecklist = serializeChecklist({
++      const checklistText = serializeChecklist({
+         routeTitle: routeLabel,
+         generatedDate,
+         applicationRegion,
+@@ -218,6 +259,21 @@
+         checklist,
+         checklistState,
+       }, { locale });
++      const evidenceText = evidence ? [
++        isZh ? '版本化证据：' : 'Versioned evidence:',
++        `${isZh ? '规则版本' : 'Rule version'}: ${evidence.ruleVersion}`,
++        ...evidence.claims.flatMap((claim) => [
++          `${isZh ? '声明' : 'Claim'}: ${claim.claimId}@${claim.version}`,
++          `${isZh ? '来源核验日期' : 'Checked'}: ${claim.sourceCheckedAt || (isZh ? '不可用' : 'unavailable')}`,
++          ...claim.sources.flatMap((source) => [
++            `- ${source.publisher}: ${source.url}`,
++            `${isZh ? '  定位' : '  Locator'}: ${source.locator}`,
++            `${isZh ? '  可支持' : '  Supports'}: ${source.supports}`,
++            `${isZh ? '  来源边界' : '  Source boundary'}: ${source.boundary}`,
++          ]),
++        ]),
++      ].join('\n') : '';
++      serializedChecklist = [checklistText, evidenceText].filter(Boolean).join('\n\n');
+       if (fallbackText) fallbackText.value = serializedChecklist;
+     };
+     checklistContainer.addEventListener('change', () => {
+@@ -226,7 +282,43 @@
+     });
+     plan.restoreChecklist(checklistContainer);
+     updateCompletion();
+-    summary.append(generated, scope, checklistContainer, completion, boundary);
++    summary.append(checklistContainer, completion);
++    if (evidenceRoot) {
++      const evidenceDetails = document.createElement('details');
++      evidenceDetails.className = 'tool-evidence-details';
++      const evidenceSummary = document.createElement('summary');
++      evidenceSummary.textContent = isZh ? '证据详情（规则、来源、版本与检查日）' : 'Evidence details (rules, sources, versions, and check dates)';
++      evidenceDetails.append(evidenceSummary);
++      if (evidence) {
++        const rule = document.createElement('p');
++        rule.textContent = isZh ? `规则 ${evidence.ruleId}，版本 ${evidence.ruleVersion}。` : `Rule ${evidence.ruleId}, version ${evidence.ruleVersion}.`;
++        evidenceDetails.append(rule);
++        const claims = document.createElement('ul');
++        evidence.claims.forEach((claim) => {
++          const item = document.createElement('li');
++          item.append(isZh ? `声明 ${claim.claimId}@${claim.version}；来源核验日期 ${claim.sourceCheckedAt || '不可用'}。` : `Claim ${claim.claimId}@${claim.version}; source checked ${claim.sourceCheckedAt || 'unavailable'}.`);
++          const sources = document.createElement('ul');
++          claim.sources.forEach((source) => {
++            const sourceItem = document.createElement('li');
++            const link = document.createElement('a');
++            link.href = source.url;
++            link.target = '_blank';
++            link.rel = 'noreferrer';
++            link.textContent = source.publisher;
++            sourceItem.append(link, ` — ${source.locator}; ${source.boundary}`);
++            sources.append(sourceItem);
++          });
++          item.append(sources);
++          claims.append(item);
++        });
++        evidenceDetails.append(claims);
++      } else {
++        const note = document.createElement('p');
++        note.textContent = isZh ? '此核验起点没有配置版本化路线规则。' : 'No versioned route rule is configured for this verification starting point.';
++        evidenceDetails.append(note);
++      }
++      evidenceRoot.append(evidenceDetails);
++    }
+     syncTakeaway(true);
+     resultPanel.hidden = false;
+     controller.markResult();
+@@ -256,7 +348,7 @@
+     link.href = URL.createObjectURL(blob);
+     link.download = 'visalang-checklist.txt';
+     link.click();
+-    URL.revokeObjectURL(link.href);
++    setTimeout(() => URL.revokeObjectURL(link.href), 0);
+   });
+   document.querySelector<HTMLButtonElement>('[data-checklist-print]')?.addEventListener('click', () => window.print());
+   controller?.activate();
+--- a/src/styles/global.css
++++ b/src/styles/global.css
+@@ -299,8 +299,14 @@
+ .tool-plan-controls { display: grid; gap: var(--space-3); margin: 0 0 var(--space-5); padding: var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface-subtle); }
+ .tool-plan-controls h2 { margin: 0 0 var(--space-1); font-size: var(--text-lg); }
+ .tool-plan-controls p { margin: 0; }
++.tool-plan-summary { color: var(--text-muted); font-size: var(--text-sm); }
+ .tool-plan-actions { margin: 0; }
+ .tool-plan-status { color: var(--text-muted); font-size: var(--text-sm); }
++.tool-plan-details { padding-top: var(--space-2); border-top: 1px solid var(--border); }
++.tool-plan-details > summary,
++.tool-evidence-details > summary,
++.tool-checklist-sources > summary { cursor: pointer; font-weight: 700; }
++.tool-plan-details > p { margin-top: var(--space-2); }
+ .tool-form[inert] { opacity: .7; }
+ .tool-timeline-list, .decision-table { display: grid; gap: 0; border: 1px solid var(--border); border-radius: var(--radius); }
+ .tool-timeline-list div, .decision-table div { display: grid; grid-template-columns: minmax(160px, .4fr) 1fr; gap: var(--space-4); padding: var(--space-4); }
+@@ -858,6 +864,11 @@
+   box-shadow: none;
+ }
+ 
++.tool-result[tabindex="-1"],
++.tool-result-panel[tabindex="-1"] {
++  scroll-margin-block-start: calc(var(--header-height) + var(--space-4));
++}
++
+ .tool-form-heading {
+   margin-bottom: 24px;
+ }
+@@ -918,7 +929,13 @@
+ }
+ 
+ .tool-table-hint { display: none; margin: 0 0 8px; color: var(--od-copy); font-size: 14px; font-weight: 700; }
+-.tool-table-wrap { max-width: 100%; overscroll-behavior-inline: contain; }
++.tool-table-wrap { max-width: 100%; overflow-x: auto; overscroll-behavior-inline: contain; -webkit-overflow-scrolling: touch; }
++
++.tool-result-boundary,
++.tool-result-next-step { padding: var(--space-3); border-inline-start: 4px solid var(--od-primary); background: var(--od-surface-alt); }
++.tool-evidence-details { margin-top: var(--space-5); padding-top: var(--space-3); border-top: 1px solid var(--od-line-soft); overflow-wrap: anywhere; }
++.tool-checklist-sources { margin-top: var(--space-2); padding: var(--space-2) var(--space-3); border: 1px solid var(--od-line-soft); border-radius: var(--radius-sm); }
++.tool-checklist-sources ul { margin-bottom: 0; }
+ 
+ .tool-result-support {
+   display: grid;
+@@ -1622,6 +1639,20 @@
+   body:has(#checklist-result:not([hidden])) #checklist-result [data-checklist-actions],
+   body:has(#checklist-result:not([hidden])) #checklist-result [data-checklist-feedback],
+   body:has(#checklist-result:not([hidden])) #checklist-result [data-checklist-copy-fallback] { display: none !important; }
++  body:has(#route-finder-result:not([hidden])) .tool-page-header,
++  body:has(#route-finder-result:not([hidden])) .tool-nav,
++  body:has(#route-finder-result:not([hidden])) .tool-stepper,
++  body:has(#route-finder-result:not([hidden])) .tool-plan-controls,
++  body:has(#route-finder-result:not([hidden])) .tool-form,
++  body:has(#route-finder-result:not([hidden])) .tool-guidance,
++  body:has(#route-finder-result:not([hidden])) .tool-page > .button-row,
++  body:has(#route-finder-result:not([hidden])) #route-finder-result .tool-result-support,
++  body:has(#route-finder-result:not([hidden])) #route-finder-result [data-route-actions],
++  body:has(#route-finder-result:not([hidden])) #route-finder-result [data-route-feedback],
++  body:has(#route-finder-result:not([hidden])) #route-finder-result [data-route-copy-fallback] { display: none !important; }
++  body:has(#route-finder-result:not([hidden])) .tool-workspace { display: block; }
++  body:has(#route-finder-result:not([hidden])) #route-finder-result { display: block !important; padding: 0; border: 0; }
++  body:has(#route-finder-result:not([hidden])) details:not([open]) > :not(summary) { display: block !important; }
+   body:has(#checklist-result:not([hidden])) [class~="tool-workspace"] { display: block; }
+   body:has(#checklist-result:not([hidden])) #checklist-result { display: block !important; padding: 0; border: 0; }
+   body:has(#checklist-result:not([hidden])) .tool-checklist-groups section,
+--- a/tests/m2a-plan-state-integration.test.mjs
++++ b/tests/m2a-plan-state-integration.test.mjs
+@@ -98,9 +98,9 @@
+   assert.ok(toolCopy.includes(englishLabel), `English presentation retains ${englishLabel}`);
+ }
+ assert.match(shell, /data-plan-status[^>]*aria-live="polite"/, 'ToolShell announces restore, save and clear status accessibly');
+-assert.match(shell, /\{copy\.sharedPrivacyLead\}[\s\S]{0,80}\{copy\.sharedPrivacy\}/, 'ToolShell renders the localized session-only explanation');
++assert.match(shell, /<details class="tool-plan-details">[\s\S]*?\{copy\.sharedPrivacyLead\}[\s\S]{0,80}\{copy\.sharedPrivacy\}/, 'ToolShell keeps the detailed session-only explanation in a nearby disclosure');
+ assert.ok(toolCopy.includes('Session-only by default:') && toolCopy.includes('They are not added to the page URL.'), 'English presentation explains the session-only default');
+-assert.match(shell, /\{copy\.restartLead\}[\s\S]{0,80}\{copy\.restartBoundary\}/, 'ToolShell renders the localized restart boundary');
++assert.match(shell, /<details class="tool-plan-details">[\s\S]*?\{copy\.restartLead\}[\s\S]{0,80}\{copy\.restartBoundary\}/, 'ToolShell keeps the detailed restart boundary in the nearby disclosure');
+ assert.ok(toolCopy.includes('Restart boundary:') && toolCopy.includes('Shared route remains'), 'English presentation explains current-tool ownership and the retained shared-route boundary');
+ assert.match(shell, /<noscript>[\s\S]*\{copy\.noScriptLead\}[\s\S]{0,80}\{copy\.noScript\}/, 'ToolShell renders the localized no-JavaScript boundary');
+ assert.ok(toolCopy.includes('entries are not submitted to the page URL'), 'English presentation explains that no-JavaScript forms stay disabled instead of falling back to URL submission');
+--- a/tests/m2b-route-finder.test.mjs
++++ b/tests/m2b-route-finder.test.mjs
+@@ -139,6 +139,17 @@
+ assert.doesNotMatch(page, /name="targetDate"/, 'the page does not require a date to obtain a route result');
+ assert.match(page, /resolveRouteFinder/, 'the production page consumes the claim-backed route resolver');
+ assert.match(page, /getRouteFinderQuestionRelevance/, 'the rendered Finder consumes the deterministic question-relevance contract before validating follow-up fields');
++assert.match(page, /data-route-evidence/, 'versioned evidence has a dedicated details container');
++assert.match(page, /details\.className = 'tool-evidence-details'/, 'technical claim IDs are placed inside a disclosure instead of the reader flow');
++assert.match(page, /serializeRouteResult/, 'route actions use an explicit result serializer');
++assert.match(page, /Rule version|规则版本/, 'the route export preserves its rule version');
++assert.match(page, /sourceCheckedAt/, 'the route export and evidence disclosure preserve source check dates');
++assert.match(page, /data-route-copy-fallback/, 'clipboard failure offers selectable serialized text');
++assert.match(page, /data-route-print/, 'the result exposes a clearly placed print action');
++assert.match(page, /data-route-export/, 'the result exposes a clearly placed download action');
++assert.match(page, /link\.click\(\);\s*setTimeout\(\(\) => URL\.revokeObjectURL\(link\.href\), 0\)/, 'the download URL remains available through the browser click task');
++assert.match(page, /showActions=\{false\}/, 'Route Finder suppresses duplicated generic innerText actions');
++assert.match(page, /resultPanel\.focus\(\)/, 'the result container receives keyboard focus after generation');
+ for (const status of ['guidance_available', 'needs_information', 'needs_authority_confirmation', 'unsupported']) {
+   assert.ok(page.includes(`'${status}'`) || page.includes(status), `the page visibly handles ${status}`);
+ }
+--- a/tests/m2b-checklist-export.test.mjs
++++ b/tests/m2b-checklist-export.test.mjs
+@@ -5,6 +5,7 @@
+ 
+ const { buildChecklist } = await import('../src/data/route-tools.ts');
+ const { serializeChecklist, syncChecklistTakeawayUi } = await import('../src/data/checklist-export.ts');
++const { claimRegistry, routeRules } = await import('../src/data/claim-registry.ts');
+ const { applyToolPatch, createEmptyPlanState, projectStateForTool } = await import('../src/data/plan-state.ts');
+ 
+ assert.equal(typeof serializeChecklist, 'function', 'T16 exposes a dedicated checklist serializer');
+@@ -17,6 +18,22 @@
+   'every controlled checklist source records the date on which that source was checked',
+ );
+ const completedId = items[0].id;
++const routeRule = routeRules.find((rule) => rule.routeId === routeId);
++assert.ok(routeRule, 'the configured route has an existing versioned rule');
++const evidence = {
++  ruleId: routeRule.ruleId,
++  ruleVersion: routeRule.version,
++  claims: routeRule.claimRefs.map((ref) => {
++    const claim = claimRegistry.find((candidate) => candidate.claimId === ref.claimId && candidate.version === ref.version);
++    assert.ok(claim, `the referenced claim ${ref.claimId} exists at its exact version`);
++    return {
++      claimId: claim.claimId,
++      version: claim.version,
++      sourceCheckedAt: claim.sourceCheckedAt,
++      sources: claim.sourceRefs,
++    };
++  }),
++};
+ const text = serializeChecklist({
+   routeTitle: 'Germany family reunion A1',
+   generatedDate: '2026-09-09',
+@@ -142,7 +159,7 @@
+ const css = fs.readFileSync('src/styles/global.css', 'utf8');
+ assert.match(
+   page,
+-  /syncTakeaway\(false\);[\s\S]*?if \(checklist\.status !== 'guidance_available'\)[\s\S]*?summary\.append\(generated, scope, checklistContainer, completion, boundary\);[\s\S]*?syncTakeaway\(true\);/,
++  /syncTakeaway\(false\);[\s\S]*?if \(checklist\.status !== 'guidance_available'\)[\s\S]*?summary\.append\(nextHeading, next, verifyHeading, official, questions\);[\s\S]*?summary\.append\(checklistContainer, completion\);[\s\S]*?evidenceDetails\.className = 'tool-evidence-details'[\s\S]*?syncTakeaway\(true\);/,
+   'the rendered submit path clears take-away state before the unsupported return and restores it only after configured rendering',
+ );
+ assert.match(page, /serializeChecklist/, 'the page uses the dedicated serializer for take-away text');
+@@ -150,13 +167,21 @@
+ assert.match(page, /\.select\(\)/, 'Clipboard failure focuses and selects the fallback text');
+ assert.match(page, /navigator\.clipboard\.writeText\(serializedChecklist\)/, 'Clipboard receives the explicit serialized state rather than DOM innerText');
+ assert.match(page, /new Blob\(\[serializedChecklist\]/, 'text export uses the same explicit serialized state');
++assert.match(page, /link\.click\(\);\s*setTimeout\(\(\) => URL\.revokeObjectURL\(link\.href\), 0\)/, 'the downloaded object URL is revoked after the click task');
+ assert.match(page, /isZh \? '生成日期' : 'Generated'/, 'the printable result DOM includes locale-aware generation metadata');
+ assert.match(page, /data-checklist-status/, 'the printable result has an explicit status per item');
+ assert.match(page, /sourceRef\.sourceCheckedAt/, 'the on-page and printable source list exposes the controlled source-check date');
++assert.match(page, /evidenceDetails\.className = 'tool-evidence-details'/, 'versioned evidence is available in a distinct result disclosure');
++assert.match(page, /evidenceDetails[\s\S]*?claim\.claimId[\s\S]*?claim\.version/, 'the evidence disclosure keeps technical claim IDs outside the main checklist flow');
++assert.match(page, /const evidenceText = evidence \? \[[\s\S]*?evidence\.ruleVersion[\s\S]*?\$\{claim\.claimId\}@\$\{claim\.version\}[\s\S]*?source\.locator[\s\S]*?source\.supports[\s\S]*?source\.boundary/, 'the page export adds its registered rule, claim, source location, support, and boundary details');
++assert.match(page, /serializedChecklist = \[checklistText, evidenceText\]\.filter\(Boolean\)\.join\('\\n\\n'\)/, 'copy and download share the result text with versioned evidence appended');
+ assert.match(support, /showActions/, 'the shared result support can suppress generic innerText actions for Checklist');
++assert.match(page, /showActions=\{false\}/, 'Checklist uses explicit action controls rather than duplicated generic controls');
+ assert.match(css, /body:has\(#checklist-result:not\(\[hidden\]\)\)/, 'print CSS activates only when a checklist result is visible');
+ assert.doesNotMatch(css, /body:has\(#checklist-result\)(?!:)/, 'the hidden checklist placeholder cannot trigger a blank result-only print');
+ assert.match(css, /@media print[\s\S]*?\.skip-link[\s\S]*?display: none !important;/, 'print output excludes the screen-only skip link');
+ assert.match(css, /break-inside:\s*avoid/, 'print CSS protects checklist groups or rows from avoidable splits');
++assert.match(css, /scroll-margin-block-start:\s*calc\(var\(--header-height\) \+ var\(--space-4\)\)/, 'result focus targets account for the sticky header');
++assert.match(css, /\.tool-table-wrap\s*\{[^}]*overflow-x:\s*auto/s, 'wide result tables scroll horizontally without clipping evidence');
+ 
+ console.log('M2-B T16 checklist export and state contracts passed');
+--- a/tests/t28-stale-results.test.mjs
++++ b/tests/t28-stale-results.test.mjs
+@@ -10,6 +10,7 @@
+ try {
+   for (const prefix of ['', '/zh']) {
+     for (const tool of ['route-finder', 'exam-comparison', 'checklist-generator']) {
++      if (tool === 'checklist-generator') await page.setViewportSize({ width: 390, height: 844 });
+       await page.goto(`${process.env.VISALANG_BASE_URL || 'http://127.0.0.1:4321'}${prefix}/tools/${tool}/`);
+       await page.locator('form:not([inert])').waitFor();
+       const values = tool === 'route-finder' ? {
+@@ -22,6 +23,34 @@
+       await page.locator('form button[type="submit"]').click();
+       const result = page.locator('.tool-result, .tool-result-panel').first();
+       await result.waitFor();
++      if (tool === 'checklist-generator') {
++        const visibility = await page.evaluate(() => {
++          const title = document.querySelector('#checklist-summary > h2');
++          const header = document.querySelector('.global-header');
++          if (!title || !header) throw new Error('Checklist title or sticky header is missing.');
++          const titleRect = title.getBoundingClientRect();
++          const headerRect = header.getBoundingClientRect();
++          return {
++            viewport: { width: window.innerWidth, height: window.innerHeight },
++            scrollY: window.scrollY,
++            focusedId: document.activeElement?.id || null,
++            titleTop: titleRect.top,
++            titleBottom: titleRect.bottom,
++            headerBottom: headerRect.bottom,
++          };
++        });
++        if (process.env.VISALANG_SCREENSHOT_DIR) {
++          fs.mkdirSync(process.env.VISALANG_SCREENSHOT_DIR, { recursive: true });
++          await page.screenshot({ path: `${process.env.VISALANG_SCREENSHOT_DIR}/${prefix ? 'zh' : 'en'}-checklist-result.png` });
++        }
++        results.push({ locale: prefix ? 'zh-CN' : 'en', tool, ...visibility });
++        assert.equal(visibility.viewport.width, 390, 'checklist obstruction is measured at a 390 CSS-pixel viewport');
++        assert.equal(visibility.focusedId, 'checklist-result', 'result container receives focus after generation');
++        assert.ok(
++          visibility.titleTop >= visibility.headerBottom,
++          `${prefix ? 'zh-CN' : 'en'} checklist title is obscured: title top ${visibility.titleTop}px, sticky header bottom ${visibility.headerBottom}px, scrollY ${visibility.scrollY}px`,
++        );
++      }
+       await page.locator(`[name="${field}"]`).selectOption('');
+       await page.locator('form button[type="submit"]').click();
+       const hidden = !await result.isVisible();
+--- a/docs/module-handoffs/2026-09-25-01/W07/README.md
++++ b/docs/module-handoffs/2026-09-25-01/W07/README.md
+@@ -0,0 +1,29 @@
++# P04 W07 + local W15 handoff
++
++Status: `partial`. Candidate only; this is not the W00 serial integration, LP04 closeout, or an independent audit.
++
++The assigned copy is `/private/tmp/visalang-W00-2026-09-25-01/W07`, frozen from baseline `b7a9fddd658d95279e05127f32e2ec2cddec7fa8e90c2e254f55df89ff1942b5`. Dispatch and registered W04/W06 asset reuse are recorded in the parent W00 batch. Read-only facts, formulas, checked dates, and claim versions were not changed.
++
++## Candidate changes
++
++- Compressed the shared plan panel to a short summary while keeping status and save/clear actions visible; moved detailed privacy and restart boundaries into a nearby disclosure.
++- Reordered Route Finder and Checklist results around status/title, boundary, next step, remaining checks, continuation/actions, then expandable evidence. Versioned claims stay out of the ordinary checklist flow. Text export carries source/version/check-date/boundary metadata.
++- Added explicit copy/print/export controls and selectable clipboard fallback. Focused results use a sticky-header scroll margin; evidence is not clipped. Wide result tables retain horizontal scrolling. Result-only print rules reveal evidence disclosures.
++- Added a real-browser geometry assertion to T28. Its execution is blocked here because Playwright is not installed in the assigned offline dependency copy. A fresh CUA inspection is also unavailable because the Mac is locked and browser inventory failed. No viewport matrix or post-change visual pass is claimed.
++
++## Verification
++
++See `evidence/logs/` for exact commands and output. `npm run build`, M2-A plan integration, M2-B Route Finder, M2-B Checklist export, and M3 Chinese tool contract exited 0. T28 exited 1 before test setup: module `playwright` is missing. The Checklist assertion internally runs `npm run build`; an additional standalone build log is included.
++
++The currently evidenced route logic includes unknown/unsupported, existing certificate, verify-first and stale-claim branches via deterministic resolver assertions. Plan-state checks cover guarded storage setup, restore/status contracts and save/clear controls; Checklist checks cover stable-state restore/route-change clearing and take-away helper transitions. These are local Node contracts, not end-to-end browser exercises. Editing an already-rendered result, real session restoration, 30-day expiry/clear clicks, clipboard rejection, print and download remain unverified.
++
++## Evidence and limitations
++
++- `evidence/observation-receipt.md` records the previously observed baseline obstruction and the current browser-access limit. No screenshot file was saved; no synthetic image is presented as evidence.
++- `record-tool-gap-list.md`, `materials-and-assumptions.md`, `state-and-export-checks.md`, and `calendar-import-status.md` record scope and checks.
++- Layout verification is not complete at 375/390/768/desktop, EN/ZH, keyboard, print, and download. Browser CUA state capture reported the Mac locked and `nodeRepl.fetch` unavailable. Exact scrollY and a persisted screenshot are unavailable.
++- Real readers, real devices, a real calendar-client import, production, and full LP04 remain untested. This handoff does not change original T/LP/LC gates.
++
++## W00 next actions
++
++Integrate serially against the frozen dirty tree using the per-file hash receipt and `candidate.patch`; resolve existing source differences instead of replacing whole files. After integration, run the agreed W00 governance, full test/build, visual receipts and independent read-only auditor on the exact frozen changed scope. Keep LP04 partial until its real-reader and calendar-import evidence is satisfied by the responsible owner/window.
+--- a/docs/module-handoffs/2026-09-25-01/W07/calendar-import-status.md
++++ b/docs/module-handoffs/2026-09-25-01/W07/calendar-import-status.md
+@@ -0,0 +1,3 @@
++# Calendar import status
++
++This P04 scope contains no calendar-write authorization. No calendar was opened or changed, and no real calendar import was attempted. Checklist text export and browser download controls do not establish calendar-client import compatibility. Calendar import remains not tested; LP04 remains partial.
+--- a/docs/module-handoffs/2026-09-25-01/W07/evidence/logs/m2a-plan-state-integration.log
++++ b/docs/module-handoffs/2026-09-25-01/W07/evidence/logs/m2a-plan-state-integration.log
+@@ -0,0 +1,7 @@
++command: node tests/m2a-plan-state-integration.test.mjs
++M2-A shared plan-state integration contracts passed
++(node:9595) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/tmp/visalang-W00-2026-09-25-01/W07/src/scripts/plan-state.ts is not specified and it doesn't parse as CommonJS.
++Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
++To eliminate this warning, add "type": "module" to /private/tmp/visalang-W00-2026-09-25-01/W07/package.json.
++(Use `node --trace-warnings ...` to show where the warning was created)
++exitCode: 0
+--- a/docs/module-handoffs/2026-09-25-01/W07/evidence/logs/m2b-checklist-export.log
++++ b/docs/module-handoffs/2026-09-25-01/W07/evidence/logs/m2b-checklist-export.log
+@@ -0,0 +1,7 @@
++command: node tests/m2b-checklist-export.test.mjs
++M2-B T16 checklist export and state contracts passed
++(node:9597) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/tmp/visalang-W00-2026-09-25-01/W07/src/data/route-tools.ts is not specified and it doesn't parse as CommonJS.
++Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
++To eliminate this warning, add "type": "module" to /private/tmp/visalang-W00-2026-09-25-01/W07/package.json.
++(Use `node --trace-warnings ...` to show where the warning was created)
++exitCode: 0
+--- a/docs/module-handoffs/2026-09-25-01/W07/evidence/logs/m2b-route-finder.log
++++ b/docs/module-handoffs/2026-09-25-01/W07/evidence/logs/m2b-route-finder.log
+@@ -0,0 +1,7 @@
++command: node tests/m2b-route-finder.test.mjs
++M2-B T15 Route Finder state contracts passed
++(node:9596) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/tmp/visalang-W00-2026-09-25-01/W07/src/data/claim-registry.ts is not specified and it doesn't parse as CommonJS.
++Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
++To eliminate this warning, add "type": "module" to /private/tmp/visalang-W00-2026-09-25-01/W07/package.json.
++(Use `node --trace-warnings ...` to show where the warning was created)
++exitCode: 0
+--- a/docs/module-handoffs/2026-09-25-01/W07/evidence/logs/m3-chinese-tool-contract.log
++++ b/docs/module-handoffs/2026-09-25-01/W07/evidence/logs/m3-chinese-tool-contract.log
+@@ -0,0 +1,29 @@
++command: node tests/m3-chinese-tool-contract.test.mjs
++M3 T20 Chinese tool presentation contract passed
++(node:9721) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///private/tmp/visalang-W00-2026-09-25-01/W07/src/data/tool-copy.ts is not specified and it doesn't parse as CommonJS.
++Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
++To eliminate this warning, add "type": "module" to /private/tmp/visalang-W00-2026-09-25-01/W07/package.json.
++(Use `node --trace-warnings ...` to show where the warning was created)
++TAP version 13
++# Subtest: Chinese Route Finder localizes every purpose selector and preserves other-family recovery semantics
++ok 1 - Chinese Route Finder localizes every purpose selector and preserves other-family recovery semantics
++  ---
++  duration_ms: 0.566916
++  type: 'test'
++  ...
++# Subtest: Chinese guide CopyButton compiles zh-CN wiring and announces both Clipboard outcomes in Chinese
++ok 2 - Chinese guide CopyButton compiles zh-CN wiring and announces both Clipboard outcomes in Chinese
++  ---
++  duration_ms: 9.169291
++  type: 'test'
++  ...
++1..2
++# tests 2
++# suites 0
++# pass 2
++# fail 0
++# cancelled 0
++# skipped 0
++# todo 0
++# duration_ms 14.540833
++exitCode: 0
+--- a/docs/module-handoffs/2026-09-25-01/W07/evidence/logs/npm-run-build.log
++++ b/docs/module-handoffs/2026-09-25-01/W07/evidence/logs/npm-run-build.log
+@@ -0,0 +1,160 @@
++
++> prebuild
++> npm run clean:astro && npm run clean:dist
++
++
++> clean:astro
++> rm -rf .astro node_modules/.astro
++
++
++> clean:dist
++> rm -rf dist
++
++
++> build
++> astro build
++
++17:16:30 [content] Syncing content
++17:16:30 [content] Synced content
++17:16:30 [types] Generated 270ms
++17:16:30 [build] output: "static"
++17:16:30 [build] mode: "static"
++17:16:30 [build] directory: /private/tmp/visalang-W00-2026-09-25-01/W07/dist/
++17:16:30 [build] Collecting build info...
++17:16:30 [build] ✓ Completed in 293ms.
++17:16:30 [build] Building static entrypoints...
++17:16:31 [vite] ✓ built in 144ms
++17:16:31 [vite] ✓ built in 23ms
++17:16:31 [build] Rearranging server assets...
++
++ generating static routes 
++17:16:31   ├─ /404.html (+7ms) 
++17:16:31   ├─ /about/index.html (+3ms) 
++17:16:31   ├─ /affiliate-disclosure/index.html (+1ms) 
++17:16:31   ├─ /contact/index.html (+1ms) 
++17:16:31   ├─ /cookie-policy/index.html (+1ms) 
++17:16:31   ├─ /editorial-policy/index.html (+1ms) 
++17:16:31   ├─ /exams/index.html (+2ms) 
++17:16:31   ├─ /germany-b1-settlement-citizenship/index.html (+2ms) 
++17:16:31   ├─ /germany-family-reunion-a1/index.html (+4ms) 
++17:16:31   ├─ /guides/category/germany-a1/index.html (+3ms) 
++17:16:31   ├─ /guides/category/germany-b1/index.html (+2ms) 
++17:16:31   ├─ /guides/category/germany-testdaf/index.html (+1ms) 
++17:16:31   ├─ /guides/category/germany-telc/index.html (+1ms) 
++17:16:31   ├─ /guides/category/uk/index.html (+1ms) 
++17:16:31   ├─ /guides/category/canada/index.html (+1ms) 
++17:16:31   ├─ /guides/category/italy/index.html (+1ms) 
++17:16:31   ├─ /guides/category/spain/index.html (+1ms) 
++17:16:31   ├─ /guides/category/france/index.html (+1ms) 
++17:16:31   ├─ /guides/category/finland/index.html (+1ms) 
++17:16:31   ├─ /guides/category/netherlands/index.html (+1ms) 
++17:16:31   ├─ /guides/category/portugal/index.html (+1ms) 
++17:16:31   ├─ /guides/cils-b1-cittadinanza-for-italian-citizenship/index.html (+27ms) 
++17:16:31   ├─ /guides/cils-vs-celi-vs-plida-for-italian-citizenship/index.html (+14ms) 
++17:16:31   ├─ /guides/dele-a2-ccse-spanish-citizenship/index.html (+7ms) 
++17:16:31   ├─ /guides/dele-levels-spanish-citizenship/index.html (+5ms) 
++17:16:31   ├─ /guides/delf-b1-b2-french-work-study/index.html (+5ms) 
++17:16:31   ├─ /guides/dutch-inburgering-a2-b1-for-integration-and-citizenship/index.html (+12ms) 
++17:16:31   ├─ /guides/german-a1-documents-checklist/index.html (+15ms) 
++17:16:31   ├─ /guides/german-a1-exam-booking-timeline/index.html (+18ms) 
++17:16:31   ├─ /guides/german-a1-family-reunion-faq/index.html (+6ms) 
++17:16:31   ├─ /guides/german-family-reunion-language-requirement/index.html (+15ms) 
++17:16:31   ├─ /guides/germany-b1-citizenship-language-proof/index.html (+15ms) 
++17:16:31   ├─ /guides/germany-b1-leben-in-deutschland-and-language-proof/index.html (+14ms) 
++17:16:31   ├─ /guides/germany-b1-settlement-citizenship-checklist/index.html (+18ms) 
++17:16:31   ├─ /guides/germany-b1-settlement-citizenship-timeline/index.html (+14ms) 
++17:16:31   ├─ /guides/goethe-a1-30-day-study-plan/index.html (+11ms) 
++17:16:31   ├─ /guides/goethe-a1-booking-mistakes/index.html (+5ms) 
++17:16:31   ├─ /guides/goethe-a1-fees-by-country/index.html (+21ms) 
++17:16:31   ├─ /guides/goethe-a1-germany-family-reunion/index.html (+7ms) 
++17:16:31   ├─ /guides/goethe-a1-listening-practice/index.html (+5ms) 
++17:16:31   ├─ /guides/goethe-a1-official-links-practice-resources/index.html (+4ms) 
++17:16:31   ├─ /guides/goethe-a1-pre-booking-checklist/index.html (+5ms) 
++17:16:31   ├─ /guides/goethe-a1-retake-policy/index.html (+4ms) 
++17:16:31   ├─ /guides/goethe-a1-speaking-topics/index.html (+4ms) 
++17:16:31   ├─ /guides/goethe-a1-study-plan-working-adults/index.html (+4ms) 
++17:16:31   ├─ /guides/goethe-a1-test-centers/index.html (+14ms) 
++17:16:31   ├─ /guides/goethe-a1-vs-telc-a1/index.html (+13ms) 
++17:16:31   ├─ /guides/goethe-a1-writing-practice/index.html (+4ms) 
++17:16:31   ├─ /guides/goethe-b1-difficulty-analysis/index.html (+5ms) 
++17:16:31   ├─ /guides/goethe-b1-fees-and-booking/index.html (+14ms) 
++17:16:31   ├─ /guides/goethe-b1-germany-settlement-work/index.html (+14ms) 
++17:16:31   ├─ /guides/goethe-b1-listening-deep-dive/index.html (+4ms) 
++17:16:31   ├─ /guides/goethe-b1-mock-exam-routine/index.html (+4ms) 
++17:16:31   ├─ /guides/goethe-b1-speaking-topics/index.html (+4ms) 
++17:16:31   ├─ /guides/goethe-b1-study-plan/index.html (+18ms) 
++17:16:31   ├─ /guides/goethe-b1-vs-telc-b1/index.html (+12ms) 
++17:16:31   ├─ /guides/goethe-b1-writing-assessment/index.html (+4ms) 
++17:16:31   ├─ /guides/ielts-ukvi-uk-visa/index.html (+6ms) 
++17:16:31   ├─ /guides/languagecert-selt-uk-visa/index.html (+5ms) 
++17:16:31   ├─ /guides/portuguese-ciple-a2-for-citizenship-and-residence/index.html (+6ms) 
++17:16:31   ├─ /guides/portuguese-language-for-golden-visa-and-citizenship/index.html (+6ms) 
++17:16:31   ├─ /guides/staatsexamen-nt2-for-work-and-higher-education/index.html (+4ms) 
++17:16:31   ├─ /guides/tcf-canada-vs-tef/index.html (+7ms) 
++17:16:31   ├─ /guides/tcf-irn-french-residence/index.html (+4ms) 
++17:16:31   ├─ /guides/tef-canada-immigration/index.html (+6ms) 
++17:16:31   ├─ /guides/telc-b1-b2-exam-format-and-preparation/index.html (+11ms) 
++17:16:31   ├─ /guides/telc-b1-b2-fees-and-test-centers/index.html (+10ms) 
++17:16:31   ├─ /guides/telc-b1-b2-germany-work-nursing/index.html (+11ms) 
++17:16:31   ├─ /guides/telc-vs-goethe-for-german-visa/index.html (+11ms) 
++17:16:31   ├─ /guides/testdaf-germany-university-admissions/index.html (+6ms) 
++17:16:31   ├─ /guides/testdaf-levels-and-scoring/index.html (+6ms) 
++17:16:31   ├─ /guides/testdaf-preparation-and-practice/index.html (+5ms) 
++17:16:31   ├─ /guides/testdaf-vs-goethe-dsh/index.html (+7ms) 
++17:16:31   ├─ /guides/yki-finnish-citizenship/index.html (+7ms) 
++17:16:31   ├─ /guides/index.html (+3ms) 
++17:16:31   ├─ /partners/index.html (+2ms) 
++17:16:31   ├─ /pricing/index.html (+1ms) 
++17:16:31   ├─ /privacy-policy/index.html (+1ms) 
++17:16:31   ├─ /products/a1-family-reunion-pack/index.html (+1ms) 
++17:16:31   ├─ /products/a1-practice-pack/index.html (+1ms) 
++17:16:31   ├─ /route-review/index.html (+1ms) 
++17:16:31   ├─ /routes/index.html (+1ms) 
++17:16:31   ├─ /terms/index.html (+1ms) 
++17:16:31   ├─ /tools/checklist-generator/index.html (+2ms) 
++17:16:31   ├─ /tools/email-reminders/index.html (+1ms) 
++17:16:31   ├─ /tools/exam-comparison/index.html (+1ms) 
++17:16:31   ├─ /tools/route-finder/index.html (+1ms) 
++17:16:31   ├─ /tools/timeline-calculator/index.html (+1ms) 
++17:16:31   ├─ /tools/index.html (+1ms) 
++17:16:31   ├─ /zh/germany-family-reunion-a1/index.html (+1ms) 
++17:16:31   ├─ /zh/guides/german-a1-documents-checklist/index.html (+2ms) 
++17:16:31   ├─ /zh/guides/german-a1-exam-booking-timeline/index.html (+1ms) 
++17:16:31   ├─ /zh/guides/german-family-reunion-language-requirement/index.html (+1ms) 
++17:16:31   ├─ /zh/guides/goethe-a1-30-day-study-plan/index.html (+1ms) 
++17:16:31   ├─ /zh/guides/goethe-a1-booking-mistakes/index.html (+1ms) 
++17:16:31   ├─ /zh/guides/goethe-a1-germany-family-reunion/index.html (+1ms) 
++17:16:31   ├─ /zh/guides/goethe-a1-test-centers/index.html (+1ms) 
++17:16:31   ├─ /zh/guides/goethe-a1-vs-telc-a1/index.html (+1ms) 
++17:16:31   ├─ /zh/tools/checklist-generator/index.html (+1ms) 
++17:16:31   ├─ /zh/tools/email-reminders/index.html (+1ms) 
++17:16:31   ├─ /zh/tools/exam-comparison/index.html (+1ms) 
++17:16:31   ├─ /zh/tools/route-finder/index.html (+1ms) 
++17:16:31   ├─ /zh/tools/timeline-calculator/index.html (+1ms) 
++17:16:31   ├─ /zh/index.html (+4ms) 
++17:16:31   ├─ /index.html (+2ms) 
++17:16:31 ✓ Completed in 629ms.
++
++ generating optimized images 
++17:16:31   ▶ /_astro/home-route-verification.CnUZAwNY_1deNFs.avif (before: 2106kB, after: 21kB) (+130ms) (1/10)
++17:16:32   ▶ /_astro/home-route-verification.CnUZAwNY_OWXxP.avif (before: 2106kB, after: 44kB) (+208ms) (2/10)
++17:16:32   ▶ /_astro/home-route-verification.CnUZAwNY_ZfIAj1.avif (before: 2106kB, after: 75kB) (+315ms) (3/10)
++17:16:32   ▶ /_astro/home-route-verification.CnUZAwNY_Z2agoDR.webp (before: 2106kB, after: 15kB) (+32ms) (4/10)
++17:16:32   ▶ /_astro/home-route-verification.CnUZAwNY_2wDT2r.webp (before: 2106kB, after: 28kB) (+44ms) (5/10)
++17:16:32   ▶ /_astro/home-route-verification.CnUZAwNY_1qWkaA.webp (before: 2106kB, after: 46kB) (+58ms) (6/10)
++17:16:32   ▶ /_astro/home-route-verification.CnUZAwNY_1DwF8M.png (before: 2106kB, after: 69kB) (+71ms) (7/10)
++17:16:32   ▶ /_astro/home-route-verification.CnUZAwNY_1gfP1a.png (before: 2106kB, after: 150kB) (+108ms) (8/10)
++17:16:32   ▶ /_astro/home-route-verification.CnUZAwNY_ayg9j.png (before: 2106kB, after: 268kB) (+158ms) (9/10)
++17:16:33   ▶ /_astro/home-route-verification.CnUZAwNY_RpIye.png (before: 2106kB, after: 590kB) (+294ms) (10/10)
++17:16:33 ✓ Completed in 1.42s.
++
++17:16:33 [build] ✓ Completed in 2.23s.
++17:16:33 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
++17:16:33 [build] 105 page(s) built in 2.53s
++17:16:33 [build] Complete!
++
++> postbuild
++> node scripts/enrich-sitemap-lastmod.js
++
++command: npm run build
++exitCode: 0
+--- a/docs/module-handoffs/2026-09-25-01/W07/evidence/logs/t28-stale-results.log
++++ b/docs/module-handoffs/2026-09-25-01/W07/evidence/logs/t28-stale-results.log
+@@ -0,0 +1,21 @@
++command: node tests/t28-stale-results.test.mjs
++node:internal/modules/package_json_reader:314
++  throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
++        ^
++
++Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'playwright' imported from /private/tmp/visalang-W00-2026-09-25-01/W07/tests/t28-stale-results.test.mjs
++    at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
++    at packageResolve (node:internal/modules/esm/resolve:768:81)
++    at moduleResolve (node:internal/modules/esm/resolve:855:18)
++    at defaultResolve (node:internal/modules/esm/resolve:985:11)
++    at #cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
++    at ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
++    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
++    at onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:680:36)
++    at TracingChannel.tracePromise (node:diagnostics_channel:350:14)
++    at ModuleLoader.import (node:internal/modules/esm/loader:679:21) {
++  code: 'ERR_MODULE_NOT_FOUND'
++}
++
++Node.js v22.23.2
++exitCode: 1
+--- a/docs/module-handoffs/2026-09-25-01/W07/evidence/observation-receipt.md
++++ b/docs/module-handoffs/2026-09-25-01/W07/evidence/observation-receipt.md
+@@ -0,0 +1,18 @@
++# Browser observation receipt
++
++- Candidate browser capture before the UI edits: on the Checklist Generator after a result was generated, the result panel had keyboard focus and the heading was partly concealed by the sticky header. The screenshot was displayed in the task through CUA but was not persisted as a local image; it is not claimed as a deliverable screenshot or post-fix evidence.
++- A 390×844 viewport override was attempted in CUA; screenshot presentation was rasterized at 375×812 and exact CSS viewport/scroll offset was not recoverable from the accessible state. Therefore no numeric scroll position is asserted.
++- The candidate T28 test now obtains `window.innerWidth`, `window.innerHeight`, `window.scrollY`, active result ID, result-title rect, and sticky-header rect, then asserts titleTop >= headerBottom and can persist screenshots through `VISALANG_SCREENSHOT_DIR` when Playwright is available.
++- Current CUA inventory attempt failed: Mac was locked and browser inventory returned `nodeRepl.fetch request failed`. The Playwright test failed before launch because the module is absent. No workaround, secondary browser driver, synthetic screenshot, or human/production claim was used.
++- Viewport/locale matrix:
++
++  | Viewport | EN result | ZH result | Evidence |
++  |---|---|---|---|
++  | 375 CSS px | Not run | Not run | Browser unavailable in this pass |
++  | 390×844 CSS px | Not run after fix | Not run after fix | T28 assertion added for both locales but Playwright missing; prior baseline screenshot was rasterized 375×812 and CSS viewport readback is unavailable |
++  | 768 CSS px | Not run | Not run | Browser unavailable in this pass |
++  | Desktop | Not run | Not run | Browser unavailable in this pass |
++
++- Interaction/format matrix: keyboard traversal and zoom, print rendering, download contents, clipboard-denied fallback, actual session restoration, 30-day device expiry and clear were not exercised in the browser. Real devices/readers and calendar import were not tested.
++
++Source evidence: `tests/t28-stale-results.test.mjs`, `src/styles/global.css`, `src/pages/tools/checklist-generator.astro`, `src/pages/tools/route-finder.astro`. The observed baseline image has no local path or hash because it was not persisted.
+--- a/docs/module-handoffs/2026-09-25-01/W07/materials-and-assumptions.md
++++ b/docs/module-handoffs/2026-09-25-01/W07/materials-and-assumptions.md
+@@ -0,0 +1,7 @@
++# Materials and assumptions
++
++Existing Checklist stages distinguish route requirements, exam choice/booking/certificate tasks, and submission review (`src/data/route-tools.ts`, unchanged). The result remains a preparation record, not a complete authority checklist or proof of acceptance. Each item keeps its responsible party and sources; the added evidence disclosure and exported text surface exact route-rule version, referenced claim versions, source check date, locator, supported scope and boundary when a configured versioned rule is available.
++
++Timeline inputs W, P and R remain user-entered planning assumptions or locally confirmed values, not official defaults. No dates, fee facts, formula, source check date, rule version or claim version was edited. Unknown/verify-first results expressly state that no versioned route rule is configured.
++
++W04/W06 factual assets were registered by W00 as reuse-only dependencies. Candidate changes consume them; they do not re-verify or refresh source facts.
+--- a/docs/module-handoffs/2026-09-25-01/W07/record-tool-gap-list.md
++++ b/docs/module-handoffs/2026-09-25-01/W07/record-tool-gap-list.md
+@@ -0,0 +1,9 @@
++# P04 scoped gap list
++
++| Gap/requirement | Candidate response | Evidence status |
++|---|---|---|
++| 390 CSS px Checklist heading obscured by sticky header | Result panel gets header-aware scroll margin; T28 now measures title/header rectangles, focus and scrollY and asserts no overlap | Baseline CUA screenshot showed partial title occlusion; geometry test not executable here (`playwright` missing) |
++| Reader-facing results mixed with technical evidence | Route and checklist order boundary/next steps/verification before collapsible versioned evidence | Build + route/checklist source contracts passed; browser reading test not run |
++| Plan panel too tall | One-line session/device save summary; detailed reset/privacy rules in adjacent disclosure | M2-A contract passed; visual viewport check outstanding |
++| Actions/focus/long tables | explicit copy/print/export controls, selectable fallback, focus scroll margin, horizontal table scroll; no evidence `overflow:hidden` | source contracts + build passed; UI action/print/download not browser-verified |
++| Checklist has three categories and confirmed-vs-assumption distinction | Existing requirement, exam-choice/booking/certificate, and submission-review stages retained; Timeline labels W/P/R as confirmed local inputs or user assumptions | Existing data read-only; no data/fact changes |
+--- a/docs/module-handoffs/2026-09-25-01/W07/state-and-export-checks.md
++++ b/docs/module-handoffs/2026-09-25-01/W07/state-and-export-checks.md
+@@ -0,0 +1,11 @@
++# State and export checks
++
++Node contract results are in `evidence/logs/`:
++
++- M2-B Route Finder covers unsupported/unknown inputs, existing A1 certificate, missing/unconfirmed location and relationship, verify-first/authority-only logic, withdrawn/stale claims, and exact claim-version mismatch in the resolver contract. Exit 0. The test does not interact with the rendered form.
++- M2-A shared plan covers a throwing localStorage getter during setup, guarded storage operations, restore/status projection contracts, explicit device save/clear controls, session-default and privacy/restart contracts, plus legacy cleanup. Exit 0. Its 30-day check is presentation/code-contract only; no real expiry interval or button click was exercised.
++- M2-B Checklist covers unknown stable IDs, restore projection and state clearing when the route changes, copy/print/export controls, and unsupported/configured action-state helper transitions, source and boundary serializer output, and generated date validation. Exit 0. It does not force a real clipboard rejection or use a browser session.
++- M3 Chinese tool presentation contract exited 0.
++- T28 real browser test did not start because the assigned copy has no Playwright package. Its new 390px measurement includes actual browser geometry checks for focused result, scrollY, and heading vs sticky header. No claim is made that this assertion passed.
++
++Editing after result to invalidate rendered stale output, actual session recovery, 30-day expiry and clear clicks, clipboard failure, storage denial during a persisted save, print, download contents and keyboard paths were not verified end-to-end in the rendered candidate during this window.

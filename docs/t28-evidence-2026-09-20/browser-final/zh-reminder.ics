@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//VisaLang//Reminder Planner zh-CN//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:visalang-confirm-language-requirement-germany-family-reunion-a1-2027020
+ 1@visalang.org
+DTSTAMP:20260920T041507Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:确认语言要求
+URL:https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-
+ deutschkenntnisse-606682
+DESCRIPTION:路线或主管机关：德国家庭团聚 A1。\n官方入口
+ ：德国联邦外交部配偶语言要求说明。\n边界：此入口用
+ 于找到负责的使领馆，不判断例外、准确可接受证书或
+ 文件，也不判断个人结果。\n边界：此日历事件只提示你
+ 手动核验；它不证明截止日期、预约、名额、成绩、证
+ 书、接受决定或通知送达。
+END:VEVENT
+END:VCALENDAR

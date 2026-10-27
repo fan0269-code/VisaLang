@@ -16,6 +16,8 @@ const noindexSitemapPaths = [
   '/guides/category/uk/',
   '/guides/category/finland/',
   '/guides/category/portugal/',
+  '/zh/404/',
+  '/404/',
 ];
 
 export default defineConfig({
@@ -29,6 +31,13 @@ export default defineConfig({
     }),
   ],
   trailingSlash: 'always',
+  vite: {
+    server: {
+      proxy: {
+        '/api/purpose-suggestion/': 'http://127.0.0.1:8011',
+      },
+    },
+  },
   build: {
     format: 'directory',
   },

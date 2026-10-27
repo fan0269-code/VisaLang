@@ -1,0 +1,29 @@
+{
+  "kind": "prompt-artifact-check-not-product-test",
+  "checks": {
+    "prompt_count_19": true,
+    "all_prompts_single_copy_block_and_contract_refs": true,
+    "existing_test_commands_or_explicit_new_tests": true,
+    "markdown_links_resolve": true,
+    "protected_implementation_files_unchanged": 317,
+    "12_nodes_edges_required_paths_unchanged": true,
+    "module_map_node_coverage": [
+      "a1_core",
+      "ads_gate",
+      "authority_map_sync",
+      "automated_evidence",
+      "b1_gate",
+      "core_candidate",
+      "drift_gate",
+      "independent_audit",
+      "laya_gate",
+      "operate_expand",
+      "owner_release",
+      "reader_validation"
+    ],
+    "prior_two_plans_and_full_thresholds_preserved": true,
+    "historical_content_ledger_unchanged": true,
+    "laya_initial_independent": true,
+    "quality_protocol_no_circular_prerequisite": true
+  }
+}

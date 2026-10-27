@@ -1,81 +1,62 @@
 ---
-title: "German A1 family reunion FAQ: language proof questions"
-seoTitle: "German A1 family reunion FAQ"
-description: "Common questions about German A1 language proof for family reunion, including who may need it, exemptions, certificates, and official checks."
+title: "German A1 family reunion: unresolved questions"
+description: "Turn an unresolved language-proof question into a precise request to the authority handling your family-reunion application."
 category: "germany-a1"
 slug: "german-a1-family-reunion-faq"
 publishedDate: "2026-07-02"
-updatedDate: "2026-07-22"
-sourceReviewedAt: "2026-07-22"
+updatedDate: "2026-09-22"
+sourceReviewedAt: "2026-09-22"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
-contentStatus: "complete-route"
-primaryIntent: "German A1 family reunion FAQ: language proof questions decision support"
-decisionStage: "requirement"
-nextGuideSlug: "goethe-a1-vs-telc-a1"
+contentStatus: "core-route"
+noindex: true
+adsEligible: false
+primaryIntent: "Turn an unresolved language-proof question into a precise request to the authority handling your family-reunion application."
+decisionStage: "local-execution"
 comparisonScope: "same-route"
-audienceScope: "Spouses using a German family-reunification visa FAQ to identify which current authority or exam-owner question to check next."
-finalDecisionAuthorityType: "Competent German mission abroad and the responsible foreigners authority"
-primaryOfficialAuthorityUrl: "https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11"
+audienceScope: "Turn an unresolved language-proof question into a precise request to the authority handling your family-reunion application."
+finalDecisionAuthorityType: "Foreign Office orientation; the competent mission decides the individual application"
+primaryOfficialAuthorityUrl: "https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682"
 examOwnerUrl: "https://www.goethe.de/en/spr/prf.html"
-localExecutionPrompt: "Match each FAQ answer to the competent German mission's current instruction; after acceptance is confirmed, verify the chosen provider and authorised centre before booking."
+localExecutionPrompt: "Open the linked official source and the selected centre or competent mission instructions before relying on any individual or local outcome."
 author: "VisaLang Editorial team"
-readingTime: "8"
-featured: false
-eyebrow: "Germany family reunion"
-route: "germany-a1"
-supportingGuideSlugs: ["german-family-reunion-language-requirement", "german-a1-documents-checklist"]
+readingTime: "4"
+nextGuideSlug: "german-family-reunion-language-requirement"
+supportingGuideSlugs: ["german-family-reunion-language-requirement"]
 ---
-Use this FAQ to find the right next page, not to replace the German mission, BAMF, Goethe, telc, or a local test centre. Family reunion requirements and local exam procedures can change.
 
-## Do I need A1 for family reunion?
+## Who this is for
 
-Some family reunion applicants may need to show basic German, while others may have a different route or an exception. The responsible German mission or authority decides the requirement for your individual application.
+Turn an unresolved language-proof question into a precise request to the authority handling your family-reunion application. This page provides a working method, not an individual exam or application decision.
 
-Start with [German family reunion language requirement](/guides/german-family-reunion-language-requirement/) before comparing exams or looking for dates.
+## Key decisions
 
-## Can I rely on an exemption someone else used?
+Choose the exact product or application task first. Keep official requirements separate from the original practice or checking activities below.
 
-No. An exemption discussion online is not a decision for your file. Ask the responsible authority whether an exception applies, what evidence it needs, and where the current rule is published.
+## Do I need to book before checking my route?
 
-## Is Goethe A1 the only possible certificate?
+First write down your actual application category, place of residence and receiving mission. Open its current checklist. A family relationship alone is not enough detail for this page to decide whether you need proof. Leave any exemption question open until the competent authority confirms its treatment.
 
-Do not assume one provider is automatically accepted everywhere. Confirm the exact certificate with the authority handling your case, then compare the available official providers in [Goethe A1 vs telc A1](/guides/goethe-a1-vs-telc-a1/).
+## What if I already hold a certificate?
 
-## Can a higher German certificate solve the problem?
+Make a private note of the exact examination title, issuer, examination date and any difference between the certificate name and current identity document. Ask the receiving mission how to submit this evidence. Do not infer acceptance from the certificate logo or from another person’s successful application.
 
-Do not infer this from the level name alone. Ask the responsible authority which proof it accepts for your exact route and save the answer or official page with your application record.
+## Who should answer conflicting advice?
 
-## When should I book the exam?
+Separate the dispute into examination facts and application requirements. Ask the issuer about its record and the mission about acceptance. Save the source URL, date and relevant written answer. A training school, forum or this website cannot settle a conflicting mission instruction.
 
-Only after you know that A1 applies, which certificate is accepted, and whether a local official centre has a workable date and process. The exam date alone is not a complete visa timeline.
+## A question you can adapt
 
-Use [Goethe A1 test centers](/guides/goethe-a1-test-centers/), [Goethe A1 fees](/guides/goethe-a1-fees-by-country/), and the [German A1 booking timeline](/guides/german-a1-exam-booking-timeline/) before payment.
+“I am checking the language-proof instructions for [application category] at [mission]. The current checklist says [brief reference]. My uncertainty is [one issue]. Which current instruction should I follow?” Share necessary personal documents only through the official channel, not through VisaLang.
 
-## How long do results and certificates take?
+## Mistakes to avoid
 
-This is a local test-centre question. Ask the centre how it issues results and certificates for the exact exam you intend to take, then keep enough time for your route without assuming a fixed turnaround.
+Do not treat a sample, practice result or another person’s experience as confirmation of your own booking, certificate acceptance or readiness. Record unresolved questions rather than filling in dates, fees or outcomes.
 
-## What should I bring to the exam or visa appointment?
+## Next action
 
-Those are separate checklists. Follow the centre's current booking and test-day instructions for the exam, and the responsible mission's current checklist for the visa file.
-
-Use [German A1 documents checklist](/guides/german-a1-documents-checklist/) to keep the stages separate.
-
-## Can I prepare without a course?
-
-You can choose self-study, a course, or a mix. What matters is that your plan covers the relevant skills, uses official material to understand the format, and gives you time to repair weak areas.
-
-Start with the [30-day Goethe A1 study plan](/guides/goethe-a1-30-day-study-plan/) or the [working-adult study plan](/guides/goethe-a1-study-plan-working-adults/). Neither plan promises a pass or fixes a suitable exam date.
-
-## Where should I start now?
-
-If you do not know whether A1 applies, read the requirement guide. If your route is confirmed, compare certificates. If you chose a provider, verify a centre and the booking terms. If you already have an exam date, use the study and document pages.
-
-For a compact route map, return to the [Germany A1 family reunion hub](/germany-family-reunion-a1/).
+Complete the working record above, then use [the related guide](/guides/german-family-reunion-language-requirement/) to continue. Reopen the official source for any current product, local or application requirement.
 
 ## Official sources
 
-- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [Federal Foreign Office: Visas for Germany](https://www.auswaertiges-amt.de/en/visa-service/215870-215870)
-- [BAMF spousal-reunification language-proof leaflet (PDF)](https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11)
+- [Official task reference](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682) — checked 2026-09-22. Supports the official reference entry point for this task; the activities on this page are original editorial guidance. Owner: Foreign Office orientation; the competent mission decides the individual application. It does not establish your result, booking availability, price, exemption or individual acceptance.

@@ -1,0 +1,11 @@
+{
+  "frozen_at": "2026-09-22T12:38:16.621060+00:00",
+  "protocol": "implementation-authored pre-frozen synthetic test; not independent blind test",
+  "candidate_runs_before_freeze": 0,
+  "sha256": {
+    "frozen.json": "6e46e5a46501ff7f62f33df11b4d14bdb0c3ab015b11ff8bbe7660b0495891f5",
+    "development.json": "5c4f55b573323a2f2052dd06bec3fa04051baacd5e0f585eba7981e72102c111",
+    "ANNOTATION.md": "5fe3c95b226ea7647213b9fedea1f961f4573900635d25465d73720484fda61b",
+    "questions-a.json": "3224d9b9d3a1494702e167e9d7ae227b4639dfe420bd1a7b8f870cb1a49180d0"
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "checkedAt": "2026-09-23T04:30:02+00:00",
+  "environments": [
+    {
+      "moduleId": "W01",
+      "nodeModulesPath": "/private/tmp/visalang-W00-2026-09-23-01/W01/node_modules",
+      "nodeModulesShared": false,
+      "node_modules_copy": "independent bytes/safe local relative bin symlinks; .astro/.cache excluded",
+      "pythonPath": "/private/tmp/visalang-W00-2026-09-23-01/W01/.venv/bin/python",
+      "pythonProbe": "3.13.15 (main, Aug 25 2026, 13:50:12) [Clang 22.1.3 ]\n/private/tmp/visalang-W00-2026-09-23-01/W01/.venv",
+      "pythonStatus": "independent standard-library venv; no pip packages needed for assigned stdlib checks",
+      "baseInterpreterReadOnly": "/Users/a1-6/.local/share/uv/python/cpython-3.13-macos-aarch64-none/bin/python3.13",
+      "buildPaths": [
+        "/private/tmp/visalang-W00-2026-09-23-01/W01/dist",
+        "/private/tmp/visalang-W00-2026-09-23-01/W01/.astro"
+      ],
+      "previewPort": 4311,
+      "portAvailableAtCheck": null,
+      "portReservation": "assignment only; must recheck and bind loopback at execution, no service running",
+      "logsPath": "/private/tmp/visalang-W00-2026-09-23-01/W01/docs/module-handoffs/2026-09-23-01/W01",
+      "nodeVerification": {
+        "matchedEntries": 10147,
+        "digest": "af09ab030ee213eb69e064e0a3d1b8063c1c9ae1d9ab983acc75a5914445ee13",
+        "unsafeLinks": [],
+        "hardLinksToSource": false
+      },
+      "nodeExecutable": "/Users/a1-6/.local/share/pi-node/node-v22.23.2-darwin-arm64/bin/node",
+      "nodeVersion": "v22.23.2",
+      "npmVersion": "10.9.8",
+      "packageLockSha256": "0764538fd216cc29c6fb5ad4a793827c57dc750cf176a540d01ac6cfaef1027c",
+      "npmCommand": "npm --cache .runtime/npm-cache",
+      "runtimeEnvironment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "XDG_CACHE_HOME": "/private/tmp/visalang-W00-2026-09-23-01/W01/.runtime/cache",
+        "npm_config_cache": "/private/tmp/visalang-W00-2026-09-23-01/W01/.runtime/npm-cache"
+      },
+      "portCheckStatus": "not_verified: sandbox denied socket bind; must recheck at execution"
+    },
+    {
+      "moduleId": "W02",
+      "nodeModulesPath": "/private/tmp/visalang-W00-2026-09-23-01/W02/node_modules",
+      "nodeModulesShared": false,
+      "node_modules_copy": "independent bytes/safe local relative bin symlinks; .astro/.cache excluded",
+      "pythonPath": "/private/tmp/visalang-W00-2026-09-23-01/W02/.venv/bin/python",
+      "pythonProbe": "3.13.15 (main, Aug 25 2026, 13:50:12) [Clang 22.1.3 ]\n/private/tmp/visalang-W00-2026-09-23-01/W02/.venv",
+      "pythonStatus": "copied locked application environment, inference not run",
+      "baseInterpreterReadOnly": "/Users/a1-6/.local/share/uv/python/cpython-3.13-macos-aarch64-none/bin/python3.13",
+      "buildPaths": [
+        "/private/tmp/visalang-W00-2026-09-23-01/W02/dist",
+        "/private/tmp/visalang-W00-2026-09-23-01/W02/.astro"
+      ],
+      "previewPort": 4312,
+      "portAvailableAtCheck": null,
+      "portReservation": "assignment only; must recheck and bind loopback at execution, no service running",
+      "logsPath": "/private/tmp/visalang-W00-2026-09-23-01/W02/docs/module-handoffs/2026-09-23-01/W02",
+      "nodeVerification": {
+        "matchedEntries": 10147,
+        "digest": "af09ab030ee213eb69e064e0a3d1b8063c1c9ae1d9ab983acc75a5914445ee13",
+        "unsafeLinks": [],
+        "hardLinksToSource": false
+      },
+      "nodeExecutable": "/Users/a1-6/.local/share/pi-node/node-v22.23.2-darwin-arm64/bin/node",
+      "nodeVersion": "v22.23.2",
+      "npmVersion": "10.9.8",
+      "packageLockSha256": "0764538fd216cc29c6fb5ad4a793827c57dc750cf176a540d01ac6cfaef1027c",
+      "npmCommand": "npm --cache .runtime/npm-cache",
+      "runtimeEnvironment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "XDG_CACHE_HOME": "/private/tmp/visalang-W00-2026-09-23-01/W02/.runtime/cache",
+        "npm_config_cache": "/private/tmp/visalang-W00-2026-09-23-01/W02/.runtime/npm-cache"
+      },
+      "portCheckStatus": "not_verified: sandbox denied socket bind; must recheck at execution"
+    },
+    {
+      "moduleId": "W08",
+      "nodeModulesPath": "/private/tmp/visalang-W00-2026-09-23-01/W08/node_modules",
+      "nodeModulesShared": false,
+      "node_modules_copy": "independent bytes/safe local relative bin symlinks; .astro/.cache excluded",
+      "pythonPath": "/private/tmp/visalang-W00-2026-09-23-01/W08/.venv/bin/python",
+      "pythonProbe": "3.13.15 (main, Aug 25 2026, 13:50:12) [Clang 22.1.3 ]\n/private/tmp/visalang-W00-2026-09-23-01/W08/.venv",
+      "pythonStatus": "independent standard-library venv; no pip packages needed for assigned stdlib checks",
+      "baseInterpreterReadOnly": "/Users/a1-6/.local/share/uv/python/cpython-3.13-macos-aarch64-none/bin/python3.13",
+      "buildPaths": [
+        "/private/tmp/visalang-W00-2026-09-23-01/W08/dist",
+        "/private/tmp/visalang-W00-2026-09-23-01/W08/.astro"
+      ],
+      "previewPort": 4318,
+      "portAvailableAtCheck": null,
+      "portReservation": "assignment only; must recheck and bind loopback at execution, no service running",
+      "logsPath": "/private/tmp/visalang-W00-2026-09-23-01/W08/docs/module-handoffs/2026-09-23-01/W08",
+      "nodeVerification": {
+        "matchedEntries": 10147,
+        "digest": "af09ab030ee213eb69e064e0a3d1b8063c1c9ae1d9ab983acc75a5914445ee13",
+        "unsafeLinks": [],
+        "hardLinksToSource": false
+      },
+      "nodeExecutable": "/Users/a1-6/.local/share/pi-node/node-v22.23.2-darwin-arm64/bin/node",
+      "nodeVersion": "v22.23.2",
+      "npmVersion": "10.9.8",
+      "packageLockSha256": "0764538fd216cc29c6fb5ad4a793827c57dc750cf176a540d01ac6cfaef1027c",
+      "npmCommand": "npm --cache .runtime/npm-cache",
+      "runtimeEnvironment": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "XDG_CACHE_HOME": "/private/tmp/visalang-W00-2026-09-23-01/W08/.runtime/cache",
+        "npm_config_cache": "/private/tmp/visalang-W00-2026-09-23-01/W08/.runtime/npm-cache"
+      },
+      "portCheckStatus": "not_verified: sandbox denied socket bind; must recheck at execution"
+    }
+  ],
+  "modelInference": "not_run",
+  "model": {
+    "lockPath": "services/laya-purpose/model.lock.json",
+    "lockSha256": "b50b8ed63f1c3acf001c1165fee4d2c51f8bda14d68aab5b77c6b802d2a8e444",
+    "repository": "convaiinnovations/laya",
+    "revision": "1c5edc17a7acd8701df6fc341c0d179f1c62c982",
+    "sourceSnapshot": "/Users/a1-6/.cache/huggingface/hub/models--convaiinnovations--laya/snapshots/1c5edc17a7acd8701df6fc341c0d179f1c62c982",
+    "privatePath": "/private/tmp/visalang-W00-2026-09-23-01/W02/.runtime/model",
+    "files": [
+      {
+        "path": "multilingual/encoder/config.json",
+        "sha256": "83f6916d13ef0f556ac461f28308dc2bffa7ebeadee8ec9e2db5812020ea5bb4",
+        "bytes": 1938,
+        "copyKind": "dereferenced-independent-file"
+      },
+      {
+        "path": "multilingual/model.safetensors",
+        "sha256": "9d628fd971b700382ac6f65920a86f149777b2e748e0c955fb3b19695aa8f204",
+        "bytes": 643835514,
+        "copyKind": "dereferenced-independent-file"
+      },
+      {
+        "path": "multilingual/rl_agent_config.json",
+        "sha256": "25061739243b617ad88d1219ba6f8a9c86c5881ca28df024fa2d9b3b2fcc30c6",
+        "bytes": 472,
+        "copyKind": "dereferenced-independent-file"
+      },
+      {
+        "path": "multilingual/tokenizer/tokenizer.json",
+        "sha256": "609d8f4c067cd3950f88594c5a802616cea245823836ef5848ee4fc40aab5b6f",
+        "bytes": 34363188,
+        "copyKind": "dereferenced-independent-file"
+      },
+      {
+        "path": "multilingual/tokenizer/tokenizer_config.json",
+        "sha256": "6c6b2d8e3c84ce0e671c129cd6b374b235d6f9863042a5836358d00a89bbb5a1",
+        "bytes": 524,
+        "copyKind": "dereferenced-independent-file"
+      }
+    ],
+    "environment": {
+      "LAYA_MODEL": "/private/tmp/visalang-W00-2026-09-23-01/W02/.runtime/model",
+      "LAYA_SUBFOLDER": "multilingual",
+      "HF_HUB_OFFLINE": "1",
+      "TRANSFORMERS_OFFLINE": "1",
+      "HF_HOME": "/private/tmp/visalang-W00-2026-09-23-01/W02/.runtime/hf",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "XDG_CACHE_HOME": "/private/tmp/visalang-W00-2026-09-23-01/W02/.runtime/cache"
+    },
+    "modelPort": 8782,
+    "status": "locked-bytes-verified; service-start-and-inference-not-run",
+    "installedVersions": {
+      "laya": "0.3.5",
+      "uvicorn": "0.53.0",
+      "torch": "2.14.0",
+      "transformers": "5.17.0",
+      "huggingface-hub": "1.32.0",
+      "numpy": "2.5.3",
+      "safetensors": "0.8.0"
+    }
+  }
+}

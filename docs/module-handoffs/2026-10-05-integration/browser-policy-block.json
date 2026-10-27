@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-05",
+  "requestedArtifact": "docs/planning-map/visalang-overall-build-plan.html",
+  "requestedUrl": "file:///Users/a1-6/Documents/2.codex/1.visalang.org/docs/planning-map/visalang-overall-build-plan.html",
+  "artifactSha256AtRejectedRequest": "7c686d041c9feccfb05220a6b661041486459771e8c7705b6447a069a618609c",
+  "outcome": "blocked_by_browser_url_policy",
+  "tool": "cua_repl.createBrowserTab",
+  "policyMessage": "Browser security policy blocked the local file URL and explicitly prohibited achieving the same visual-check outcome via workaround, indirect execution, raw CDP, browser commands, or alternate browser surfaces.",
+  "automatedBrowserCheck": "not_run",
+  "finalDeliveredArtifactWasNotOpened": true,
+  "screenshots": [],
+  "perceptualReview": "not_run",
+  "lastArchifyVisualCheck": {
+    "recordPath": "docs/module-handoffs/2026-09-28-integration/archify-visual-check.json",
+    "status": "fail",
+    "artifactSha256": "7c686d041c9feccfb05220a6b661041486459771e8c7705b6447a069a618609c",
+    "reason": "Historical attempt exited with Chrome DevTools signal SIGABRT; this receipt is not evidence for the newly delivered 10/05 HTML."
+  },
+  "receiptKind": "policy-block-record; not an Archify visual-check receipt",
+  "completionImpact": "planning drift unresolved; governance completion and N01 dispatch gate remain blocked",
+  "finalDeliveredArtifactSha256": "da9dc5811eb9f0a35de2cb8cc7d9ecf123c068cae3fe737627ee558772d2f177"
+}

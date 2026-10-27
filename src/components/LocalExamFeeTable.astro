@@ -1,0 +1,54 @@
+---
+import { getLocalFeeSchedule } from '../data/claim-registry';
+
+interface Props {
+  locale?: 'en' | 'zh-CN';
+}
+
+const { locale = 'en' } = Astro.props;
+const productId = 'goethe-zertifikat-a1-start-deutsch-1';
+const consumerId = 'guide:goethe-a1-fees-by-country';
+const schedules = [
+  getLocalFeeSchedule({ productId, scopeId: 'goethe-germany', consumerId, consumerLocale: locale }),
+  getLocalFeeSchedule({ productId, scopeId: 'goethe-beijing', consumerId, consumerLocale: locale }),
+];
+const verified = schedules.every((schedule) => schedule.status === 'verified');
+const records = verified ? schedules.flatMap((schedule) => schedule.status === 'verified' ? schedule.records : []) : [];
+const formatAmount = (amount: number, currency: string) => `${currency} ${new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(amount)}`;
+const zh = locale === 'zh-CN';
+---
+
+<section class="source-controlled-table" data-local-fee-registry>
+  <h2>{verified
+    ? (zh ? '四条经核验的本地费用记录' : 'Four verified local fee records')
+    : (zh ? '本地考试费用记录' : 'Local exam fee records')}</h2>
+  <p>{zh
+    ? '数值只在版本、声明、复核日期和页面使用范围仍有效时显示；币种保持分开。'
+    : 'Amounts render only while their record version, referenced claim, review date, and page-consumer scope remain current. Currencies stay separate.'}</p>
+  {verified ? (
+    <div class="tool-table-wrap" role="region" aria-label={zh ? '本地考试费用记录表，可横向滚动查看。' : 'Local exam fee records. Scroll horizontally to view all columns.'} tabindex="0">
+      <table>
+        <thead><tr><th scope="col">{zh ? '官方范围' : 'Official scope'}</th><th scope="col">{zh ? '考生类别' : 'Candidate category'}</th><th scope="col">{zh ? '原币金额' : 'Original-currency amount'}</th><th scope="col">{zh ? '来源与计算' : 'Source and derivation'}</th><th scope="col">{zh ? '仍需确认' : 'Still confirm'}</th></tr></thead>
+        <tbody>
+          {records.map((record) => (
+            <tr>
+              <th scope="row">{record.priceScopeLabel}</th>
+              <td><p>{record.candidateCategory.label}</p><p>{record.candidateCategory.eligibilityBoundary}</p></td>
+              <td><strong>{formatAmount(record.amount, record.currency)}</strong></td>
+              <td><p>{record.source.supports}</p>{record.amountDerivation && <p>{record.amountDerivation}</p>}<a href={record.source.url}>{record.source.owner}</a></td>
+              <td><p>{record.confirmationAction}</p><p><strong>{zh ? '边界：' : 'Boundary: '}</strong>{record.boundary}</p></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  ) : (
+    <div class="verification-pending">
+      <p><strong>{zh ? '状态：需向责任方确认' : 'Status: needs authority confirmation'}</strong></p>
+      <p>{zh ? '当前记录未通过状态、版本、日期或页面使用范围检查；金额保持隐藏。' : 'The current records did not pass their status, version, date, or page-consumer checks. Amounts stay hidden.'}</p>
+      <p><strong>{zh ? '责任方：' : 'Owner: '}</strong>{zh ? '所选官方或授权考点' : 'selected official or authorised test centre'}</p>
+      <p><strong>{zh ? '下一步：' : 'Action: '}</strong>{zh ? '打开所选官方或授权考点的当前页面，确认准确产品、类别、费用、币种和付款条款。' : 'Open the selected official or authorised test centre’s current page to confirm the exact product, category, fee, currency and payment terms.'}</p>
+      <p><strong>{zh ? '边界：' : 'Boundary: '}</strong>{zh ? '该 fallback 不是德国或北京的费用，也不证明日期、座位、报名、退款或签证接受。' : 'This fallback is not a Germany or Beijing fee and does not prove a date, seat, registration, refund or visa acceptance.'}</p>
+    </div>
+  )}
+</section>

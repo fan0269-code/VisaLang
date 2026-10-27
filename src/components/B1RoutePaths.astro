@@ -1,0 +1,36 @@
+---
+import { b1RoutePaths, resolveB1Route } from '../data/b1-route-paths';
+
+interface Props { routeId?: string }
+const { routeId } = Astro.props;
+const routes = routeId === undefined ? b1RoutePaths : [resolveB1Route(routeId)];
+---
+<div class="b1-route-paths">
+  <p>Choose the heading named by your authority. These are independent reading results, not an eligibility assessment. If no heading matches, use the unresolved route below.</p>
+  <nav aria-label="B1 statutory route results">
+    <ul>{routes.map((route) => <li><a href={`#b1-${route.id}`}>{route.title}</a></li>)}</ul>
+  </nav>
+  {routes.map((route) => (
+    <section class="b1-route-result" id={`b1-${route.id}`} data-b1-route={route.id} aria-labelledby={`b1-${route.id}-title`}>
+      <p class="eyebrow">{route.status === 'unresolved' ? 'Unresolved · authority check needed' : 'Route information · confirm applicability'}</p>
+      <h3 id={`b1-${route.id}-title`}>{route.title}</h3>
+      <p><strong>{route.provision}</strong></p>
+      <dl>
+        <dt>Decision and local procedure</dt><dd>{route.authority}</dd>
+        <dt>Language</dt><dd>{route.language}</dd>
+        <dt>Civic knowledge</dt><dd>{route.knowledge}</dd>
+        <dt>All other conditions</dt><dd>{route.otherConditions}</dd>
+      </dl>
+      {route.sources.length > 0 && <ul aria-label="Statutory sources">{route.sources.map((source) => <li><a href={source.url}>{source.label}</a></li>)}</ul>}
+      <p><strong>Next action:</strong> {route.nextAction}</p>
+      <p><a href={route.checklistHref}>Open this route’s checklist</a> · <a href={route.guideHref}>Read the evidence guide</a></p>
+    </section>
+  ))}
+</div>
+<style>
+  .b1-route-result { border: 1px solid var(--border-color, #d6ded9); border-radius: 1rem; margin-block: 1.5rem; padding: clamp(1rem, 3vw, 1.5rem); scroll-margin-top: 6rem; }
+  dt { font-weight: 700; margin-top: 1rem; }
+  dd { margin: .25rem 0 0; }
+  .b1-route-result h3 { margin-top: .5rem; }
+  @media print { .b1-route-result { break-inside: avoid; } }
+</style>

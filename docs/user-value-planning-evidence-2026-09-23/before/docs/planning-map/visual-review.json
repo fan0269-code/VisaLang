@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "VL-PMAP-20260923-01-visual-r1",
+  "reviewedAt": "2026-09-23T02:25:49+00:00",
+  "reviewerCapability": "image-capable-agent",
+  "status": "passed",
+  "artifact": {
+    "path": "docs/planning-map/visalang-overall-build-plan.html",
+    "sha256": "15c9046267104dcae53e47c0016c8249e0f016156b4ffcf3a54a680822e7349a"
+  },
+  "browserEvidence": {
+    "path": "docs/planning-map/visalang-overall-build-plan.visual-check.json",
+    "sha256": "a4226a78f405de59c461621a37d6f2de2869fdff7da94b98a816930364847997"
+  },
+  "screenshots": [
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.1440x900.dark.png",
+      "sha256": "ecc46ee0f61616e61a29d48b2748d159a7014e57b62151081ad0712456dc90b0",
+      "width": 1440,
+      "height": 900,
+      "theme": "dark"
+    },
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.1440x900.light.png",
+      "sha256": "d0e2fd42d5720f3eb631fd35a16a5f6b05e4865c8f3628a164e845bf54737c1f",
+      "width": 1440,
+      "height": 900,
+      "theme": "light"
+    },
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.2048x1320.dark.png",
+      "sha256": "5afe4bb4e3c8a52d0ab91738dfcb6345bbd0c89da6761c540aec85bb0800f003",
+      "width": 2048,
+      "height": 1320,
+      "theme": "dark"
+    },
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.2048x1320.light.png",
+      "sha256": "5944a9ebb2b6c6249378bf00a5f43884458c35ec69310dd7af8be4eba98a52f1",
+      "width": 2048,
+      "height": 1320,
+      "theme": "light"
+    }
+  ],
+  "findings": [],
+  "correctionRounds": 0,
+  "notes": "Primary image-capable agent inspected all four exact screenshots after successful browser retry. Light/dark labels, paths, candidate status, pending work and full digest are visible; desktop cards remain contained and large-screen composition balanced. Browser containment covers 1440/1600/1920/2048 widths; this bounded perceptual review is separate from independent planning review. Two initial pre-delivery text-fit corrections passed showcase validation; no post-delivery visual correction."
+}

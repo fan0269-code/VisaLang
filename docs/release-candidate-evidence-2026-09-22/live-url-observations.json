@@ -1,0 +1,203 @@
+{
+  "checkedAt": "2026-09-22T14:28:07.007078+00:00",
+  "method": "Read-only GET; explicit redirect chain; no account/config installation inference",
+  "records": [
+    {
+      "path": "/guides/german-a1-family-reunion-faq/",
+      "chain": [
+        {
+          "url": "https://visalang.org/guides/german-a1-family-reunion-faq/",
+          "status": 403,
+          "location": null,
+          "canonical": [],
+          "robots": []
+        }
+      ]
+    },
+    {
+      "path": "/guides/goethe-a1-pre-booking-checklist/",
+      "chain": [
+        {
+          "url": "https://visalang.org/guides/goethe-a1-pre-booking-checklist/",
+          "status": 403,
+          "location": null,
+          "canonical": [],
+          "robots": []
+        }
+      ]
+    },
+    {
+      "path": "/guides/goethe-a1-booking-mistakes/",
+      "chain": [
+        {
+          "url": "https://visalang.org/guides/goethe-a1-booking-mistakes/",
+          "status": 403,
+          "location": null,
+          "canonical": [],
+          "robots": []
+        }
+      ]
+    },
+    {
+      "path": "/guides/goethe-a1-retake-policy/",
+      "chain": [
+        {
+          "url": "https://visalang.org/guides/goethe-a1-retake-policy/",
+          "status": 403,
+          "location": null,
+          "canonical": [],
+          "robots": []
+        }
+      ]
+    },
+    {
+      "path": "/guides/goethe-a1-study-plan-working-adults/",
+      "chain": [
+        {
+          "url": "https://visalang.org/guides/goethe-a1-study-plan-working-adults/",
+          "status": 403,
+          "location": null,
+          "canonical": [],
+          "robots": []
+        }
+      ]
+    },
+    {
+      "path": "/guides/goethe-a1-official-links-practice-resources/",
+      "chain": [
+        {
+          "url": "https://visalang.org/guides/goethe-a1-official-links-practice-resources/",
+          "status": 403,
+          "location": null,
+          "canonical": [],
+          "robots": []
+        }
+      ]
+    },
+    {
+      "path": "/guides/goethe-a1-listening-practice/",
+      "chain": [],
+      "error": "The read operation timed out"
+    },
+    {
+      "path": "/guides/goethe-a1-speaking-topics/",
+      "chain": [
+        {
+          "url": "https://visalang.org/guides/goethe-a1-speaking-topics/",
+          "status": 403,
+          "location": null,
+          "canonical": [],
+          "robots": []
+        }
+      ]
+    },
+    {
+      "path": "/guides/goethe-a1-writing-practice/",
+      "chain": [
+        {
+          "url": "https://visalang.org/guides/goethe-a1-writing-practice/",
+          "status": 403,
+          "location": null,
+          "canonical": [],
+          "robots": []
+        }
+      ]
+    },
+    {
+      "path": "/guides/goethe-b1-difficulty-analysis/",
+      "chain": [
+        {
+          "url": "https://visalang.org/guides/goethe-b1-difficulty-analysis/",
+          "status": 403,
+          "location": null,
+          "canonical": [],
+          "robots": []
+        }
+      ]
+    },
+    {
+      "path": "/guides/goethe-b1-mock-exam-routine/",
+      "chain": [
+        {
+          "url": "https://visalang.org/guides/goethe-b1-mock-exam-routine/",
+          "status": 403,
+          "location": null,
+          "canonical": [],
+          "robots": []
+        }
+      ]
+    },
+    {
+      "path": "/guides/goethe-b1-listening-deep-dive/",
+      "chain": [
+        {
+          "url": "https://visalang.org/guides/goethe-b1-listening-deep-dive/",
+          "status": 403,
+          "location": null,
+          "canonical": [],
+          "robots": []
+        }
+      ]
+    },
+    {
+      "path": "/guides/goethe-b1-speaking-topics/",
+      "chain": [
+        {
+          "url": "https://visalang.org/guides/goethe-b1-speaking-topics/",
+          "status": 403,
+          "location": null,
+          "canonical": [],
+          "robots": []
+        }
+      ]
+    },
+    {
+      "path": "/guides/goethe-b1-writing-assessment/",
+      "chain": [
+        {
+          "url": "https://visalang.org/guides/goethe-b1-writing-assessment/",
+          "status": 403,
+          "location": null,
+          "canonical": [],
+          "robots": []
+        }
+      ]
+    },
+    {
+      "path": "/zh/guides/goethe-a1-germany-family-reunion/",
+      "chain": [
+        {
+          "url": "https://visalang.org/zh/guides/goethe-a1-germany-family-reunion/",
+          "status": 403,
+          "location": null,
+          "canonical": [],
+          "robots": []
+        }
+      ]
+    },
+    {
+      "path": "/zh/guides/goethe-a1-booking-mistakes/",
+      "chain": [
+        {
+          "url": "https://visalang.org/zh/guides/goethe-a1-booking-mistakes/",
+          "status": 403,
+          "location": null,
+          "canonical": [],
+          "robots": []
+        }
+      ]
+    },
+    {
+      "path": "/zh/guides/german-a1-documents-checklist/",
+      "chain": [
+        {
+          "url": "https://visalang.org/zh/guides/german-a1-documents-checklist/",
+          "status": 403,
+          "location": null,
+          "canonical": [],
+          "robots": []
+        }
+      ]
+    }
+  ]
+}

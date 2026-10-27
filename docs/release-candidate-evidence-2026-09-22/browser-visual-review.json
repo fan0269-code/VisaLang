@@ -1,0 +1,34 @@
+{
+  "reviewerCapability": "image-capable-agent",
+  "reviewedAt": "2026-09-22T15:27:23.640730+00:00",
+  "status": "passed",
+  "scope": "Six final-build viewport captures, not full-page or cross-device research",
+  "notes": "Readable titles/authority copy and form labels; clear focus rings; visible content fits viewport width; long pages may scroll vertically. EN screenshot shows applied-purpose state, ZH screenshots input/manual controls. No authority acceptance claim or ad delivery inferred.",
+  "screenshots": [
+    {
+      "path": "docs/release-candidate-evidence-2026-09-22/en-mobile.png",
+      "sha256": "92f25143074602a9987871c3f388be0e8ba6a942e54f8bd9d1f7bc1db192efd6"
+    },
+    {
+      "path": "docs/release-candidate-evidence-2026-09-22/german-a1-documents-checklist-mobile.png",
+      "sha256": "033408bafa3da84318d0b731527ff19dc89538b9606ea6f2d4520e254e2edc14"
+    },
+    {
+      "path": "docs/release-candidate-evidence-2026-09-22/goethe-a1-listening-practice-mobile.png",
+      "sha256": "cac1164571ab1d99f21495b91ca8ae0b8f1faf72dbbd2c9baa658c3d4c7b978c"
+    },
+    {
+      "path": "docs/release-candidate-evidence-2026-09-22/goethe-b1-writing-assessment-mobile.png",
+      "sha256": "74cc6e4f081a8de9e9e910f720696a4300b34c4949b51652988786ac0e66c4e5"
+    },
+    {
+      "path": "docs/release-candidate-evidence-2026-09-22/zh-desktop.png",
+      "sha256": "19c032c78573099ea994c72b37efcc878b55975302e5da80c12749b2e5611668"
+    },
+    {
+      "path": "docs/release-candidate-evidence-2026-09-22/zh-mobile.png",
+      "sha256": "2cd4266713ea41cf9c5c5de7f18abd4e4a539f5a7398798aa9925fc7b27d11a6"
+    }
+  ],
+  "browserEvidenceSha256": "46a270211a4283cf7292930531d792b993dab00e8f74c386d742b686230ef171"
+}

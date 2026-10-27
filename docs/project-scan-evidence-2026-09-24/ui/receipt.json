@@ -1,0 +1,117 @@
+{
+  "capturedAt": "2026-09-24T17:57:10.039113+08:00",
+  "target": "fresh local build, localhost:4341",
+  "browser": "Codex in-app browser via cua_repl",
+  "captures": [
+    {
+      "path": "docs/project-scan-evidence-2026-09-24/ui/01-home-desktop.jpg",
+      "sha256": "4d5d5e71f5df8528612e7a1e2e550dee34b58f68ab3b552e9782960e6007d6f8",
+      "width": 1265,
+      "height": 712,
+      "step": "英文首页桌面",
+      "finding": "基础良好，入口重复待简化",
+      "mimeType": "image/jpeg",
+      "cssViewport": {
+        "mode": "default",
+        "capturePixels": [
+          1265,
+          712
+        ]
+      },
+      "notes": "Screenshot API returns JPEG pixels; mobile CSS viewport was explicitly 390x844; image dimensions are separate."
+    },
+    {
+      "path": "docs/project-scan-evidence-2026-09-24/ui/02-guide-desktop.jpg",
+      "sha256": "5db3b0fca5dd918bc8f902f932ee879a8c7819af9f20e8d4a96ed223db6d4ed7",
+      "width": 1265,
+      "height": 712,
+      "step": "英文要求指南桌面",
+      "finding": "可读，信任/元信息层级偏重",
+      "mimeType": "image/jpeg",
+      "cssViewport": {
+        "mode": "default",
+        "capturePixels": [
+          1265,
+          712
+        ]
+      },
+      "notes": "Screenshot API returns JPEG pixels; mobile CSS viewport was explicitly 390x844; image dimensions are separate."
+    },
+    {
+      "path": "docs/project-scan-evidence-2026-09-24/ui/03-guide-mobile.jpg",
+      "sha256": "cc627272967c0865b5939f8ca4bf98c8d5af4eb4e941df6115e2569723080441",
+      "width": 375,
+      "height": 812,
+      "step": "要求指南390手机",
+      "finding": "首屏密度高",
+      "mimeType": "image/jpeg",
+      "cssViewport": {
+        "width": 390,
+        "height": 844
+      },
+      "notes": "Screenshot API returns JPEG pixels; mobile CSS viewport was explicitly 390x844; image dimensions are separate."
+    },
+    {
+      "path": "docs/project-scan-evidence-2026-09-24/ui/04-finder-mobile-start.jpg",
+      "sha256": "d37b11e1c6d1001f3caa620a8ef202c752da8dcdd569cdfae92f09ec9af3a6b0",
+      "width": 375,
+      "height": 812,
+      "step": "Finder390初始",
+      "finding": "表单前说明过长",
+      "mimeType": "image/jpeg",
+      "cssViewport": {
+        "width": 390,
+        "height": 844
+      },
+      "notes": "Screenshot API returns JPEG pixels; mobile CSS viewport was explicitly 390x844; image dimensions are separate."
+    },
+    {
+      "path": "docs/project-scan-evidence-2026-09-24/ui/05-finder-mobile-result.jpg",
+      "sha256": "b06d2bf9c2616fe4a7860b036e25ec7ddb6a314d616d0532d261e851d3d7e841",
+      "width": 375,
+      "height": 812,
+      "step": "Finder390结果",
+      "finding": "手选成功，下一步与保存偏后",
+      "mimeType": "image/jpeg",
+      "cssViewport": {
+        "width": 390,
+        "height": 844
+      },
+      "notes": "Screenshot API returns JPEG pixels; mobile CSS viewport was explicitly 390x844; image dimensions are separate."
+    },
+    {
+      "path": "docs/project-scan-evidence-2026-09-24/ui/06-checklist-mobile.jpg",
+      "sha256": "85a696a7f6e591d04be3d80926be24e3276876c12e1fb07bcd859dea280107b6",
+      "width": 375,
+      "height": 812,
+      "step": "Checklist390结果",
+      "finding": "恢复成功，标题受固定导航遮挡",
+      "mimeType": "image/jpeg",
+      "cssViewport": {
+        "width": 390,
+        "height": 844
+      },
+      "notes": "Screenshot API returns JPEG pixels; mobile CSS viewport was explicitly 390x844; image dimensions are separate."
+    },
+    {
+      "path": "docs/project-scan-evidence-2026-09-24/ui/07-zh-home-mobile.jpg",
+      "sha256": "f2bbc2b62c13aec176d9318eb95d04c11ea1a4ec166bc6c5b57ba9e17be26de2",
+      "width": 375,
+      "height": 812,
+      "step": "中文首页390",
+      "finding": "基础良好，已有证书任务需对齐",
+      "mimeType": "image/jpeg",
+      "cssViewport": {
+        "width": 390,
+        "height": 844
+      },
+      "notes": "Screenshot API returns JPEG pixels; mobile CSS viewport was explicitly 390x844; image dimensions are separate."
+    }
+  ],
+  "scope": "representative home > requirement > manual Finder > Checklist, plus Chinese home; not full-device or accessibility certification",
+  "observations": [
+    "Finder synthetic selections produced guidance; no purpose-suggestion API request",
+    "Checklist restored selected route and generated output",
+    "No production account or real personal data used"
+  ]
+}

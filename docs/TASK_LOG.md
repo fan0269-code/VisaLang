@@ -1,6 +1,24 @@
+## 2026-09-16 — T27 最小统计与隐私一致性（local implementation only）
+
+- Scope: added the local-only `t27.v1` measurement contract for the five existing tools, strict finite-enum validation, tool contract data attributes, and the smallest Privacy/Cookie/Terms wording corrections. No Analytics collector, custom event sender, ad/CMP implementation, account action, form/email service, payment, URL migration, redirect, production probe, commit, push or deployment was performed.
+- Actual source audit: current Astro source has no Google Analytics, Plausible, Cloudflare Web Analytics, fetch/XHR/beacon, cookie write, or event transport. AdSense remains conditionally emitted only for the existing eligible English guide publication policy; account, serving, Auto ads, CMP, regional consent and production behavior remain unverified. Existing session-first plan state, optional 30-day device localStorage and local ICS generation remain separate from measurement.
+- Contract: `tool_viewed`, `tool_result_rendered`, and `tool_takeaway_requested`; only `t27.v1`, five stable tool IDs, `en|zh-CN`, finite tool-specific result states, and explicit checklist/ICS actions are allowed. Malformed/unknown values and all free text, URL/query, identity, date, raw answer, document, note and third-party identifier fields fail closed. No event is stored or sent, so no traffic baseline or completion rate exists.
+- Tests/evidence: `tests/t27-measurement-privacy.test.mjs` is registered in `tests/site.test.js`; full evidence is `docs/VISALANG_T27_EXECUTION_EVIDENCE_2026-09-16.md`. The required external Obsidian Vault root/template is absent; local fallback `docs/VISALANG_T27_OBSIDIAN_SYNC_PAYLOAD_2026-09-16.md` remains `review` / `needs_human_review: true` / `owner_decision: pending` / `deployment_status: not_started`.
+- Planning sync: a new T27 sync will bind the exact changed-path scope, watched digest, generated Archify delivery, browser receipt, perceptual receipt, and this log. Drift remains `aligned` if the task stays inside T27; the separate Auditor must re-check the final bytes and exact scope.
+- Status boundary: T23 remains `blocked` / `evidence_map_only`; T19 remains partial with calendar-client import `blocked/not_tested`; release remains `not_deployed`; independent review is `unavailable` after two separate read-only Auditor attempts, so no `PASS` or T27 completion gate is claimed.
+- Final verification: focused T27 exit 0, build exit 0, launch-check exit 1 with 59 PASS / 0 FAIL / 1 BLOCKED for T23, diff-check exit 0; full `npm test` remains blocked only by the missing independent Auditor report.
+
 # VisaLang Task Log
 
-Updated: 2026-08-21
+Updated: 2026-09-09
+
+## Planning authority consolidation — 2026-09-01
+
+- Scope: created a three-layer planning system consisting of a 6–12 month master roadmap, a current-state baseline and a rolling 90-day execution plan. No public route, guide, source claim, application behavior, account, deployment or production state changed.
+- Authority result: README now directs maintainers to the three 2026-09-01 planning documents first. The 2026-07-13 master plan and 2026-08-21 taskbook remain historical evidence; Operations Status and release records remain production evidence rather than independent product authorization.
+- Planning result: the roadmap holds content expansion and commercial changes behind responsibility, Search Console, separate Analytics/AdSense/CMP evidence and four weeks of stable data. Germany A1/B1 optimization remains the first growth cycle; a second route, broad Chinese expansion and commercial activation remain gated.
+- Verification: repository inventory supported 37 Astro page files, 53 English guide files and 25 `.test.js` files; `git diff --check` passed and the placeholder scan returned no matches. Tests/build/launch-check were not run because this scope changes documentation only and does not change source, routes, metadata, sitemap, advertising behavior or deployment files.
+- Review boundary: the VisaLang Independent Auditor returned an initial FAIL with three P1 consistency findings and a re-review P2 role-count finding. The README baseline, historical authority ordering, separate Analytics/AdSense/Google Privacy & messaging CMP decisions and drift-prone fixed role count were corrected. The same Auditor's final re-review returned `PASS` with no remaining P0/P1/P2. Owner authorization for commit, push, deployment or external-account action remains pending; deployment is not started.
 
 ## Governance-only successor release — 2026-08-21
 
@@ -3431,3 +3449,622 @@ Remaining:
 - Regression seam: added `tests/fan-273-404-recovery.test.js` and loaded it through `tests/site.test.js`. The focused contract first failed against the old one-link page, then passed after implementation.
 - Verification: the focused test and scoped `git diff --check` passed; `npm test` passed with the FAN-273 contract visible; `npm run launch-check` built 100 pages, passed 46/46 checks and returned `READY`. Desktop 1440px and true 390px Chrome captures passed visual inspection. The Impeccable detector reported only four pre-existing side-border warnings outside the FAN-273 selectors.
 - Review and delivery boundary: application commit `c31ca2a` records the initial implementation/test scope, and `54fbc3c` closes the semantic-token, maintenance-log and no-script-boundary findings. The same uninvolved Standards and Spec reviewers rechecked the corrected range and each returned `PASS` with no remaining P0/P1/P2. No push, preview publication, deployment, production/account access or owner approval is claimed; the Vault record remains `review` / `pending` / `not_started`.
+
+
+## 2026-09-01 — VisaLang roadmap detailed execution taskbook
+
+- Scope: converted `docs/VISALANG_MASTER_ROADMAP_2026-09-01.md` and its current-state/90-day companions into `docs/VISALANG_DETAILED_EXECUTION_TASKS_2026-09-01.md`; added only the new taskbook link to the master roadmap. Existing unrelated working-tree changes were preserved.
+- Execution design: defined 49 task cards across Phase 0–6 with status, priority, owner, dependencies, steps, deliverables, evidence, acceptance and stop rules. Added executable Day 30 and Day 60 gates, a 13-week dependency-driven schedule, owner/contact/account gates, explicit later-phase exit dependencies, a durable evidence-register schema, scoring controls, pre-registered effect rules and reusable task/gate templates.
+- Safety boundary: the taskbook does not authorize login, external-account changes, commit, push, deployment, route expansion, advertising expansion or commercial activation. Missing owner or evidence keeps the related capability closed. It also records that the current working tree must be rechecked rather than inferred from the dated current-state snapshot.
+- Verification: after review corrections, focused document assertions found 49 unique, field-complete task cards, no duplicate IDs and exactly one initial `READY` task (`VL-000`). `npm test` passed; `npm run launch-check` built 100 pages, passed 46/46 and returned `READY`; `git diff --check` passed.
+- Review and delivery boundary: the independent VisaLang Auditor initially returned `FAIL` with two P1 and three P2 findings; all five were closed. Its second review found one P1 about missing Days 61–90 second-route/commercial preparation; that P1 was closed while retaining Phase 2/4 implementation gates. Its third review found two P2 execution-spec inconsistencies about the weekly cap unit and no-candidate owner; both were closed. The same Auditor's final re-review returned `PASS` with `findings: []`, confirming 49 unique field-complete cards, one initial `READY` task, Day 30/60/90 dependencies, safe conditional preparation and later-phase gates. This PASS does not authorize commit, push, deployment, publication or external-account action; all remain pending/not started.
+
+
+## 2026-09-01 — 49-card execution programme batch 1 foundation
+
+- Authorization and scope: the user instructed execution of all 49 cards and separately designated a dedicated independent review Agent. This batch implements only local/read-only Phase 0/1 foundations and preparation: `VL-000`, `VL-GOV-003`, `VL-DATA-001`, `VL-DATA-002`, a partial `VL-HEALTH-001`, the `VL-GOV-001` input request, and read-only preparation for `VL-SOURCE-001` / `VL-ASSET-001`. It does not claim that external owner, account, data, production or later-phase gates have passed.
+- Execution board and review role: created `docs/VISALANG_EXECUTION_BOARD_2026-09-01.md` with all 49 unique tasks and explicit blockers; recorded the active `VisaLang Execution Auditor` assignment in `docs/VISALANG_INDEPENDENT_AUDITOR_AGENT.md`. The Auditor is independent and read-only and cannot replace Business/Data/Ads/Contact/Release/Rollback decisions.
+- Governance and owner input: created `docs/OPERATIONS_EVIDENCE_REGISTER.md` with eight blocked evidence records and `docs/VISALANG_OWNER_INPUT_REQUEST_2026-09-01.md` with a no-secrets role/authorization reply form. Unknown owners, current production version, Search Console, Analytics, AdSense, CMP, contact, release and rollback remain fail-closed.
+- Data and weekly reporting: created draft `docs/GROWTH_DATA_DICTIONARY.md` and replaced `docs/WEEKLY_OPERATING_REVIEW.md` with a fixed-window, evidence-ID, privacy-safe template. Analytics, AdSense and CMP remain separate `CLOSED_FOR_PLANNING / UNVERIFIED` capabilities; no waitlist/signup or fabricated conversion fields remain. The dictionary is not effective until a Data Owner accepts it.
+- Health and content preparation: created `docs/SITE_HEALTH_BASELINE_2026-09-01.md` and `docs/VISALANG_CONTENT_SOURCE_PREPARATION_2026-09-01.md`. The public sample checked seven URLs: homepage, A1, B1, Guide Library, robots and sitemap returned 200; a synthetic missing URL returned 404 with `noindex` and no AdSense loader; no sampled 5xx occurred. This is not a deployed-commit or uptime attestation. The content preparation identifies exactly 23 starter/pending pages and a risk-first Germany queue, but does not approve expiry dates, dispositions, discovery changes or source-owner responsibility.
+- Verification: focused structural assertions passed for 49 board tasks, eight 15-field evidence records and 23 proposed dispositions. `npm test` passed. `npm run launch-check` built 100 pages, passed 46/46 and returned `READY`. `git diff --check` passed.
+- Current blockers: Business Owner identity/decision, role backups and SLAs, Data/Content/Ads/Contact/Release/Rollback owners, Search Console and account evidence, production-version authorization, source cadence approval and health thresholds remain pending. No commit, push, deployment, publication, account login/change, email test, index/advertising change or production action was performed.
+- Review state: the root-level `VisaLang Execution Auditor` initially returned `FAIL` with one P1 and three P2 findings. The bounded contact test authorization, health NA values, preparation/build boundary and `goethe-b1-study-plan` provenance were corrected within scope. The same Auditor re-reviewed the batch and returned `PASS` with `findings: []`. `owner_authorization` remains `pending` and `deployment_status` remains `not_started`; therefore `VL-000` is `REVIEW_PASS_OWNER_PENDING`, not `DONE`, and no later dependency is unlocked.
+
+
+## 2026-09-01 — 49-card execution programme batch 2 governance preparation
+
+- Scope and dependency boundary: preserved the completed batch-1 Auditor `PASS` and added only decision-preparation evidence for `VL-GOV-003A` and `VL-GOV-004`. Both task cards remain `GATED` / `BLOCKED_INPUT`; this batch does not close `VL-GOV-003`, appoint an owner, alter an old plan, or manufacture a historical approval.
+- Historical-plan preparation: created `docs/VISALANG_HISTORICAL_PLAN_SUPERSESSION_PREPARATION_2026-09-01.md`. It confirms that the four named historical plans can still be misread, proposes one additive post-H1 superseded banner linking the three-layer 2026-09-01 chain and detailed taskbook, preserves their historical bodies, and keeps README/`CONTENT_WORKFLOW` corrections as separate scopes. No target historical plan, README, or workflow file was changed.
+- Historical-disposition preparation: created `docs/VISALANG_HISTORICAL_DISPOSITION_PREPARATION_2026-09-01.md` with 18 timeboxed package/group rows. Deployment, independent-review and owner-acceptance states remain separate. The safe current decision is HOLD: `80c6d04` is the last directly recorded verified App payload, while current production/release/rollback evidence remains unverified. Missing reviews and owner choices are not inferred.
+- Board update: only the `VL-GOV-003A` and `VL-GOV-004` rows now point to these preparation files and state the remaining dependency/owner decisions. Status counts remain unchanged; no task is marked `DONE` or unlocked.
+- Verification: focused assertions confirmed the four target files, all current planning links, exactly 18 historical gap rows, preparation-only wording and board evidence links. `git diff --check` passed. `npm test` and `npm run launch-check` were not rerun because this batch adds governance-preparation Markdown and two board locators only; the immediately preceding frozen batch already passed the full suite and 100-page/46-of-46 launch gate, and no runtime/page/route/metadata file changed.
+- Safety boundary: no commit, push, deployment, publication, external account, server, email, Vault, content, noindex, advertising, release or rollback action was performed. Business Owner disposition and Programme Owner authorization remain pending.
+- Review state: the root-level `VisaLang Execution Auditor` initially returned `FAIL` with two P2 findings. Both reports were corrected to the current batch-1 `PASS` / `REVIEW_PASS_OWNER_PENDING` state, and their change inventory now distinguishes each task sub-scope from the full batch-2 manifest. The same Auditor re-reviewed the exact frozen scope and returned `PASS` with `findings: []`. Business Owner/role/dependency blockers remain; the PASS does not authorize banner application, owner disposition, commit, push, deployment, account action, release, rollback or production change.
+
+
+## 2026-09-01 — 49-card execution programme batch 3 phase-gate precheck
+
+- Scope and dependency boundary: added one dated preparation record for `VL-GOV-005` and `VL-D30-001`, updated only those two execution-board rows, and appended this log entry. Both gate tasks remain `GATED`; no prerequisite, owner acceptance, exception, account permission, gate decision or downstream phase was created.
+- Phase 0 result: `docs/VISALANG_PHASE0_DAY30_GATE_PRECHECK_2026-09-01.md` records `0 PASS / 6 BLOCKED / 0 NOT_APPLICABLE`. The five named prerequisites and the Business Owner Phase 0 decision are all blocked. The safe boundary remains official-source maintenance, read-only health checks and document governance; this is not commit/deployment/account authority.
+- Day 30 result: the same record shows `0 PASS / 11 BLOCKED / 0 NOT_APPLICABLE`. Responsibility, Search Console access/snapshot/export, the effective reporting contract, separate Analytics/AdSense/CMP decisions, two valid dated reports and the Business Owner gate decision are absent. Growth content cannot bypass the gate.
+- Indirect dependencies: `VL-000`/`VL-GOV-001`, effective `VL-DATA-001`, and `VL-HEALTH-001` are also `BLOCKED`. These three checks explain the gate result and are not double-counted in the 17 direct condition instances.
+- Evidence policy: every row gives an exact inspected locator, date, required owner, blocker, next action and exception expiry. No approved exception exists. Drafts, automated tests and Independent Auditor PASS are not treated as owner acceptance or external evidence.
+- Verification: focused assertions confirmed six Phase 0 rows, eleven Day 30 rows, three indirect rows, all direct statuses `BLOCKED`, zero `PASS`/`NOT_APPLICABLE`, board evidence links and unchanged 49-card status counts. `git diff --check` passed. `npm test` and `npm run launch-check` were not rerun because the scope is gate-preparation Markdown plus two board locators; no runtime/page/route/metadata/content file changed, and the preceding frozen implementation batch already passed the full suite and 100-page/46-of-46 launch gate.
+- Safety boundary: no commit, push, deployment, publication, external account, server, email, Vault, source content, advertising, release or rollback action was performed. Owner authorization and deployment remain pending/not started.
+- Review state: the root-level `VisaLang Execution Auditor` initially returned `FAIL` with one P2 provenance finding. The Git capture was relabelled as a timestamped pre-integration snapshot that predates the report/board/log integration, and the final change boundary now distinguishes the original read-only inspection from batch 3. The same Auditor reviewed the corrected frozen scope and returned a superseding `PASS` with `findings: []`. Owner authorization remains pending and deployment remains not started; the PASS does not open either gate or authorize any external/release action.
+
+
+## 2026-09-01 — 49-card execution programme batch 4 all-card outcome
+
+- Scope: created `docs/VISALANG_49_CARD_EXECUTION_OUTCOME_2026-09-01.md` and appended this entry. No taskbook, board row, runtime, route, metadata, source content, account, server or production surface changed in this batch.
+- All-card accounting: all 49 unique task IDs remain in taskbook order with a nonempty owner role, dependency, blocker, next action and evidence location. Current states are `REVIEW_PASS_OWNER_PENDING` 1, `PREPARED_BLOCKED` 4, `BLOCKED_INPUT` 12 and `GATED` 32; `DONE` 0. These states are not renamed as completion and do not unlock dependencies.
+- Gate outcome: Phase 0 remains `0 PASS / 6 BLOCKED / 0 NOT_APPLICABLE`; Day 30 remains `0 / 11 / 0`. Day 60 growth selection is gated; at its calendar gate, missing stable data permits only a dated blocked/risk-maintenance decision. Day 90 still requires a dated owner `go` / `wait` / `stop` record and may use evidence-based `wait` inputs when Phase 1, authorization or evidence is insufficient; it is not itself Phase 2 entry. Second-route, Chinese, monetization and later implementation remain gated by their exact dependencies.
+- Local verification: final `npm test` passed; Astro built 100 pages; `npm run launch-check` returned 46 PASS / 0 FAIL and `READY`; `git diff --check` passed. These results are local evidence, not production, deployment, account or owner evidence.
+- Dirty-tree control: immediately before integrating the outcome report the tree had zero staged paths, six modified tracked paths and thirteen untracked paths. The report itself becomes one additional untracked path. Existing and unrelated changes were preserved; no Git/worktree cleanup, reset, commit or attribution was performed. The launch-check's `clean:astro` step affected only ignored generated caches.
+- Safety result: no commit, push, deployment, publication, external-account login/change, Search Console export, email state test, Analytics/AdSense/CMP action, server action, release or rollback was performed. Owner authorization is pending and deployment is not started.
+- Resume boundary: the common start is `VL-000` Business Owner acceptance -> `VL-GOV-001` -> `VL-GOV-002`; Phase 0 then branches through `VL-GOV-003` -> `VL-GOV-003A`/`VL-GOV-004` and separately `VL-REL-001`, before `VL-GOV-005` can decide the gate. `docs/VISALANG_OWNER_INPUT_REQUEST_2026-09-01.md` is the authoritative request; silence is not acceptance.
+- Review state: the root-level `VisaLang Execution Auditor` initially returned `FAIL` with one P2 later-gate/dependency-model finding. After the nonexistent intermediate gate and unsupported report-count claims were removed and the exact Day 60, Day 90 and Phase 0 branches restored, the same Auditor re-reviewed the frozen all-card scope and returned `PASS` with `findings: []` and `programme_execution_outcome: BLOCKED_WITH_EVIDENCE`. It confirmed 49/49 accounting and `business_programme_done_cards: 0`. Owner authorization remains pending and deployment remains not started; the PASS supplies neither.
+
+
+## 2026-09-01 — Scheme 3 one-week content contraction release-candidate freeze
+
+- Scope: implemented the sole active `VISALANG_ONE_WEEK_SCHEME_3_CONTENT_PLAN_2026-09-01.md` on branch `codex/scheme-3-one-week-content` from baseline `2ef029f28c03a5838b3ec9add90d851259e81f82`. Existing unrelated dirty and untracked work recorded in the SDD baseline was preserved. No commit, push, deployment, public preview, external-account change or AdSense review submission was performed.
+- Content result: retained and rebuilt 14 English pillars plus five independently structured Chinese pillars. English depth is 1,225–1,383 words; Chinese depth is 1,801–2,612 Han characters. Page-specific responsibility, decision, mistake, next-action, scenario and original-asset gates are enforced, and the three dated source ledgers retain source authority, permitted support and boundary fields.
+- Publication result: generated exactly 81 HTML pages. The sitemap contains 35 indexable canonicals; 46 pages are `noindex`; only the 14 English pillars load AdSense. The remaining fail-closed groups are exactly 23 pending English guides, 12 categories and 11 policy/placeholder/error routes. Sixteen non-pillar home, Hub, directory, tool and trust pages stay indexable without ads.
+- Merge result: after the relevant English and Chinese content batches received independent `PASS`, removed 16 absorbed English sources and three Chinese sources and enabled exactly 19 unique, single-hop 301 rules. Generated internal links, canonicals and the exact seven reciprocal hreflang pairs point directly to successful, indexable targets rather than old URLs.
+- Tool and route result: the English A1/B1 and Chinese A1 Hubs expose retained pillars only. The five existing tools add page-specific use conditions, example input/output, failure boundaries and official follow-up actions without expanding product functionality.
+- Automated verification: a fresh root run of `npm test` exited 0 and included all historical regressions plus 13 Scheme 3 focused tests. A fresh `npm run launch-check` rebuilt 81 pages and returned 54 PASS / 0 FAIL / `READY`. The exact release matrix, redirects, ads, sitemap, hreflang, source-ledger shape, content depth and cross-page uniqueness checks passed. `git diff --check` passed before evidence integration and is required again at the final freeze. The only non-failing output is the repository's known Node module-type warning for direct TypeScript imports.
+- Responsive verification: local Astro preview screenshots and DOM measurements at 375×900 and 1440×1000 covered an English pillar, Chinese pillar, Route Hub, Route Finder, pending guide and redirect target. All 12 samples had visible H1/main content, correct mobile/desktop navigation and no page-level horizontal overflow. The pending sample rendered `noindex,follow`, no ads and no generated next-guide link; the English pillar/redirect target loaded ads, while Chinese/Hub/tool/pending samples did not.
+- Review state: the structural, 14-English-pillar and five-Chinese-pillar batches each reached `PASS` with `findings: []` from the designated independent Auditor. The same Auditor then reviewed the complete frozen atomic-merge candidate and returned final full-site `PASS` with `findings: []`; its report independently confirms the 81/35/46/14/23/12/11/19/7 matrix and no scope drift. This closes only the content/implementation review gate and supplies no owner, commit, deployment, external-account or formal Vault authorization.
+- Vault boundary: the mandated `/Users/fanlw/Documents/Website-Content-Hub/` root and its required template are not present on this host or mounted volumes. A truthful review-state payload is staged in `docs/VISALANG_SCHEME_3_OBSIDIAN_SYNC_PAYLOAD_2026-09-01.md`, but it is not a formal Vault sync and is not marked approved, deployed or published. Correct Vault mounting/template access remains required before the Obsidian acceptance item can be closed.
+
+## 2026-09-08 — Master Package T01–T02 integration and baseline
+
+- Scope: copied the eight user-provided Markdown/CSV Master Package artifacts into `docs/master-package-2026-09-08/`; added the source map and execution record; and updated the README authority statement. No product source, guide content, route, redirect, deployment configuration, or generated output changed.
+- Baseline: recorded HEAD `4cb57e8744c752fed1881281e69e7b24cc7281c4` on `codex/scheme-3-one-week-content`, a normal intentionally dirty checkout, Node `v22.23.2`, npm `10.9.8`, Astro `7.1.1`, and the controller's passing baseline `npm test`, 81-page build, and 54/54 local launch-check evidence. The older Scheme 3 candidate is preserved unreconciled state; it is not current execution authority or Master Package acceptance proof.
+- Authority and release boundary: the direct 2026-09-08 user instruction makes the local Master Package the governing work sequence. Owner authorization and deployment remain pending; no commit, push, deploy, external-account, production, or release action occurred or is claimed.
+
+## 2026-09-08 — Master Package T03 P0 authority-boundary correction (implementation awaiting independent audit)
+
+- Scope: corrected only the English Goethe A1 30-day study plan and retained fee guide. The production mutation caught was reusing a page's exam/local authority for the `Current route requirement and accepted proof` verification-table row. A field-level authority split now keeps each page-wide task authority (Goethe/local administration for practice; selected centre for fees/booking) separate from the mission/receiving-authority route-proof row.
+- Retention: restored `goethe-a1-fees-by-country.md` non-destructively from repository history, removed only its obsolete source-to-centres redirect from `public/_redirects` and the manifest, and removed its lone support reference to another retired page. The route is directly generated but remains fail-closed/noindex and absent from the sitemap/ads allowlist; all other Scheme 3 mappings and discovery policy remain unchanged. Fee-data rewrite and stale-price review remain deferred.
+- Regression coverage: `tests/task-2-p0-render.test.js` builds actual English and Chinese HTML, first failed against the public fee redirect, then passed after the narrow fix. It verifies direct fee-route generation, its self-canonical, absence from both redirect sources, centre/exam task authority, mission/receiving-authority proof row and source, and absence of `检查文中` / `检查 hub 链接`. The aligned collection, redirect, matrix and content-map contracts now record 38 sources, 18 redirects, 82 generated pages, 24 pending English guides and 47 noindex pages.
+- Verification: focused authority, render, publication, atomic-merge and release-matrix tests passed; `npm test` passed with only the pre-existing Node module-type warnings; `git diff --check` passed. No commit, push, deployment, publication or external action was performed.
+- Review boundary: automated checks and self-review are not independent approval. The required separate VisaLang Independent Auditor review remains pending; no owner or deployment decision is claimed.
+
+## 2026-09-08 — Master Package T04–T05 inventory and fail-closed claim contract
+
+- Scope: added a typed URL/support inventory that preserves 64 audited rows, 14 discovery-only rows, and 24 source-discovered routes, plus a minimal versioned claim/exam/rule contract seeded only with source-checked Germany A1 authority/product boundaries. Existing routes, content, redirects, manifest, package CSVs, and deployment surfaces were not changed in this task.
+- Evidence state: the inventory retains one duplicate canonical path without collapsing rows, records the current 18 manifest retirement mappings and 36 policy-derived pending/noindex entries, and derives Chinese guide state from authoritative `zhGermanyA1Guides` metadata rather than Astro wrappers. Source-discovered inputs are sorted by URL then source path before stable IDs are assigned. HTTP, GSC, backlink, migration, local-fee, booking, availability, exception, and individual-outcome evidence remain fail-closed where not verified; unknown fee amounts/currencies are null, never zero or free.
+- Verification and boundary: focused T04/T05 tests first failed before their modules existed and passed after implementation; review remediation additionally verified exact-version history/duplicate handling plus strict real-calendar-date, source-check, review, and effective-range gates. Relevant route, P0 render, publication and content-map checks plus `git diff --check` passed. The same separate task-quality reviewer approved T04–T05 with no Critical or Important findings; this is not the repository-mandated final independent Auditor approval. No migration, redirect/reindex action, release decision, commit, push, deployment, external-account action, or owner approval occurred or is claimed.
+
+## 2026-09-08 — Master Package T06–T08 presentation, route support state, C01 and C07
+
+- Scope: completed the first-batch article-presentation, home/route-support, C01, and English C07 implementation. Shared templates now show page-specific direct answers immediately after the title, a concise scope/source/date boundary, one verification alert, and reader-facing coverage wording. The English and Chinese homes and `/routes/` now state the actual support boundary: Germany A1 family reunion is configured; B1 is guide-only; other selector entries are verification-only.
+- Authority and publication boundary: C01 and C07 use exact current 2026-09-08.1 Claim Registry records. C07 separates Goethe product facts, receiving-authority acceptance/recency, and reader-specific facts; its China “usually accepted” wording remains China-application-location-only and non-guaranteed. English C07 is restored as generated, self-canonical, `noindex,follow`, ad-free, outside sitemap/discovery and the six-pillar sequence. Only its English redirect was removed; the Chinese legacy redirect remains.
+- Matrix and verification: C07 changes current counts to 39 English guide sources, 25 pending English guides, 17 redirects, 83 generated pages, and 48 noindex pages; sitemap URLs (35), ad-enabled pages (14), and six English/five Chinese pillars are unchanged. Focused guide-render and home/route contracts were RED then GREEN; relevant claim, route, publication, content, render, release-matrix checks, `npm run build`, and `git diff --check` passed. After both scoped fix rounds, the same task-quality reviewer re-reviewed and **Approved** Task 4 with no Critical/Important findings. Owner decision and deployment remain pending; no commit, push, deploy, publication, Vault, or external action occurred.
+
+## 2026-09-09 — Master Package T09 independent-audit remediation and review closure
+
+- Audit round 1: the required fresh VisaLang Independent Auditor returned `FAIL` with three P1 and two P2 findings: a test-only guide remained in `dist`, one C01 Federal Foreign Office URL used the wrong path, the submitted per-article source ledger was incomplete, claim `usedBy` was not an enforced consumer/locale gate, and the frozen records contained timing/count/name/dimension conflicts.
+- Round-1 remediation: normal builds now clean `dist`; the invalid-claim fixture restores a clean build and launch-check rejects generated guides without current source/manifest ownership. C01 uses the reviewed slash-form FFO URL. Deterministic claims require a stable authorised consumer ID plus compatible locale; missing, wrong, stale, or cross-locale consumers fail closed. Task/payload/redirect/viewport records were reconciled.
+- Audit round 2 and correction: the same Independent Auditor returned `FAIL` with one P1 while confirming the other four round-1 findings resolved. The fee article's ledger omitted its rendered FFO route-authority URL, and the Markdown source extractor could return an empty set and make coverage vacuous. The repaired registered test derives de-duplicated Markdown plus frontmatter authority URLs, rejects empty sets, requires exact C01/fee/C07 counts of 4/4/3, and verifies every URL in real rendered HTML. It first failed RED on the exact missing fee FFO row; the complete eight-field row was then added and GREEN restored. A separate read-only task reviewer returned Spec PASS / Task quality Approved / `findings: []`.
+- Round-3 candidate evidence: `npm test` exited 0 at 11:27; without rebuilding afterward, direct launch-check passed 55/55 with no fixture source/output and matrix 83 HTML / 35 sitemap / 48 noindex / 14 ads. A separate clean `npm run build` produced 83 pages at 11:28, and `npm run launch-check` rebuilt and passed 55/55. `git diff --check`, eight byte-for-byte package comparisons, and validated baseline gzip/tar checks passed. The round-3 candidate freeze is `2026-09-09 11:43 Asia/Shanghai`.
+- Independent review result: the same VisaLang Independent Auditor returned round-3 `PASS` with `findings: []`, closing the T01–T09 local content/implementation review gate. The report discloses one Auditor-side invocation of a focused test that rebuilt only ignored `dist`/Astro cache output; source-candidate porcelain remained 146 = 79 modified / 17 deleted / 50 untracked / 0 staged, regenerated output remained 83 pages, and direct launch-check remained 55/55.
+- Boundary: T09 is `completed`, while T10–T34 remain `pending`. Owner approval, commit, push, deployment, publication, production verification, formal Vault sync, and external-account actions remain outside this local candidate. The required Vault directory/template are absent; the repository payload remains `status: review`, `needs_human_review: true`, `owner_decision: pending`, and `deployment_status: not_started`, so it is not a formal sync.
+
+## 2026-09-09 — Master Package M2-A T10–T14 local implementation and review freeze
+
+- Scope and baseline: implemented only T10–T14 on `codex/scheme-3-one-week-content` from unchanged HEAD/baseline `4cb57e8744c752fed1881281e69e7b24cc7281c4`. The extensive pre-existing T01–T09/Scheme 3 dirty tree and controller recovery artifacts were preserved; the result remains uncommitted and `not_deployed`.
+- T10 exact products: added one versioned registry for the adult Goethe-Zertifikat A1: Start Deutsch 1 and Start Deutsch 1 / telc Deutsch A1 products. English, Chinese and Exam Comparison consume independently sourced duration, component, oral, scoring and whole/partial-sitting facts. Local fee, centre execution and receiving-authority acceptance remain separate; unknown fields are not ranked, duplicated or guessed.
+- T11 staged working list: decomposed the configured Germany family-reunion A1 path into stable atomic requirement, exam-choice, booking, exam/certificate and submission-review tasks. Every item names its owner, source route, done-when evidence and boundary; the list explicitly does not replace a complete route-specific visa checklist.
+- T12 local fees and centres: added four 2026 Goethe rows—Germany EUR 155 regular and EUR 124 exact-discount arithmetic, Beijing CNY 1,400 current-learner and CNY 1,500 non-current-learner—and two matching official centre routes. Currency conversion, China-wide inference, category eligibility, checkout, seat and availability claims are prohibited. The fee guide is now the 15th English pillar but remains ad-free.
+- T13 calendar arithmetic: aligned the article, Chinese surface, Timeline UI, calculator and shared-state parser on calendar-day `D - W - P` and `D - W - P - R`. Three reproducible scenarios include cross-year and leap-day cases. Inputs are explicit assumptions or local facts, strict digit-only non-negative integers capped at 3,650 days each; no provider wait default, real retake chain, authority deadline or outcome is inferred.
+- T14 shared plan and privacy: added schema-v1 session-first state across all five tools, explicit 30-day device snapshots, stable-ID allowlists, route/region/locale separation, current rule/claim versions, safe legacy mappings and explicit reconfirmation. New results never enter tool URLs; no-JavaScript forms stay inert rather than falling back to GET; discard-only queries cannot clear incompatible-state warnings; same-origin historic `visalang-tool:` storage is removed without touching independent route progress. Privacy/Cookie disclosures match those limits, including cross-origin deletion limits.
+- Verification candidate: focused T10–T14 RED/GREEN suites pass. Earlier full/launch runs exposed and corrected the old 14-pillar SEO count and stale Exam Comparison assertion. The 17:12–17:14 final window additionally caught a missing assertion comma and an old content-map date contract; both received minimal repairs and focused confirmation before the complete entry was restarted. The final remediation added fee-record metadata fail-closed validation, synchronized the BAMF HTTP 403 disclosure, and made the unknown fee branch expose status/owner/action/boundary; `npm test`, independent `npm run build`, `npm run launch-check` (57/57 / `READY`) and `git diff --check` pass; generated output is exactly 83 HTML / 36 sitemap / 47 noindex / 14 ads, HEAD is unchanged and no path is staged. The same Independent Auditor's latest re-review result is `PASS` with `findings: []`, recorded in `.superpowers/sdd/VisaLang-Master-Plan/m2a-independent-audit-record-2026-09-09.md`.
+- Review, Vault and delivery boundary: the repository-mandated same VisaLang Independent Auditor re-reviewed the corrected M2A-01–M2A-08 scope and returned `PASS` with no P0/P1/P2 findings, so T10–T14 are locally complete at the implementation-review gate. T15–T19 and T20–T34 remain pending. `/Users/fanlw`, the required Vault directory and template are absent, so the repository payload is not a formal sync and remains `status: review`, `needs_human_review: true`, `owner_decision: pending`, `deployment_status: not_started`. No owner approval, commit, push, deployment, publication, production check, external account action, authority contact or ICS import occurred.
+
+## 2026-09-10 — Whole-site Archify planning map and drift gate
+
+- Scope and authority: created the derived whole-site planning view and its
+  synchronization governance without changing any guide fact, route behavior,
+  publication decision, redirect, production state, or Master Package task
+  status. The Master Package, backlog status overlay and execution record remain
+  authoritative. Sync `VL-PMAP-20260910-01` records `drift: aligned`: T01–T14
+  are formally complete, T15–T19 remain implementation candidates pending
+  closeout, the next window closes M2-B before M3 T20–T22, and T23 remains
+  conditional on evidence and Owner authority.
+- Maintained artifacts: added an editable workflow-v2 Archify source, generated
+  HTML, append-only sync history, exact classified candidate manifest, machine
+  receipt, artifact-bound browser evidence, four hashed screenshots and a
+  separate image-capable visual review. The hard-watch contract covers 179
+  files under the fixed planning, `src/` and `public/` roots; its digest is
+  `b7766e40c50a8cd9bf693bed4bfbdb0fc7d9e41fd4944098d5877e58a6f551b1`.
+- Diagram evidence: the final source hash is
+  `06b9d62a28abe917dd2e62533618c4ea9f7985902d97ab819eda57689737ab00`
+  and the atomically delivered HTML hash is
+  `8ee8a1f89881d8e014e449a5100ae43a1c8cec94e6d5e4568869bd09274b19c8`.
+  Archify showcase validation passed 9/9 with 0 errors and 0 warnings;
+  automated containment passed at 1440×900, 1600×1000, 1920×1080 and
+  2048×1320. Saved light/dark screenshots at 1440×900 and 2048×1320 received
+  image-capable review with no remaining clipping, overlap or unreadable digest.
+- Review loop: the independent Auditor first returned `FAIL` with 3 P1 and 3 P2
+  findings. The remediation fixes non-optional roots, candidate-scope/classification
+  matching, evidence-sidecar binding, complete sync-receipt binding, unique
+  history-chained IDs, the omitted Vault payload path, and the 1440px digest
+  wrapping. Round 2 confirmed those six fixes and found one portability P2:
+  the browser receipt's generation-machine path was being compared as a current
+  checkout path. The test now accepts the same repository-relative artifact
+  identity after a clone/worktree move while wrong identities and hashes fail.
+  Round 3 confirmed that fix and found a cross-platform separator escape; the
+  shared path validator now normalizes first, rejects POSIX/Windows/drive/UNC
+  absolute forms and every `..` segment, and covers both separator styles plus
+  unsafe screenshot/contact-sheet paths. Round 4 then found that dot/empty
+  segments and directories could still masquerade as evidence files; the same
+  validator now rejects dot, empty, parent and non-canonical segments, while
+  screenshot/contact-sheet evidence must have the expected sidecar extension
+  and be a regular file. Round 5 found that verdict checks scanned the whole
+  Markdown body; the gate now strictly parses one unique YAML front matter,
+  rejects duplicate/unsupported keys, validates every required field and exact
+  scope from that object only, and includes spoofed-body and duplicate-key
+  regressions. Round 6 then found that a present-but-empty or wrongly typed
+  baseline was not rejected; the gate now requires a non-empty branch plus a
+  40-character commit SHA and covers empty, array, boolean and numeric
+  baselines with fail-closed regressions.
+  The same Auditor's final verdict and exact reviewed hashes are
+  authoritative in
+  `docs/planning-map/VISALANG_PLANNING_MAP_INDEPENDENT_AUDIT_2026-09-10.md`;
+  this log does not substitute for or predeclare that verdict.
+- Verification state: the focused governance test was observed RED before the
+  new history/evidence files existed, then exercised each fail-closed review
+  correction. After the same Auditor's Round-7 `PASS`, direct governance passed
+  for 179 watched files and sync `VL-PMAP-20260910-01`; the complete `npm test`
+  exited 0 on 2026-09-10 at 09:53 Asia/Shanghai, including the Astro production
+  build (83 pages), all existing site/content/M2-A/M2-B checks and the planning
+  map gate. `git diff --check` also exited 0. The existing
+  `MODULE_TYPELESS_PACKAGE_JSON` warnings remain non-failing. These final command
+  results were submitted to the same Auditor for evidence confirmation; its
+  report remains the independent source of verdict truth.
+- Vault and release boundary: the required Vault root and template are absent,
+  so the repository fallback payload remains `review` /
+  `needs_human_review: true` / `owner_decision: pending` /
+  `deployment_status: not_started` and is
+  not a formal sync. No commit, push, deployment, publication, migration,
+  production claim, external-account action, or Owner approval occurred.
+
+## 2026-09-10–11 — M2-B T15–T19 acceptance candidate and audit freeze
+
+- Scope and baseline: froze the 36-path M2-B candidate on
+  `codex/scheme-3-one-week-content` at unchanged HEAD
+  `4cb57e8744c752fed1881281e69e7b24cc7281c4`; no staged path, reset, clean,
+  branch switch, worktree, commit, push, deploy, publication, external-account
+  change, authority contact or calendar import occurred. The original backlog
+  CSV remains byte-identical at SHA-256
+  `26fbc283498a2ec60b54f84bedee0c6ca2daaca3e670d74d032ec9c9a6533982`.
+- Implementation and TDD: closed the T15 relevant-question gap, T17 official
+  practice-link gap and T19 trusted-route-source gap through focused RED→GREEN.
+  Browser acceptance then found a 390 px comparison whole-page overflow and a
+  configured-to-unsupported Checklist action leak; both received focused
+  RED→GREEN corrections. Separate read-only task reviews returned PASS with no
+  remaining P0/P1/P2 after the Checklist reviewer-required production-bound
+  regression was added.
+- Browser and ICS evidence: desktop 1440×900, 390×844 and 768×1024 observed
+  the recorded Route Finder, Checklist, Comparison, Timeline and Reminder
+  states, focus/order and overflow. Clipboard success was observed; a blocked
+  Clipboard browser fallback is `not_tested`. Real Chrome print preview showed
+  six populated checklist pages and was cancelled without saving. The real
+  911-byte ICS download matched the generator byte-for-byte at SHA-256
+  `36c0f751d9c3b1ffa4917eaef5cddc353c7215a4970df69a85907075ffefe747`.
+  Calendar-client import is `blocked/not_tested`, so T19 is not represented as
+  fully verified.
+- Verification and review: the first complete pre-audit run passed every
+  functional assertion before stopping only at the intentionally last missing-
+  audit gate. The same Auditor's round-2 review returned `PASS` with
+  `findings: []` for the exact 36-path candidate. The post-report serial run
+  then passed all five focused suites, `npm test`, the independent 83-page
+  build, `npm run launch-check` (57/57 / `READY`), direct governance for 179
+  watched files and `git diff --check`. The audit remains separate from Owner
+  and deployment authorization.
+- Planning map: corrected successor sync `VL-PMAP-20260911-03`; `drift: aligned`. The
+  derived snapshot records T15–T18 complete, T19 client import still awaiting
+  separate authorization, and T20 as the next task. Showcase validation passed
+  9/9 with 0 errors and 0 warnings. The isolated-Chrome visual check passed all
+  four containment viewports; four 1440×900 / 2048×1320 light/dark screenshots
+  were visually inspected with no clipping, overlap or unreadable status or
+  digest. The same audit path is
+  `docs/planning-map/VISALANG_M2B_INDEPENDENT_AUDIT_2026-09-11.md`; its report
+  must bind the successor receipt before M3 changes begin.
+- Governance correction: round-3 review found that eleven frozen candidate
+  files outside the hard watch roots were listed but not byte-bound. A focused
+  mutation fixture now requires an exact SHA-256 binding for every such path
+  except self-referential `sync.json`; changing the Task Log fixture bytes fails
+  closed before the audit gate. The audit still binds the complete sync receipt.
+- Current boundary: T15–T18 are locally `completed`; T19 remains `in_progress`
+  and not fully verified because calendar-client import is blocked/not_tested.
+  The repository Vault payload remains review / needs_human_review / owner
+  pending / not_started because the configured Vault root and template are
+  absent. No Auditor result authorizes commit, deployment or publication.
+
+## 2026-09-11 — M3 T20–T22 implementation-review PASS; post-PASS successor freeze
+
+- Candidate freeze: planning-map sync `VL-PMAP-20260911-04` records
+  `drift: aligned` for the exact 83-path M3 candidate. Its watched scope covers
+  188 files; the append-only history, generated Archify delivery, automated
+  browser receipt, image-capable perceptual-review receipt and every
+  outside-watch candidate are byte-bound. The required M3 review record is
+  `docs/planning-map/VISALANG_M3_INDEPENDENT_AUDIT_2026-09-11.md`. The same
+  Auditor returned round-1 `FAIL` with exactly 3 P1 and 3 P2 findings. Successor
+  correction sync `VL-PMAP-20260911-05` freezes the exact 87-path candidate
+  across 188 watched files and binds the atomic Archify delivery, automated
+  browser receipt and image-capable perceptual receipt. The same Auditor
+  confirmed all six round-1 findings corrected, then returned round-2 `FAIL`
+  with 0 P0, 0 P1 and 3 P2. Correction successor
+  `VL-PMAP-20260911-06` freezes the same exact 87-path candidate across 188
+  watched files and records the 9/9 Archify showcase, atomic delivery, automated
+  browser receipt and four-image perceptual review. The same Auditor returned
+  round-3 `PASS` with 0 P0, 0 P1 and 0 P2 for that exact candidate. The audit
+  report SHA-256 is
+  `7ca1cdfc9b8b898a51fae57c353005bbea793ad819a36cbeaaf81b67ab944d01`;
+  the reviewed sync SHA-256 is
+  `b465a72a8956227888d94bc03a21f8106fe3b247889640a67134f04ce628923d`.
+  Post-PASS status successor `VL-PMAP-20260911-07` freezes the same exact
+  87-path scope across 188 watched files and binds the updated authority/status
+  snapshot, 9/9 Archify delivery, automated browser receipt and four-image
+  perceptual receipt. Its final same-auditor binding remains pending; no
+  successor `PASS` is preclaimed.
+- Status boundary: T20, T21 and T22 are locally `completed` at the
+  implementation-review gate. T22 remains local generated/preview evidence,
+  not production evidence. T23 remains `evidence_map_only` / `blocked` with
+  0 approvals, `newRedirectAuthorization: none` and a blocked release gate.
+  T19 remains `partial` / `in_progress` because a real calendar-client import
+  is unauthorized and `not_tested`.
+- T20 Chinese journey: five `zh-CN` tool routes reuse the shared facts,
+  calculations and saved-plan identifiers. The typed reconciliation preserves
+  all eight historical Chinese A1 tasks across five maintained guide routes;
+  three historical tasks are represented as absorbed task modules rather than
+  silently discarded routes.
+- T21 discovery and trust: the guide library uses four explicit purposes
+  (`family`, `settlement`, `citizenship`, and `preparation`) with exactly three
+  public filter facets (Purpose, Stage, and Language), multi-value purpose
+  membership, URL restoration/clear behavior and actionable zero-result
+  recovery. The directory retains all 31 exam records, prioritizing the two
+  exact registry-backed supported A1 products above 29 reference-only entries.
+- T22 generated/local evidence: the observed candidate output contains 88
+  generated pages, 41 sitemap URLs, 47 noindex pages and 14 ad-eligible pages.
+  The reviewed equivalence registry contains 11 genuine reciprocal hreflang
+  pairs. Production HTTP is `not_observed`, so local generated output and local
+  preview do not establish deployed behavior.
+- T23 migration boundary: the repository-only candidate and rollback map records
+  evidence gaps and recovery fields without changing redirects, publication
+  policy, URLs, canonicals, sitemap behavior or production. Missing GSC,
+  backlink and Owner-authorization evidence keep the task blocked. The
+  repository legal configuration entry point is present through the deploy
+  script, included snippet and documented install flow; production installation
+  and effect remain `not_observed`.
+- Evidence and release boundary: the focused M3 contracts cover bilingual tool
+  presentation and the Chinese journey, discovery/trust and exam priority,
+  generated SEO, and the migration evidence map. The candidate planning-map
+  sync and round-3 implementation-review `PASS` are recorded above; the
+  post-PASS status successor freeze is delivered, while its final same-auditor
+  binding and subsequent final serial verification remain separate gates. No
+  commit, push, deployment, publication,
+  external-account action or calendar import occurred in this documentation
+  update.
+- RED→GREEN and browser receipts: focused failures caught Chinese authority-step
+  collapse, missing M3 full-suite registration, the non-equivalent C01
+  hreflang, stale generated-count assertions, active-chip focus loss, the 375 px
+  two-column filter grid and the English required marker in Chinese forms. Each
+  scoped correction passed its focused regression. The local Chromium matrix
+  covered 375×812, 390×844, 768×1024 and 1440×900, including the bilingual tool
+  journey, discovery/zero-result/URL state, keyboard focus, trust pages,
+  canonical/language/alternate behavior and overflow. The separate browser
+  evidence preserves all unexecuted-action and cross-browser boundaries as
+  `not_tested`.
+- Round-1 correction scope: the six findings covered incomplete branch-specific
+  Chinese Finder presentation, a stale site-test literal, a non-fail-closed
+  redirect readiness check, missing Chinese-guide CopyButton locale/feedback
+  coverage, conflated repository/production legal-configuration evidence and
+  contradictory execution/sync records. The same Auditor confirmed all six
+  corrections in round 2; that confirmation does not override the round-2
+  overall `FAIL` or establish a `PASS`/completion state.
+- Round-2 correction scope: the three P2 findings are resolved in the
+  correction candidate without
+  changing the T19/T23 authority boundaries. Legacy standard-suite redirect
+  wording/contracts now describe pre-existing local declarations and
+  current source/target output observations, explicitly deny retirement,
+  equivalence and migration authorization, and bind all 17 candidates to T23's
+  0 approvals, `newRedirectAuthorization: none` and blocked gate. The diagram
+  and byte-bound visual receipt now both record zero visual correction rounds.
+  The backlog overlay now distinguishes the present repository entry point from
+  unobserved production installation, active configuration and effect, while
+  retaining the GSC, backlink, Owner, migration and deployment blocks.
+- Round-2 correction verification: `scheme-3-atomic-merge` failed RED against
+  the affirmative legacy assumptions and then passed GREEN. The corrected
+  `scheme-3-release-candidate` and `scheme-3-gates` suites also pass with
+  explicit T23 0 approvals / `newRedirectAuthorization: none` / blocked-gate
+  bindings. The same Auditor's round-3 review confirmed the resulting exact
+  candidate with 0 P0, 0 P1 and 0 P2.
+- Round-3 review boundary: same-auditor `PASS` applies to the exact
+  `VL-PMAP-20260911-06` candidate and closes the local implementation-review
+  gate for T20–T22 only. It does not authorize a T19 calendar import, any T23
+  redirect, release, commit, push, deployment, publication or external Vault
+  write. The `VL-PMAP-20260911-07` status successor is frozen and delivered;
+  its final same-auditor binding and subsequent final serial verification remain
+  pending.
+- Correction browser evidence: CUA observed four localized result titles for
+  the Germany B1, Ausbildung, nursing and university choices, two distinct
+  `other-family` recovery steps, and successful Chinese-guide copy feedback
+  `已复制。`. The blocked copy feedback is covered by the compiled interaction
+  assertion, not by a browser observation. Forced incompatible state, cold-tab
+  restore, Chinese export/print/ICS, real calendar import, non-Chromium and
+  physical-device coverage remain `not_tested`.
+- Automated receipts: the six serial pre-audit M3 commands and all five M2-B
+  focused suites passed, and the working build generated 88 pages. The old
+  direct 57/57 `READY` receipt was rejected by round 1 because it treated the 17
+  unresolved candidates as successful retirements. The corrected focused T23/
+  generated-SEO command passed 8/8 after a genuine 5-pass/3-fail RED. Direct
+  `scripts/launch-check.js` now intentionally exits 1 with 59 PASS / 0 FAIL /
+  1 BLOCKED and ends `BLOCKED.` while `newRedirectAuthorization: none`; local
+  target files are not production HTTP evidence. Round-3 implementation review
+  is `PASS`; the post-PASS `VL-PMAP-20260911-07` freeze and delivery are recorded,
+  while its final same-auditor binding and subsequent full `npm test`, independent
+  build and governance remain pending. No final successor `PASS` or release
+  completion is preclaimed.
+- T19 remains `partial`: local ICS generation/download evidence exists, but a
+  real calendar-client import, device reminder, email or notification delivery
+  is still unauthorized and `blocked/not_tested`.
+
+## 2026-09-13 — M3 closeout and M4 T24–T26 local candidate
+
+- Authorization/baseline: user approved the proposed M3 final checks and T24–T26 local sequence. Continued the existing feature checkout at `4cb57e8744c752fed1881281e69e7b24cc7281c4`; upstream unchanged,0ahead/0behind. Preserved497 beginning-of-window file bytes and unrelated dirty changes in the gzip-validated `.superpowers/sdd/2026-09-13-visalang-m4-t24-t26/baseline.tar.gz`. No commits or release actions.
+- M3 closeout: confirmed existing round-4 Independent Auditor PASS for `VL-PMAP-20260911-07`; fresh full/focused tests,88-page build,governance and diff check passed before M4 edits. launch-check remained59PASS/0FAIL/1T23BLOCKED. This closes earlier stale pending successor wording without editing historic bound reports.
+- T24: scoped general/skilled-worker/Blue-Card settlement and naturalisation branches plus unknown route; five guides and hub separate language,knowledge,wider conditions and local authority actions. Added13versioned claims and fail-closed source/freshness bindings. Same task Auditor resolved twoP2 source/contract findings and returned PASS.
+- T25: two exact independently sourced adult B1 products extend the shared English/Chinese comparator; original A1 facts remain unchanged. All31directory entries retained,now4supported/27reference. Comparison and booking guides include original selection/quote/decision worksheets and bounded reader scenarios. The same Auditor closed twoP2 malformed-record/recovery issues and returned corrected task PASS. Legacy incomplete guide depth was caught by full content contracts and restored without weakening content gates.
+- T26: retained study pillar adds original diagnosis/retest and weekly records plus complete writing/speaking revision/transfer/self-check exercises. Separate integrated AI editorial language review PASS; no official score or qualified-human examiner claim. Actual narrow keyboard scrolling and browser print checks passed;6/4worksheet columns and German examples were visually inspected in the printed output.
+- Integration: B1 canonical word counts and source-review-render date fixtures now match verified current content; A1 dates/facts preserved. Full pre-freeze regression passed all functional tests and stopped at the old planning-sync byte binding, as expected before replacing that receipt; it is not recorded as a full-suite PASS. Final build/browser/launch and exact freeze evidence are recorded in `docs/VISALANG_M4_T24_T26_EXECUTION_EVIDENCE_2026-09-13.md`.
+- Planning sync: `VL-PMAP-20260913-02`, `drift: aligned`; status-only derived view records local task review and nextT27, preserving dependency topology and Owner gate. Archify showcase validation9/9,zeroerrors/warnings; atomic delivery,automated both-theme browser evidence and separate image-capable perceptual review recorded. Complete sync bytes and exact changed-path scope require `docs/planning-map/VISALANG_M4_INDEPENDENT_AUDIT_2026-09-13.md` PASS. Implementer never self-approves that final gate.
+- Boundaries: T19 partial/calendar import not_tested; T23 evidence-map-only/blocked; no URL/index/advertising policy change,production observation,migration,commit,push,deployment or external-account action. Required Obsidian root/template are absent; `docs/VISALANG_M4_OBSIDIAN_SYNC_PAYLOAD_2026-09-13.md` is a repository-only review payload,not formal Vault sync. Owner decision pending and deployment not_started.
+
+## 2026-09-20 — T27 closeout review correction
+
+- Preserved branch, HEAD and all historical dirty work. Replacement Auditor reason and baseline: `docs/t27-closeout-evidence-2026-09-20/review-submission.md`.
+- Prior T27 sync `VL-PMAP-20260916-01` lacked its Task Log entry. Independent Auditor initial FAIL identified this P2; this entry corrects that omission, without retroactively asserting PASS.
+- Current sync `VL-PMAP-20260920-01`; drift: aligned. Full T27 candidate plus closeout evidence submitted to the same Auditor at `docs/planning-map/VISALANG_T27_CLOSEOUT_INDEPENDENT_AUDIT_2026-09-20.md`. T27 remains in_progress until formal PASS and post-report gates.
+- Focused test 0, build 0, launch-check 1 (59 PASS / 0 FAIL / 1 T23 BLOCKED), diff check 0. Extra 57 forbidden-envelope cases rejected.
+- Transport none; real measurement data not obtained; T19 calendar import not_tested; T23 migration blocked; no commit/push/deploy/account action. Vault directory/template absent; local review payload retained.
+
+## 2026-09-20 — T28 bounded local technical acceptance
+
+T27 closed only after the same replacement Auditor round-3 PASS and post-report focused/full/build/governance/diff exit 0 (launch 1: existing T23 only). Accepted evidence archived in docs/t28-evidence-2026-09-20/t27-accepted-planning-map and t27-postaudit.
+
+T28 actual coverage and not_tested cases: docs/VISALANG_T28_LOCAL_ACCEPTANCE_2026-09-20.md; scenario matrix and findings under docs/t28-evidence-2026-09-20. Fixed P2 stale result after invalid input in shared tool-form, six bilingual red/green browser cases. Main matrix 50 pass / 2 native-arrow automation failures; supplemental English character keyboard flow passes, Chinese full native-select keyboard flow remains not_tested. No claim that all T28 passed.
+
+Planning sync VL-PMAP-20260920-02; drift: aligned. Final exact-scope Auditor: docs/planning-map/VISALANG_T28_INDEPENDENT_AUDIT_2026-09-20.md. All release gates retained; T19 import not_tested; T23 blocked; Vault sync blocked with local payload. No commit/push/deploy/account action/migration/messages.
+
+## 2026-09-22 — Isolated local Laya purpose-classification experiment
+
+User-authorized local-only experiment under `experiments/laya-purpose/`; production source, content, planning authorities and external systems unchanged. Existing dirty baseline recorded in `evidence/baseline-status.txt`; branch `codex/scheme-3-one-week-content`, HEAD `4cb57e8744c752fed1881281e69e7b24cc7281c4`, upstream ahead/behind 0/0. No commit, push, deployment, external data submission or real business action.
+
+MCP verified with 3 synthetic Chinese probes. Standalone Node CLI reuses one offline Python/Laya instance; 28 artificial Chinese smoke cases returned 17 correct, with high-confidence failures. Retain manual purpose selection; no production integration recommended. Full per-case evidence, runtime timings and limitations in experiment README and evidence/results.json. npm test, planning-map governance, experiment verification, interactive recovery checks and git diff --check exited 0. Build/launch-check not run: no site-facing changes.
+
+This development-only experiment does not trigger content/planning-map or Obsidian synchronization under docs/planning-map/README.md; existing planning receipt stays unchanged. Independent review submitted to the separate VisaLang Independent Auditor; authoritative outcome is experiments/laya-purpose/AUDIT.md. Review is separate from Owner authorization; deployment not_started.
+
+
+## 2026-09-22 — Laya purpose v2 isolated comparison
+
+- Scope: new `experiments/laya-purpose-v2/` only, plus this appended entry; preserve existing dirty work and every v1/src/public byte. Local offline experiment, no commit/push/deployment or production integration.
+- Frozen 28 seen development + 48 new synthetic cases with annotation rules and SHA-256; not an independent blind test. A original / B semantic labels / C gate then B / D newly built rules; single loaded model across the entire evaluation. No outcome-driven tuning or fine-tuning.
+- Actual accuracy: development A17 B19 C17 D27 /28; frozen A29 B29 C30 D44 /48. Preserve manual purpose selection. B trades family recall for forced ambiguity; C adds rejection errors/cost; D remains wording-sensitive and synthetic-data-biased.
+- Evidence: `experiments/laya-purpose-v2/evidence/results.json`, `summary.json`, `results.md`, `runtime-checks.json`. Freeze integrity, recomputed metrics, repeat-input reuse, malformed/empty/type/length/token recovery, missing runtime/cache tests pass.
+- Repository npm test and planning governance were run and fail on a pre-existing Task Log byte-binding mismatch, demonstrated before this append (baseline current file 997604ab..., stored receipt d9fbc94e...). All preceding npm site suites passed. Final governance recheck and exact statuses are in `evidence/verification.json`; do not claim whole-repository green. Build/launch-check not run: no route/navigation/metadata/deployment changes.
+- Planning map/Archify and Obsidian sync not applicable to isolated experiment; no content/authority/watch-root edits. Do not modify those authorities to manufacture a passing gate. Repository-wide governance handoff remains blocked separately.
+- Separate read-only VisaLang Independent Auditor submission: `experiments/laya-purpose-v2/evidence/audit-submission.json`; the Auditor alone records the verdict in `experiments/laya-purpose-v2/AUDIT.md` and `audit-verdict.json`. No self-approval. Scope review is distinct from repository-wide governance status and Owner deployment authorization.
+
+
+## 2026-09-22 — Laya purpose suggestions integrated for local source review
+
+Owner requested formal-flow integration and chose an independent Python server/container. Implemented optional bilingual Route Finder description → suggestion → explicit confirmation; existing deterministic route rules and manual selections remain authoritative. Added offline resident service, request/response limits, non-persistent processing, deployment snippets and contract/browser regression coverage. Updated privacy disclosure without new immigration/exam facts.
+
+Actual verification: six Python tests, Node contracts, ten browser interaction cases plus viewport checks, and real-model HTTP/browser smoke passed. Build passed; launch-check 59 pass / 0 fail / 1 existing T23 block. Full-suite pre-audit run reached stale planning governance; final rerun follows refreshed sync and the separate independent report. Evidence: `docs/laya-integration-evidence-2026-09-22/acceptance.md`. Initial concurrent build attempt raced on Astro cache; rerun sequentially. Docker daemon unavailable and Nginx executable absent, so image/production validation is not claimed.
+
+Planning sync: VL-PMAP-20260922-01, drift: approved-deviation, based on the locatable Owner instruction in `docs/superpowers/plans/2026-09-22-laya-purpose-integration.md`. Exact independent review authority: `docs/planning-map/VISALANG_LAYA_INDEPENDENT_AUDIT_2026-09-22.md`; this Task Log does not self-approve. T19 partial/T23 blocked/T28 in_progress/T29 pending preserved. Vault path/template unavailable; review/pending/not_started payload prepared under evidence. No commit, push, deployment, account change or publication performed.
+
+
+## 2026-09-22 本地联合发布候选
+
+Owner authorized local code/document implementation and preservation of original URLs. Exact plan: `docs/superpowers/plans/2026-09-22-production-candidate.md`. Baseline, 17 retained source/route decisions, model results, browser/keyboard verification and deployment-tool tests: `docs/release-candidate-evidence-2026-09-22/acceptance.md`. T23 local source/config inconsistency repaired; production HTTP remains inconclusive. T28/T29/T30 partial, T31–T34 pending. Real model matches 11/20; Mac RSS 4.14 GB is a capacity warning, not a Linux result. Calendar import and configured Vault sync remain blocked.
+
+Planning sync `VL-PMAP-20260922-02`, `approved-deviation` under the cited Owner scope; classified candidate paths and byte evidence live in sync.json. Independent verdict authority: `docs/planning-map/VISALANG_PRODUCTION_CANDIDATE_INDEPENDENT_AUDIT_2026-09-22.md`. Final full-suite/governance commands follow the immutable audit record; no verdict is self-issued here. Website + Laya + ads remain a joint release condition. No purchase, commit, push, server/DNS/account change or deployment performed.
+
+Current-window drift: approved-deviation.
+
+## 2026-09-23 — Laya-aware whole-site and content planning
+
+Owner requested a written next-stage plan and a whole-site/content-plan update after Laya. Added the two September 23 supplements in `docs/superpowers/plans/`: current capability analysis, LP01–LP08, LC01–LC12, pending model/host targets and a conditional 12-week sequence. Preserved original T01–T34 implementation and release states. Corrected planning authority entry points, the 38=24+14 non-pillar decomposition and M4 evidence links to their actual September 13 files. No product/guide/model/route/index/ad/deployment change was made.
+
+Fresh build/launch-check passes 57/57 locally. Archify showcase/delivery and the final automated desktop check pass; four exact light/dark screenshots received separate image-capable inspection. The initial sandbox Chrome startup failure is retained; approved retry of the same command succeeded. Full-suite preaudit evidence, baseline hashes, previous planning bytes, manifest and delta are in `docs/laya-planning-evidence-2026-09-23/`; final governance/full-suite commands follow the independent report.
+
+Sync: `VL-PMAP-20260923-01`; drift: approved-deviation for Owner-requested planning only. Independent verdict authority: `docs/planning-map/VISALANG_LAYA_PLANNING_INDEPENDENT_AUDIT_2026-09-23.md`. The implementation agent does not self-issue PASS. Required Vault root/template absent; unsynced review payload remains review / needs_human_review true / owner_decision pending / deployment_status not_started. No purchase, commit, push, external account action or deployment occurred.
+
+## 2026-09-23 — 用户价值优先的建站规划修订
+
+- Owner授权实施所贴规划：读者验证前置；取消强制网站/Laya/广告联合发布的规划约束；实际发布分别验收并授权。
+- 更新总规划、内容规划及当前权威入口；LP00新增，LP05a/b与LP06-core/laya/ads拆分；LC02/03移出核心前置，B1深化改为独立需求触发。T状态仍25完成/5进行中/4待开始，LP/LC仍待实施。
+- 当前联合部署代码保持原样；独立核心构建、验收、部署和回滚尚待实施。没有招募、用户测试、模型改进或生产执行。
+- 规划图更新主线与三个分支，共用审核/Owner门禁。sync `VL-PMAP-20260923-02`，drift `approved-deviation`；独立结论仅以 `docs/planning-map/VISALANG_USER_VALUE_PLANNING_INDEPENDENT_AUDIT_2026-09-23.md` 为准。
+- 证据目录 `docs/user-value-planning-evidence-2026-09-23/`。Vault指定目录与模板缺失，保留待同步review payload；owner_decision pending / deployment_status not_started。未提交、推送或部署。
+
+## 2026-09-23 — A1与Laya初步验证并行（sync 03）
+
+- Owner接受提前验证建议后要求“好的，那就修改规划”。本轮只修改规划、图与记录，不运行模型实验或招募读者。
+- LP00与LP01a并行，LP01a不等真人招募/手选失败；LP01b汇总双轨证据再决定扩大投入，完整质量/容量门槛保留。LC02/03区分初验最小材料与完整启用资产；核心不等待Laya。
+- T状态25完成/5进行中/4待开始及LP/LC pending不变；部署仍待解耦，广告/B1依赖未扩大。
+- sync `VL-PMAP-20260923-03`，drift approved-deviation；证据 `docs/laya-parallel-planning-evidence-2026-09-23/`，独立结论以 `docs/planning-map/VISALANG_LAYA_PARALLEL_PLANNING_INDEPENDENT_AUDIT_2026-09-23.md` 为准。
+- Obsidian指定目录/模板缺失，保留待同步review payload；未提交、推送或部署。
+
+## 2026-09-23 — Module-window prompt pack
+
+Owner requested reusable prompts for separate module windows. Added 17 functional prompts, W00 integration and W18 independent-auditor prompts, shared isolation/handoff contract and dispatch index. Current dirty work is preserved; product/src/public/service/deploy/test implementation remains untouched. Current/next module work is prepared only, not executed; original T25/5/4 and pending LP/LC state remain unchanged.
+
+Sync `VL-PMAP-20260923-04`, drift: aligned; status-only map update preserves topology. Exact scope, frozen baseline, Archify/visual/scenario evidence and unsynced Vault payload are in `docs/module-prompts-evidence-2026-09-23/`. New Auditor authority is `docs/planning-map/VISALANG_MODULE_PROMPTS_INDEPENDENT_AUDIT_2026-09-23.md`; no self-approval. Final npm test runs after that report exists. No launch-check required for prompt/document-only changes without altered application bytes. No commit, push, deployment, account action, purchase or model/reader experiment. Configured Vault root/template are absent, so synchronization remains blocked.
+
+## 2026-09-23 — W00 第一批隔离分配准备
+
+- Batch `2026-09-23-01`；1,115文件当前dirty基线与W01/W02/W08独立副本校验，逐文件字节、Git staged/dirty/untracked/index与省略项见 `docs/module-handoffs/2026-09-23-01/`。三个窗口尚未派发，handoff和集成均0；LP/LC与25/5/4不变。
+- 独立Node依赖、Python环境及W02离线权重副本已准备；只验证metadata/字节，未运行模型或真人研究。功能窗口启动时复核基线与端口，按dispatch的逐路径范围工作。
+- 规划图为状态更新，sync `VL-PMAP-20260923-05`，drift `aligned`。独立审核权威：`docs/planning-map/VISALANG_W00_DISPATCH_INDEPENDENT_AUDIT_2026-09-23.md`；本行不预先声明其结论。图与视觉证据、候选manifest、基线npm-test实际exit 0见批次目录。新报告存在后再跑最终规划治理与完整npm test，结果保存在批次指定的外部post-audit证据路径，不改已审核字节。
+- 页面/导航/元数据/部署实现无变更，launch-check未新增运行；最终npm test仍必跑。Vault目录与模板缺失，payload待同步、owner pending、deployment not_started；无提交、推送、部署或外部动作。
+
+
+## 2026-09-24 — TypeSafe AI project standards and integration proposal
+
+- Owner requested applying TypeSafe and explicitly selected project-level standards and an integration proposal. Added the AGENTS skill entry, README index and `docs/superpowers/plans/2026-09-24-typesafe-project-adoption.md`.
+- Recommended an isolated purpose-suggestion comparison while preserving manual choice, user confirmation and deterministic authority/coverage rules. TypeSafe remains unimplemented and unmeasured. No SDK install, inference, key access, runtime change, account action, commit, push or deployment.
+- Existing dirty baseline is recorded in `docs/typesafe-adoption-evidence-2026-09-24/baseline.json`; unrelated bytes preserved. T/LP/LC status, W00 allocations and graph topology unchanged.
+- Baseline npm test passed. Archify showcase/deliver passed 9/9, browser retry passed after sandbox Chrome SIGABRT; four exact light/dark PNGs received image-capable review. Candidate preaudit and final gate results are recorded separately; this entry does not pre-approve them. Standalone build/launch-check not_run: documentation/planning-only scope, no routes/runtime/deployment changes. Builds invoked by the full test suite are captured in its output.
+- Planning sync `VL-PMAP-20260924-01`, drift: aligned. Review authority: `docs/planning-map/VISALANG_TYPESAFE_ADOPTION_INDEPENDENT_AUDIT_2026-09-24.md`; only the separate Auditor records the verdict. Obsidian target/template missing; local pending payload retained, actual sync blocked. Release remains not_deployed.
+
+
+## 2026-09-24 — Owner-authorized TypeSafe local enablement
+
+- Owner explicitly authorized enabling the TypeSafe API after the standards/proposal window. The purpose suggestion service now defaults to a bounded server-side TypeSafe Choice adapter; it preserves `unclear`, validates typed output, maps only the existing fixed categories, fails closed, and always requires explicit user confirmation. Legacy Laya release manifests remain supported.
+- English/Chinese suggestion copy and the privacy policy identify TypeSafe AI, Inc., U.S. processing, and the provider's published retention language before text is sent. Manual selection and deterministic route resolution remain available. The local API key is only in ignored `.env.local` with mode 600; the credential is absent from tracked files and build bundles. The key appeared in chat; rotation is recommended.
+- One authorized synthetic API request succeeded: fixed purpose `university`, `requiresConfirmation: true`, 568 input tokens. This is a connectivity check only; accuracy, calibration, user benefit, cost, and production capacity were not evaluated. No deployment or account-side settings were changed.
+- Python service tests: 18 passed; release/rollback tests: 14 passed; Node purpose-contract/privacy checks passed; `npm run launch-check`: 57 passed / 0 failed / 0 blocked. The initial full `npm test` reached only the expected planning-sync gate while this window's final sync and independent review were pending; the embedded 105-page build and preceding suites passed. Final full-suite verification follows the required same-Auditor PASS and will be appended to the Auditor-owned post-verification section.
+- Round 1 of independent review found three P2s: provider total deadline/cancellation, separate TypeSafe token budget, and previous-release startup preflight; all three are fixed with focused regressions. The same Auditor's round 2 review found one additional P2: Laya's synchronous worker continued after app timeout while the inference lock was released. Timeout and request-cancellation paths now retain the single-inference slot until that worker exits, covered by two no-network concurrency tests. Round 3 passed its code review; the required governance run then exposed this Task Log's missing exact audit report reference and drift value. Both are recorded here, and the current verdict remains tied to the exact sync bytes named by the Auditor's report at `docs/planning-map/VISALANG_TYPESAFE_ENABLEMENT_INDEPENDENT_AUDIT_2026-09-24.md`. Planning sync `VL-PMAP-20260924-05` records `approved-deviation` for the same local-only scope. Workflow topology is unchanged; production remains `not_deployed`. Exact scope, browser/perceptual evidence, candidate bindings and the Auditor report are in `docs/typesafe-enable-evidence-2026-09-24/` and `docs/planning-map/`.
+- The configured Obsidian update directory and template are absent; `vault-review.md` remains `status: review`, human review required, owner decision pending, deployment not_started. No commit, push, production activation or Vault write occurred.
+
+
+## 2026-09-24 — 全站扫描与内容/UI下一阶段规划
+
+- 范围：进度分母、61指南逐页政策盘点、低价值整改判断、历史规划对比、7步本地UI截图、内容/UI实施增补及7份Codex提示词；校正旧COMMON/W08执行现状，不启动产品功能实施。
+- 结果：原34任务25完成/5进行中/4待开始（73.5%是任务数比例），M5未部署；20支柱+41支持/参考页，不能宣称低价值全清。新推荐批次W00重新冻结后W03/W04/W08，研究准备可并行。
+- 验证：基线launch-check 57/0/0；首次npm test与build并发出现dist竞争，已留日志并串行重跑通过；实际手选Finder及Checklist状态恢复成功，390清单结果标题遮挡列入后续整改。没有AI文本发送、账户/真人/生产验证。
+- 同步：VL-PMAP-20260924-06；drift: aligned。独立审核路径：docs/planning-map/VISALANG_PROJECT_SCAN_INDEPENDENT_AUDIT_2026-09-24.md。完整结论以该Auditor报告绑定的sync字节为准，最终检查随后另存审后日志；本条不自评PASS。
+- 边界：仅本地规划/证据；无commit/push/deploy；原T/LP/LC状态保持。Vault目录和模板缺失，docs/project-scan-evidence-2026-09-24/vault-review.md待同步，status review、needs_human_review true、owner_decision pending、deployment_status not_started，实际同步blocked。
+
+
+## 2026-09-24 — P00 W00重新冻结与分配（2026-09-24-01）
+
+Owner只发送P00，授权当前工作树的本地基线与分配准备。基线 `codex/scheme-3-one-week-content @ 4cb57e8744c752fed1881281e69e7b24cc7281c4`；本地upstream ahead/behind=0/0，暂存0/dirty129/untracked条目901/删除0。冻结1,313文件、59,896,160字节，baselineId `cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40`；源基线与W03/P01、W04/P02、W08/P03副本逐文件SHA-256全部一致；排除和必要ignored输入逐项登记在 `docs/module-handoffs/2026-09-24-01/`。旧batch及既有dirty成果保留；不读.env.local、不调用API。
+
+新dispatch只表示prepared_awaiting_owner_dispatch / not_started；派送=0、handoff=0、集成=0。P04留W07/W15、P05留W17；W01研究准备可另分配，W02维持Laya离线边界，TypeSafe评测另定数据/预算。global.css和GuideLayout重叠修改必须以基准哈希与最小补丁交接，由W00逐段合并。三份独立Node依赖及W08 stdlib venv已准备；无.git，prepare身份检查留到主树真实集成。
+
+TypeSafe历史本地启用和一次synthetic smoke不变；release.py现仅支持laya/typesafe且强制广告，core-only未实施/验收。原T=25/5/4及LP/LC状态不变。无新政策事实/checkedAt改动，无src/public或部署行为修改，无commit/push/deploy/真实回滚/付费API/真人联系。真人、日历、主机与生产证据门槛保留。
+
+sync `VL-PMAP-20260924-07`，drift aligned；独审权威 `docs/planning-map/VISALANG_P00_REBASELINE_INDEPENDENT_AUDIT_2026-09-24.md`。独审前仅governance到新报告门禁；独审后串行npm test与governance的实际输出存 `/private/tmp/visalang-p00-2026-09-24-01-postaudit/`，报告与日志分别控制其真实结论。本条不预先赋予PASS。Vault指定路径和模板本次仍不存在； `docs/module-handoffs/2026-09-24-01/vault-review.md` 为待同步payload，实际blocked、review/pending/not_started。
+
+
+## 2026-09-28 — 进度核对与已有候选接续规划
+
+用户要求“审查这个项目……内容已经走到哪一步……根据这个规划继续往下走，写出下一个阶段的规划内容及提示词”。本轮授权范围为审查和规划交付，不是应用功能补丁或生产操作。
+
+最新观察：dispatch指向的W03/W04/W08/W07隔离工作区实际都有handoff。W03/W04 ready_for_integration，W08/W07 partial；139条交接文件（含证据）候选hash全部一致，43个不同非模块证据路径在主树仍为原基准或新增未存在。9/24/25分配记录保留历史；它们未接收handoff不等于隔离成果不存在。证据与限制见 `docs/PROJECT_REVIEW_2026-09-28.md` 和 `docs/next-stage-evidence-2026-09-28/module-inventory.json`。本轮归档关键证据，未集成代码，未对四模块实施质量作整批批准。
+
+下一阶段沿原W00/W15/W16/W18、LC01/04–07/12：接收完整包→串行集成/修复技术证据→41页台账及10/09费用复查队列→最多3项确证内容修正→核心候选独审。新计划 `docs/superpowers/plans/2026-09-28-visalang-integration-content-acceptance.md`；五份提示词 `docs/prompts/2026-09-28-next-stage/`。T=25/5/4和未满足的LP/LC门槛不变；真人、日历、主机/备份/TLS/回滚和生产17URL仍分别取得真实证据。
+
+规划同步 `VL-PMAP-20260928-01`，drift `aligned`，仅更新状态快照，拓扑和依赖不变。独审权威 `docs/planning-map/VISALANG_NEXT_STAGE_INDEPENDENT_AUDIT_2026-09-28.md`；报告结论与Owner发布授权分离。本轮基线npm test退出0；规划图实际命令和感知检查另存证据；最终governance/npm test在Auditor报告后运行，日志保存 `/private/tmp/visalang-next-stage-2026-09-28-postaudit/`，不修改被封印字节。无新增法律/考试/费用断言，无checkedAt刷新，无commit/push/deploy/账户动作/API请求。指定Vault目录/模板不存在，`docs/next-stage-evidence-2026-09-28/vault-review.md`为待同步payload；实际blocked，review/pending/not_started。
+
+## 2026-09-28 — N00 接收已有四模块（独立审查待完成）
+
+- 只接收、验证和归档W03/W04/W08/W07；没有应用功能补丁。完整输入与SHA-256记录见 `docs/module-handoffs/2026-09-28-integration/`。当前分支/HEAD/upstream为`codex/scheme-3-one-week-content` / `4cb57e8744c752fed1881281e69e7b24cc7281c4` / ahead-behind `0/0`；基线记录1,152个dirty/untracked路径，保留原文件内容。
+- 四个workspace均存在。候选清单139/139、主树基准139/139、既有历史回执44/44和404个唯一归档文件的hash均匹配；四个patch只在scratch树通过`patch --dry-run`，未触碰主树。四包可作N01输入：W03/W04原状态`ready_for_integration`，W08/W07原状态`partial`，验收状态未提升。
+- N01顺序为W03→W04→W08→W07。`src/styles/global.css`（W03/W04/W07）和`src/pages/tools/route-finder.astro`（W08/W07）须逐段三方合并。W07 T28因缺Playwright在测试初始化前exit 1；W04目标页截图未归档、打印未实测；W08真实Git身份/生产证据未验证。以上为明确后续项，历史测试不是本轮重跑。
+- T=25/5/4、LP/LC与发布门槛不变；AI、广告、真实API/输入外发、账户/主机/生产、commit/push/deploy均未执行。规划同步与独立审查仍待完成，审查结论以新报告为准。
+- Obsidian路径与模板均缺失；已尝试写入AGENTS指定的精确目录，但目标`/Users/fanlw`不存在，返回`PermissionError`。保留本地payload `docs/module-handoffs/2026-09-28-integration/vault-review.md`，Vault同步状态为blocked。
+
+
+## 2026-10-05 — N00 intake continuation
+
+- Intake batch: `docs/module-handoffs/2026-10-05-integration/`; prior
+  `2026-09-28-integration` retained unchanged. Dirty baseline: 1,405 paths,
+  branch `codex/scheme-3-one-week-content` at
+  `4cb57e8744c752fed1881281e69e7b24cc7281c4`, upstream ahead/behind 0/0.
+- Intake reverified from the complete persistent 9/28 archive because the four
+  original `/private/tmp` handoff and patch files are now absent. 139/139
+  candidate hashes, 139/139 live allocated-base hashes, 44/44 historical
+  receipt hashes, 417/417 archived file hashes, and four scratch-only patch
+  base dry-runs passed. No historical tests were rerun and no product patch was
+  applied. Original states remain W03/W04 `ready_for_integration`, W08/W07
+  `partial`.
+- N01 input files, order, and shared merge paths: see
+  `docs/module-handoffs/2026-10-05-integration/README.md` and
+  `conflict-map.json`. N01 remains behind the independent-review and planning
+  evidence gates. T/LP/LC remain unchanged.
+- Planning sync: `VL-PMAP-20261005-02`, drift: unresolved. Archify showcase
+  validation passed 9/9 and delivery was performed. The local-file browser URL
+  was rejected by policy; automated browser screenshots and perceptual review
+  were not run. This unresolved gate blocks completion and N01 dispatch.
+- `node tests/planning-map-governance.test.mjs` ran before audit and exited 1 at the exact delivered artifact browser-evidence assertion: `browserEvidence` is `blocked` because no current automated browser receipt could be produced. Full output is preserved in `docs/module-handoffs/2026-10-05-integration/governance-preaudit.json`; this is an actual environment/evidence blocker, not a passed test.
+- Independent audit record:
+  `docs/planning-map/VISALANG_N00_INTAKE_INDEPENDENT_AUDIT_2026-10-05.md`.
+  Its result is authoritative; this entry does not self-approve. No commit,
+  push, deployment, external account, API, real-input, AI, or ads action.
+- Vault target/template were absent; local payload
+  `docs/module-handoffs/2026-10-05-integration/vault-review.md` remains
+  `status: review`, `needs_human_review: true`, `owner_decision: pending`,
+  `deployment_status: not_started`; external sync blocked.
+
+## 2026-10-11 — Project roadmap consolidation
+
+- Consolidated the current execution sequence and long-term product roadmap in
+  `docs/superpowers/plans/2026-10-11-visalang-project-roadmap.md`. The plan
+  preserves Master Package → original backlog → status overlay → execution
+  record authority; it does not modify product code or guide claims.
+- Updated the Archify map's status snapshot without changing its 12-node / 11-edge
+  topology. Intake remains archived but not integrated; W03/W04 remain
+  `ready_for_integration`, W08/W07 remain `partial`; N01 stays behind N00.
+- Archify showcase validation: 9 checks, 0 errors, 0 warnings. Atomic delivery
+  completed. The required Archify `visual-check` was run twice; both attempts
+  exited 1 because Chrome DevTools closed with `SIGABRT`, producing no
+  screenshots. No alternate browser/CLI/CDP route was used. Perceptual review
+  remains blocked.
+- Planning sync: `VL-PMAP-20261011-01`, drift: unresolved. The exact current
+  candidate scope and full sync receipt are in
+  `docs/planning-map/sync.json`; the independent review path is
+  `docs/planning-map/VISALANG_PROJECT_PLAN_INDEPENDENT_AUDIT_2026-10-11.md`.
+- Current Obsidian target and template remain unavailable. Local review payload:
+  `docs/VISALANG_UPDATE_RECORD_REVIEW_2026-10-11.md` with status `review`,
+  human review required, Owner decision pending, and deployment not started;
+  this is not an external Vault write.
+- `node tests/planning-map-governance.test.mjs` exited 1 at the assertion that
+  the exact delivered artifact has passing automated browser evidence; current
+  receipt records Chrome `SIGABRT` and no screenshots. Exact command output is
+  preserved in `docs/planning-map/governance-preaudit.log`. This is a failed
+  governance gate, not a pass. The separate VisaLang Independent Auditor
+  returned `BLOCKED`. Its initial report identified browser screenshots and
+  perceptual review, Vault write/read-back, and the initial-window baseline.
+  The original full `git status --short --branch` output was recovered without
+  truncation from the Codex session record and saved at
+  `docs/planning-map/initial-worktree-status-2026-10-11.txt`; six pre-edit map
+  artifacts are preserved with hashes under
+  `docs/planning-map/baseline-2026-10-11/`. The same Auditor reviewed the
+  refreshed 20-path scope and accepted these records, closing the initial
+  baseline finding. Browser and Vault gates remain open, so the review remains
+  `BLOCKED`. After adding the baseline evidence, the governance test was rerun:
+  path/hash checks passed and it again failed only at line 350 on the missing
+  automated browser pass. Current scope remains unresolved. No commit, push,
+  deployment, external account action, or release authorization occurred.
+
+## 2026-10-11 — N00-G 治理结项提示词
+
+- 根据当前路线图，当前下一项是解除 N00 治理阻塞，而不是启动 N01。新增 `docs/prompts/2026-10-11-next-stage/N00-governance-closeout.md` 作为执行提示词，并在同目录 README 与项目路线图中加入入口；N01 仍受 N00 全部门槛约束。
+- 提示词要求先核验浏览器环境是否实际恢复、Vault 指定目录与模板是否可用；在环境未改变时不重试 Chrome `SIGABRT`，不使用替代浏览器路径；缺少 Vault 模板时不伪造同步结果。
+- Archify showcase validation：9/9 checks、0 errors、0 warnings；原子 delivery 成功。当前 HTML SHA-256 为 `e7d165d864c1d68980db0ef62f6751faa6fd9f8dd54da594c5b351af512261e3`。
+- 因前两次在相同环境运行均以 Chrome `SIGABRT` 失败，且没有新的受支持浏览器环境，本窗口未对新 HTML 再试 `visual-check`；当前 HTML 没有对应的浏览器截图或图像感知 PASS。
+- 本窗口 planning sync 使用 `VL-PMAP-20261011-02`，drift 保持 `unresolved`。Vault 目录和模板仍缺失，因此未写入外部 Vault；本地 payload 保留 review 状态。治理测试与同一 Auditor 对本窗口确切范围/完整 sync 字节的结果，以最终命令输出和独立审计记录为准。
+- `node tests/planning-map-governance.test.mjs` 对本窗口 22-path scope 复跑，范围、分类、字节绑定、history、watch digest 和静态 delivery 检查通过；在第 350 行缺失当前 HTML 的自动浏览器 PASS 处退出 1。该失败如实保留，不能作为治理通过。
+- 本窗口的同一 Auditor 复审须绑定更新后的完整 `sync.json` 字节；结果以其报告中绑定 `VL-PMAP-20261011-02` 的最终段落为准。在该报告出具前不声明独立 PASS。
+- 不实施 N01、不 commit/push/deploy；Owner 决策仍为 pending。
+
+## 2026-10-11 — N00-G 提示词复审修正与规划同步
+
+- 按最新独立复审发现修正 N01–N04 提示词链接；逐项验证四个目标文件均存在。N00-G 改为预审记录真实结果、冻结 bytes 后由同一 VisaLang Independent Auditor 审查、只有 Auditor PASS 后才要求治理测试退出 0。同步在 `docs/planning-map/README.md` 中修正步骤顺序。
+- 下一步仍是 N00-G 治理结项，不启动 N01。N01 后续顺序仍为 W03 → W04 → W08 → W07。
+- 本轮 Archify showcase validation 退出 0：9/9 checks、0 errors、0 warnings。Atomic delivery 退出 0；source SHA-256 `566fd5ccb8656664c3eedf872bfab2d248dfa4065552afbfd277d296e414e3a8`，HTML SHA-256 `481d1e69270d421421478d43c93f6987743009324b9ae4563e65121b233ba3ce`（725100 bytes）。
+- 前两次同一受支持 Chrome 环境的 `visual-check` 均以 `SIGABRT` 结束且没有截图，本窗口无可验证环境变化，因此不重试。当前交付 HTML 没有 artifact-bound browser receipt、截图或独立图像感知 PASS，相关门槛保持 blocked。
+- 指定 Vault 目标与模板仍不可用。本地 `docs/VISALANG_UPDATE_RECORD_REVIEW_2026-10-11.md` 是 review payload，不是 Vault 写入；Owner 决策 pending、deployment not_started。
+- 本轮 planning sync 为 `VL-PMAP-20261011-03`，drift `unresolved`。治理预审和同一 Auditor 对完整 sync receipt 的复审结果以本轮最新实际命令输出及独立报告为准；不因静态 Archify 验证通过而宣称 N00 完成。
+- `node tests/planning-map-governance.test.mjs` 预审退出码 1，失败于 `tests/planning-map-governance.test.mjs:350`：当前 artifact 的 `browserEvidence` 实际为 `blocked`，测试期望 `passed`。完整原始输出见 `docs/planning-map/governance-preaudit.log`；此前范围、分类、字节绑定、history、digest 和静态交付断言均通过。该失败不是 PASS。
+- 无产品代码、指南事实或发布状态变更；未 commit、push、deploy、联系外部人员、调用付费 API 或修改外部账户。

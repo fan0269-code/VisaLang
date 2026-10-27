@@ -1,0 +1,58 @@
+{
+  "baselineId": "6575f350de1af90c9d439d99573ff3b16c50c17b2de2d234e0a08bd430a232c8",
+  "checkedAt": "2026-09-23T04:29:15+00:00",
+  "fileCount": 1115,
+  "totalBytes": 47654358,
+  "sourceVerified": true,
+  "deletedPaths": [],
+  "omissions": [
+    {
+      "path": ".external/awesome-design-md/",
+      "reason": "optional nested external Git repository, not required by W01/W02/W08; directory entry only in git inventory; not traversed"
+    },
+    {
+      "path": ".external/speech-to-speech/",
+      "reason": "optional nested external Git repository, not required by W01/W02/W08; directory entry only in git inventory; not traversed"
+    }
+  ],
+  "copies": [
+    {
+      "moduleId": "W01",
+      "workspacePath": "/private/tmp/visalang-W00-2026-09-23-01/W01",
+      "matchedFiles": 1115,
+      "mismatches": [],
+      "gitDirectoryPresent": false
+    },
+    {
+      "moduleId": "W02",
+      "workspacePath": "/private/tmp/visalang-W00-2026-09-23-01/W02",
+      "matchedFiles": 1115,
+      "mismatches": [],
+      "gitDirectoryPresent": false
+    },
+    {
+      "moduleId": "W08",
+      "workspacePath": "/private/tmp/visalang-W00-2026-09-23-01/W08",
+      "matchedFiles": 1115,
+      "mismatches": [],
+      "gitDirectoryPresent": false
+    }
+  ],
+  "supplementaryInputs": [
+    "experiments/laya-purpose-v2/evidence/evaluate.stderr.log",
+    "experiments/laya-purpose-v2/evidence/npm-test.log",
+    "experiments/laya-purpose-v2/evidence/planning-governance-final.log",
+    "experiments/laya-purpose-v2/evidence/planning-governance.log",
+    "experiments/laya-purpose-v2/evidence/runtime-check.log",
+    "experiments/laya-purpose-v2/evidence/startup-failure-incomplete-cache.log",
+    "experiments/laya-purpose-v2/evidence/verify.log",
+    "experiments/laya-purpose/evidence/diff-check.log",
+    "experiments/laya-purpose/evidence/evaluation.log",
+    "experiments/laya-purpose/evidence/interactive-runtime.log",
+    "experiments/laya-purpose/evidence/interactive.log",
+    "experiments/laya-purpose/evidence/npm-test.log",
+    "experiments/laya-purpose/evidence/planning-governance.log",
+    "experiments/laya-purpose/evidence/runtime.log",
+    "experiments/laya-purpose/evidence/verification.log"
+  ]
+}

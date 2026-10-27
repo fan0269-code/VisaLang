@@ -1,5 +1,7 @@
 # VisaLang 内容更新计划（FAN-24）
 
+> **superseded（2026-09-01）：** 本文仅保留为点时证据，不再授权内容生产。当前唯一执行权威为 `docs/VISALANG_ONE_WEEK_SCHEME_3_CONTENT_PLAN_2026-09-01.md`。
+
 状态：待 CEO 确认
 制定日期：2026-08-14
 计划周期：确认后 20 个自然日，按最小垂直切片执行

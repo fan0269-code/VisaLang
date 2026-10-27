@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "status": "blocked",
+  "recordedAt": "2026-10-05T12:35:32+08:00",
+  "reviewedAt": null,
+  "requestedReviewerCapability": "image-capable-agent",
+  "reviewPerformed": false,
+  "artifact": {
+    "path": "docs/planning-map/visalang-overall-build-plan.html",
+    "sha256": "da9dc5811eb9f0a35de2cb8cc7d9ecf123c068cae3fe737627ee558772d2f177",
+    "bytes": 724821
+  },
+  "browserEvidence": {
+    "path": "docs/module-handoffs/2026-10-05-integration/browser-policy-block.json",
+    "sha256": "a0ff76a33815f0192fd989c5f48f251afe131d08f821bd3798dd69389f314a37",
+    "kind": "policy-block-record; not automated-browser evidence"
+  },
+  "screenshots": [],
+  "findings": [
+    {
+      "severity": "P1",
+      "finding": "The final delivered HTML has no screenshots available for perceptual review. The browser policy rejected this local file path before this final artifact was delivered and prohibits retry through alternate browser or CLI routes."
+    }
+  ],
+  "completionImpact": "unresolved; no visual pass is claimed"
+}

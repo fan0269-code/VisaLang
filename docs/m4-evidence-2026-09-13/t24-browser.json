@@ -1,0 +1,340 @@
+[
+  {
+    "name": "hub",
+    "url": "http://127.0.0.1:4321/germany-b1-settlement-citizenship/",
+    "title": "Germany B1 settlement and citizenship | VisaLang",
+    "width": 375,
+    "headings": 1,
+    "scrollWidth": 375,
+    "bodyWidth": 375,
+    "overflowing": [],
+    "errors": []
+  },
+  {
+    "name": "citizenship navigation",
+    "width": 375,
+    "url": "http://127.0.0.1:4321/guides/germany-b1-settlement-citizenship-checklist/#citizenship-checklist",
+    "anchorExists": 1
+  },
+  {
+    "name": "checklist",
+    "url": "http://127.0.0.1:4321/guides/germany-b1-settlement-citizenship-checklist/",
+    "title": "Germany B1 submission checklist | VisaLang",
+    "width": 375,
+    "headings": 1,
+    "scrollWidth": 375,
+    "bodyWidth": 375,
+    "overflowing": [
+      {
+        "tag": "TABLE",
+        "cl": "",
+        "text": "Evidence laneRecord for the foreigners authorityOpen question and next actionRou"
+      },
+      {
+        "tag": "THEAD",
+        "cl": "",
+        "text": "Evidence laneRecord for the foreigners authorityOpen question and next action"
+      },
+      {
+        "tag": "TR",
+        "cl": "",
+        "text": "Evidence laneRecord for the foreigners authorityOpen question and next action"
+      },
+      {
+        "tag": "TH",
+        "cl": "",
+        "text": "Record for the foreigners authority"
+      },
+      {
+        "tag": "TH",
+        "cl": "",
+        "text": "Open question and next action"
+      },
+      {
+        "tag": "TBODY",
+        "cl": "",
+        "text": "Route and procedureLocal § 9 service URL ___; responsible authority ___; current"
+      },
+      {
+        "tag": "TR",
+        "cl": "",
+        "text": "Route and procedureLocal § 9 service URL ___; responsible authority ___; current"
+      },
+      {
+        "tag": "TD",
+        "cl": "",
+        "text": "Local § 9 service URL ___; responsible authority ___; current form/channel ___."
+      },
+      {
+        "tag": "TD",
+        "cl": "",
+        "text": "Ask the Ausländerbehörde to confirm this route if the title or service is unclea"
+      },
+      {
+        "tag": "TR",
+        "cl": "",
+        "text": "LanguageExact requested language evidence ___; document held ___; format instruc"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "name": "knowledge",
+    "url": "http://127.0.0.1:4321/guides/germany-b1-leben-in-deutschland-and-language-proof/",
+    "title": "B1 and Leben in Deutschland explained | VisaLang",
+    "width": 375,
+    "headings": 1,
+    "scrollWidth": 375,
+    "bodyWidth": 375,
+    "overflowing": [
+      {
+        "tag": "TABLE",
+        "cl": "",
+        "text": "Document or result in your handsWhat to recordWhat still needs an answerDTZ resu"
+      },
+      {
+        "tag": "THEAD",
+        "cl": "",
+        "text": "Document or result in your handsWhat to recordWhat still needs an answer"
+      },
+      {
+        "tag": "TR",
+        "cl": "",
+        "text": "Document or result in your handsWhat to recordWhat still needs an answer"
+      },
+      {
+        "tag": "TH",
+        "cl": "",
+        "text": "What to record"
+      },
+      {
+        "tag": "TH",
+        "cl": "",
+        "text": "What still needs an answer"
+      },
+      {
+        "tag": "TBODY",
+        "cl": "",
+        "text": "DTZ resultExact test name and the level actually reported, not the highest level"
+      },
+      {
+        "tag": "TR",
+        "cl": "",
+        "text": "DTZ resultExact test name and the level actually reported, not the highest level"
+      },
+      {
+        "tag": "TD",
+        "cl": "",
+        "text": "Exact test name and the level actually reported, not the highest level the test "
+      },
+      {
+        "tag": "TD",
+        "cl": "",
+        "text": "Which language proof does the authority accept for your route?"
+      },
+      {
+        "tag": "TR",
+        "cl": "",
+        "text": "Leben in Deutschland resultExact result wording and issuing body; keep it in the"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "name": "timeline",
+    "url": "http://127.0.0.1:4321/guides/germany-b1-settlement-citizenship-timeline/",
+    "title": "Germany B1 settlement and citizenship timeline | VisaLang",
+    "width": 375,
+    "headings": 1,
+    "scrollWidth": 375,
+    "bodyWidth": 375,
+    "overflowing": [
+      {
+        "tag": "TABLE",
+        "cl": "",
+        "text": "Settlement evidence trackDate or condition to enterOwner and dependencyConfirm t"
+      },
+      {
+        "tag": "THEAD",
+        "cl": "",
+        "text": "Settlement evidence trackDate or condition to enterOwner and dependency"
+      },
+      {
+        "tag": "TR",
+        "cl": "",
+        "text": "Settlement evidence trackDate or condition to enterOwner and dependency"
+      },
+      {
+        "tag": "TH",
+        "cl": "",
+        "text": "Date or condition to enter"
+      },
+      {
+        "tag": "TH",
+        "cl": "",
+        "text": "Owner and dependency"
+      },
+      {
+        "tag": "TBODY",
+        "cl": "",
+        "text": "Confirm the settlement provision§ 9, § 18c(1), § 18c(2), or another authority-na"
+      },
+      {
+        "tag": "TR",
+        "cl": "",
+        "text": "Confirm the settlement provision§ 9, § 18c(1), § 18c(2), or another authority-na"
+      },
+      {
+        "tag": "TD",
+        "cl": "",
+        "text": "§ 9, § 18c(1), § 18c(2), or another authority-named provision ___; reply date __"
+      },
+      {
+        "tag": "TD",
+        "cl": "",
+        "text": "Foreigners authority. An unknown route blocks selection of a language branch."
+      },
+      {
+        "tag": "TR",
+        "cl": "",
+        "text": "Resolve language and knowledge separatelyLanguage instruction ___; knowledge ins"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "name": "study",
+    "url": "http://127.0.0.1:4321/guides/goethe-b1-study-plan/",
+    "title": "Goethe B1 study plan for working adults | VisaLang",
+    "width": 375,
+    "headings": 1,
+    "scrollWidth": 375,
+    "bodyWidth": 375,
+    "overflowing": [
+      {
+        "tag": "TABLE",
+        "cl": "",
+        "text": "Module and exact task sourceWhat happenedLikely causeOne repair actionRetest tas"
+      },
+      {
+        "tag": "THEAD",
+        "cl": "",
+        "text": "Module and exact task sourceWhat happenedLikely causeOne repair actionRetest tas"
+      },
+      {
+        "tag": "TR",
+        "cl": "",
+        "text": "Module and exact task sourceWhat happenedLikely causeOne repair actionRetest tas"
+      },
+      {
+        "tag": "TH",
+        "cl": "",
+        "text": "One repair action"
+      },
+      {
+        "tag": "TH",
+        "cl": "",
+        "text": "Retest task/date"
+      },
+      {
+        "tag": "TH",
+        "cl": "",
+        "text": "What changed?"
+      },
+      {
+        "tag": "TBODY",
+        "cl": "",
+        "text": "Listening: my selected official sample, item ___I chose the first time mentioned"
+      },
+      {
+        "tag": "TR",
+        "cl": "",
+        "text": "Listening: my selected official sample, item ___I chose the first time mentioned"
+      },
+      {
+        "tag": "TD",
+        "cl": "",
+        "text": "Listen again, mark both times and the correction phrase; compare the transcript "
+      },
+      {
+        "tag": "TD",
+        "cl": "",
+        "text": "Different official item, date ___"
+      }
+    ],
+    "errors": []
+  },
+  {
+    "name": "worksheet keyboard scroll",
+    "width": 375,
+    "focused": true,
+    "scrollLeft": 0
+  },
+  {
+    "name": "hub",
+    "url": "http://127.0.0.1:4321/germany-b1-settlement-citizenship/",
+    "title": "Germany B1 settlement and citizenship | VisaLang",
+    "width": 1440,
+    "headings": 1,
+    "scrollWidth": 1440,
+    "bodyWidth": 1440,
+    "overflowing": [],
+    "errors": []
+  },
+  {
+    "name": "citizenship navigation",
+    "width": 1440,
+    "url": "http://127.0.0.1:4321/guides/germany-b1-settlement-citizenship-checklist/#citizenship-checklist",
+    "anchorExists": 1
+  },
+  {
+    "name": "checklist",
+    "url": "http://127.0.0.1:4321/guides/germany-b1-settlement-citizenship-checklist/",
+    "title": "Germany B1 submission checklist | VisaLang",
+    "width": 1440,
+    "headings": 1,
+    "scrollWidth": 1440,
+    "bodyWidth": 1440,
+    "overflowing": [],
+    "errors": []
+  },
+  {
+    "name": "knowledge",
+    "url": "http://127.0.0.1:4321/guides/germany-b1-leben-in-deutschland-and-language-proof/",
+    "title": "B1 and Leben in Deutschland explained | VisaLang",
+    "width": 1440,
+    "headings": 1,
+    "scrollWidth": 1440,
+    "bodyWidth": 1440,
+    "overflowing": [],
+    "errors": []
+  },
+  {
+    "name": "timeline",
+    "url": "http://127.0.0.1:4321/guides/germany-b1-settlement-citizenship-timeline/",
+    "title": "Germany B1 settlement and citizenship timeline | VisaLang",
+    "width": 1440,
+    "headings": 1,
+    "scrollWidth": 1440,
+    "bodyWidth": 1440,
+    "overflowing": [],
+    "errors": []
+  },
+  {
+    "name": "study",
+    "url": "http://127.0.0.1:4321/guides/goethe-b1-study-plan/",
+    "title": "Goethe B1 study plan for working adults | VisaLang",
+    "width": 1440,
+    "headings": 1,
+    "scrollWidth": 1440,
+    "bodyWidth": 1440,
+    "overflowing": [],
+    "errors": []
+  },
+  {
+    "name": "worksheet keyboard scroll",
+    "width": 1440,
+    "focused": true,
+    "scrollLeft": 0
+  }
+]

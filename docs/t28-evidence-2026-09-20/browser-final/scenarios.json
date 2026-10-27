@@ -1,0 +1,955 @@
+{
+  "environment": {
+    "browser": "153.0.8010.48",
+    "engine": "Chrome headless",
+    "url": "http://127.0.0.1:4321",
+    "platform": "darwin",
+    "realUsers": false,
+    "browserPlugin": "absent; regular Playwright fallback"
+  },
+  "results": [
+    {
+      "id": "en-entry-finder",
+      "precondition": "Fresh 1440x900 context, no saved state",
+      "steps": "Home -> A1 route -> Finder; submit missing input, then China/spouse/none",
+      "expected": "Real links reach localized Finder; errors focus field; valid result renders",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/tools/route-finder/",
+        "result": "Status: Guidance available\n\nGermany family reunion: A1 verification route\nSelection summary\nCountry\nGermany\nPurpose\nFamily reunion\nApplication region\nGerman mission responsible for a China application location\nRelationship\nSpouse reunification\nCertificate\nNo certificate yet\nWhat the current evidence supports\n\nUse the applicant’s ordinary residence to identify the competent German mission, save its current instruction, and keep application-proof questions separate from Goethe product and selected-centre booking questions.\n\nInformation still missing or unconfirmed\nThe current local mission instruction and exact route details have to be checked for the applicant’s location.\nVersioned evidence basis\n\nRule germany-family-reunion-a1-authority-guidance, version 2026-09-09.1.\n\nClaim germany-family-reunion-a1-general-starting-rule, version 2026-09-08.1; source checked 2026-09-08.\nGerman Federal Foreign Office — Not proof of every family-reunion category, exception, accepted certificate, or individual result.\nClaim germany-family-reunion-a1-authority-split, version 2026-09-08.1; source checked 2026-09-08.\nGerman Federal Foreign Office — Specific to the described scenario; it does not determine every family route or an individual result.\nGerman Federal Foreign Office — Residence facts are required to identify a particular mission; this is not an eligibility decision.\nWho is responsible\nthe local German mission or competent German authority handling your application\nThe exam owner and selected official or authorised test centre\nNext steps\nVerify the language-proof question and any exception with the competent German mission or receiving authority.\nConfirm the exact accepted adult A1 product before comparing local booking options.\nOpen the working checklist, then use Timeline only after you have current local dates and planning assumptions.\n\nBoundary: Guidance identifies the verification order only. It does not decide whether proof is required, whether an exception applies, or whether a certificate will be accepted.\n\nGermany A1 family reunion guide / Open Checklist / Open Timeline\n\nInformational guidance only. This tool organises planning questions; it does not decide visa eligibility, certificate acceptance, exam availability, or an individual application outcome.\nOfficial check before you act\n\nConfirm the exact requirement, accepted certificate, documents, date, fee, result process, and local centre rules with the authority or official centre that receives your file.\n\nContinue your plan\n\nBrowse route guides\n\nOpen Checklist / Open Timeline\n\nCopy result\nPrint planExport text file",
+        "screenshot": "en-finder.png"
+      }
+    },
+    {
+      "id": "en-finder-boundaries",
+      "precondition": "Finder with valid A1 inputs",
+      "steps": "Select other country; then Germany with missing relationship; then existing certificate; recover normal",
+      "expected": "Unsupported, missing-info and authority-confirmation boundaries remain distinct",
+      "status": "pass",
+      "actual": {
+        "states": [
+          "Status: Route not supported\n\nThis country and purpose are not configured\nSelection summary\nCountry\nAnother country\nPurpose\nFamily reunion\nApplication region\nNot provided\nRelationship\nNot provided\nCertificate\nNot provided\nCoverage gap\nRoute-specific rule and source coverage\nWho is responsible\nThe authority or institution receiving the application\nThe official exam owner or authorised local centre\nNext steps\nIdentify the authority or institution receiving the application.\nWhich language proof and level apply to this exact route?\nIs an exemption or alternative proof relevant to my case?\nWhich certificate, document format, and current submission instructions are accepted?\n\nBoundary: VisaLang has no current, source-reviewed rule for this selection. It cannot reuse the configured spouse-reunification A1 result or decide which proof applies.\n\nInformational guidance only. This tool organises planning questions; it does not decide visa eligibility, certificate acceptance, exam availability, or an individual application outcome.\nOfficial check before you act\n\nConfirm the exact requirement, accepted certificate, documents, date, fee, result process, and local centre rules with the authority or official centre that receives your file.\n\nCopy result\nPrint planExport text file",
+          "Status: More information needed\n\nAdd the information needed to identify the responsible route\nSelection summary\nCountry\nGermany\nPurpose\nFamily reunion\nApplication region\nGerman mission responsible for a China application location\nRelationship\nNot yet confirmed\nCertificate\nNo certificate yet\nInformation still missing or unconfirmed\nrelationship category\nVersioned evidence basis\n\nRule germany-family-reunion-a1-authority-guidance, version 2026-09-09.1.\n\nClaim germany-family-reunion-a1-general-starting-rule, version 2026-09-08.1; source checked 2026-09-08.\nGerman Federal Foreign Office — Not proof of every family-reunion category, exception, accepted certificate, or individual result.\nClaim germany-family-reunion-a1-authority-split, version 2026-09-08.1; source checked 2026-09-08.\nGerman Federal Foreign Office — Specific to the described scenario; it does not determine every family route or an individual result.\nGerman Federal Foreign Office — Residence facts are required to identify a particular mission; this is not an eligibility decision.\nWho is responsible\nthe local German mission or competent German authority handling your application\nNext steps\nConfirm the missing item with the competent German mission or receiving authority, then run Route Finder again.\n\nBoundary: Missing information cannot be treated as proof of an exception, requirement, or accepted certificate.\n\nGermany A1 family reunion guide\n\nInformational guidance only. This tool organises planning questions; it does not decide visa eligibility, certificate acceptance, exam availability, or an individual application outcome.\nOfficial check before you act\n\nConfirm the exact requirement, accepted certificate, documents, date, fee, result process, and local centre rules with the authority or official centre that receives your file.\n\nCopy result\nPrint planExport text file",
+          "Status: Authority confirmation needed\n\nVerify the existing A1 certificate for this route\nSelection summary\nCountry\nGermany\nPurpose\nFamily reunion\nApplication region\nGerman mission responsible for a China application location\nRelationship\nSpouse reunification\nCertificate\nExisting A1 certificate\nWhat the current evidence supports\n\nUse the applicant’s ordinary residence to identify the competent German mission, save its current instruction, and keep application-proof questions separate from Goethe product and selected-centre booking questions.\n\nInformation still missing or unconfirmed\nReceiving-authority decision on the exact certificate\nVersioned evidence basis\n\nRule germany-family-reunion-a1-authority-guidance, version 2026-09-09.1.\n\nClaim germany-family-reunion-a1-general-starting-rule, version 2026-09-08.1; source checked 2026-09-08.\nGerman Federal Foreign Office — Not proof of every family-reunion category, exception, accepted certificate, or individual result.\nClaim germany-family-reunion-a1-authority-split, version 2026-09-08.1; source checked 2026-09-08.\nGerman Federal Foreign Office — Specific to the described scenario; it does not determine every family route or an individual result.\nGerman Federal Foreign Office — Residence facts are required to identify a particular mission; this is not an eligibility decision.\nWho is responsible\nthe local German mission or competent German authority handling your application\nThe exam owner for the exact certificate product\nNext steps\nRecord the exact certificate product, issuing body, issue date, and document form.\nAsk the competent mission or receiving authority whether that exact certificate and document form are accepted for this route and whether any recency question applies.\nUse the checklist to retain the authority answer and the product source separately.\n\nBoundary: Having a certificate does not prove that it is accepted, current enough for a receiving authority, or relevant to an exemption. Only the competent authority can decide the application-proof question.\n\nGermany A1 family reunion guide / Open Checklist / Open Timeline\n\nInformational guidance only. This tool organises planning questions; it does not decide visa eligibility, certificate acceptance, exam availability, or an individual application outcome.\nOfficial check before you act\n\nConfirm the exact requirement, accepted certificate, documents, date, fee, result process, and local centre rules with the authority or official centre that receives your file.\n\nContinue your plan\n\nBrowse route guides\n\nOpen Checklist / Open Timeline\n\nCopy result\nPrint planExport text file"
+        ],
+        "screenshot": "en-finder-recovery.png"
+      }
+    },
+    {
+      "id": "en-comparison",
+      "precondition": "Same tab has A1 plan",
+      "steps": "Use tool nav -> comparison; empty, A1, same, mixed A1/B1, B1 and restored A1 pairs",
+      "expected": "Missing rejected; valid A1/B1 tables; same/mixed remain bounded",
+      "status": "pass",
+      "actual": {
+        "states": [
+          {
+            "a": "goethe-zertifikat-a1-start-deutsch-1",
+            "b": "telc-start-deutsch-1-a1",
+            "text": "Goethe-Zertifikat A1: Start Deutsch 1 and Start Deutsch 1 / telc Deutsch A1\n\nThese are exam-owner product facts, not a ranking, local booking promise, or statement of immigration acceptance.\n\nProduct fact\tGoethe-Zertifikat A1: Start Deutsch 1\tStart Deutsch 1 / telc Deutsch A1\nWritten structure and duration\t\n\nListening about 20 minutes, Reading 25 minutes and Writing 20 minutes: 65 minutes total without a break.\n\nOfficial source\n\nChecked: 2026-09-09\n\n\t\n\nListening takes about 20 minutes; Reading and Writing are combined in a 45-minute block, with no break stated.\n\nOfficial source\n\nChecked: 2026-09-09\n\n\nOral format and duration\t\n\nSpeaking is a 15-minute group exam with no more than four participants and no preparation time.\n\nOfficial source\n\nChecked: 2026-09-09\n\n\t\n\nSpeaking takes about 15 minutes, usually with four test takers and no preparation time.\n\nOfficial source\n\nChecked: 2026-09-09\n\n\nScore rule\t\n\nThe whole exam is passed at 60 of 100 points or more after all sections have been taken.\n\nOfficial source\n\nChecked: 2026-09-09\n\n\t\n\nThe official mock exam uses a 60-point scale and shows the passing rating from 36 points.\n\nOfficial source\n\nChecked: 2026-09-09\n\n\nWhole or partial sitting\t\n\nA1 is repeated as a complete exam; Goethe’s exam FAQ says it may be repeated as often as required. Local rebooking and fees still apply.\n\nOfficial source\n\nChecked: 2026-09-09\n\n\t\n\nThe product page says this exam cannot be taken as a partial examination. Confirm any new registration and fee with the selected centre.\n\nOfficial source\n\nChecked: 2026-09-09\n\n\nLocal execution, dates and results\t\n\nStatus: needs authority confirmation\n\nThe selected official or authorised local centre controls current delivery format, registration, dates, fees, identity checks, cancellations, result timing and certificate delivery.\n\nOwner: Selected official or authorised test centre\n\nAction: Ask the selected official or authorised test centre for the exact product, date, fee currency, payment, cancellation, result, and certificate terms before paying.\n\nBoundary: No local fee, date, seat, booking, result timing or certificate-delivery fact is verified by the stable product comparison.\n\n\t\n\nStatus: needs authority confirmation\n\nThe selected telc examination centre controls current registration, delivery, dates, fees, identity checks, cancellations, result timing, certificate delivery and any repeat booking.\n\nOwner: Selected official or authorised test centre\n\nAction: Ask the selected official or authorised test centre for the exact product, date, fee currency, payment, cancellation, result, and certificate terms before paying.\n\nBoundary: No local fee, date, seat, booking, result timing or certificate-delivery fact is verified by the stable product comparison.\n\n\nLocal fee and booking\t\n\nStatus: needs authority confirmation\n\nNo local amount or booking availability is verified here.\n\nOwner: Selected official or authorised test centre\n\nAction: Ask the selected official or authorised test centre for the exact product, date, fee currency, payment, cancellation, result, and certificate terms before paying.\n\nBoundary: No local fee, date, seat, booking, result timing or certificate-delivery fact is verified by the stable product comparison.\n\n\t\n\nStatus: needs authority confirmation\n\nNo local amount or booking availability is verified here.\n\nOwner: Selected official or authorised test centre\n\nAction: Ask the selected official or authorised test centre for the exact product, date, fee currency, payment, cancellation, result, and certificate terms before paying.\n\nBoundary: No local fee, date, seat, booking, result timing or certificate-delivery fact is verified by the stable product comparison.\n\n\nReceiving-authority acceptance\t\n\nStatus: needs authority confirmation\n\nAcceptance for your route is not verified here.\n\nOwner: Competent German mission or receiving immigration authority for the application route\n\nAction: Ask the competent mission or receiving authority whether the exact certificate and document form are accepted for the current route.\n\nBoundary: Product identity and exam-owner rules do not establish route-specific certificate acceptance, an exemption, document form or an individual outcome.\n\n\t\n\nStatus: needs authority confirmation\n\nAcceptance for your route is not verified here.\n\nOwner: Competent German mission or receiving immigration authority for the application route\n\nAction: Ask the competent mission or receiving authority whether the exact certificate and document form are accepted for the current route.\n\nBoundary: Product identity and exam-owner rules do not establish route-specific certificate acceptance, an exemption, document form or an individual outcome.\n\n\nOfficial exam page\tGoethe-Zertifikat A1: Start Deutsch 1\tStart Deutsch 1 / telc Deutsch A1\nOfficial practice material\tOfficial practice material\tOfficial practice material\nInformational guidance only. This tool organises planning questions; it does not decide visa eligibility, certificate acceptance, exam availability, or an individual application outcome.\nOfficial check before you act\n\nConfirm the exact requirement, accepted certificate, documents, date, fee, result process, and local centre rules with the authority or official centre that receives your file.\n\nContinue your plan\n\nBrowse route guides\n\nOpen Checklist / Open Timeline\n\nCopy result\nPrint planExport text file"
+          },
+          {
+            "a": "goethe-zertifikat-a1-start-deutsch-1",
+            "b": "goethe-zertifikat-a1-start-deutsch-1",
+            "text": "Status: same product selected\n\nChoose a different second product\n\nChoose two different exam products. A product cannot be compared with itself.\n\nWhat to change\n\nSelect another exact adult product at the same level so each column represents a different product.\n\nWhere to verify\nGoethe-Zertifikat A1: Start Deutsch 1 — verify the exact product with its exam owner, then check local delivery separately.\nStart Deutsch 1 / telc Deutsch A1 — verify the exact product with its exam owner, then check local delivery separately.\nGoethe-Zertifikat B1 — verify the exact product with its exam owner, then check local delivery separately.\nZertifikat Deutsch / telc Deutsch B1 — verify the exact product with its exam owner, then check local delivery separately.\n\nNo product facts, local fee, seat, result timing, or receiving-authority acceptance are inferred in this state.\n\nInformational guidance only. This tool organises planning questions; it does not decide visa eligibility, certificate acceptance, exam availability, or an individual application outcome.\nOfficial check before you act\n\nConfirm the exact requirement, accepted certificate, documents, date, fee, result process, and local centre rules with the authority or official centre that receives your file.\n\nContinue your plan\n\nBrowse route guides\n\nOpen Checklist / Open Timeline\n\nCopy result\nPrint planExport text file"
+          },
+          {
+            "a": "goethe-zertifikat-a1-start-deutsch-1",
+            "b": "goethe-zertifikat-b1",
+            "text": "Status: comparison unavailable\n\nCurrent product evidence is unavailable\n\nChoose two products at the same level (A1 with A1, or B1 with B1). Different levels are not equivalent options.\n\nWhat is missing\n\nTwo different, current, source-reviewed product records are required before facts can be shown.\n\nWhere to verify\nGoethe-Zertifikat A1: Start Deutsch 1 — verify the exact product with its exam owner, then check local delivery separately.\nStart Deutsch 1 / telc Deutsch A1 — verify the exact product with its exam owner, then check local delivery separately.\nGoethe-Zertifikat B1 — verify the exact product with its exam owner, then check local delivery separately.\nZertifikat Deutsch / telc Deutsch B1 — verify the exact product with its exam owner, then check local delivery separately.\n\nNo product facts, local fee, seat, result timing, or receiving-authority acceptance are inferred in this state.\n\nInformational guidance only. This tool organises planning questions; it does not decide visa eligibility, certificate acceptance, exam availability, or an individual application outcome.\nOfficial check before you act\n\nConfirm the exact requirement, accepted certificate, documents, date, fee, result process, and local centre rules with the authority or official centre that receives your file.\n\nContinue your plan\n\nBrowse route guides\n\nOpen Checklist / Open Timeline\n\nCopy result\nPrint planExport text file"
+          },
+          {
+            "a": "goethe-zertifikat-b1",
+            "b": "telc-zertifikat-deutsch-b1",
+            "text": "Goethe-Zertifikat B1 and Zertifikat Deutsch / telc Deutsch B1\n\nThese are exam-owner product facts, not a ranking, local booking promise, or statement of immigration acceptance.\n\nProduct fact\tGoethe-Zertifikat B1\tZertifikat Deutsch / telc Deutsch B1\nWritten structure and duration\t\n\nReading 65 minutes, Listening about 40 minutes and Writing 60 minutes: about 165 minutes excluding breaks, in three written modules.\n\nOfficial source\n\nChecked: 2026-09-13\n\n\t\n\nReading and Language Elements share 90 minutes, Listening takes about 30 minutes and Writing 30 minutes, in one written examination.\n\nOfficial source\n\nChecked: 2026-09-13\n\n\nOral format and duration\t\n\nSpeaking normally takes about 15 minutes in pairs; an exceptional individual exam takes about 10 minutes. Both have 15 minutes of preparation.\n\nOfficial source\n\nChecked: 2026-09-13\n\n\t\n\nThe three-part speaking examination takes about 15 minutes, usually with two participants, after 20 minutes of preparation.\n\nOfficial source\n\nChecked: 2026-09-13\n\n\nScore rule\t\n\nAt least 60 of 100 points are required in each module. The four modules are assessed separately.\n\nOfficial source\n\nChecked: 2026-09-13\n\n\t\n\nAt least 135 of 225 written points AND 45 of 75 oral points are required: 60% in each examination part. A combined total alone does not establish a pass.\n\nOfficial source\n\nChecked: 2026-09-13\n\n\nModules, resits and certificate output\t\n\nIndividual modules may be repeated; the centre sets resit arrangements. Passed modules receive module certificates. Passing all four at one venue in one session also gives the right to an overall certificate. Later module certificates can be combined; a later consolidated certificate has additional centre and timing conditions in section 14.7.\n\nOfficial source\n\nChecked: 2026-09-13\n\n\t\n\nIf one part is not passed, the written or oral part may be retaken within 12 months of the first results sheet; request partial credit at registration. Only the latest result is credited; individual subtests cannot be retaken. Passing produces a certificate; an unsuccessful exam produces a results sheet. Confirm local dates and fees with the centre.\n\nOfficial source\n\nChecked: 2026-09-13\n\n\nLocal execution, dates and results\t\n\nStatus: needs authority confirmation\n\nThe selected official or authorised local centre confirms available modules, current delivery, registration, dates, fees, identity checks, cancellation, results and certificate delivery.\n\nOwner: Selected official or authorised test centre\n\nAction: Confirm the exact adult B1 modules, date, fee currency, payment, cancellation, results and certificate terms with the selected centre before paying.\n\nBoundary: Adult B1 product facts only; no local fee, date, seat, result-delivery promise, receiving-authority acceptance or individual outcome.\n\n\t\n\nStatus: needs authority confirmation\n\nThe selected official or authorised local centre confirms the exact adult B1 product, current delivery, partial-credit registration, dates, fees, identity checks, cancellation, results and certificate delivery.\n\nOwner: Selected official or authorised test centre\n\nAction: Confirm the exact adult telc B1 product, partial-credit conditions, date, fee currency, payment, cancellation, results and certificate terms with the selected centre before paying.\n\nBoundary: Adult B1 product facts only; no local fee, date, seat, result-delivery promise, receiving-authority acceptance or individual outcome.\n\n\nLocal fee and booking\t\n\nStatus: needs authority confirmation\n\nNo local amount or booking availability is verified here.\n\nOwner: Selected official or authorised test centre\n\nAction: Confirm the exact adult B1 modules, date, fee currency, payment, cancellation, results and certificate terms with the selected centre before paying.\n\nBoundary: Adult B1 product facts only; no local fee, date, seat, result-delivery promise, receiving-authority acceptance or individual outcome.\n\n\t\n\nStatus: needs authority confirmation\n\nNo local amount or booking availability is verified here.\n\nOwner: Selected official or authorised test centre\n\nAction: Confirm the exact adult telc B1 product, partial-credit conditions, date, fee currency, payment, cancellation, results and certificate terms with the selected centre before paying.\n\nBoundary: Adult B1 product facts only; no local fee, date, seat, result-delivery promise, receiving-authority acceptance or individual outcome.\n\n\nReceiving-authority acceptance\t\n\nStatus: needs authority confirmation\n\nAcceptance for your route is not verified here.\n\nOwner: Competent receiving authority for the exact application\n\nAction: Ask which exact B1 product and full or modular certificate documents the receiving authority accepts for your application.\n\nBoundary: Adult B1 product facts only; no local fee, date, seat, result-delivery promise, receiving-authority acceptance or individual outcome.\n\n\t\n\nStatus: needs authority confirmation\n\nAcceptance for your route is not verified here.\n\nOwner: Competent receiving authority for the exact application\n\nAction: Ask whether the exact Zertifikat Deutsch / telc Deutsch B1 certificate and document form are accepted for your application.\n\nBoundary: Adult B1 product facts only; no local fee, date, seat, result-delivery promise, receiving-authority acceptance or individual outcome.\n\n\nOfficial exam page\tGoethe-Zertifikat B1\tZertifikat Deutsch / telc Deutsch B1\nOfficial practice material\tOfficial practice material\tOfficial practice material\nInformational guidance only. This tool organises planning questions; it does not decide visa eligibility, certificate acceptance, exam availability, or an individual application outcome.\nOfficial check before you act\n\nConfirm the exact requirement, accepted certificate, documents, date, fee, result process, and local centre rules with the authority or official centre that receives your file.\n\nContinue your plan\n\nBrowse route guides\n\nOpen Checklist / Open Timeline\n\nCopy result\nPrint planExport text file"
+          },
+          {
+            "a": "goethe-zertifikat-a1-start-deutsch-1",
+            "b": "telc-start-deutsch-1-a1",
+            "text": "Goethe-Zertifikat A1: Start Deutsch 1 and Start Deutsch 1 / telc Deutsch A1\n\nThese are exam-owner product facts, not a ranking, local booking promise, or statement of immigration acceptance.\n\nProduct fact\tGoethe-Zertifikat A1: Start Deutsch 1\tStart Deutsch 1 / telc Deutsch A1\nWritten structure and duration\t\n\nListening about 20 minutes, Reading 25 minutes and Writing 20 minutes: 65 minutes total without a break.\n\nOfficial source\n\nChecked: 2026-09-09\n\n\t\n\nListening takes about 20 minutes; Reading and Writing are combined in a 45-minute block, with no break stated.\n\nOfficial source\n\nChecked: 2026-09-09\n\n\nOral format and duration\t\n\nSpeaking is a 15-minute group exam with no more than four participants and no preparation time.\n\nOfficial source\n\nChecked: 2026-09-09\n\n\t\n\nSpeaking takes about 15 minutes, usually with four test takers and no preparation time.\n\nOfficial source\n\nChecked: 2026-09-09\n\n\nScore rule\t\n\nThe whole exam is passed at 60 of 100 points or more after all sections have been taken.\n\nOfficial source\n\nChecked: 2026-09-09\n\n\t\n\nThe official mock exam uses a 60-point scale and shows the passing rating from 36 points.\n\nOfficial source\n\nChecked: 2026-09-09\n\n\nWhole or partial sitting\t\n\nA1 is repeated as a complete exam; Goethe’s exam FAQ says it may be repeated as often as required. Local rebooking and fees still apply.\n\nOfficial source\n\nChecked: 2026-09-09\n\n\t\n\nThe product page says this exam cannot be taken as a partial examination. Confirm any new registration and fee with the selected centre.\n\nOfficial source\n\nChecked: 2026-09-09\n\n\nLocal execution, dates and results\t\n\nStatus: needs authority confirmation\n\nThe selected official or authorised local centre controls current delivery format, registration, dates, fees, identity checks, cancellations, result timing and certificate delivery.\n\nOwner: Selected official or authorised test centre\n\nAction: Ask the selected official or authorised test centre for the exact product, date, fee currency, payment, cancellation, result, and certificate terms before paying.\n\nBoundary: No local fee, date, seat, booking, result timing or certificate-delivery fact is verified by the stable product comparison.\n\n\t\n\nStatus: needs authority confirmation\n\nThe selected telc examination centre controls current registration, delivery, dates, fees, identity checks, cancellations, result timing, certificate delivery and any repeat booking.\n\nOwner: Selected official or authorised test centre\n\nAction: Ask the selected official or authorised test centre for the exact product, date, fee currency, payment, cancellation, result, and certificate terms before paying.\n\nBoundary: No local fee, date, seat, booking, result timing or certificate-delivery fact is verified by the stable product comparison.\n\n\nLocal fee and booking\t\n\nStatus: needs authority confirmation\n\nNo local amount or booking availability is verified here.\n\nOwner: Selected official or authorised test centre\n\nAction: Ask the selected official or authorised test centre for the exact product, date, fee currency, payment, cancellation, result, and certificate terms before paying.\n\nBoundary: No local fee, date, seat, booking, result timing or certificate-delivery fact is verified by the stable product comparison.\n\n\t\n\nStatus: needs authority confirmation\n\nNo local amount or booking availability is verified here.\n\nOwner: Selected official or authorised test centre\n\nAction: Ask the selected official or authorised test centre for the exact product, date, fee currency, payment, cancellation, result, and certificate terms before paying.\n\nBoundary: No local fee, date, seat, booking, result timing or certificate-delivery fact is verified by the stable product comparison.\n\n\nReceiving-authority acceptance\t\n\nStatus: needs authority confirmation\n\nAcceptance for your route is not verified here.\n\nOwner: Competent German mission or receiving immigration authority for the application route\n\nAction: Ask the competent mission or receiving authority whether the exact certificate and document form are accepted for the current route.\n\nBoundary: Product identity and exam-owner rules do not establish route-specific certificate acceptance, an exemption, document form or an individual outcome.\n\n\t\n\nStatus: needs authority confirmation\n\nAcceptance for your route is not verified here.\n\nOwner: Competent German mission or receiving immigration authority for the application route\n\nAction: Ask the competent mission or receiving authority whether the exact certificate and document form are accepted for the current route.\n\nBoundary: Product identity and exam-owner rules do not establish route-specific certificate acceptance, an exemption, document form or an individual outcome.\n\n\nOfficial exam page\tGoethe-Zertifikat A1: Start Deutsch 1\tStart Deutsch 1 / telc Deutsch A1\nOfficial practice material\tOfficial practice material\tOfficial practice material\nInformational guidance only. This tool organises planning questions; it does not decide visa eligibility, certificate acceptance, exam availability, or an individual application outcome.\nOfficial check before you act\n\nConfirm the exact requirement, accepted certificate, documents, date, fee, result process, and local centre rules with the authority or official centre that receives your file.\n\nContinue your plan\n\nBrowse route guides\n\nOpen Checklist / Open Timeline\n\nCopy result\nPrint planExport text file"
+          }
+        ],
+        "screenshot": "en-comparison.png"
+      }
+    },
+    {
+      "id": "en-checklist",
+      "precondition": "Same tab A1 route and exams",
+      "steps": "Nav -> checklist; verify inherited route; generate, check item, reload, regenerate; copy and read clipboard; download bytes",
+      "expected": "Stable checkbox restored; clipboard equals downloaded full checklist including state/sources",
+      "status": "pass",
+      "actual": {
+        "item": "requirement.identify-competent-mission",
+        "clipboardBytes": 5641,
+        "download": {
+          "file": "en-checklist.txt",
+          "bytes": 5641,
+          "sha256": "e1783971f9371d0b39888fa61f9f0064868caba7daf994cc969e99e193826a94",
+          "text": "VisaLang preparation checklist\nRoute: Germany family reunion A1\nGenerated: 2026-09-20\nScope: This is a language-proof preparation checklist, not a complete visa-document list, an eligibility decision, an exemption decision or an application outcome.\nApplication region: German mission responsible for a China application location\nCertificate status: No certificate yet\n\n1. Requirement and authority\n[x] Identify the German mission or authority competent for the application location\n  Done when: The official mission or authority page and the date checked are saved\n  Owner: Competent German mission or receiving immigration authority\n[ ] Record the authority’s current answer about the language proof and any exemption question\n  Done when: The exact route-specific wording and its source or official reply are recorded without turning it into an individual eligibility conclusion\n  Owner: Competent German mission or receiving immigration authority\n\n2. Exact exam product\n[ ] Record the exact adult A1 product that the receiving authority says may be used\n  Done when: The full product name and the authority evidence that applies to this route are saved together\n  Owner: Competent German mission or receiving immigration authority\n[ ] Match the recorded product name to its exam-owner page\n  Done when: The adult product page, product name and source-check date agree\n  Owner: Goethe-Institut or telc gGmbH\n\n3. Booking and payment\n[ ] Verify the selected centre through the relevant exam-owner route\n  Done when: A dated path from the exam owner to the selected centre or an official owner confirmation is saved\n  Owner: Exam owner and selected official or authorised test centre\n[ ] Confirm that the selected centre currently offers the exact adult A1 product\n  Done when: The centre’s current product name, intended session and checked date are recorded\n  Owner: Selected official or authorised test centre\n[ ] Match the booking name to the identification required by the selected centre\n  Done when: The spelling and the centre’s current identification instruction are recorded with no unresolved mismatch\n  Owner: Selected official or authorised test centre\n[ ] Capture the selected centre’s current fee and payment or change terms before paying\n  Done when: The dated fee, currency, payment, cancellation and rescheduling evidence is saved from that centre\n  Owner: Selected official or authorised test centre\n\n4. Test day, result and certificate\n[ ] Reopen the selected centre’s current test-day instructions\n  Done when: The arrival, identification and permitted-items instructions for the booked session have been checked again\n  Owner: Selected official or authorised test centre\n[ ] Record the selected centre’s result and certificate route\n  Done when: The current result notice, certificate collection or delivery process and contact route are saved as planning inputs rather than guarantees\n  Owner: Selected official or authorised test centre\n\n5. Submission review\n[ ] Open the competent mission’s current checklist for the exact application route\n  Done when: The route-specific official checklist and its revision or checked date are saved\n  Owner: Competent German mission or receiving immigration authority\n[ ] Verify the required language-proof document form against the mission checklist\n  Done when: The exact certificate, original or copy question and any translation or verification instruction are recorded from the receiving authority\n  Owner: Competent German mission or receiving immigration authority\n\nCompletion: 1/12\n\nSources:\n- German Federal Foreign Office and the competent German mission: https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682\n  Checked: 2026-09-08\n  Supports: A general language-proof starting point and the need to use the competent mission for route details\n  Source boundary: Does not decide an individual requirement, exemption, accepted certificate, document list or visa outcome\n- Goethe-Institut: https://www.goethe.de/ins/de/en/prf/prf/gzsd1.html\n  Checked: 2026-09-09\n  Supports: The exact adult Goethe-Zertifikat A1: Start Deutsch 1 product identity\n  Source boundary: Does not establish immigration acceptance or a selected centre’s current booking and test-day terms\n- telc gGmbH: https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/\n  Checked: 2026-09-09\n  Supports: The exact Start Deutsch 1 / telc Deutsch A1 product identity\n  Source boundary: Does not establish immigration acceptance or a selected centre’s current booking and test-day terms\n- Goethe-Institut and the selected official or authorised centre: https://www.goethe.de/en/spr/prf.html\n  Checked: 2026-09-09\n  Supports: An exam-owner starting route for identifying a Goethe institute or exam partner before asking that centre for current local instructions\n  Source boundary: Does not prove a seat, current product, fee, identity rule, result date or certificate process at a particular centre\n- telc gGmbH and the selected examination centre: https://www.telc.net/en/language-examinations/find-a-telc-examination-centre/\n  Checked: 2026-09-09\n  Supports: The official finder route used to identify a candidate telc examination centre before requesting its current local instructions\n  Source boundary: A listing does not prove that a centre currently offers the exact A1 product, has a seat or uses any universal local rule\n\nOverall boundary: This is a language-proof preparation checklist, not a complete visa-document list, an eligibility decision, an exemption decision or an application outcome."
+        },
+        "screenshot": "en-checklist.png"
+      }
+    },
+    {
+      "id": "en-checklist-print",
+      "precondition": "Generated checklist with one checked task",
+      "steps": "Invoke print handler; render actual print media to PDF",
+      "expected": "beforeprint/afterprint observed and PDF contains print output; physical printing not tested",
+      "status": "pass",
+      "actual": {
+        "events": [
+          "beforeprint",
+          "beforeprint",
+          "afterprint"
+        ],
+        "screenshot": "en-checklist-print.png",
+        "pdf": "en-checklist.pdf",
+        "boundary": "Headless Chrome print media/PDF only; physical printer and OS dialog not_tested"
+      }
+    },
+    {
+      "id": "en-checklist-fallback",
+      "precondition": "Valid checklist",
+      "steps": "Reject clipboard via test fault injection; click copy; select unsupported route; restore A1",
+      "expected": "Full manual fallback focused; unsupported route clears/disables takeaways; A1 recovers",
+      "status": "pass",
+      "actual": {
+        "faultInjection": true,
+        "fallbackLength": 5623,
+        "unsupported": "germany-b1",
+        "screenshot": "en-checklist-recovery.png"
+      }
+    },
+    {
+      "id": "en-timeline",
+      "precondition": "Same tab A1 plan",
+      "steps": "Nav timeline; missing buffers, negative buffer, valid target 2027-03-01 with 14/7/30; refresh",
+      "expected": "Errors focus fields; dates derived from explicit values; approved date restores",
+      "status": "pass",
+      "actual": {
+        "result": "Your planning estimate\n\nFor Goethe-Zertifikat A1: Start Deutsch 1, the base date subtracts 21 calendar days; the additional-buffer date subtracts 51 calendar days.\n\nBase: D - W - P. Additional buffer: D - W - P - R.\n\nTarget date (D)\n2027-03-01\nResult and certificate wait (W)\n14 calendar days\nDocument preparation (P)\n7 calendar days\nAdditional retake buffer (R)\n30 calendar days\nBase planning date\n2027-02-08 (future)\nAdditional-buffer planning date\n2027-01-09 (future)\n\nW, P and R are user-entered planning assumptions or locally confirmed inputs. They are not official defaults, and either calculated date does not guarantee a booking, result, certificate, acceptance or application outcome.\n\nR is only an additional calendar-day buffer. It does not guarantee or automatically include a real next session, re-registration, another fee, another result wait or certificate delivery.\n\nInformational guidance only. This tool organises planning questions; it does not decide visa eligibility, certificate acceptance, exam availability, or an individual application outcome.\nOfficial check before you act\n\nConfirm the exact requirement, accepted certificate, documents, date, fee, result process, and local centre rules with the authority or official centre that receives your file.\n\nContinue your plan\n\nBrowse route guides\n\nOpen Checklist / Open Timeline\n\nCopy result\nPrint planExport text file",
+        "screenshot": "en-timeline.png"
+      }
+    },
+    {
+      "id": "en-reminder",
+      "precondition": "Same tab A1 plan",
+      "steps": "Nav reminder; missing fields; choose topic/date; actual ICS download; edit date",
+      "expected": "No false success on missing input; ICS bytes valid; stale download hidden after edit",
+      "status": "pass",
+      "actual": {
+        "download": {
+          "file": "en-reminder.ics",
+          "bytes": 922,
+          "sha256": "19fb957c1ea6e3551972005b0e8443e8b8fb14c469ba88e3b062f5dc18ca8fa4",
+          "text": "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//VisaLang//Reminder Planner//EN\r\nCALSCALE:GREGORIAN\r\nBEGIN:VEVENT\r\nUID:visalang-confirm-language-requirement-germany-family-reunion-a1-2027020\r\n 1@visalang.org\r\nDTSTAMP:20260920T041401Z\r\nDTSTART;VALUE=DATE:20270201\r\nDTEND;VALUE=DATE:20270202\r\nSUMMARY:Confirm the language requirement\r\nURL:https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-\r\n deutschkenntnisse-606682\r\nDESCRIPTION:Route or authority: Germany family reunion A1.\\nOfficial entry:\r\n  Federal Foreign Office spouse-language orientation.\\nBoundary: This point\r\n s readers to the competent mission but does not decide an exemption\\, exac\r\n t accepted certificate or document\\, or individual outcome.\\nBoundary: thi\r\n s event only prompts a manual check. It does not prove a deadline\\, appoin\r\n tment\\, seat\\, result\\, certificate\\, acceptance\\, or notification deliver\r\n y.\r\nEND:VEVENT\r\nEND:VCALENDAR\r\n"
+        },
+        "screenshot": "en-reminder.png",
+        "import": "not_tested",
+        "notification": "not_tested"
+      }
+    },
+    {
+      "id": "en-device-save-clear",
+      "precondition": "Shared session plan from tool chain",
+      "steps": "Verify no device snapshot; explicitly save; clear session and reload; clear plan",
+      "expected": "Device snapshot saved only on request; restores and both stores clear",
+      "status": "pass",
+      "actual": {
+        "saved": {
+          "schemaVersion": 1,
+          "locale": "en",
+          "routeId": "germany-family-reunion-a1",
+          "applicationRegionId": "germany-mission-china",
+          "ruleVersion": "2026-09-09.1",
+          "claimVersions": {
+            "germany-family-reunion-a1-general-starting-rule": "2026-09-08.1",
+            "germany-family-reunion-a1-authority-split": "2026-09-08.1"
+          },
+          "answers": {
+            "country": "germany",
+            "purpose": "family-reunion",
+            "relationship": "spouse",
+            "certificate": "none",
+            "reminderTopicId": "confirm-language-requirement"
+          },
+          "selectedExamIds": [
+            "goethe-zertifikat-a1-start-deutsch-1",
+            "telc-start-deutsch-1-a1"
+          ],
+          "targetDate": "2027-03-01",
+          "buffers": {
+            "resultWaitDays": 14,
+            "documentPreparationDays": 7,
+            "retakeBufferDays": 30
+          },
+          "checklistState": {},
+          "savedAt": "2026-09-20T04:14:03.536Z",
+          "savedUntil": "2026-10-20T04:14:03.536Z"
+        },
+        "status": "Restored the optional device copy. Review it before running the tool; later edits stay in this tab unless you save again.",
+        "screenshot": "en-cleared.png"
+      }
+    },
+    {
+      "id": "en-version-recovery",
+      "precondition": "No persisted plan",
+      "steps": "Create plan then inject stale schema; refresh, clear, re-enter via keyboard",
+      "expected": "Incompatible version requires reconfirmation; clear/re-enter recovers without URL answers",
+      "status": "pass",
+      "actual": {
+        "status": "A saved plan uses an incompatible schema, rule or claim version. Clear the shared plan and re-enter the current facts before relying on a result.",
+        "screenshot": "en-version-recovery.png"
+      }
+    },
+    {
+      "id": "en-keyboard",
+      "precondition": "Recovered A1 Finder",
+      "steps": "Restart -> focus first field; use only Tab/Arrow keys to choose controls and Enter submit",
+      "expected": "Keyboard-only traversal creates a result and moves focus to result",
+      "status": "fail",
+      "actual": "TimeoutError: locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.tool-result:visible, .tool-result-panel:visible').first() to be visible\u001b[22m\n",
+      "screenshot": "en-keyboard-failure.png"
+    },
+    {
+      "id": "en-375-route-finder",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/tools/route-finder/",
+        "sizes": {
+          "width": 375,
+          "scrollWidth": 375
+        },
+        "result": "Status: Guidance available\n\nGermany family reunion: A1 verification route\nSelection summary\nCountry\nGermany\nPurpose\nFamily reunion\nApplication region\nGerman mission responsible for a China application location\nRelationship\nSpouse reunification\nCertificate\nNo certificate yet\nWhat the current evidence supports\n\nUse the applicant’s ordinary residence to identify the competent German mission, save its current instruction, and keep application-proof questions separate from Goethe product and selected",
+        "screenshot": "en-375-route-finder.png"
+      }
+    },
+    {
+      "id": "en-375-exam-comparison",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/tools/exam-comparison/",
+        "sizes": {
+          "width": 375,
+          "scrollWidth": 375
+        },
+        "result": "Goethe-Zertifikat B1 and Zertifikat Deutsch / telc Deutsch B1\n\nThese are exam-owner product facts, not a ranking, local booking promise, or statement of immigration acceptance.\n\nScroll left and right to view all comparison columns.\n\nProduct fact\tGoethe-Zertifikat B1\tZertifikat Deutsch / telc Deutsch B1\nWritten structure and duration\t\n\nReading 65 minutes, Listening about 40 minutes and Writing 60 minutes: about 165 minutes excluding breaks, in three written modules.\n\nOfficial source\n\nChecked: 202",
+        "screenshot": "en-375-exam-comparison.png"
+      }
+    },
+    {
+      "id": "en-375-checklist-generator",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/tools/checklist-generator/",
+        "sizes": {
+          "width": 375,
+          "scrollWidth": 375
+        },
+        "result": "Germany family reunion A1 checklist\n\nMark each item when you have completed your own official check.\n\nGenerated: 2026-09-20\n\nScope: This is a language-proof preparation checklist, not a complete visa-document list, an eligibility decision, an exemption decision or an application outcome.\n\n1. Requirement and authority\nIdentify the German mission or authority competent for the application location\nStatus: complete\nDone when: The official mission or authority page and the date checked are saved\nOwn",
+        "screenshot": "en-375-checklist-generator.png"
+      }
+    },
+    {
+      "id": "en-375-timeline-calculator",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/tools/timeline-calculator/",
+        "sizes": {
+          "width": 375,
+          "scrollWidth": 375
+        },
+        "result": "Your planning estimate\n\nFor Goethe-Zertifikat A1: Start Deutsch 1, the base date subtracts 28 calendar days; the additional-buffer date subtracts 42 calendar days.\n\nBase: D - W - P. Additional buffer: D - W - P - R.\n\nTarget date (D)\n2027-03-01\nResult and certificate wait (W)\n14 calendar days\nDocument preparation (P)\n14 calendar days\nAdditional retake buffer (R)\n14 calendar days\nBase planning date\n2027-02-01 (future)\nAdditional-buffer planning date\n2027-01-18 (future)\n\nW, P and R are user-entered",
+        "screenshot": "en-375-timeline-calculator.png"
+      }
+    },
+    {
+      "id": "en-375-email-reminders",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/tools/email-reminders/",
+        "sizes": {
+          "width": 375,
+          "scrollWidth": 375
+        },
+        "result": "Your reminder plan\n\nStatus: calendar file ready to download\n\nConfirm the language requirement\n\nReminder date: 2027-02-01 (all day)\n\nRoute or authority: Germany family reunion A1\n\nOfficial source: the selected route’s configured official verification entry is embedded in the calendar file.\n\nThe downloaded event uses the selected date and an exclusive next-day end. Its stable ID contains only the configured topic, route, and date—not personal information.\n\nDownloading this file does not import it,",
+        "screenshot": "en-375-email-reminders.png"
+      }
+    },
+    {
+      "id": "en-390-route-finder",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/tools/route-finder/",
+        "sizes": {
+          "width": 390,
+          "scrollWidth": 390
+        },
+        "result": "Status: Guidance available\n\nGermany family reunion: A1 verification route\nSelection summary\nCountry\nGermany\nPurpose\nFamily reunion\nApplication region\nGerman mission responsible for a China application location\nRelationship\nSpouse reunification\nCertificate\nNo certificate yet\nWhat the current evidence supports\n\nUse the applicant’s ordinary residence to identify the competent German mission, save its current instruction, and keep application-proof questions separate from Goethe product and selected",
+        "screenshot": "en-390-route-finder.png"
+      }
+    },
+    {
+      "id": "en-390-exam-comparison",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/tools/exam-comparison/",
+        "sizes": {
+          "width": 390,
+          "scrollWidth": 390
+        },
+        "result": "Goethe-Zertifikat B1 and Zertifikat Deutsch / telc Deutsch B1\n\nThese are exam-owner product facts, not a ranking, local booking promise, or statement of immigration acceptance.\n\nProduct fact\tGoethe-Zertifikat B1\tZertifikat Deutsch / telc Deutsch B1\nWritten structure and duration\t\n\nReading 65 minutes, Listening about 40 minutes and Writing 60 minutes: about 165 minutes excluding breaks, in three written modules.\n\nOfficial source\n\nChecked: 2026-09-13\n\n\t\n\nReading and Language Elements share 90 minu",
+        "screenshot": "en-390-exam-comparison.png"
+      }
+    },
+    {
+      "id": "en-390-checklist-generator",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/tools/checklist-generator/",
+        "sizes": {
+          "width": 390,
+          "scrollWidth": 390
+        },
+        "result": "Germany family reunion A1 checklist\n\nMark each item when you have completed your own official check.\n\nGenerated: 2026-09-20\n\nScope: This is a language-proof preparation checklist, not a complete visa-document list, an eligibility decision, an exemption decision or an application outcome.\n\n1. Requirement and authority\nIdentify the German mission or authority competent for the application location\nStatus: complete\nDone when: The official mission or authority page and the date checked are saved\nOwn",
+        "screenshot": "en-390-checklist-generator.png"
+      }
+    },
+    {
+      "id": "en-390-timeline-calculator",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/tools/timeline-calculator/",
+        "sizes": {
+          "width": 390,
+          "scrollWidth": 390
+        },
+        "result": "Your planning estimate\n\nFor Goethe-Zertifikat A1: Start Deutsch 1, the base date subtracts 28 calendar days; the additional-buffer date subtracts 42 calendar days.\n\nBase: D - W - P. Additional buffer: D - W - P - R.\n\nTarget date (D)\n2027-03-01\nResult and certificate wait (W)\n14 calendar days\nDocument preparation (P)\n14 calendar days\nAdditional retake buffer (R)\n14 calendar days\nBase planning date\n2027-02-01 (future)\nAdditional-buffer planning date\n2027-01-18 (future)\n\nW, P and R are user-entered",
+        "screenshot": "en-390-timeline-calculator.png"
+      }
+    },
+    {
+      "id": "en-390-email-reminders",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/tools/email-reminders/",
+        "sizes": {
+          "width": 390,
+          "scrollWidth": 390
+        },
+        "result": "Your reminder plan\n\nStatus: calendar file ready to download\n\nConfirm the language requirement\n\nReminder date: 2027-02-01 (all day)\n\nRoute or authority: Germany family reunion A1\n\nOfficial source: the selected route’s configured official verification entry is embedded in the calendar file.\n\nThe downloaded event uses the selected date and an exclusive next-day end. Its stable ID contains only the configured topic, route, and date—not personal information.\n\nDownloading this file does not import it,",
+        "screenshot": "en-390-email-reminders.png"
+      }
+    },
+    {
+      "id": "en-768-route-finder",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/tools/route-finder/",
+        "sizes": {
+          "width": 768,
+          "scrollWidth": 768
+        },
+        "result": "Status: Guidance available\n\nGermany family reunion: A1 verification route\nSelection summary\nCountry\nGermany\nPurpose\nFamily reunion\nApplication region\nGerman mission responsible for a China application location\nRelationship\nSpouse reunification\nCertificate\nNo certificate yet\nWhat the current evidence supports\n\nUse the applicant’s ordinary residence to identify the competent German mission, save its current instruction, and keep application-proof questions separate from Goethe product and selected",
+        "screenshot": "en-768-route-finder.png"
+      }
+    },
+    {
+      "id": "en-768-exam-comparison",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/tools/exam-comparison/",
+        "sizes": {
+          "width": 768,
+          "scrollWidth": 768
+        },
+        "result": "Goethe-Zertifikat B1 and Zertifikat Deutsch / telc Deutsch B1\n\nThese are exam-owner product facts, not a ranking, local booking promise, or statement of immigration acceptance.\n\nProduct fact\tGoethe-Zertifikat B1\tZertifikat Deutsch / telc Deutsch B1\nWritten structure and duration\t\n\nReading 65 minutes, Listening about 40 minutes and Writing 60 minutes: about 165 minutes excluding breaks, in three written modules.\n\nOfficial source\n\nChecked: 2026-09-13\n\n\t\n\nReading and Language Elements share 90 minu",
+        "screenshot": "en-768-exam-comparison.png"
+      }
+    },
+    {
+      "id": "en-768-checklist-generator",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/tools/checklist-generator/",
+        "sizes": {
+          "width": 768,
+          "scrollWidth": 768
+        },
+        "result": "Germany family reunion A1 checklist\n\nMark each item when you have completed your own official check.\n\nGenerated: 2026-09-20\n\nScope: This is a language-proof preparation checklist, not a complete visa-document list, an eligibility decision, an exemption decision or an application outcome.\n\n1. Requirement and authority\nIdentify the German mission or authority competent for the application location\nStatus: complete\nDone when: The official mission or authority page and the date checked are saved\nOwn",
+        "screenshot": "en-768-checklist-generator.png"
+      }
+    },
+    {
+      "id": "en-768-timeline-calculator",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/tools/timeline-calculator/",
+        "sizes": {
+          "width": 768,
+          "scrollWidth": 768
+        },
+        "result": "Your planning estimate\n\nFor Goethe-Zertifikat A1: Start Deutsch 1, the base date subtracts 28 calendar days; the additional-buffer date subtracts 42 calendar days.\n\nBase: D - W - P. Additional buffer: D - W - P - R.\n\nTarget date (D)\n2027-03-01\nResult and certificate wait (W)\n14 calendar days\nDocument preparation (P)\n14 calendar days\nAdditional retake buffer (R)\n14 calendar days\nBase planning date\n2027-02-01 (future)\nAdditional-buffer planning date\n2027-01-18 (future)\n\nW, P and R are user-entered",
+        "screenshot": "en-768-timeline-calculator.png"
+      }
+    },
+    {
+      "id": "en-768-email-reminders",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/tools/email-reminders/",
+        "sizes": {
+          "width": 768,
+          "scrollWidth": 768
+        },
+        "result": "Your reminder plan\n\nStatus: calendar file ready to download\n\nConfirm the language requirement\n\nReminder date: 2027-02-01 (all day)\n\nRoute or authority: Germany family reunion A1\n\nOfficial source: the selected route’s configured official verification entry is embedded in the calendar file.\n\nThe downloaded event uses the selected date and an exclusive next-day end. Its stable ID contains only the configured topic, route, and date—not personal information.\n\nDownloading this file does not import it,",
+        "screenshot": "en-768-email-reminders.png"
+      }
+    },
+    {
+      "id": "zh-entry-finder",
+      "precondition": "Fresh 1440x900 context, no saved state",
+      "steps": "Home -> A1 route -> Finder; submit missing input, then China/spouse/none",
+      "expected": "Real links reach localized Finder; errors focus field; valid result renders",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/zh/tools/route-finder/",
+        "result": "状态: 可提供核验指引\n\n德国家庭团聚：A1 核验路线\n选择摘要\n国家\n德国\n目的\n家庭团聚\n申请地区\n在中国申请所在地负责的德国使领馆\n家庭关系\n配偶团聚\n证书\n尚无证书\n当前证据可支持什么\n\n当前证据只支持按所列顺序继续核验；最终要求及例外仍由有管辖权的接收机关决定。\n\n仍缺少或尚未确认的信息\n仍需官方确认的信息\n带版本的证据依据\n\n规则 germany-family-reunion-a1-authority-guidance，版本 2026-09-09.1。\n\n声明 germany-family-reunion-a1-general-starting-rule，版本 2026-09-08.1；来源核验日期 2026-09-08。\nGerman Federal Foreign Office — 请按链接范围核验；此来源不替代接收机关或所选考点的决定。\n声明 germany-family-reunion-a1-authority-split，版本 2026-09-08.1；来源核验日期 2026-09-08。\nGerman Federal Foreign Office — 请按链接范围核验；此来源不替代接收机关或所选考点的决定。\nGerman Federal Foreign Office — 请按链接范围核验；此来源不替代接收机关或所选考点的决定。\n由谁负责\n负责申请的当地德国使领馆或主管机关\n考试主办方及所选官方或授权考点\n下一步\n向有管辖权的德国使领馆或接收机关核验语言证明问题及任何例外。\n比较当地报名选择前，先确认被接受的准确成人 A1 产品。\n打开工作清单；只有在掌握当前当地日期和规划假设后，才使用时间线工具。\n\n边界: 此结果只用于安排核验步骤，不证明个人资格、例外、证书接受或申请结果。\n\n查看德国家庭团聚 A1 指南 / 打开要求核对清单 / 打开时间线规划器\n\n仅供信息整理。 此工具只整理规划问题，不判断签证资格、证书是否被接受、考试是否有名额或个人申请结果。\n行动前先向官方核验\n\n请向接收材料的主管机关或官方考点确认准确要求、可接受证书、材料、日期、费用、成绩流程及当地考点规则。\n\n继续你的计划\n\n浏览路线指南\n\n打开要求核对清单 / 打开时间线规划器\n\n复制结果\n打印计划导出文本文件",
+        "screenshot": "zh-finder.png"
+      }
+    },
+    {
+      "id": "zh-finder-boundaries",
+      "precondition": "Finder with valid A1 inputs",
+      "steps": "Select other country; then Germany with missing relationship; then existing certificate; recover normal",
+      "expected": "Unsupported, missing-info and authority-confirmation boundaries remain distinct",
+      "status": "pass",
+      "actual": {
+        "states": [
+          "状态: 暂不支持此路线\n\n此国家与目的尚未配置\n选择摘要\n国家\n其他国家\n目的\n家庭团聚\n申请地区\n未提供\n家庭关系\n未提供\n证书\n未提供\n覆盖缺口\n路线专用规则与来源覆盖\n由谁负责\n接收申请的主管机关或机构\n官方考试主办方或授权当地考点\n下一步\n确认实际接收申请的主管机关或机构。\n向该机关确认这一准确路线适用哪种语言证明及等级。\n向该机关确认个人情况是否涉及例外或替代证明。\n向该机关确认当前接受的准确证书、文件形式及递交说明。\n\n边界: 此结果只用于安排核验步骤，不证明个人资格、例外、证书接受或申请结果。\n\n仅供信息整理。 此工具只整理规划问题，不判断签证资格、证书是否被接受、考试是否有名额或个人申请结果。\n行动前先向官方核验\n\n请向接收材料的主管机关或官方考点确认准确要求、可接受证书、材料、日期、费用、成绩流程及当地考点规则。\n\n复制结果\n打印计划导出文本文件",
+          "状态: 需要补充信息\n\n补充用于确认负责路线的信息\n选择摘要\n国家\n德国\n目的\n家庭团聚\n申请地区\n在中国申请所在地负责的德国使领馆\n家庭关系\n尚未确认\n证书\n尚无证书\n仍缺少或尚未确认的信息\n家庭关系类别\n带版本的证据依据\n\n规则 germany-family-reunion-a1-authority-guidance，版本 2026-09-09.1。\n\n声明 germany-family-reunion-a1-general-starting-rule，版本 2026-09-08.1；来源核验日期 2026-09-08。\nGerman Federal Foreign Office — 请按链接范围核验；此来源不替代接收机关或所选考点的决定。\n声明 germany-family-reunion-a1-authority-split，版本 2026-09-08.1；来源核验日期 2026-09-08。\nGerman Federal Foreign Office — 请按链接范围核验；此来源不替代接收机关或所选考点的决定。\nGerman Federal Foreign Office — 请按链接范围核验；此来源不替代接收机关或所选考点的决定。\n由谁负责\n负责申请的当地德国使领馆或主管机关\n下一步\n需要补充信息后再核验。\n\n边界: 此结果只用于安排核验步骤，不证明个人资格、例外、证书接受或申请结果。\n\n查看德国家庭团聚 A1 指南\n\n仅供信息整理。 此工具只整理规划问题，不判断签证资格、证书是否被接受、考试是否有名额或个人申请结果。\n行动前先向官方核验\n\n请向接收材料的主管机关或官方考点确认准确要求、可接受证书、材料、日期、费用、成绩流程及当地考点规则。\n\n复制结果\n打印计划导出文本文件",
+          "状态: 需要主管机关确认\n\n核验现有 A1 证书是否适用于此路线\n选择摘要\n国家\n德国\n目的\n家庭团聚\n申请地区\n在中国申请所在地负责的德国使领馆\n家庭关系\n配偶团聚\n证书\n已有 A1 证书\n当前证据可支持什么\n\n当前证据只支持按所列顺序继续核验；最终要求及例外仍由有管辖权的接收机关决定。\n\n仍缺少或尚未确认的信息\n仍需官方确认的信息\n带版本的证据依据\n\n规则 germany-family-reunion-a1-authority-guidance，版本 2026-09-09.1。\n\n声明 germany-family-reunion-a1-general-starting-rule，版本 2026-09-08.1；来源核验日期 2026-09-08。\nGerman Federal Foreign Office — 请按链接范围核验；此来源不替代接收机关或所选考点的决定。\n声明 germany-family-reunion-a1-authority-split，版本 2026-09-08.1；来源核验日期 2026-09-08。\nGerman Federal Foreign Office — 请按链接范围核验；此来源不替代接收机关或所选考点的决定。\nGerman Federal Foreign Office — 请按链接范围核验；此来源不替代接收机关或所选考点的决定。\n由谁负责\n负责申请的当地德国使领馆或主管机关\n准确证书产品的考试主办方\n下一步\n记录准确证书产品、签发机构、签发日期和文件形式。\n询问有管辖权的使领馆或接收机关：该准确证书及文件形式是否适用于此路线，以及是否存在时效性问题。\n使用核对清单，分别保存主管机关答复与产品来源。\n\n边界: 此结果只用于安排核验步骤，不证明个人资格、例外、证书接受或申请结果。\n\n查看德国家庭团聚 A1 指南 / 打开要求核对清单 / 打开时间线规划器\n\n仅供信息整理。 此工具只整理规划问题，不判断签证资格、证书是否被接受、考试是否有名额或个人申请结果。\n行动前先向官方核验\n\n请向接收材料的主管机关或官方考点确认准确要求、可接受证书、材料、日期、费用、成绩流程及当地考点规则。\n\n继续你的计划\n\n浏览路线指南\n\n打开要求核对清单 / 打开时间线规划器\n\n复制结果\n打印计划导出文本文件"
+        ],
+        "screenshot": "zh-finder-recovery.png"
+      }
+    },
+    {
+      "id": "zh-comparison",
+      "precondition": "Same tab has A1 plan",
+      "steps": "Use tool nav -> comparison; empty, A1, same, mixed A1/B1, B1 and restored A1 pairs",
+      "expected": "Missing rejected; valid A1/B1 tables; same/mixed remain bounded",
+      "status": "pass",
+      "actual": {
+        "states": [
+          {
+            "a": "goethe-zertifikat-a1-start-deutsch-1",
+            "b": "telc-start-deutsch-1-a1",
+            "text": "Goethe-Zertifikat A1: Start Deutsch 1 与 Start Deutsch 1 / telc Deutsch A1\n\n以下是考试主办方的产品事实，不是排名、当地报名承诺或移民机关接受声明。\n\n产品事实\tGoethe-Zertifikat A1: Start Deutsch 1\tStart Deutsch 1 / telc Deutsch A1\n笔试结构与时长\t\n\n听力约 20 分钟、阅读 25 分钟、写作 20 分钟，合计 65 分钟，中间不休息。\n\n官方来源\n\n核验日期：2026-09-09\n\n\t\n\n听力约 20 分钟；阅读与写作合计 45 分钟，产品页注明中间不休息。\n\n官方来源\n\n核验日期：2026-09-09\n\n\n口试结构与时长\t\n\n口试约 15 分钟，为最多 4 人的小组考试，不设准备时间。\n\n官方来源\n\n核验日期：2026-09-09\n\n\t\n\n口试约 15 分钟，通常 4 人参加，不设准备时间。\n\n官方来源\n\n核验日期：2026-09-09\n\n\n分数规则\t\n\n完成全部部分后，整场考试达到 60/100 或以上为通过。\n\n官方来源\n\n核验日期：2026-09-09\n\n\t\n\n官方模拟题使用 60 分制，并从 36/60 起列为通过等级。\n\n官方来源\n\n核验日期：2026-09-09\n\n\n完整或部分考试\t\n\nGoethe 官方问答说明 A1 重考时要参加完整考试，并可按需重考；所选考点仍控制重新报名与费用。\n\n官方来源\n\n核验日期：2026-09-09\n\n\t\n\n产品页说明不能只考部分；任何重新报名、场次和费用仍由所选考点确认。\n\n官方来源\n\n核验日期：2026-09-09\n\n\n本地执行、日期与出证\t\n\n状态：需要主管方确认\n\n当地场次、报名、考试日、出分和证书流程须向所选官方或授权考点确认。\n\n负责方: 所选官方或授权考点\n\n核验动作: 在付款或安排行程前，向所选考点核验当前当地条款。\n\n边界: 考试主办方产品事实不能证明特定考点当前的交易安排。\n\n\t\n\n状态：需要主管方确认\n\n当地场次、报名、考试日、出分和证书流程须向所选官方或授权考点确认。\n\n负责方: 所选官方或授权考点\n\n核验动作: 在付款或安排行程前，向所选考点核验当前当地条款。\n\n边界: 考试主办方产品事实不能证明特定考点当前的交易安排。\n\n\n当地费用与报名\t\n\n状态：需要主管方确认\n\n此处未核实当地金额或报名可用性。\n\n负责方: 所选官方或授权考点\n\n核验动作: 向所选考点核验当前费用、币种、名额、付款、取消和改期条款。\n\n边界: 此比较不提供或推断当地金额与报名可用性。\n\n\t\n\n状态：需要主管方确认\n\n此处未核实当地金额或报名可用性。\n\n负责方: 所选官方或授权考点\n\n核验动作: 向所选考点核验当前费用、币种、名额、付款、取消和改期条款。\n\n边界: 此比较不提供或推断当地金额与报名可用性。\n\n\n接收机关是否接受\t\n\n状态：需要主管方确认\n\n此处未核实你的路线是否接受该证明。\n\n负责方: 负责你准确申请路线的接收机关\n\n核验动作: 向接收机关确认该准确证书产品及文件形式是否适用于你的路线。\n\n边界: 考试主办方只定义产品，不能替接收机关作接受决定。\n\n\t\n\n状态：需要主管方确认\n\n此处未核实你的路线是否接受该证明。\n\n负责方: 负责你准确申请路线的接收机关\n\n核验动作: 向接收机关确认该准确证书产品及文件形式是否适用于你的路线。\n\n边界: 考试主办方只定义产品，不能替接收机关作接受决定。\n\n\n官方考试产品页\tGoethe-Zertifikat A1: Start Deutsch 1\tStart Deutsch 1 / telc Deutsch A1\n官方练习材料\t官方练习材料\t官方练习材料\n仅供信息整理。 此工具只整理规划问题，不判断签证资格、证书是否被接受、考试是否有名额或个人申请结果。\n行动前先向官方核验\n\n请向接收材料的主管机关或官方考点确认准确要求、可接受证书、材料、日期、费用、成绩流程及当地考点规则。\n\n继续你的计划\n\n浏览路线指南\n\n打开要求核对清单 / 打开时间线规划器\n\n复制结果\n打印计划导出文本文件"
+          },
+          {
+            "a": "goethe-zertifikat-a1-start-deutsch-1",
+            "b": "goethe-zertifikat-a1-start-deutsch-1",
+            "text": "状态：选择了同一产品\n\n请选择另一个产品\n\n请选择两个不同的考试产品；同一产品不能与自身比较。\n\n需要更改什么\n\n请选择同一等级的另一个准确成人考试产品，使两列代表不同产品。\n\n在哪里核验\nGoethe-Zertifikat A1: Start Deutsch 1 — 先向考试主办方核验准确产品，再另行确认当地执行。\nStart Deutsch 1 / telc Deutsch A1 — 先向考试主办方核验准确产品，再另行确认当地执行。\nGoethe-Zertifikat B1 — 先向考试主办方核验准确产品，再另行确认当地执行。\nZertifikat Deutsch / telc Deutsch B1 — 先向考试主办方核验准确产品，再另行确认当地执行。\n\n此状态不会推断产品事实、当地费用、名额、出分时间或接收机关是否接受。\n\n仅供信息整理。 此工具只整理规划问题，不判断签证资格、证书是否被接受、考试是否有名额或个人申请结果。\n行动前先向官方核验\n\n请向接收材料的主管机关或官方考点确认准确要求、可接受证书、材料、日期、费用、成绩流程及当地考点规则。\n\n继续你的计划\n\n浏览路线指南\n\n打开要求核对清单 / 打开时间线规划器\n\n复制结果\n打印计划导出文本文件"
+          },
+          {
+            "a": "goethe-zertifikat-a1-start-deutsch-1",
+            "b": "goethe-zertifikat-b1",
+            "text": "状态：暂时无法比较\n\n当前产品证据不可用\n\n请选择同一等级的两个考试产品（A1 与 A1，或 B1 与 B1）；不同等级不能作为等同选项比较。\n\n缺少什么\n\n需要两个不同、当前且经过来源复核的产品记录，才能显示事实。\n\n在哪里核验\nGoethe-Zertifikat A1: Start Deutsch 1 — 先向考试主办方核验准确产品，再另行确认当地执行。\nStart Deutsch 1 / telc Deutsch A1 — 先向考试主办方核验准确产品，再另行确认当地执行。\nGoethe-Zertifikat B1 — 先向考试主办方核验准确产品，再另行确认当地执行。\nZertifikat Deutsch / telc Deutsch B1 — 先向考试主办方核验准确产品，再另行确认当地执行。\n\n此状态不会推断产品事实、当地费用、名额、出分时间或接收机关是否接受。\n\n仅供信息整理。 此工具只整理规划问题，不判断签证资格、证书是否被接受、考试是否有名额或个人申请结果。\n行动前先向官方核验\n\n请向接收材料的主管机关或官方考点确认准确要求、可接受证书、材料、日期、费用、成绩流程及当地考点规则。\n\n继续你的计划\n\n浏览路线指南\n\n打开要求核对清单 / 打开时间线规划器\n\n复制结果\n打印计划导出文本文件"
+          },
+          {
+            "a": "goethe-zertifikat-b1",
+            "b": "telc-zertifikat-deutsch-b1",
+            "text": "Goethe-Zertifikat B1 与 Zertifikat Deutsch / telc Deutsch B1\n\n以下是考试主办方的产品事实，不是排名、当地报名承诺或移民机关接受声明。\n\n产品事实\tGoethe-Zertifikat B1\tZertifikat Deutsch / telc Deutsch B1\n笔试结构与时长\t\n\n阅读 65 分钟、听力约 40 分钟、写作 60 分钟：三个笔试模块合计约 165 分钟，不含休息。\n\n官方来源\n\n核验日期：2026-09-13\n\n\t\n\n笔试中阅读与语言要素共用 90 分钟，听力约 30 分钟，写作 30 分钟，合为笔试部分。\n\n官方来源\n\n核验日期：2026-09-13\n\n\n口试结构与时长\t\n\n口试通常为双人考试，约 15 分钟；特殊情况下的单人口试约 10 分钟。两种形式均有 15 分钟准备时间。\n\n官方来源\n\n核验日期：2026-09-13\n\n\t\n\n口试有三个部分，约 15 分钟，通常为两名考生共同参加，另有 20 分钟准备时间。\n\n官方来源\n\n核验日期：2026-09-13\n\n\n分数规则\t\n\n每个模块须达到至少 60/100 分；四个模块分别评定。\n\n官方来源\n\n核验日期：2026-09-13\n\n\t\n\n笔试须至少达到 135/225 分，且口试须至少达到 45/75 分，即两个部分分别达到 60%；只看合计分数不能判断通过。\n\n官方来源\n\n核验日期：2026-09-13\n\n\n模块、重考与证书输出\t\n\n可以重考单个模块，具体重考安排由考点确认。通过的模块有模块证书；在同一考点同一场次通过全部四个模块，也有权获得总证书。后续模块证书可与已有模块证书组合使用；后续合并出具总证书另受第 14.7 条的考点和时间条件约束。\n\n官方来源\n\n核验日期：2026-09-13\n\n\t\n\n若有部分未通过，可在首次成绩单日期起 12 个月内重考笔试或口试部分，并在报名时申请保留已通过部分的成绩。只计入最近一次成绩，不能单独重考子测试。通过考试获得证书，未通过则获得成绩单；当地日期与费用须向考点确认。\n\n官方来源\n\n核验日期：2026-09-13\n\n\n本地执行、日期与出证\t\n\n状态：需要主管方确认\n\n当地场次、报名、考试日、出分和证书流程须向所选官方或授权考点确认。\n\n负责方: 所选官方或授权考点\n\n核验动作: 在付款或安排行程前，向所选考点核验当前当地条款。\n\n边界: 考试主办方产品事实不能证明特定考点当前的交易安排。\n\n\t\n\n状态：需要主管方确认\n\n当地场次、报名、考试日、出分和证书流程须向所选官方或授权考点确认。\n\n负责方: 所选官方或授权考点\n\n核验动作: 在付款或安排行程前，向所选考点核验当前当地条款。\n\n边界: 考试主办方产品事实不能证明特定考点当前的交易安排。\n\n\n当地费用与报名\t\n\n状态：需要主管方确认\n\n此处未核实当地金额或报名可用性。\n\n负责方: 所选官方或授权考点\n\n核验动作: 向所选考点核验当前费用、币种、名额、付款、取消和改期条款。\n\n边界: 此比较不提供或推断当地金额与报名可用性。\n\n\t\n\n状态：需要主管方确认\n\n此处未核实当地金额或报名可用性。\n\n负责方: 所选官方或授权考点\n\n核验动作: 向所选考点核验当前费用、币种、名额、付款、取消和改期条款。\n\n边界: 此比较不提供或推断当地金额与报名可用性。\n\n\n接收机关是否接受\t\n\n状态：需要主管方确认\n\n此处未核实你的路线是否接受该证明。\n\n负责方: 负责你准确申请路线的接收机关\n\n核验动作: 向接收机关确认该准确证书产品及文件形式是否适用于你的路线。\n\n边界: 考试主办方只定义产品，不能替接收机关作接受决定。\n\n\t\n\n状态：需要主管方确认\n\n此处未核实你的路线是否接受该证明。\n\n负责方: 负责你准确申请路线的接收机关\n\n核验动作: 向接收机关确认该准确证书产品及文件形式是否适用于你的路线。\n\n边界: 考试主办方只定义产品，不能替接收机关作接受决定。\n\n\n官方考试产品页\tGoethe-Zertifikat B1\tZertifikat Deutsch / telc Deutsch B1\n官方练习材料\t官方练习材料\t官方练习材料\n仅供信息整理。 此工具只整理规划问题，不判断签证资格、证书是否被接受、考试是否有名额或个人申请结果。\n行动前先向官方核验\n\n请向接收材料的主管机关或官方考点确认准确要求、可接受证书、材料、日期、费用、成绩流程及当地考点规则。\n\n继续你的计划\n\n浏览路线指南\n\n打开要求核对清单 / 打开时间线规划器\n\n复制结果\n打印计划导出文本文件"
+          },
+          {
+            "a": "goethe-zertifikat-a1-start-deutsch-1",
+            "b": "telc-start-deutsch-1-a1",
+            "text": "Goethe-Zertifikat A1: Start Deutsch 1 与 Start Deutsch 1 / telc Deutsch A1\n\n以下是考试主办方的产品事实，不是排名、当地报名承诺或移民机关接受声明。\n\n产品事实\tGoethe-Zertifikat A1: Start Deutsch 1\tStart Deutsch 1 / telc Deutsch A1\n笔试结构与时长\t\n\n听力约 20 分钟、阅读 25 分钟、写作 20 分钟，合计 65 分钟，中间不休息。\n\n官方来源\n\n核验日期：2026-09-09\n\n\t\n\n听力约 20 分钟；阅读与写作合计 45 分钟，产品页注明中间不休息。\n\n官方来源\n\n核验日期：2026-09-09\n\n\n口试结构与时长\t\n\n口试约 15 分钟，为最多 4 人的小组考试，不设准备时间。\n\n官方来源\n\n核验日期：2026-09-09\n\n\t\n\n口试约 15 分钟，通常 4 人参加，不设准备时间。\n\n官方来源\n\n核验日期：2026-09-09\n\n\n分数规则\t\n\n完成全部部分后，整场考试达到 60/100 或以上为通过。\n\n官方来源\n\n核验日期：2026-09-09\n\n\t\n\n官方模拟题使用 60 分制，并从 36/60 起列为通过等级。\n\n官方来源\n\n核验日期：2026-09-09\n\n\n完整或部分考试\t\n\nGoethe 官方问答说明 A1 重考时要参加完整考试，并可按需重考；所选考点仍控制重新报名与费用。\n\n官方来源\n\n核验日期：2026-09-09\n\n\t\n\n产品页说明不能只考部分；任何重新报名、场次和费用仍由所选考点确认。\n\n官方来源\n\n核验日期：2026-09-09\n\n\n本地执行、日期与出证\t\n\n状态：需要主管方确认\n\n当地场次、报名、考试日、出分和证书流程须向所选官方或授权考点确认。\n\n负责方: 所选官方或授权考点\n\n核验动作: 在付款或安排行程前，向所选考点核验当前当地条款。\n\n边界: 考试主办方产品事实不能证明特定考点当前的交易安排。\n\n\t\n\n状态：需要主管方确认\n\n当地场次、报名、考试日、出分和证书流程须向所选官方或授权考点确认。\n\n负责方: 所选官方或授权考点\n\n核验动作: 在付款或安排行程前，向所选考点核验当前当地条款。\n\n边界: 考试主办方产品事实不能证明特定考点当前的交易安排。\n\n\n当地费用与报名\t\n\n状态：需要主管方确认\n\n此处未核实当地金额或报名可用性。\n\n负责方: 所选官方或授权考点\n\n核验动作: 向所选考点核验当前费用、币种、名额、付款、取消和改期条款。\n\n边界: 此比较不提供或推断当地金额与报名可用性。\n\n\t\n\n状态：需要主管方确认\n\n此处未核实当地金额或报名可用性。\n\n负责方: 所选官方或授权考点\n\n核验动作: 向所选考点核验当前费用、币种、名额、付款、取消和改期条款。\n\n边界: 此比较不提供或推断当地金额与报名可用性。\n\n\n接收机关是否接受\t\n\n状态：需要主管方确认\n\n此处未核实你的路线是否接受该证明。\n\n负责方: 负责你准确申请路线的接收机关\n\n核验动作: 向接收机关确认该准确证书产品及文件形式是否适用于你的路线。\n\n边界: 考试主办方只定义产品，不能替接收机关作接受决定。\n\n\t\n\n状态：需要主管方确认\n\n此处未核实你的路线是否接受该证明。\n\n负责方: 负责你准确申请路线的接收机关\n\n核验动作: 向接收机关确认该准确证书产品及文件形式是否适用于你的路线。\n\n边界: 考试主办方只定义产品，不能替接收机关作接受决定。\n\n\n官方考试产品页\tGoethe-Zertifikat A1: Start Deutsch 1\tStart Deutsch 1 / telc Deutsch A1\n官方练习材料\t官方练习材料\t官方练习材料\n仅供信息整理。 此工具只整理规划问题，不判断签证资格、证书是否被接受、考试是否有名额或个人申请结果。\n行动前先向官方核验\n\n请向接收材料的主管机关或官方考点确认准确要求、可接受证书、材料、日期、费用、成绩流程及当地考点规则。\n\n继续你的计划\n\n浏览路线指南\n\n打开要求核对清单 / 打开时间线规划器\n\n复制结果\n打印计划导出文本文件"
+          }
+        ],
+        "screenshot": "zh-comparison.png"
+      }
+    },
+    {
+      "id": "zh-checklist",
+      "precondition": "Same tab A1 route and exams",
+      "steps": "Nav -> checklist; verify inherited route; generate, check item, reload, regenerate; copy and read clipboard; download bytes",
+      "expected": "Stable checkbox restored; clipboard equals downloaded full checklist including state/sources",
+      "status": "pass",
+      "actual": {
+        "item": "requirement.identify-competent-mission",
+        "clipboardBytes": 4887,
+        "download": {
+          "file": "zh-checklist.txt",
+          "bytes": 4887,
+          "sha256": "c35af5a322557f2351bfea491db39b85c9ddd0df009608e6f143efb6373042b0",
+          "text": "VisaLang 准备核对清单\n路线：德国家庭团聚 A1\n生成日期：2026-09-20\n适用范围：这是语言证明准备清单，不是完整签证材料清单、资格决定、例外决定或申请结果。\n申请地区：在中国申请所在地负责的德国使领馆\n证书状态：尚无证书\n\n1. 要求与主管机关\n[x] 确认对申请所在地有管辖权的德国使领馆或主管机关\n  完成标准：已保存官方使领馆或主管机关页面及核验日期\n  负责方：有管辖权的德国使领馆或接收申请的移民主管机关\n[ ] 记录主管机关对当前语言证明及例外问题的答复\n  完成标准：已逐字记录适用于该路线的说明及来源或官方回复，且未据此推断个人资格\n  负责方：有管辖权的德国使领馆或接收申请的移民主管机关\n\n2. 准确考试产品\n[ ] 记录接收机关表示可用于该路线的准确成人 A1 考试产品\n  完成标准：完整产品名称与适用于该路线的机关依据一并保存\n  负责方：有管辖权的德国使领馆或接收申请的移民主管机关\n[ ] 将记录的产品名称与考试主办方产品页逐项核对\n  完成标准：成人产品页、产品名称及来源核验日期一致\n  负责方：Goethe-Institut 或 telc gGmbH\n\n3. 报名与付款\n[ ] 通过考试主办方路径核验所选考点\n  完成标准：已保存从考试主办方到所选考点的带日期路径或主办方官方确认\n  负责方：考试主办方及所选官方或授权考点\n[ ] 确认所选考点当前提供准确的成人 A1 产品\n  完成标准：已记录考点当前产品名称、计划场次和核验日期\n  负责方：所选官方或授权考点\n[ ] 让报名姓名与所选考点要求的身份证件一致\n  完成标准：已记录姓名拼写及考点当前身份证件说明，且无未解决的不一致\n  负责方：所选官方或授权考点\n[ ] 付款前保存所选考点当前费用及付款或变更条款\n  完成标准：已从该考点保存带日期的费用、币种、付款、取消和改期依据\n  负责方：所选官方或授权考点\n\n4. 考试日、成绩与证书\n[ ] 重新打开所选考点当前考试日说明\n  完成标准：已再次核验已报名场次的到场、身份证件和可携带物品说明\n  负责方：所选官方或授权考点\n[ ] 记录所选考点的成绩与证书获取流程\n  完成标准：已把当前成绩通知、证书领取或寄送流程和联系渠道作为规划输入保存，而非结果保证\n  负责方：所选官方或授权考点\n\n5. 递交前复核\n[ ] 打开有管辖权使领馆针对准确申请路线的当前清单\n  完成标准：已保存路线专用官方清单及版本或核验日期\n  负责方：有管辖权的德国使领馆或接收申请的移民主管机关\n[ ] 依据使领馆清单核验语言证明所需文件形式\n  完成标准：已从接收机关记录准确证书、原件或复印件问题，以及任何翻译或核验说明\n  负责方：有管辖权的德国使领馆或接收申请的移民主管机关\n\n完成进度：1/12\n\n来源：\n- 德国联邦外交部及有管辖权的德国使领馆: https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682\n  核验日期：2026-09-08\n  可支持：提供一般语言证明核验起点，并说明路线细节应由有管辖权使领馆确认\n  来源边界：不判断个人是否需要语言证明、是否适用例外、接受哪张证书、材料清单或签证结果\n- Goethe-Institut: https://www.goethe.de/ins/de/en/prf/prf/gzsd1.html\n  核验日期：2026-09-09\n  可支持：确认成人 Goethe-Zertifikat A1: Start Deutsch 1 的准确产品身份\n  来源边界：不证明移民机关接受，也不证明所选考点当前的报名或考试日条款\n- telc gGmbH: https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/\n  核验日期：2026-09-09\n  可支持：确认 Start Deutsch 1 / telc Deutsch A1 的准确产品身份\n  来源边界：不证明移民机关接受，也不证明所选考点当前的报名或考试日条款\n- Goethe-Institut 及所选官方或授权考点: https://www.goethe.de/en/spr/prf.html\n  核验日期：2026-09-09\n  可支持：提供查找 Goethe 考试机构或合作考点的主办方入口\n  来源边界：不证明特定考点的名额、当前产品、费用、身份要求、出分日期或证书流程\n- telc gGmbH 及所选考试中心: https://www.telc.net/en/language-examinations/find-a-telc-examination-centre/\n  核验日期：2026-09-09\n  可支持：提供查找候选 telc 考试中心的官方入口\n  来源边界：名单不证明考点当前提供准确 A1 产品、有名额或采用统一当地规则\n\n总体边界：这是语言证明准备清单，不是完整签证材料清单、资格决定、例外决定或申请结果。"
+        },
+        "screenshot": "zh-checklist.png"
+      }
+    },
+    {
+      "id": "zh-checklist-print",
+      "precondition": "Generated checklist with one checked task",
+      "steps": "Invoke print handler; render actual print media to PDF",
+      "expected": "beforeprint/afterprint observed and PDF contains print output; physical printing not tested",
+      "status": "pass",
+      "actual": {
+        "events": [
+          "beforeprint",
+          "beforeprint",
+          "afterprint"
+        ],
+        "screenshot": "zh-checklist-print.png",
+        "pdf": "zh-checklist.pdf",
+        "boundary": "Headless Chrome print media/PDF only; physical printer and OS dialog not_tested"
+      }
+    },
+    {
+      "id": "zh-checklist-fallback",
+      "precondition": "Valid checklist",
+      "steps": "Reject clipboard via test fault injection; click copy; select unsupported route; restore A1",
+      "expected": "Full manual fallback focused; unsupported route clears/disables takeaways; A1 recovers",
+      "status": "pass",
+      "actual": {
+        "faultInjection": true,
+        "fallbackLength": 2197,
+        "unsupported": "germany-b1",
+        "screenshot": "zh-checklist-recovery.png"
+      }
+    },
+    {
+      "id": "zh-timeline",
+      "precondition": "Same tab A1 plan",
+      "steps": "Nav timeline; missing buffers, negative buffer, valid target 2027-03-01 with 14/7/30; refresh",
+      "expected": "Errors focus fields; dates derived from explicit values; approved date restores",
+      "status": "pass",
+      "actual": {
+        "result": "你的规划估算\n\n对于Goethe-Zertifikat A1: Start Deutsch 1，基础日期倒推 21 个日历日；额外缓冲日期倒推 51 个日历日。\n\n基础公式：D - W - P。额外缓冲公式：D - W - P - R。\n\n目标日期（D）\n2027-03-01\n成绩与证书等待（W）\n14 个日历日\n材料准备（P）\n7 个日历日\n额外重考缓冲（R）\n30 个日历日\n基础规划日期\n2027-02-08 (未来)\n额外缓冲规划日期\n2027-01-09 (未来)\n\nW、P 和 R 是用户输入的规划假设或当地确认值，并非官方默认值；任何计算日期都不保证报名、成绩、证书、接受决定或申请结果。\n\nR 只是额外日历日缓冲，不保证或自动包含真实的下一场考试、重新报名、另一笔费用、再次等待成绩或证书寄送。\n\n仅供信息整理。 此工具只整理规划问题，不判断签证资格、证书是否被接受、考试是否有名额或个人申请结果。\n行动前先向官方核验\n\n请向接收材料的主管机关或官方考点确认准确要求、可接受证书、材料、日期、费用、成绩流程及当地考点规则。\n\n继续你的计划\n\n浏览路线指南\n\n打开要求核对清单 / 打开时间线规划器\n\n复制结果\n打印计划导出文本文件",
+        "screenshot": "zh-timeline.png"
+      }
+    },
+    {
+      "id": "zh-reminder",
+      "precondition": "Same tab A1 plan",
+      "steps": "Nav reminder; missing fields; choose topic/date; actual ICS download; edit date",
+      "expected": "No false success on missing input; ICS bytes valid; stale download hidden after edit",
+      "status": "pass",
+      "actual": {
+        "download": {
+          "file": "zh-reminder.ics",
+          "bytes": 866,
+          "sha256": "340d1a76b2923444417110fd80a5e94c16fb93ec514192de294db35082435062",
+          "text": "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//VisaLang//Reminder Planner zh-CN//EN\r\nCALSCALE:GREGORIAN\r\nBEGIN:VEVENT\r\nUID:visalang-confirm-language-requirement-germany-family-reunion-a1-2027020\r\n 1@visalang.org\r\nDTSTAMP:20260920T041507Z\r\nDTSTART;VALUE=DATE:20270201\r\nDTEND;VALUE=DATE:20270202\r\nSUMMARY:确认语言要求\r\nURL:https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-\r\n deutschkenntnisse-606682\r\nDESCRIPTION:路线或主管机关：德国家庭团聚 A1。\\n官方入口\r\n ：德国联邦外交部配偶语言要求说明。\\n边界：此入口用\r\n 于找到负责的使领馆，不判断例外、准确可接受证书或\r\n 文件，也不判断个人结果。\\n边界：此日历事件只提示你\r\n 手动核验；它不证明截止日期、预约、名额、成绩、证\r\n 书、接受决定或通知送达。\r\nEND:VEVENT\r\nEND:VCALENDAR\r\n"
+        },
+        "screenshot": "zh-reminder.png",
+        "import": "not_tested",
+        "notification": "not_tested"
+      }
+    },
+    {
+      "id": "zh-device-save-clear",
+      "precondition": "Shared session plan from tool chain",
+      "steps": "Verify no device snapshot; explicitly save; clear session and reload; clear plan",
+      "expected": "Device snapshot saved only on request; restores and both stores clear",
+      "status": "pass",
+      "actual": {
+        "saved": {
+          "schemaVersion": 1,
+          "locale": "zh-CN",
+          "routeId": "germany-family-reunion-a1",
+          "applicationRegionId": "germany-mission-china",
+          "ruleVersion": "2026-09-09.1",
+          "claimVersions": {
+            "germany-family-reunion-a1-general-starting-rule": "2026-09-08.1",
+            "germany-family-reunion-a1-authority-split": "2026-09-08.1"
+          },
+          "answers": {
+            "country": "germany",
+            "purpose": "family-reunion",
+            "relationship": "spouse",
+            "certificate": "none",
+            "reminderTopicId": "confirm-language-requirement"
+          },
+          "selectedExamIds": [
+            "goethe-zertifikat-a1-start-deutsch-1",
+            "telc-start-deutsch-1-a1"
+          ],
+          "targetDate": "2027-03-01",
+          "buffers": {
+            "resultWaitDays": 14,
+            "documentPreparationDays": 7,
+            "retakeBufferDays": 30
+          },
+          "checklistState": {},
+          "savedAt": "2026-09-20T04:15:09.219Z",
+          "savedUntil": "2026-10-20T04:15:09.219Z"
+        },
+        "status": "已恢复可选设备副本。运行工具前请复核；除非再次保存，后续编辑只保留在此标签页。",
+        "screenshot": "zh-cleared.png"
+      }
+    },
+    {
+      "id": "zh-version-recovery",
+      "precondition": "No persisted plan",
+      "steps": "Create plan then inject stale schema; refresh, clear, re-enter via keyboard",
+      "expected": "Incompatible version requires reconfirmation; clear/re-enter recovers without URL answers",
+      "status": "pass",
+      "actual": {
+        "status": "已保存计划使用不兼容的结构、规则或声明版本。依赖结果前，请清除共享计划并重新输入当前事实。",
+        "screenshot": "zh-version-recovery.png"
+      }
+    },
+    {
+      "id": "zh-keyboard",
+      "precondition": "Recovered A1 Finder",
+      "steps": "Restart -> focus first field; use only Tab/Arrow keys to choose controls and Enter submit",
+      "expected": "Keyboard-only traversal creates a result and moves focus to result",
+      "status": "fail",
+      "actual": "TimeoutError: locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.tool-result:visible, .tool-result-panel:visible').first() to be visible\u001b[22m\n",
+      "screenshot": "zh-keyboard-failure.png"
+    },
+    {
+      "id": "zh-375-route-finder",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/zh/tools/route-finder/",
+        "sizes": {
+          "width": 375,
+          "scrollWidth": 375
+        },
+        "result": "状态: 可提供核验指引\n\n德国家庭团聚：A1 核验路线\n选择摘要\n国家\n德国\n目的\n家庭团聚\n申请地区\n在中国申请所在地负责的德国使领馆\n家庭关系\n配偶团聚\n证书\n尚无证书\n当前证据可支持什么\n\n当前证据只支持按所列顺序继续核验；最终要求及例外仍由有管辖权的接收机关决定。\n\n仍缺少或尚未确认的信息\n仍需官方确认的信息\n带版本的证据依据\n\n规则 germany-family-reunion-a1-authority-guidance，版本 2026-09-09.1。\n\n声明 germany-family-reunion-a1-general-starting-rule，版本 2026-09-08.1；来源核验日期 2026-09-08。\nGerman Federal Foreign Office — 请按链接范围核验；此来源不替代接收机关或所选考点的决定。\n声明 germany-family-reunion-a1-authority-split，版本 2026-09-08.1；来源核验日期 2026-09-08。\nGerman Federal Foreign Office — 请按链接范",
+        "screenshot": "zh-375-route-finder.png"
+      }
+    },
+    {
+      "id": "zh-375-exam-comparison",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/zh/tools/exam-comparison/",
+        "sizes": {
+          "width": 375,
+          "scrollWidth": 375
+        },
+        "result": "Goethe-Zertifikat B1 与 Zertifikat Deutsch / telc Deutsch B1\n\n以下是考试主办方的产品事实，不是排名、当地报名承诺或移民机关接受声明。\n\n左右滚动可查看全部比较列。\n\n产品事实\tGoethe-Zertifikat B1\tZertifikat Deutsch / telc Deutsch B1\n笔试结构与时长\t\n\n阅读 65 分钟、听力约 40 分钟、写作 60 分钟：三个笔试模块合计约 165 分钟，不含休息。\n\n官方来源\n\n核验日期：2026-09-13\n\n\t\n\n笔试中阅读与语言要素共用 90 分钟，听力约 30 分钟，写作 30 分钟，合为笔试部分。\n\n官方来源\n\n核验日期：2026-09-13\n\n\n口试结构与时长\t\n\n口试通常为双人考试，约 15 分钟；特殊情况下的单人口试约 10 分钟。两种形式均有 15 分钟准备时间。\n\n官方来源\n\n核验日期：2026-09-13\n\n\t\n\n口试有三个部分，约 15 分钟，通常为两名考生共同参加，另有 20 分钟准备时间。\n\n官方来源\n\n核验日期：2026-09-13\n\n\n分数规则\t\n\n",
+        "screenshot": "zh-375-exam-comparison.png"
+      }
+    },
+    {
+      "id": "zh-375-checklist-generator",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/zh/tools/checklist-generator/",
+        "sizes": {
+          "width": 375,
+          "scrollWidth": 375
+        },
+        "result": "德国家庭团聚 A1 核对清单\n\n完成你自己的官方核验后，再勾选对应项目。\n\n生成日期: 2026-09-20\n\n适用范围: 这是语言证明准备清单，不是完整签证材料清单、资格决定、例外决定或申请结果。\n\n1. 要求与主管机关\n确认对申请所在地有管辖权的德国使领馆或主管机关\n状态：已完成\n完成标准: 已保存官方使领馆或主管机关页面及核验日期\n负责方: 有管辖权的德国使领馆或接收申请的移民主管机关\n德国联邦外交部及有管辖权的德国使领馆 — 核验日期 2026-09-08；不判断个人是否需要语言证明、是否适用例外、接受哪张证书、材料清单或签证结果\n记录主管机关对当前语言证明及例外问题的答复\n状态：未完成\n完成标准: 已逐字记录适用于该路线的说明及来源或官方回复，且未据此推断个人资格\n负责方: 有管辖权的德国使领馆或接收申请的移民主管机关\n德国联邦外交部及有管辖权的德国使领馆 — 核验日期 2026-09-08；不判断个人是否需要语言证明、是否适用例外、接受哪张证书、材料清单或签证结果\n2. 准确考试产品\n记录接收机关表示可用于该路线的准确成人 A1 考试产品\n状态：未完成\n完成标准: 完整产品",
+        "screenshot": "zh-375-checklist-generator.png"
+      }
+    },
+    {
+      "id": "zh-375-timeline-calculator",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/zh/tools/timeline-calculator/",
+        "sizes": {
+          "width": 375,
+          "scrollWidth": 375
+        },
+        "result": "你的规划估算\n\n对于Goethe-Zertifikat A1: Start Deutsch 1，基础日期倒推 28 个日历日；额外缓冲日期倒推 42 个日历日。\n\n基础公式：D - W - P。额外缓冲公式：D - W - P - R。\n\n目标日期（D）\n2027-03-01\n成绩与证书等待（W）\n14 个日历日\n材料准备（P）\n14 个日历日\n额外重考缓冲（R）\n14 个日历日\n基础规划日期\n2027-02-01 (未来)\n额外缓冲规划日期\n2027-01-18 (未来)\n\nW、P 和 R 是用户输入的规划假设或当地确认值，并非官方默认值；任何计算日期都不保证报名、成绩、证书、接受决定或申请结果。\n\nR 只是额外日历日缓冲，不保证或自动包含真实的下一场考试、重新报名、另一笔费用、再次等待成绩或证书寄送。\n\n仅供信息整理。 此工具只整理规划问题，不判断签证资格、证书是否被接受、考试是否有名额或个人申请结果。\n行动前先向官方核验\n\n请向接收材料的主管机关或官方考点确认准确要求、可接受证书、材料、日期、费用、成绩流程及当地考点规则。\n\n继续你的计划\n\n浏览路线指南\n\n打开要求核对清单 / ",
+        "screenshot": "zh-375-timeline-calculator.png"
+      }
+    },
+    {
+      "id": "zh-375-email-reminders",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/zh/tools/email-reminders/",
+        "sizes": {
+          "width": 375,
+          "scrollWidth": 375
+        },
+        "result": "你的提醒计划\n\n状态：日历文件已可下载\n\n确认语言要求\n\n提醒日期：2027-02-01（全天）\n\n路线或主管机关: 德国家庭团聚 A1\n\n官方来源：日历文件包含所选路线中配置的官方核验入口。\n\n下载的事件使用所选日期，并以次日作为不包含在内的结束日。稳定 ID 只包含配置的主题、路线和日期，不包含个人信息。\n\n下载文件不等于导入日历、设置设备提醒、发送邮件或证明通知已送达。日历行为取决于客户端。\n\n下载 ICS 日历文件\n仅供信息整理。 此工具只整理规划问题，不判断签证资格、证书是否被接受、考试是否有名额或个人申请结果。\n行动前先向官方核验\n\n请向接收材料的主管机关或官方考点确认准确要求、可接受证书、材料、日期、费用、成绩流程及当地考点规则。\n\n继续你的计划\n\n浏览路线指南\n\n打开要求核对清单 / 打开时间线规划器\n\n复制结果\n打印计划导出文本文件",
+        "screenshot": "zh-375-email-reminders.png"
+      }
+    },
+    {
+      "id": "zh-390-route-finder",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/zh/tools/route-finder/",
+        "sizes": {
+          "width": 390,
+          "scrollWidth": 390
+        },
+        "result": "状态: 可提供核验指引\n\n德国家庭团聚：A1 核验路线\n选择摘要\n国家\n德国\n目的\n家庭团聚\n申请地区\n在中国申请所在地负责的德国使领馆\n家庭关系\n配偶团聚\n证书\n尚无证书\n当前证据可支持什么\n\n当前证据只支持按所列顺序继续核验；最终要求及例外仍由有管辖权的接收机关决定。\n\n仍缺少或尚未确认的信息\n仍需官方确认的信息\n带版本的证据依据\n\n规则 germany-family-reunion-a1-authority-guidance，版本 2026-09-09.1。\n\n声明 germany-family-reunion-a1-general-starting-rule，版本 2026-09-08.1；来源核验日期 2026-09-08。\nGerman Federal Foreign Office — 请按链接范围核验；此来源不替代接收机关或所选考点的决定。\n声明 germany-family-reunion-a1-authority-split，版本 2026-09-08.1；来源核验日期 2026-09-08。\nGerman Federal Foreign Office — 请按链接范",
+        "screenshot": "zh-390-route-finder.png"
+      }
+    },
+    {
+      "id": "zh-390-exam-comparison",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/zh/tools/exam-comparison/",
+        "sizes": {
+          "width": 390,
+          "scrollWidth": 390
+        },
+        "result": "Goethe-Zertifikat B1 与 Zertifikat Deutsch / telc Deutsch B1\n\n以下是考试主办方的产品事实，不是排名、当地报名承诺或移民机关接受声明。\n\n产品事实\tGoethe-Zertifikat B1\tZertifikat Deutsch / telc Deutsch B1\n笔试结构与时长\t\n\n阅读 65 分钟、听力约 40 分钟、写作 60 分钟：三个笔试模块合计约 165 分钟，不含休息。\n\n官方来源\n\n核验日期：2026-09-13\n\n\t\n\n笔试中阅读与语言要素共用 90 分钟，听力约 30 分钟，写作 30 分钟，合为笔试部分。\n\n官方来源\n\n核验日期：2026-09-13\n\n\n口试结构与时长\t\n\n口试通常为双人考试，约 15 分钟；特殊情况下的单人口试约 10 分钟。两种形式均有 15 分钟准备时间。\n\n官方来源\n\n核验日期：2026-09-13\n\n\t\n\n口试有三个部分，约 15 分钟，通常为两名考生共同参加，另有 20 分钟准备时间。\n\n官方来源\n\n核验日期：2026-09-13\n\n\n分数规则\t\n\n每个模块须达到至少 60/10",
+        "screenshot": "zh-390-exam-comparison.png"
+      }
+    },
+    {
+      "id": "zh-390-checklist-generator",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/zh/tools/checklist-generator/",
+        "sizes": {
+          "width": 390,
+          "scrollWidth": 390
+        },
+        "result": "德国家庭团聚 A1 核对清单\n\n完成你自己的官方核验后，再勾选对应项目。\n\n生成日期: 2026-09-20\n\n适用范围: 这是语言证明准备清单，不是完整签证材料清单、资格决定、例外决定或申请结果。\n\n1. 要求与主管机关\n确认对申请所在地有管辖权的德国使领馆或主管机关\n状态：已完成\n完成标准: 已保存官方使领馆或主管机关页面及核验日期\n负责方: 有管辖权的德国使领馆或接收申请的移民主管机关\n德国联邦外交部及有管辖权的德国使领馆 — 核验日期 2026-09-08；不判断个人是否需要语言证明、是否适用例外、接受哪张证书、材料清单或签证结果\n记录主管机关对当前语言证明及例外问题的答复\n状态：未完成\n完成标准: 已逐字记录适用于该路线的说明及来源或官方回复，且未据此推断个人资格\n负责方: 有管辖权的德国使领馆或接收申请的移民主管机关\n德国联邦外交部及有管辖权的德国使领馆 — 核验日期 2026-09-08；不判断个人是否需要语言证明、是否适用例外、接受哪张证书、材料清单或签证结果\n2. 准确考试产品\n记录接收机关表示可用于该路线的准确成人 A1 考试产品\n状态：未完成\n完成标准: 完整产品",
+        "screenshot": "zh-390-checklist-generator.png"
+      }
+    },
+    {
+      "id": "zh-390-timeline-calculator",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/zh/tools/timeline-calculator/",
+        "sizes": {
+          "width": 390,
+          "scrollWidth": 390
+        },
+        "result": "你的规划估算\n\n对于Goethe-Zertifikat A1: Start Deutsch 1，基础日期倒推 28 个日历日；额外缓冲日期倒推 42 个日历日。\n\n基础公式：D - W - P。额外缓冲公式：D - W - P - R。\n\n目标日期（D）\n2027-03-01\n成绩与证书等待（W）\n14 个日历日\n材料准备（P）\n14 个日历日\n额外重考缓冲（R）\n14 个日历日\n基础规划日期\n2027-02-01 (未来)\n额外缓冲规划日期\n2027-01-18 (未来)\n\nW、P 和 R 是用户输入的规划假设或当地确认值，并非官方默认值；任何计算日期都不保证报名、成绩、证书、接受决定或申请结果。\n\nR 只是额外日历日缓冲，不保证或自动包含真实的下一场考试、重新报名、另一笔费用、再次等待成绩或证书寄送。\n\n仅供信息整理。 此工具只整理规划问题，不判断签证资格、证书是否被接受、考试是否有名额或个人申请结果。\n行动前先向官方核验\n\n请向接收材料的主管机关或官方考点确认准确要求、可接受证书、材料、日期、费用、成绩流程及当地考点规则。\n\n继续你的计划\n\n浏览路线指南\n\n打开要求核对清单 / ",
+        "screenshot": "zh-390-timeline-calculator.png"
+      }
+    },
+    {
+      "id": "zh-390-email-reminders",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/zh/tools/email-reminders/",
+        "sizes": {
+          "width": 390,
+          "scrollWidth": 390
+        },
+        "result": "你的提醒计划\n\n状态：日历文件已可下载\n\n确认语言要求\n\n提醒日期：2027-02-01（全天）\n\n路线或主管机关: 德国家庭团聚 A1\n\n官方来源：日历文件包含所选路线中配置的官方核验入口。\n\n下载的事件使用所选日期，并以次日作为不包含在内的结束日。稳定 ID 只包含配置的主题、路线和日期，不包含个人信息。\n\n下载文件不等于导入日历、设置设备提醒、发送邮件或证明通知已送达。日历行为取决于客户端。\n\n下载 ICS 日历文件\n仅供信息整理。 此工具只整理规划问题，不判断签证资格、证书是否被接受、考试是否有名额或个人申请结果。\n行动前先向官方核验\n\n请向接收材料的主管机关或官方考点确认准确要求、可接受证书、材料、日期、费用、成绩流程及当地考点规则。\n\n继续你的计划\n\n浏览路线指南\n\n打开要求核对清单 / 打开时间线规划器\n\n复制结果\n打印计划导出文本文件",
+        "screenshot": "zh-390-email-reminders.png"
+      }
+    },
+    {
+      "id": "zh-768-route-finder",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/zh/tools/route-finder/",
+        "sizes": {
+          "width": 768,
+          "scrollWidth": 768
+        },
+        "result": "状态: 可提供核验指引\n\n德国家庭团聚：A1 核验路线\n选择摘要\n国家\n德国\n目的\n家庭团聚\n申请地区\n在中国申请所在地负责的德国使领馆\n家庭关系\n配偶团聚\n证书\n尚无证书\n当前证据可支持什么\n\n当前证据只支持按所列顺序继续核验；最终要求及例外仍由有管辖权的接收机关决定。\n\n仍缺少或尚未确认的信息\n仍需官方确认的信息\n带版本的证据依据\n\n规则 germany-family-reunion-a1-authority-guidance，版本 2026-09-09.1。\n\n声明 germany-family-reunion-a1-general-starting-rule，版本 2026-09-08.1；来源核验日期 2026-09-08。\nGerman Federal Foreign Office — 请按链接范围核验；此来源不替代接收机关或所选考点的决定。\n声明 germany-family-reunion-a1-authority-split，版本 2026-09-08.1；来源核验日期 2026-09-08。\nGerman Federal Foreign Office — 请按链接范",
+        "screenshot": "zh-768-route-finder.png"
+      }
+    },
+    {
+      "id": "zh-768-exam-comparison",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/zh/tools/exam-comparison/",
+        "sizes": {
+          "width": 768,
+          "scrollWidth": 768
+        },
+        "result": "Goethe-Zertifikat B1 与 Zertifikat Deutsch / telc Deutsch B1\n\n以下是考试主办方的产品事实，不是排名、当地报名承诺或移民机关接受声明。\n\n产品事实\tGoethe-Zertifikat B1\tZertifikat Deutsch / telc Deutsch B1\n笔试结构与时长\t\n\n阅读 65 分钟、听力约 40 分钟、写作 60 分钟：三个笔试模块合计约 165 分钟，不含休息。\n\n官方来源\n\n核验日期：2026-09-13\n\n\t\n\n笔试中阅读与语言要素共用 90 分钟，听力约 30 分钟，写作 30 分钟，合为笔试部分。\n\n官方来源\n\n核验日期：2026-09-13\n\n\n口试结构与时长\t\n\n口试通常为双人考试，约 15 分钟；特殊情况下的单人口试约 10 分钟。两种形式均有 15 分钟准备时间。\n\n官方来源\n\n核验日期：2026-09-13\n\n\t\n\n口试有三个部分，约 15 分钟，通常为两名考生共同参加，另有 20 分钟准备时间。\n\n官方来源\n\n核验日期：2026-09-13\n\n\n分数规则\t\n\n每个模块须达到至少 60/10",
+        "screenshot": "zh-768-exam-comparison.png"
+      }
+    },
+    {
+      "id": "zh-768-checklist-generator",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/zh/tools/checklist-generator/",
+        "sizes": {
+          "width": 768,
+          "scrollWidth": 768
+        },
+        "result": "德国家庭团聚 A1 核对清单\n\n完成你自己的官方核验后，再勾选对应项目。\n\n生成日期: 2026-09-20\n\n适用范围: 这是语言证明准备清单，不是完整签证材料清单、资格决定、例外决定或申请结果。\n\n1. 要求与主管机关\n确认对申请所在地有管辖权的德国使领馆或主管机关\n状态：已完成\n完成标准: 已保存官方使领馆或主管机关页面及核验日期\n负责方: 有管辖权的德国使领馆或接收申请的移民主管机关\n德国联邦外交部及有管辖权的德国使领馆 — 核验日期 2026-09-08；不判断个人是否需要语言证明、是否适用例外、接受哪张证书、材料清单或签证结果\n记录主管机关对当前语言证明及例外问题的答复\n状态：未完成\n完成标准: 已逐字记录适用于该路线的说明及来源或官方回复，且未据此推断个人资格\n负责方: 有管辖权的德国使领馆或接收申请的移民主管机关\n德国联邦外交部及有管辖权的德国使领馆 — 核验日期 2026-09-08；不判断个人是否需要语言证明、是否适用例外、接受哪张证书、材料清单或签证结果\n2. 准确考试产品\n记录接收机关表示可用于该路线的准确成人 A1 考试产品\n状态：未完成\n完成标准: 完整产品",
+        "screenshot": "zh-768-checklist-generator.png"
+      }
+    },
+    {
+      "id": "zh-768-timeline-calculator",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/zh/tools/timeline-calculator/",
+        "sizes": {
+          "width": 768,
+          "scrollWidth": 768
+        },
+        "result": "你的规划估算\n\n对于Goethe-Zertifikat A1: Start Deutsch 1，基础日期倒推 28 个日历日；额外缓冲日期倒推 42 个日历日。\n\n基础公式：D - W - P。额外缓冲公式：D - W - P - R。\n\n目标日期（D）\n2027-03-01\n成绩与证书等待（W）\n14 个日历日\n材料准备（P）\n14 个日历日\n额外重考缓冲（R）\n14 个日历日\n基础规划日期\n2027-02-01 (未来)\n额外缓冲规划日期\n2027-01-18 (未来)\n\nW、P 和 R 是用户输入的规划假设或当地确认值，并非官方默认值；任何计算日期都不保证报名、成绩、证书、接受决定或申请结果。\n\nR 只是额外日历日缓冲，不保证或自动包含真实的下一场考试、重新报名、另一笔费用、再次等待成绩或证书寄送。\n\n仅供信息整理。 此工具只整理规划问题，不判断签证资格、证书是否被接受、考试是否有名额或个人申请结果。\n行动前先向官方核验\n\n请向接收材料的主管机关或官方考点确认准确要求、可接受证书、材料、日期、费用、成绩流程及当地考点规则。\n\n继续你的计划\n\n浏览路线指南\n\n打开要求核对清单 / ",
+        "screenshot": "zh-768-timeline-calculator.png"
+      }
+    },
+    {
+      "id": "zh-768-email-reminders",
+      "precondition": "Chrome viewport emulation; not physical mobile device",
+      "steps": "Open localized tool, operate form and inspect rendered result",
+      "expected": "Result works, page has no horizontal overflow, form/control labels visible",
+      "status": "pass",
+      "actual": {
+        "url": "http://127.0.0.1:4321/zh/tools/email-reminders/",
+        "sizes": {
+          "width": 768,
+          "scrollWidth": 768
+        },
+        "result": "你的提醒计划\n\n状态：日历文件已可下载\n\n确认语言要求\n\n提醒日期：2027-02-01（全天）\n\n路线或主管机关: 德国家庭团聚 A1\n\n官方来源：日历文件包含所选路线中配置的官方核验入口。\n\n下载的事件使用所选日期，并以次日作为不包含在内的结束日。稳定 ID 只包含配置的主题、路线和日期，不包含个人信息。\n\n下载文件不等于导入日历、设置设备提醒、发送邮件或证明通知已送达。日历行为取决于客户端。\n\n下载 ICS 日历文件\n仅供信息整理。 此工具只整理规划问题，不判断签证资格、证书是否被接受、考试是否有名额或个人申请结果。\n行动前先向官方核验\n\n请向接收材料的主管机关或官方考点确认准确要求、可接受证书、材料、日期、费用、成绩流程及当地考点规则。\n\n继续你的计划\n\n浏览路线指南\n\n打开要求核对清单 / 打开时间线规划器\n\n复制结果\n打印计划导出文本文件",
+        "screenshot": "zh-768-email-reminders.png"
+      }
+    }
+  ],
+  "errors": [],
+  "external": [
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg",
+    "https://visalang.org/favicon.svg"
+  ]
+}

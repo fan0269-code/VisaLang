@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "baselineId": "cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40",
+  "sourceVerifiedUnchangedAtCapture": true,
+  "copies": [
+    {
+      "workspace": "baseline",
+      "workspacePath": "/private/tmp/visalang-W00-2026-09-24-01/baseline",
+      "matchedFiles": 1313,
+      "bytes": 59896160,
+      "aggregateSha256": "cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40",
+      "verificationPath": "docs/module-handoffs/2026-09-24-01/baseline-byte-verification.json"
+    },
+    {
+      "workspace": "W03",
+      "workspacePath": "/private/tmp/visalang-W00-2026-09-24-01/W03",
+      "matchedFiles": 1313,
+      "bytes": 59896160,
+      "aggregateSha256": "cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40",
+      "verificationPath": "docs/module-handoffs/2026-09-24-01/W03-byte-verification.json"
+    },
+    {
+      "workspace": "W04",
+      "workspacePath": "/private/tmp/visalang-W00-2026-09-24-01/W04",
+      "matchedFiles": 1313,
+      "bytes": 59896160,
+      "aggregateSha256": "cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40",
+      "verificationPath": "docs/module-handoffs/2026-09-24-01/W04-byte-verification.json"
+    },
+    {
+      "workspace": "W08",
+      "workspacePath": "/private/tmp/visalang-W00-2026-09-24-01/W08",
+      "matchedFiles": 1313,
+      "bytes": 59896160,
+      "aggregateSha256": "cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40",
+      "verificationPath": "docs/module-handoffs/2026-09-24-01/W08-byte-verification.json"
+    }
+  ],
+  "deletedPaths": [],
+  "excludedCredentialsRead": false,
+  "hardLinksOrSharedWritableDependencies": false
+}

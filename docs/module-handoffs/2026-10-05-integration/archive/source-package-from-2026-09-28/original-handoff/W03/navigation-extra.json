@@ -1,0 +1,250 @@
+[
+  {
+    "width": 375,
+    "path": "/",
+    "flow": "outside pointer closes",
+    "result": true
+  },
+  {
+    "width": 375,
+    "path": "/",
+    "flow": "menu edge focus visible",
+    "text": "Home",
+    "top": 80,
+    "bottom": 132.1875,
+    "headerBottom": 64,
+    "height": 844,
+    "notCovered": true
+  },
+  {
+    "width": 375,
+    "path": "/",
+    "flow": "menu edge focus visible",
+    "text": "中文",
+    "top": 706.25,
+    "bottom": 758.4375,
+    "headerBottom": 64,
+    "height": 844,
+    "notCovered": true
+  },
+  {
+    "width": 375,
+    "path": "/zh/",
+    "flow": "outside pointer closes",
+    "result": true
+  },
+  {
+    "width": 375,
+    "path": "/zh/",
+    "flow": "menu edge focus visible",
+    "text": "首页",
+    "top": 80,
+    "bottom": 132.1875,
+    "headerBottom": 64,
+    "height": 844,
+    "notCovered": true
+  },
+  {
+    "width": 375,
+    "path": "/zh/",
+    "flow": "menu edge focus visible",
+    "text": "English",
+    "top": 706.25,
+    "bottom": 758.4375,
+    "headerBottom": 64,
+    "height": 844,
+    "notCovered": true
+  },
+  {
+    "width": 390,
+    "path": "/",
+    "flow": "outside pointer closes",
+    "result": true
+  },
+  {
+    "width": 390,
+    "path": "/",
+    "flow": "menu edge focus visible",
+    "text": "Home",
+    "top": 80,
+    "bottom": 132.1875,
+    "headerBottom": 64,
+    "height": 844,
+    "notCovered": true
+  },
+  {
+    "width": 390,
+    "path": "/",
+    "flow": "menu edge focus visible",
+    "text": "中文",
+    "top": 706.25,
+    "bottom": 758.4375,
+    "headerBottom": 64,
+    "height": 844,
+    "notCovered": true
+  },
+  {
+    "width": 390,
+    "path": "/zh/",
+    "flow": "outside pointer closes",
+    "result": true
+  },
+  {
+    "width": 390,
+    "path": "/zh/",
+    "flow": "menu edge focus visible",
+    "text": "首页",
+    "top": 80,
+    "bottom": 132.1875,
+    "headerBottom": 64,
+    "height": 844,
+    "notCovered": true
+  },
+  {
+    "width": 390,
+    "path": "/zh/",
+    "flow": "menu edge focus visible",
+    "text": "English",
+    "top": 706.25,
+    "bottom": 758.4375,
+    "headerBottom": 64,
+    "height": 844,
+    "notCovered": true
+  },
+  {
+    "width": 768,
+    "path": "/",
+    "flow": "outside pointer closes",
+    "result": true
+  },
+  {
+    "width": 768,
+    "path": "/",
+    "flow": "menu edge focus visible",
+    "text": "Home",
+    "top": 80,
+    "bottom": 132.1875,
+    "headerBottom": 64,
+    "height": 1024,
+    "notCovered": true
+  },
+  {
+    "width": 768,
+    "path": "/",
+    "flow": "menu edge focus visible",
+    "text": "中文",
+    "top": 706.25,
+    "bottom": 758.4375,
+    "headerBottom": 64,
+    "height": 1024,
+    "notCovered": true
+  },
+  {
+    "width": 768,
+    "path": "/zh/",
+    "flow": "outside pointer closes",
+    "result": true
+  },
+  {
+    "width": 768,
+    "path": "/zh/",
+    "flow": "menu edge focus visible",
+    "text": "首页",
+    "top": 80,
+    "bottom": 132.1875,
+    "headerBottom": 64,
+    "height": 1024,
+    "notCovered": true
+  },
+  {
+    "width": 768,
+    "path": "/zh/",
+    "flow": "menu edge focus visible",
+    "text": "English",
+    "top": 706.25,
+    "bottom": 758.4375,
+    "headerBottom": 64,
+    "height": 1024,
+    "notCovered": true
+  },
+  {
+    "width": 1440,
+    "path": "/",
+    "flow": "outside pointer closes",
+    "result": true
+  },
+  {
+    "width": 1440,
+    "path": "/",
+    "flow": "desktop About replaces Routes",
+    "result": true
+  },
+  {
+    "width": 1440,
+    "path": "/",
+    "flow": "menu edge focus visible",
+    "text": "Family reunion",
+    "top": 69.390625,
+    "bottom": 117.359375,
+    "headerBottom": 64,
+    "height": 1024,
+    "notCovered": true
+  },
+  {
+    "width": 1440,
+    "path": "/",
+    "flow": "menu edge focus visible",
+    "text": "Not sure yet",
+    "top": 309.234375,
+    "bottom": 357.203125,
+    "headerBottom": 64,
+    "height": 1024,
+    "notCovered": true
+  },
+  {
+    "width": 1440,
+    "path": "/zh/",
+    "flow": "outside pointer closes",
+    "result": true
+  },
+  {
+    "width": 1440,
+    "path": "/zh/",
+    "flow": "desktop About replaces Routes",
+    "result": true
+  },
+  {
+    "width": 1440,
+    "path": "/zh/",
+    "flow": "menu edge focus visible",
+    "text": "家庭团聚",
+    "top": 69.390625,
+    "bottom": 117.359375,
+    "headerBottom": 64,
+    "height": 1024,
+    "notCovered": true
+  },
+  {
+    "width": 1440,
+    "path": "/zh/",
+    "flow": "menu edge focus visible",
+    "text": "还不确定（英文）",
+    "top": 309.234375,
+    "bottom": 357.203125,
+    "headerBottom": 64,
+    "height": 1024,
+    "notCovered": true
+  },
+  {
+    "width": 390,
+    "path": "/zh/",
+    "flow": "native disclosure without JavaScript",
+    "result": true
+  },
+  {
+    "width": 1440,
+    "path": "/zh/",
+    "flow": "native disclosure without JavaScript",
+    "result": true
+  }
+]

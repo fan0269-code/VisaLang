@@ -1,5 +1,6 @@
 ---
 export interface Props { id?: string; label?: string; placeholder?: string; }
-const { id = 'guide-search-input', label = 'Search guides', placeholder = 'Search by task, route, country, exam, or level' } = Astro.props;
+const { id = 'guide-search-input', label = 'Search guides', placeholder = 'Search by task, purpose, or stage' } = Astro.props;
 ---
-<label class="search-input" for={id}><span>{label}</span><input id={id} name="q" type="search" placeholder={placeholder} autocomplete="off" data-guide-search /></label>
+<label class="search-input" for={id}><span>{label}</span><input id={id} name="q" type="search" placeholder={placeholder} autocomplete="off" data-guide-search disabled /></label>
+<noscript><p class="filter-fallback">Search and interactive filtering need JavaScript. All reviewed guides remain available below.</p></noscript>

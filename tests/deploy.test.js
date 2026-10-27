@@ -100,51 +100,11 @@ for (const [source, target] of Object.entries(exactRedirects)) {
 assert.ok(redirects.includes('if ($request_uri ~ \\.html(?:\\?|$)) { return 301 https://visalang.org/guides/$1/$is_args$args; }'), 'Nginx redirects explicit legacy English guide HTML routes without catching internal directory indexes');
 assert.ok(redirects.includes('if ($request_uri ~ \\.html(?:\\?|$)) { return 301 https://visalang.org/zh/guides/$1/$is_args$args; }'), 'Nginx redirects explicit legacy Chinese guide HTML routes without catching internal directory indexes');
 
-const cloneIndex = indexOfOrFail('$SUDO git clone --branch main --single-branch "$REPO" "$SOURCE_DIR"');
-const dirtyCheckIndex = indexOfOrFail('git -C "$SOURCE_DIR" status --porcelain');
-const pullIndex = indexOfOrFail('pull --ff-only origin main');
-const releaseIdIndex = indexOfOrFail('rev-parse --short=12 HEAD');
-const availabilityIndex = indexOfOrFail('if ! command -v node');
-const nodeCommandIndex = indexOfOrFail('$SUDO node -e');
-const nodeVersionIndex = indexOfOrFail('process.versions.node');
-const ciIndex = indexOfOrFail('$SUDO npm --prefix "$SOURCE_DIR" ci');
-const testIndex = indexOfOrFail('$SUDO npm --prefix "$SOURCE_DIR" test');
-const launchCheckIndex = indexOfOrFail('$SUDO npm --prefix "$SOURCE_DIR" run launch-check');
-const sourceValidationIndex = indexOfOrFail('if [ ! -f "$SOURCE_DIR/dist/index.html" ]; then');
-const conflictIndex = indexOfOrFail('$SUDO test -e "$RELEASE_DIR"');
-const releaseDirectoryIndex = indexOfOrFail('$SUDO mkdir "$RELEASE_DIR"');
-const copyIndex = indexOfOrFail('$SUDO cp -a "$SOURCE_DIR/dist/." "$RELEASE_DIR/"');
-const candidateValidationIndex = indexOfOrFail('if [ ! -f "$RELEASE_DIR/index.html" ]; then');
-const redirectInstallIndex = indexOfOrFail('$SUDO install -m 0644 "$SOURCE_DIR/deploy/legacy-redirects.conf" "$REDIRECTS_TARGET"');
-const nginxTestIndex = indexOfOrFail('$SUDO nginx -t');
-const symlinkIndex = indexOfOrFail('$SUDO ln -sfn "$RELEASE_DIR" "$CURRENT_LINK.next"');
-const promoteIndex = indexOfOrFail('$SUDO mv -Tf "$CURRENT_LINK.next" "$CURRENT_LINK"');
-const reloadIndex = indexOfOrFail('$SUDO systemctl reload nginx');
-
-assert.doesNotMatch(deploy, /\bstash(?:\s|$)/, 'deployment never stashes source changes');
-assert.ok(deploy.includes('SUDO="sudo"') && deploy.includes('$SUDO -n true'), 'non-root deployment requires passwordless sudo');
-assert.ok(deploy.includes('command -v npm'), 'deployment requires preinstalled npm');
-assert.match(deploy, /major > 22 \|\| \(major === 22 && minor >= 12\)/, 'deployment requires Node.js 22.12 or newer');
-assert.doesNotMatch(deploy, /npm --prefix "\$SOURCE_DIR" run build/, 'deployment relies on launch-check rather than a redundant direct build');
-assertOrdered('existing source flow', [dirtyCheckIndex, pullIndex, releaseIdIndex, availabilityIndex, nodeCommandIndex, nodeVersionIndex, ciIndex, testIndex, launchCheckIndex, sourceValidationIndex, conflictIndex, releaseDirectoryIndex, copyIndex, candidateValidationIndex, redirectInstallIndex, nginxTestIndex, symlinkIndex, promoteIndex, reloadIndex]);
-assertOrdered('first source flow', [cloneIndex, releaseIdIndex, availabilityIndex, nodeCommandIndex, nodeVersionIndex, ciIndex, testIndex, launchCheckIndex, sourceValidationIndex, conflictIndex, releaseDirectoryIndex, copyIndex, candidateValidationIndex, redirectInstallIndex, nginxTestIndex, symlinkIndex, promoteIndex, reloadIndex]);
-assert.doesNotMatch(deploy, /\b(?:PUBLIC_DIR|SERVE_DIR)\b/, 'deployment does not retain legacy public/dist release paths');
-assert.doesNotMatch(deploy, /rm -rf/, 'deployment does not delete historic releases');
-assert.doesNotMatch(deploy, /\b(?:apt(?:-get)?|yum|dnf|nvm)\b|nodejs\.org/, 'deployment never installs or downloads Node.js');
-assert.doesNotMatch(deploy, /smoke-test/, 'deployment does not execute an unauthorised production smoke test');
-assert.doesNotMatch(deploy, /production (?:is )?verified/i, 'deployment does not claim production verification');
-
-assert.ok(fs.existsSync('deploy/rollback.sh'), 'deployment includes an explicit rollback command');
-const rollback = read('deploy/rollback.sh');
-assert.match(rollback, /RELEASE_ID="\$\{1:-\}"/, 'rollback requires an explicit release ID argument');
-assert.match(rollback, /\^\[0-9a-f\]\{7,40\}\$/, 'rollback validates the release ID format');
-assert.ok(rollback.includes('"$TARGET_RELEASE/index.html"'), 'rollback requires a complete release target');
-assert.ok(rollback.includes('RELEASES_REAL'), 'rollback validates target containment inside releases');
-assert.ok(rollback.includes('CURRENT_TARGET'), 'rollback refuses the already-current release');
-assert.doesNotMatch(rollback, /find .*%T@|sort -nr|PREVIOUS_RELEASE/, 'rollback does not infer a target by modification time');
-assert.ok(rollback.indexOf('nginx -t') < rollback.indexOf('ln -sfn'), 'rollback validates Nginx before switching current');
-assert.match(rollback, /ln -sfn/, 'rollback stages an atomic symlink switch');
-assert.match(rollback, /mv -Tf/, 'rollback atomically replaces current');
+// Runtime orchestration has moved to a bundle-bound transaction tested in Python.
+assert.match(deploy, /release\.py" activate/);
+assert.doesNotMatch(deploy, /git clone|git pull|npm|main/);
+assert.match(read('deploy/rollback.sh'), /release\.py" rollback/);
+require('node:child_process').execFileSync('python3', ['-m', 'unittest', 'discover', '-s', 'deploy/tests', '-v'], { stdio: 'inherit' });
 
 assert.ok(fs.existsSync('deploy/smoke-test.sh'), 'deployment includes production smoke checks');
 const smoke = read('deploy/smoke-test.sh');
@@ -162,7 +122,7 @@ assert.ok(smoke.includes('google.com, pub-3018617123550799, DIRECT, f08c47fec094
 assert.ok(smoke.includes('content-security-policy'), 'smoke test verifies the approved CSP removal');
 const deployReadme = read('deploy/README.md');
 assert.doesNotMatch(deployReadme, /flowlight\.me/, 'deployment documentation no longer describes the legacy domain as current');
-assert.ok(deployReadme.includes('rollback.sh <verified-release-id>'), 'deployment documentation requires an explicit verified rollback target');
+assert.ok(deployReadme.includes('rollback.sh <verified-bundle-path>'), 'deployment documentation requires an explicit verified bundle target');
 assert.ok(deployReadme.includes('separately authorised production window'), 'deployment documentation preserves the production authorisation boundary');
 assert.ok(deployReadme.includes('Auto ads page exclusions'), 'deployment documentation requires account-side route exclusions');
 assert.ok(deployReadme.includes('Raw HAR files and screenshots must not be committed to Git'), 'deployment documentation protects raw browser evidence');

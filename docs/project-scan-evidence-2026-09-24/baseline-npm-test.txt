@@ -1,0 +1,97 @@
+
+> test
+> node tests/site.test.js
+
+commercial page rules passed
+node:child_process:955
+    throw err;
+    ^
+
+Error: Command failed: npm run build
+17:49:16 [ERROR] Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/Users/a1-6/Documents/2.codex/1.visalang.org/dist/.prerender/chunks/index_C4jcgddf.mjs' imported from /Users/a1-6/Documents/2.codex/1.visalang.org/dist/.prerender/prerender-entry.CB5ySlaJ.mjs
+    at finalizeResolution (node:internal/modules/esm/resolve:275:11)
+    at moduleResolve (node:internal/modules/esm/resolve:861:10)
+    at defaultResolve (node:internal/modules/esm/resolve:985:11)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:783:38)
+    at nextStep (node:internal/modules/customization_hooks:189:26)
+    at customizationHookResolve (file:///Users/a1-6/Documents/2.codex/1.visalang.org/node_modules/vite/dist/node/module-runner.js:1032:9)
+    at nextStep (node:internal/modules/customization_hooks:189:26)
+    at resolveWithHooks (node:internal/modules/customization_hooks:417:10)
+    at ModuleLoader.resolveSync (node:internal/modules/esm/loader:803:14)
+17:49:16 [ERROR] [build] Caught error rendering /guides: Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/Users/a1-6/Documents/2.codex/1.visalang.org/dist/.prerender/chunks/index_C4jcgddf.mjs' imported from /Users/a1-6/Documents/2.codex/1.visalang.org/dist/.prerender/prerender-entry.CB5ySlaJ.mjs
+Cannot find module '/Users/a1-6/Documents/2.codex/1.visalang.org/dist/.prerender/chunks/index_C4jcgddf.mjs' imported from /Users/a1-6/Documents/2.codex/1.visalang.org/dist/.prerender/prerender-entry.CB5ySlaJ.mjs
+  Stack trace:
+    at finalizeResolution (node:internal/modules/esm/resolve:275:11)
+    at defaultResolve (node:internal/modules/esm/resolve:985:11)
+    at #resolveAndMaybeBlockOnLoaderThread (node:internal/modules/esm/loader:783:38)
+    at customizationHookResolve (file:///Users/a1-6/Documents/2.codex/1.visalang.org/node_modules/vite/dist/node/module-runner.js:1032:9)
+    at resolveWithHooks (node:internal/modules/customization_hooks:417:10)
+
+    at genericNodeError (node:internal/errors:983:15)
+    at wrappedFn (node:internal/errors:537:14)
+    at checkExecSyncError (node:child_process:916:11)
+    at execFileSync (node:child_process:952:15)
+    at Object.<anonymous> (/Users/a1-6/Documents/2.codex/1.visalang.org/tests/adsense-risk-exposure.test.js:5:1)
+    at Module._compile (node:internal/modules/cjs/loader:1781:14)
+    at Object..js (node:internal/modules/cjs/loader:1913:10)
+    at Module.load (node:internal/modules/cjs/loader:1505:32)
+    at Function._load (node:internal/modules/cjs/loader:1309:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19) {
+  status: 1,
+  signal: null,
+  output: [
+    null,
+    Buffer(6068) [Uint8Array] [
+       10,  62,  32, 112, 114, 101,  98, 117, 105, 108, 100,  10,
+       62,  32, 110, 112, 109,  32, 114, 117, 110,  32,  99, 108,
+      101,  97, 110,  58,  97, 115, 116, 114, 111,  32,  38,  38,
+       32, 110, 112, 109,  32, 114, 117, 110,  32,  99, 108, 101,
+       97, 110,  58, 100, 105, 115, 116,  10,  10,  10,  62,  32,
+       99, 108, 101,  97, 110,  58,  97, 115, 116, 114, 111,  10,
+       62,  32, 114, 109,  32,  45, 114, 102,  32,  46,  97, 115,
+      116, 114, 111,  32, 110, 111, 100, 101,  95, 109, 111, 100,
+      117, 108, 101, 115,
+      ... 5968 more items
+    ],
+    Buffer(1992) [Uint8Array] [
+       49,  55,  58,  52,  57, 58,  49,  54,  32,  91,  69,  82,
+       82,  79,  82,  93,  32, 69, 114, 114, 111, 114,  32,  91,
+       69,  82,  82,  95,  77, 79,  68,  85,  76,  69,  95,  78,
+       79,  84,  95,  70,  79, 85,  78,  68,  93,  58,  32,  67,
+       97, 110, 110, 111, 116, 32, 102, 105, 110, 100,  32, 109,
+      111, 100, 117, 108, 101, 32,  39,  47,  85, 115, 101, 114,
+      115,  47,  97,  49,  45, 54,  47,  68, 111,  99, 117, 109,
+      101, 110, 116, 115,  47, 50,  46,  99, 111, 100, 101, 120,
+       47,  49,  46, 118,
+      ... 1892 more items
+    ]
+  ],
+  pid: 45038,
+  stdout: Buffer(6068) [Uint8Array] [
+     10,  62,  32, 112, 114, 101,  98, 117, 105, 108, 100,  10,
+     62,  32, 110, 112, 109,  32, 114, 117, 110,  32,  99, 108,
+    101,  97, 110,  58,  97, 115, 116, 114, 111,  32,  38,  38,
+     32, 110, 112, 109,  32, 114, 117, 110,  32,  99, 108, 101,
+     97, 110,  58, 100, 105, 115, 116,  10,  10,  10,  62,  32,
+     99, 108, 101,  97, 110,  58,  97, 115, 116, 114, 111,  10,
+     62,  32, 114, 109,  32,  45, 114, 102,  32,  46,  97, 115,
+    116, 114, 111,  32, 110, 111, 100, 101,  95, 109, 111, 100,
+    117, 108, 101, 115,
+    ... 5968 more items
+  ],
+  stderr: Buffer(1992) [Uint8Array] [
+     49,  55,  58,  52,  57, 58,  49,  54,  32,  91,  69,  82,
+     82,  79,  82,  93,  32, 69, 114, 114, 111, 114,  32,  91,
+     69,  82,  82,  95,  77, 79,  68,  85,  76,  69,  95,  78,
+     79,  84,  95,  70,  79, 85,  78,  68,  93,  58,  32,  67,
+     97, 110, 110, 111, 116, 32, 102, 105, 110, 100,  32, 109,
+    111, 100, 117, 108, 101, 32,  39,  47,  85, 115, 101, 114,
+    115,  47,  97,  49,  45, 54,  47,  68, 111,  99, 117, 109,
+    101, 110, 116, 115,  47, 50,  46,  99, 111, 100, 101, 120,
+     47,  49,  46, 118,
+    ... 1892 more items
+  ]
+}
+
+Node.js v22.23.2

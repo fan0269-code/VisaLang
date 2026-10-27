@@ -1,0 +1,17 @@
+{
+  "operation": "activate",
+  "ownerAuthorized": false,
+  "ownerDecisionRef": "",
+  "releaseSha256": "",
+  "previousReleaseSha256": null,
+  "evidence": {
+    "independentAudit": { "status": "pending", "path": "", "sha256": "" },
+    "adsConsent": { "status": "pending", "path": "", "sha256": "" },
+    "capacity": { "status": "pending", "path": "", "sha256": "" },
+    "typesafePrivacy": { "status": "pending", "path": "", "sha256": "" },
+    "typesafeQuota": { "status": "pending", "path": "", "sha256": "" },
+    "preDnsTls": { "status": "pending", "path": "", "sha256": "" },
+    "rollbackRehearsal": { "status": "pending", "path": "", "sha256": "" },
+    "dnsBackup": { "status": "pending", "path": "", "sha256": "" }
+  }
+}

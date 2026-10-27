@@ -1,0 +1,15 @@
+# Module prompt pack — planning-only maintenance window
+
+Owner requested functional-module prompts to distribute to separate windows according to the approved plan/map. This window writes the prompts, not the modules. Unique sync VL-PMAP-20260923-04; drift aligned because LP/LC topology, conditions and scope boundaries are preserved. W00/W18 are integration/audit assignments, not new product gates.
+
+Baseline captures 1034 pre-window files and the existing dirty checkout. Maintained authorities and all previous planning-map artifacts are preserved in before/. The exact candidate scope is in candidate-manifest.json; prior artifacts/reports are historical. scenario-checks.json verifies 19 independent copy blocks, local links/test paths, all map-node assignments, unchanged nodes/edges/required-path settings, preserved full prior plans and historical Content Map ledger, and unchanged 317 source/public/service/deploy/test/experiment/script bytes.
+
+The main safety check is executable handoff clarity: current dirty snapshots rather than HEAD-only worktrees; unique private build/dependency outputs; per-file base/candidate SHA with serial integration; no full-scope completion before W00 governance and independent audit. W02 does not wait for readers; W10 cannot continue expanded investment without reader evidence; W11 owns initial full protocol freeze after the continue decision and before optimization, with no circular prerequisite. Core preserves its own LP00/LP04 and LP05a real-environment gates while remaining independent of Laya/ads. B1/training continue conditionally.
+
+Deterministic Archify validation/delivery receipts bind exact source/HTML, and canonical browser/perceptual receipts bind four desktop sizes and four individually reviewed light/dark screenshots. The map receives status-only edits; 12 primary nodes and all dependency/mandatory paths remain unchanged. Existing implementation/task states are unchanged.
+
+Run governance before audit: it must reach only the missing new-report gate. git diff --check is required. Full npm test is intentionally run after the exact new Independent Auditor report exists; no interim full-suite PASS is claimed. launch-check is not rerun because only planning/prompt/governance bytes change. Old launch/test results are retained as historical evidence, not this window's validation.
+
+Required independent report: docs/planning-map/VISALANG_MODULE_PROMPTS_INDEPENDENT_AUDIT_2026-09-23.md. Submitter/implementers cannot self-approve. Fix every P0–P2 and return to the same reviewer. Auditor scope must equal candidate-manifest and sync.changedPaths and bind full sync bytes. Final full-suite evidence is retained in the tool transcript and /tmp/visalang-prompts-final-npm-test.txt after the report.
+
+Configured Obsidian directory/template remain absent, so vault-review.md is an unsynced fallback payload. No commit/push/deployment/model test/recruitment/purchase/account operation happened. All future functional windows and external actions retain actual dispatch and authorization requirements.

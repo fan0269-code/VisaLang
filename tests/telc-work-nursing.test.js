@@ -37,6 +37,6 @@ execFileSync('npm', ['run', 'build'], { stdio: 'pipe' });
 const html = fs.readFileSync(`dist/guides/${slug}/index.html`, 'utf8');
 assert.match(html, /Official sources last checked: <time datetime="2026-08-14">2026-08-14<\/time>/, 'the generated work and nursing guide renders its bounded source-review date');
 assert.doesNotMatch(html, /Official verification pending/, 'the reviewed work and nursing guide does not render a conflicting pending state');
-assert.match(html, />Starter overview<\//, 'the work and nursing guide remains visibly outside mature states');
+assert.match(html, />Coverage: orientation guide<\//, 'the work and nursing guide remains visibly outside mature states');
 
 console.log('FAN-39 telc work and nursing contract passed');

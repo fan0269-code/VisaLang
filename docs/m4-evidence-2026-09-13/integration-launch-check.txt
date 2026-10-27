@@ -1,0 +1,219 @@
+
+> prelaunch-check
+> npm run build
+
+
+> prebuild
+> npm run clean:astro && npm run clean:dist
+
+
+> clean:astro
+> rm -rf .astro node_modules/.astro
+
+
+> clean:dist
+> rm -rf dist
+
+
+> build
+> astro build
+
+18:37:42 [content] Syncing content
+18:37:42 [content] Synced content
+18:37:42 [types] Generated 265ms
+18:37:42 [build] output: "static"
+18:37:42 [build] mode: "static"
+18:37:42 [build] directory: /Users/a1-6/Documents/2.codex/1.visalang.org/dist/
+18:37:42 [build] Collecting build info...
+18:37:42 [build] ✓ Completed in 291ms.
+18:37:42 [build] Building static entrypoints...
+18:37:42 [vite] ✓ built in 139ms
+18:37:42 [vite] ✓ built in 24ms
+18:37:42 [build] Rearranging server assets...
+
+ generating static routes 
+18:37:42   ├─ /404.html (+7ms) 
+18:37:42   ├─ /about/index.html (+3ms) 
+18:37:42   ├─ /affiliate-disclosure/index.html (+1ms) 
+18:37:42   ├─ /contact/index.html (+1ms) 
+18:37:42   ├─ /cookie-policy/index.html (+1ms) 
+18:37:42   ├─ /editorial-policy/index.html (+1ms) 
+18:37:42   ├─ /exams/index.html (+1ms) 
+18:37:42   ├─ /germany-b1-settlement-citizenship/index.html (+2ms) 
+18:37:42   ├─ /germany-family-reunion-a1/index.html (+4ms) 
+18:37:42   ├─ /guides/category/germany-a1/index.html (+2ms) 
+18:37:42   ├─ /guides/category/germany-b1/index.html (+2ms) 
+18:37:42   ├─ /guides/category/germany-testdaf/index.html (+1ms) 
+18:37:42   ├─ /guides/category/germany-telc/index.html (+1ms) 
+18:37:42   ├─ /guides/category/uk/index.html (+1ms) 
+18:37:42   ├─ /guides/category/canada/index.html (+1ms) 
+18:37:42   ├─ /guides/category/italy/index.html (+1ms) 
+18:37:42   ├─ /guides/category/spain/index.html (+1ms) 
+18:37:42   ├─ /guides/category/france/index.html (+1ms) 
+18:37:42   ├─ /guides/category/finland/index.html (+1ms) 
+18:37:42   ├─ /guides/category/netherlands/index.html (+1ms) 
+18:37:42   ├─ /guides/category/portugal/index.html (+1ms) 
+18:37:42   ├─ /guides/cils-b1-cittadinanza-for-italian-citizenship/index.html (+26ms) 
+18:37:42   ├─ /guides/cils-vs-celi-vs-plida-for-italian-citizenship/index.html (+13ms) 
+18:37:42   ├─ /guides/dele-a2-ccse-spanish-citizenship/index.html (+5ms) 
+18:37:42   ├─ /guides/dele-levels-spanish-citizenship/index.html (+4ms) 
+18:37:42   ├─ /guides/delf-b1-b2-french-work-study/index.html (+4ms) 
+18:37:42   ├─ /guides/dutch-inburgering-a2-b1-for-integration-and-citizenship/index.html (+11ms) 
+18:37:42   ├─ /guides/german-a1-documents-checklist/index.html (+15ms) 
+18:37:42   ├─ /guides/german-a1-exam-booking-timeline/index.html (+16ms) 
+18:37:42   ├─ /guides/german-family-reunion-language-requirement/index.html (+14ms) 
+18:37:42   ├─ /guides/germany-b1-citizenship-language-proof/index.html (+15ms) 
+18:37:42   ├─ /guides/germany-b1-leben-in-deutschland-and-language-proof/index.html (+14ms) 
+18:37:42   ├─ /guides/germany-b1-settlement-citizenship-checklist/index.html (+19ms) 
+18:37:42   ├─ /guides/germany-b1-settlement-citizenship-timeline/index.html (+15ms) 
+18:37:42   ├─ /guides/goethe-a1-30-day-study-plan/index.html (+11ms) 
+18:37:42   ├─ /guides/goethe-a1-fees-by-country/index.html (+21ms) 
+18:37:42   ├─ /guides/goethe-a1-germany-family-reunion/index.html (+7ms) 
+18:37:42   ├─ /guides/goethe-a1-test-centers/index.html (+14ms) 
+18:37:42   ├─ /guides/goethe-a1-vs-telc-a1/index.html (+14ms) 
+18:37:42   ├─ /guides/goethe-b1-fees-and-booking/index.html (+15ms) 
+18:37:42   ├─ /guides/goethe-b1-germany-settlement-work/index.html (+21ms) 
+18:37:42   ├─ /guides/goethe-b1-study-plan/index.html (+32ms) 
+18:37:42   ├─ /guides/goethe-b1-vs-telc-b1/index.html (+22ms) 
+18:37:42   ├─ /guides/ielts-ukvi-uk-visa/index.html (+9ms) 
+18:37:42   ├─ /guides/languagecert-selt-uk-visa/index.html (+11ms) 
+18:37:42   ├─ /guides/portuguese-ciple-a2-for-citizenship-and-residence/index.html (+14ms) 
+18:37:42   ├─ /guides/portuguese-language-for-golden-visa-and-citizenship/index.html (+8ms) 
+18:37:42   ├─ /guides/staatsexamen-nt2-for-work-and-higher-education/index.html (+5ms) 
+18:37:42   ├─ /guides/tcf-canada-vs-tef/index.html (+13ms) 
+18:37:42   ├─ /guides/tcf-irn-french-residence/index.html (+6ms) 
+18:37:42   ├─ /guides/tef-canada-immigration/index.html (+7ms) 
+18:37:42   ├─ /guides/telc-b1-b2-exam-format-and-preparation/index.html (+21ms) 
+18:37:42   ├─ /guides/telc-b1-b2-fees-and-test-centers/index.html (+19ms) 
+18:37:42   ├─ /guides/telc-b1-b2-germany-work-nursing/index.html (+16ms) 
+18:37:42   ├─ /guides/telc-vs-goethe-for-german-visa/index.html (+17ms) 
+18:37:42   ├─ /guides/testdaf-germany-university-admissions/index.html (+8ms) 
+18:37:42   ├─ /guides/testdaf-levels-and-scoring/index.html (+12ms) 
+18:37:42   ├─ /guides/testdaf-preparation-and-practice/index.html (+6ms) 
+18:37:42   ├─ /guides/testdaf-vs-goethe-dsh/index.html (+9ms) 
+18:37:42   ├─ /guides/yki-finnish-citizenship/index.html (+15ms) 
+18:37:42   ├─ /guides/index.html (+6ms) 
+18:37:42   ├─ /partners/index.html (+3ms) 
+18:37:42   ├─ /pricing/index.html (+3ms) 
+18:37:42   ├─ /privacy-policy/index.html (+3ms) 
+18:37:42   ├─ /products/a1-family-reunion-pack/index.html (+3ms) 
+18:37:42   ├─ /products/a1-practice-pack/index.html (+3ms) 
+18:37:42   ├─ /route-review/index.html (+2ms) 
+18:37:42   ├─ /routes/index.html (+3ms) 
+18:37:42   ├─ /terms/index.html (+2ms) 
+18:37:42   ├─ /tools/checklist-generator/index.html (+2ms) 
+18:37:42   ├─ /tools/email-reminders/index.html (+2ms) 
+18:37:42   ├─ /tools/exam-comparison/index.html (+3ms) 
+18:37:42   ├─ /tools/route-finder/index.html (+4ms) 
+18:37:42   ├─ /tools/timeline-calculator/index.html (+4ms) 
+18:37:42   ├─ /tools/index.html (+3ms) 
+18:37:42   ├─ /zh/germany-family-reunion-a1/index.html (+2ms) 
+18:37:42   ├─ /zh/guides/german-a1-exam-booking-timeline/index.html (+4ms) 
+18:37:42   ├─ /zh/guides/german-family-reunion-language-requirement/index.html (+2ms) 
+18:37:43   ├─ /zh/guides/goethe-a1-30-day-study-plan/index.html (+1ms) 
+18:37:43   ├─ /zh/guides/goethe-a1-test-centers/index.html (+3ms) 
+18:37:43   ├─ /zh/guides/goethe-a1-vs-telc-a1/index.html (+2ms) 
+18:37:43   ├─ /zh/tools/checklist-generator/index.html (+2ms) 
+18:37:43   ├─ /zh/tools/email-reminders/index.html (+1ms) 
+18:37:43   ├─ /zh/tools/exam-comparison/index.html (+2ms) 
+18:37:43   ├─ /zh/tools/route-finder/index.html (+3ms) 
+18:37:43   ├─ /zh/tools/timeline-calculator/index.html (+2ms) 
+18:37:43   ├─ /zh/index.html (+7ms) 
+18:37:43   ├─ /index.html (+6ms) 
+18:37:43 ✓ Completed in 715ms.
+
+ generating optimized images 
+18:37:43   ▶ /_astro/home-route-verification.CnUZAwNY_1deNFs.avif (before: 2106kB, after: 21kB) (+132ms) (1/10)
+18:37:43   ▶ /_astro/home-route-verification.CnUZAwNY_OWXxP.avif (before: 2106kB, after: 44kB) (+202ms) (2/10)
+18:37:43   ▶ /_astro/home-route-verification.CnUZAwNY_ZfIAj1.avif (before: 2106kB, after: 75kB) (+311ms) (3/10)
+18:37:43   ▶ /_astro/home-route-verification.CnUZAwNY_Z2agoDR.webp (before: 2106kB, after: 15kB) (+32ms) (4/10)
+18:37:43   ▶ /_astro/home-route-verification.CnUZAwNY_2wDT2r.webp (before: 2106kB, after: 28kB) (+42ms) (5/10)
+18:37:43   ▶ /_astro/home-route-verification.CnUZAwNY_1qWkaA.webp (before: 2106kB, after: 46kB) (+56ms) (6/10)
+18:37:43   ▶ /_astro/home-route-verification.CnUZAwNY_1DwF8M.png (before: 2106kB, after: 69kB) (+72ms) (7/10)
+18:37:43   ▶ /_astro/home-route-verification.CnUZAwNY_1gfP1a.png (before: 2106kB, after: 150kB) (+107ms) (8/10)
+18:37:44   ▶ /_astro/home-route-verification.CnUZAwNY_ayg9j.png (before: 2106kB, after: 268kB) (+161ms) (9/10)
+18:37:44   ▶ /_astro/home-route-verification.CnUZAwNY_RpIye.png (before: 2106kB, after: 590kB) (+299ms) (10/10)
+18:37:44 ✓ Completed in 1.41s.
+
+18:37:44 [build] ✓ Completed in 2.31s.
+18:37:44 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+18:37:44 [build] 88 page(s) built in 2.61s
+18:37:44 [build] Complete!
+
+> postbuild
+> node scripts/enrich-sitemap-lastmod.js
+
+
+> launch-check
+> node scripts/launch-check.js
+
+
+=== VisaLang Launch Readiness ===
+
+  ✓ All 88 generated HTML routes are unique and include the five Chinese tools.
+  ✓ Every generated guide has current source ownership and is not a manifest redirect.
+  ✓ Every generated route has exactly one H1.
+  ✓ Every route exposes the shared skip-link target.
+  ✓ Titles, descriptions, and canonical URLs are complete and unique.
+  ✓ Indexable English titles and descriptions stay within the search-snippet budget.
+  ✓ Every route emits complete PNG social-card metadata and an explicit crawler directive.
+  ✓ Every JSON-LD block parses successfully.
+  ✓ Every generated route emits Organization structured data.
+  ✓ Primary navigation exposes /routes/
+  ✓ Primary navigation exposes /exams/
+  ✓ Primary navigation exposes /tools/
+  ✓ Primary navigation exposes /guides/
+  ✓ Primary navigation exposes /about/
+  ✓ Routes and About keep direct links with separate disclosure controls.
+  ✓ Pricing and Partners remain available under the About navigation and footer surfaces.
+  ✓ Homepage uses the shared editorial route spotlight without old console or accent CTA styling.
+  ✓ Spain citizenship output preserves pending status and deciding authority.
+  ✓ Same-route Spain output excludes the Italian same-stage guide.
+  ✓ Guide Article JSON-LD identifies the editorial author as an Organization.
+  ✓ Exam Comparison renders independent product facts and one official link for each product.
+  ✓ Navigation distinguishes the Tools section from the exact Route Finder page.
+  ✓ All 39 guide pages have Article/Breadcrumb data, one TOC, one disclaimer, and eight ordered semantic sections.
+  ✓ Guide source-review HTML matches each record’s reviewed, pending, or not-applicable metadata.
+  ✓ Every guide article header uses the shared contentStatus gate.
+  ✓ Italy B-4 keeps distinct requirement and comparison tasks while pending pages stay out of next-guide navigation.
+  ✓ Canada B-5 keeps distinct requirement and comparison tasks while pending pages stay out of next-guide navigation.
+  ✓ Homepage keeps recent editing updates separate from source review.
+  ✓ Every real tool page emits WebApplication structured data.
+  ✓ All five tools use versioned session-first shared state, explicit 30-day device save, clear controls, and legacy query cleanup without URL result persistence.
+  ✓ Reminder Planner uses local, copy, print, text, and ICS paths without collecting email.
+  ✓ Privacy and cookie policies disclose session state, optional 30-day save, clear behavior, URL cleanup limits, and server-log boundaries.
+  ✓ Guide library exposes exactly Purpose, Stage, and Language filters plus sorting, search, and an empty state.
+  ✓ Guide library exposes direct filters, live results, and Clear all recovery in both normal and zero-result states.
+  ✓ Every rendered Guide Card has one primary link.
+  ✓ Guide cards sort by editing date and exclude still-being-checked research pages from the main library.
+  ✓ Guide library and all category routes emit CollectionPage and ItemList data.
+  ✓ Germany A1 route has visible FAQ data and the seven-pillar route sequence.
+  ✓ Every declared equivalent page pair is reciprocal, indexable, and the only route set emitting hreflang.
+  ✓ All generated internal route links resolve.
+  ✓ Publication manifest supplies the exact 15 English pillars, 5 Chinese pillars, 12 closed categories, and 17 redirects.
+  ✓ All 41 sitemap URLs are unique and include the five indexable Chinese tools.
+  ✓ Exactly 47 generated pages are noindex.
+  ✓ Only the 14 advertising-eligible English pillars load AdSense.
+  ✓ Sitemap membership exactly matches rendered indexability.
+  ✓ All 20 manifest pillars are indexable, in the sitemap, and follow their advertising policies.
+  ✓ Exactly 24 pending English guides are noindex, advertising-free, and outside the sitemap.
+  ✓ Exactly 12 manifest categories are noindex, advertising-free, and outside the sitemap.
+  ✓ Exactly 11 policy, placeholder, and error routes are noindex, advertising-free, and outside the sitemap.
+  ✓ The exact non-pillar home, hub, directory, tool, trust, and Chinese-tool route set is indexable.
+  ✓ Netherlands B-6 keeps both guides terminal and all three routes noindex, advertising-free, and outside the sitemap.
+  ✓ Pending corrected slug remains outside sitemap: dutch-inburgering-a2-b1-for-integration-and-citizenship
+  ✓ Pending corrected slug remains outside sitemap: portuguese-language-for-golden-visa-and-citizenship
+  ✓ The generated redirect artifact includes the established compatibility declarations.
+  ✓ All 17 pre-existing Scheme-3 redirect declarations are structurally valid in the local artifact; this is not migration authorization or production HTTP evidence.
+  ✓ Current local output omits all 17 candidate sources and includes their declared targets; this does not establish retirement, equivalence, redirect status, or production behavior.
+  ✓ The T23 map binds all 17 candidate pairs to evidence-only dispositions.
+  ✓ Generated internal links, canonicals, and hreflang do not point to a redirect-declared candidate source URL.
+  ✓ Built CSS includes reduced-motion, overflow, and target-size protections.
+  ⚠ All 17 pre-existing Scheme-3 redirect candidates are unresolved and not authorized (newRedirectAuthorization: none).
+
+--- Summary ---
+  Pass: 59
+  Fail: 0
+  Blocked: 1
+
+  BLOCKED.

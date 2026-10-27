@@ -2,5 +2,15 @@
 import { site } from '../data/site';
 export interface Props { locale?: 'en' | 'zh-CN'; }
 const { locale = 'en' } = Astro.props;
+const supportLabel = (support: string) => {
+  if (locale === 'zh-CN') {
+    if (support === 'configured') return '已配置的规划路线';
+    if (support === 'guide-only') return '指南入口 — 请向主管机关核验';
+    return '仅提供核验起点';
+  }
+  if (support === 'configured') return 'Configured planning route';
+  if (support === 'guide-only') return 'Guide entry — verify with the authority';
+  return 'Verification only';
+};
 ---
-<div class="route-selector">{site.routes.map((route) => <a href={locale === 'zh-CN' && route.id === 'family-reunion' ? '/zh/germany-family-reunion-a1/' : route.href}><span>{locale === 'zh-CN' ? `${route.zh}${route.id === 'family-reunion' ? '' : '（英文）'}` : route.label}</span><small>{route.status === 'available' ? (locale === 'zh-CN' ? '可用路线' : 'Route available') : (locale === 'zh-CN' ? '指南入口' : 'Guide entry')}</small></a>)}</div>
+<div class="route-selector">{site.routes.map((route) => <a href={locale === 'zh-CN' && route.id === 'family-reunion' ? '/zh/germany-family-reunion-a1/' : route.href}><span>{locale === 'zh-CN' ? `${route.zh}${route.id === 'family-reunion' ? '' : '（英文）'}` : route.label}</span><small>{supportLabel(route.support)}</small></a>)}</div>

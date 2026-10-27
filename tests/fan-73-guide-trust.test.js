@@ -6,28 +6,30 @@ const guideLayout = fs.readFileSync('src/layouts/GuideLayout.astro', 'utf8');
 const zhGuideData = fs.readFileSync('src/data/zh-germany-a1.ts', 'utf8');
 const css = fs.readFileSync('src/styles/global.css', 'utf8');
 const { getPrimaryDiscoveryZhGuides } = require('../src/data/guide-library.ts');
+const { chinesePillarSlugs } = require('../src/data/publication-manifest.ts');
 
 assert.equal(
   (zhGuideData.match(/sourceReviewStatus: 'reviewed'/g) || []).length,
-  8,
-  'the Chinese Germany A1 data keeps all eight completed source reviews',
+  chinesePillarSlugs.length,
+  'the Chinese Germany A1 data keeps one completed source review for each manifest pillar',
 );
 assert.match(guideIndex, /const zhGuides = getPrimaryDiscoveryZhGuides\(zhGermanyA1Guides\)/, 'Chinese guide list uses the shared primary-discovery normalizer');
 assert.match(
   fs.readFileSync('src/data/guide-library.ts', 'utf8'),
-  /\.filter\(\(guide\) => isGuidePrimaryDiscoveryEligible\(guide\.status, guide\.sourceReviewStatus\)\)/,
-  'Chinese library applies the shared primary-discovery gate after normalization',
+  /getChineseGuidePublicationPolicy\(\{[\s\S]*?slug: guide\.slug,[\s\S]*?contentStatus: guide\.status,[\s\S]*?sourceReviewStatus: guide\.sourceReviewStatus,[\s\S]*?noindex: guide\.noindex,[\s\S]*?\}\)\.index/,
+  'Chinese library applies the explicit pillar publication gate after normalization',
 );
 const discoveryFixture = [
-  { slug: 'reviewed-newer', contentStatus: 'complete-route', sourceReviewStatus: 'reviewed', updatedDate: '2026-07-20' },
-  { slug: 'pending', contentStatus: 'complete-route', sourceReviewStatus: 'pending', updatedDate: '2026-07-21' },
-  { slug: 'missing', contentStatus: 'complete-route', updatedDate: '2026-07-22' },
-  { slug: 'reviewed-older', contentStatus: 'core-route', sourceReviewStatus: 'reviewed', updatedDate: '2026-07-19' },
+  { slug: 'goethe-a1-test-centers', contentStatus: 'complete-route', sourceReviewStatus: 'reviewed', updatedDate: '2026-07-20' },
+  { slug: 'goethe-a1-vs-telc-a1', contentStatus: 'complete-route', sourceReviewStatus: 'pending', updatedDate: '2026-07-21' },
+  { slug: 'german-family-reunion-language-requirement', contentStatus: 'complete-route', updatedDate: '2026-07-22' },
+  { slug: 'goethe-a1-30-day-study-plan', contentStatus: 'core-route', sourceReviewStatus: 'reviewed', updatedDate: '2026-07-19' },
+  { slug: 'goethe-a1-booking-mistakes', contentStatus: 'complete-route', sourceReviewStatus: 'reviewed', updatedDate: '2026-07-23' },
 ];
 assert.deepEqual(
   getPrimaryDiscoveryZhGuides(discoveryFixture).map((guide) => guide.slug),
-  ['reviewed-newer', 'reviewed-older'],
-  'pending and missing-status Chinese records stay outside cards, counts, and JSON-LD while reviewed records retain date sorting',
+  ['goethe-a1-test-centers', 'goethe-a1-30-day-study-plan'],
+  'pending, missing-status, and redirect-source Chinese records stay outside discovery while reviewed pillars retain date sorting',
 );
 assert.match(guideIndex, /const totalGuideCount = guides\.length \+ zhGuides\.length/, 'guide count uses the filtered Chinese collection');
 assert.match(guideIndex, /\.\.\.zhGuides\.map\(/, 'JSON-LD uses the filtered Chinese collection');
@@ -53,8 +55,8 @@ assert.doesNotMatch(
 
 assert.match(
   guideLayout,
-  /<section class="guide-summary-box"[\s\S]*?<p class="guide-summary-answer">\{description\}<\/p>/,
-  'Direct answer keeps one answer container without a nested emphasized callout',
+  /<section class="guide-summary-box"[\s\S]*?<p class="guide-summary-answer">\{renderedDirectAnswer\}<\/p>/,
+  'Direct answer keeps one answer container while consuming fail-closed page-specific answer data',
 );
 assert.match(
   guideLayout,

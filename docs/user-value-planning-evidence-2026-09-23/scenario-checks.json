@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-09-23T03:29:36+00:00",
+  "kind": "planning-topology-and-scope-verification",
+  "checks": {
+    "twelve_primary_nodes": true,
+    "manual_core_path_exists": true,
+    "laya_not_core_prerequisite": true,
+    "ads_not_core_prerequisite": true,
+    "b1_has_demand_gate": true,
+    "audit_before_owner_in_common_gate": true
+  },
+  "protectedCodeFiles": 271,
+  "protectedCodeBytesUnchanged": true,
+  "archivedContentLedgerPreserved": true,
+  "sourceSha256": "cd660907b0467fd2091b731abd857bb6dffafbd881f7a1d265add116dbcbdbe3",
+  "limitations": "Checks assess the planning graph and unchanged implementation bytes, not a decoupled product, real users or production readiness."
+}

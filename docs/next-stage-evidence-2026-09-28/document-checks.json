@@ -1,0 +1,7 @@
+{
+  "linksChecked": 13,
+  "broken": [],
+  "baselineNpmTestExitCode": 0,
+  "gitDiffCheckExitCode": 0,
+  "standaloneLaunchCheck": "not_run: documentation-only scope; no implementation applied"
+}

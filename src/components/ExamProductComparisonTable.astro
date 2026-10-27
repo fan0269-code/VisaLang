@@ -1,0 +1,73 @@
+---
+import { compareExamProducts } from '../data/route-tools';
+
+interface Props {
+  locale?: 'en' | 'zh-CN';
+  level?: 'A1' | 'B1';
+}
+
+const { locale = 'en', level = 'A1' } = Astro.props;
+const firstId = level === 'B1' ? 'goethe-zertifikat-b1' : 'goethe-zertifikat-a1-start-deutsch-1';
+const secondId = level === 'B1' ? 'telc-zertifikat-deutsch-b1' : 'telc-start-deutsch-1-a1';
+const comparison = compareExamProducts(firstId, secondId, {
+  locale,
+  consumerId: level === 'B1' ? 'guide:goethe-b1-vs-telc-b1' : locale === 'zh-CN' ? 'guide:zh-goethe-a1-vs-telc-a1' : 'guide:goethe-a1-vs-telc-a1',
+  consumerLocale: locale,
+});
+const zh = locale === 'zh-CN';
+---
+
+<section class="source-controlled-table" data-exam-product-registry>
+  <h2>{zh ? '经来源核验的产品事实' : 'Source-reviewed product facts'}</h2>
+  <p>{zh
+    ? '下表按两个准确产品分别列出主办方规则及核验日期。当地报名与接收机关是否接受，仍须分开确认。'
+    : 'Compare the exam owners’ rules for the two exact products, with a source and checked date for each fact. Confirm local booking terms and receiving-authority acceptance separately.'}</p>
+  {comparison.status === 'ready' && 'rows' in comparison ? (
+    <div class="tool-table-wrap" role="region" aria-label={zh ? '考试产品比较表，可横向滚动查看。' : 'Exam product comparison table. Scroll horizontally to view all columns.'} tabindex="0">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">{zh ? '产品事实或待核项' : 'Product fact or local check'}</th>
+            <th scope="col">{comparison.first.name}</th>
+            <th scope="col">{comparison.second.name}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {comparison.rows.map((row) => (
+            <tr>
+              <th scope="row">{row.label}</th>
+              <td><p>{row.firstValue}</p><a href={row.firstSourceUrl}>{zh ? '产品官方来源' : 'Official product source'}</a><p>{zh ? '核验日期：' : 'Checked: '}{row.firstSourceCheckedAt}</p></td>
+              <td><p>{row.secondValue}</p><a href={row.secondSourceUrl}>{zh ? '产品官方来源' : 'Official product source'}</a><p>{zh ? '核验日期：' : 'Checked: '}{row.secondSourceCheckedAt}</p></td>
+            </tr>
+          ))}
+          {comparison.localRows.map((row) => (
+            <tr class="verification-pending">
+              <th scope="row">{row.label}</th>
+              <td>
+                <p><strong>{zh ? '状态：需向责任方确认' : 'Status: needs authority confirmation'}</strong></p>
+                <p>{row.firstValue}</p>
+                <p><strong>{zh ? '责任方：' : 'Owner: '}</strong>{row.firstOwner}</p>
+                <p><strong>{zh ? '下一步：' : 'Action: '}</strong>{row.firstAction}</p>
+                <p><strong>{zh ? '边界：' : 'Boundary: '}</strong>{row.firstBoundary}</p>
+              </td>
+              <td>
+                <p><strong>{zh ? '状态：需向责任方确认' : 'Status: needs authority confirmation'}</strong></p>
+                <p>{row.secondValue}</p>
+                <p><strong>{zh ? '责任方：' : 'Owner: '}</strong>{row.secondOwner}</p>
+                <p><strong>{zh ? '下一步：' : 'Action: '}</strong>{row.secondAction}</p>
+                <p><strong>{zh ? '边界：' : 'Boundary: '}</strong>{row.secondBoundary}</p>
+              </td>
+            </tr>
+          ))}
+          <tr>
+            <th scope="row">{zh ? '考试官方页面' : 'Official exam page'}</th>
+            <td><a href={comparison.first.officialUrl}>{comparison.first.name}</a></td>
+            <td><a href={comparison.second.officialUrl}>{comparison.second.name}</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  ) : (
+    <p class="verification-pending"><strong>{zh ? '产品事实需要重新核验。' : 'Product facts require re-verification.'}</strong> {zh ? '当前版本化记录未通过状态、日期或使用范围检查；请直接打开考试方页面。' : 'The current versioned records did not pass their status, date, or consumer-scope checks. Open the exam-owner pages directly.'}</p>
+  )}
+</section>

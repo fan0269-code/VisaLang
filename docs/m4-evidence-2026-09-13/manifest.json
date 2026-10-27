@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-09-13T18:41:05+08:00",
+  "scope": "M3 baseline and final M4 stable local build evidence; no production observation",
+  "files": [
+    {
+      "path": "docs/m4-evidence-2026-09-13/baseline-git-status.txt",
+      "bytes": 10895,
+      "sha256": "883dc34057e3dd0f229e86773630f72123402b056bad2869ec03951eb5cbb11d"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/baseline-hashes.json",
+      "bytes": 57318,
+      "sha256": "cc20c70519ae73c7d74a18bc03a17ae381f0ff8e5948ce6c7b3f3faa29a25257"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/browser-check.cjs",
+      "bytes": 3462,
+      "sha256": "4ae4cae1d76d93debf57fcaeb6f135164d3e1c10babb5b0b0b28d6d4f96120eb"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/citizenship-checklist-375.png",
+      "bytes": 68893,
+      "sha256": "b75c68874522f8df918cbd5e0048bfe34a2d96fac84f93a5c4394355cfd36855"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/comparison-browser.cjs",
+      "bytes": 3929,
+      "sha256": "b47f2baf59eabb8a8d112f7aa2c4b37098a5e337bfeda3dc600bdc6f97d9aeed"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/comparison-browser.json",
+      "bytes": 1859,
+      "sha256": "b7eeec9ff22b19b05d068cdfca00f5b0dc988f82d9d497d4bb114ea9b82dee8a"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/comparison-en-1440.png",
+      "bytes": 153843,
+      "sha256": "6c10742d400a456b4f4585e226b48372f7267353827aa7d8a501abea49d361d2"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/comparison-en-375.png",
+      "bytes": 55374,
+      "sha256": "d2f8edcd706ebba3dd659d2a1d50e8a493228b13ec0d62906daaf1eb763ae3a0"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/comparison-zh-1440.png",
+      "bytes": 183107,
+      "sha256": "9c989745d166c85021d8711f5ce44f07f58c92b5eec0e9b4045e1c32d667bd80"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/comparison-zh-375.png",
+      "bytes": 60309,
+      "sha256": "2d5cbf86a7318787159ad73ad96a1b7ea4ad10fed47ca59a682e8ce6a1d26e25"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/goethe-b1-fees-and-booking-375.png",
+      "bytes": 69893,
+      "sha256": "2dcdcf7cffd50d400f76258b612834053afd001f26ece09f994a018af96e599a"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/goethe-b1-vs-telc-b1-375.png",
+      "bytes": 71110,
+      "sha256": "aafb8e866a5e8ef428dac26600d6798650f934e8d908c10372905aa778bda990"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/hub-1440.png",
+      "bytes": 101378,
+      "sha256": "50b26bfcf405af59a10fc1f01ac6d4ac2c80245d982a35aa12fe5ab040719bdc"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/hub-375.png",
+      "bytes": 67531,
+      "sha256": "340b9c93643be75491e0de5da0a87758ae88b0ec8f670f4e03bc4b666bc13252"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/integration-build.txt",
+      "bytes": 8119,
+      "sha256": "922ebeef2e14c7eb21eab27a28f4e968ec533a32fca8552cbe2cd469fb5fce04"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/integration-launch-check.txt",
+      "bytes": 13680,
+      "sha256": "cbc4568eb33c6eace4c073b270b48c09e4f85fd8f39351bf351792640b01c8db"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/m3-build.txt",
+      "bytes": 8122,
+      "sha256": "42075ef8a81913d5815e15457d19957eafc281a4bef4399731f7dd3bfdd4ec69"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/m3-diff-check.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/m3-focused.txt",
+      "bytes": 5539,
+      "sha256": "020ecbc80f1815a4bdc1c5e421aa9b1087fc131402f740881aa24e043ddd5540"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/m3-governance.txt",
+      "bytes": 352,
+      "sha256": "9f8dc186de6fc9fbabaaf755ab00d8537a768038197d862be9bada171ea070cc"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/m3-launch-check.txt",
+      "bytes": 13682,
+      "sha256": "8d7158a4ae9345b9b3d4edbc09599f58666722d22ece99cf021830635f83763c"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/m3-npm-test.txt",
+      "bytes": 27826,
+      "sha256": "eacb500df80ea1988f8d6c9ad808e90a5b6b95f95ec13cd2c76894634a04464c"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/m4-cluster-red.txt",
+      "bytes": 881,
+      "sha256": "29d25f619bd1650391d179589b5dd83a714f6c81485b887fb4677b2d2073e5ec"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/m4-cluster.txt",
+      "bytes": 31,
+      "sha256": "fc8909201b99bb32606d4c028fd22f06e418520064e45a4a7c579dc35f45164f"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/m4-comparison-built.txt",
+      "bytes": 573,
+      "sha256": "e78d82474f573556f475045aed0667bf0a3fee79c31e113a2901b837df38edbe"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/m4-content-map-green.txt",
+      "bytes": 519,
+      "sha256": "0064103b5a2408982c64802c22a7004fa4569c4afeb99b8245a914a85267c4c4"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/m4-diff-check.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/m4-fan43.txt",
+      "bytes": 49,
+      "sha256": "d306e30d473d64fb7a38a4c2c02e73ee47c2720f12f9cfa3cf7167c6b4a662e6"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/m4-quality.txt",
+      "bytes": 555,
+      "sha256": "29328ca8440d2ab3862ff78b94160a323628e27c73e5f31cb83b58b979b7ad95"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/m4-routes-built.txt",
+      "bytes": 569,
+      "sha256": "b533d3bbfa54380b3e055ee15202278a67b856ebb83f7e3f9820aa16fd38c5a5"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/m4-source-render-green.txt",
+      "bytes": 42,
+      "sha256": "d5e99f45f8ea35d6529f6b6681a253796c7fa8ab76b5fedb5376e9e14d329576"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/m4-study-final.txt",
+      "bytes": 546,
+      "sha256": "059e6ffced0a4d75dc80854d1cb797a319d30d570850c975cd66c3235e3e537e"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/map-delivery.json",
+      "bytes": 736,
+      "sha256": "5dc874120d2657165629642814bb6534774c11c289f15c47328370a72e94f01a"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/map-validation.json",
+      "bytes": 1931,
+      "sha256": "c947bf7409e34434f01a26ce3742e223c3eb30ecef62aa594cccfd83f4f235a8"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/preaudit-npm-test.txt",
+      "bytes": 30986,
+      "sha256": "999f0f3fae40ba0b3d497cbf8f2cd802fbdad7b5aae6b7ef95571b383c1378d8"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/study-print-check.cjs",
+      "bytes": 1684,
+      "sha256": "e1f2861bbdcf00bdc4ac7e53acb9e0615db405660da3baaad0b77ecfddb3eb1d"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/study-print-page-05.png",
+      "bytes": 63935,
+      "sha256": "ed43f0c628bbc8f31081b9ffcd53fc1be969e2e1162038f9f6fb42cf2ef0c8d3"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/study-print-page-06.png",
+      "bytes": 65745,
+      "sha256": "1ddd90432993aa64c7aaeffb14750f006ea2df1bd408b06ab34966d551cf29ed"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/study-print-page-07.png",
+      "bytes": 79465,
+      "sha256": "e66b512c2028521ffaca4a34bb7c5b2b83a8eb56cd5618531264d59f4f4e5358"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/study-print-page-08.png",
+      "bytes": 88819,
+      "sha256": "e8ebdcb0c8f03e8d152fcb2de20a5728b47c739157a9a1b75e183920683ffc20"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/study-print.json",
+      "bytes": 618,
+      "sha256": "56596e951781cfb48923446dff5634209cac9c17e5c1222401f84853e3832b8b"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/study-print.pdf",
+      "bytes": 361617,
+      "sha256": "7d8d3e309a7a67930d46743253017038c6b905a108e3f82c2bae939af5ab6a4c"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/study-worksheet-1440.png",
+      "bytes": 161529,
+      "sha256": "7a3e26f963ffe04070689ab8dd853033812b3cb0c169af0195c75159636a405b"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/study-writing-375.png",
+      "bytes": 76665,
+      "sha256": "c1b5231aacff8d17e6b097789934f9df96b3f7da73047bb05fcd4ab50b180104"
+    },
+    {
+      "path": "docs/m4-evidence-2026-09-13/t24-browser.json",
+      "bytes": 9285,
+      "sha256": "016aa4f62f53a3c560b109203abd601a935c1141aa3e23d6a79df7af2fb79e59"
+    }
+  ]
+}

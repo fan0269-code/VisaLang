@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { site } from '../../data/site';
+const jsonLD = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'VisaLang decision tools', url: 'https://visalang.org/tools/' };
+---
+<BaseLayout title="Decision tools" description="Use free tools to organise route questions, requirements, timing, exam comparisons, and reminders." canonicalURL="https://visalang.org/tools/" jsonLD={jsonLD} enableAds={false}>
+  <main class="site-main od-tools">
+    <PageHero compact title="Tools for planning a language-proof route." description="Choose the tool for your current task. Germany A1 family reunion has the complete preparation workflow; the other four registered routes provide official verification starting points. B1 guides are a separate content topic, with verification-only tools." />
+    <section class="tool-grid" aria-label="Available tools">{site.tools.map((tool) => <a class="article-card" href={tool.href}><h2>{tool.label}</h2><p class="card-meta">{tool.description}</p><span class="text-link">Open tool</span></a>)}</section>
+  </main>
+</BaseLayout>

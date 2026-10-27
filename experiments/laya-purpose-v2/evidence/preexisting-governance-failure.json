@@ -1,0 +1,8 @@
+{
+  "baseline_task_log_sha256": "997604ab722abc4b9e987e0fd1adba3be9f69ff17cbd7862c80315cdcbb509d5",
+  "before_v2_append_task_log_sha256": "997604ab722abc4b9e987e0fd1adba3be9f69ff17cbd7862c80315cdcbb509d5",
+  "finding": "npm test and standalone planning governance failed before any v2 Task Log edit. Existing receipt binds earlier bytes; no planning authority modified to conceal failure.",
+  "stored_planning_receipt_task_log_sha256": "d9fbc94ecf551f31e28ce6af1bcf9f849a47196fce2566fca2fb2f9e0e55f95c",
+  "post_v2_append_task_log_sha256": "1d4f99bad5ac05ab044f74f51ebe0f5a9fd9af2eca721c53d1bd504738964376",
+  "assertion_operand_mapping": "tests/planning-map-governance.test.mjs:234 assert.equal(stored binding, sha256(current file)); Node actual is stored receipt; expected is current file."
+}

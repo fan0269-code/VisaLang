@@ -1,0 +1,172 @@
+[
+  {
+    "url": "http://127.0.0.1:4321/tools/route-finder/",
+    "title": "Route Finder | VisaLang",
+    "meaningfulContent": 4209,
+    "frameworkOverlay": 0,
+    "logs": [
+      {
+        "kind": "requestfailed",
+        "url": "https://visalang.org/favicon.svg",
+        "reason": "net::ERR_FAILED"
+      },
+      {
+        "kind": "error",
+        "text": "Failed to load resource: net::ERR_FAILED"
+      }
+    ]
+  },
+  {
+    "url": "http://127.0.0.1:4321/tools/checklist-generator/",
+    "title": "Requirement Checklist | VisaLang",
+    "meaningfulContent": 3464,
+    "frameworkOverlay": 0,
+    "logs": [
+      {
+        "kind": "requestfailed",
+        "url": "https://visalang.org/favicon.svg",
+        "reason": "net::ERR_FAILED"
+      },
+      {
+        "kind": "error",
+        "text": "Failed to load resource: net::ERR_FAILED"
+      }
+    ]
+  },
+  {
+    "url": "http://127.0.0.1:4321/tools/timeline-calculator/",
+    "title": "Timeline Planner | VisaLang",
+    "meaningfulContent": 4100,
+    "frameworkOverlay": 0,
+    "logs": [
+      {
+        "kind": "requestfailed",
+        "url": "https://visalang.org/favicon.svg",
+        "reason": "net::ERR_FAILED"
+      },
+      {
+        "kind": "error",
+        "text": "Failed to load resource: net::ERR_FAILED"
+      }
+    ]
+  },
+  {
+    "url": "http://127.0.0.1:4321/tools/exam-comparison/",
+    "title": "Exam Comparison | VisaLang",
+    "meaningfulContent": 3793,
+    "frameworkOverlay": 0,
+    "logs": [
+      {
+        "kind": "requestfailed",
+        "url": "https://visalang.org/favicon.svg",
+        "reason": "net::ERR_FAILED"
+      },
+      {
+        "kind": "error",
+        "text": "Failed to load resource: net::ERR_FAILED"
+      }
+    ]
+  },
+  {
+    "url": "http://127.0.0.1:4321/tools/email-reminders/",
+    "title": "Reminder Planner | VisaLang",
+    "meaningfulContent": 3638,
+    "frameworkOverlay": 0,
+    "logs": [
+      {
+        "kind": "requestfailed",
+        "url": "https://visalang.org/favicon.svg",
+        "reason": "net::ERR_FAILED"
+      },
+      {
+        "kind": "error",
+        "text": "Failed to load resource: net::ERR_FAILED"
+      }
+    ]
+  },
+  {
+    "url": "http://127.0.0.1:4321/zh/tools/route-finder/",
+    "title": "路线查找器 | VisaLang",
+    "meaningfulContent": 969,
+    "frameworkOverlay": 0,
+    "logs": [
+      {
+        "kind": "requestfailed",
+        "url": "https://visalang.org/favicon.svg",
+        "reason": "net::ERR_FAILED"
+      },
+      {
+        "kind": "error",
+        "text": "Failed to load resource: net::ERR_FAILED"
+      }
+    ]
+  },
+  {
+    "url": "http://127.0.0.1:4321/zh/tools/checklist-generator/",
+    "title": "要求核对清单 | VisaLang",
+    "meaningfulContent": 850,
+    "frameworkOverlay": 0,
+    "logs": [
+      {
+        "kind": "requestfailed",
+        "url": "https://visalang.org/favicon.svg",
+        "reason": "net::ERR_FAILED"
+      },
+      {
+        "kind": "error",
+        "text": "Failed to load resource: net::ERR_FAILED"
+      }
+    ]
+  },
+  {
+    "url": "http://127.0.0.1:4321/zh/tools/timeline-calculator/",
+    "title": "时间线规划器 | VisaLang",
+    "meaningfulContent": 1039,
+    "frameworkOverlay": 0,
+    "logs": [
+      {
+        "kind": "requestfailed",
+        "url": "https://visalang.org/favicon.svg",
+        "reason": "net::ERR_FAILED"
+      },
+      {
+        "kind": "error",
+        "text": "Failed to load resource: net::ERR_FAILED"
+      }
+    ]
+  },
+  {
+    "url": "http://127.0.0.1:4321/zh/tools/exam-comparison/",
+    "title": "考试比较 | VisaLang",
+    "meaningfulContent": 1179,
+    "frameworkOverlay": 0,
+    "logs": [
+      {
+        "kind": "requestfailed",
+        "url": "https://visalang.org/favicon.svg",
+        "reason": "net::ERR_FAILED"
+      },
+      {
+        "kind": "error",
+        "text": "Failed to load resource: net::ERR_FAILED"
+      }
+    ]
+  },
+  {
+    "url": "http://127.0.0.1:4321/zh/tools/email-reminders/",
+    "title": "提醒计划 | VisaLang",
+    "meaningfulContent": 907,
+    "frameworkOverlay": 0,
+    "logs": [
+      {
+        "kind": "requestfailed",
+        "url": "https://visalang.org/favicon.svg",
+        "reason": "net::ERR_FAILED"
+      },
+      {
+        "kind": "error",
+        "text": "Failed to load resource: net::ERR_FAILED"
+      }
+    ]
+  }
+]

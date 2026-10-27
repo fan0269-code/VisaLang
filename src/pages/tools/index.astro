@@ -4,10 +4,65 @@ import PageHero from '../../components/PageHero.astro';
 import ProductStatus from '../../components/ProductStatus.astro';
 import { site } from '../../data/site';
 const jsonLD = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'VisaLang decision tools', url: 'https://visalang.org/tools/' };
+const toolDetails: Record<(typeof site.tools)[number]['id'], { task: string; inputs: string; result: string; boundary: string }> = {
+  finder: {
+    task: 'Find the right authority and a safe research starting point.',
+    inputs: 'Country, purpose, application region, relationship, and certificate status.',
+    result: 'A route status with official follow-up questions and links.',
+    boundary: 'It does not decide eligibility, exceptions, or whether a certificate will be accepted.',
+  },
+  checklist: {
+    task: 'Turn a route into steps you can review and track.',
+    inputs: 'A route, followed by the checklist items you mark as complete.',
+    result: 'A working checklist you can print or download as text.',
+    boundary: 'It does not submit documents or confirm that an authority received them.',
+  },
+  timeline: {
+    task: 'Plan backwards from a date you choose.',
+    inputs: 'A target date, exam product, and your own calendar-day estimates for results, documents, and retake buffer.',
+    result: 'Planning dates calculated from the values you entered.',
+    boundary: 'It does not supply exam availability, official processing times, or a promised result date.',
+  },
+  comparison: {
+    task: 'Compare two configured exam products before checking local arrangements.',
+    inputs: 'Two exam products from the available comparison list.',
+    result: 'A side-by-side view of product facts, sources, and verification questions.',
+    boundary: 'It does not determine whether a receiving authority accepts either product for your case.',
+  },
+  reminders: {
+    task: 'Set a prompt to revisit an official source.',
+    inputs: 'A verification topic, a date you choose, and a configured route.',
+    result: 'A reminder summary and an optional ICS calendar file download.',
+    boundary: 'It does not send email, create an account, import a calendar event, or prove a notification was delivered.',
+  },
+};
+const tools = site.tools.map((tool) => ({ ...tool, details: toolDetails[tool.id] }));
 ---
 <BaseLayout title="Decision tools" description="Use free tools to organise route questions, requirements, timing, exam comparisons, and reminders." canonicalURL="https://visalang.org/tools/" jsonLD={jsonLD} enableAds={false}>
   <main class="site-main od-tools">
-    <PageHero compact title="Tools for planning a language-proof route." description="Each tool records your inputs and keeps official verification visible." primary={{ href: '/tools/route-finder/', label: 'Start with Route Finder' }} />
-    <section class="tool-grid" aria-label="Available tools">{site.tools.map((tool) => <a class="article-card" href={tool.href}><div><ProductStatus status="available" /></div><h2>{tool.label}</h2><p class="card-meta">{tool.description}</p><span class="text-link">Open tool</span></a>)}</section>
+    <PageHero compact title="Choose a tool for the step you are working on." description="Start with a route question, organise checks, compare products, plan from dates you verify, or set a reminder to check again." primary={{ href: '/tools/route-finder/', label: 'Start with Route Finder' }} />
+    <p class="tool-hub-boundary">These tools organise questions and information. The responsible authority decides application requirements, the exam provider defines its product, and the selected centre controls local booking details.</p>
+    <section class="tool-grid" aria-label="Available tools by task">{tools.map((tool) => <a class="article-card" href={tool.href}>
+      <div><ProductStatus status="available" /></div>
+      <h2>{tool.label}</h2>
+      <p class="card-meta">{tool.details.task}</p>
+      <dl class="tool-card-details">
+        <div><dt>What you enter</dt><dd>{tool.details.inputs}</dd></div>
+        <div><dt>What you get</dt><dd>{tool.details.result}</dd></div>
+        <div><dt>What it cannot decide</dt><dd>{tool.details.boundary}</dd></div>
+      </dl>
+      <span class="text-link">Open {tool.label}</span>
+    </a>)}</section>
+    <p class="tool-hub-storage">Shared plan fields stay in the current tab session by default. Each tool explains its own page fields and exports. Where available, you can choose to save an approved plan snapshot on this device for 30 days or clear saved plan data; browser storage may be blocked. Reminder dates are used on that page to create a calendar file, and VisaLang does not send reminder emails.</p>
   </main>
 </BaseLayout>
+
+<style>
+  .tool-hub-boundary,
+  .tool-hub-storage { max-width: 78ch; color: var(--text-muted); line-height: 1.65; }
+  .tool-card-details { display: grid; gap: var(--space-3); margin: 0; }
+  .tool-card-details div { display: grid; gap: var(--space-1); }
+  .tool-card-details dt { font-size: var(--text-sm); font-weight: 700; }
+  .tool-card-details dd { margin: 0; color: var(--text-muted); font-size: var(--text-sm); line-height: 1.55; }
+  .tool-hub-storage { margin-top: var(--space-6); }
+</style>

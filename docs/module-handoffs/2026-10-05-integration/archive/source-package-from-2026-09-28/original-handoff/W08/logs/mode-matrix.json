@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "runs": [
+    {
+      "purposeSuggestions": "off",
+      "advertising": "off",
+      "command": "npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/build-off-off.log",
+      "attempt": 1
+    },
+    {
+      "purposeSuggestions": "off",
+      "advertising": "off",
+      "command": "node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/launch-check-off-off.log",
+      "attempt": 1
+    },
+    {
+      "purposeSuggestions": "off",
+      "advertising": "on",
+      "command": "npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/build-off-on.log",
+      "attempt": 1
+    },
+    {
+      "purposeSuggestions": "off",
+      "advertising": "on",
+      "command": "node scripts/launch-check.js",
+      "exitCode": 1,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/launch-check-off-on.log",
+      "attempt": 1
+    },
+    {
+      "purposeSuggestions": "laya",
+      "advertising": "off",
+      "command": "npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/build-laya-off.log",
+      "attempt": 1
+    },
+    {
+      "purposeSuggestions": "laya",
+      "advertising": "off",
+      "command": "node scripts/launch-check.js",
+      "exitCode": 1,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/launch-check-laya-off.log",
+      "attempt": 1
+    },
+    {
+      "purposeSuggestions": "laya",
+      "advertising": "on",
+      "command": "npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/build-laya-on.log",
+      "attempt": 1
+    },
+    {
+      "purposeSuggestions": "laya",
+      "advertising": "on",
+      "command": "node scripts/launch-check.js",
+      "exitCode": 1,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/launch-check-laya-on.log",
+      "attempt": 1
+    },
+    {
+      "purposeSuggestions": "typesafe",
+      "advertising": "off",
+      "command": "npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/build-typesafe-off.log",
+      "attempt": 1
+    },
+    {
+      "purposeSuggestions": "typesafe",
+      "advertising": "off",
+      "command": "node scripts/launch-check.js",
+      "exitCode": 1,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/launch-check-typesafe-off.log",
+      "attempt": 1
+    },
+    {
+      "purposeSuggestions": "typesafe",
+      "advertising": "on",
+      "command": "npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/build-typesafe-on.log",
+      "attempt": 1
+    },
+    {
+      "purposeSuggestions": "typesafe",
+      "advertising": "on",
+      "command": "node scripts/launch-check.js",
+      "exitCode": 1,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/launch-check-typesafe-on.log",
+      "attempt": 1
+    },
+    {
+      "attempt": 2,
+      "purposeSuggestions": "off",
+      "advertising": "off",
+      "command": "npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-build-off-off.log"
+    },
+    {
+      "attempt": 2,
+      "purposeSuggestions": "off",
+      "advertising": "off",
+      "command": "node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-launch-check-off-off.log"
+    },
+    {
+      "attempt": 2,
+      "purposeSuggestions": "off",
+      "advertising": "on",
+      "command": "npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-build-off-on.log"
+    },
+    {
+      "attempt": 2,
+      "purposeSuggestions": "off",
+      "advertising": "on",
+      "command": "node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-launch-check-off-on.log"
+    },
+    {
+      "attempt": 2,
+      "purposeSuggestions": "laya",
+      "advertising": "off",
+      "command": "npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-build-laya-off.log"
+    },
+    {
+      "attempt": 2,
+      "purposeSuggestions": "laya",
+      "advertising": "off",
+      "command": "node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-launch-check-laya-off.log"
+    },
+    {
+      "attempt": 2,
+      "purposeSuggestions": "laya",
+      "advertising": "on",
+      "command": "npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-build-laya-on.log"
+    },
+    {
+      "attempt": 2,
+      "purposeSuggestions": "laya",
+      "advertising": "on",
+      "command": "node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-launch-check-laya-on.log"
+    },
+    {
+      "attempt": 2,
+      "purposeSuggestions": "typesafe",
+      "advertising": "off",
+      "command": "npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-build-typesafe-off.log"
+    },
+    {
+      "attempt": 2,
+      "purposeSuggestions": "typesafe",
+      "advertising": "off",
+      "command": "node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-launch-check-typesafe-off.log"
+    },
+    {
+      "attempt": 2,
+      "purposeSuggestions": "typesafe",
+      "advertising": "on",
+      "command": "npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-build-typesafe-on.log"
+    },
+    {
+      "attempt": 2,
+      "purposeSuggestions": "typesafe",
+      "advertising": "on",
+      "command": "node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-launch-check-typesafe-on.log"
+    }
+  ]
+}

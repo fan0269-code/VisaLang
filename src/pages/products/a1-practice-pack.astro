@@ -1,8 +1,6 @@
 ---
 import CommercialPageShell from '../../components/products/CommercialPageShell.astro';
 import CommercialBoundary from '../../components/products/CommercialBoundary.astro';
-import IntentCTA from '../../components/products/IntentCTA.astro';
-import { commercialLinks } from '../../data/commercial-offers';
 ---
 
 <CommercialPageShell
@@ -37,6 +35,5 @@ import { commercialLinks } from '../../data/commercial-offers';
   <h2>Availability and price</h2>
   <p>The price, delivery format, support channel, refund terms, and launch date have not been confirmed. This page cannot take payment or deliver practice material.</p>
 
-  <IntentCTA href={commercialLinks.contact} title="Get product updates" description="The pack is not available to buy. Contact the team only if you want a future availability update." label="Get updates" />
   <CommercialBoundary includeLegalBoundary={true} />
 </CommercialPageShell>

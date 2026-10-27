@@ -2,49 +2,137 @@
 import ToolLayout from '../../layouts/ToolLayout.astro';
 import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
 import ToolResultPanel from '../../components/ToolResultPanel.astro';
+import { routeRegistry } from '../../data/route-tools';
+import { getReminderTopicOptions, getRouteLabel, getToolCopy, type ToolLocale } from '../../data/tool-copy';
+export interface Props { locale?: ToolLocale; }
+const { locale = 'en' } = Astro.props;
+const copy = getToolCopy('reminders', locale);
+const isZh = locale === 'zh-CN';
+const reminderTopicOptions = getReminderTopicOptions(locale);
+const reminderRoutes = routeRegistry.filter((route) => route.availability === 'configured' && route.reminderOfficialEntry);
 ---
-<ToolLayout eyebrow="Local planning only" title="Reminder Planner" description="Create a reminder plan for your own calendar, local storage, notes, or printer. No email service is connected." current="reminders">
+<ToolLayout eyebrow={copy.eyebrow} title={copy.title} description={copy.description} current="reminders" locale={locale}>
   <div class="tool-workspace">
-    <form id="reminder-form" class="tool-form" novalidate>
-      <div class="tool-form-heading"><h2>Create a verification reminder</h2><p>After a successful result, the visible planning fields can be restored from this page’s URL. No email is sent and no account is created.</p></div>
+    <form id="reminder-form" class="tool-form" novalidate inert>
+      <div class="tool-form-heading"><h2>{copy.formTitle}</h2><p>{copy.formIntro} {isZh ? '提醒日期只保留在本页且不会写入网址；日历文件会包含路线中配置的官方入口。' : 'The reminder date stays on this page and is never added to the URL. The route’s configured official entry is included in the calendar file.'}</p></div>
       <div class="tool-field-grid">
-        <label>Reminder topic<select name="topic" required><option value="">Select a topic</option><option>Confirm the language requirement</option><option>Check an official test centre</option><option>Review my requirement checklist</option><option>Recalculate my timeline</option></select></label>
-        <label>Reminder date<input name="date" type="date" required /></label>
-        <label>Route or authority<input name="route" required placeholder="Example: Germany family reunion / local German mission" /></label>
-        <label>Official source to recheck<input name="source" type="url" placeholder="https://" /></label>
+        <label>{copy.fields.topic}<select name="topic" required><option value="">{copy.text.selectTopic}</option>{reminderTopicOptions.map((topic) => <option value={topic.id}>{topic.label}</option>)}</select></label>
+        <label>{copy.fields.date}<input name="date" type="date" required /></label>
+        <label>{copy.fields.route}<select name="route" required><option value="">{copy.text.selectRoute}</option>{reminderRoutes.map((route) => <option value={route.id}>{getRouteLabel(route.id, route.shortTitle, locale)}</option>)}</select></label>
       </div>
       <div class="tool-error-summary" id="reminder-error" data-error-summary role="alert" tabindex="-1" hidden></div>
-      <button class="button button--primary" type="submit">Create reminder plan</button>
+      <button class="button button--primary" type="submit">{copy.submitLabel}</button>
     </form>
-    <ToolResultPanel id="reminder-result" title="Your reminder plan"><div id="reminder-summary"></div><div class="button-row"><button class="button button--primary" type="button" data-download-ics>Download ICS</button></div><ToolResultSupport resultId="reminder-summary" /></ToolResultPanel>
+    <ToolResultPanel id="reminder-result" title={copy.resultTitle}><div id="reminder-summary"></div><div class="button-row"><button class="button button--primary" type="button" data-download-ics>{copy.text.download}</button></div><ToolResultSupport resultId="reminder-summary" locale={locale} /></ToolResultPanel>
   </div>
+
+  {isZh && <section class="tool-guidance" data-tool-guidance aria-labelledby="reminder-guidance-title">
+    <h2 id="reminder-guidance-title">{copy.guidanceTitle}</h2>
+    <p>当你已经理解某项核验任务时，可创建由你自己的设备或日历处理的本地提醒。提醒应只包含一个问题、路线或负责机关，以及要重新打开的官方页面。它不是截止日期、邮件发送或案件管理服务。</p>
+    <h3>输出意味着什么</h3>
+    <p>结果会重述任务并可下载 ICS 日历文件。VisaLang 不发送邮件、不创建账户，也无法确认日历客户端是否成功导入或发出通知。日历事件不会证明来源仍然有效或预约、名额、截止日期存在。</p>
+    <h3>何时替换提醒</h3>
+    <p>负责机关、路线、来源网址、考试产品或行动发生变化时，请删除或替换提醒。提醒触发后仍须打开已保存的官方来源，记录核验日期，并检查来源范围。</p>
+    <h3>官方核验入口</h3>
+    <p>德国家庭团聚语言问题可从<a href="https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682" target="_blank" rel="noreferrer">德国联邦外交部语言要求说明</a>开始，再使用负责使领馆的当前说明。接收机关负责申请决定，考试主办方和所选考点分别负责产品与当地交易。</p>
+  </section>}
+  {!isZh && <section class="tool-guidance" data-tool-guidance aria-labelledby="reminder-guidance-title">
+    <h2 id="reminder-guidance-title">When the Reminder Planner is useful</h2>
+    <p>Use this planner to create a local calendar prompt for a verification task you already understand. A good reminder names one question, the route or responsible authority, and the official page to reopen. It is not a deadline service, an email service, or a case-management system. Do not enter private correspondence, document contents, application identifiers, payment data, or any date you have not established for your own planning.</p>
+
+    <h3>Example input: a source-review reminder</h3>
+    <dl data-tool-example-input>
+      <dt>Topic</dt><dd>Confirm the language requirement.</dd>
+      <dt>Reminder date</dt><dd>A date chosen by the user before their next planned action—not a deadline asserted by VisaLang.</dd>
+      <dt>Route or authority</dt><dd>Germany family reunion / competent German mission.</dd>
+      <dt>Official source</dt><dd>The current Federal Foreign Office language-skills FAQ or the competent mission's route page.</dd>
+    </dl>
+
+    <h3>What the reminder output means</h3>
+    <div data-tool-example-output>
+      <p>The result restates the entered task and can download an ICS calendar file. That file is stored or handled by the user's own device and calendar workflow; VisaLang sends no email and creates no account. A calendar event does not confirm that the source remained current, that an authority received anything, or that a deadline, appointment, or seat exists.</p>
+    </div>
+
+    <h3>Stop and replace the reminder</h3>
+    <p>Stop if the responsible authority, route, source URL, exam product, or planned action changes. Delete or replace a reminder that points to an outdated page, and do not act merely because the calendar event fired. If the official source is unavailable or ambiguous, record the unresolved question and contact the organisation that owns it.</p>
+
+    <h3>Official follow-up when the reminder fires</h3>
+    <p>Open the saved official source, record the date checked, and compare its scope with the exact decision you need. For German family-reunion language orientation, start with the <a href="https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682" target="_blank" rel="noreferrer">Federal Foreign Office language-skills FAQ</a>, then use the competent mission's current instructions. The reminder only prompts the check; the mission or receiving authority owns the application decision, while the exam provider and selected centre own their product and transaction information.</p>
+  </section>}
 </ToolLayout>
 <script>
+  import { createReminderIcs, type ReminderIcsResult } from '../../data/reminder-ics';
   import { setupToolForm } from '../../scripts/tool-form';
+  import { setupSharedPlan } from '../../scripts/plan-state';
+  import { routeRegistry } from '../../data/route-tools';
+  import { getReminderTopicOptions, getRouteLabel, getToolCopy } from '../../data/tool-copy';
   const form = document.querySelector<HTMLFormElement>('#reminder-form');
   const panel = document.querySelector<HTMLElement>('#reminder-result');
   const summary = document.querySelector<HTMLElement>('#reminder-summary');
-  let reminder = { topic: '', date: '', route: '', source: '' };
-  const controller = form ? setupToolForm(form, { persistedNames: ['topic', 'date', 'route', 'source'] }) : undefined;
+  const locale = document.documentElement.lang === 'zh-CN' ? 'zh-CN' : 'en';
+  const isZh = locale === 'zh-CN';
+  const copy = getToolCopy('reminders', locale);
+  const reminderTopicOptions = getReminderTopicOptions(locale);
+  let reminderIcs: Extract<ReminderIcsResult, { status: 'ready' }> | null = null;
+  const plan = setupSharedPlan({ toolId: 'reminders', form });
+  const invalidateReminder = () => {
+    reminderIcs = null;
+    if (panel) panel.hidden = true;
+    summary?.replaceChildren();
+  };
+  const controller = form ? setupToolForm(form, { locale, onRestart: () => { invalidateReminder(); plan.restartCurrentTool(); } }) : undefined;
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
     if (!controller?.validate()) return;
-    reminder = Object.fromEntries(new FormData(form).entries()) as typeof reminder;
-    controller.persist();
+    const data = Object.fromEntries(new FormData(form).entries());
+    const topicId = String(data.topic || '');
+    const routeId = String(data.route || '');
+    const result = createReminderIcs({
+      topicId,
+      routeId,
+      date: data.date,
+    }, { generatedAt: new Date().toISOString(), locale });
+    if (result.status === 'invalid') {
+      invalidateReminder();
+      controller.reportError(result.field === 'generatedAt' ? 'date' : result.field, result.message);
+      return;
+    }
+    reminderIcs = result;
+    plan.persist({
+      topicId: topicId,
+      routeId: routeId,
+    });
     if (!summary || !panel) return;
     summary.replaceChildren();
-    const heading = document.createElement('h2'); heading.textContent = reminder.topic;
-    const date = document.createElement('p'); date.textContent = `Reminder date: ${reminder.date}`;
-    const route = document.createElement('p'); route.textContent = `Route or authority: ${reminder.route}`;
-    const source = document.createElement('p'); source.textContent = reminder.source ? `Official source to recheck: ${reminder.source}` : 'Official source: add the responsible authority or provider page before acting.';
-    summary.append(heading, date, route, source); panel.hidden = false; controller.markResult(); panel.focus();
+    const topicLabel = reminderTopicOptions.find((topic) => topic.id === topicId)?.label || topicId;
+    const routeRecord = routeRegistry.find((route) => route.id === routeId);
+    const routeLabel = getRouteLabel(routeId, routeRecord?.shortTitle || routeId, locale);
+    const heading = document.createElement('h2'); heading.textContent = topicLabel;
+    const status = document.createElement('p'); status.className = 'tool-result-status tool-result-status--available'; status.textContent = isZh ? '状态：日历文件已可下载' : 'Status: calendar file ready to download';
+    const date = document.createElement('p'); date.textContent = isZh ? `提醒日期：${String(data.date || '')}（全天）` : `Reminder date: ${String(data.date || '')} (all day)`;
+    const route = document.createElement('p'); route.textContent = `${isZh ? '路线或主管机关' : 'Route or authority'}: ${routeLabel}`;
+    const source = document.createElement('p'); source.textContent = isZh ? '官方来源：日历文件包含所选路线中配置的官方核验入口。' : 'Official source: the selected route’s configured official verification entry is embedded in the calendar file.';
+    const fileBoundary = document.createElement('p');
+    fileBoundary.textContent = isZh ? '下载的事件使用所选日期，并以次日作为不包含在内的结束日。稳定 ID 只包含配置的主题、路线和日期，不包含个人信息。' : 'The downloaded event uses the selected date and an exclusive next-day end. Its stable ID contains only the configured topic, route, and date—not personal information.';
+    const deliveryBoundary = document.createElement('p');
+    deliveryBoundary.textContent = isZh ? '下载文件不等于导入日历、设置设备提醒、发送邮件或证明通知已送达。日历行为取决于客户端。' : 'Downloading this file does not import it, configure a device alert, send an email, or prove that a notification was delivered. Calendar behavior depends on the client.';
+    summary.append(status, heading, date, route, source, fileBoundary, deliveryBoundary);
+    panel.hidden = false;
+    controller.markResult();
+    panel.focus();
   });
+  form?.addEventListener('input', invalidateReminder);
   document.querySelector('[data-download-ics]')?.addEventListener('click', () => {
-    if (!reminder.date) return;
-    const stamp = reminder.date.replaceAll('-', '');
-    const escapeIcs = (value: string) => value.replace(/[\\,;]/g, (match) => `\\${match}`).replace(/\n/g, '\\n');
-    const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//VisaLang//Reminder Planner//EN','BEGIN:VEVENT',`UID:${Date.now()}@visalang.org`,`DTSTART;VALUE=DATE:${stamp}`,`SUMMARY:${escapeIcs(reminder.topic)}`,`DESCRIPTION:${escapeIcs(`Route or authority: ${reminder.route}. Recheck: ${reminder.source || 'responsible official source'}.`)}`,'END:VEVENT','END:VCALENDAR'].join('\r\n');
-    const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' }); const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = 'visalang-reminder.ics'; link.click(); URL.revokeObjectURL(link.href);
+    if (!reminderIcs) return;
+    const blob = new Blob([reminderIcs.content], { type: 'text/calendar;charset=utf-8' });
+    const objectUrl = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = objectUrl;
+    link.download = reminderIcs.filename;
+    document.body.append(link);
+    link.click();
+    link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(objectUrl), 0);
   });
-  if (controller?.restored) form?.requestSubmit();
+  controller?.activate();
 </script>

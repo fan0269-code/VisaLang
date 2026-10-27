@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-10-05T12:22:02+08:00",
+  "archive": {
+    "manifestPath": "docs/module-handoffs/2026-10-05-integration/archive/archive-manifest.json",
+    "manifestSha256": "72d768249fbd68e06155d7fe85f636931a96a2913dbe15ec9d1ab322763c50e8",
+    "filesChecked": 417,
+    "bytesChecked": 36785858,
+    "hashFailures": []
+  },
+  "candidateFiles": {
+    "checked": 139,
+    "failures": []
+  },
+  "allocatedLiveBases": {
+    "checked": 139,
+    "divergences": []
+  },
+  "historicalReceipts": {
+    "checked": 44,
+    "failures": []
+  },
+  "temporarySources": {
+    "probe": "Original handoff.json and candidate.patch paths",
+    "modulesMissing": [
+      {
+        "moduleId": "W03",
+        "workspaceExists": true,
+        "handoffExists": false,
+        "patchExists": false
+      },
+      {
+        "moduleId": "W04",
+        "workspaceExists": true,
+        "handoffExists": false,
+        "patchExists": false
+      },
+      {
+        "moduleId": "W08",
+        "workspaceExists": true,
+        "handoffExists": false,
+        "patchExists": false
+      },
+      {
+        "moduleId": "W07",
+        "workspaceExists": true,
+        "handoffExists": false,
+        "patchExists": false
+      }
+    ]
+  },
+  "scratchPatchDryRuns": {
+    "W03": {
+      "exitCode": 0,
+      "scratchOnly": true
+    },
+    "W04": {
+      "exitCode": 0,
+      "scratchOnly": true
+    },
+    "W08": {
+      "exitCode": 0,
+      "scratchOnly": true
+    },
+    "W07": {
+      "exitCode": 0,
+      "scratchOnly": true
+    },
+    "source": "2026-10-05 archive-validation.json; not rerun by this receipt"
+  },
+  "historicalTestsRerun": false,
+  "functionalPatchApplied": false
+}

@@ -18,6 +18,10 @@ The submitter must provide:
 - planning-map entry, intent, slug, related guides, next action, and risk marker for each article;
 - actual test/build/launch-check output, or `not_run` with a reason;
 - current route/index/sitemap/advertising/deployment decisions.
+- the current planning-map Archify source, delivered HTML, append-only sync
+  history, sync receipt, exact classified candidate-path manifest,
+  artifact-bound browser/perceptual evidence, and explicit drift judgment for
+  every content or content-planning window.
 
 Missing, conflicting, or stale inputs are `BLOCKED`; the Auditor must not fill gaps by inference.
 
@@ -27,7 +31,21 @@ Missing, conflicting, or stale inputs are `BLOCKED`; the Auditor must not fill g
 2. Review every article and claim against the authoritative official source. Confirm the source can support the exact assertion and flag any unsupported inference about fees, dates, eligibility, accepted proof, availability, processing time, or outcome.
 3. Check distinct user intent, duplicate/thin-content risk, front matter, one H1, source cards, FAQ, related guides, CTA, canonical route, internal links, metadata, structured data, mobile structure, noindex/sitemap, and advertising/trust boundaries.
 4. Review the final diff and test evidence. Treat a passing command as evidence only, not a substitute for the audit.
-5. Produce a report with article-by-article verdicts, source evidence, findings, exact paths/locators, remediation needed, test state, scope state, and one overall verdict.
+5. For content or planning work, verify that the planning map remains a derived
+   view of the current authority; the non-optional watched roots, digest,
+   unique/history-chained sync ID and visible status are current; and the
+   classified `changedPaths` exactly match the Auditor's frozen scope. Open the
+   Archify browser receipt and every named screenshot, verify their hashes and
+   both-theme evidence, and distinguish automated containment from perceptual
+   review. Confirm that `aligned`, `approved-deviation`, or `unresolved` is
+   supported by the cited plan and Owner evidence. Auditor `PASS` cannot create
+   an approved deviation.
+6. Freeze the final `sync.json` bytes and record their SHA-256 in the audit
+   report so any later plan-state, evidence, Owner, release or drift edit
+   invalidates the review. Produce a report with article-by-article verdicts,
+   source evidence, findings, exact paths/locators, remediation needed, test
+   state, scope state, planning-map hashes and drift state when applicable, and
+   one overall verdict.
 
 ## Verdict contract
 
@@ -61,6 +79,22 @@ findings:
     required_action: <specific remediation>
 owner_authorization: pending | granted | not_applicable
 deployment_status: not_started | blocked | not_applicable
+candidate_scope_digest: <sha256 when planning-map sync applies>
+diagram_source_sha256: <sha256 when planning-map sync applies>
+diagram_artifact_sha256: <sha256 when planning-map sync applies>
+sync_receipt_sha256: <sha256 of the exact reviewed sync.json bytes when planning-map sync applies>
+planning_drift_status: aligned | approved-deviation | unresolved | not_applicable
 ```
 
 For a `PASS`, `findings` must be `[]`. Every audit report must explicitly say that owner authorization and deployment evidence are separate from Agent review.
+
+
+## Active Scheme 3 one-week assignment — 2026-09-01
+
+- **Assigned review role:** `VisaLang Execution Auditor`, a dedicated read-only Agent instantiated separately from implementers.
+- **Programme scope:** the frozen batches and final local release candidate executed under `docs/VISALANG_ONE_WEEK_SCHEME_3_CONTENT_PLAN_2026-09-01.md`.
+- **Review owner:** the named Auditor Agent reviews each frozen batch, records `PASS`, `FAIL`, or `BLOCKED`, and re-reviews corrections itself.
+- **Backup/escalation:** if the assigned Agent is unavailable or loses independence, create a fresh Agent from this specification. It must not inherit implementation work. Record the replacement in the batch evidence before review.
+- **Review target:** respond after a complete frozen submission is available. Do not pre-approve in-progress files.
+- **Separation of duties:** the Auditor covers independent quality and safety review only. It does not become Business Owner, Programme Owner, Data Owner, Ads/Consent Owner, Contact Owner, Release Owner, or Rollback Owner.
+- **Authorization boundary:** its verdict never authorizes account access, source changes outside the frozen scope, commit, push, deployment, publication, release, rollback, payment, or production action.

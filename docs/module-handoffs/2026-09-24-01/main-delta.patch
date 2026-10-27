@@ -1,0 +1,87 @@
+--- baseline/README.md
++++ candidate/README.md
+@@ -1,4 +1,10 @@
+ # VisaLang
++
++## 2026-09-24 P00 重新冻结与分配就绪（最新）
++
++[新batch与逐文件证据](docs/module-handoffs/2026-09-24-01/README.md) · [dispatch](docs/module-handoffs/2026-09-24-01/dispatch.json)。当前含TypeSafe的dirty工作树已冻结为1,313文件；W03(P01)、W04(P02)、W08(P03)三份独立副本字节一致。状态仅为prepared_awaiting_owner_dispatch，模块派送/实施/handoff/集成均为0；本轮只收到P00，不自动启动功能窗口。旧9/23 batch保留为历史，禁止覆盖现行TypeSafe成果。
++
++原25完成/5进行中/4待开始及LP/LC门槛保持。P04留W07/W15、P05留W17；W01可另行分配研究准备，旧W02维持Laya离线边界。当前release仍强制广告＋laya/typesafe，core-only尚未实现/验收。本轮无API调用、凭据读取或生产动作。sync `VL-PMAP-20260924-07` / aligned；新独审结论以 `docs/planning-map/VISALANG_P00_REBASELINE_INDEPENDENT_AUDIT_2026-09-24.md` 为准。Vault目录/模板不存在，实际同步blocked，仓库payload待同步。
+ 
+ ## 2026-09-24 全站扫描与下一阶段入口
+ 
+--- baseline/docs/TASK_LOG.md
++++ candidate/docs/TASK_LOG.md
+@@ -3943,3 +3943,14 @@
+ - 验证：基线launch-check 57/0/0；首次npm test与build并发出现dist竞争，已留日志并串行重跑通过；实际手选Finder及Checklist状态恢复成功，390清单结果标题遮挡列入后续整改。没有AI文本发送、账户/真人/生产验证。
+ - 同步：VL-PMAP-20260924-06；drift: aligned。独立审核路径：docs/planning-map/VISALANG_PROJECT_SCAN_INDEPENDENT_AUDIT_2026-09-24.md。完整结论以该Auditor报告绑定的sync字节为准，最终检查随后另存审后日志；本条不自评PASS。
+ - 边界：仅本地规划/证据；无commit/push/deploy；原T/LP/LC状态保持。Vault目录和模板缺失，docs/project-scan-evidence-2026-09-24/vault-review.md待同步，status review、needs_human_review true、owner_decision pending、deployment_status not_started，实际同步blocked。
++
++
++## 2026-09-24 — P00 W00重新冻结与分配（2026-09-24-01）
++
++Owner只发送P00，授权当前工作树的本地基线与分配准备。基线 `codex/scheme-3-one-week-content @ 4cb57e8744c752fed1881281e69e7b24cc7281c4`；本地upstream ahead/behind=0/0，暂存0/dirty129/untracked条目901/删除0。冻结1,313文件、59,896,160字节，baselineId `cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40`；源基线与W03/P01、W04/P02、W08/P03副本逐文件SHA-256全部一致；排除和必要ignored输入逐项登记在 `docs/module-handoffs/2026-09-24-01/`。旧batch及既有dirty成果保留；不读.env.local、不调用API。
++
++新dispatch只表示prepared_awaiting_owner_dispatch / not_started；派送=0、handoff=0、集成=0。P04留W07/W15、P05留W17；W01研究准备可另分配，W02维持Laya离线边界，TypeSafe评测另定数据/预算。global.css和GuideLayout重叠修改必须以基准哈希与最小补丁交接，由W00逐段合并。三份独立Node依赖及W08 stdlib venv已准备；无.git，prepare身份检查留到主树真实集成。
++
++TypeSafe历史本地启用和一次synthetic smoke不变；release.py现仅支持laya/typesafe且强制广告，core-only未实施/验收。原T=25/5/4及LP/LC状态不变。无新政策事实/checkedAt改动，无src/public或部署行为修改，无commit/push/deploy/真实回滚/付费API/真人联系。真人、日历、主机与生产证据门槛保留。
++
++sync `VL-PMAP-20260924-07`，drift aligned；独审权威 `docs/planning-map/VISALANG_P00_REBASELINE_INDEPENDENT_AUDIT_2026-09-24.md`。独审前仅governance到新报告门禁；独审后串行npm test与governance的实际输出存 `/private/tmp/visalang-p00-2026-09-24-01-postaudit/`，报告与日志分别控制其真实结论。本条不预先赋予PASS。Vault指定路径和模板本次仍不存在； `docs/module-handoffs/2026-09-24-01/vault-review.md` 为待同步payload，实际blocked、review/pending/not_started。
+--- baseline/docs/master-package-2026-09-08/EXECUTION_RECORD.md
++++ candidate/docs/master-package-2026-09-08/EXECUTION_RECORD.md
+@@ -239,3 +239,14 @@
+ 核对原34任务=25完成/5进行中/4待开始，当前M5本地发布候选；61指南=20支柱+41支持/参考页。9/23W00无模块handoff或集成，9/24 TypeSafe已有本地启用/一次合成smoke和独审PASS但未作准确率/真实收益或生产验收。当前release仍强制广告＋laya/typesafe之一，原W08的Laya固定必需描述已校正，core-only未实现。下一批推荐P00新冻结→W03/W04/W08本地整改，W01研究准备可并行；后续按既有门槛。
+ 
+ 本维护窗口不改src/public/事实/发布manifest/服务，不改变任何原任务完成状态；本地构建和7截图支撑UI优先事项，非真人/生产证明。sync `VL-PMAP-20260924-06`，drift `aligned`，独审`docs/planning-map/VISALANG_PROJECT_SCAN_INDEPENDENT_AUDIT_2026-09-24.md`；没有提交、推送或部署。Vault指定路径/模板缺失，payload准备而实际同步blocked。已授权TypeSafe历史偏差保留在其原记录，本轮不增加调用/费用/数据发送授权。
++
++
++## 2026-09-24 — P00 W00重新冻结与分配（2026-09-24-01）
++
++Owner只发送P00，授权当前工作树的本地基线与分配准备。基线 `codex/scheme-3-one-week-content @ 4cb57e8744c752fed1881281e69e7b24cc7281c4`；本地upstream ahead/behind=0/0，暂存0/dirty129/untracked条目901/删除0。冻结1,313文件、59,896,160字节，baselineId `cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40`；源基线与W03/P01、W04/P02、W08/P03副本逐文件SHA-256全部一致；排除和必要ignored输入逐项登记在 `docs/module-handoffs/2026-09-24-01/`。旧batch及既有dirty成果保留；不读.env.local、不调用API。
++
++新dispatch只表示prepared_awaiting_owner_dispatch / not_started；派送=0、handoff=0、集成=0。P04留W07/W15、P05留W17；W01研究准备可另分配，W02维持Laya离线边界，TypeSafe评测另定数据/预算。global.css和GuideLayout重叠修改必须以基准哈希与最小补丁交接，由W00逐段合并。三份独立Node依赖及W08 stdlib venv已准备；无.git，prepare身份检查留到主树真实集成。
++
++TypeSafe历史本地启用和一次synthetic smoke不变；release.py现仅支持laya/typesafe且强制广告，core-only未实施/验收。原T=25/5/4及LP/LC状态不变。无新政策事实/checkedAt改动，无src/public或部署行为修改，无commit/push/deploy/真实回滚/付费API/真人联系。真人、日历、主机与生产证据门槛保留。
++
++sync `VL-PMAP-20260924-07`，drift aligned；独审权威 `docs/planning-map/VISALANG_P00_REBASELINE_INDEPENDENT_AUDIT_2026-09-24.md`。独审前仅governance到新报告门禁；独审后串行npm test与governance的实际输出存 `/private/tmp/visalang-p00-2026-09-24-01-postaudit/`，报告与日志分别控制其真实结论。本条不预先赋予PASS。Vault指定路径和模板本次仍不存在； `docs/module-handoffs/2026-09-24-01/vault-review.md` 为待同步payload，实际blocked、review/pending/not_started。
+--- baseline/docs/planning-map/visalang-overall-build-plan.archify.json
++++ candidate/docs/planning-map/visalang-overall-build-plan.archify.json
+@@ -290,19 +290,19 @@
+       "title": "当前真实状态",
+       "items": [
+         "25 完成／5 进行中／4 待开始",
+-        "本地 M5：20 支柱；41 支持页待价值复盘",
+-        "同步：VL-PMAP-20260924-06",
+-        "指纹：6ef0c8a1 e5148dff 682084dd a15f2d97 548bd36e 5240ebed 468ee276 a29a1585"
++        "P00：三份副本冻结；模块尚未实施",
++        "同步：VL-PMAP-20260924-07",
++        "指纹：452542aa ef53c2b7 8a564272 63548382 553b78b0 625c6c48 66c22317 595ccc1b"
+       ]
+     },
+     {
+       "dot": "cyan",
+-      "title": "下一批：先冻结，再做三项",
++      "title": "分配就绪：等待逐项派送",
+       "items": [
+         "W03 入口／W04 证书／W08 解耦",
+-        "W01 研究准备可并行；真人证据仍缺",
+-        "TypeSafe 已本地接入；准确率未测",
+-        "旧副本重冻；新 API 评测另定范围"
++        "本批仅准备；未派送、无交接、未集成",
++        "W01 可另分配；P04／P05 留后续",
++        "TypeSafe 当前成果保留；旧批仅历史"
+       ]
+     },
+     {
+@@ -311,8 +311,8 @@
+       "items": [
+         "核心独立发布尚未实现；先补开关",
+         "各次发布均需独立审核＋Owner 授权",
+-        "原网址、预算、索引与广告范围保留",
+-        "UI 优先下一步与保存；本轮仅规划"
++        "真人／日历／主机证据门槛保留",
++        "本批不读凭据、不调用 API、不部署"
+       ]
+     }
+   ]

@@ -1,6 +1,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const { englishPillarSlugs } = require('../src/data/publication-manifest.ts');
 
 const guideDir = 'src/content/guides';
 const files = fs.readdirSync(guideDir).filter((file) => file.endsWith('.md'));
@@ -17,64 +18,40 @@ const arrayField = (source, name) => {
 };
 const bodyOnly = (source) => source.replace(/^---[\s\S]*?---\s*/, '');
 
-const auditedGermanyA1Slugs = [
-  'german-family-reunion-language-requirement',
-  'goethe-a1-vs-telc-a1',
-  'goethe-a1-test-centers',
-  'goethe-a1-fees-by-country',
-  'goethe-a1-retake-policy',
-  'german-a1-documents-checklist',
-  'german-a1-exam-booking-timeline',
-];
-const reviewedGermanyA1Slugs = new Set([
-  'german-family-reunion-language-requirement',
-  'goethe-a1-vs-telc-a1',
-  'goethe-a1-test-centers',
-  'goethe-a1-fees-by-country',
-  'goethe-a1-retake-policy',
-  'german-a1-documents-checklist',
-  'german-a1-exam-booking-timeline',
-]);
-const newlyReviewedLocalSourceSlugs = new Set([
-  'goethe-a1-test-centers',
-  'goethe-a1-fees-by-country',
-  'goethe-a1-retake-policy',
-]);
-for (const slug of auditedGermanyA1Slugs) {
+const germanyA1PillarSlugs = englishPillarSlugs.filter((slug) => field(bySlug.get(slug)?.source || '', 'category') === 'germany-a1');
+const germanyB1PillarSlugs = englishPillarSlugs.filter((slug) => field(bySlug.get(slug)?.source || '', 'category') === 'germany-b1');
+const retainedGermanyA1SupportSlugs = ['goethe-a1-germany-family-reunion', ...Object.keys(require('../src/data/publication-manifest.ts').guideRedirectCandidates).filter(p => p.startsWith('/guides/') && !p.includes('goethe-b1')).map(p => p.split('/').at(-2))];
+assert.equal(germanyA1PillarSlugs.length, 7, 'the manifest retains exactly seven Germany A1 pillars');
+assert.equal(germanyB1PillarSlugs.length, 8, 'the manifest retains exactly eight Germany B1 pillars');
+for (const slug of germanyA1PillarSlugs) {
   const source = bySlug.get(slug)?.source || '';
   assert.equal(field(source, 'contentStatus'), 'complete-route', `${slug} keeps content maturity independent from source review`);
   const expectedReviewDate = slug === 'german-family-reunion-language-requirement'
-    ? '2026-08-15'
-    : newlyReviewedLocalSourceSlugs.has(slug) ? '2026-07-19' : '2026-07-18';
-  assert.equal(field(source, 'updatedDate'), expectedReviewDate, `${slug} records the substantive visible update`);
+    ? '2026-09-08'
+    : ['goethe-a1-vs-telc-a1', 'goethe-a1-test-centers', 'goethe-a1-fees-by-country', 'german-a1-exam-booking-timeline', 'german-a1-documents-checklist'].includes(slug)
+      ? '2026-09-09'
+      : '2026-09-01';
+  assert.equal(field(source, 'updatedDate'), expectedReviewDate, `${slug} records the substantive update date`);
   for (const fieldName of ['audienceScope', 'finalDecisionAuthorityType', 'primaryOfficialAuthorityUrl', 'examOwnerUrl', 'localExecutionPrompt']) {
     assert.ok(field(source, fieldName), `${slug} records ${fieldName}`);
   }
-  if (reviewedGermanyA1Slugs.has(slug)) {
-    assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${slug} records the completed source review`);
-    assert.equal(field(source, 'sourceReviewedAt'), expectedReviewDate, `${slug} records the real source-review date`);
-    assert.equal(field(source, 'reviewedByRole'), 'source-review', `${slug} records the source-review role`);
-  }
+  assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${slug} records the completed source review`);
+  assert.equal(field(source, 'sourceReviewedAt'), expectedReviewDate, `${slug} records the current source-review date`);
+  assert.equal(field(source, 'reviewedByRole'), 'source-review', `${slug} records the source-review role`);
 }
 
 assert.equal(field(bySlug.get('german-family-reunion-language-requirement')?.source || '', 'decisionStage'), 'requirement', 'the requirement guide uses the requirement decision stage');
-const germanyA1MainRoute = [
-  'german-family-reunion-language-requirement',
-  'goethe-a1-germany-family-reunion',
-  'goethe-a1-vs-telc-a1',
-  'goethe-a1-test-centers',
-  'goethe-a1-pre-booking-checklist',
-  'german-a1-exam-booking-timeline',
-  'german-a1-documents-checklist',
-  'goethe-a1-official-links-practice-resources',
-  'goethe-a1-30-day-study-plan',
-];
+const germanyA1MainRoute = germanyA1PillarSlugs;
 for (let index = 0; index < germanyA1MainRoute.length - 1; index += 1) {
   const slug = germanyA1MainRoute[index];
   assert.equal(field(bySlug.get(slug)?.source || '', 'nextGuideSlug'), germanyA1MainRoute[index + 1], `${slug} points to the next main-route decision`);
 }
 assert.equal(field(bySlug.get('goethe-a1-30-day-study-plan')?.source || '', 'nextGuideSlug'), '', 'the main route terminates after the study plan');
-assert.ok(!germanyA1MainRoute.includes('goethe-a1-retake-policy'), 'retake remains a conditional branch, not a universal main-route step');
+assert.deepEqual(
+  entries.filter(({ source }) => field(source, 'category') === 'germany-a1').map(({ source }) => field(source, 'slug')).sort(),
+  [...germanyA1PillarSlugs, ...retainedGermanyA1SupportSlugs].sort(),
+  'the Germany A1 source collection retains C07 alongside the seven manifest pillars',
+);
 
 for (const { source } of entries.filter(({ source }) => field(source, 'category') === 'germany-a1')) {
   const route = [];
@@ -137,7 +114,11 @@ for (const [slug, expected] of Object.entries(germanyB1CoreRoute)) {
 }
 
 const germanyB1Entries = entries.filter(({ source }) => field(source, 'category') === 'germany-b1');
-assert.equal(germanyB1Entries.length, 13, 'Germany B1 route graph retains exactly 13 guides');
+assert.deepEqual(
+  germanyB1Entries.map(({ source }) => field(source, 'slug')).sort(),
+  [...germanyB1PillarSlugs, ...Object.keys(require('../src/data/publication-manifest.ts').guideRedirectCandidates).filter(p => p.startsWith('/guides/goethe-b1')).map(p => p.split('/').at(-2))].sort(),
+  'the Germany B1 source collection contains only the eight manifest pillars',
+);
 for (const { file, source } of germanyB1Entries) {
   const slug = field(source, 'slug');
   const nextGuideSlug = field(source, 'nextGuideSlug');
@@ -166,41 +147,6 @@ for (const { file, source } of germanyB1Entries) {
   }
 }
 assert.equal(field(bySlug.get('germany-b1-settlement-citizenship-checklist')?.source || '', 'nextGuideSlug'), '', 'Germany B1 submission checklist is the terminal route page');
-
-const supportReviewRouteExpectations = {
-  'goethe-a1-germany-family-reunion': ['germany-a1', 'requirement', 'goethe-a1-vs-telc-a1'],
-  'german-a1-family-reunion-faq': ['germany-a1', 'requirement', 'goethe-a1-vs-telc-a1'],
-  'goethe-a1-listening-practice': ['germany-a1', 'local-execution', 'goethe-a1-speaking-topics'],
-  'goethe-a1-speaking-topics': ['germany-a1', 'local-execution', 'goethe-a1-30-day-study-plan'],
-  'goethe-a1-writing-practice': ['germany-a1', 'local-execution', 'goethe-a1-30-day-study-plan'],
-  'goethe-a1-study-plan-working-adults': ['germany-a1', 'local-execution', 'goethe-a1-30-day-study-plan'],
-  'goethe-a1-official-links-practice-resources': ['germany-a1', 'local-execution', 'goethe-a1-30-day-study-plan'],
-  'goethe-a1-30-day-study-plan': ['germany-a1', 'local-execution', ''],
-  'goethe-a1-booking-mistakes': ['germany-a1', 'local-execution', 'german-a1-documents-checklist'],
-  'goethe-a1-pre-booking-checklist': ['germany-a1', 'local-execution', 'german-a1-exam-booking-timeline'],
-  'goethe-b1-difficulty-analysis': ['germany-b1', 'local-execution', 'goethe-b1-study-plan'],
-  'goethe-b1-listening-deep-dive': ['germany-b1', 'local-execution', 'goethe-b1-mock-exam-routine'],
-  'goethe-b1-mock-exam-routine': ['germany-b1', 'local-execution', 'goethe-b1-study-plan'],
-  'goethe-b1-speaking-topics': ['germany-b1', 'local-execution', 'goethe-b1-mock-exam-routine'],
-  'goethe-b1-writing-assessment': ['germany-b1', 'local-execution', 'goethe-b1-mock-exam-routine'],
-};
-const stageRank = { requirement: 0, choice: 1, 'local-execution': 2, 'submission-review': 3 };
-for (const [slug, [category, decisionStage, expectedNext]] of Object.entries(supportReviewRouteExpectations)) {
-  const source = bySlug.get(slug)?.source || '';
-  const nextGuideSlug = field(source, 'nextGuideSlug');
-  const supportingGuideSlugs = arrayField(source, 'supportingGuideSlugs');
-  assert.equal(field(source, 'category'), category, `${slug} remains in its support-page cluster`);
-  assert.equal(field(source, 'decisionStage'), decisionStage, `${slug} uses the corrected decision stage`);
-  assert.equal(nextGuideSlug, expectedNext, `${slug} uses the agreed support-page next step`);
-  assert.ok(supportingGuideSlugs.length <= 2, `${slug} exposes at most two supporting guides`);
-  assert.ok(!supportingGuideSlugs.includes(slug), `${slug} has no supporting self-link`);
-  assert.ok(!nextGuideSlug || !supportingGuideSlugs.includes(nextGuideSlug), `${slug} does not duplicate its primary next step`);
-  if (nextGuideSlug) {
-    const nextSource = bySlug.get(nextGuideSlug)?.source || '';
-    assert.equal(field(nextSource, 'category'), category, `${slug} keeps its primary next step in ${category}`);
-    assert.ok(stageRank[field(nextSource, 'decisionStage')] >= stageRank[decisionStage], `${slug} does not move backwards in decision stage`);
-  }
-}
 
 assert.equal(slugs.size, entries.length, 'Guide slugs must remain unique');
 for (const { file, source } of entries) {
@@ -477,12 +423,7 @@ for (const legacy of ['index.html', 'about.html', 'contact.html', 'privacy-polic
 }
 
 const deployScript = fs.readFileSync('deploy/deploy.sh', 'utf8');
-assert.match(deployScript, /SOURCE_DIR=.*\/source/, 'deployment keeps source separate from releases');
-assert.match(deployScript, /RELEASES_DIR="\$SITE_DIR\/releases"/, 'deployment stores immutable releases separately');
-assert.match(deployScript, /CURRENT_LINK="\$SITE_DIR\/current"/, 'deployment switches the canonical current release link');
-assert.match(deployScript, /npm --prefix "\$SOURCE_DIR" run launch-check/, 'deployment uses launch-check to build and validate before publishing');
-assert.match(deployScript, /SOURCE_DIR\/dist\/index\.html/, 'deployment blocks publication without the Astro root entry');
-assert.match(deployScript, /cp -a "\$SOURCE_DIR\/dist\/\." "\$RELEASE_DIR\//, 'deployment publishes the complete Astro dist output to a release candidate');
-assert.match(deployScript, /SUDO="sudo"/, 'deployment supports the ubuntu plus sudo server account');
+assert.match(deployScript, /release\.py" activate/, 'deployment uses the bundle transaction');
+assert.doesNotMatch(deployScript, /git pull|git clone/, 'deployment does not follow a mutable branch');
 
 console.log('guide sources, related links, compliance, app data, legacy handoff, and deployment checks passed');

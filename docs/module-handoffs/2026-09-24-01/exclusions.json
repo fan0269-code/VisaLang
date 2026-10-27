@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "path": ".git/",
+      "reason": "Git metadata excluded; no synthetic repository in candidates"
+    },
+    {
+      "path": ".external/awesome-design-md/",
+      "reason": "optional nested external repository, not required by P01/P02/P03; not traversed"
+    },
+    {
+      "path": ".external/speech-to-speech/",
+      "reason": "optional nested external repository, not required by P01/P02/P03; not traversed"
+    },
+    {
+      "path": ".DS_Store",
+      "reason": "Git metadata / dependency / generated output / virtual environment / cache excluded; never shared writable"
+    },
+    {
+      "path": ".agents/",
+      "reason": "project TypeSafe skill/license included explicitly; no unrelated skill metadata required"
+    },
+    {
+      "path": ".astro/",
+      "reason": "Git metadata / dependency / generated output / virtual environment / cache excluded; never shared writable"
+    },
+    {
+      "path": ".env.local",
+      "reason": "credential material: path-only inventory; bytes not read"
+    },
+    {
+      "path": ".superpowers/",
+      "reason": "ignored local metadata/cache; not a required implementation input"
+    },
+    {
+      "path": "deploy/__pycache__/",
+      "reason": "Git metadata / dependency / generated output / virtual environment / cache excluded; never shared writable"
+    },
+    {
+      "path": "deploy/tests/__pycache__/",
+      "reason": "Git metadata / dependency / generated output / virtual environment / cache excluded; never shared writable"
+    },
+    {
+      "path": "dist/",
+      "reason": "Git metadata / dependency / generated output / virtual environment / cache excluded; never shared writable"
+    },
+    {
+      "path": "experiments/laya-purpose-v2/evidence/evaluate.stderr.log",
+      "reason": "included as necessary ignored historical evidence / project skill metadata"
+    },
+    {
+      "path": "experiments/laya-purpose-v2/evidence/npm-test.log",
+      "reason": "included as necessary ignored historical evidence / project skill metadata"
+    },
+    {
+      "path": "experiments/laya-purpose-v2/evidence/planning-governance-final.log",
+      "reason": "included as necessary ignored historical evidence / project skill metadata"
+    },
+    {
+      "path": "experiments/laya-purpose-v2/evidence/planning-governance.log",
+      "reason": "included as necessary ignored historical evidence / project skill metadata"
+    },
+    {
+      "path": "experiments/laya-purpose-v2/evidence/runtime-check.log",
+      "reason": "included as necessary ignored historical evidence / project skill metadata"
+    },
+    {
+      "path": "experiments/laya-purpose-v2/evidence/startup-failure-incomplete-cache.log",
+      "reason": "included as necessary ignored historical evidence / project skill metadata"
+    },
+    {
+      "path": "experiments/laya-purpose-v2/evidence/verify.log",
+      "reason": "included as necessary ignored historical evidence / project skill metadata"
+    },
+    {
+      "path": "experiments/laya-purpose/evidence/diff-check.log",
+      "reason": "included as necessary ignored historical evidence / project skill metadata"
+    },
+    {
+      "path": "experiments/laya-purpose/evidence/evaluation.log",
+      "reason": "included as necessary ignored historical evidence / project skill metadata"
+    },
+    {
+      "path": "experiments/laya-purpose/evidence/interactive-runtime.log",
+      "reason": "included as necessary ignored historical evidence / project skill metadata"
+    },
+    {
+      "path": "experiments/laya-purpose/evidence/interactive.log",
+      "reason": "included as necessary ignored historical evidence / project skill metadata"
+    },
+    {
+      "path": "experiments/laya-purpose/evidence/npm-test.log",
+      "reason": "included as necessary ignored historical evidence / project skill metadata"
+    },
+    {
+      "path": "experiments/laya-purpose/evidence/planning-governance.log",
+      "reason": "included as necessary ignored historical evidence / project skill metadata"
+    },
+    {
+      "path": "experiments/laya-purpose/evidence/runtime.log",
+      "reason": "included as necessary ignored historical evidence / project skill metadata"
+    },
+    {
+      "path": "experiments/laya-purpose/evidence/verification.log",
+      "reason": "included as necessary ignored historical evidence / project skill metadata"
+    },
+    {
+      "path": "node_modules/",
+      "reason": "Git metadata / dependency / generated output / virtual environment / cache excluded; never shared writable"
+    },
+    {
+      "path": "services/laya-purpose/__pycache__/",
+      "reason": "Git metadata / dependency / generated output / virtual environment / cache excluded; never shared writable"
+    },
+    {
+      "path": "skills-lock.json",
+      "reason": "included as necessary ignored historical evidence / project skill metadata"
+    }
+  ],
+  "credentialBytesRead": false,
+  "supplementalIncludedPaths": [
+    "experiments/laya-purpose-v2/evidence/evaluate.stderr.log",
+    "experiments/laya-purpose-v2/evidence/npm-test.log",
+    "experiments/laya-purpose-v2/evidence/planning-governance-final.log",
+    "experiments/laya-purpose-v2/evidence/planning-governance.log",
+    "experiments/laya-purpose-v2/evidence/runtime-check.log",
+    "experiments/laya-purpose-v2/evidence/startup-failure-incomplete-cache.log",
+    "experiments/laya-purpose-v2/evidence/verify.log",
+    "experiments/laya-purpose/evidence/diff-check.log",
+    "experiments/laya-purpose/evidence/evaluation.log",
+    "experiments/laya-purpose/evidence/interactive-runtime.log",
+    "experiments/laya-purpose/evidence/interactive.log",
+    "experiments/laya-purpose/evidence/npm-test.log",
+    "experiments/laya-purpose/evidence/planning-governance.log",
+    "experiments/laya-purpose/evidence/runtime.log",
+    "experiments/laya-purpose/evidence/verification.log",
+    ".agents/skills/typesafe-ai/SKILL.md",
+    ".agents/skills/typesafe-ai/LICENSE",
+    "skills-lock.json"
+  ]
+}

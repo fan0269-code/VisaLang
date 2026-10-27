@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const copy = {
+  title: '页面未找到',
+  description: '你访问的页面不存在。搜索已复核指南，或从需要完成的任务重新开始。',
+  heading: '这个页面已偏离路线。',
+  intro: '网址可能有误或页面已移动。你可以搜索已复核指南，或从需要完成的任务重新开始。',
+  searchLabel: '搜索已复核指南',
+  searchHelp: '可输入国家、路线、考试、等级或任务；部分结果为英文。',
+  placeholder: '例如：德国 家庭团聚 A1',
+  searchAction: '搜索指南',
+  fallbackLead: '搜索筛选需要 JavaScript。你仍可',
+  fallbackLink: '浏览全部已复核指南',
+  optionsTitle: '选择另一个起点',
+  optionsAria: '页面恢复选项',
+  options: [
+    { href: '/zh/tools/route-finder/', title: '使用路线查找器', text: '先确定需要向主管机关核验的语言证明问题。' },
+    { href: '/guides/', title: '浏览全部已复核指南', text: '按目的、国家、路线、考试、等级或语言筛选。' },
+    { href: '/zh/', title: '返回中文首页', text: '从现有路线与规划工具重新开始。' },
+  ],
+};
+---
+
+<BaseLayout title={copy.title} description={copy.description} lang="zh-CN" noindex={true} enableAds={false}>
+  <main class="page-shell not-found-page">
+    <section class="not-found-recovery" aria-labelledby="not-found-title">
+      <header class="not-found-heading">
+        <p class="not-found-code" aria-hidden="true">404</p>
+        <div><h1 id="not-found-title">{copy.heading}</h1><p>{copy.intro}</p></div>
+      </header>
+      <form class="not-found-search" action="/guides/" method="get">
+        <label for="not-found-query"><strong>{copy.searchLabel}</strong><span>{copy.searchHelp}</span></label>
+        <div class="not-found-search__controls">
+          <input id="not-found-query" name="q" type="search" placeholder={copy.placeholder} autocomplete="off" enterkeyhint="search" />
+          <button class="button button--primary" type="submit">{copy.searchAction}</button>
+        </div>
+        <noscript><p class="not-found-search__fallback">{copy.fallbackLead} <a href="/guides/">{copy.fallbackLink}</a>。</p></noscript>
+      </form>
+      <nav class="not-found-options" aria-label={copy.optionsAria}>
+        <h2>{copy.optionsTitle}</h2>
+        <ul>{copy.options.map((option) => <li><a class="not-found-option" href={option.href}><strong>{option.title}</strong><span>{option.text}</span></a></li>)}</ul>
+      </nav>
+      <p class="not-found-search__fallback">English page? <a href="/" lang="en" hreflang="en">Homepage</a></p>
+    </section>
+  </main>
+</BaseLayout>

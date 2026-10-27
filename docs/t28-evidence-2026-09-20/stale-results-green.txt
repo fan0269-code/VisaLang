@@ -1,0 +1,1 @@
+T28 stale-result browser regression passed (three tools, both languages).

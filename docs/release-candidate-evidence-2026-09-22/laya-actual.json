@@ -1,0 +1,317 @@
+{
+  "casesSha256": "74012ccf073964146d2067e18531310d0f43f7677ce36d27eb377b556d0aa6ed",
+  "environment": "local macOS CPU; not production capacity",
+  "correct": 11,
+  "total": 20,
+  "metrics": {
+    "requests": 20,
+    "statusCounts": {
+      "200": 20
+    },
+    "inferenceSecondsTotal": 1.612151,
+    "inferenceBusy": false,
+    "maxRssBytes": 4140924928
+  },
+  "rows": [
+    {
+      "id": 1,
+      "locale": "zh",
+      "group": "normal",
+      "text": "我准备去德国与丈夫长期团聚。",
+      "expectedPurpose": "family-reunion",
+      "actual": {
+        "status": "suggestion",
+        "purpose": "b1",
+        "requiresConfirmation": true
+      },
+      "seconds": 0.13,
+      "correct": false,
+      "failureReason": "Model label differs from frozen expectation; no confidence-based override."
+    },
+    {
+      "id": 2,
+      "locale": "zh",
+      "group": "normal",
+      "text": "我在德国生活多年，现在准备申请入籍。",
+      "expectedPurpose": "b1",
+      "actual": {
+        "status": "suggestion",
+        "purpose": "b1",
+        "requiresConfirmation": true
+      },
+      "seconds": 0.092,
+      "correct": true,
+      "failureReason": null
+    },
+    {
+      "id": 3,
+      "locale": "zh",
+      "group": "normal",
+      "text": "我想申请德国烘焙师的双元制职业培训。",
+      "expectedPurpose": "ausbildung",
+      "actual": {
+        "status": "suggestion",
+        "purpose": "ausbildung",
+        "requiresConfirmation": true
+      },
+      "seconds": 0.083,
+      "correct": true,
+      "failureReason": null
+    },
+    {
+      "id": 4,
+      "locale": "zh",
+      "group": "normal",
+      "text": "我已经是护士，想在德国办理护理资格认可。",
+      "expectedPurpose": "nursing",
+      "actual": {
+        "status": "suggestion",
+        "purpose": "nursing",
+        "requiresConfirmation": true
+      },
+      "seconds": 0.078,
+      "correct": true,
+      "failureReason": null
+    },
+    {
+      "id": 5,
+      "locale": "zh",
+      "group": "normal",
+      "text": "我准备申请德国大学的计算机硕士。",
+      "expectedPurpose": "university",
+      "actual": {
+        "status": "suggestion",
+        "purpose": "university",
+        "requiresConfirmation": true
+      },
+      "seconds": 0.075,
+      "correct": true,
+      "failureReason": null
+    },
+    {
+      "id": 6,
+      "locale": "zh",
+      "group": "negation",
+      "text": "我只是去德国旅游，不申请大学也不办团聚。",
+      "expectedPurpose": "other",
+      "actual": {
+        "status": "suggestion",
+        "purpose": "family-reunion",
+        "requiresConfirmation": true
+      },
+      "seconds": 0.074,
+      "correct": false,
+      "failureReason": "Model label differs from frozen expectation; no confidence-based override."
+    },
+    {
+      "id": 7,
+      "locale": "zh",
+      "group": "negation",
+      "text": "不是去和家人团聚，我这次只申请大学。",
+      "expectedPurpose": "university",
+      "actual": {
+        "status": "suggestion",
+        "purpose": "university",
+        "requiresConfirmation": true
+      },
+      "seconds": 0.072,
+      "correct": true,
+      "failureReason": null
+    },
+    {
+      "id": 8,
+      "locale": "zh",
+      "group": "ambiguous",
+      "text": "我想去德国发展，还没确定做什么。",
+      "expectedPurpose": null,
+      "actual": {
+        "status": "suggestion",
+        "purpose": "b1",
+        "requiresConfirmation": true
+      },
+      "seconds": 0.071,
+      "correct": false,
+      "failureReason": "Model label differs from frozen expectation; no confidence-based override."
+    },
+    {
+      "id": 9,
+      "locale": "zh",
+      "group": "ambiguous",
+      "text": "团聚和读大学我都在考虑，暂时没决定。",
+      "expectedPurpose": null,
+      "actual": {
+        "status": "suggestion",
+        "purpose": "university",
+        "requiresConfirmation": true
+      },
+      "seconds": 0.078,
+      "correct": false,
+      "failureReason": "Model label differs from frozen expectation; no confidence-based override."
+    },
+    {
+      "id": 10,
+      "locale": "zh",
+      "group": "boundary",
+      "text": "B1",
+      "expectedPurpose": null,
+      "actual": {
+        "status": "needs_clarification",
+        "purpose": null,
+        "requiresConfirmation": true
+      },
+      "seconds": 0.08,
+      "correct": true,
+      "failureReason": null
+    },
+    {
+      "id": 11,
+      "locale": "en",
+      "group": "normal",
+      "text": "I want to join my spouse in Germany permanently.",
+      "expectedPurpose": "family-reunion",
+      "actual": {
+        "status": "suggestion",
+        "purpose": "b1",
+        "requiresConfirmation": true
+      },
+      "seconds": 0.074,
+      "correct": false,
+      "failureReason": "Model label differs from frozen expectation; no confidence-based override."
+    },
+    {
+      "id": 12,
+      "locale": "en",
+      "group": "normal",
+      "text": "I am preparing a German citizenship application.",
+      "expectedPurpose": "b1",
+      "actual": {
+        "status": "suggestion",
+        "purpose": "b1",
+        "requiresConfirmation": true
+      },
+      "seconds": 0.075,
+      "correct": true,
+      "failureReason": null
+    },
+    {
+      "id": 13,
+      "locale": "en",
+      "group": "normal",
+      "text": "I want to apply for a German vocational apprenticeship.",
+      "expectedPurpose": "ausbildung",
+      "actual": {
+        "status": "suggestion",
+        "purpose": "ausbildung",
+        "requiresConfirmation": true
+      },
+      "seconds": 0.075,
+      "correct": true,
+      "failureReason": null
+    },
+    {
+      "id": 14,
+      "locale": "en",
+      "group": "normal",
+      "text": "I am a qualified nurse seeking professional recognition in Germany.",
+      "expectedPurpose": "nursing",
+      "actual": {
+        "status": "suggestion",
+        "purpose": "nursing",
+        "requiresConfirmation": true
+      },
+      "seconds": 0.079,
+      "correct": true,
+      "failureReason": null
+    },
+    {
+      "id": 15,
+      "locale": "en",
+      "group": "normal",
+      "text": "I want to apply for a masters degree at a German university.",
+      "expectedPurpose": "university",
+      "actual": {
+        "status": "suggestion",
+        "purpose": "university",
+        "requiresConfirmation": true
+      },
+      "seconds": 0.083,
+      "correct": true,
+      "failureReason": null
+    },
+    {
+      "id": 16,
+      "locale": "en",
+      "group": "negation",
+      "text": "I am visiting Germany for a holiday, not applying for study or family reunion.",
+      "expectedPurpose": "other",
+      "actual": {
+        "status": "suggestion",
+        "purpose": "family-reunion",
+        "requiresConfirmation": true
+      },
+      "seconds": 0.086,
+      "correct": false,
+      "failureReason": "Model label differs from frozen expectation; no confidence-based override."
+    },
+    {
+      "id": 17,
+      "locale": "en",
+      "group": "negation",
+      "text": "I am not joining family; my current goal is university admission.",
+      "expectedPurpose": "university",
+      "actual": {
+        "status": "suggestion",
+        "purpose": "university",
+        "requiresConfirmation": true
+      },
+      "seconds": 0.082,
+      "correct": true,
+      "failureReason": null
+    },
+    {
+      "id": 18,
+      "locale": "en",
+      "group": "ambiguous",
+      "text": "I want to move abroad but have not chosen what to do.",
+      "expectedPurpose": null,
+      "actual": {
+        "status": "suggestion",
+        "purpose": "b1",
+        "requiresConfirmation": true
+      },
+      "seconds": 0.084,
+      "correct": false,
+      "failureReason": "Model label differs from frozen expectation; no confidence-based override."
+    },
+    {
+      "id": 19,
+      "locale": "en",
+      "group": "ambiguous",
+      "text": "I am undecided between joining my spouse and starting a degree.",
+      "expectedPurpose": null,
+      "actual": {
+        "status": "suggestion",
+        "purpose": "family-reunion",
+        "requiresConfirmation": true
+      },
+      "seconds": 0.084,
+      "correct": false,
+      "failureReason": "Model label differs from frozen expectation; no confidence-based override."
+    },
+    {
+      "id": 20,
+      "locale": "en",
+      "group": "boundary",
+      "text": "B1 exam score",
+      "expectedPurpose": null,
+      "actual": {
+        "status": "suggestion",
+        "purpose": "university",
+        "requiresConfirmation": true
+      },
+      "seconds": 0.083,
+      "correct": false,
+      "failureReason": "Model label differs from frozen expectation; no confidence-based override."
+    }
+  ]
+}

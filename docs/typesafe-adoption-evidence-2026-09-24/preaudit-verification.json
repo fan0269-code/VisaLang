@@ -1,0 +1,24 @@
+{
+  "checkedAt": "2026-09-24T05:22:54+00:00",
+  "baselineNpmTest": {
+    "exitCode": 0
+  },
+  "candidateNpmTest": {
+    "exitCode": 1,
+    "failure": "only final missing independent audit gate; all preceding tests and their builds passed",
+    "output": "preaudit-npm-test.txt"
+  },
+  "candidatePlanningGovernance": {
+    "exitCode": 1,
+    "failure": "missing independent audit report; all preceding integrity gates passed",
+    "output": "preaudit-governance.txt"
+  },
+  "localPlanLinks": {
+    "passed": true,
+    "count": 5
+  },
+  "standaloneBuild": "not_run; builds invoked within npm test passed",
+  "launchCheck": "not_run; documentation/planning-only scope",
+  "apiInference": "not_run; not authorized in document-only scope",
+  "postAuditGates": "root will run governance and npm test after independent verdict without changing frozen candidate bytes"
+}

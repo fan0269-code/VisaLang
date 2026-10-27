@@ -1,38 +1,109 @@
 ---
 import ToolLayout from '../../layouts/ToolLayout.astro';
 import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
+import PurposeSuggestion from '../../components/tools/PurposeSuggestion.astro';
+import { applicationRegionOptions, familyRelationshipOptions } from '../../data/plan-state';
+import { getToolCopy, type ToolLocale } from '../../data/tool-copy';
+
+export interface Props { locale?: ToolLocale; }
+const { locale = 'en' } = Astro.props;
+const copy = getToolCopy('finder', locale);
+const isZh = locale === 'zh-CN';
+const applicationRegionZh: Record<string, string> = {
+  'germany-mission-china': '在中国申请所在地负责的德国使领馆',
+  'germany-mission-outside-china': '在其他申请所在地负责的德国使领馆',
+  'other-receiving-authority': '其他国家或接收机关',
+  'not-confirmed': '尚未确认',
+};
+const relationshipZh: Record<string, string> = { spouse: '配偶团聚', 'other-family': '其他家庭关系', 'not-confirmed': '尚未确认' };
 ---
 
-<ToolLayout eyebrow="Decision route" title="Route Finder" description="Answer six planning questions to get a safe starting route. Germany family reunion A1 is the only fully configured route." current="finder">
+<ToolLayout eyebrow={copy.eyebrow} title={copy.title} description={copy.description} current="finder" locale={locale}>
     <div class="tool-workspace">
-      <form id="route-finder-form" class="tool-form" novalidate>
-        <div class="tool-form-heading"><h2>Tell us what you are planning</h2><p>All fields are required so the result can state the right verification boundary.</p></div>
+      <form id="route-finder-form" class="tool-form" novalidate inert>
+        <div class="tool-form-heading"><h2>{copy.formTitle}</h2><p>{copy.formIntro}</p></div>
         <div class="tool-field-grid">
-          <label>Country<select name="country" required><option value="">Select a country</option><option value="germany">Germany</option><option value="other">Another country</option></select></label>
-          <label>Purpose<select name="purpose" required><option value="">Select a purpose</option><option value="family-reunion">Family reunion</option><option value="b1">Settlement or citizenship / B1</option><option value="ausbildung">Ausbildung</option><option value="nursing">Nursing</option><option value="university">University</option><option value="other">Another purpose</option></select></label>
-          <label>Application location<input name="location" required placeholder="e.g. German mission in your country" autocomplete="address-level1" /></label>
-          <label>Current language level<select name="level" required><option value="">Select your current level</option><option>Not sure</option><option>Beginner / A0</option><option>A1</option><option>A2 or above</option></select></label>
-          <label>Existing certificate<select name="certificate" required><option value="">Select one option</option><option value="none">No certificate yet</option><option value="a1">I have an A1 certificate</option><option value="other">I have another certificate</option></select></label>
-          <label>Target submission date<input name="targetDate" type="date" required /></label>
+          <label>{copy.fields.country}<select name="country" required><option value="">{copy.text.selectCountry}</option><option value="germany">{copy.text.germany}</option><option value="other">{copy.text.otherCountry}</option></select></label>
+          <label>{copy.fields.purpose}<select name="purpose" required><option value="">{copy.text.selectPurpose}</option><option value="family-reunion">{copy.text.family}</option><option value="b1">{copy.text.b1}</option><option value="ausbildung">{copy.text.ausbildung}</option><option value="nursing">{copy.text.nursing}</option><option value="university">{copy.text.university}</option><option value="other">{copy.text.otherPurpose}</option></select></label>
+          <label data-route-question>{copy.fields.region}<select name="applicationRegionId"><option value="">{copy.text.selectRegion}</option>{applicationRegionOptions.map((region) => <option value={region.id}>{isZh ? applicationRegionZh[region.id] : region.label}</option>)}</select></label>
+          <label data-route-question>{copy.fields.relationship}<select name="relationship"><option value="">{copy.text.selectRelationship}</option>{familyRelationshipOptions.map((relationship) => <option value={relationship.id}>{isZh ? relationshipZh[relationship.id] : relationship.label}</option>)}</select></label>
+          <label data-route-question>{copy.fields.certificate}<select name="certificate"><option value="">{copy.text.selectCertificate}</option><option value="none">{copy.text.noCertificate}</option><option value="a1">{copy.text.a1Certificate}</option><option value="other">{copy.text.otherCertificate}</option></select></label>
         </div>
+        <PurposeSuggestion locale={locale} />
         <div class="tool-error-summary" id="route-finder-error" data-error-summary role="alert" tabindex="-1" hidden></div>
-        <button class="primary-action" type="submit">Find my starting route</button>
+        <button class="primary-action" type="submit">{copy.submitLabel}</button>
       </form>
 
       <section id="route-finder-result" class="tool-result" hidden aria-live="polite" tabindex="-1">
         <div id="route-finder-summary"></div>
-        <ToolResultSupport resultId="route-finder-summary" />
+        <ToolResultSupport resultId="route-finder-summary" locale={locale} />
       </section>
     </div>
+
+    {isZh && <section class="tool-guidance" data-tool-guidance aria-labelledby="route-finder-guidance-title">
+      <h2 id="route-finder-guidance-title">{copy.guidanceTitle}</h2>
+      <p>当你已知道国家、申请目的、申请所在地、家庭关系和证书状态时，可用本工具确定安全的资料核验起点。接收机关决定路线要求，考试主办方定义证书产品，所选考点负责当地报名交易。它不是资格评估或例外测试。</p>
+      <h3>示例：德国家庭团聚</h3>
+      <p>选择德国、家庭团聚、负责申请所在地的德国使领馆、配偶团聚及当前证书状态。已有证书会进入单独的接受与文件形式核验分支，不会直接得出“可接受”结论。</p>
+      <h3>何时应停止</h3>
+      <p>若无法确认接收使领馆、家庭关系不属于已配置范围、官方页面说明了不同程序，或结果显示路线未配置，请先取得当前申请渠道的书面说明，再继续行动。</p>
+      <h3>下一项官方核验</h3>
+      <p>先阅读<a href="https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682" target="_blank" rel="noreferrer">德国联邦外交部语言要求说明</a>来确定问题，再查负责你申请的德国使领馆当前路线与材料说明。任何一个机构的页面都不能代替另一个机构的决定。</p>
+    </section>}
+    {!isZh && <section class="tool-guidance" data-tool-guidance aria-labelledby="route-finder-guidance-title">
+      <h2 id="route-finder-guidance-title">When Route Finder is useful</h2>
+      <p>Use this tool to choose a safe research starting point after you know the country, purpose, application location, relationship category, and certificate status. It is most useful when you need to separate three different jobs: the receiving authority decides the route requirement, the exam owner defines its certificate, and the selected centre controls its local booking transaction. Do not use Route Finder as an eligibility assessment, an exemption test, or a substitute for instructions from the authority handling your case.</p>
+
+      <h3>Example input: a Germany family-reunion starting point</h3>
+      <dl data-tool-example-input>
+        <dt>Country and purpose</dt><dd>Germany; family reunion.</dd>
+        <dt>Application location</dt><dd>The German mission responsible for the applicant's place of residence—not a passport number or case reference.</dd>
+        <dt>Relationship and certificate</dt><dd>Spouse reunification and no certificate yet. An existing certificate produces a separate verification path rather than an acceptance conclusion.</dd>
+      </dl>
+
+      <h3>What the example result means</h3>
+      <div data-tool-example-output>
+        <p>A configured result provides an order for further research: open the route guide, identify the deciding mission, then prepare a working checklist and a timeline from facts you verify. A “coming soon” result deliberately stops at authority-finding questions. The output does not decide whether language proof is required, whether an exception applies, or whether a particular certificate will be accepted.</p>
+      </div>
+
+      <h3>Stop instead of following the route</h3>
+      <p>Stop if you cannot identify the receiving mission or local authority, your family relationship does not match the configured route, an official page describes a different process, or the result says the route is not configured. Do not act on a route result when the location or purpose was entered as a guess. First obtain the current written instruction for your application channel.</p>
+
+      <h3>Official follow-up after Route Finder</h3>
+      <p>For a German family-reunion visa, use the <a href="https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682" target="_blank" rel="noreferrer">German Federal Foreign Office language-skills FAQ</a> to orient the question, then check the competent German mission's current route and document instructions. The mission or receiving authority controls the application decision; Goethe-Institut or telc controls the exam product; the selected official centre controls current booking, identity, payment, cancellation, and result arrangements. One organisation's page cannot prove another organisation's decision.</p>
+    </section>}
 </ToolLayout>
 
 <script>
-  import { findRoute, toolLinks } from '../../data/route-tools';
+  import { getRouteFinderQuestionRelevance, resolveRouteFinder } from '../../data/route-tools';
+  import { getToolCopy, getToolLinks } from '../../data/tool-copy';
+  import { setupSharedPlan } from '../../scripts/plan-state';
   import { setupToolForm } from '../../scripts/tool-form';
+  import { setupPurposeSuggestion } from '../../scripts/purpose-suggestion';
 
   const form = document.querySelector<HTMLFormElement>('#route-finder-form');
   const resultPanel = document.querySelector<HTMLElement>('#route-finder-result');
   const summary = document.querySelector<HTMLElement>('#route-finder-summary');
+  const sharedContinuation = resultPanel?.querySelector<HTMLElement>('[data-tool-continuation]');
+  const followUpFields = [...(form?.querySelectorAll<HTMLSelectElement>('[data-route-question] select') || [])];
+  const locale = document.documentElement.lang === 'zh-CN' ? 'zh-CN' : 'en';
+  const isZh = locale === 'zh-CN';
+  const copy = getToolCopy('finder', locale);
+  const toolLinks = getToolLinks(locale);
+
+  const syncRelevantQuestions = () => {
+    const relevant = new Set(getRouteFinderQuestionRelevance({
+      country: form?.elements.namedItem('country') instanceof HTMLSelectElement ? form.elements.namedItem('country').value : '',
+      purpose: form?.elements.namedItem('purpose') instanceof HTMLSelectElement ? form.elements.namedItem('purpose').value : '',
+    }));
+    followUpFields.forEach((field) => {
+      const isRelevant = relevant.has(field.name as 'applicationRegionId' | 'relationship' | 'certificate');
+      field.required = isRelevant;
+      field.disabled = !isRelevant;
+      const label = field.closest('label');
+      if (label) label.hidden = !isRelevant;
+    });
+  };
 
   const addText = (parent: HTMLElement, tag: string, text: string) => {
     const element = document.createElement(tag);
@@ -41,57 +112,117 @@ import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
     return element;
   };
 
-  const controller = form ? setupToolForm(form, { persistedNames: ['country', 'purpose', 'level', 'certificate'] }) : undefined;
+  const plan = setupSharedPlan({ toolId: 'finder', form });
+  const controller = form ? setupToolForm(form, { locale, onRestart: () => plan.restartCurrentTool() }) : undefined;
+  if (form) setupPurposeSuggestion(form);
+  form?.elements.namedItem('country')?.addEventListener('change', syncRelevantQuestions);
+  form?.elements.namedItem('purpose')?.addEventListener('change', syncRelevantQuestions);
+  syncRelevantQuestions();
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
     if (!controller?.validate()) return;
 
     const input = Object.fromEntries(new FormData(form).entries());
-    const route = findRoute(input);
-    controller.persist();
+    const result = resolveRouteFinder(input, { forceAuthorityConfirmation: plan.reconfirmRequired, locale });
+    plan.persist({
+      locale: document.documentElement.lang === 'zh-CN' ? 'zh-CN' : 'en',
+      country: input.country,
+      purpose: input.purpose,
+      applicationRegionId: input.applicationRegionId,
+      relationship: input.relationship,
+      certificate: input.certificate,
+      routeId: result.allowChecklist ? result.routeId : null,
+    });
     if (!summary || !resultPanel) return;
 
     summary.replaceChildren();
-    addText(summary, 'p', route.availability === 'configured' ? 'Configured route' : 'Coming soon');
-    addText(summary, 'h2', route.title);
-    addText(summary, 'p', route.officialAction);
-    if (route.availability === 'configured') {
-      const list = document.createElement('ol');
-      route.nextSteps.forEach((step: string) => addText(list, 'li', step));
-      summary.append(list);
-      const nextActions = document.createElement('p');
-      if (route.guide?.href) {
-        const guideLink = document.createElement('a');
-        guideLink.href = route.guide.href;
-        guideLink.textContent = route.guide.label || 'Continue with guide';
-        nextActions.append(guideLink, ' / ');
-      }
+    const statusClasses = {
+      guidance_available: 'tool-result-status--available',
+      needs_information: 'tool-result-status--information',
+      needs_authority_confirmation: 'tool-result-status--confirmation',
+      unsupported: 'tool-result-status--unsupported',
+    };
+    const status = addText(summary, 'p', `${isZh ? '状态' : 'Status'}: ${result.statusLabel}`);
+    status.className = `tool-result-status ${statusClasses[result.status]}`;
+    addText(summary, 'h2', result.title);
+
+    addText(summary, 'h3', isZh ? '选择摘要' : 'Selection summary');
+    const selection = document.createElement('dl');
+    selection.className = 'tool-selection-summary';
+    result.selectionSummary.forEach((item) => {
+      addText(selection, 'dt', item.label);
+      addText(selection, 'dd', item.value);
+    });
+    summary.append(selection);
+
+    if (result.guidance) {
+      addText(summary, 'h3', isZh ? '当前证据可支持什么' : 'What the current evidence supports');
+      addText(summary, 'p', result.guidance);
+    }
+    if (result.missingInformation.length) {
+      addText(summary, 'h3', result.status === 'unsupported' ? (isZh ? '覆盖缺口' : 'Coverage gap') : (isZh ? '仍缺少或尚未确认的信息' : 'Information still missing or unconfirmed'));
+      const missing = document.createElement('ul');
+      result.missingInformation.forEach((item) => addText(missing, 'li', item));
+      summary.append(missing);
+    }
+    if (result.basis) {
+      addText(summary, 'h3', isZh ? '带版本的证据依据' : 'Versioned evidence basis');
+      addText(summary, 'p', isZh ? `规则 ${result.basis.ruleId}，版本 ${result.basis.ruleVersion}。` : `Rule ${result.basis.ruleId}, version ${result.basis.ruleVersion}.`);
+      const claims = document.createElement('ul');
+      result.basis.claims.forEach((claim) => {
+        const item = document.createElement('li');
+        item.append(isZh ? `声明 ${claim.claimId}，版本 ${claim.version}；来源核验日期 ${claim.sourceCheckedAt || '日期不可用'}。` : `Claim ${claim.claimId}, version ${claim.version}; source checked ${claim.sourceCheckedAt || 'date unavailable'}.`);
+        if (claim.sources.length) {
+          const sources = document.createElement('ul');
+          claim.sources.forEach((source) => {
+            const sourceItem = document.createElement('li');
+            const sourceLink = document.createElement('a');
+            sourceLink.href = source.url;
+            sourceLink.target = '_blank';
+            sourceLink.rel = 'noreferrer';
+            sourceLink.textContent = source.publisher;
+            sourceItem.append(sourceLink, isZh ? ' — 请按链接范围核验；此来源不替代接收机关或所选考点的决定。' : ` — ${source.boundary}`);
+            sources.append(sourceItem);
+          });
+          item.append(sources);
+        }
+        claims.append(item);
+      });
+      summary.append(claims);
+    }
+
+    addText(summary, 'h3', isZh ? '由谁负责' : 'Who is responsible');
+    const authorities = document.createElement('ul');
+    result.responsibleParties.forEach((owner) => addText(authorities, 'li', owner));
+    summary.append(authorities);
+    addText(summary, 'h3', isZh ? '下一步' : 'Next steps');
+    const nextSteps = document.createElement('ol');
+    result.nextSteps.forEach((step) => addText(nextSteps, 'li', step));
+    summary.append(nextSteps);
+    addText(summary, 'p', `${isZh ? '边界' : 'Boundary'}: ${result.boundary}`);
+
+    const nextActions = document.createElement('p');
+    if (result.guide?.href) {
+      const guideLink = document.createElement('a');
+      guideLink.href = result.guide.href;
+      guideLink.textContent = result.guide.label || (isZh ? '继续查看指南' : 'Continue with guide');
+      nextActions.append(guideLink);
+    }
+    if (result.allowChecklist) {
       const checklistLink = document.createElement('a');
       checklistLink.href = toolLinks.checklist;
-      checklistLink.textContent = 'Open Checklist';
+      checklistLink.textContent = isZh ? '打开要求核对清单' : 'Open Checklist';
       const timelineLink = document.createElement('a');
       timelineLink.href = toolLinks.timeline;
-      timelineLink.textContent = 'Open Timeline';
+      timelineLink.textContent = isZh ? '打开时间线规划器' : 'Open Timeline';
+      if (nextActions.childNodes.length) nextActions.append(' / ');
       nextActions.append(checklistLink, ' / ', timelineLink);
-      summary.append(nextActions);
-    } else {
-      addText(summary, 'p', 'VisaLang will not generate a route result for this selection. Use the receiving organisation as the official starting point.');
-      addText(summary, 'h3', 'Who to contact');
-      const authorityList = document.createElement('ul');
-      route.authorityTypes.forEach((authority: string) => addText(authorityList, 'li', authority));
-      summary.append(authorityList);
-      const officialEntry = document.createElement('p');
-      if (route.officialEntry) { const officialLink = document.createElement('a'); officialLink.href = route.officialEntry.href; officialLink.textContent = route.officialEntry.label; officialEntry.append('Official starting point: ', officialLink); }
-      else officialEntry.textContent = route.officialEntryPending;
-      summary.append(officialEntry);
-      addText(summary, 'h3', 'Questions to ask');
-      const questions = document.createElement('ul'); route.questions.forEach((question: string) => addText(questions, 'li', question)); summary.append(questions);
     }
-    const details = document.createElement('p');
-    details.textContent = `Application location recorded: ${String(input.location)}. Target submission date: ${String(input.targetDate)}.`;
-    summary.append(details);
+    if (nextActions.childNodes.length) summary.append(nextActions);
+    if (sharedContinuation) sharedContinuation.hidden = !result.allowChecklist;
     resultPanel.hidden = false;
     controller.markResult();
     resultPanel.focus();
   });
+  controller?.activate();
 </script>

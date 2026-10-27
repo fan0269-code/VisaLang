@@ -6,6 +6,8 @@ const guideSchema = z.object({
   title: z.string(),
   seoTitle: z.string().trim().min(1).max(49).optional(),
   description: z.string(),
+  directAnswer: z.string().min(1).optional(),
+  claimRefs: z.array(z.object({ claimId: z.string().min(1), version: z.string().min(1) })).default([]),
   category: z.string(),
   slug: z.string(),
   publishedDate: z.string(),
@@ -24,6 +26,8 @@ const guideSchema = z.object({
   audienceScope: z.string().min(1).optional(),
   finalDecisionAuthorityType: z.string().min(1).optional(),
   primaryOfficialAuthorityUrl: z.string().url().refine((url) => url.startsWith('https://'), 'primaryOfficialAuthorityUrl must use HTTPS').optional(),
+  routeRequirementAuthorityType: z.string().min(1).optional(),
+  routeRequirementAuthorityUrl: z.string().url().refine((url) => url.startsWith('https://'), 'routeRequirementAuthorityUrl must use HTTPS').optional(),
   examOwnerUrl: z.string().url().refine((url) => url.startsWith('https://'), 'examOwnerUrl must use HTTPS').optional(),
   localExecutionPrompt: z.string().min(1).optional(),
   author: z.string().default('VisaLang Editorial team'),
@@ -66,6 +70,16 @@ const guideSchema = z.object({
   }
   if (guide.nextGuideSlug && guide.nextGuideSlug === guide.slug) {
     context.addIssue({ code: z.ZodIssueCode.custom, path: ['nextGuideSlug'], message: 'nextGuideSlug cannot point to the current guide' });
+  }
+  if (guide.directAnswer && guide.claimRefs.length === 0) {
+    context.addIssue({ code: z.ZodIssueCode.custom, path: ['claimRefs'], message: 'directAnswer requires versioned claimRefs so deterministic copy can fail closed' });
+  }
+  if (Boolean(guide.routeRequirementAuthorityType) !== Boolean(guide.routeRequirementAuthorityUrl)) {
+    context.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ['routeRequirementAuthorityType'],
+      message: 'routeRequirementAuthorityType and routeRequirementAuthorityUrl must be supplied together',
+    });
   }
 });
 

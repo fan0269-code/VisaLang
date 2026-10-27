@@ -1,0 +1,11 @@
+# Frozen submission: VisaLang Independent Auditor
+
+Review the September 23 planning-only delta described in acceptance.md. You must not have researched, planned or edited this candidate. Read `docs/VISALANG_INDEPENDENT_AUDITOR_AGENT.md`; write only the dated independent audit report at `docs/planning-map/VISALANG_LAYA_PLANNING_INDEPENDENT_AUDIT_2026-09-23.md` (and, if necessary, a structured verdict). Do not edit the plans or evidence.
+
+Exact scope is candidate-manifest.json and `docs/planning-map/sync.json` scope.changedPaths, which must match. `task-delta.patch` shows maintained/new plan text changes against `before/`; generated output is bound by sync. Baseline branch/HEAD/upstream/inventory and all pre-window file hashes are in baseline.json/status. The baseline archive preserves former planning-map bytes as historical evidence; do not confuse its old PASS with this candidate. `tests/site.test.js` is an unchanged but mandated frozen verification input.
+
+Check the two new plans against actual configured/verify-only support, real Laya limitations, current publication policy, original T states and Owner's planning-only instruction. All LP/LC work and model targets are pending/proposed. Check sources for material technical claims, chronology, plausible sequence and measurement definitions. No article claim changed; do not perform unrelated legal/fee refreshes.
+
+Review source, generated map, sync/history, each exact screenshot, browser receipt, separate perceptual record, and complete path classifications/bindings. The archived baseline plus patch explains the pre-existing dirty tree. Initial browser sandbox failure was resolved via the same supported command in an approved execution context; final automated receipt is pass.
+
+Run planning-map governance: before writing the report it must reach only the missing/non-PASS independent-record gate. Final report must use the strict frontmatter shape in the governance test, including review_round, vault_status, full sync_receipt_sha256 and exact sorted scope. Owner authorization remains pending, deployment not_started, Vault blocked. A PASS is planning quality only, not approval of later implementation, business scope, commit/push or deployment. Return all scoped P0/P1/P2 findings; after corrections the same Auditor must re-review the refreshed exact scope.

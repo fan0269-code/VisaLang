@@ -1,0 +1,1647 @@
+{
+  "phase": "before",
+  "checkedAt": "2026-09-25T03:42:09.856Z",
+  "environment": "Local Chrome headless via Playwright; Browser plugin not available; CSS viewport simulation, not real devices/readers/production",
+  "rows": [
+    {
+      "name": "en",
+      "path": "/",
+      "url": "http://127.0.0.1:4353/",
+      "status": 200,
+      "title": "German A1 family reunion and B1 language guides | VisaLang",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "scrollWidth": 375,
+      "bodyWidth": 375,
+      "h1": "Plan your German language proof.",
+      "frameworkOverlay": false,
+      "sections": [
+        {
+          "label": "featured-route-en",
+          "top": 785.734375
+        },
+        {
+          "label": "stage-title",
+          "top": 1021.640625
+        },
+        {
+          "label": "resources-title",
+          "top": 2304.765625
+        },
+        {
+          "label": "purpose-title",
+          "top": 3386.921875
+        },
+        {
+          "label": "updated-title",
+          "top": 4364.734375
+        },
+        {
+          "label": "trust-title",
+          "top": 5451.390625
+        }
+      ],
+      "stageLinks": [
+        {
+          "text": "Check the requirement",
+          "href": "/guides/german-family-reunion-language-requirement/"
+        },
+        {
+          "text": "Already have a certificate?",
+          "href": "/guides/goethe-a1-germany-family-reunion/"
+        },
+        {
+          "text": "Prepare booking and next steps",
+          "href": "/guides/german-a1-exam-booking-timeline/"
+        }
+      ],
+      "mainLinks": [
+        {
+          "text": "Start the Germany A1 route",
+          "href": "/germany-family-reunion-a1/"
+        },
+        {
+          "text": "Read Germany B1 guides",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "View Germany A1 route",
+          "href": "/germany-family-reunion-a1/"
+        },
+        {
+          "text": "Check the requirement",
+          "href": "/guides/german-family-reunion-language-requirement/"
+        },
+        {
+          "text": "Already have a certificate?",
+          "href": "/guides/goethe-a1-germany-family-reunion/"
+        },
+        {
+          "text": "Prepare booking and next steps",
+          "href": "/guides/german-a1-exam-booking-timeline/"
+        },
+        {
+          "text": "Open Route Finder",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Route FinderStart from purpose, country, and current instruction status.Use",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Germany B1 guidesSeparate guides for settlement permits and citizenship; verify the applicable authority route before relying on any proof.Browse",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "Germany A1 family reunionA configured planning route for staged requirement, exam, booking, and document checks.Start",
+          "href": "/germany-family-reunion-a1/"
+        },
+        {
+          "text": "Family reunionConfigured planning route",
+          "href": "/germany-family-reunion-a1/"
+        },
+        {
+          "text": "StudyVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "WorkVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "SettlementGuide entry — verify with the authority",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "CitizenshipGuide entry — verify with the authority",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "Not sure yetVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Coverage: core route guideGermany B1 for citizenship: separate language proof from the full fileCheck the B1 language-evidence step for German naturalisation while keeping civic knowledge, other conditions and local procedure separate.Updated 2026-09-13",
+          "href": "/guides/germany-b1-citizenship-language-proof/"
+        },
+        {
+          "text": "Leben in Deutschland and B1: keep civic knowledge and language separateUnderstand the separate roles of B1 language evidence and Leben in Deutschland without assuming one replaces the other for every route.Updated 2026-09-13",
+          "href": "/guides/germany-b1-leben-in-deutschland-and-language-proof/"
+        },
+        {
+          "text": "Germany B1 settlement and citizenship checklist: recheck before submissionUse a non-legal Germany B1 checklist to recheck authority instructions, language evidence and the wider file before submission.Updated 2026-09-13",
+          "href": "/guides/germany-b1-settlement-citizenship-checklist/"
+        }
+      ],
+      "overflowing": [],
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-en-375.png",
+      "screenshotSha256": "07edcf2089d6a65084f65b46c6bbc3541a97a32184372ec7fcbc680293bdfd5a",
+      "firstViewport": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-en-375-first.png",
+      "firstViewportSha256": "5a2070634bcdc524c981b46ae3f175b329cce65422c6cec4f3065d69a57246f6"
+    },
+    {
+      "name": "zh",
+      "path": "/zh/",
+      "url": "http://127.0.0.1:4353/zh/",
+      "status": 200,
+      "title": "德国团聚 A1、永居与入籍 B1 语言证明指南 | VisaLang",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "scrollWidth": 375,
+      "bodyWidth": 375,
+      "h1": "把德国语言证明的准备步骤理清楚。",
+      "frameworkOverlay": false,
+      "sections": [
+        {
+          "label": "featured-route-zh-CN",
+          "top": 812.265625
+        },
+        {
+          "label": "zh-stage-title",
+          "top": 1024.375
+        },
+        {
+          "label": "zh-resources-title",
+          "top": 2038.421875
+        },
+        {
+          "label": "zh-purpose-title",
+          "top": 2989.75
+        },
+        {
+          "label": "zh-guides-title",
+          "top": 3940.375
+        },
+        {
+          "label": "zh-trust-title",
+          "top": 4829.53125
+        }
+      ],
+      "stageLinks": [
+        {
+          "text": "查看中文 A1 要求",
+          "href": "/zh/guides/german-family-reunion-language-requirement/"
+        },
+        {
+          "text": "比较 Goethe 与 telc",
+          "href": "/zh/guides/goethe-a1-vs-telc-a1/"
+        },
+        {
+          "text": "查看时间线与材料核对",
+          "href": "/zh/guides/german-a1-exam-booking-timeline/"
+        }
+      ],
+      "mainLinks": [
+        {
+          "text": "查看中文 A1 要求",
+          "href": "/zh/guides/german-family-reunion-language-requirement/"
+        },
+        {
+          "text": "查看 B1 指南（英文）",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "进入德国 A1 中文路线",
+          "href": "/zh/germany-family-reunion-a1/"
+        },
+        {
+          "text": "查看中文 A1 要求",
+          "href": "/zh/guides/german-family-reunion-language-requirement/"
+        },
+        {
+          "text": "比较 Goethe 与 telc",
+          "href": "/zh/guides/goethe-a1-vs-telc-a1/"
+        },
+        {
+          "text": "查看时间线与材料核对",
+          "href": "/zh/guides/german-a1-exam-booking-timeline/"
+        },
+        {
+          "text": "使用路线查找器",
+          "href": "/zh/tools/route-finder/"
+        },
+        {
+          "text": "路线查找器从目的、国家和当前说明状态开始。使用",
+          "href": "/zh/tools/route-finder/"
+        },
+        {
+          "text": "德国 B1 指南（英文）分别阅读永居与入籍的语言证明指南；不要把它当作完整的路线判断。浏览",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "德国 A1 中文路线按照决定顺序查看目前最完整的中文专题。查看",
+          "href": "/zh/germany-family-reunion-a1/"
+        },
+        {
+          "text": "家庭团聚已配置的规划路线",
+          "href": "/zh/germany-family-reunion-a1/"
+        },
+        {
+          "text": "留学（英文）仅提供核验起点",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "工作（英文）仅提供核验起点",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "永居（英文）指南入口 — 请向主管机关核验",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "入籍（英文）指南入口 — 请向主管机关核验",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "还不确定（英文）仅提供核验起点",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "覆盖范围：完整路线指南Goethe A1 与 telc A1：如何比较先确认主管机关可能接受的准确证明，再比较 Goethe A1 与 telc A1 的考试产品、考点和本地执行条件。更新于 2026-09-09",
+          "href": "/zh/guides/goethe-a1-vs-telc-a1/"
+        },
+        {
+          "text": "如何核验 Goethe 或 telc A1 官方考点从考试方官方入口确认考点和准确考试产品，再向所选考点核验日期、费用、证件、退改和出证流程。更新于 2026-09-09",
+          "href": "/zh/guides/goethe-a1-test-centers/"
+        },
+        {
+          "text": "德国 A1 报名时间线：如何倒排只使用你已确认的考试、出分、取证和材料节点倒排计划；未知日期保持未知，并回到负责机关或考点核验。更新于 2026-09-09",
+          "href": "/zh/guides/german-a1-exam-booking-timeline/"
+        }
+      ],
+      "overflowing": [],
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-zh-375.png",
+      "screenshotSha256": "1be8947fd31d9188824ac21b49d9e9bfd591932260c4eb6da14bf7fabfbc6095",
+      "firstViewport": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-zh-375-first.png",
+      "firstViewportSha256": "7d0c0d762d3abca9f44a051b326c46971c53af3150c16258a09f572e076f53b8"
+    },
+    {
+      "name": "routes",
+      "path": "/routes/",
+      "url": "http://127.0.0.1:4353/routes/",
+      "status": 200,
+      "title": "Language-proof routes | VisaLang",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "scrollWidth": 375,
+      "bodyWidth": 375,
+      "h1": "Choose your route before you choose an exam.",
+      "frameworkOverlay": false,
+      "sections": [
+        {
+          "label": "decision-order-title",
+          "top": 1537.4375
+        },
+        {
+          "label": "route-tools-title",
+          "top": 2104.53125
+        }
+      ],
+      "stageLinks": [],
+      "mainLinks": [
+        {
+          "text": "Open Route Finder",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Family reunionConfigured planning route",
+          "href": "/germany-family-reunion-a1/"
+        },
+        {
+          "text": "StudyVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "WorkVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "SettlementGuide entry — verify with the authority",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "CitizenshipGuide entry — verify with the authority",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "Not sure yetVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Route FinderIdentify the authority and proof questions to verify first.",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Requirement ChecklistTurn official checks into a trackable list.",
+          "href": "/tools/checklist-generator/"
+        },
+        {
+          "text": "Timeline PlannerWork backwards from your own deadline and verified timing inputs.",
+          "href": "/tools/timeline-calculator/"
+        }
+      ],
+      "overflowing": [],
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-routes-375.png",
+      "screenshotSha256": "e1f15602e34c185526727c79f9b14f2cf64071f23aaeab9eb0624f9b4f18f34c"
+    },
+    {
+      "name": "tools",
+      "path": "/tools/",
+      "url": "http://127.0.0.1:4353/tools/",
+      "status": 200,
+      "title": "Decision tools | VisaLang",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "scrollWidth": 375,
+      "bodyWidth": 375,
+      "h1": "Tools for planning a language-proof route.",
+      "frameworkOverlay": false,
+      "sections": [
+        {
+          "label": null,
+          "top": 393.9375
+        }
+      ],
+      "stageLinks": [],
+      "mainLinks": [
+        {
+          "text": "Start with Route Finder",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "AvailableRoute FinderIdentify the authority and proof questions to verify first.Open tool",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "AvailableRequirement ChecklistTurn official checks into a trackable list.Open tool",
+          "href": "/tools/checklist-generator/"
+        },
+        {
+          "text": "AvailableTimeline PlannerWork backwards from your own deadline and verified timing inputs.Open tool",
+          "href": "/tools/timeline-calculator/"
+        },
+        {
+          "text": "AvailableExam ComparisonCompare the questions that must be verified for two exams.Open tool",
+          "href": "/tools/exam-comparison/"
+        },
+        {
+          "text": "AvailableReminder PlannerCreate a local plan, calendar file, or printable reminder.Open tool",
+          "href": "/tools/email-reminders/"
+        }
+      ],
+      "overflowing": [],
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-tools-375.png",
+      "screenshotSha256": "5b2d2aa7f089d51033f689879db6b73f09bd2a41239be7d7179d8dedc775293f"
+    },
+    {
+      "name": "en",
+      "path": "/",
+      "url": "http://127.0.0.1:4353/",
+      "status": 200,
+      "title": "German A1 family reunion and B1 language guides | VisaLang",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "scrollWidth": 390,
+      "bodyWidth": 390,
+      "h1": "Plan your German language proof.",
+      "frameworkOverlay": false,
+      "sections": [
+        {
+          "label": "featured-route-en",
+          "top": 796.828125
+        },
+        {
+          "label": "stage-title",
+          "top": 1032.734375
+        },
+        {
+          "label": "resources-title",
+          "top": 2182.890625
+        },
+        {
+          "label": "purpose-title",
+          "top": 3183.078125
+        },
+        {
+          "label": "updated-title",
+          "top": 3900.328125
+        },
+        {
+          "label": "trust-title",
+          "top": 5099.203125
+        }
+      ],
+      "stageLinks": [
+        {
+          "text": "Check the requirement",
+          "href": "/guides/german-family-reunion-language-requirement/"
+        },
+        {
+          "text": "Already have a certificate?",
+          "href": "/guides/goethe-a1-germany-family-reunion/"
+        },
+        {
+          "text": "Prepare booking and next steps",
+          "href": "/guides/german-a1-exam-booking-timeline/"
+        }
+      ],
+      "mainLinks": [
+        {
+          "text": "Start the Germany A1 route",
+          "href": "/germany-family-reunion-a1/"
+        },
+        {
+          "text": "Read Germany B1 guides",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "View Germany A1 route",
+          "href": "/germany-family-reunion-a1/"
+        },
+        {
+          "text": "Check the requirement",
+          "href": "/guides/german-family-reunion-language-requirement/"
+        },
+        {
+          "text": "Already have a certificate?",
+          "href": "/guides/goethe-a1-germany-family-reunion/"
+        },
+        {
+          "text": "Prepare booking and next steps",
+          "href": "/guides/german-a1-exam-booking-timeline/"
+        },
+        {
+          "text": "Open Route Finder",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Route FinderStart from purpose, country, and current instruction status.Use",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Germany B1 guidesSeparate guides for settlement permits and citizenship; verify the applicable authority route before relying on any proof.Browse",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "Germany A1 family reunionA configured planning route for staged requirement, exam, booking, and document checks.Start",
+          "href": "/germany-family-reunion-a1/"
+        },
+        {
+          "text": "Family reunionConfigured planning route",
+          "href": "/germany-family-reunion-a1/"
+        },
+        {
+          "text": "StudyVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "WorkVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "SettlementGuide entry — verify with the authority",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "CitizenshipGuide entry — verify with the authority",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "Not sure yetVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Coverage: core route guideGermany B1 for citizenship: separate language proof from the full fileCheck the B1 language-evidence step for German naturalisation while keeping civic knowledge, other conditions and local procedure separate.Updated 2026-09-13",
+          "href": "/guides/germany-b1-citizenship-language-proof/"
+        },
+        {
+          "text": "Leben in Deutschland and B1: keep civic knowledge and language separateUnderstand the separate roles of B1 language evidence and Leben in Deutschland without assuming one replaces the other for every route.Updated 2026-09-13",
+          "href": "/guides/germany-b1-leben-in-deutschland-and-language-proof/"
+        },
+        {
+          "text": "Germany B1 settlement and citizenship checklist: recheck before submissionUse a non-legal Germany B1 checklist to recheck authority instructions, language evidence and the wider file before submission.Updated 2026-09-13",
+          "href": "/guides/germany-b1-settlement-citizenship-checklist/"
+        }
+      ],
+      "overflowing": [],
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-en-390.png",
+      "screenshotSha256": "b25908ba89a37f8e5da642e1fb55025685c16cfef2b6ebd73283fb7c0f50c3d6",
+      "firstViewport": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-en-390-first.png",
+      "firstViewportSha256": "d7931144ae27e5bbd82c86bbeefdff35c0c111cb2b539ade0b2699f0f5a8b213"
+    },
+    {
+      "name": "zh",
+      "path": "/zh/",
+      "url": "http://127.0.0.1:4353/zh/",
+      "status": 200,
+      "title": "德国团聚 A1、永居与入籍 B1 语言证明指南 | VisaLang",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "scrollWidth": 390,
+      "bodyWidth": 390,
+      "h1": "把德国语言证明的准备步骤理清楚。",
+      "frameworkOverlay": false,
+      "sections": [
+        {
+          "label": "featured-route-zh-CN",
+          "top": 763.359375
+        },
+        {
+          "label": "zh-stage-title",
+          "top": 975.46875
+        },
+        {
+          "label": "zh-resources-title",
+          "top": 1880.34375
+        },
+        {
+          "label": "zh-purpose-title",
+          "top": 2676.640625
+        },
+        {
+          "label": "zh-guides-title",
+          "top": 3305.015625
+        },
+        {
+          "label": "zh-trust-title",
+          "top": 4248.609375
+        }
+      ],
+      "stageLinks": [
+        {
+          "text": "查看中文 A1 要求",
+          "href": "/zh/guides/german-family-reunion-language-requirement/"
+        },
+        {
+          "text": "比较 Goethe 与 telc",
+          "href": "/zh/guides/goethe-a1-vs-telc-a1/"
+        },
+        {
+          "text": "查看时间线与材料核对",
+          "href": "/zh/guides/german-a1-exam-booking-timeline/"
+        }
+      ],
+      "mainLinks": [
+        {
+          "text": "查看中文 A1 要求",
+          "href": "/zh/guides/german-family-reunion-language-requirement/"
+        },
+        {
+          "text": "查看 B1 指南（英文）",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "进入德国 A1 中文路线",
+          "href": "/zh/germany-family-reunion-a1/"
+        },
+        {
+          "text": "查看中文 A1 要求",
+          "href": "/zh/guides/german-family-reunion-language-requirement/"
+        },
+        {
+          "text": "比较 Goethe 与 telc",
+          "href": "/zh/guides/goethe-a1-vs-telc-a1/"
+        },
+        {
+          "text": "查看时间线与材料核对",
+          "href": "/zh/guides/german-a1-exam-booking-timeline/"
+        },
+        {
+          "text": "使用路线查找器",
+          "href": "/zh/tools/route-finder/"
+        },
+        {
+          "text": "路线查找器从目的、国家和当前说明状态开始。使用",
+          "href": "/zh/tools/route-finder/"
+        },
+        {
+          "text": "德国 B1 指南（英文）分别阅读永居与入籍的语言证明指南；不要把它当作完整的路线判断。浏览",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "德国 A1 中文路线按照决定顺序查看目前最完整的中文专题。查看",
+          "href": "/zh/germany-family-reunion-a1/"
+        },
+        {
+          "text": "家庭团聚已配置的规划路线",
+          "href": "/zh/germany-family-reunion-a1/"
+        },
+        {
+          "text": "留学（英文）仅提供核验起点",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "工作（英文）仅提供核验起点",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "永居（英文）指南入口 — 请向主管机关核验",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "入籍（英文）指南入口 — 请向主管机关核验",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "还不确定（英文）仅提供核验起点",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "覆盖范围：完整路线指南Goethe A1 与 telc A1：如何比较先确认主管机关可能接受的准确证明，再比较 Goethe A1 与 telc A1 的考试产品、考点和本地执行条件。更新于 2026-09-09",
+          "href": "/zh/guides/goethe-a1-vs-telc-a1/"
+        },
+        {
+          "text": "如何核验 Goethe 或 telc A1 官方考点从考试方官方入口确认考点和准确考试产品，再向所选考点核验日期、费用、证件、退改和出证流程。更新于 2026-09-09",
+          "href": "/zh/guides/goethe-a1-test-centers/"
+        },
+        {
+          "text": "德国 A1 报名时间线：如何倒排只使用你已确认的考试、出分、取证和材料节点倒排计划；未知日期保持未知，并回到负责机关或考点核验。更新于 2026-09-09",
+          "href": "/zh/guides/german-a1-exam-booking-timeline/"
+        }
+      ],
+      "overflowing": [],
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-zh-390.png",
+      "screenshotSha256": "f153a7e132901e077d52df17a79f9800c680bbaae8029ab99259878dd998552a",
+      "firstViewport": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-zh-390-first.png",
+      "firstViewportSha256": "c3c9935090e2f335c1abd850201ca944bfcaf1e966d4791543a3ecc9e2055e32"
+    },
+    {
+      "name": "routes",
+      "path": "/routes/",
+      "url": "http://127.0.0.1:4353/routes/",
+      "status": 200,
+      "title": "Language-proof routes | VisaLang",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "scrollWidth": 390,
+      "bodyWidth": 390,
+      "h1": "Choose your route before you choose an exam.",
+      "frameworkOverlay": false,
+      "sections": [
+        {
+          "label": "decision-order-title",
+          "top": 1395.28125
+        },
+        {
+          "label": "route-tools-title",
+          "top": 2169.46875
+        }
+      ],
+      "stageLinks": [],
+      "mainLinks": [
+        {
+          "text": "Open Route Finder",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Family reunionConfigured planning route",
+          "href": "/germany-family-reunion-a1/"
+        },
+        {
+          "text": "StudyVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "WorkVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "SettlementGuide entry — verify with the authority",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "CitizenshipGuide entry — verify with the authority",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "Not sure yetVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Route FinderIdentify the authority and proof questions to verify first.",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Requirement ChecklistTurn official checks into a trackable list.",
+          "href": "/tools/checklist-generator/"
+        },
+        {
+          "text": "Timeline PlannerWork backwards from your own deadline and verified timing inputs.",
+          "href": "/tools/timeline-calculator/"
+        }
+      ],
+      "overflowing": [],
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-routes-390.png",
+      "screenshotSha256": "946298c730a7d3ba34ca5a0cc60e1dcc913135c01b729263b2c45b63c9ccd688"
+    },
+    {
+      "name": "tools",
+      "path": "/tools/",
+      "url": "http://127.0.0.1:4353/tools/",
+      "status": 200,
+      "title": "Decision tools | VisaLang",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "scrollWidth": 390,
+      "bodyWidth": 390,
+      "h1": "Tools for planning a language-proof route.",
+      "frameworkOverlay": false,
+      "sections": [
+        {
+          "label": null,
+          "top": 357
+        }
+      ],
+      "stageLinks": [],
+      "mainLinks": [
+        {
+          "text": "Start with Route Finder",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "AvailableRoute FinderIdentify the authority and proof questions to verify first.Open tool",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "AvailableRequirement ChecklistTurn official checks into a trackable list.Open tool",
+          "href": "/tools/checklist-generator/"
+        },
+        {
+          "text": "AvailableTimeline PlannerWork backwards from your own deadline and verified timing inputs.Open tool",
+          "href": "/tools/timeline-calculator/"
+        },
+        {
+          "text": "AvailableExam ComparisonCompare the questions that must be verified for two exams.Open tool",
+          "href": "/tools/exam-comparison/"
+        },
+        {
+          "text": "AvailableReminder PlannerCreate a local plan, calendar file, or printable reminder.Open tool",
+          "href": "/tools/email-reminders/"
+        }
+      ],
+      "overflowing": [],
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-tools-390.png",
+      "screenshotSha256": "4f59613bac97ac81c2cde4ee2fa84a246db562243631a44b6f7cb38bb17b3d0e"
+    },
+    {
+      "name": "en",
+      "path": "/",
+      "url": "http://127.0.0.1:4353/",
+      "status": 200,
+      "title": "German A1 family reunion and B1 language guides | VisaLang",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "scrollWidth": 768,
+      "bodyWidth": 768,
+      "h1": "Plan your German language proof.",
+      "frameworkOverlay": false,
+      "sections": [
+        {
+          "label": "featured-route-en",
+          "top": 1021.796875
+        },
+        {
+          "label": "stage-title",
+          "top": 1233.90625
+        },
+        {
+          "label": "resources-title",
+          "top": 2162.578125
+        },
+        {
+          "label": "purpose-title",
+          "top": 2935.078125
+        },
+        {
+          "label": "updated-title",
+          "top": 3513.703125
+        },
+        {
+          "label": "trust-title",
+          "top": 4335.109375
+        }
+      ],
+      "stageLinks": [
+        {
+          "text": "Check the requirement",
+          "href": "/guides/german-family-reunion-language-requirement/"
+        },
+        {
+          "text": "Already have a certificate?",
+          "href": "/guides/goethe-a1-germany-family-reunion/"
+        },
+        {
+          "text": "Prepare booking and next steps",
+          "href": "/guides/german-a1-exam-booking-timeline/"
+        }
+      ],
+      "mainLinks": [
+        {
+          "text": "Start the Germany A1 route",
+          "href": "/germany-family-reunion-a1/"
+        },
+        {
+          "text": "Read Germany B1 guides",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "View Germany A1 route",
+          "href": "/germany-family-reunion-a1/"
+        },
+        {
+          "text": "Check the requirement",
+          "href": "/guides/german-family-reunion-language-requirement/"
+        },
+        {
+          "text": "Already have a certificate?",
+          "href": "/guides/goethe-a1-germany-family-reunion/"
+        },
+        {
+          "text": "Prepare booking and next steps",
+          "href": "/guides/german-a1-exam-booking-timeline/"
+        },
+        {
+          "text": "Open Route Finder",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Route FinderStart from purpose, country, and current instruction status.Use",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Germany B1 guidesSeparate guides for settlement permits and citizenship; verify the applicable authority route before relying on any proof.Browse",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "Germany A1 family reunionA configured planning route for staged requirement, exam, booking, and document checks.Start",
+          "href": "/germany-family-reunion-a1/"
+        },
+        {
+          "text": "Family reunionConfigured planning route",
+          "href": "/germany-family-reunion-a1/"
+        },
+        {
+          "text": "StudyVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "WorkVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "SettlementGuide entry — verify with the authority",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "CitizenshipGuide entry — verify with the authority",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "Not sure yetVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Coverage: core route guideGermany B1 for citizenship: separate language proof from the full fileCheck the B1 language-evidence step for German naturalisation while keeping civic knowledge, other conditions and local procedure separate.Updated 2026-09-13",
+          "href": "/guides/germany-b1-citizenship-language-proof/"
+        },
+        {
+          "text": "Leben in Deutschland and B1: keep civic knowledge and language separateUnderstand the separate roles of B1 language evidence and Leben in Deutschland without assuming one replaces the other for every route.Updated 2026-09-13",
+          "href": "/guides/germany-b1-leben-in-deutschland-and-language-proof/"
+        },
+        {
+          "text": "Germany B1 settlement and citizenship checklist: recheck before submissionUse a non-legal Germany B1 checklist to recheck authority instructions, language evidence and the wider file before submission.Updated 2026-09-13",
+          "href": "/guides/germany-b1-settlement-citizenship-checklist/"
+        }
+      ],
+      "overflowing": [],
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-en-768.png",
+      "screenshotSha256": "a66cf526bada2d6e4f7d01fb10e649efed2c776f55d2dc26fab561166bee232b",
+      "firstViewport": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-en-768-first.png",
+      "firstViewportSha256": "9f612ecca9db519ca2ea470e3e68071c25b5670c6f0c643522200aa7f9691d9c"
+    },
+    {
+      "name": "zh",
+      "path": "/zh/",
+      "url": "http://127.0.0.1:4353/zh/",
+      "status": 200,
+      "title": "德国团聚 A1、永居与入籍 B1 语言证明指南 | VisaLang",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "scrollWidth": 768,
+      "bodyWidth": 768,
+      "h1": "把德国语言证明的准备步骤理清楚。",
+      "frameworkOverlay": false,
+      "sections": [
+        {
+          "label": "featured-route-zh-CN",
+          "top": 1021.796875
+        },
+        {
+          "label": "zh-stage-title",
+          "top": 1210.109375
+        },
+        {
+          "label": "zh-resources-title",
+          "top": 2043.59375
+        },
+        {
+          "label": "zh-purpose-title",
+          "top": 2765.109375
+        },
+        {
+          "label": "zh-guides-title",
+          "top": 3316.546875
+        },
+        {
+          "label": "zh-trust-title",
+          "top": 4042.421875
+        }
+      ],
+      "stageLinks": [
+        {
+          "text": "查看中文 A1 要求",
+          "href": "/zh/guides/german-family-reunion-language-requirement/"
+        },
+        {
+          "text": "比较 Goethe 与 telc",
+          "href": "/zh/guides/goethe-a1-vs-telc-a1/"
+        },
+        {
+          "text": "查看时间线与材料核对",
+          "href": "/zh/guides/german-a1-exam-booking-timeline/"
+        }
+      ],
+      "mainLinks": [
+        {
+          "text": "查看中文 A1 要求",
+          "href": "/zh/guides/german-family-reunion-language-requirement/"
+        },
+        {
+          "text": "查看 B1 指南（英文）",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "进入德国 A1 中文路线",
+          "href": "/zh/germany-family-reunion-a1/"
+        },
+        {
+          "text": "查看中文 A1 要求",
+          "href": "/zh/guides/german-family-reunion-language-requirement/"
+        },
+        {
+          "text": "比较 Goethe 与 telc",
+          "href": "/zh/guides/goethe-a1-vs-telc-a1/"
+        },
+        {
+          "text": "查看时间线与材料核对",
+          "href": "/zh/guides/german-a1-exam-booking-timeline/"
+        },
+        {
+          "text": "使用路线查找器",
+          "href": "/zh/tools/route-finder/"
+        },
+        {
+          "text": "路线查找器从目的、国家和当前说明状态开始。使用",
+          "href": "/zh/tools/route-finder/"
+        },
+        {
+          "text": "德国 B1 指南（英文）分别阅读永居与入籍的语言证明指南；不要把它当作完整的路线判断。浏览",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "德国 A1 中文路线按照决定顺序查看目前最完整的中文专题。查看",
+          "href": "/zh/germany-family-reunion-a1/"
+        },
+        {
+          "text": "家庭团聚已配置的规划路线",
+          "href": "/zh/germany-family-reunion-a1/"
+        },
+        {
+          "text": "留学（英文）仅提供核验起点",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "工作（英文）仅提供核验起点",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "永居（英文）指南入口 — 请向主管机关核验",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "入籍（英文）指南入口 — 请向主管机关核验",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "还不确定（英文）仅提供核验起点",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "覆盖范围：完整路线指南Goethe A1 与 telc A1：如何比较先确认主管机关可能接受的准确证明，再比较 Goethe A1 与 telc A1 的考试产品、考点和本地执行条件。更新于 2026-09-09",
+          "href": "/zh/guides/goethe-a1-vs-telc-a1/"
+        },
+        {
+          "text": "如何核验 Goethe 或 telc A1 官方考点从考试方官方入口确认考点和准确考试产品，再向所选考点核验日期、费用、证件、退改和出证流程。更新于 2026-09-09",
+          "href": "/zh/guides/goethe-a1-test-centers/"
+        },
+        {
+          "text": "德国 A1 报名时间线：如何倒排只使用你已确认的考试、出分、取证和材料节点倒排计划；未知日期保持未知，并回到负责机关或考点核验。更新于 2026-09-09",
+          "href": "/zh/guides/german-a1-exam-booking-timeline/"
+        }
+      ],
+      "overflowing": [],
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-zh-768.png",
+      "screenshotSha256": "a8d5e4ed8ba7b8410e5a049eec1a532976df56363ab2f000827d6a993b68ac1c",
+      "firstViewport": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-zh-768-first.png",
+      "firstViewportSha256": "a257008ae264f4a0d3c508adbd21f1a76eb756459ba0f0a22eecf366eb0f90e6"
+    },
+    {
+      "name": "routes",
+      "path": "/routes/",
+      "url": "http://127.0.0.1:4353/routes/",
+      "status": 200,
+      "title": "Language-proof routes | VisaLang",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "scrollWidth": 768,
+      "bodyWidth": 768,
+      "h1": "Choose your route before you choose an exam.",
+      "frameworkOverlay": false,
+      "sections": [
+        {
+          "label": "decision-order-title",
+          "top": 934.5625
+        },
+        {
+          "label": "route-tools-title",
+          "top": 1368.90625
+        }
+      ],
+      "stageLinks": [],
+      "mainLinks": [
+        {
+          "text": "Open Route Finder",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Family reunionConfigured planning route",
+          "href": "/germany-family-reunion-a1/"
+        },
+        {
+          "text": "StudyVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "WorkVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "SettlementGuide entry — verify with the authority",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "CitizenshipGuide entry — verify with the authority",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "Not sure yetVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Route FinderIdentify the authority and proof questions to verify first.",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Requirement ChecklistTurn official checks into a trackable list.",
+          "href": "/tools/checklist-generator/"
+        },
+        {
+          "text": "Timeline PlannerWork backwards from your own deadline and verified timing inputs.",
+          "href": "/tools/timeline-calculator/"
+        }
+      ],
+      "overflowing": [],
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-routes-768.png",
+      "screenshotSha256": "28639eaa5ea0537cd0a777bb9e3fbf4a91856cc473437485a20102e3fd96547f"
+    },
+    {
+      "name": "tools",
+      "path": "/tools/",
+      "url": "http://127.0.0.1:4353/tools/",
+      "status": 200,
+      "title": "Decision tools | VisaLang",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "scrollWidth": 768,
+      "bodyWidth": 768,
+      "h1": "Tools for planning a language-proof route.",
+      "frameworkOverlay": false,
+      "sections": [
+        {
+          "label": null,
+          "top": 283
+        }
+      ],
+      "stageLinks": [],
+      "mainLinks": [
+        {
+          "text": "Start with Route Finder",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "AvailableRoute FinderIdentify the authority and proof questions to verify first.Open tool",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "AvailableRequirement ChecklistTurn official checks into a trackable list.Open tool",
+          "href": "/tools/checklist-generator/"
+        },
+        {
+          "text": "AvailableTimeline PlannerWork backwards from your own deadline and verified timing inputs.Open tool",
+          "href": "/tools/timeline-calculator/"
+        },
+        {
+          "text": "AvailableExam ComparisonCompare the questions that must be verified for two exams.Open tool",
+          "href": "/tools/exam-comparison/"
+        },
+        {
+          "text": "AvailableReminder PlannerCreate a local plan, calendar file, or printable reminder.Open tool",
+          "href": "/tools/email-reminders/"
+        }
+      ],
+      "overflowing": [],
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-tools-768.png",
+      "screenshotSha256": "c3aba0e9dbbd5e6baf82552e78c906c53eb9931f959fc4099a525827fd08863c"
+    },
+    {
+      "name": "en",
+      "path": "/",
+      "url": "http://127.0.0.1:4353/",
+      "status": 200,
+      "title": "German A1 family reunion and B1 language guides | VisaLang",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "scrollWidth": 1440,
+      "bodyWidth": 1440,
+      "h1": "Plan your German language proof.",
+      "frameworkOverlay": false,
+      "sections": [
+        {
+          "label": "featured-route-en",
+          "top": 785
+        },
+        {
+          "label": "stage-title",
+          "top": 922.125
+        },
+        {
+          "label": "resources-title",
+          "top": 1597.890625
+        },
+        {
+          "label": "purpose-title",
+          "top": 2213.0625
+        },
+        {
+          "label": "updated-title",
+          "top": 2857.421875
+        },
+        {
+          "label": "trust-title",
+          "top": 3474.46875
+        }
+      ],
+      "stageLinks": [
+        {
+          "text": "Check the requirement",
+          "href": "/guides/german-family-reunion-language-requirement/"
+        },
+        {
+          "text": "Already have a certificate?",
+          "href": "/guides/goethe-a1-germany-family-reunion/"
+        },
+        {
+          "text": "Prepare booking and next steps",
+          "href": "/guides/german-a1-exam-booking-timeline/"
+        }
+      ],
+      "mainLinks": [
+        {
+          "text": "Start the Germany A1 route",
+          "href": "/germany-family-reunion-a1/"
+        },
+        {
+          "text": "Read Germany B1 guides",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "View Germany A1 route",
+          "href": "/germany-family-reunion-a1/"
+        },
+        {
+          "text": "Check the requirement",
+          "href": "/guides/german-family-reunion-language-requirement/"
+        },
+        {
+          "text": "Already have a certificate?",
+          "href": "/guides/goethe-a1-germany-family-reunion/"
+        },
+        {
+          "text": "Prepare booking and next steps",
+          "href": "/guides/german-a1-exam-booking-timeline/"
+        },
+        {
+          "text": "Open Route Finder",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Route FinderStart from purpose, country, and current instruction status.Use",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Germany B1 guidesSeparate guides for settlement permits and citizenship; verify the applicable authority route before relying on any proof.Browse",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "Germany A1 family reunionA configured planning route for staged requirement, exam, booking, and document checks.Start",
+          "href": "/germany-family-reunion-a1/"
+        },
+        {
+          "text": "Family reunionConfigured planning route",
+          "href": "/germany-family-reunion-a1/"
+        },
+        {
+          "text": "StudyVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "WorkVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "SettlementGuide entry — verify with the authority",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "CitizenshipGuide entry — verify with the authority",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "Not sure yetVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Coverage: core route guideGermany B1 for citizenship: separate language proof from the full fileCheck the B1 language-evidence step for German naturalisation while keeping civic knowledge, other conditions and local procedure separate.Updated 2026-09-13",
+          "href": "/guides/germany-b1-citizenship-language-proof/"
+        },
+        {
+          "text": "Leben in Deutschland and B1: keep civic knowledge and language separateUnderstand the separate roles of B1 language evidence and Leben in Deutschland without assuming one replaces the other for every route.Updated 2026-09-13",
+          "href": "/guides/germany-b1-leben-in-deutschland-and-language-proof/"
+        },
+        {
+          "text": "Germany B1 settlement and citizenship checklist: recheck before submissionUse a non-legal Germany B1 checklist to recheck authority instructions, language evidence and the wider file before submission.Updated 2026-09-13",
+          "href": "/guides/germany-b1-settlement-citizenship-checklist/"
+        }
+      ],
+      "overflowing": [],
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-en-1440.png",
+      "screenshotSha256": "7aed69efd85ec3927f5a8b6a451d7b7a456c6d4057827fc4dd6c6601f6f55e56",
+      "firstViewport": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-en-1440-first.png",
+      "firstViewportSha256": "a58b918d8c6f57ed3985f6c15095e6d95093eabcf285d604cab8f2aeefc769a4"
+    },
+    {
+      "name": "zh",
+      "path": "/zh/",
+      "url": "http://127.0.0.1:4353/zh/",
+      "status": 200,
+      "title": "德国团聚 A1、永居与入籍 B1 语言证明指南 | VisaLang",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "scrollWidth": 1440,
+      "bodyWidth": 1440,
+      "h1": "把德国语言证明的准备步骤理清楚。",
+      "frameworkOverlay": false,
+      "sections": [
+        {
+          "label": "featured-route-zh-CN",
+          "top": 785
+        },
+        {
+          "label": "zh-stage-title",
+          "top": 898.328125
+        },
+        {
+          "label": "zh-resources-title",
+          "top": 1502.703125
+        },
+        {
+          "label": "zh-purpose-title",
+          "top": 2066.890625
+        },
+        {
+          "label": "zh-guides-title",
+          "top": 2684.0625
+        },
+        {
+          "label": "zh-trust-title",
+          "top": 3256.28125
+        }
+      ],
+      "stageLinks": [
+        {
+          "text": "查看中文 A1 要求",
+          "href": "/zh/guides/german-family-reunion-language-requirement/"
+        },
+        {
+          "text": "比较 Goethe 与 telc",
+          "href": "/zh/guides/goethe-a1-vs-telc-a1/"
+        },
+        {
+          "text": "查看时间线与材料核对",
+          "href": "/zh/guides/german-a1-exam-booking-timeline/"
+        }
+      ],
+      "mainLinks": [
+        {
+          "text": "查看中文 A1 要求",
+          "href": "/zh/guides/german-family-reunion-language-requirement/"
+        },
+        {
+          "text": "查看 B1 指南（英文）",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "进入德国 A1 中文路线",
+          "href": "/zh/germany-family-reunion-a1/"
+        },
+        {
+          "text": "查看中文 A1 要求",
+          "href": "/zh/guides/german-family-reunion-language-requirement/"
+        },
+        {
+          "text": "比较 Goethe 与 telc",
+          "href": "/zh/guides/goethe-a1-vs-telc-a1/"
+        },
+        {
+          "text": "查看时间线与材料核对",
+          "href": "/zh/guides/german-a1-exam-booking-timeline/"
+        },
+        {
+          "text": "使用路线查找器",
+          "href": "/zh/tools/route-finder/"
+        },
+        {
+          "text": "路线查找器从目的、国家和当前说明状态开始。使用",
+          "href": "/zh/tools/route-finder/"
+        },
+        {
+          "text": "德国 B1 指南（英文）分别阅读永居与入籍的语言证明指南；不要把它当作完整的路线判断。浏览",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "德国 A1 中文路线按照决定顺序查看目前最完整的中文专题。查看",
+          "href": "/zh/germany-family-reunion-a1/"
+        },
+        {
+          "text": "家庭团聚已配置的规划路线",
+          "href": "/zh/germany-family-reunion-a1/"
+        },
+        {
+          "text": "留学（英文）仅提供核验起点",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "工作（英文）仅提供核验起点",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "永居（英文）指南入口 — 请向主管机关核验",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "入籍（英文）指南入口 — 请向主管机关核验",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "还不确定（英文）仅提供核验起点",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "覆盖范围：完整路线指南Goethe A1 与 telc A1：如何比较先确认主管机关可能接受的准确证明，再比较 Goethe A1 与 telc A1 的考试产品、考点和本地执行条件。更新于 2026-09-09",
+          "href": "/zh/guides/goethe-a1-vs-telc-a1/"
+        },
+        {
+          "text": "如何核验 Goethe 或 telc A1 官方考点从考试方官方入口确认考点和准确考试产品，再向所选考点核验日期、费用、证件、退改和出证流程。更新于 2026-09-09",
+          "href": "/zh/guides/goethe-a1-test-centers/"
+        },
+        {
+          "text": "德国 A1 报名时间线：如何倒排只使用你已确认的考试、出分、取证和材料节点倒排计划；未知日期保持未知，并回到负责机关或考点核验。更新于 2026-09-09",
+          "href": "/zh/guides/german-a1-exam-booking-timeline/"
+        }
+      ],
+      "overflowing": [],
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-zh-1440.png",
+      "screenshotSha256": "653e0f48a30f5093ccbe33184741be4094a31f2d7f5da0b7a9a4c313ab13bcc3",
+      "firstViewport": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-zh-1440-first.png",
+      "firstViewportSha256": "b10762efc6660ffc3def0b315fbd8e30755ad67342ff7632c316192831c36931"
+    },
+    {
+      "name": "routes",
+      "path": "/routes/",
+      "url": "http://127.0.0.1:4353/routes/",
+      "status": 200,
+      "title": "Language-proof routes | VisaLang",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "scrollWidth": 1440,
+      "bodyWidth": 1440,
+      "h1": "Choose your route before you choose an exam.",
+      "frameworkOverlay": false,
+      "sections": [
+        {
+          "label": "decision-order-title",
+          "top": 964.9375
+        },
+        {
+          "label": "route-tools-title",
+          "top": 1351.5
+        }
+      ],
+      "stageLinks": [],
+      "mainLinks": [
+        {
+          "text": "Open Route Finder",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Family reunionConfigured planning route",
+          "href": "/germany-family-reunion-a1/"
+        },
+        {
+          "text": "StudyVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "WorkVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "SettlementGuide entry — verify with the authority",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "CitizenshipGuide entry — verify with the authority",
+          "href": "/germany-b1-settlement-citizenship/"
+        },
+        {
+          "text": "Not sure yetVerification only",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Route FinderIdentify the authority and proof questions to verify first.",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "Requirement ChecklistTurn official checks into a trackable list.",
+          "href": "/tools/checklist-generator/"
+        },
+        {
+          "text": "Timeline PlannerWork backwards from your own deadline and verified timing inputs.",
+          "href": "/tools/timeline-calculator/"
+        }
+      ],
+      "overflowing": [],
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-routes-1440.png",
+      "screenshotSha256": "70aa9dd47ee3af95a3bb17a55b25f02ebf908c5314dc4a2f59d4a273daa56fca"
+    },
+    {
+      "name": "tools",
+      "path": "/tools/",
+      "url": "http://127.0.0.1:4353/tools/",
+      "status": 200,
+      "title": "Decision tools | VisaLang",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "scrollWidth": 1440,
+      "bodyWidth": 1440,
+      "h1": "Tools for planning a language-proof route.",
+      "frameworkOverlay": false,
+      "sections": [
+        {
+          "label": null,
+          "top": 383.96875
+        }
+      ],
+      "stageLinks": [],
+      "mainLinks": [
+        {
+          "text": "Start with Route Finder",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "AvailableRoute FinderIdentify the authority and proof questions to verify first.Open tool",
+          "href": "/tools/route-finder/"
+        },
+        {
+          "text": "AvailableRequirement ChecklistTurn official checks into a trackable list.Open tool",
+          "href": "/tools/checklist-generator/"
+        },
+        {
+          "text": "AvailableTimeline PlannerWork backwards from your own deadline and verified timing inputs.Open tool",
+          "href": "/tools/timeline-calculator/"
+        },
+        {
+          "text": "AvailableExam ComparisonCompare the questions that must be verified for two exams.Open tool",
+          "href": "/tools/exam-comparison/"
+        },
+        {
+          "text": "AvailableReminder PlannerCreate a local plan, calendar file, or printable reminder.Open tool",
+          "href": "/tools/email-reminders/"
+        }
+      ],
+      "overflowing": [],
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-tools-1440.png",
+      "screenshotSha256": "d6e7b68baf7bf2b976fb614867b77ab9fc53a7c8e5a832e01b611349de13dd21"
+    }
+  ]
+}

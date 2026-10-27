@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-05",
+  "previousBatchPath": "docs/module-handoffs/2026-09-28-integration",
+  "integrationOrder": [
+    {
+      "step": 1,
+      "moduleId": "W03",
+      "sourceStatus": "ready_for_integration",
+      "policy": "计划指定顺序，非新增产品依赖。"
+    },
+    {
+      "step": 2,
+      "moduleId": "W04",
+      "sourceStatus": "ready_for_integration",
+      "policy": "计划指定顺序，非新增产品依赖。"
+    },
+    {
+      "step": 3,
+      "moduleId": "W08",
+      "sourceStatus": "partial",
+      "policy": "计划指定顺序，非新增产品依赖。"
+    },
+    {
+      "step": 4,
+      "moduleId": "W07",
+      "sourceStatus": "partial",
+      "policy": "计划指定顺序，非新增产品依赖。"
+    }
+  ],
+  "sharedFileConflicts": [
+    {
+      "path": "src/pages/tools/route-finder.astro",
+      "modules": [
+        "W07",
+        "W08"
+      ],
+      "baselineSha256": "43dbdfed7fef56a09fefe0e2779458675403c84fb22a4acb06d34f3558d3d599",
+      "candidateSha256ByModule": {
+        "W08": "84ab46271e4f59208e274b2c88b5eadc32ed5e842c91909db13c05581323b78e",
+        "W07": "74e58c49d5b4fbdae527e6a0d89ecacee359a4e0193b9d11a4e28a1039784ab0"
+      },
+      "currentSha256": "43dbdfed7fef56a09fefe0e2779458675403c84fb22a4acb06d34f3558d3d599",
+      "resolution": "N01按分配基准、各模块候选和当前主树逐段三方合并，不整文件覆盖。"
+    },
+    {
+      "path": "src/styles/global.css",
+      "modules": [
+        "W03",
+        "W04",
+        "W07"
+      ],
+      "baselineSha256": "91ec92d4c37978c675a969bc66c729c1ec53716799f162243d9b25b7a2dbee8a",
+      "candidateSha256ByModule": {
+        "W03": "32c6b55e671dcf3b00c72e435d609516f7c3a85d65c987ca69baea98418707bd",
+        "W04": "6f23bcdef022d8a3f39fd3e869e4b7f3e70cf1899b7273f36232dc47a09b6abc",
+        "W07": "c15cbed5f347599b7a34371ea3b2f256baee821a35bc1a9d1f1c925b31a55940"
+      },
+      "currentSha256": "91ec92d4c37978c675a969bc66c729c1ec53716799f162243d9b25b7a2dbee8a",
+      "resolution": "N01按分配基准、各模块候选和当前主树逐段三方合并，不整文件覆盖。"
+    }
+  ],
+  "requiredThreeWayMergeFiles": [
+    "src/styles/global.css",
+    "src/pages/tools/route-finder.astro"
+  ],
+  "perModuleAllowedPaths": {
+    "W03": {
+      "allowedPaths": [
+        "src/pages/index.astro",
+        "src/pages/zh/index.astro",
+        "src/pages/routes/index.astro",
+        "src/pages/tools/index.astro",
+        "src/components/HomeHero.astro",
+        "src/components/RouteSelector.astro",
+        "src/components/GlobalHeader.astro",
+        "src/components/MobileNavigation.astro",
+        "src/styles/global.css",
+        "tests/task-4-home-routes.test.mjs",
+        "tests/m3-discovery-trust.test.mjs",
+        "docs/module-handoffs/2026-09-24-01/W03/**"
+      ],
+      "runtimeWritePaths": [
+        "node_modules/**",
+        "dist/**",
+        ".astro/**",
+        ".venv/**",
+        ".runtime/**"
+      ]
+    },
+    "W04": {
+      "allowedPaths": [
+        "src/content/guides/german-family-reunion-language-requirement.md",
+        "src/content/guides/goethe-a1-germany-family-reunion.md",
+        "src/pages/zh/guides/german-family-reunion-language-requirement.astro",
+        "src/pages/zh/guides/goethe-a1-germany-family-reunion.astro",
+        "src/data/zh-germany-a1.ts",
+        "src/data/zh-guide-task-reconciliation.ts",
+        "src/data/article-sections.ts",
+        "src/data/source-review.ts",
+        "src/layouts/GuideLayout.astro",
+        "src/components/ZhGuideLayout.astro",
+        "src/styles/global.css",
+        "tests/fan-42-germany-a1-requirement.test.js",
+        "tests/source-review-render.test.js",
+        "tests/scheme-3-chinese-page-sections.test.mjs",
+        "tests/article-sections-key-decisions.test.mjs",
+        "docs/module-handoffs/2026-09-24-01/W04/**"
+      ],
+      "runtimeWritePaths": [
+        "node_modules/**",
+        "dist/**",
+        ".astro/**",
+        ".venv/**",
+        ".runtime/**"
+      ]
+    },
+    "W08": {
+      "allowedPaths": [
+        "src/data/runtime-features.ts",
+        "astro.config.mjs",
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/GuideLayout.astro",
+        "src/components/tools/PurposeSuggestion.astro",
+        "src/scripts/purpose-suggestion.ts",
+        "src/pages/tools/route-finder.astro",
+        "src/pages/zh/tools/route-finder.astro",
+        "src/pages/privacy-policy.astro",
+        "src/pages/cookie-policy.astro",
+        "deploy/release.py",
+        "deploy/deploy.sh",
+        "deploy/rollback.sh",
+        "deploy/smoke-test.sh",
+        "deploy/nginx-vhost-template.conf",
+        "deploy/laya-purpose-nginx.conf",
+        "deploy/production-evidence.example.json",
+        "deploy/README.md",
+        "deploy/tests/test_release.py",
+        "scripts/launch-check.js",
+        "tests/deploy.test.js",
+        "tests/adsense-risk-exposure.test.js",
+        "tests/scheme-3-release-candidate.test.mjs",
+        "tests/site.test.js",
+        "tests/laya-purpose.test.mjs",
+        "tests/runtime-features.test.mjs",
+        "docs/module-handoffs/2026-09-24-01/W08/**"
+      ],
+      "runtimeWritePaths": [
+        "node_modules/**",
+        "dist/**",
+        ".astro/**",
+        ".venv/**",
+        ".runtime/**"
+      ]
+    },
+    "W07": {
+      "allowedPaths": [
+        "src/components/tools/ToolShell.astro",
+        "src/components/tools/ToolResultSupport.astro",
+        "src/scripts/tool-form.ts",
+        "src/scripts/plan-state.ts",
+        "src/pages/tools/route-finder.astro",
+        "src/pages/tools/checklist-generator.astro",
+        "src/pages/zh/tools/route-finder.astro",
+        "src/pages/zh/tools/checklist-generator.astro",
+        "src/styles/global.css",
+        "tests/m2a-plan-state-integration.test.mjs",
+        "tests/m2b-route-finder.test.mjs",
+        "tests/m2b-checklist-export.test.mjs",
+        "tests/m3-chinese-tool-contract.test.mjs",
+        "tests/t28-stale-results.test.mjs",
+        "docs/module-handoffs/2026-09-25-01/W07/**"
+      ],
+      "runtimeWritePaths": [
+        "node_modules/**",
+        "dist/**",
+        ".astro/**",
+        ".runtime/**"
+      ]
+    }
+  },
+  "currentTreeStatus": "All 139 allocated current-main/base hashes are rechecked against 10/05 live bytes; see intake statuses. No feature patch applied.",
+  "handling": "Serial W03 → W04 → W08 → W07. Merge global.css by hunk for W03/W04/W07 and route-finder.astro by hunk for W08/W07. Preserve unrelated dirty paths."
+}

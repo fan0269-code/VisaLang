@@ -1,0 +1,337 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "VisaLang 网站建设规划：内容与 Laya",
+    "locale": "zh-CN",
+    "output": "docs/planning-map/visalang-overall-build-plan.html",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    {
+      "id": "strategy",
+      "label": "产品方向"
+    },
+    {
+      "id": "milestones",
+      "label": "建设里程碑"
+    },
+    {
+      "id": "governance",
+      "label": "每次内容／规划更新"
+    },
+    {
+      "id": "release",
+      "label": "独立复核与外部门禁",
+      "variant": "exception"
+    }
+  ],
+  "phases": [
+    {
+      "id": "foundation",
+      "label": "定位与已完成基础",
+      "fromCol": 0,
+      "toCol": 1
+    },
+    {
+      "id": "core",
+      "label": "内容资产与模型验收",
+      "fromCol": 2,
+      "toCol": 3,
+      "variant": "emphasis"
+    },
+    {
+      "id": "expansion",
+      "label": "联合发布与持续建设",
+      "fromCol": 4,
+      "toCol": 5,
+      "variant": "dashed"
+    }
+  ],
+  "groups": [
+    {
+      "id": "content_model",
+      "label": "规划下一批；不代表已实施",
+      "lane": "milestones",
+      "fromCol": 2,
+      "toCol": 3,
+      "variant": "emphasis"
+    },
+    {
+      "id": "continuous_sync",
+      "label": "强制同步循环",
+      "lane": "governance",
+      "fromCol": 0,
+      "toCol": 4,
+      "variant": "security"
+    }
+  ],
+  "mainPath": [
+    "north_star",
+    "foundation_done",
+    "content_intent",
+    "laya_gate",
+    "joint_release",
+    "operate_expand"
+  ],
+  "semanticChecks": {
+    "allowedRoots": [
+      "north_star"
+    ],
+    "allowedTerminals": [
+      "operate_expand",
+      "owner_release"
+    ],
+    "requiredEdges": [
+      {
+        "from": "content_intent",
+        "to": "laya_gate"
+      },
+      {
+        "from": "laya_gate",
+        "to": "joint_release"
+      },
+      {
+        "from": "independent_audit",
+        "to": "owner_release"
+      }
+    ],
+    "requiredPaths": [
+      {
+        "from": "north_star",
+        "to": "operate_expand"
+      },
+      {
+        "from": "north_star",
+        "to": "owner_release"
+      },
+      {
+        "from": "change_freeze",
+        "to": "independent_audit"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": "north_star",
+      "lane": "strategy",
+      "col": 0,
+      "type": "frontend",
+      "label": "德国准备导航",
+      "sublabel": "目的确认与核验",
+      "tag": "A1 优先／B1 深化"
+    },
+    {
+      "id": "foundation_done",
+      "lane": "milestones",
+      "col": 1,
+      "type": "database",
+      "label": "既有内容与工具",
+      "sublabel": "25 项已完成",
+      "tag": "5 项进行中"
+    },
+    {
+      "id": "content_intent",
+      "lane": "milestones",
+      "col": 2,
+      "type": "backend",
+      "label": "内容＋意图资产",
+      "sublabel": "12 包内容待实施",
+      "tag": "事实与语料分开"
+    },
+    {
+      "id": "laya_gate",
+      "lane": "milestones",
+      "col": 3,
+      "type": "security",
+      "label": "Laya 上线门槛",
+      "sublabel": "质量＋容量待验",
+      "tag": "未达标不上线"
+    },
+    {
+      "id": "joint_release",
+      "lane": "milestones",
+      "col": 4,
+      "type": "cloud",
+      "label": "M5 联合发布",
+      "sublabel": "网站＋模型＋广告",
+      "tag": "验证后另行授权"
+    },
+    {
+      "id": "operate_expand",
+      "lane": "milestones",
+      "col": 5,
+      "type": "frontend",
+      "label": "M6 内容运营",
+      "sublabel": "A1 巩固／B1 深化",
+      "tag": "扩展须需求证据"
+    },
+    {
+      "id": "change_freeze",
+      "lane": "governance",
+      "col": 0,
+      "type": "messagebus",
+      "label": "冻结变更",
+      "sublabel": "内容／规划路径"
+    },
+    {
+      "id": "authority_map_sync",
+      "lane": "governance",
+      "col": 1,
+      "type": "database",
+      "label": "权威与图同步",
+      "sublabel": "计划＋范围指纹"
+    },
+    {
+      "id": "drift_gate",
+      "lane": "governance",
+      "col": 2,
+      "type": "security",
+      "label": "五维偏航检查",
+      "sublabel": "范围／权威／依赖",
+      "tag": "证据／发布"
+    },
+    {
+      "id": "automated_evidence",
+      "lane": "governance",
+      "col": 3,
+      "type": "backend",
+      "label": "自动与视觉验证",
+      "sublabel": "测试＋Archify"
+    },
+    {
+      "id": "independent_audit",
+      "lane": "release",
+      "col": 4,
+      "type": "security",
+      "label": "独立 Auditor",
+      "sublabel": "P0–P2 归零",
+      "tag": "必需"
+    },
+    {
+      "id": "owner_release",
+      "lane": "release",
+      "col": 5,
+      "type": "external",
+      "label": "Owner 门禁",
+      "sublabel": "网站＋Laya＋广告",
+      "tag": "not_deployed"
+    }
+  ],
+  "edges": [
+    {
+      "id": "main_north_star_foundation_done",
+      "from": "north_star",
+      "to": "foundation_done",
+      "role": "main"
+    },
+    {
+      "id": "main_foundation_done_content_intent",
+      "from": "foundation_done",
+      "to": "content_intent",
+      "role": "main"
+    },
+    {
+      "id": "main_content_intent_laya_gate",
+      "from": "content_intent",
+      "to": "laya_gate",
+      "role": "main",
+      "label": "建议确认后用规则"
+    },
+    {
+      "id": "main_laya_gate_joint_release",
+      "from": "laya_gate",
+      "to": "joint_release",
+      "role": "main",
+      "label": "质量／容量／广告都通过"
+    },
+    {
+      "id": "main_joint_release_operate_expand",
+      "from": "joint_release",
+      "to": "operate_expand",
+      "role": "main",
+      "label": "上线后 24 小时／7 天"
+    },
+    {
+      "id": "branch_window",
+      "from": "north_star",
+      "to": "change_freeze",
+      "label": "每个维护窗口",
+      "variant": "dashed",
+      "role": "branch"
+    },
+    {
+      "id": "sync_authority",
+      "from": "change_freeze",
+      "to": "authority_map_sync",
+      "role": "branch"
+    },
+    {
+      "id": "sync_drift",
+      "from": "authority_map_sync",
+      "to": "drift_gate",
+      "role": "branch"
+    },
+    {
+      "id": "sync_evidence",
+      "from": "drift_gate",
+      "to": "automated_evidence",
+      "label": "aligned／approved",
+      "variant": "emphasis",
+      "role": "branch"
+    },
+    {
+      "id": "sync_audit",
+      "from": "automated_evidence",
+      "to": "independent_audit",
+      "role": "branch"
+    },
+    {
+      "id": "sync_owner",
+      "from": "independent_audit",
+      "to": "owner_release",
+      "label": "PASS 只关闭质量门禁",
+      "variant": "security",
+      "role": "branch"
+    },
+    {
+      "id": "drift_return",
+      "from": "drift_gate",
+      "to": "authority_map_sync",
+      "label": "unresolved：收缩或补授权",
+      "variant": "security",
+      "role": "return"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "amber",
+      "title": "当前真实状态",
+      "items": [
+        "基线：25 完成／5 进行中／4 待开始",
+        "Laya 11/20；Mac 峰值 4.14 GB",
+        "同步：VL-PMAP-20260923-01",
+        "指纹：955cffb7 7a007a59 5069f6f6 65315241 c0e78f73 10613222 da15069a f7b7d3ce"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "12 周滚动内容计划",
+      "items": [
+        "1–2 周：能力说明、意图语料、A1 核心",
+        "3–4 周：工具与报名／材料闭环",
+        "5–8 周：训练资产与 B1 条件式深化",
+        "9–12 周：真实数据决定最多三项改进"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "本次授权与边界",
+      "items": [
+        "approved-deviation：仅更新建设规划",
+        "Laya 建议不产生资格、费用或官方结论",
+        "新内容、模型改动与发布尚未执行"
+      ]
+    }
+  ]
+}

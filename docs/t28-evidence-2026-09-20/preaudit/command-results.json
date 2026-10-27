@@ -1,0 +1,47 @@
+{
+  "focused": {
+    "command": [
+      "node",
+      "tests/t27-measurement-privacy.test.mjs"
+    ],
+    "exitCode": 0
+  },
+  "npm-test": {
+    "command": [
+      "npm",
+      "test"
+    ],
+    "exitCode": 1
+  },
+  "build": {
+    "command": [
+      "npm",
+      "run",
+      "build"
+    ],
+    "exitCode": 0
+  },
+  "launch-check": {
+    "command": [
+      "npm",
+      "run",
+      "launch-check"
+    ],
+    "exitCode": 1
+  },
+  "planning-governance": {
+    "command": [
+      "node",
+      "tests/planning-map-governance.test.mjs"
+    ],
+    "exitCode": 1
+  },
+  "diff-check": {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exitCode": 0
+  }
+}

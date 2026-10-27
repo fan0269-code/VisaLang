@@ -1,0 +1,84 @@
+{
+  "status": "pass",
+  "baselineId": "6575f350de1af90c9d439d99573ff3b16c50c17b2de2d234e0a08bd430a232c8",
+  "snapshotCopies": [
+    {
+      "path": "/private/tmp/visalang-W00-2026-09-23-01/baseline",
+      "baselineId": "6575f350de1af90c9d439d99573ff3b16c50c17b2de2d234e0a08bd430a232c8",
+      "matchedFiles": 1115
+    },
+    {
+      "path": "/private/tmp/visalang-W00-2026-09-23-01/W01",
+      "baselineId": "6575f350de1af90c9d439d99573ff3b16c50c17b2de2d234e0a08bd430a232c8",
+      "matchedFiles": 1115
+    },
+    {
+      "path": "/private/tmp/visalang-W00-2026-09-23-01/W02",
+      "baselineId": "6575f350de1af90c9d439d99573ff3b16c50c17b2de2d234e0a08bd430a232c8",
+      "matchedFiles": 1115
+    },
+    {
+      "path": "/private/tmp/visalang-W00-2026-09-23-01/W08",
+      "baselineId": "6575f350de1af90c9d439d99573ff3b16c50c17b2de2d234e0a08bd430a232c8",
+      "matchedFiles": 1115
+    }
+  ],
+  "unchangedProductFileCount": 335,
+  "checkedAllowedExistingSourceDelta": [
+    "README.md",
+    "docs/CONTENT_MAP.md",
+    "docs/TASK_LOG.md",
+    "docs/master-package-2026-09-08/BACKLOG_STATUS_OVERLAY_2026-09-09.md",
+    "docs/master-package-2026-09-08/EXECUTION_RECORD.md",
+    "docs/master-package-2026-09-08/VisaLang-Master-Plan.md",
+    "docs/planning-map/history.json",
+    "docs/planning-map/visalang-overall-build-plan.archify.json",
+    "docs/planning-map/visalang-overall-build-plan.html",
+    "docs/planning-map/visalang-overall-build-plan.visual-check.1440x900.dark.png",
+    "docs/planning-map/visalang-overall-build-plan.visual-check.1440x900.light.png",
+    "docs/planning-map/visalang-overall-build-plan.visual-check.2048x1320.dark.png",
+    "docs/planning-map/visalang-overall-build-plan.visual-check.2048x1320.light.png",
+    "docs/planning-map/visalang-overall-build-plan.visual-check.json",
+    "docs/planning-map/visual-review.json"
+  ],
+  "nodesEdgesAndAllNonCardDiagramFieldsUnchanged": true,
+  "priorAuthorityAndTaskLogLinesPreserved": true,
+  "headBranchIndexAndStagedUnchanged": true,
+  "diffCheckExitCode": 0,
+  "ports": [
+    {
+      "port": 4311,
+      "availableAtCheck": null,
+      "reason": "sandbox denied socket bind; recheck at execution"
+    },
+    {
+      "port": 4312,
+      "availableAtCheck": null,
+      "reason": "sandbox denied socket bind; recheck at execution"
+    },
+    {
+      "port": 4318,
+      "availableAtCheck": null,
+      "reason": "sandbox denied socket bind; recheck at execution"
+    },
+    {
+      "port": 8782,
+      "availableAtCheck": null,
+      "reason": "sandbox denied socket bind; recheck at execution"
+    }
+  ],
+  "portReservation": "not reserved; recheck at launch",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "vaultDirectoryExists": false,
+  "vaultTemplateExists": false,
+  "notPerformed": [
+    "model inference",
+    "module implementation",
+    "human research",
+    "external actions",
+    "commit",
+    "push",
+    "deployment"
+  ]
+}

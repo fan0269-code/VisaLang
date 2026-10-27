@@ -1,0 +1,17 @@
+# Independent Auditor submission — 2026-09-28
+
+Owner task: 审查项目规划与内容进度，根据现有规划写下一阶段规划和提示词。Submitted scope is documentation, read-only observation receipts, historical module evidence copies, and planning-map governance. No module implementation is applied or approved by this window.
+
+Baseline: codex/scheme-3-one-week-content @ 4cb57e8744c752fed1881281e69e7b24cc7281c4. Local upstream refs 0/0, no fetch; staged 0, tracked dirty 129. Detailed status and hashes: baseline.json / baseline-status.txt. Capture occurred after bootstrapping this evidence directory and before planning edits; untracked count includes its initial files. Existing unrelated work is explained and preserved, not submitted as new work. Source/deploy/services/tests/public preservation: implementation-preservation.json.
+
+Exact scope: candidate-manifest.json, equal to sync.scope.changedPaths. Audit report itself is the Auditor-owned output and not part of its input manifest. Before snapshots identify changed pre-existing files; other submitted artifacts are new. tests/site.test.js is an unchanged frozen verification input included because the existing governance contract requires its byte binding; no test change is proposed. Review source/plan/prompt changes against the current Master/overlay/execution chain and 9/23–24 supplements. Review progress claims against module-inventory.json, archived handoffs/patches/logs and content-inventory.json. Historical W04 official-source assertions are not newly endorsed or rechecked; this scope adds no immigration, exam or fee fact. Module source correctness remains the future integration audit's scope.
+
+Decisions: current source routes, 20 guide index whitelist, 14 EN ad-eligibility ceiling, all noindex/sitemap controls, disabled runtime ads, and deployment code unchanged. Current candidate not_deployed. No external actions or API calls. Drift aligned: next work consumes already-existing candidates inside approved modules; no milestone or release gate broadened. Site feature implementation is deferred to the copyable prompts; the user requested planning output in this task.
+
+Validation: baseline npm test exit 0 in baseline-npm-test.log; document links and diff check in document-checks.json; no standalone launch-check because no route/navigation/metadata/deployment implementation changed. Archify validate/deliver receipts pass 9/9. Initial Chrome sandbox SIGABRT is retained; identical approved retry succeeds. Exact browser receipt and four screenshots are under docs/planning-map; visual-review.json records separate actual image-capable inspection.
+
+Before audit: run node tests/planning-map-governance.test.mjs and expect only the missing-new-audit gate, with actual output at /private/tmp/visalang-next-stage-2026-09-28-preaudit.log. After Auditor PASS: final governance and npm test run sequentially, logs at /private/tmp/visalang-next-stage-2026-09-28-postaudit/; do not edit sealed candidate bytes to backfill results.
+
+Configured Vault root/template absent; vault-review.md is unsynced payload only; actual status blocked. owner_authorization pending, deployment_status not_started.
+
+Requested output: docs/planning-map/VISALANG_NEXT_STAGE_INDEPENDENT_AUDIT_2026-09-28.md. Follow the strict front matter expected by tests/planning-map-governance.test.mjs, bind exact sync bytes and full frozen scope. Open all four screenshots and inspect archived evidence; provide PASS only if no P0/P1/P2 remains. Do not write candidate files. Owner release authority and production evidence remain separate.

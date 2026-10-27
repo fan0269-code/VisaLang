@@ -1,0 +1,36 @@
+[
+  {
+    "id": "en-keyboard-character-selection",
+    "precondition": "Chrome macOS headless; restart focuses country",
+    "steps": "g Tab f Tab g Tab s Tab n Tab Enter, no mouse after restart",
+    "expected": "A1 result and focus on result",
+    "status": "pass",
+    "actual": {
+      "focus": [
+        "country",
+        "purpose",
+        "applicationRegionId",
+        "relationship",
+        "certificate"
+      ],
+      "result": "Status: Guidance available\n\nGermany family reunion: A1 verification route\nSelection summary\nCountry\nGermany\nPurpose\nFamily reunion\nApplication region\nGerman mission responsible for a China application location\nRelationship\nSpouse reunification\nCertificate\nNo certificate yet\nWhat the current evidence supports\n\nUse the applicant’s ordinary residence to identify the competent German mission, save its current instruction, and keep application-proof questions separate from Goethe product and selected-centre booking questions.\n\nInformation still missing or unconfirmed\nThe current local mission instruction and exact route details have to be checked for the applicant’s location.\nVersioned evidence basis\n\nRule germany-family-reunion-a1-authority-guidance, version 2026-09-09.1.\n\nClaim germany-family-reunion-a1-general-starting-rule, version 2026-09-08.1; source checked 2026-09-08.\nGerman Federal Foreign Office — Not proof of every family-reunion category, exception, accepted certificate, or individual result.\nClaim germany-family-reunion-a1-authority-split, version 2026-09-08.1; source checked 2026-09-08.\nGerman Federal Foreign Office — Specific to the described scenario; it does not determine every family route or an individual result.\nGerman Federal Foreign Office — Residence facts are required to identify a particular mission; this is not an eligibility decision.\nWho is responsible\nthe local German mission or competent German authority handling your application\nThe exam owner and selected official or authorised test centre\nNext steps\nVerify the language-proof question and any exception with the competent German mission or receiving authority.\nConfirm the exact accepted adult A1 product before comparing local booking options.\nOpen the working checklist, then use Timeline only after you have current local dates and planning assumptions.\n\nBoundary: Guidance identifies the verification order only. It does not decide whether proof is required, whether an exception applies, or whether a certificate will be accepted.\n\nGermany A1 family reunion guide / Open Checklist / Open Timeline\n\nInformational guidance only. This tool organises planning questions; it does not decide visa eligibility, certificate acceptance, exam availability, or an individual application outcome.\nOfficial check before you act\n\nConfirm the exact requirement, accepted certificate, documents, date, fee, result process, and local centre rules with the authority or official centre that receives your file.\n\nContinue your plan\n\nBrowse route guides\n\nOpen Checklist / Open Timeline\n\nCopy result\nPrint planExport text file"
+    },
+    "screenshot": "en-keyboard-character-selection.png"
+  },
+  {
+    "id": "zh-keyboard-tab-traversal",
+    "precondition": "Chrome macOS headless, blank form",
+    "steps": "Restart then Tab through fields and the submit control",
+    "expected": "Controls reachable in DOM order",
+    "status": "pass",
+    "actual": [
+      "country",
+      "purpose",
+      "applicationRegionId",
+      "relationship",
+      "certificate",
+      "查找起始路线"
+    ],
+    "fullNativeDropdownSelection": "not_tested: arrow keys did not commit native select options in this automation environment; do not infer product accessibility failure or full keyboard PASS"
+  }
+]

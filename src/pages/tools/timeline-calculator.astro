@@ -1,66 +1,166 @@
 ---
 import ToolLayout from '../../layouts/ToolLayout.astro';
 import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
+import { getExamComparisonOptions, TIMELINE_BUFFER_MAX_DAYS } from '../../data/route-tools';
+import { getToolCopy, type ToolLocale } from '../../data/tool-copy';
+
+export interface Props { locale?: ToolLocale; }
+const { locale = 'en' } = Astro.props;
+const copy = getToolCopy('timeline', locale);
+const isZh = locale === 'zh-CN';
+const examComparisonOptions = getExamComparisonOptions({ locale });
 ---
 
-<ToolLayout eyebrow="Plan backwards" title="Timeline Planner" description="Build backwards from your target date using only the buffers you enter. This planning estimate does not claim real centre dates or result timing." current="timeline">
+<ToolLayout eyebrow={copy.eyebrow} title={copy.title} description={copy.description} current="timeline" locale={locale}>
     <div class="tool-workspace">
-      <form id="timeline-form" class="tool-form" novalidate>
-        <div class="tool-form-heading"><h2>Enter your own planning buffers</h2><p>Use current official centre information for every input. The calculator does not know local availability.</p></div>
+      <form id="timeline-form" class="tool-form" novalidate inert>
+        <div class="tool-form-heading"><h2>{copy.formTitle}</h2><p>{copy.formIntro}</p></div>
         <div class="tool-field-grid">
-          <label>Target submission date<input name="targetDate" type="date" required /></label>
-          <label>Exam type<select name="examType" required><option value="">Select an exam type</option><option>Goethe-Zertifikat A1</option><option>telc Deutsch A1</option><option>Another exam</option></select></label>
-          <label>Result waiting time (days)<input name="resultWaitDays" type="number" min="0" required inputmode="numeric" aria-describedby="timeline-input-help" /></label>
-          <label>Retake buffer (days)<input name="retakeBufferDays" type="number" min="0" required inputmode="numeric" aria-describedby="timeline-input-help" /></label>
-          <label>Translation / certification time (days)<input name="translationDays" type="number" min="0" required inputmode="numeric" aria-describedby="timeline-input-help" /></label>
+          <label>{copy.fields.targetDate}<input name="targetDate" type="date" required /></label>
+          <label>{copy.fields.exam}<select name="examId" required><option value="">{copy.text.selectExam}</option>{examComparisonOptions.map((exam) => <option value={exam.id}>{exam.label}</option>)}</select></label>
+          <label>{copy.fields.wait}<input name="resultWaitDays" type="number" min="0" max={TIMELINE_BUFFER_MAX_DAYS} step="1" required inputmode="numeric" aria-describedby="timeline-input-help" /></label>
+          <label>{copy.fields.documents}<input name="documentPreparationDays" type="number" min="0" max={TIMELINE_BUFFER_MAX_DAYS} step="1" required inputmode="numeric" aria-describedby="timeline-input-help" /></label>
+          <label>{copy.fields.retake}<input name="retakeBufferDays" type="number" min="0" max={TIMELINE_BUFFER_MAX_DAYS} step="1" required inputmode="numeric" aria-describedby="timeline-input-help" /></label>
         </div>
-        <p id="timeline-input-help">Enter only values you confirmed for your own centre and document process. No default timing is assumed.</p>
+        <p id="timeline-input-help">{copy.text.inputHelp}</p>
         <div class="tool-error-summary" id="timeline-error" data-error-summary role="alert" tabindex="-1" hidden></div>
-        <button class="primary-action" type="submit">Calculate planning dates</button>
+        <button class="primary-action" type="submit">{copy.submitLabel}</button>
       </form>
       <section id="timeline-result" class="tool-result" hidden aria-live="polite" tabindex="-1">
         <div id="timeline-summary"></div>
-        <ToolResultSupport resultId="timeline-summary" />
+        <ToolResultSupport resultId="timeline-summary" locale={locale} />
       </section>
     </div>
+
+    {isZh && <section class="tool-guidance" data-tool-guidance aria-labelledby="timeline-guidance-title">
+      <h2 id="timeline-guidance-title">{copy.guidanceTitle}</h2>
+      <p>只有在你已有自己计划中的目标日期，并为每段外部等待取得当前书面信息时，才使用本工具。计算器只做减法，不会查找预约、名额、出分安排、重考规则、翻译要求或主管机关截止日期。</p>
+      <h3>输入与公式</h3>
+      <p>基础规划日期为 D − W − P；额外缓冲规划日期为 D − W − P − R。W、P、R 必须是你明确记录的假设或向相关机构确认的日历日数。</p>
+      <h3>何时应停止</h3>
+      <p>若任一字段未知、来自无关考点、依据口头承诺而非当前公布信息，或目标日期尚未确认，请保持未解决状态，不要为了得到结果而填入“通常”天数。</p>
+      <h3>下一项官方核验</h3>
+      <p>通过 <a href="https://www.goethe.de/en/spr/prf.html" target="_blank" rel="noreferrer">Goethe-Institut 考试目录</a>或 <a href="https://www.telc.net/en/language-examinations/find-a-telc-examination-centre/" target="_blank" rel="noreferrer">telc 考点查找器</a>找到所选考点，并保存每项缓冲期的来源、核验日期和范围；递交日期和材料规则应另向接收机关确认。</p>
+    </section>}
+    {!isZh && <section class="tool-guidance" data-tool-guidance aria-labelledby="timeline-guidance-title">
+      <h2 id="timeline-guidance-title">When the Timeline Planner is safe to use</h2>
+      <p>Use this planner only after you have a target date from your own application plan and written, current inputs for every external wait. The calculator performs subtraction; it does not discover an appointment, exam seat, result schedule, retake rule, translation requirement, or authority deadline. Do not use an online anecdote or another centre's timetable as a substitute for the organisation that controls your transaction.</p>
+
+      <h3>Example input using confirmed buffers</h3>
+      <dl data-tool-example-input>
+        <dt>Target date (D)</dt><dd>The date in the user's own plan or current receiving-authority instruction.</dd>
+        <dt>Exam type</dt><dd>The exact product being considered, such as Goethe-Zertifikat A1, without assuming it is accepted.</dd>
+        <dt>Result and certificate wait (W)</dt><dd>The calendar-day number stated in the selected centre's current written information or entered explicitly as the user's assumption.</dd>
+        <dt>Document preparation (P)</dt><dd>The calendar-day number confirmed for the user's actual document service and receiving authority.</dd>
+        <dt>Additional retake buffer (R)</dt><dd>A user-chosen calendar-day contingency after checking the centre's retake and booking process.</dd>
+      </dl>
+
+      <h3>How to read the example output</h3>
+      <div data-tool-example-output>
+        <p>The base planning date is D − W − P. The additional-buffer planning date is D − W − P − R. Neither date is an appointment or a recommendation. It does not prove that a session, result or certificate will fit the plan. R is only the entered extra buffer: it does not guarantee or automatically include a real next session, re-registration, another result wait or certificate delivery.</p>
+      </div>
+
+      <h3>Stop and verify before calculating</h3>
+      <p>Stop if any field is unknown, copied from an unrelated centre, based on a promised rather than published result, or older than the latest official update. Also stop if the target date is only a rumour or if the route may not require the planned proof. Leave the plan unresolved until each responsible organisation supplies the missing fact; do not enter a “typical” number just to obtain a result.</p>
+
+      <h3>Official follow-up after the timeline</h3>
+      <p>Reopen the selected provider or centre page—for example, use the <a href="https://www.goethe.de/en/spr/prf.html" target="_blank" rel="noreferrer">Goethe-Institut examination directory</a> or the <a href="https://www.telc.net/en/language-examinations/find-a-telc-examination-centre/" target="_blank" rel="noreferrer">telc examination-centre finder</a>—and save the exact source, check date, and scope of every entered buffer. Then confirm the submission date and document-handling rule with the receiving authority. The centre controls its schedule; the receiving authority controls what and when it will receive.</p>
+    </section>}
 </ToolLayout>
 
 <script>
-  import { calculateTimeline } from '../../data/route-tools';
+  import { getExamComparisonOptions, getTimelineResultState, parseTimelineBufferDays, timelinePlanningContract, TIMELINE_BUFFER_MAX_DAYS } from '../../data/route-tools';
+  import { getToolCopy } from '../../data/tool-copy';
+  import { setupSharedPlan } from '../../scripts/plan-state';
   import { setupToolForm } from '../../scripts/tool-form';
 
   const form = document.querySelector<HTMLFormElement>('#timeline-form');
   const resultPanel = document.querySelector<HTMLElement>('#timeline-result');
   const summary = document.querySelector<HTMLElement>('#timeline-summary');
+  const locale = document.documentElement.lang === 'zh-CN' ? 'zh-CN' : 'en';
+  const isZh = locale === 'zh-CN';
+  const copy = getToolCopy('timeline', locale);
+  const examComparisonOptions = getExamComparisonOptions({ locale });
 
-  const controller = form ? setupToolForm(form, { persistedNames: ['targetDate', 'examType', 'resultWaitDays', 'retakeBufferDays', 'translationDays'] }) : undefined;
+  const invalidateTimeline = () => {
+    if (summary) summary.replaceChildren();
+    if (resultPanel) resultPanel.hidden = true;
+  };
+
+  const plan = setupSharedPlan({ toolId: 'timeline', form });
+  const timelineDayFields = new Set(['resultWaitDays', 'documentPreparationDays', 'retakeBufferDays']);
+  const controller = form ? setupToolForm(form, {
+    customError: (field) => timelineDayFields.has(field.name) && field.value && parseTimelineBufferDays(field.value) === null
+      ? (isZh ? `请仅用数字输入 0 到 ${TIMELINE_BUFFER_MAX_DAYS} 之间的整数。` : `Enter a whole number from 0 to ${TIMELINE_BUFFER_MAX_DAYS} using digits only.`)
+      : undefined,
+    locale,
+    onRestart: () => { invalidateTimeline(); plan.restartCurrentTool(); },
+  }) : undefined;
+  form?.addEventListener('input', invalidateTimeline);
+  form?.addEventListener('change', invalidateTimeline);
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
     if (!controller?.validate()) return;
     const input = Object.fromEntries(new FormData(form).entries());
-    const plan = calculateTimeline(input);
-    if (!plan || !summary || !resultPanel) {
+    const timelineState = getTimelineResultState(input, { locale });
+    if (timelineState.status === 'invalid') {
+      if (summary) summary.replaceChildren();
+      if (resultPanel) resultPanel.hidden = true;
+      controller.reportError(timelineState.field === 'today' ? 'targetDate' : timelineState.field, timelineState.message);
       return;
     }
-    controller.persist();
+    const timelineResult = timelineState.calculation;
+    if (!summary || !resultPanel) return;
+    plan.persist({
+      examId: input.examId,
+      targetDate: input.targetDate,
+      resultWaitDays: input.resultWaitDays,
+      documentPreparationDays: input.documentPreparationDays,
+      retakeBufferDays: input.retakeBufferDays,
+    });
     summary.replaceChildren();
     const heading = document.createElement('h2');
-    heading.textContent = 'Your planning estimate';
+    heading.textContent = copy.resultTitle;
     const intro = document.createElement('p');
-    intro.textContent = `For ${String(input.examType)}, these dates are calculated only from the ${plan.totalPlanningDays} days you entered.`;
+    const selectedExam = examComparisonOptions.find((exam) => exam.id === input.examId);
+    intro.textContent = isZh
+      ? `对于${selectedExam?.label || '所选考试'}，基础日期倒推 ${timelineResult.basePlanningDays} 个日历日；额外缓冲日期倒推 ${timelineResult.additionalBufferPlanningDays} 个日历日。`
+      : `For ${selectedExam?.label || 'the selected exam'}, the base date subtracts ${timelineResult.basePlanningDays} calendar days; the additional-buffer date subtracts ${timelineResult.additionalBufferPlanningDays} calendar days.`;
+    const formula = document.createElement('p');
+    formula.textContent = isZh ? `基础公式：${timelinePlanningContract.formulas.basePlanningDate}。额外缓冲公式：${timelinePlanningContract.formulas.additionalBufferPlanningDate}。` : `Base: ${timelinePlanningContract.formulas.basePlanningDate}. Additional buffer: ${timelinePlanningContract.formulas.additionalBufferPlanningDate}.`;
     const list = document.createElement('dl');
     list.className = 'tool-timeline-list';
-    [['Target submission', plan.targetDate], ['Latest test date without retake buffer', plan.latestTestDate], ['Cautious test date with your retake buffer', plan.cautiousTestDate]].forEach(([label, date]) => {
+    [
+      [copy.fields.targetDate, timelineResult.targetDate],
+      [isZh ? '成绩与证书等待（W）' : 'Result and certificate wait (W)', isZh ? `${String(input.resultWaitDays)} 个日历日` : `${String(input.resultWaitDays)} calendar days`],
+      [isZh ? '材料准备（P）' : 'Document preparation (P)', isZh ? `${String(input.documentPreparationDays)} 个日历日` : `${String(input.documentPreparationDays)} calendar days`],
+      [isZh ? '额外重考缓冲（R）' : 'Additional retake buffer (R)', isZh ? `${String(input.retakeBufferDays)} 个日历日` : `${String(input.retakeBufferDays)} calendar days`],
+      [isZh ? '基础规划日期' : 'Base planning date', `${timelineResult.basePlanningDate} (${isZh ? ({ past: '已过去', today: '今天', future: '未来' }[timelineState.basePlanningDateState]) : timelineState.basePlanningDateState})`],
+      [isZh ? '额外缓冲规划日期' : 'Additional-buffer planning date', `${timelineResult.additionalBufferPlanningDate} (${isZh ? ({ past: '已过去', today: '今天', future: '未来' }[timelineState.additionalBufferPlanningDateState]) : timelineState.additionalBufferPlanningDateState})`],
+    ].forEach(([label, date]) => {
       const term = document.createElement('dt'); term.textContent = label;
       const detail = document.createElement('dd'); detail.textContent = date;
       list.append(term, detail);
     });
-    const notice = document.createElement('p');
-    notice.textContent = 'Planning estimate: confirm actual booking availability, result timing, retake rules, and document handling with the official centre and receiving authority.';
-    summary.append(heading, intro, list, notice);
+    const boundary = document.createElement('p');
+    boundary.textContent = isZh ? 'W、P 和 R 是用户输入的规划假设或当地确认值，并非官方默认值；任何计算日期都不保证报名、成绩、证书、接受决定或申请结果。' : timelinePlanningContract.boundary;
+    const retakeBoundary = document.createElement('p');
+    retakeBoundary.textContent = isZh ? 'R 只是额外日历日缓冲，不保证或自动包含真实的下一场考试、重新报名、另一笔费用、再次等待成绩或证书寄送。' : timelinePlanningContract.retakeBoundary;
+    summary.append(heading, intro, formula, list);
+    if (timelineState.requiresAttention) {
+      const attention = document.createElement('section');
+      attention.className = 'tool-notice tool-notice--attention';
+      const attentionHeading = document.createElement('h3');
+      attentionHeading.textContent = isZh ? '需要调整当前假设' : 'The current assumptions need to change';
+      const attentionText = document.createElement('p');
+      attentionText.textContent = isZh ? `按当前输入，至少一个规划日期早于 ${timelineState.today}，因此不能再按此方式安排。请调整假设，或核验真实可用场次与当前出分流程。` : `With the current inputs, this plan can no longer be arranged this way because at least one calculated planning date is before ${timelineState.today}. Change the assumptions or check an actual available session and current result process.`;
+      attention.append(attentionHeading, attentionText);
+      summary.append(attention);
+    }
+    summary.append(boundary, retakeBoundary);
     resultPanel.hidden = false;
     controller.markResult();
     resultPanel.focus();
   });
-  if (controller?.restored) form?.requestSubmit();
+  controller?.activate();
 </script>

@@ -1,0 +1,94 @@
+[
+  {
+    "locale": "en",
+    "width": 375,
+    "readyB1": true,
+    "keyboard": {
+      "focused": true,
+      "scrollLeft": 1,
+      "width": 301,
+      "scrollWidth": 680
+    },
+    "reloadPreservedB1": true,
+    "sameProductNoFacts": true,
+    "mixedLevelNoFacts": true,
+    "a1StillReady": true,
+    "pageOverflow": false,
+    "errors": []
+  },
+  {
+    "locale": "zh",
+    "width": 375,
+    "readyB1": true,
+    "keyboard": {
+      "focused": true,
+      "scrollLeft": 1,
+      "width": 301,
+      "scrollWidth": 680
+    },
+    "reloadPreservedB1": true,
+    "sameProductNoFacts": true,
+    "mixedLevelNoFacts": true,
+    "a1StillReady": true,
+    "pageOverflow": false,
+    "errors": []
+  },
+  {
+    "locale": "en",
+    "width": 1440,
+    "readyB1": true,
+    "keyboard": {
+      "focused": true,
+      "scrollLeft": 0,
+      "width": 914,
+      "scrollWidth": 914
+    },
+    "reloadPreservedB1": true,
+    "sameProductNoFacts": true,
+    "mixedLevelNoFacts": true,
+    "a1StillReady": true,
+    "pageOverflow": false,
+    "errors": []
+  },
+  {
+    "locale": "zh",
+    "width": 1440,
+    "readyB1": true,
+    "keyboard": {
+      "focused": true,
+      "scrollLeft": 0,
+      "width": 914,
+      "scrollWidth": 914
+    },
+    "reloadPreservedB1": true,
+    "sameProductNoFacts": true,
+    "mixedLevelNoFacts": true,
+    "a1StillReady": true,
+    "pageOverflow": false,
+    "errors": []
+  },
+  {
+    "slug": "goethe-b1-vs-telc-b1",
+    "width": 375,
+    "contained": true,
+    "worksheetRegions": 1
+  },
+  {
+    "slug": "goethe-b1-fees-and-booking",
+    "width": 375,
+    "contained": true,
+    "worksheetRegions": 1
+  },
+  {
+    "slug": "goethe-b1-vs-telc-b1",
+    "width": 1440,
+    "contained": true,
+    "worksheetRegions": 1
+  },
+  {
+    "slug": "goethe-b1-fees-and-booking",
+    "width": 1440,
+    "contained": true,
+    "worksheetRegions": 1
+  }
+]

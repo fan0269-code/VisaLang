@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "deliver",
+  "type": "workflow",
+  "input": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/planning-map/visalang-overall-build-plan.archify.json",
+  "output": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/planning-map/visalang-overall-build-plan.html",
+  "specification": {
+    "sha256": "2bd4c2b1381f7e8b1925ffa93337ddf551618b985c9cb4d33512a9bec1062ea7",
+    "bytes": 7359
+  },
+  "artifact": {
+    "sha256": "f783eab1432b5189b83486852f8b681f6bd979a5309cbbff807705be3e129352",
+    "bytes": 723898
+  },
+  "validation": {
+    "checksPassed": 9,
+    "checkCount": 9,
+    "compositionProfile": "showcase",
+    "compositionStatus": "pass",
+    "errors": 0,
+    "warnings": 0
+  }
+}

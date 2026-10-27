@@ -5,92 +5,90 @@ import GuideCard from '../../components/GuideCard.astro';
 import FilterBar from '../../components/FilterBar.astro';
 import SearchInput from '../../components/SearchInput.astro';
 import { getCollection } from 'astro:content';
-import { guideCategories, inferGuideMeta } from '../../data/guide-taxonomy';
-import { isGuidePrimaryDiscoveryEligible, resolveGuideContentStatus } from '../../data/source-review';
+import { guideDiscoveryFilters, guidePurposeLabels, guideStageLabels, inferGuideMeta, resolveGuidePurposes } from '../../data/guide-taxonomy';
+import { resolveGuideContentStatus } from '../../data/source-review';
+import { getEnglishGuidePublicationPolicy } from '../../data/publication-manifest';
 import { getPrimaryDiscoveryZhGuides } from '../../data/guide-library';
 import { zhGermanyA1Guides } from '../../data/zh-germany-a1';
 
-const guidePurpose = (route: string) => {
-  const value = route.toLowerCase();
-  if (value.includes('family')) return 'Family reunion';
-  if (value.includes('university') || value.includes('study')) return 'Study';
-  if (value.includes('work') || value.includes('nursing')) return 'Work';
-  if (value.includes('settlement') || value.includes('integration') || value.includes('residence')) return 'Settlement';
-  if (value.includes('citizenship')) return 'Citizenship';
-  return 'Route research';
-};
 const guides = (await getCollection('guides')).map((guide) => {
   const meta = inferGuideMeta(guide.data);
-  return { ...guide, meta, purpose: guidePurpose(meta.route), status: resolveGuideContentStatus(guide.data) };
-}).filter((guide) => isGuidePrimaryDiscoveryEligible(guide.status, guide.data.sourceReviewStatus) && guide.data.noindex !== true)
+  const purposes = resolveGuidePurposes(guide.data);
+  return { ...guide, meta, purposes, status: resolveGuideContentStatus(guide.data) };
+}).filter((guide) => getEnglishGuidePublicationPolicy({ slug: guide.data.slug, contentStatus: guide.status, sourceReviewStatus: guide.data.sourceReviewStatus, noindex: guide.data.noindex, adsEligible: guide.data.adsEligible }).index)
   .sort((a, b) => b.data.updatedDate.localeCompare(a.data.updatedDate));
 const zhGuides = getPrimaryDiscoveryZhGuides(zhGermanyA1Guides);
-const options = (values: string[]) => Array.from(new Set(values)).sort().map((value) => ({ value, label: value }));
-const filters = [
-  { name: 'purpose', label: 'Purpose', options: options(guides.map((guide) => guide.purpose)) },
-  { name: 'country', label: 'Country', options: options(guides.map((guide) => guide.meta.country)) },
-  { name: 'route', label: 'Route', options: guideCategories.filter((category) => guides.some((guide) => guide.data.category === category.slug)).map((category) => ({ value: category.slug, label: category.name })) },
-  { name: 'exam', label: 'Exam', options: options(guides.flatMap((guide) => guide.meta.exam.split(' / '))) },
-  { name: 'level', label: 'Level', options: options(guides.map((guide) => guide.meta.level)) },
-  { name: 'language', label: 'Language', options: [{ value: 'en', label: 'English' }, { value: 'zh', label: '中文' }] },
-  { name: 'status', label: 'Content status', options: [{ value: 'complete-route', label: 'Route structure complete' }, { value: 'core-route', label: 'Core route structure' }] },
-];
+const filters = guideDiscoveryFilters.map((filter) => ({ ...filter, options: [...filter.options] }));
 const totalGuideCount = guides.length + zhGuides.length;
 const jsonLD = { '@context': 'https://schema.org', '@graph': [{ '@type': 'CollectionPage', name: 'VisaLang task guide library', url: 'https://visalang.org/guides/', mainEntity: { '@id': 'https://visalang.org/guides/#items' } }, { '@type': 'ItemList', '@id': 'https://visalang.org/guides/#items', numberOfItems: totalGuideCount, itemListElement: [...guides.map((guide, index) => ({ '@type': 'ListItem', position: index + 1, name: guide.data.title, url: `https://visalang.org/guides/${guide.data.slug}/` })), ...zhGuides.map((guide, index) => ({ '@type': 'ListItem', position: guides.length + index + 1, name: guide.title, url: `https://visalang.org${guide.href}` }))] }] };
 ---
 
-<BaseLayout title="Task guide library" description="Filter language-proof guides by purpose, country, route, exam, level, language, and content status." canonicalURL="https://visalang.org/guides/" jsonLD={jsonLD} enableAds={false}>
+<BaseLayout title="Task guide library" description="Search language-proof guides by purpose, decision stage, and language." canonicalURL="https://visalang.org/guides/" jsonLD={jsonLD} enableAds={false}>
   <main class="site-main od-guide-library">
-    <PageHero compact eyebrow="Task library" title="Find the guide for your next decision." description="This primary library contains source-reviewed complete and core route guides. Draft and verification-pending pages stay outside primary discovery until a page-specific editorial review closes their recorded gaps." />
+    <PageHero compact eyebrow="Task library" title="Find the guide for your next decision." description="This library lists source-reviewed route guides. Research pages stay out of this list until their official sources and distinct reader task have been checked." />
     <section class="library-panel" aria-label="Guide filters">
       <SearchInput />
       <FilterBar filters={filters} />
     </section>
-    <section class="content-section guide-results" aria-labelledby="guide-results-title"><h2 class="section-title" id="guide-results-title">Guide results</h2><div class="guide-related-grid" id="guide-grid">{guides.map((guide, index) => <div class="guide-card-wrap" data-title={guide.data.title.toLowerCase()} data-search={`${guide.data.title} ${guide.data.description} ${guide.purpose} ${guide.meta.country} ${guide.meta.route} ${guide.meta.exam} ${guide.meta.level}`.toLowerCase()} data-purpose={guide.purpose} data-country={guide.meta.country} data-route={guide.data.category} data-exam={guide.meta.exam} data-level={guide.meta.level} data-language="en" data-status={guide.status} data-updated={guide.data.updatedDate} data-relevance={guide.data.category === 'germany-a1' ? 3 : guide.data.category === 'germany-b1' ? 2 : 1} data-maturity={guide.status === 'complete-route' ? 3 : guide.status === 'core-route' ? 2 : 1} data-original={index}><GuideCard title={guide.data.title} href={`/guides/${guide.data.slug}/`} value={guide.data.description} country={guide.meta.country} route={guide.meta.route} status={guide.status} updatedDate={guide.data.updatedDate} sourceReviewedAt={guide.data.sourceReviewedAt} sourceReviewStatus={guide.data.sourceReviewStatus} readingTime={guide.data.readingTime} /></div>)}{zhGuides.map((guide, index) => {
+    <section class="content-section guide-results" aria-labelledby="guide-results-title"><h2 class="section-title" id="guide-results-title">Guide results</h2><div class="guide-related-grid" id="guide-grid">{guides.map((guide, index) => <div class="guide-card-wrap" data-title={guide.data.title.toLowerCase()} data-search={`${guide.data.title} ${guide.data.description} ${guide.purposes.map((purpose) => guidePurposeLabels[purpose]).join(' ')} ${guideStageLabels[guide.data.decisionStage]} ${guide.meta.country} ${guide.meta.route} ${guide.meta.exam} ${guide.meta.level}`.toLowerCase()} data-purposes={guide.purposes.join(' ')} data-stage={guide.data.decisionStage} data-language="en" data-updated={guide.data.updatedDate} data-relevance={guide.data.category === 'germany-a1' ? 3 : guide.data.category === 'germany-b1' ? 2 : 1} data-original={index}><GuideCard title={guide.data.title} href={`/guides/${guide.data.slug}/`} value={guide.data.description} country={guide.meta.country} route={guide.meta.route} status={guide.status} updatedDate={guide.data.updatedDate} sourceReviewedAt={guide.data.sourceReviewedAt} sourceReviewStatus={guide.data.sourceReviewStatus} readingTime={guide.data.readingTime} /></div>)}{zhGuides.map((guide, index) => {
       const dataOriginal = guides.length + index;
-      return <div class="guide-card-wrap" data-title={guide.title.toLowerCase()} data-search={`${guide.title} ${guide.description} 德国 家庭团聚 A1 中文`} data-purpose="Family reunion" data-country="Germany" data-route="germany-a1" data-exam="German A1" data-level="A1" data-language="zh" data-status={guide.status} data-updated={guide.updatedDate} data-relevance="3" data-maturity={guide.status === 'complete-route' ? 3 : guide.status === 'core-route' ? 2 : 1} data-original={dataOriginal}><GuideCard title={guide.title} href={guide.href} value={guide.description} country="Germany" route="Family reunion" status={guide.status} updatedDate={guide.updatedDate} sourceReviewedAt={guide.sourceReviewedAt} sourceReviewStatus={guide.sourceReviewStatus} readingTime={guide.readingTime} language="中文" /></div>;
-    })}</div><div class="guide-empty-state" hidden><h2>No matching guide</h2><p>Clear a narrow filter or start with Purpose and Country. If your route is not supported, use Route Finder to prepare an official check.</p><a class="button button--secondary" href="/tools/route-finder/">Open Route Finder</a></div></section>
+      const purposes = resolveGuidePurposes(guide);
+      return <div class="guide-card-wrap" data-title={guide.title.toLowerCase()} data-search={`${guide.title} ${guide.description} ${purposes.map((purpose) => guidePurposeLabels[purpose]).join(' ')} ${guideStageLabels[guide.decisionStage]} 德国 家庭团聚 A1 中文`.toLowerCase()} data-purposes={purposes.join(' ')} data-stage={guide.decisionStage} data-language="zh" data-updated={guide.updatedDate} data-relevance="3" data-original={dataOriginal}><GuideCard title={guide.title} href={guide.href} value={guide.description} country="Germany" route="Family reunion" status={guide.status} updatedDate={guide.updatedDate} sourceReviewedAt={guide.sourceReviewedAt} sourceReviewStatus={guide.sourceReviewStatus} readingTime={guide.readingTime} language="中文" /></div>;
+    })}</div><div class="guide-empty-state" hidden><h2>No matching guide</h2><p>Clear a narrow filter or start with Purpose and Stage. If your route is not supported, use Route Finder to prepare an official check.</p><div class="action-row left"><button class="button button--secondary" type="button" data-empty-clear-all>Clear all filters</button><a class="button button--secondary" href="/tools/route-finder/">Open Route Finder</a></div></div></section>
   </main>
-  <script is:inline>
+  <script>
+    import {
+      clearGuideDiscoveryState,
+      filterGuideDiscoveryCards,
+      parseGuideDiscoveryState,
+      serializeGuideDiscoveryState,
+      summarizeGuideDiscoveryResults,
+    } from '../../data/guide-discovery';
+
     (() => {
-      const params = new URLSearchParams(location.search);
       const grid = document.querySelector('#guide-grid');
       const cards = [...document.querySelectorAll('.guide-card-wrap')];
       const search = document.querySelector('[data-guide-search]');
       const filters = [...document.querySelectorAll('[data-guide-filter]')];
       const sort = document.querySelector('[data-guide-sort]');
-      const form = document.querySelector('[data-filter-form]');
       const status = document.querySelector('.filter-status');
       const empty = document.querySelector('.guide-empty-state');
       const activeFilters = document.querySelector('[data-active-filters]');
       const activeFilterList = document.querySelector('.active-filter-list');
       const clearAll = document.querySelector('[data-clear-all]');
+      const emptyClearAll = document.querySelector('[data-empty-clear-all]');
       const filterLabels = Object.fromEntries(filters.map((filter) => [filter.name, filter.closest('label')?.querySelector('span')?.textContent || filter.name]));
-      const syncUrl = () => {
-        const next = new URLSearchParams();
-        if (search.value.trim()) next.set('q', search.value.trim());
-        filters.forEach((filter) => { if (filter.value) next.set(filter.name, filter.value); });
-        if (sort.value !== 'updated') next.set('sort', sort.value);
-        history.replaceState(null, '', next.toString() ? `/guides/?${next}` : '/guides/');
+      const stateFromControls = () => {
+        const values = Object.fromEntries(filters.map((filter) => [filter.name, filter.value]));
+        return {
+          q: search.value.trim(),
+          purpose: values.purpose || '',
+          stage: values.stage || '',
+          language: values.language || '',
+          sort: sort.value,
+        };
+      };
+      const cardRecords = cards.map((card) => ({
+        element: card,
+        search: card.dataset.search || '',
+        purposes: (card.dataset.purposes || '').split(' ').filter(Boolean),
+        stage: card.dataset.stage || 'requirement',
+        language: card.dataset.language || 'en',
+      }));
+      const setControls = (state) => {
+        search.value = state.q;
+        filters.forEach((filter) => { filter.value = state[filter.name] || ''; });
+        sort.value = state.sort;
       };
       const apply = () => {
-        const query = search.value.trim().toLowerCase();
-        let visible = 0;
-        cards.forEach((card) => {
-          const matchesSearch = !query || card.dataset.search.includes(query);
-          const matchesFilters = filters.every((filter) => {
-            if (!filter.value) return true;
-            if (filter.name === 'exam') return card.dataset.exam.split(' / ').includes(filter.value);
-            return card.dataset[filter.name] === filter.value;
-          });
-          card.hidden = !(matchesSearch && matchesFilters);
-          if (!card.hidden) visible += 1;
-        });
-        const key = sort.value;
-        const sorted = [...cards].sort((a, b) => key === 'updated' ? b.dataset.updated.localeCompare(a.dataset.updated) : Number(b.dataset[key]) - Number(a.dataset[key]) || Number(a.dataset.original) - Number(b.dataset.original));
+        const state = stateFromControls();
+        const visibleCards = new Set(filterGuideDiscoveryCards(cardRecords, state).map((record) => record.element));
+        cards.forEach((card) => { card.hidden = !visibleCards.has(card); });
+        const sorted = [...cards].sort((a, b) => state.sort === 'updated' ? b.dataset.updated.localeCompare(a.dataset.updated) : Number(b.dataset.relevance) - Number(a.dataset.relevance) || Number(a.dataset.original) - Number(b.dataset.original));
         sorted.forEach((card) => grid.append(card));
-        status.textContent = `Showing ${visible} of ${cards.length} guides.`;
-        empty.hidden = visible !== 0;
+        const resultState = summarizeGuideDiscoveryResults(visibleCards.size, cards.length);
+        status.textContent = resultState.announcement;
+        empty.hidden = !resultState.empty;
         const active = [
           ...(search.value.trim() ? [{ name: 'q', label: 'Search', value: search.value.trim() }] : []),
           ...filters.filter((filter) => filter.value).map((filter) => ({ name: filter.name, label: filterLabels[filter.name], value: filter.options[filter.selectedIndex]?.text || filter.value })),
@@ -107,11 +105,10 @@ const jsonLD = { '@context': 'https://schema.org', '@graph': [{ '@type': 'Collec
         }));
         activeFilters.hidden = active.length === 0;
         clearAll.disabled = active.length === 0;
-        syncUrl();
+        const query = serializeGuideDiscoveryState(state);
+        history.replaceState(null, '', query ? `/guides/?${query}` : '/guides/');
       };
-      search.value = params.get('q') || '';
-      filters.forEach((filter) => { filter.value = params.get(filter.name) || ''; });
-      sort.value = params.get('sort') || 'updated';
+      setControls(parseGuideDiscoveryState(location.search));
       search.addEventListener('input', apply);
       filters.forEach((filter) => filter.addEventListener('change', apply));
       sort.addEventListener('change', apply);
@@ -119,22 +116,33 @@ const jsonLD = { '@context': 'https://schema.org', '@graph': [{ '@type': 'Collec
         if (!(event.target instanceof Element)) return;
         const button = event.target.closest('[data-remove-filter]');
         if (!button) return;
-        if (button.dataset.removeFilter === 'q') search.value = '';
-        else if (button.dataset.removeFilter === 'sort') sort.value = 'updated';
+        const filterName = button.dataset.removeFilter;
+        const focusTarget = filterName === 'q'
+          ? search
+          : filterName === 'sort'
+            ? sort
+            : filters.find((item) => item.name === filterName);
+        if (filterName === 'q') search.value = '';
+        else if (filterName === 'sort') sort.value = 'updated';
         else {
-          const filter = filters.find((item) => item.name === button.dataset.removeFilter);
+          const filter = filters.find((item) => item.name === filterName);
           if (filter) filter.value = '';
         }
         apply();
+        focusTarget?.focus();
       });
-      clearAll.addEventListener('click', () => {
-        search.value = '';
-        filters.forEach((filter) => { filter.value = ''; });
-        sort.value = 'updated';
+      const clear = () => {
+        setControls(clearGuideDiscoveryState());
         apply();
         search.focus();
-      });
+      };
+      clearAll.addEventListener('click', clear);
+      emptyClearAll.addEventListener('click', clear);
+      document.querySelector('[data-filter-form]')?.addEventListener('submit', (event) => event.preventDefault());
       apply();
+      search.disabled = false;
+      filters.forEach((filter) => { filter.disabled = false; });
+      sort.disabled = false;
     })();
   </script>
 </BaseLayout>

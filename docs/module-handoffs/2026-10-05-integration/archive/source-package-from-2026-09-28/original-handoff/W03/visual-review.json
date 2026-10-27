@@ -1,0 +1,163 @@
+{
+  "reviewer": "/root/visual_review",
+  "recordedBy": "implementer transcription of read-only subagent observations",
+  "reviewType": "perceptual observations; not W18 formal independent audit",
+  "checkedAt": "2026-09-25T11:57:18.061283+08:00",
+  "images": [
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-en-375-first.png",
+      "sha256": "b634f36356e5c114cb1088ae8c700e2f45028572e39b99db0153a532ed14b60e",
+      "inspectedUsing": "view_image by /root/visual_review",
+      "finalEquivalent": "docs/module-handoffs/2026-09-24-01/W03/screenshots/final-en-375-first.png",
+      "finalSha256": "b634f36356e5c114cb1088ae8c700e2f45028572e39b99db0153a532ed14b60e",
+      "byteEquivalent": true
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-en-390-first.png",
+      "sha256": "0d2430b5ddfd4c17fad6b45a6eb418693b6635d483bcb024f13d050f55c3aa49",
+      "inspectedUsing": "view_image by /root/visual_review",
+      "finalEquivalent": "docs/module-handoffs/2026-09-24-01/W03/screenshots/final-en-390-first.png",
+      "finalSha256": "0d2430b5ddfd4c17fad6b45a6eb418693b6635d483bcb024f13d050f55c3aa49",
+      "byteEquivalent": true
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-zh-375-first.png",
+      "sha256": "7e2e9a361f9d231d6917e51c4487d7724e81bd5cdea5a64f1e4bf42d91f5c9a9",
+      "inspectedUsing": "view_image by /root/visual_review",
+      "finalEquivalent": "docs/module-handoffs/2026-09-24-01/W03/screenshots/final-zh-375-first.png",
+      "finalSha256": "7e2e9a361f9d231d6917e51c4487d7724e81bd5cdea5a64f1e4bf42d91f5c9a9",
+      "byteEquivalent": true
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-zh-390-first.png",
+      "sha256": "7f2df4bce9571ecc436d6a242f0ff8708864842d6781d8e34dd80716516fb457",
+      "inspectedUsing": "view_image by /root/visual_review",
+      "finalEquivalent": "docs/module-handoffs/2026-09-24-01/W03/screenshots/final-zh-390-first.png",
+      "finalSha256": "7f2df4bce9571ecc436d6a242f0ff8708864842d6781d8e34dd80716516fb457",
+      "byteEquivalent": true
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-en-768-first.png",
+      "sha256": "6f6222188f327b156184c80c56f48168bbf926ca34b84cb3b9b5766bded4e872",
+      "inspectedUsing": "view_image by /root/visual_review",
+      "finalEquivalent": "docs/module-handoffs/2026-09-24-01/W03/screenshots/final-en-768-first.png",
+      "finalSha256": "6f6222188f327b156184c80c56f48168bbf926ca34b84cb3b9b5766bded4e872",
+      "byteEquivalent": true
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-zh-768-first.png",
+      "sha256": "020c33d222afdd0143f3b5c180fbb7b43471148eaf49245bdef7a89fda57ba26",
+      "inspectedUsing": "view_image by /root/visual_review",
+      "finalEquivalent": "docs/module-handoffs/2026-09-24-01/W03/screenshots/final-zh-768-first.png",
+      "finalSha256": "020c33d222afdd0143f3b5c180fbb7b43471148eaf49245bdef7a89fda57ba26",
+      "byteEquivalent": true
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-en-1440-first.png",
+      "sha256": "67f386950d5d4b44813186bfbff5ef076ce3a773717d847d0650daef72186865",
+      "inspectedUsing": "view_image by /root/visual_review",
+      "finalEquivalent": "docs/module-handoffs/2026-09-24-01/W03/screenshots/final-en-1440-first.png",
+      "finalSha256": "67f386950d5d4b44813186bfbff5ef076ce3a773717d847d0650daef72186865",
+      "byteEquivalent": true
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-zh-1440-first.png",
+      "sha256": "954cc0c0dff5eed27932be5286a3e06c76ee62e7d67cbdcb38fed5185619f5cf",
+      "inspectedUsing": "view_image by /root/visual_review",
+      "finalEquivalent": "docs/module-handoffs/2026-09-24-01/W03/screenshots/final-zh-1440-first.png",
+      "finalSha256": "954cc0c0dff5eed27932be5286a3e06c76ee62e7d67cbdcb38fed5185619f5cf",
+      "byteEquivalent": true
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-routes-390.png",
+      "sha256": "ce8e1c21cf4d2169204dbeffaebe12aaea5afd93e4a7f8e548317eac7930d7de",
+      "inspectedUsing": "view_image by /root/visual_review",
+      "finalEquivalent": "docs/module-handoffs/2026-09-24-01/W03/screenshots/final-routes-390.png",
+      "finalSha256": "ce8e1c21cf4d2169204dbeffaebe12aaea5afd93e4a7f8e548317eac7930d7de",
+      "byteEquivalent": true
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-tools-390.png",
+      "sha256": "a072350a8473c4c3fdcdd71993d4b101c39868f2e792a4e086493beda078cd4f",
+      "inspectedUsing": "view_image by /root/visual_review",
+      "finalEquivalent": "docs/module-handoffs/2026-09-24-01/W03/screenshots/final-tools-390.png",
+      "finalSha256": "a072350a8473c4c3fdcdd71993d4b101c39868f2e792a4e086493beda078cd4f",
+      "byteEquivalent": true
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-menu-zh-375.png",
+      "sha256": "6b27e62a795bf1bbbfbb936a878250753b9717f3068a678a8a088bba9bc0614f",
+      "inspectedUsing": "view_image by /root/visual_review",
+      "finalEquivalent": "docs/module-handoffs/2026-09-24-01/W03/screenshots/final-menu-zh-375.png",
+      "finalSha256": "6b27e62a795bf1bbbfbb936a878250753b9717f3068a678a8a088bba9bc0614f",
+      "byteEquivalent": true
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-menu-en-1440.png",
+      "sha256": "d8b5405297e7ea15e33008b513739fa643c3f7620af6934f386ba621e53c54a8",
+      "inspectedUsing": "view_image by /root/visual_review",
+      "finalEquivalent": "docs/module-handoffs/2026-09-24-01/W03/screenshots/final-menu-en-1440.png",
+      "finalSha256": "4481292b533bf4cd5535dc651820dea70472c286feb2490c42d2de6367be4da4",
+      "byteEquivalent": false
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-en-1440-first.png",
+      "sha256": "a58b918d8c6f57ed3985f6c15095e6d95093eabcf285d604cab8f2aeefc769a4",
+      "inspectedUsing": "view_image by /root/visual_review"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W03/screenshots/before-zh-390-first.png",
+      "sha256": "c3c9935090e2f335c1abd850201ca944bfcaf1e966d4791543a3ecc9e2055e32",
+      "inspectedUsing": "view_image by /root/visual_review"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-en-390.png",
+      "sha256": "1d4e5facd60205ccfbbee014801c9da7588e46f97f5da9009f604a4d50cb1bf7",
+      "inspectedUsing": "view_image by /root/visual_review",
+      "finalEquivalent": "docs/module-handoffs/2026-09-24-01/W03/screenshots/final-en-390.png",
+      "finalSha256": "1d4e5facd60205ccfbbee014801c9da7588e46f97f5da9009f604a4d50cb1bf7",
+      "byteEquivalent": true
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-zh-390.png",
+      "sha256": "22c6c4becefc8ba2498d938aa2b25519dfd0ef29d93f3af0bef80e45c93205ba",
+      "inspectedUsing": "view_image by /root/visual_review",
+      "finalEquivalent": "docs/module-handoffs/2026-09-24-01/W03/screenshots/final-zh-390.png",
+      "finalSha256": "22c6c4becefc8ba2498d938aa2b25519dfd0ef29d93f3af0bef80e45c93205ba",
+      "byteEquivalent": true
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-en-1440.png",
+      "sha256": "1e87767e91076f0b9d0e084769ebbe00074e0de9c75530bb6fc9722d7bf4ce33",
+      "inspectedUsing": "view_image by /root/visual_review",
+      "finalEquivalent": "docs/module-handoffs/2026-09-24-01/W03/screenshots/final-en-1440.png",
+      "finalSha256": "1e87767e91076f0b9d0e084769ebbe00074e0de9c75530bb6fc9722d7bf4ce33",
+      "byteEquivalent": true
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-zh-1440.png",
+      "sha256": "8a999b4d49bac17a3001d8d17adb9c4dc5f6e7e4fcb02ba3c903bd5b7eb3b16a",
+      "inspectedUsing": "view_image by /root/visual_review",
+      "finalEquivalent": "docs/module-handoffs/2026-09-24-01/W03/screenshots/final-zh-1440.png",
+      "finalSha256": "8a999b4d49bac17a3001d8d17adb9c4dc5f6e7e4fcb02ba3c903bd5b7eb3b16a",
+      "byteEquivalent": true
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W03/screenshots/final-menu-en-1440.png",
+      "sha256": "4481292b533bf4cd5535dc651820dea70472c286feb2490c42d2de6367be4da4",
+      "inspectedUsing": "view_image by /root/visual_review"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W03/screenshots/final-tools-768.png",
+      "sha256": "951efd4d86c49e6a31e4d360b8016a90d3838877dfca93e7d052e1d13d1608c7",
+      "inspectedUsing": "view_image by /root/visual_review"
+    }
+  ],
+  "conclusion": "No blocking visible clipping, overlap or horizontal overflow in inspected screenshots. Main tasks precede image; three capability levels distinguishable. Menu focus rings visible.",
+  "nonblockingObservation": "Mobile route group lacks a visible group title; retained existing grouping.",
+  "limitations": [
+    "Local headless Chrome CSS viewport simulation only.",
+    "Images do not establish reader comprehension, actual device touch, accessibility certification or production correctness.",
+    "Reviewer read browser/keyboard receipts; did not independently execute interactions."
+  ]
+}

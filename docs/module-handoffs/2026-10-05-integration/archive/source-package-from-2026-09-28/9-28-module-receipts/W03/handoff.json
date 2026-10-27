@@ -1,0 +1,251 @@
+{
+  "schemaVersion": 1,
+  "batchId": "2026-09-24-01",
+  "moduleId": "W03",
+  "planningPackages": [
+    "LC01"
+  ],
+  "baselineId": "cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40",
+  "candidateId": "f895b5901c6cdfadf4eab53ae770e54994d03dd5767e2efdd7979e53ba5501aa",
+  "workspacePath": "/private/tmp/visalang-W00-2026-09-24-01/W03",
+  "implementationStatus": "ready_for_integration",
+  "ownerDispatchEvidence": "Owner supplied the full P01 prompt in this task on 2026-09-25; existing prepared W00 allocation used unchanged.",
+  "branch": "codex/scheme-3-one-week-content",
+  "baselineCommit": "4cb57e8744c752fed1881281e69e7b24cc7281c4",
+  "resultCommit": null,
+  "changedFiles": [
+    {
+      "path": "src/components/GlobalHeader.astro",
+      "baseSha256": "a59c82d83c6ba61eebbf34e2b1281d31bc30a371548e0750515bb7cde63506ee",
+      "candidateSha256": "2c921ec1f766b7756bd55a1d98c274902c7e792c5c45ccb8e7ba13dd0c2a9a44",
+      "changeKind": "modify"
+    },
+    {
+      "path": "src/components/HomeHero.astro",
+      "baseSha256": "1b00fb1188ac58661bd6fc2e5067d2cb5bf9b6ce75124220bb929eda95334a3a",
+      "candidateSha256": "7095eca11662aae8971a5e4a28e30d0e73861b79f607740ca3d2db36fc1c73f3",
+      "changeKind": "modify"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "baseSha256": "77ddb74fca442380cba2eaa864a63b07a2cbab469f5e3da84a00a03b634fb2a9",
+      "candidateSha256": "709cc57acbc09fc54035e01c69b2ba50322b81c58a4ec97dfda43f40d4775365",
+      "changeKind": "modify"
+    },
+    {
+      "path": "src/pages/routes/index.astro",
+      "baseSha256": "c4e7924069d44bf4a544e5f67e4c41fa7d12b725cd82b11519fea7b6bb158b9d",
+      "candidateSha256": "99d1ab281eafa924fe205b1ef826a22d1f991f662ecf509a060a7c636fb2adb5",
+      "changeKind": "modify"
+    },
+    {
+      "path": "src/pages/tools/index.astro",
+      "baseSha256": "2147122e845b8ba2ac3b0ed7b3d511515dc99f7647d668216e6f90a955c83d60",
+      "candidateSha256": "4a73b527c9b03b92188381519f9b33e07fc956ed8963576b75ce9553f147e872",
+      "changeKind": "modify"
+    },
+    {
+      "path": "src/pages/zh/index.astro",
+      "baseSha256": "18254e699850703a6a052bdf7213b0ad33ba5d18a0f5f60640d129bb770b9b0c",
+      "candidateSha256": "d8c6709997ee87124f327942e3e443785911ea690d26594862d47809157886c7",
+      "changeKind": "modify"
+    },
+    {
+      "path": "src/styles/global.css",
+      "baseSha256": "91ec92d4c37978c675a969bc66c729c1ec53716799f162243d9b25b7a2dbee8a",
+      "candidateSha256": "32c6b55e671dcf3b00c72e435d609516f7c3a85d65c987ca69baea98418707bd",
+      "changeKind": "modify"
+    },
+    {
+      "path": "tests/task-4-home-routes.test.mjs",
+      "baseSha256": "b6b2c4c318e8739cf4ac84934af81435ee46eae79762e143e765f9b739b0bf79",
+      "candidateSha256": "5917ccf8bd8dbccb2c3d4a5c60a7e2f532aa25230b40e3b62f8c0560a32f04e7",
+      "changeKind": "modify"
+    }
+  ],
+  "patchPath": "docs/module-handoffs/2026-09-24-01/W03/candidate.patch",
+  "patchSha256": "542377a9e8e31e7a0989530742591b47db709127afeb2764b938e461db05c9ea",
+  "candidateManifestPath": "docs/module-handoffs/2026-09-24-01/W03/candidate-manifest.json",
+  "candidateManifestSha256": "7f6eb5a16b38e441df1d27535aa2d73d89e915d6f54e02c1a1250f89c75f050c",
+  "tests": [
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/final-0.log",
+      "baselineId": "f895b5901c6cdfadf4eab53ae770e54994d03dd5767e2efdd7979e53ba5501aa",
+      "candidateManifestPath": "docs/module-handoffs/2026-09-24-01/W03/candidate-manifest.json"
+    },
+    {
+      "command": "node tests/task-4-home-routes.test.mjs",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/final-1.log",
+      "baselineId": "f895b5901c6cdfadf4eab53ae770e54994d03dd5767e2efdd7979e53ba5501aa",
+      "candidateManifestPath": "docs/module-handoffs/2026-09-24-01/W03/candidate-manifest.json"
+    },
+    {
+      "command": "node tests/m3-discovery-trust.test.mjs",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/final-2.log",
+      "baselineId": "f895b5901c6cdfadf4eab53ae770e54994d03dd5767e2efdd7979e53ba5501aa",
+      "candidateManifestPath": "docs/module-handoffs/2026-09-24-01/W03/candidate-manifest.json"
+    },
+    {
+      "command": "node tests/scheme-3-publication.test.mjs",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/final-3.log",
+      "baselineId": "f895b5901c6cdfadf4eab53ae770e54994d03dd5767e2efdd7979e53ba5501aa",
+      "candidateManifestPath": "docs/module-handoffs/2026-09-24-01/W03/candidate-manifest.json"
+    },
+    {
+      "command": "node tests/scheme-3-route-hubs.test.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/final-4.log",
+      "baselineId": "f895b5901c6cdfadf4eab53ae770e54994d03dd5767e2efdd7979e53ba5501aa",
+      "candidateManifestPath": "docs/module-handoffs/2026-09-24-01/W03/candidate-manifest.json"
+    },
+    {
+      "command": "node tests/m3-chinese-journey.test.mjs",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/final-5.log",
+      "baselineId": "f895b5901c6cdfadf4eab53ae770e54994d03dd5767e2efdd7979e53ba5501aa",
+      "candidateManifestPath": "docs/module-handoffs/2026-09-24-01/W03/candidate-manifest.json"
+    },
+    {
+      "command": "node docs/module-handoffs/2026-09-24-01/W03/browser-check.mjs final",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/final-browser.log",
+      "baselineId": "f895b5901c6cdfadf4eab53ae770e54994d03dd5767e2efdd7979e53ba5501aa",
+      "candidateManifestPath": "docs/module-handoffs/2026-09-24-01/W03/candidate-manifest.json",
+      "resultPath": "docs/module-handoffs/2026-09-24-01/W03/final-browser.json"
+    },
+    {
+      "command": "node docs/module-handoffs/2026-09-24-01/W03/keyboard-check.mjs final",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/final-keyboard.log",
+      "baselineId": "f895b5901c6cdfadf4eab53ae770e54994d03dd5767e2efdd7979e53ba5501aa",
+      "candidateManifestPath": "docs/module-handoffs/2026-09-24-01/W03/candidate-manifest.json",
+      "resultPath": "docs/module-handoffs/2026-09-24-01/W03/final-keyboard.json"
+    },
+    {
+      "command": "node docs/module-handoffs/2026-09-24-01/W03/link-check.mjs",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/final-links.log",
+      "baselineId": "f895b5901c6cdfadf4eab53ae770e54994d03dd5767e2efdd7979e53ba5501aa",
+      "candidateManifestPath": "docs/module-handoffs/2026-09-24-01/W03/candidate-manifest.json",
+      "resultPath": "docs/module-handoffs/2026-09-24-01/W03/link-results.json"
+    },
+    {
+      "command": "node docs/module-handoffs/2026-09-24-01/W03/navigation-extra.mjs",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/final-navigation-extra.log",
+      "baselineId": "f895b5901c6cdfadf4eab53ae770e54994d03dd5767e2efdd7979e53ba5501aa",
+      "candidateManifestPath": "docs/module-handoffs/2026-09-24-01/W03/candidate-manifest.json",
+      "resultPath": "docs/module-handoffs/2026-09-24-01/W03/navigation-extra.json"
+    },
+    {
+      "command": "patch -p1 -i /private/tmp/visalang-W00-2026-09-24-01/W03/docs/module-handoffs/2026-09-24-01/W03/candidate.patch",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/patch-apply.log",
+      "baselineId": "f895b5901c6cdfadf4eab53ae770e54994d03dd5767e2efdd7979e53ba5501aa",
+      "workingDirectory": "/private/tmp/visalang-W00-2026-09-24-01/W03/.runtime/patch-verification",
+      "resultPath": "docs/module-handoffs/2026-09-24-01/W03/patch-verification.json"
+    }
+  ],
+  "baselineTests": [
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/before-0.log",
+      "phase": "baseline",
+      "baselineId": "cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40"
+    },
+    {
+      "command": "node tests/task-4-home-routes.test.mjs",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/before-1.log",
+      "phase": "baseline",
+      "baselineId": "cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40"
+    },
+    {
+      "command": "node tests/m3-discovery-trust.test.mjs",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/before-2.log",
+      "phase": "baseline",
+      "baselineId": "cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40"
+    },
+    {
+      "command": "node tests/scheme-3-publication.test.mjs",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/before-3.log",
+      "phase": "baseline",
+      "baselineId": "cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40"
+    }
+  ],
+  "reproductionEvidence": [
+    {
+      "command": "node tests/task-4-home-routes.test.mjs",
+      "exitCode": 1,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/red-entry-certificate.log",
+      "finding": "Chinese existing-certificate task had no direct link to its existing maintained page; fixed and final regression green."
+    },
+    {
+      "command": "node docs/module-handoffs/2026-09-24-01/W03/keyboard-check.mjs before",
+      "exitCode": 0,
+      "resultPath": "docs/module-handoffs/2026-09-24-01/W03/before-keyboard.json",
+      "finding": "Observation run: all eight cases lacked Escape close/focus return and focus-exit close."
+    }
+  ],
+  "dependencies": [
+    {
+      "moduleId": "W00",
+      "evidencePath": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-24-01/W03/dispatch.json",
+      "status": "allocated; owner dispatched P01 in current task; 1313 baseline files and five evidence hashes reverified",
+      "verificationPath": "docs/module-handoffs/2026-09-24-01/W03/start-byte-verification.json"
+    },
+    {
+      "moduleId": "W01",
+      "evidencePath": "docs/PROJECT_SCAN_2026-09-24.md",
+      "status": "real readers not tested; not prerequisite for confirmed local defect maintenance"
+    }
+  ],
+  "sharedFileChanges": [
+    {
+      "path": "src/styles/global.css",
+      "impact": "HomeHero compact spacing/size; scoped .home-tasks touch links; mobile menu anchored below actual header, height uses existing token.",
+      "integration": "W00 merges with W04 segment by segment."
+    },
+    {
+      "path": "src/components/HomeHero.astro",
+      "impact": "Removed required featuredRoute prop and spotlight output; default slot for task entry section; both home callers updated."
+    },
+    {
+      "path": "src/components/GlobalHeader.astro",
+      "impact": "Escape closes and returns focus; focusout closes on next frame; pointer outside closes; all details mutually exclusive. Existing BaseLayout desktop mutual-exclusion handler remains idempotent."
+    }
+  ],
+  "newImplementationFiles": [],
+  "newFilesManifestPath": "docs/module-handoffs/2026-09-24-01/W03/evidence-manifest.json",
+  "newFilesPolicy": "All new files are module handoff evidence; evidence manifest includes baseSha256=null/candidateSha256/add for each. The manifest itself is excluded from its own hash.",
+  "visualReviewPath": "docs/module-handoffs/2026-09-24-01/W03/visual-review.json",
+  "codeReviewPath": "docs/module-handoffs/2026-09-24-01/W03/code-review.md",
+  "reviewStatus": "read-only peer observations only; W18 formal audit pending after W00 integration",
+  "limitations": [
+    "This is a local W03 handoff only; T=25/5/4 and LP/LC acceptance gates remain unchanged. No W18 formal audit or whole-maintenance completion claim.",
+    "Real-reader comprehension/LP00/LP04, physical-device touch, other browsers, screen readers and dark appearance were not tested.",
+    "No production, real calendar import, target-host/backup/rollback, external account, paid API or real-data outbound work was performed.",
+    "Official immigration/exam/fee facts were not rechecked; source dates and data remain unchanged. Historical scan 01/03/07 used only as design evidence.",
+    "All browser external requests were blocked; the existing production favicon URL produced the single explained resource error per page.",
+    "Node MODULE_TYPELESS_PACKAGE_JSON warnings remain; package configuration is outside the module change scope.",
+    "Main-tree integration, Master/overlay/EXECUTION_RECORD/TASK_LOG, planning-map/history/sync, Vault, full npm test/launch-check/governance and formal independent Auditor are W00 responsibilities under P01/COMMON; not run here.",
+    "Guide metadata density from scan03 and Chinese certificate decisionStage classification remain W04/W00 follow-ups; route data and unassigned layouts were not edited."
+  ],
+  "nextActions": [
+    "W00 verify this baseline/candidate/patch hash and reconcile overlapping main-tree edits before serial integration.",
+    "W00 integrate eight minimal file differences, then run full tests, launch-check, planning-map governance and exact frozen independent Auditor review.",
+    "W00 unify planning records and Vault update with accurate pending owner/deployment status.",
+    "Keep real-reader, actual-device, calendar and target-environment gaps open; deployment requires separate Owner authorization."
+  ],
+  "externalActionsPerformed": [],
+  "deploymentStatus": "not_started",
+  "createdAt": "2026-09-25T11:59:20.382991+08:00"
+}

@@ -2,21 +2,18 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { zhGermanyA1Guides } from '../data/zh-germany-a1';
-import { contentStatusLabels, isGuidePrimaryDiscoveryEligible, resolveGuideContentStatus } from '../data/source-review';
+import { resolveGuideContentStatus } from '../data/source-review';
+import { getEnglishGuidePublicationPolicy } from '../data/publication-manifest';
+import { getPrimaryDiscoveryZhGuides } from '../data/guide-library';
 const guides = await getCollection('guides');
 const publishedEnglishGuides = guides.filter((guide) => {
   const status = resolveGuideContentStatus(guide.data);
-  return isGuidePrimaryDiscoveryEligible(status, guide.data.sourceReviewStatus) && guide.data.noindex !== true;
+  return getEnglishGuidePublicationPolicy({ slug: guide.data.slug, contentStatus: status, sourceReviewStatus: guide.data.sourceReviewStatus, noindex: guide.data.noindex, adsEligible: guide.data.adsEligible }).index;
 });
 const withheldEnglishGuideCount = guides.length - publishedEnglishGuides.length;
-const totalGuideCount = publishedEnglishGuides.length + zhGermanyA1Guides.length;
+const totalGuideCount = publishedEnglishGuides.length + getPrimaryDiscoveryZhGuides(zhGermanyA1Guides).length;
 const publishedCategoryCount = new Set(publishedEnglishGuides.map((guide) => guide.data.category)).size;
-const statusCounts = publishedEnglishGuides.reduce<Record<string, number>>((counts, guide) => {
-  const status = resolveGuideContentStatus(guide.data);
-  counts[status] = (counts[status] ?? 0) + 1;
-  return counts;
-}, {});
-const updated = '2026-07-30';
+const updated = '2026-09-11';
 const jsonLD = { '@context': 'https://schema.org', '@type': 'AboutPage', name: 'About VisaLang' };
 ---
 
@@ -28,14 +25,13 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'AboutPage', name: '
         <p class="guide-summary">VisaLang is a bilingual (English / Chinese) language-exam navigation site for the moment before you book an exam or submit a document that may require language proof.</p>
 
         <h2>What we do</h2>
-        <p>We research official sources, organize the information, add safe preparation guidance, and help you identify what to verify before you pay for an exam. The primary library currently contains <strong>{totalGuideCount} English and Chinese guides</strong> across {publishedCategoryCount} developed route categories.</p>
+        <p>We research official sources, organise the information, add safe preparation guidance, and help you identify what to verify before you pay for an exam. The Guide Library currently contains <strong>{totalGuideCount} English and Chinese guides</strong> across {publishedCategoryCount} developed route categories.</p>
 
-        <h2>Content maturity</h2>
-        <p>The primary Guide Library is limited to <strong>{publishedEnglishGuides.length} English guides</strong> whose source review is complete and whose controlled status is either a complete or core route. These metadata checks set a conservative discovery boundary; they are not an independent guarantee of page quality or AdSense approval. Current counts are:</p>
-        <ul>{Object.entries(contentStatusLabels).filter(([status]) => status === 'complete-route' || status === 'core-route').map(([status, label]) => <li><strong>{label}:</strong> {statusCounts[status] ?? 0}</li>)}</ul>
+        <h2>What you can use now</h2>
+        <p>The Guide Library includes <strong>{publishedEnglishGuides.length} English guides</strong> whose official sources and intended reader task have been reviewed. Each guide states its scope, date checked, official starting points, and questions that still depend on a receiving authority or selected exam centre.</p>
 
-        <h2>Current discovery scope</h2>
-        <p>{withheldEnglishGuideCount} additional English research pages remain reachable by direct URL for continuity, but they are excluded from the primary Guide Library, sitemap, and advertising while their content status is starter or verification pending. Before any held page returns to primary discovery, a page-specific editorial review must record its distinct user task, current official evidence, original decision help, overlap with related pages, and unresolved gaps. Adding words or changing a date is not enough.</p>
+        <h2>Research coverage</h2>
+        <p>{withheldEnglishGuideCount} additional English research pages remain reachable by direct URL for continuity but are not listed in the Guide Library. We are still checking whether each one answers a distinct reader question with current official evidence. Treat those pages as research orientation and confirm every requirement with the organisation responsible for your case.</p>
 
         <h2>What we do not do</h2>
         <ul>
@@ -49,7 +45,7 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'AboutPage', name: '
         <p>Germany A1 family reunion is where a reader can lose time or money by making a decision in the wrong order: a requirement may not apply in every case; a certificate must match the receiving authority; and an exam date is only useful if the centre, ID, result, and document timeline work together. We built this route first as a practical decision sequence, then use the same official-first method for other routes.</p>
 
         <h2>How we choose what to deepen</h2>
-        <p>We prioritize pages where a reader must choose between routes, verify an official requirement, protect a deadline, or avoid an expensive booking mistake. A route overview may remain a starter guide until we can support it with the same depth and source discipline as Germany A1.</p>
+        <p>We prioritise pages where a reader must choose between routes, verify an official requirement, protect a deadline, or avoid an expensive booking mistake. We add a guide to the main library only when it gives the reader a distinct task, current official starting points, and clear limits on what still needs local confirmation.</p>
 
         <h2>Our approach</h2>
         <ul>
@@ -62,7 +58,7 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'AboutPage', name: '
         <h2>Published routes and research coverage</h2>
         <ul>
           <li><strong>Published route categories:</strong> Germany A1 family reunion and Germany B1 settlement/citizenship.</li>
-          <li><strong>Research pages held outside primary discovery:</strong> TestDaF, telc work/nursing, UK, Canada, Italy, Spain, Portugal, Netherlands, Finland, and France.</li>
+          <li><strong>Research pages not listed in the Guide Library:</strong> TestDaF, telc work/nursing, UK, Canada, Italy, Spain, Portugal, Netherlands, Finland, and France.</li>
         </ul>
 
         <h2>Our editorial standards</h2>

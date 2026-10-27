@@ -1,0 +1,108 @@
+--- a/README.md
++++ b/README.md
+@@ -1,4 +1,13 @@
+ # VisaLang
++
++## 2026-09-23 W00 隔离分配准备（当前增补）
++
++本轮 Owner 已发送 W00 调度提示词，授权本地冻结、分配和验证；按其优先顺序准备 W01、W02、W08，未把功能模块自动派发。[分配与字节证据](docs/module-handoffs/2026-09-23-01/README.md)及 `docs/module-handoffs/2026-09-23-01/dispatch.json` 是本批实际分配记录。当前工作树 1,115 文件已冻结，三份无 .git 的完整候选及独立依赖已逐项校验；省略的两个可选外部仓库和纳入的15份旧实验日志已登记。
++
++本轮无模块 handoff、无产品集成，W01/W02/W08 状态为 prepared_awaiting_owner_dispatch；LP/LC 仍 pending，原 T=25完成/5进行中/4待开始不变。真人、目标主机、账户与上线观察均未取得；W01无真人保持partial，W02不等待W01通过，W08本地成果不替代LP05a真实环境验收。W09消费已集成W08契约；W10无真人收益证据不能继续W11/12；W13/14仍按自身需求；W16三候选分别核对，W17从真实发布计时。
++
++本轮为分配准备维护窗口，sync `VL-PMAP-20260923-05`，drift `aligned`；审核权威仅为 `docs/planning-map/VISALANG_W00_DISPATCH_INDEPENDENT_AUDIT_2026-09-23.md`，结论以该独立报告及最终实际测试为准。历史增补保留为各自冻结窗口。Vault目录/模板缺失，待同步payload为blocked；无提交、推送、部署、招募、模型运行或外部账户行动授权。
++
+ 
+ ## Current module execution prompts — 2026-09-23
+ 
+--- a/docs/CONTENT_MAP.md
++++ b/docs/CONTENT_MAP.md
+@@ -1,4 +1,13 @@
+ # VisaLang Content Execution Ledger
++
++## 2026-09-23 W00 隔离分配准备（当前增补）
++
++本轮 Owner 已发送 W00 调度提示词，授权本地冻结、分配和验证；按其优先顺序准备 W01、W02、W08，未把功能模块自动派发。[分配与字节证据](../docs/module-handoffs/2026-09-23-01/README.md)及 `docs/module-handoffs/2026-09-23-01/dispatch.json` 是本批实际分配记录。当前工作树 1,115 文件已冻结，三份无 .git 的完整候选及独立依赖已逐项校验；省略的两个可选外部仓库和纳入的15份旧实验日志已登记。
++
++本轮无模块 handoff、无产品集成，W01/W02/W08 状态为 prepared_awaiting_owner_dispatch；LP/LC 仍 pending，原 T=25完成/5进行中/4待开始不变。真人、目标主机、账户与上线观察均未取得；W01无真人保持partial，W02不等待W01通过，W08本地成果不替代LP05a真实环境验收。W09消费已集成W08契约；W10无真人收益证据不能继续W11/12；W13/14仍按自身需求；W16三候选分别核对，W17从真实发布计时。
++
++本轮为分配准备维护窗口，sync `VL-PMAP-20260923-05`，drift `aligned`；审核权威仅为 `docs/planning-map/VISALANG_W00_DISPATCH_INDEPENDENT_AUDIT_2026-09-23.md`，结论以该独立报告及最终实际测试为准。历史增补保留为各自冻结窗口。Vault目录/模板缺失，待同步payload为blocked；无提交、推送、部署、招募、模型运行或外部账户行动授权。
++
+ 
+ <!-- SCHEME-3-CURRENT-START -->
+ ### 2026-09-23 current module handoff
+--- a/docs/TASK_LOG.md
++++ b/docs/TASK_LOG.md
+@@ -3908,3 +3908,10 @@
+ Owner requested reusable prompts for separate module windows. Added 17 functional prompts, W00 integration and W18 independent-auditor prompts, shared isolation/handoff contract and dispatch index. Current dirty work is preserved; product/src/public/service/deploy/test implementation remains untouched. Current/next module work is prepared only, not executed; original T25/5/4 and pending LP/LC state remain unchanged.
+ 
+ Sync `VL-PMAP-20260923-04`, drift: aligned; status-only map update preserves topology. Exact scope, frozen baseline, Archify/visual/scenario evidence and unsynced Vault payload are in `docs/module-prompts-evidence-2026-09-23/`. New Auditor authority is `docs/planning-map/VISALANG_MODULE_PROMPTS_INDEPENDENT_AUDIT_2026-09-23.md`; no self-approval. Final npm test runs after that report exists. No launch-check required for prompt/document-only changes without altered application bytes. No commit, push, deployment, account action, purchase or model/reader experiment. Configured Vault root/template are absent, so synchronization remains blocked.
++
++## 2026-09-23 — W00 第一批隔离分配准备
++
++- Batch `2026-09-23-01`；1,115文件当前dirty基线与W01/W02/W08独立副本校验，逐文件字节、Git staged/dirty/untracked/index与省略项见 `docs/module-handoffs/2026-09-23-01/`。三个窗口尚未派发，handoff和集成均0；LP/LC与25/5/4不变。
++- 独立Node依赖、Python环境及W02离线权重副本已准备；只验证metadata/字节，未运行模型或真人研究。功能窗口启动时复核基线与端口，按dispatch的逐路径范围工作。
++- 规划图为状态更新，sync `VL-PMAP-20260923-05`，drift `aligned`。独立审核权威：`docs/planning-map/VISALANG_W00_DISPATCH_INDEPENDENT_AUDIT_2026-09-23.md`；本行不预先声明其结论。图与视觉证据、候选manifest、基线npm-test实际exit 0见批次目录。新报告存在后再跑最终规划治理与完整npm test，结果保存在批次指定的外部post-audit证据路径，不改已审核字节。
++- 页面/导航/元数据/部署实现无变更，launch-check未新增运行；最终npm test仍必跑。Vault目录与模板缺失，payload待同步、owner pending、deployment not_started；无提交、推送、部署或外部动作。
+--- a/docs/master-package-2026-09-08/VisaLang-Master-Plan.md
++++ b/docs/master-package-2026-09-08/VisaLang-Master-Plan.md
+@@ -1,4 +1,13 @@
+ # VisaLang 网站总规划与 Codex 执行规范
++
++## 2026-09-23 W00 隔离分配准备（当前增补）
++
++本轮 Owner 已发送 W00 调度提示词，授权本地冻结、分配和验证；按其优先顺序准备 W01、W02、W08，未把功能模块自动派发。[分配与字节证据](../../docs/module-handoffs/2026-09-23-01/README.md)及 `docs/module-handoffs/2026-09-23-01/dispatch.json` 是本批实际分配记录。当前工作树 1,115 文件已冻结，三份无 .git 的完整候选及独立依赖已逐项校验；省略的两个可选外部仓库和纳入的15份旧实验日志已登记。
++
++本轮无模块 handoff、无产品集成，W01/W02/W08 状态为 prepared_awaiting_owner_dispatch；LP/LC 仍 pending，原 T=25完成/5进行中/4待开始不变。真人、目标主机、账户与上线观察均未取得；W01无真人保持partial，W02不等待W01通过，W08本地成果不替代LP05a真实环境验收。W09消费已集成W08契约；W10无真人收益证据不能继续W11/12；W13/14仍按自身需求；W16三候选分别核对，W17从真实发布计时。
++
++本轮为分配准备维护窗口，sync `VL-PMAP-20260923-05`，drift `aligned`；审核权威仅为 `docs/planning-map/VISALANG_W00_DISPATCH_INDEPENDENT_AUDIT_2026-09-23.md`，结论以该独立报告及最终实际测试为准。历史增补保留为各自冻结窗口。Vault目录/模板缺失，待同步payload为blocked；无提交、推送、部署、招募、模型运行或外部账户行动授权。
++
+ 
+ ## 2026-09-23 多窗口模块提示词交付（当前增补）
+ 
+--- a/docs/master-package-2026-09-08/BACKLOG_STATUS_OVERLAY_2026-09-09.md
++++ b/docs/master-package-2026-09-08/BACKLOG_STATUS_OVERLAY_2026-09-09.md
+@@ -1,4 +1,13 @@
+ # Master Package backlog execution overlay
++
++## 2026-09-23 W00 隔离分配准备（当前增补）
++
++本轮 Owner 已发送 W00 调度提示词，授权本地冻结、分配和验证；按其优先顺序准备 W01、W02、W08，未把功能模块自动派发。[分配与字节证据](../../docs/module-handoffs/2026-09-23-01/README.md)及 `docs/module-handoffs/2026-09-23-01/dispatch.json` 是本批实际分配记录。当前工作树 1,115 文件已冻结，三份无 .git 的完整候选及独立依赖已逐项校验；省略的两个可选外部仓库和纳入的15份旧实验日志已登记。
++
++本轮无模块 handoff、无产品集成，W01/W02/W08 状态为 prepared_awaiting_owner_dispatch；LP/LC 仍 pending，原 T=25完成/5进行中/4待开始不变。真人、目标主机、账户与上线观察均未取得；W01无真人保持partial，W02不等待W01通过，W08本地成果不替代LP05a真实环境验收。W09消费已集成W08契约；W10无真人收益证据不能继续W11/12；W13/14仍按自身需求；W16三候选分别核对，W17从真实发布计时。
++
++本轮为分配准备维护窗口，sync `VL-PMAP-20260923-05`，drift `aligned`；审核权威仅为 `docs/planning-map/VISALANG_W00_DISPATCH_INDEPENDENT_AUDIT_2026-09-23.md`，结论以该独立报告及最终实际测试为准。历史增补保留为各自冻结窗口。Vault目录/模板缺失，待同步payload为blocked；无提交、推送、部署、招募、模型运行或外部账户行动授权。
++
+ 
+ ## 2026-09-23 多窗口模块提示词交付（当前增补）
+ 
+--- a/docs/master-package-2026-09-08/EXECUTION_RECORD.md
++++ b/docs/master-package-2026-09-08/EXECUTION_RECORD.md
+@@ -1,4 +1,13 @@
+ # Master Package execution record
++
++## 2026-09-23 W00 隔离分配准备（当前增补）
++
++本轮 Owner 已发送 W00 调度提示词，授权本地冻结、分配和验证；按其优先顺序准备 W01、W02、W08，未把功能模块自动派发。[分配与字节证据](../../docs/module-handoffs/2026-09-23-01/README.md)及 `docs/module-handoffs/2026-09-23-01/dispatch.json` 是本批实际分配记录。当前工作树 1,115 文件已冻结，三份无 .git 的完整候选及独立依赖已逐项校验；省略的两个可选外部仓库和纳入的15份旧实验日志已登记。
++
++本轮无模块 handoff、无产品集成，W01/W02/W08 状态为 prepared_awaiting_owner_dispatch；LP/LC 仍 pending，原 T=25完成/5进行中/4待开始不变。真人、目标主机、账户与上线观察均未取得；W01无真人保持partial，W02不等待W01通过，W08本地成果不替代LP05a真实环境验收。W09消费已集成W08契约；W10无真人收益证据不能继续W11/12；W13/14仍按自身需求；W16三候选分别核对，W17从真实发布计时。
++
++本轮为分配准备维护窗口，sync `VL-PMAP-20260923-05`，drift `aligned`；审核权威仅为 `docs/planning-map/VISALANG_W00_DISPATCH_INDEPENDENT_AUDIT_2026-09-23.md`，结论以该独立报告及最终实际测试为准。历史增补保留为各自冻结窗口。Vault目录/模板缺失，待同步payload为blocked；无提交、推送、部署、招募、模型运行或外部账户行动授权。
++
+ 
+ ## 2026-09-23 多窗口模块提示词交付（当前增补）
+ 
+--- a/docs/planning-map/visalang-overall-build-plan.archify.json
++++ b/docs/planning-map/visalang-overall-build-plan.archify.json
+@@ -290,9 +290,9 @@
+       "title": "当前真实状态",
+       "items": [
+         "25 完成／5 进行中／4 待开始",
+-        "分窗提示词已备；LP／LC 均待实施",
+-        "同步：VL-PMAP-20260923-04",
+-        "指纹：66b2a2a1 a7b56fce 2483d2e7 e2ddc49c c8e0de37 badb75d9 84127064 a7afc0bb"
++        "三份隔离副本待派发；模块未实施",
++        "同步：VL-PMAP-20260923-05",
++        "指纹：527ad0ec 41468923 b4b3cfb2 cca4827e 1d06d64e d9b7f843 95a2cc4b 202ba7a3"
+       ]
+     },
+     {

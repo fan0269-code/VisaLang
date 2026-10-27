@@ -32,9 +32,16 @@ const pages = {
 
 for (const [name, page] of Object.entries(pages)) {
   assert.ok(page.includes('CommercialBoundary'), `${name} needs the official-verification and disclaimer boundary`);
-  assert.ok(page.includes('IntentCTA'), `${name} needs an explicit real contact or request-access CTA`);
   assert.ok(!/payment successful|email sent|review accepted/i.test(page), `${name} must not claim a false completion state`);
 }
+for (const name of ['pricing', 'routeReview', 'partners']) {
+  assert.ok(pages[name].includes('IntentCTA'), `${name} links only to a currently usable free or contact path`);
+}
+for (const name of ['familyPack', 'practicePack']) {
+  assert.ok(!pages[name].includes('IntentCTA'), `${name} must not show an update or purchase CTA while delivery is unavailable`);
+}
+assert.ok(!pages.pricing.includes('ComparisonTable') && !pages.pricing.includes('commercialOffers'), 'Pricing does not present the internal future-offer register as available choices');
+assert.ok(!pages.pricing.includes('Future AI Correction'), 'Pricing does not advertise an undelivered AI service');
 for (const phrase of ['Who it is for', 'Proposed contents', 'What it would not include', 'How it would be used']) {
   assert.ok(pages.familyPack.includes(phrase), `Family Reunion Pack needs: ${phrase}`);
   assert.ok(pages.practicePack.includes(phrase), `Practice Pack needs: ${phrase}`);

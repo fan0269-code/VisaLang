@@ -8,9 +8,11 @@ const locale = isZh ? 'zh-CN' : 'en';
 const labels = ui[locale];
 const translations = translatedPaths;
 const reverseTranslations = Object.fromEntries(Object.entries(translatedPaths).map(([en, zh]) => [zh, en]));
-const switchHref = isZh ? reverseTranslations[Astro.url.pathname] || '/' : translations[Astro.url.pathname] || '/zh/';
-const localHref = (href: string) => isZh && href === '/' ? '/zh/' : href;
-const navLabel = (key: keyof typeof labels) => `${labels[key]}${isZh && key !== 'home' ? '（英文）' : ''}`;
+const exactSwitchHref = isZh ? reverseTranslations[Astro.url.pathname] : translations[Astro.url.pathname];
+const switchHref = exactSwitchHref || (isZh ? '/' : '/zh/');
+const switchLabel = exactSwitchHref ? (isZh ? 'English' : '中文') : (isZh ? 'English home' : '中文首页');
+const localHref = (href: string) => isZh && href === '/' ? '/zh/' : isZh && href === '/tools/' ? '/zh/tools/route-finder/' : href;
+const navLabel = (key: keyof typeof labels) => String(labels[key]);
 const currentPath = Astro.url.pathname;
 ---
 
@@ -56,7 +58,7 @@ const currentPath = Astro.url.pathname;
         return <a class:list={[{ active }]} href={href} aria-current={current}>{navLabel(item.key)}</a>;
       })}
     </nav>
-    <a class="language-switch" href={switchHref} hreflang={isZh ? 'en' : 'zh-CN'}>{isZh ? 'English' : '中文'}</a>
-    <MobileNavigation locale={locale} switchHref={switchHref} />
+    <a class="language-switch" href={switchHref} hreflang={isZh ? 'en' : 'zh-CN'}>{switchLabel}</a>
+    <MobileNavigation locale={locale} switchHref={switchHref} switchIsExact={Boolean(exactSwitchHref)} />
   </div>
 </header>

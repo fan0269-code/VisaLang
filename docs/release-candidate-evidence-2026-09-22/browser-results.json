@@ -1,0 +1,75 @@
+{
+  "browser": "Chrome via Playwright",
+  "purpose": "Repeatable isolated application regression test",
+  "baseURL": "http://127.0.0.1:4323",
+  "rows": [
+    {
+      "name": "real updated model through browser test forwarding requires confirmation",
+      "status": "pass"
+    },
+    {
+      "name": "confirmation invalidates old route result and triggers follow-up questions",
+      "status": "pass"
+    },
+    {
+      "name": "editing text clears candidate and reset clears raw input",
+      "status": "pass"
+    },
+    {
+      "name": "manual choice while request pending cannot be overwritten",
+      "status": "pass"
+    },
+    {
+      "name": "clarification keeps manual form usable",
+      "status": "pass"
+    },
+    {
+      "name": "HTTP failure falls back to manual choices",
+      "status": "pass"
+    },
+    {
+      "name": "untrusted response label rejected",
+      "status": "pass"
+    },
+    {
+      "name": "12 second timeout recovers request control",
+      "status": "pass"
+    },
+    {
+      "name": "raw input absent from shared storage and URL",
+      "status": "pass"
+    },
+    {
+      "name": "English UI and keyboard confirmation",
+      "status": "pass"
+    },
+    {
+      "name": "Chinese native select keyboard observation",
+      "value": "university",
+      "expected": "other",
+      "status": "automation-inconclusive"
+    },
+    {
+      "name": "Chinese keyboard suggestion confirmation and manual selector",
+      "status": "pass"
+    },
+    {
+      "name": "retained mobile route /guides/goethe-a1-listening-practice/",
+      "status": "pass"
+    },
+    {
+      "name": "retained mobile route /guides/goethe-b1-writing-assessment/",
+      "status": "pass"
+    },
+    {
+      "name": "retained mobile route /zh/guides/german-a1-documents-checklist/",
+      "status": "pass"
+    },
+    {
+      "name": "page identity, nonblank content, no framework overlay, no page errors, desktop/mobile containment",
+      "status": "pass",
+      "title": "德国 A1 材料：分清报名、考试和递签 | VisaLang"
+    }
+  ],
+  "pageErrors": []
+}

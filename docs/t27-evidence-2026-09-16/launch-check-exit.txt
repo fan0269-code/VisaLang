@@ -1,0 +1,1 @@
+launch-check exit=1

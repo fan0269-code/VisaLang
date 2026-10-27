@@ -1,0 +1,15 @@
+{
+  "purpose": {
+    "type": "choice",
+    "instructions": "识别用户当前明确要办理的主要目的。不要选择被否定的目的。目的不明或多个目的尚未决定时选 unclear。有明确的其他目的时选 other。只分类目的，不判断国家支持范围、资格或语言要求。B1证书本身不代表永居或入籍。",
+    "criteria": {
+      "family_reunion": "与配偶或家人团聚并共同生活",
+      "settlement_citizenship": "申请永久居留或入籍",
+      "vocational_training": "申请双元制或其他职业培训",
+      "nursing_recognition": "办理护士职业资格认可或执业",
+      "university": "申请大学本科、硕士或博士",
+      "other": "明确的其他目的，例如旅游或补领证书",
+      "unclear": "目的不明确或多个候选目的尚未决定"
+    }
+  }
+}

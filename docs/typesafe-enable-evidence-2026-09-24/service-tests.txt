@@ -1,0 +1,23 @@
+test_disconnect_closes_typesafe_transport_and_releases_inference_lock (test_app.CancellationTests.test_disconnect_closes_typesafe_transport_and_releases_inference_lock) ... ok
+test_cancelled_laya_request_keeps_single_inference_slot_until_worker_exits (test_app.ContractTests.test_cancelled_laya_request_keeps_single_inference_slot_until_worker_exits) ... ok
+test_clarification_mapping_and_bad_confidence (test_app.ContractTests.test_clarification_mapping_and_bad_confidence) ... ok
+test_invalid_inputs_never_reach_model (test_app.ContractTests.test_invalid_inputs_never_reach_model) ... ok
+test_laya_1024_guard_does_not_apply_to_typesafe_budget (test_app.ContractTests.test_laya_1024_guard_does_not_apply_to_typesafe_budget) ... ok
+test_laya_timeout_keeps_single_inference_slot_until_worker_exits (test_app.ContractTests.test_laya_timeout_keeps_single_inference_slot_until_worker_exits) ... ok
+test_no_concurrent_inference_queue (test_app.ContractTests.test_no_concurrent_inference_queue) ... ok
+test_suggestion_only (test_app.ContractTests.test_suggestion_only) ... ok
+test_unavailable_and_unknown_output (test_app.ContractTests.test_unavailable_and_unknown_output) ... ok
+test_unicode_limit (test_app.ContractTests.test_unicode_limit) ... ok
+test_metrics_count_failures_without_text_or_high_cardinality (test_app.MetricsTests.test_metrics_count_failures_without_text_or_high_cardinality) ... ok
+test_api_key_cannot_inject_http_headers (test_app.TypeSafeAdapterTests.test_api_key_cannot_inject_http_headers) ... ok
+test_bounded_chunked_response_body_is_parsed (test_app.TypeSafeAdapterTests.test_bounded_chunked_response_body_is_parsed) ... ok
+test_provider_errors_do_not_expose_credentials_or_request_text (test_app.TypeSafeAdapterTests.test_provider_errors_do_not_expose_credentials_or_request_text) ... ok
+test_request_is_typed_bounded_and_maps_to_existing_contract (test_app.TypeSafeAdapterTests.test_request_is_typed_bounded_and_maps_to_existing_contract) ... ok
+test_total_deadline_bounds_slow_phases_and_dripping_body (test_app.TypeSafeAdapterTests.test_total_deadline_bounds_slow_phases_and_dripping_body) ... ok
+test_typesafe_provider_does_not_load_local_laya (test_app.TypeSafeAdapterTests.test_typesafe_provider_does_not_load_local_laya) ... ok
+test_unknown_or_unbounded_outputs_fail_closed (test_app.TypeSafeAdapterTests.test_unknown_or_unbounded_outputs_fail_closed) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.251s
+
+OK

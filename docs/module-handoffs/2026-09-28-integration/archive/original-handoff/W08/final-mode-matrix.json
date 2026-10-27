@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "runs": [
+    {
+      "purposeSuggestions": "off",
+      "advertising": "off",
+      "phase": "build",
+      "command": "VISALANG_PURPOSE_MODE=off VISALANG_ADS_MODE=off npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-off-off-build.log"
+    },
+    {
+      "purposeSuggestions": "off",
+      "advertising": "off",
+      "phase": "launch-check",
+      "command": "VISALANG_PURPOSE_MODE=off VISALANG_ADS_MODE=off node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-off-off-launch-check.log"
+    },
+    {
+      "purposeSuggestions": "off",
+      "advertising": "on",
+      "phase": "build",
+      "command": "VISALANG_PURPOSE_MODE=off VISALANG_ADS_MODE=on npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-off-on-build.log"
+    },
+    {
+      "purposeSuggestions": "off",
+      "advertising": "on",
+      "phase": "launch-check",
+      "command": "VISALANG_PURPOSE_MODE=off VISALANG_ADS_MODE=on node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-off-on-launch-check.log"
+    },
+    {
+      "purposeSuggestions": "laya",
+      "advertising": "off",
+      "phase": "build",
+      "command": "VISALANG_PURPOSE_MODE=laya VISALANG_ADS_MODE=off npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-laya-off-build.log"
+    },
+    {
+      "purposeSuggestions": "laya",
+      "advertising": "off",
+      "phase": "launch-check",
+      "command": "VISALANG_PURPOSE_MODE=laya VISALANG_ADS_MODE=off node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-laya-off-launch-check.log"
+    },
+    {
+      "purposeSuggestions": "laya",
+      "advertising": "on",
+      "phase": "build",
+      "command": "VISALANG_PURPOSE_MODE=laya VISALANG_ADS_MODE=on npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-laya-on-build.log"
+    },
+    {
+      "purposeSuggestions": "laya",
+      "advertising": "on",
+      "phase": "launch-check",
+      "command": "VISALANG_PURPOSE_MODE=laya VISALANG_ADS_MODE=on node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-laya-on-launch-check.log"
+    },
+    {
+      "purposeSuggestions": "typesafe",
+      "advertising": "off",
+      "phase": "build",
+      "command": "VISALANG_PURPOSE_MODE=typesafe VISALANG_ADS_MODE=off npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-typesafe-off-build.log"
+    },
+    {
+      "purposeSuggestions": "typesafe",
+      "advertising": "off",
+      "phase": "launch-check",
+      "command": "VISALANG_PURPOSE_MODE=typesafe VISALANG_ADS_MODE=off node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-typesafe-off-launch-check.log"
+    },
+    {
+      "purposeSuggestions": "typesafe",
+      "advertising": "on",
+      "phase": "build",
+      "command": "VISALANG_PURPOSE_MODE=typesafe VISALANG_ADS_MODE=on npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-typesafe-on-build.log"
+    },
+    {
+      "purposeSuggestions": "typesafe",
+      "advertising": "on",
+      "phase": "launch-check",
+      "command": "VISALANG_PURPOSE_MODE=typesafe VISALANG_ADS_MODE=on node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-typesafe-on-launch-check.log"
+    }
+  ]
+}

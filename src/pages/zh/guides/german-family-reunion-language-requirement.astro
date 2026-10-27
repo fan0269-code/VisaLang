@@ -7,145 +7,91 @@ import ZhGuideLayout from '../../../components/ZhGuideLayout.astro';
   description="先判断你的家庭团聚路径是否可能需要德语 A1，再去官方页面核验证书、豁免和材料要求。"
   slug="german-family-reunion-language-requirement"
   englishHref="/guides/german-family-reunion-language-requirement/"
-  related={['goethe-a1-vs-telc-a1', 'goethe-a1-booking-mistakes', 'german-a1-documents-checklist']}
+  related={['goethe-a1-vs-telc-a1', 'goethe-a1-test-centers', 'german-a1-exam-booking-timeline']}
 >
-  <h2>先解决三个问题</h2>
-  <p>你要解决的不是“Goethe A1 有没有用”这一句，而是三个连续问题：你的家庭团聚路线是否需要语言证明、负责接收材料的德国使领馆或主管机关接受什么证明、你所在地的 Goethe 或 telc 考点能否按当前规则完成报名和出证。</p>
-  <p>本文不判断你个人是否符合签证条件，也不判断某类申请人一定需要 A1 或一定豁免。只要负责页面没有说清楚，就按“需向主管机关人工核验”处理。</p>
-  <p>适合这页的读者通常已经准备看考点或报名，但还没有把“签证要求”“可接受证明”“考试报名规则”分开。请先完成前两个核验，再决定是否付款报名。</p>
+  <p>在中国准备德国配偶团聚时，不要从“先报 Goethe A1”开始。先确定你申请的具体团聚类别和负责使领馆，再核对该路线是否要求基础德语证明、可接受哪些证书以及如何提交。德国驻华使领馆的中文说明可作为中国递签场景的起点，但它不替你完成个案豁免、材料充分性或审批判断。</p>
+  <p>任何费用、考位、出分日期、证书近期性或豁免结论，只要当前负责页面没有明确对应你的路线，就记为“待主管机关确认”，不用网友经验补空。</p>
+  <p>建议为本次判断建一条决策记录：写明申请类别、负责机关、官方来源与待确认项。使领馆页面、配偶身份或自己申请类别发生变化时，应触发重新核验，不沿用旧结论。</p>
 
-  <h2>官方来源与适用边界</h2>
+  <Fragment slot="who">
+    <p>适合尚未确认语言证明要求、已经在中国准备结婚定居或配偶团聚材料的申请人，也适合已有 A1 证书但需要重新核对证书名称与材料形式的人。</p>
+    <p><strong>不适用边界：</strong>子女团聚、与德籍未成年子女团聚、其他欧盟公民家属或其他类别不应自动套用配偶团聚的结论。本页不是法律意见，不能判定你一定需要 A1、一定豁免或一定获签。</p>
+  </Fragment>
+
+  <h2>四方责任图：谁确认什么</h2>
   <table>
-    <thead>
-      <tr><th>来源</th><th>可确认内容</th><th>不能确认内容</th></tr>
-    </thead>
+    <thead><tr><th>责任方</th><th>可以确认</th><th>不应被当成</th></tr></thead>
     <tbody>
-      <tr>
-        <td><a href="https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&amp;v=11">BAMF：配偶团聚基础德语证明说明</a></td>
-        <td>BAMF 说明配偶团聚场景中，语言证明通常在向负责德国使领馆申请签证时提交，并强调要看负责机构。</td>
-        <td>你的个人路线、豁免、某张证书是否会被你的使领馆受理、材料有效期或审理结果。</td>
-      </tr>
-      <tr>
-        <td><a href="https://china.diplo.de/cn-zh/service/visa-einreise/2716606-2716606">德国驻华使领馆：家庭团聚基本德语证明</a></td>
-        <td>这份中国地区官方中文说明解释一般 A1 要求、可接受证明类别及例外边界。</td>
-        <td>你的个案是否适用、是否豁免、材料是否充分或最终申请结果。</td>
-      </tr>
-      <tr>
-        <td><a href="https://www.goethe.de/en/spr/prf.html">Goethe-Institut：德语考试总览</a></td>
-        <td>Goethe 官方说明 A1 考试属于 CEFR A1 等级，并列出考试产品。</td>
-        <td>签证机关是否接受你的具体证书、当地考位、费用、出分、证件和退改规则。</td>
-      </tr>
-      <tr>
-        <td><a href="https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/">telc：Start Deutsch 1 / telc Deutsch A1</a></td>
-        <td>telc 官方说明该考试为 A1 等级的一般德语考试。</td>
-        <td>负责使领馆是否接受 telc A1、具体考点是否授权、报名日期、费用、出分和材料形式。</td>
-      </tr>
+      <tr><td>负责使领馆或接收机关</td><td>申请类别、语言证明要求、可接受证明及提交形式，并在个案材料上作决定。</td><td>考试日期或考点运营方的承诺。</td></tr>
+      <tr><td>Goethe、telc 等考试主办方</td><td>准确考试产品、等级、技能构成、官方练习和考试管理规则。</td><td>你的签证机关对具体证书的最终受理决定。</td></tr>
+      <tr><td>所选官方或授权考点</td><td>当地开考产品、报名、证件、付款、退改、成绩与取证流程。</td><td>全中国通用规则或签证受理保证。</td></tr>
+      <tr><td>申请人</td><td>保存官方版本、如实描述个案、核对姓名与证件、记录未知项并按时复核。</td><td>用经验帖自行批准豁免或判定证书有效。</td></tr>
     </tbody>
   </table>
 
-  <h2>先拆成三个层次</h2>
-  <table>
-    <thead>
-      <tr><th>层次</th><th>谁说了算</th><th>你要核验什么</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>签证 / 家庭团聚要求</td>
-        <td>负责你申请地的德国使领馆、签证系统或后续主管机关</td>
-        <td>你的团聚路线、材料清单、是否需要语言证明、是否存在需人工确认的例外。</td>
-      </tr>
-      <tr>
-        <td>可接受的证明</td>
-        <td>接收你签证材料的官方机构</td>
-        <td>是否接受 Goethe-Zertifikat A1: Start Deutsch 1、Start Deutsch 1 / telc Deutsch A1 或其他证明；需要原件、复印件、电子核验还是其他形式。</td>
-      </tr>
-      <tr>
-        <td>当地考点与报名规则</td>
-        <td>Goethe、telc 或授权考点</td>
-        <td>考试名称、成人版本、证件规则、日期、费用、退改、成绩流程和证书领取方式。</td>
-      </tr>
-    </tbody>
-  </table>
+  <Fragment slot="key-decisions">
+    <ol>
+      <li>先把“与谁团聚、对方身份、准备在哪个受理区递交”写清，再选对应官方材料页。</li>
+      <li>把“需要什么语言证明”与“如何考到该证明”分开：前者由接收机关决定，后者由考试方和考点执行。</li>
+      <li>只在接受范围已有依据时比较 Goethe 与 telc；未确认时先停止付款。</li>
+      <li>豁免、证书近期性、原件或复印件要求一律保留个案证据，不从一般说明推导个人结论。</li>
+    </ol>
+  </Fragment>
 
-  <h2>中文核验清单</h2>
+  <h2>A1 要求核验树</h2>
   <ol>
-    <li><strong>路线：</strong>写下你是配偶团聚、子女团聚、随同家庭成员，还是其他家庭团聚路径；不要把不同路线混用。</li>
-    <li><strong>主管机关：</strong>找到负责你申请地的德国使领馆、签证平台或后续主管机关页面；如果找不到，记录“需向主管机关人工核验”。</li>
-    <li><strong>接受证明：</strong>确认页面或人工回复是否明确写出 A1、Start Deutsch 1、Goethe-Zertifikat A1、telc Deutsch A1 或其他证明。</li>
-    <li><strong>具体考试：</strong>核对考试是否为成人 A1 语言证明，不把课程结业证、培训证明、模拟考或儿童/青少年版本直接当成签证证明。</li>
-    <li><strong>当地考点：</strong>只从 Goethe、telc 或授权考点确认报名入口、考试日期、证件、费用、退改和成绩流程。</li>
-    <li><strong>材料与时间：</strong>把签证材料截止、考试日期、出分或取证、翻译/复印/原件要求分开记录；不要用别人的时间线替代你的官方节点。</li>
+    <li><strong>节点一：路线是否明确？</strong>否：回到<a href="https://china.diplo.de/cn-zh/service/visa-einreise/nationales-visum-1345434">德国驻华使领馆长期居留入口</a>按申请类别重新定位；是：保存当前材料页。</li>
+    <li><strong>节点二：页面是否要求语言证明？</strong>不明确：用官方联系方式提问；明确：记录等级、证书名称和提交形式。</li>
+    <li><strong>节点三：你是否认为自己属于例外？</strong>是：不跳到“已豁免”，而是进入证据记录和主管机关确认；否：继续证明选择。</li>
+    <li><strong>节点四：证明范围是否确认？</strong>否：不报名；是：进入<a href="/zh/guides/goethe-a1-vs-telc-a1/">同路线考试比较</a>。</li>
   </ol>
 
-  <h2>常见场景怎么处理</h2>
+  <h2>豁免证据记录卡</h2>
   <table>
-    <thead>
-      <tr><th>你的情况</th><th>下一步动作</th><th>不要这样做</th></tr>
-    </thead>
+    <thead><tr><th>记录项</th><th>写什么</th><th>何时停止推断</th></tr></thead>
     <tbody>
-      <tr>
-        <td>还没找到负责使领馆页面</td>
-        <td>先从德国外交部、对应国家/地区德国使领馆或签证平台找到家庭团聚材料入口；找不到就标记人工核验。</td>
-        <td>不要直接按培训机构文章报名。</td>
-      </tr>
-      <tr>
-        <td>页面只写了“基础德语”或“A1”</td>
-        <td>继续确认接受哪些证明、是否要求成人考试、原件/复印件/电子核验如何提交。</td>
-        <td>不要把任何 A1 课程证明都当成签证证明。</td>
-      </tr>
-      <tr>
-        <td>朋友说某证书以前被收过</td>
-        <td>把朋友经验当作提醒，不当作规则；回到你自己的使领馆页面核验。</td>
-        <td>不要用别人路线、递签地或旧年份经验替代当前官方要求。</td>
-      </tr>
-      <tr>
-        <td>已经有 A1 证书</td>
-        <td>核验证书名称、考试版本、姓名拼写、出生日期、出具机构和材料形式是否符合当前要求。</td>
-        <td>不要假设旧证书、不同姓名拼写或非标准证明一定能用。</td>
-      </tr>
+      <tr><td>官方条目</td><td>官方页面标题、URL、版本或访问日期，以及你认为相关的条目。</td><td>条目与你的配偶身份、居留身份或申请类别无法准确对应时。</td></tr>
+      <tr><td>个案事实</td><td>只写可证明的事实与现有材料，不写“应该可以”。</td><td>必须由审核人员评价材料是否足够时。</td></tr>
+      <tr><td>确认记录</td><td>官方回复日期、渠道、问题原文和回复可支持的范围。</td><td>回复只是一般信息或要求递交后审核时，不将它写成预批准。</td></tr>
     </tbody>
   </table>
 
-  <h2>给主管机关的核验问题</h2>
-  <ol>
-    <li>我的申请属于哪一种家庭团聚路线？语言证明要求应看哪个官方页面或材料清单？</li>
-    <li>我的路线是否需要基础德语证明？如果需要，接受哪些具体证书或考试名称？</li>
-    <li>是否接受 Goethe-Zertifikat A1: Start Deutsch 1、Start Deutsch 1 / telc Deutsch A1，或其他证明？</li>
-    <li>证明是否需要原件、复印件、翻译、电子核验、近期出具或特定格式？</li>
-    <li>如果页面没有明确说明，我应该通过哪个官方渠道获得书面或可记录的确认？</li>
-  </ol>
+  <h2>中国申请人的有边界场景</h2>
+  <h3>场景一：已有一张两年前的 A1 证书</h3>
+  <p>边界是“证书真实”不等于“当前个案一定接受”。先对照负责使领馆当前说明，记录对考试日期、证书名称和材料形式的要求；页面不能直接覆盖你的情况时，携带证书信息向官方渠道询问。在获得可记录答复前，既不自行宣布有效，也不自行宣布失效。</p>
+  <h3>场景二：认为配偶身份可能对应例外</h3>
+  <p>边界是本页可以帮你形成问题，不能帮你批准豁免。保存配偶当前护照、居留身份与对应官方条目的核对记录，不在公开群中上传完整证件。向负责机关询问应提交哪类证据，并把“可提交”与“会获批”分开。</p>
 
-  <h2>下一步阅读顺序</h2>
-  <ul>
-    <li>回到 <a href="/zh/germany-family-reunion-a1/">Germany A1 中文专题</a>，确认整条家庭团聚 A1 路线。</li>
-    <li>再看 <a href="/zh/guides/goethe-a1-vs-telc-a1/">Goethe A1 vs telc A1</a>，只比较已经可能被接受的证明。</li>
-    <li>报名和递签前，用 <a href="/zh/guides/german-a1-documents-checklist/">材料清单</a> 区分考试当天材料和签证材料。</li>
-    <li>需要倒排时间时，看 <a href="/zh/guides/german-a1-exam-booking-timeline/">A1 时间线</a>，但不要把时间线当成出证承诺。</li>
-    <li>如果路线仍不清楚，先用 <a href="/tools/route-finder/">Route Finder</a> 整理问题，再回到官方页面核验。</li>
-  </ul>
+  <Fragment slot="mistakes">
+    <table>
+    <thead><tr><th>错误</th><th>可能后果</th><th>替代动作</th></tr></thead>
+    <tbody>
+      <tr><td>只看中介列出的“包含 A1”</td><td>路线、证书或版本可能与官方要求不匹配。</td><td>保存自己负责使领馆的当前页面。</td></tr>
+      <tr><td>把课程结业证当考试证书</td><td>递交时才发现证明类型不对。</td><td>对照官方文件中的准确考试和出具机构名称。</td></tr>
+      <tr><td>把签证处的证明说明当成考点日历</td><td>错过当地报名或误估出证节点。</td><td>转到具体考点页面核对当地执行。</td></tr>
+      <tr><td>口头听说“可以豁免”就停止准备</td><td>无法说明所依据条目和个案证据。</td><td>完成豁免证据记录卡并请接收机关确认。</td></tr>
+    </tbody>
+    </table>
+  </Fragment>
 
-  <h2>中文 FAQ</h2>
-  <h3>所有配偶团聚申请人都必须考 A1 吗？</h3>
-  <p>不能这样断言。你需要看自己的家庭团聚路线、负责使领馆页面和主管机关说明；不清楚时必须人工核验。</p>
+  <h2>给签证处的中文询问模板</h2>
+  <blockquote>
+    您好，我计划在【拟递交城市/受理区】申请【具体家庭团聚类别】，团聚对象为【与申请人的关系及对方当前身份】。请问该路线的语言证明应以哪一份官方材料清单为准？如果需要基础德语证明，请问当前接受的准确证书名称和提交形式是什么？我的情况可能涉及【只陈述事实，不先下豁免结论】，请问应随申请提交哪些证明供审核？谢谢。
+  </blockquote>
 
-  <h3>Goethe A1 一定会被受理吗？</h3>
-  <p>不能承诺。Goethe 页面说明考试产品和等级，是否受理由负责签证材料的官方机构决定。</p>
+  <Fragment slot="next-action">
+    <ol>
+      <li>今天先保存一份与你申请类别对应的德国驻华使领馆页面，在文件名中写上访问日期。</li>
+      <li>完成要求核验树，仅将有明确依据的项目标为“已确认”，其余生成一封询问。</li>
+      <li>先用<a href="/zh/tools/route-finder/">中文路线查找器</a>保存核验顺序。证明范围明确后，阅读<a href="/zh/guides/goethe-a1-vs-telc-a1/">考试比较页</a>；需要排节点时直接进入<a href="/zh/guides/german-a1-exam-booking-timeline/">报名时间线</a>。</li>
+    </ol>
+  </Fragment>
 
-  <h3>telc A1 可以替代 Goethe A1 吗？</h3>
-  <p>只有在负责机构明确接受对应 telc A1 证明时才可以按该方向准备。不要只根据考点宣传或他人经验报名。</p>
-
-  <h3>如果使领馆页面打不开或没有写清楚怎么办？</h3>
-  <p>记录访问日期、保存你能找到的官方页面，然后通过官方联系方式或预约系统说明进行人工核验，不要用推测补细则。</p>
-
-  <h3>证书有效期、出分时间和费用可以按网上经验判断吗？</h3>
-  <p>不建议。证书接受、近期性、出分、费用、考位和退改都要看当前官方页面或本地授权考点说明。</p>
-
-  <h2>行动前再次核对</h2>
-  <ul>
-    <li>重新打开 BAMF 配偶团聚语言证明 PDF，确认没有把一般说明写成个案结论。</li>
-    <li>重新打开德国驻华使领馆或负责使领馆页面，确认当前要求和你的申请路线一致。</li>
-    <li>重新打开 Goethe 和 telc 官方考试页面，确认只引用考试产品和等级，不写接受承诺。</li>
-    <li>检查文中没有固定费用、考位、出分周期、证书有效期、豁免结论或审批承诺。</li>
-    <li>检查返回 Germany A1 hub、考试比较、材料清单、时间线和 Route Finder 的链接仍可访问。</li>
-  </ul>
+  <Fragment slot="sources">
+    <ul>
+      <li><a href="https://china.diplo.de/cn-zh/service/visa-einreise/2716606-2716606">德国驻华使领馆：家庭团聚或结婚定居所需基本德语证明</a>—支持中国地区一般 A1 说明、列示的证明类别和例外框架；不支持个案豁免或审批结果。</li>
+      <li><a href="https://china.diplo.de/cn-zh/service/visa-einreise/nationales-visum-1345434">德国驻华使领馆：长期居留与家庭团聚文件入口</a>—支持按当前申请类别查找材料页；不替代你选择正确类别。</li>
+      <li><a href="https://www.goethe.de/en/spr/prf.html">Goethe-Institut 德语考试入口</a>与<a href="https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/">telc Deutsch A1 产品页</a>—支持考试产品和等级范围；不支持签证受理、当地费用或考位结论。</li>
+    </ul>
+  </Fragment>
 </ZhGuideLayout>

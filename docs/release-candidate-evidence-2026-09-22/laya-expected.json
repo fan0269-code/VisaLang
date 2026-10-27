@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "locale": "zh",
+    "group": "normal",
+    "text": "我准备去德国与丈夫长期团聚。",
+    "expectedPurpose": "family-reunion"
+  },
+  {
+    "id": 2,
+    "locale": "zh",
+    "group": "normal",
+    "text": "我在德国生活多年，现在准备申请入籍。",
+    "expectedPurpose": "b1"
+  },
+  {
+    "id": 3,
+    "locale": "zh",
+    "group": "normal",
+    "text": "我想申请德国烘焙师的双元制职业培训。",
+    "expectedPurpose": "ausbildung"
+  },
+  {
+    "id": 4,
+    "locale": "zh",
+    "group": "normal",
+    "text": "我已经是护士，想在德国办理护理资格认可。",
+    "expectedPurpose": "nursing"
+  },
+  {
+    "id": 5,
+    "locale": "zh",
+    "group": "normal",
+    "text": "我准备申请德国大学的计算机硕士。",
+    "expectedPurpose": "university"
+  },
+  {
+    "id": 6,
+    "locale": "zh",
+    "group": "negation",
+    "text": "我只是去德国旅游，不申请大学也不办团聚。",
+    "expectedPurpose": "other"
+  },
+  {
+    "id": 7,
+    "locale": "zh",
+    "group": "negation",
+    "text": "不是去和家人团聚，我这次只申请大学。",
+    "expectedPurpose": "university"
+  },
+  {
+    "id": 8,
+    "locale": "zh",
+    "group": "ambiguous",
+    "text": "我想去德国发展，还没确定做什么。",
+    "expectedPurpose": null
+  },
+  {
+    "id": 9,
+    "locale": "zh",
+    "group": "ambiguous",
+    "text": "团聚和读大学我都在考虑，暂时没决定。",
+    "expectedPurpose": null
+  },
+  {
+    "id": 10,
+    "locale": "zh",
+    "group": "boundary",
+    "text": "B1",
+    "expectedPurpose": null
+  },
+  {
+    "id": 11,
+    "locale": "en",
+    "group": "normal",
+    "text": "I want to join my spouse in Germany permanently.",
+    "expectedPurpose": "family-reunion"
+  },
+  {
+    "id": 12,
+    "locale": "en",
+    "group": "normal",
+    "text": "I am preparing a German citizenship application.",
+    "expectedPurpose": "b1"
+  },
+  {
+    "id": 13,
+    "locale": "en",
+    "group": "normal",
+    "text": "I want to apply for a German vocational apprenticeship.",
+    "expectedPurpose": "ausbildung"
+  },
+  {
+    "id": 14,
+    "locale": "en",
+    "group": "normal",
+    "text": "I am a qualified nurse seeking professional recognition in Germany.",
+    "expectedPurpose": "nursing"
+  },
+  {
+    "id": 15,
+    "locale": "en",
+    "group": "normal",
+    "text": "I want to apply for a masters degree at a German university.",
+    "expectedPurpose": "university"
+  },
+  {
+    "id": 16,
+    "locale": "en",
+    "group": "negation",
+    "text": "I am visiting Germany for a holiday, not applying for study or family reunion.",
+    "expectedPurpose": "other"
+  },
+  {
+    "id": 17,
+    "locale": "en",
+    "group": "negation",
+    "text": "I am not joining family; my current goal is university admission.",
+    "expectedPurpose": "university"
+  },
+  {
+    "id": 18,
+    "locale": "en",
+    "group": "ambiguous",
+    "text": "I want to move abroad but have not chosen what to do.",
+    "expectedPurpose": null
+  },
+  {
+    "id": 19,
+    "locale": "en",
+    "group": "ambiguous",
+    "text": "I am undecided between joining my spouse and starting a degree.",
+    "expectedPurpose": null
+  },
+  {
+    "id": 20,
+    "locale": "en",
+    "group": "boundary",
+    "text": "B1 exam score",
+    "expectedPurpose": null
+  }
+]

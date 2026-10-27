@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-10-05",
+  "priorArchiveFileChecks": 404,
+  "priorArchiveHashFailures": [],
+  "newArchiveFileChecks": 417,
+  "newArchiveHashFailures": [],
+  "candidateHashChecks": 139,
+  "candidateHashFailures": [],
+  "liveBaseChecks": 139,
+  "liveBaseDivergences": [],
+  "historicalReceiptChecks": 44,
+  "historicalReceiptFailures": [],
+  "patchDryRuns": {
+    "W03": {
+      "exitCode": 0,
+      "scratchOnly": true
+    },
+    "W04": {
+      "exitCode": 0,
+      "scratchOnly": true
+    },
+    "W08": {
+      "exitCode": 0,
+      "scratchOnly": true
+    },
+    "W07": {
+      "exitCode": 0,
+      "scratchOnly": true
+    }
+  },
+  "temporarySourceMissingModules": [
+    "W03",
+    "W04",
+    "W08",
+    "W07"
+  ],
+  "functionalPatchApplied": false,
+  "historicalTestsRerun": false,
+  "summary": "The 9/28 complete archive and all copied files were rehashed on 10/05; original /private/tmp handoff files are absent now. Candidate inputs are verified only from the prior immutable archive. No new candidate was fabricated."
+}

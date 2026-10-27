@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "status": "blocked",
+  "recordedAt": "2026-10-11T19:00:00+08:00",
+  "reviewedAt": null,
+  "requestedReviewerCapability": "image-capable-agent",
+  "reviewPerformed": false,
+  "artifact": {
+    "path": "docs/planning-map/visalang-overall-build-plan.html",
+    "sha256": "481d1e69270d421421478d43c93f6987743009324b9ae4563e65121b233ba3ce",
+    "bytes": 725100
+  },
+  "browserEvidence": {
+    "path": "docs/planning-map/visalang-overall-build-plan.visual-check.json",
+    "sha256": "58268546ec4a48226dc433a31646dc8f4b9852d121dd2f6775be37e007d1b837",
+    "kind": "prior automated-browser failure is not bound to current HTML; no retry because the supported environment has not changed after two SIGABRT attempts"
+  },
+  "screenshots": [],
+  "findings": [
+    {
+      "severity": "P1",
+      "finding": "No current-artifact screenshots are available: the prior Archify Chrome visual-check ended in SIGABRT twice in the same environment, so no third attempt was made. Image-capable perceptual review is blocked."
+    }
+  ],
+  "completionImpact": "unresolved; current HTML has no artifact-bound automated-browser or perceptual pass"
+}

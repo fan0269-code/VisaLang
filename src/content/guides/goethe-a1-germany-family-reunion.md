@@ -1,59 +1,93 @@
 ---
-title: "Goethe A1 for Germany family reunion visa proof"
-description: "How Goethe-Zertifikat A1 can fit Germany family reunion visa planning, what to verify officially, and which booking and document steps come next."
+title: "Does an existing Goethe A1 certificate work for Germany family reunion?"
+description: "Use a three-layer check: identify the exact Goethe document, then ask the receiving authority whether it accepts that document and date for your current route."
+directAnswer: "A passed Goethe A1 certificate does not expire as a Goethe product fact, but that does not decide whether a competent German mission or receiving authority accepts your exact certificate, exam date, and document form for a current family-reunion application."
+claimRefs:
+  - claimId: "goethe-zertifikat-a1-product-and-certificate"
+    version: "2026-09-08.1"
+  - claimId: "germany-family-reunion-a1-authority-split"
+    version: "2026-09-08.1"
+  - claimId: "china-family-reunion-a1-certificate-recency-context"
+    version: "2026-09-08.1"
 category: "germany-a1"
 slug: "goethe-a1-germany-family-reunion"
-publishedDate: "2026-06-30"
-updatedDate: "2026-07-22"
-sourceReviewedAt: "2026-07-22"
+publishedDate: "2026-09-08"
+updatedDate: "2026-09-08"
+sourceReviewedAt: "2026-09-08"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
-contentStatus: "complete-route"
-primaryIntent: "Goethe A1 for Germany family reunion visa proof decision support"
-decisionStage: "requirement"
-nextGuideSlug: "goethe-a1-vs-telc-a1"
+contentStatus: "verification-pending"
+noindex: true
+adsEligible: false
+primaryIntent: "Check an existing Goethe A1 certificate against the competent receiving authority's current route-specific instructions."
+decisionStage: "submission-review"
 comparisonScope: "same-route"
-audienceScope: "Spouses planning a German family-reunification visa who must confirm whether basic German proof applies to their own route."
-finalDecisionAuthorityType: "Competent German mission abroad and the responsible foreigners authority"
-primaryOfficialAuthorityUrl: "https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11"
-examOwnerUrl: "https://www.goethe.de/en/spr/prf.html"
-localExecutionPrompt: "Confirm the current language-proof instruction with the competent German mission, then verify the exact exam, centre, date, fee, ID and cancellation rules with Goethe or its authorised local centre."
+audienceScope: "Readers who already hold a Goethe A1 examination certificate and need to verify it for a Germany family-reunion or spouse application; this page does not determine their route or outcome."
+finalDecisionAuthorityType: "Competent German mission or receiving immigration authority for the application route"
+primaryOfficialAuthorityUrl: "https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682"
+routeRequirementAuthorityType: "Competent German mission or receiving immigration authority for the application route"
+routeRequirementAuthorityUrl: "https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682"
+examOwnerUrl: "https://www.goethe.de/ins/de/en/prf/ogf.html"
+localExecutionPrompt: "Record the exact certificate and exam date, then ask the competent mission or receiving authority whether it accepts that document for your current route before relying on it or booking anything."
 author: "VisaLang Editorial team"
-readingTime: "8"
-featured: true
-eyebrow: "Germany family reunion"
+readingTime: "5"
+eyebrow: "Germany family reunion / existing certificate"
 route: "germany-a1"
-supportingGuideSlugs: ["german-family-reunion-language-requirement", "goethe-a1-pre-booking-checklist"]
+supportingGuideSlugs: ["german-family-reunion-language-requirement"]
 ---
 
-## Start with the route, not the brand
+## Who this is for
 
-Goethe A1 can be a useful exam route for a Germany family reunion case, but the first question is whether your own case needs A1 proof and which proof the responsible authority accepts.
+Use this check if you already have a document labelled Goethe A1 and want to know what must be verified before you present it in a German family-reunion or spouse application. It does not decide that your route requires proof, that you qualify for an exception, that the document is sufficient, or that an application will succeed.
 
-Do not book because a forum says Goethe was accepted for another applicant. Your relationship category, application location, and any exception must be checked with the authority handling your file.
+## Key decisions
 
-## What the official Goethe page confirms
+### Goethe product and certificate fact
 
-Goethe lists **Goethe-Zertifikat A1: Start Deutsch 1** as its adult A1 examination. Its official overview says the exam covers listening, reading, writing, and speaking, and describes it as language proof for spousal reunification.
+Goethe’s own examination information distinguishes a passed examination certificate from attendance evidence. Its A1–C2 certificates do not expire as Goethe product facts. That is useful for identifying the document you hold, but it is not an immigration acceptance guarantee.
 
-That explains why the exam belongs in this route. It does not replace a current confirmation from the responsible German mission or authority for your individual application.
+### Receiving authority’s recency and acceptance rule
 
-## Before you choose a centre
+The competent German mission or receiving immigration authority decides the current route instruction, accepted proof, document form, and any route-specific recency rule. A national overview or exam provider cannot make that decision for an individual file.
 
-First confirm the exact certificate name. Then check an official Goethe centre or examination partner for a local exam date, registration deadline, fee, ID rule, result process, and certificate collection method.
+### Your current route and document facts
 
-Keep those local facts separate from the visa rule. The test centre can explain its examination process; the mission or authority decides the document requirement for your case.
+Keep the actual application location, relationship route, certificate type, exam date, identity details, and any current mission instruction together. Do not replace a missing mission instruction with a provider statement or another applicant’s result.
 
-## When this page is not enough
+## Certificate-check record
 
-Use a different page first if you still do not know whether A1 applies, are comparing Goethe with telc, or are ready to pay. Those are separate decisions and need separate checks.
+Copy this record into a private note. Do not upload a certificate, passport number, or other identifier here.
+
+| Record | Your entry |
+| --- | --- |
+| Product | Exact passed examination certificate name, or “unknown” |
+| Exam date | Date shown on the certificate, or “unknown” |
+| Intended procedure | Your stated family-reunion or spouse application route |
+| Receiving authority | Competent German mission or receiving immigration authority |
+| Evidence checked | Official URL, locator, and date checked |
+| Unresolved question | The exact acceptance or document-form question to ask |
+
+## China-only recency context
+
+For China application locations only, the German missions in China say that certificates whose examination date is no earlier than one year are **usually accepted** for the listed family-reunion or marriage-settlement scenarios. This is not a global certificate-expiry rule and not an automatic acceptance, rejection, exemption, or individual result. Readers outside that China application-location scope must use their own competent mission or receiving authority’s current wording.
+
+## Authority question to save
+
+Ask the competent mission or receiving authority whether it accepts the exact passed Goethe certificate, the shown exam date, the document form, and any supporting documents for the current route. Ask a selected official or authorised test centre only about its own local booking or document administration terms, not immigration acceptance.
+
+## Common mistakes
+
+- Treating a non-expiring Goethe certificate as proof that every receiving authority accepts it.
+- Treating China-only “usually accepted” wording as a worldwide rule or a guaranteed result.
+- Confusing attendance evidence with a passed examination certificate.
+- Omitting the actual route, application location, or exam date from the authority question.
 
 ## Next action
 
-Confirm the route with the competent German mission, save its current instruction, then compare providers in [Goethe A1 vs telc A1](/guides/goethe-a1-vs-telc-a1/). Use the [pre-booking checklist](/guides/goethe-a1-pre-booking-checklist/) only after the accepted proof is clear.
+Complete the certificate-check record, save the current mission instruction, and send one narrow question to the authority receiving the application. If you have not yet confirmed whether proof is needed for your route, return to the [family-reunion requirement check](/guides/german-family-reunion-language-requirement/).
 
 ## Official sources
 
-- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [Federal Foreign Office: Visas for Germany](https://www.auswaertiges-amt.de/en/visa-service/215870-215870)
-- [BAMF spousal-reunification language-proof leaflet (PDF)](https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11)
+- [Goethe-Institut: German exam FAQ](https://www.goethe.de/ins/de/en/prf/ogf.html) — checked 2026-09-08; supports Goethe’s product/certificate distinction and non-expiry statement only, not immigration acceptance.
+- [German Federal Foreign Office: foreign spouse language FAQ](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682) — checked 2026-09-08; supports a general basic-German starting point and mission verification, not an individual acceptance decision.
+- [German missions in China: family reunion / marriage settlement basic German proof](https://china.diplo.de/cn-zh/service/visa-einreise/2716606-2716606) — checked 2026-09-08; supports the China-only “usually accepted” wording for the listed scenarios, not a global rule or guarantee.

@@ -1,0 +1,18 @@
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: perceptual review records an offset-aware time
+    at file:///Users/a1-6/Documents/2.codex/1.visalang.org/tests/planning-map-governance.test.mjs:442:8
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: '2026-09-24T10:05:32.904Z',
+  expected: /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$/,
+  operator: 'match',
+  diff: 'simple'
+}
+
+Node.js v22.23.2

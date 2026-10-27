@@ -1,0 +1,115 @@
+{
+  "environment": {
+    "browser": "153.0.8010.48",
+    "engine": "Chrome headless",
+    "url": "http://127.0.0.1:4321",
+    "platform": "darwin",
+    "realUsers": false,
+    "browserPlugin": "absent; regular Playwright fallback"
+  },
+  "results": [
+    {
+      "id": "en-entry-finder",
+      "precondition": "Fresh 1440x900 context, no saved state",
+      "steps": "Home -> A1 route -> Finder; submit missing input, then China/spouse/none",
+      "expected": "Real links reach localized Finder; errors focus field; valid result renders",
+      "status": "fail",
+      "actual": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('a[href=\"/germany-family-reunion-a1/\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <a href=\"/germany-family-reunion-a1/\">Family reunion</a>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    57 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n",
+      "screenshot": "en-entry-finder-failure.png"
+    },
+    {
+      "id": "en-finder-boundaries",
+      "precondition": "Finder with valid A1 inputs",
+      "steps": "Select other country; then Germany with missing relationship; then existing certificate; recover normal",
+      "expected": "Unsupported, missing-info and authority-confirmation boundaries remain distinct",
+      "status": "fail",
+      "actual": "TimeoutError: locator.selectOption: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[name=\"country\"]')\u001b[22m\n",
+      "screenshot": "en-finder-boundaries-failure.png"
+    },
+    {
+      "id": "en-comparison",
+      "precondition": "Same tab has A1 plan",
+      "steps": "Use tool nav -> comparison; empty, A1, same, mixed A1/B1, B1 and restored A1 pairs",
+      "expected": "Missing rejected; valid A1/B1 tables; same/mixed remain bounded",
+      "status": "fail",
+      "actual": "Error: locator.click: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - waiting for locator('a[href=\"/tools/exam-comparison/\"]').first()\u001b[22m\n",
+      "screenshot": "en-comparison-failure.png"
+    },
+    {
+      "id": "en-checklist",
+      "precondition": "Same tab A1 route and exams",
+      "steps": "Nav -> checklist; verify inherited route; generate, check item, reload, regenerate; copy and read clipboard; download bytes",
+      "expected": "Stable checkbox restored; clipboard equals downloaded full checklist including state/sources",
+      "status": "fail",
+      "actual": "Error: locator.click: Target page, context or browser has been closed",
+      "screenshot": "en-checklist-failure.png"
+    },
+    {
+      "id": "en-checklist-print",
+      "precondition": "Generated checklist with one checked task",
+      "steps": "Invoke print handler; render actual print media to PDF",
+      "expected": "beforeprint/afterprint observed and PDF contains print output; physical printing not tested",
+      "status": "fail",
+      "actual": "Error: page.evaluate: Target page, context or browser has been closed",
+      "screenshot": "en-checklist-print-failure.png"
+    },
+    {
+      "id": "en-checklist-fallback",
+      "precondition": "Valid checklist",
+      "steps": "Reject clipboard via test fault injection; click copy; select unsupported route; restore A1",
+      "expected": "Full manual fallback focused; unsupported route clears/disables takeaways; A1 recovers",
+      "status": "fail",
+      "actual": "Error: page.evaluate: Target page, context or browser has been closed",
+      "screenshot": "en-checklist-fallback-failure.png"
+    },
+    {
+      "id": "en-timeline",
+      "precondition": "Same tab A1 plan",
+      "steps": "Nav timeline; missing buffers, negative buffer, valid target 2027-03-01 with 14/7/30; refresh",
+      "expected": "Errors focus fields; dates derived from explicit values; approved date restores",
+      "status": "fail",
+      "actual": "Error: locator.click: Target page, context or browser has been closed",
+      "screenshot": "en-timeline-failure.png"
+    },
+    {
+      "id": "en-reminder",
+      "precondition": "Same tab A1 plan",
+      "steps": "Nav reminder; missing fields; choose topic/date; actual ICS download; edit date",
+      "expected": "No false success on missing input; ICS bytes valid; stale download hidden after edit",
+      "status": "fail",
+      "actual": "Error: locator.click: Target page, context or browser has been closed",
+      "screenshot": "en-reminder-failure.png"
+    },
+    {
+      "id": "en-device-save-clear",
+      "precondition": "Shared session plan from tool chain",
+      "steps": "Verify no device snapshot; explicitly save; clear session and reload; clear plan",
+      "expected": "Device snapshot saved only on request; restores and both stores clear",
+      "status": "fail",
+      "actual": "Error: page.evaluate: Target page, context or browser has been closed",
+      "screenshot": "en-device-save-clear-failure.png"
+    },
+    {
+      "id": "en-version-recovery",
+      "precondition": "No persisted plan",
+      "steps": "Create plan then inject stale schema; refresh, clear, re-enter via keyboard",
+      "expected": "Incompatible version requires reconfirmation; clear/re-enter recovers without URL answers",
+      "status": "fail",
+      "actual": "Error: page.goto: Target page, context or browser has been closed",
+      "screenshot": "en-version-recovery-failure.png"
+    },
+    {
+      "id": "en-keyboard",
+      "precondition": "Recovered A1 Finder",
+      "steps": "Restart -> focus first field; use only Tab/Arrow keys to choose controls and Enter submit",
+      "expected": "Keyboard-only traversal creates a result and moves focus to result",
+      "status": "fail",
+      "actual": "Error: locator.click: Target page, context or browser has been closed",
+      "screenshot": "en-keyboard-failure.png"
+    }
+  ],
+  "errors": [],
+  "external": [
+    "https://visalang.org/favicon.svg"
+  ]
+}

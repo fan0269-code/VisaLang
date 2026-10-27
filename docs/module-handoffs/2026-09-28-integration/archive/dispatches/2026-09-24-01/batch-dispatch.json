@@ -1,0 +1,390 @@
+{
+  "schemaVersion": 1,
+  "batchId": "2026-09-24-01",
+  "createdAt": "2026-09-24T19:29:11+08:00",
+  "sourceRoot": "/Users/a1-6/Documents/2.codex/1.visalang.org",
+  "baselineId": "cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40",
+  "baselineManifestPath": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-24-01/baseline-manifest.json",
+  "snapshotPath": "/private/tmp/visalang-W00-2026-09-24-01/baseline",
+  "assignmentStatus": "prepared_awaiting_owner_dispatch",
+  "implementationStatus": "not_started",
+  "scope": "P00 baseline and allocation preparation only",
+  "selectedPreparationModules": [
+    "W03",
+    "W04",
+    "W08"
+  ],
+  "executingModules": [],
+  "currentIntegrationCount": 0,
+  "moduleHandoffCount": 0,
+  "ownerInstructionRef": "docs/module-handoffs/2026-09-24-01/owner-scope.md",
+  "previousBatch": "docs/module-handoffs/2026-09-23-01/dispatch.json",
+  "previousBatchPolicy": "historical and preserved; never overwrite current TypeSafe tree from old copies",
+  "assignments": [
+    {
+      "schemaVersion": 1,
+      "batchId": "2026-09-24-01",
+      "moduleId": "W03",
+      "promptId": "P01",
+      "planningPackages": [
+        "LC01"
+      ],
+      "baselineId": "cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40",
+      "sourceRoot": "/Users/a1-6/Documents/2.codex/1.visalang.org",
+      "workspacePath": "/private/tmp/visalang-W00-2026-09-24-01/W03",
+      "snapshotPath": "/private/tmp/visalang-W00-2026-09-24-01/baseline",
+      "baselineManifestPath": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-24-01/baseline-manifest.json",
+      "byteVerificationPath": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-24-01/W03-byte-verification.json",
+      "promptPath": "docs/prompts/2026-09-24-next-stage/P01-entry-ui.md",
+      "requiredCommonPath": "docs/prompts/2026-09-23-module-build/COMMON.md",
+      "assignmentStatus": "prepared_awaiting_owner_dispatch",
+      "implementationStatus": "not_started",
+      "allowedWritePaths": [
+        "src/pages/index.astro",
+        "src/pages/zh/index.astro",
+        "src/pages/routes/index.astro",
+        "src/pages/tools/index.astro",
+        "src/components/HomeHero.astro",
+        "src/components/RouteSelector.astro",
+        "src/components/GlobalHeader.astro",
+        "src/components/MobileNavigation.astro",
+        "src/styles/global.css",
+        "tests/task-4-home-routes.test.mjs",
+        "tests/m3-discovery-trust.test.mjs",
+        "docs/module-handoffs/2026-09-24-01/W03/**"
+      ],
+      "runtimeWritePaths": [
+        "node_modules/**",
+        "dist/**",
+        ".astro/**",
+        ".venv/**",
+        ".runtime/**"
+      ],
+      "runtimeRules": "Independent local runtime paths only; no writable sharing, lockfile upgrades, installs/downloads or credential reads. Future build-producing npm commands serialized.",
+      "environmentRecord": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-24-01/environment-preflight.json",
+      "evidenceDependencies": [
+        {
+          "evidencePath": "docs/module-handoffs/2026-09-24-01/snapshot-verification.json",
+          "status": "verified",
+          "sha256": "a5ed376b0912bd451407ab8816f0591172b879c1e464ed51a4ac90c8f05697cb"
+        },
+        {
+          "evidencePath": "docs/module-handoffs/2026-09-24-01/environment-preflight.json",
+          "status": "independent-local-dependency-copies-verified",
+          "sha256": "c0f22f5b2a7431816ad09bbd48257bdcedf5f2ad0965f2d7abd2ce4bff6804b1"
+        },
+        {
+          "evidencePath": "docs/PROJECT_SCAN_2026-09-24.md",
+          "status": "known-local-defects; not-human-or-production-evidence",
+          "sha256": "73bed7daafecb7ba8b1050b6d0d1a8fec8c68d8b9fbab0a57dd17346208dc1f1"
+        },
+        {
+          "evidencePath": "docs/superpowers/plans/2026-09-24-visalang-next-stage-content-ui.md",
+          "status": "governing-execution-supplement; T/LP/LC-gates-unchanged",
+          "sha256": "3f97cd8226aa72142f81c2c8024c3c110659c817789d751ebcec51daf9c95cff"
+        },
+        {
+          "evidencePath": "docs/project-scan-evidence-2026-09-24/ui/receipt.json",
+          "status": "historical-local-browser-evidence",
+          "sha256": "3242268dd4e8180708cf7521d40f86f4c074ddc7792509a4cb2649b4685fa8a3"
+        },
+        {
+          "moduleId": "W01",
+          "status": "not-prerequisite-for-confirmed-local-defect-maintenance; real-readers-not-tested"
+        }
+      ],
+      "limitations": [
+        "No real-reader evidence; local known-defect work does not close LP00/LP04.",
+        "GuideLayout is not granted by P01; request W00 path allocation only if concretely needed.",
+        "Route coverage/index/ads policy are read-only."
+      ],
+      "handoffStatus": "not_received",
+      "dispatchEvidence": null,
+      "externalActionsAuthorized": []
+    },
+    {
+      "schemaVersion": 1,
+      "batchId": "2026-09-24-01",
+      "moduleId": "W04",
+      "promptId": "P02",
+      "planningPackages": [
+        "LC04"
+      ],
+      "baselineId": "cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40",
+      "sourceRoot": "/Users/a1-6/Documents/2.codex/1.visalang.org",
+      "workspacePath": "/private/tmp/visalang-W00-2026-09-24-01/W04",
+      "snapshotPath": "/private/tmp/visalang-W00-2026-09-24-01/baseline",
+      "baselineManifestPath": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-24-01/baseline-manifest.json",
+      "byteVerificationPath": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-24-01/W04-byte-verification.json",
+      "promptPath": "docs/prompts/2026-09-24-next-stage/P02-authority-certificate.md",
+      "requiredCommonPath": "docs/prompts/2026-09-23-module-build/COMMON.md",
+      "assignmentStatus": "prepared_awaiting_owner_dispatch",
+      "implementationStatus": "not_started",
+      "allowedWritePaths": [
+        "src/content/guides/german-family-reunion-language-requirement.md",
+        "src/content/guides/goethe-a1-germany-family-reunion.md",
+        "src/pages/zh/guides/german-family-reunion-language-requirement.astro",
+        "src/pages/zh/guides/goethe-a1-germany-family-reunion.astro",
+        "src/data/zh-germany-a1.ts",
+        "src/data/zh-guide-task-reconciliation.ts",
+        "src/data/article-sections.ts",
+        "src/data/source-review.ts",
+        "src/layouts/GuideLayout.astro",
+        "src/components/ZhGuideLayout.astro",
+        "src/styles/global.css",
+        "tests/fan-42-germany-a1-requirement.test.js",
+        "tests/source-review-render.test.js",
+        "tests/scheme-3-chinese-page-sections.test.mjs",
+        "tests/article-sections-key-decisions.test.mjs",
+        "docs/module-handoffs/2026-09-24-01/W04/**"
+      ],
+      "runtimeWritePaths": [
+        "node_modules/**",
+        "dist/**",
+        ".astro/**",
+        ".venv/**",
+        ".runtime/**"
+      ],
+      "runtimeRules": "Independent local runtime paths only; no writable sharing, lockfile upgrades, installs/downloads or credential reads. Future build-producing npm commands serialized.",
+      "environmentRecord": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-24-01/environment-preflight.json",
+      "evidenceDependencies": [
+        {
+          "evidencePath": "docs/module-handoffs/2026-09-24-01/snapshot-verification.json",
+          "status": "verified",
+          "sha256": "a5ed376b0912bd451407ab8816f0591172b879c1e464ed51a4ac90c8f05697cb"
+        },
+        {
+          "evidencePath": "docs/module-handoffs/2026-09-24-01/environment-preflight.json",
+          "status": "independent-local-dependency-copies-verified",
+          "sha256": "c0f22f5b2a7431816ad09bbd48257bdcedf5f2ad0965f2d7abd2ce4bff6804b1"
+        },
+        {
+          "evidencePath": "docs/PROJECT_SCAN_2026-09-24.md",
+          "status": "known-local-defects; not-human-or-production-evidence",
+          "sha256": "73bed7daafecb7ba8b1050b6d0d1a8fec8c68d8b9fbab0a57dd17346208dc1f1"
+        },
+        {
+          "evidencePath": "docs/superpowers/plans/2026-09-24-visalang-next-stage-content-ui.md",
+          "status": "governing-execution-supplement; T/LP/LC-gates-unchanged",
+          "sha256": "3f97cd8226aa72142f81c2c8024c3c110659c817789d751ebcec51daf9c95cff"
+        },
+        {
+          "evidencePath": "docs/project-scan-evidence-2026-09-24/ui/receipt.json",
+          "status": "historical-local-browser-evidence",
+          "sha256": "3242268dd4e8180708cf7521d40f86f4c074ddc7792509a4cb2649b4685fa8a3"
+        },
+        {
+          "moduleId": "W01",
+          "status": "not-prerequisite-for-confirmed-local-defect-maintenance; real-readers-not-tested"
+        },
+        {
+          "evidencePath": "docs/project-scan-evidence-2026-09-24/content-review.md",
+          "status": "existing-worksheet-and-source-boundaries",
+          "sha256": "3584315ceb663d86a9148a9ad8edf7f961d299e9968eccd2a9117507aeed9507"
+        }
+      ],
+      "limitations": [
+        "Current C07 already has a certificate verification worksheet; inspect usability before adding content.",
+        "No official facts rechecked in P00; material claims require fresh authority/source ledger in P02.",
+        "C07 noindex/ad-free and publication policy unchanged. Real-reader acceptance not tested."
+      ],
+      "handoffStatus": "not_received",
+      "dispatchEvidence": null,
+      "externalActionsAuthorized": []
+    },
+    {
+      "schemaVersion": 1,
+      "batchId": "2026-09-24-01",
+      "moduleId": "W08",
+      "promptId": "P03",
+      "planningPackages": [
+        "LP05a"
+      ],
+      "baselineId": "cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40",
+      "sourceRoot": "/Users/a1-6/Documents/2.codex/1.visalang.org",
+      "workspacePath": "/private/tmp/visalang-W00-2026-09-24-01/W08",
+      "snapshotPath": "/private/tmp/visalang-W00-2026-09-24-01/baseline",
+      "baselineManifestPath": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-24-01/baseline-manifest.json",
+      "byteVerificationPath": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-24-01/W08-byte-verification.json",
+      "promptPath": "docs/prompts/2026-09-24-next-stage/P03-core-decoupling.md",
+      "requiredCommonPath": "docs/prompts/2026-09-23-module-build/COMMON.md",
+      "assignmentStatus": "prepared_awaiting_owner_dispatch",
+      "implementationStatus": "not_started",
+      "allowedWritePaths": [
+        "src/data/runtime-features.ts",
+        "astro.config.mjs",
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/GuideLayout.astro",
+        "src/components/tools/PurposeSuggestion.astro",
+        "src/scripts/purpose-suggestion.ts",
+        "src/pages/tools/route-finder.astro",
+        "src/pages/zh/tools/route-finder.astro",
+        "src/pages/privacy-policy.astro",
+        "src/pages/cookie-policy.astro",
+        "deploy/release.py",
+        "deploy/deploy.sh",
+        "deploy/rollback.sh",
+        "deploy/smoke-test.sh",
+        "deploy/nginx-vhost-template.conf",
+        "deploy/laya-purpose-nginx.conf",
+        "deploy/production-evidence.example.json",
+        "deploy/README.md",
+        "deploy/tests/test_release.py",
+        "scripts/launch-check.js",
+        "tests/deploy.test.js",
+        "tests/adsense-risk-exposure.test.js",
+        "tests/scheme-3-release-candidate.test.mjs",
+        "tests/site.test.js",
+        "tests/laya-purpose.test.mjs",
+        "tests/runtime-features.test.mjs",
+        "docs/module-handoffs/2026-09-24-01/W08/**"
+      ],
+      "runtimeWritePaths": [
+        "node_modules/**",
+        "dist/**",
+        ".astro/**",
+        ".venv/**",
+        ".runtime/**"
+      ],
+      "runtimeRules": "Independent local runtime paths only; no writable sharing, lockfile upgrades, installs/downloads or credential reads. Future build-producing npm commands serialized.",
+      "environmentRecord": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-24-01/environment-preflight.json",
+      "evidenceDependencies": [
+        {
+          "evidencePath": "docs/module-handoffs/2026-09-24-01/snapshot-verification.json",
+          "status": "verified",
+          "sha256": "a5ed376b0912bd451407ab8816f0591172b879c1e464ed51a4ac90c8f05697cb"
+        },
+        {
+          "evidencePath": "docs/module-handoffs/2026-09-24-01/environment-preflight.json",
+          "status": "independent-local-dependency-copies-verified",
+          "sha256": "c0f22f5b2a7431816ad09bbd48257bdcedf5f2ad0965f2d7abd2ce4bff6804b1"
+        },
+        {
+          "evidencePath": "docs/PROJECT_SCAN_2026-09-24.md",
+          "status": "known-local-defects; not-human-or-production-evidence",
+          "sha256": "73bed7daafecb7ba8b1050b6d0d1a8fec8c68d8b9fbab0a57dd17346208dc1f1"
+        },
+        {
+          "evidencePath": "docs/superpowers/plans/2026-09-24-visalang-next-stage-content-ui.md",
+          "status": "governing-execution-supplement; T/LP/LC-gates-unchanged",
+          "sha256": "3f97cd8226aa72142f81c2c8024c3c110659c817789d751ebcec51daf9c95cff"
+        },
+        {
+          "evidencePath": "deploy/release.py",
+          "status": "current-joint-release-contract",
+          "locator": "verify/prepare: laya|typesafe; adsRequired true",
+          "sha256": "0fabd741b881fe357be0643095bce56685e739761b1e6399b6913ce797a7779e"
+        },
+        {
+          "evidencePath": "docs/superpowers/plans/2026-09-24-typesafe-project-adoption.md",
+          "status": "historical-local-enablement-only",
+          "locator": "section 10; its waiting-review sentence is historical, final report below controls",
+          "sha256": "5f6aee3828903887df49bbb58943db2d1f207a82dca55e9ec9961a6804fe099d"
+        },
+        {
+          "evidencePath": "docs/planning-map/VISALANG_TYPESAFE_ENABLEMENT_INDEPENDENT_AUDIT_2026-09-24.md",
+          "status": "historical-round4-PASS-for-its-bound-bytes-only",
+          "sha256": "d10422df2a377db5a73010df9e5b2a57a7af71a435dba656fc89412d00b660a9"
+        },
+        {
+          "evidencePath": "docs/typesafe-enable-evidence-2026-09-24/owner-scope.md",
+          "status": "historical-one-synthetic-smoke; not-new-call-permission",
+          "sha256": "5fcf2824cd490adf7308160070b6ba20c93a8fe3929c015d06ae3d570f37e610"
+        },
+        {
+          "moduleId": "W01/W02/W10",
+          "status": "not-prerequisites-for-local-core-decoupling"
+        }
+      ],
+      "limitations": [
+        "Core-only is not implemented/accepted: release.py accepts only laya/typesafe and requires adsRequired=true.",
+        "No target host, backup, TLS, production retained URLs, real rollback evidence; LP05a cannot pass on local engineering alone.",
+        "No .git in candidate; Git-dependent prepare belongs to W00 after integration in real main tree; no identity or candidateOnly bypass.",
+        "services/** is not assigned; preserve existing TypeSafe implementation. Additional service changes require exact W00 allocation.",
+        "No API calls or .env.local reads. Six configuration combinations and failure recovery use local mocks/assertions."
+      ],
+      "handoffStatus": "not_received",
+      "dispatchEvidence": null,
+      "externalActionsAuthorized": []
+    }
+  ],
+  "W00AllowedWritePaths": [
+    "README.md",
+    "docs/TASK_LOG.md",
+    "docs/master-package-2026-09-08/EXECUTION_RECORD.md",
+    "docs/planning-map/history.json",
+    "docs/planning-map/sync.json",
+    "docs/planning-map/visalang-overall-build-plan.archify.json",
+    "docs/planning-map/visalang-overall-build-plan.html",
+    "docs/planning-map/visalang-overall-build-plan.visual-check.json",
+    "docs/planning-map/visalang-overall-build-plan.visual-check.html",
+    "docs/planning-map/visalang-overall-build-plan.visual-check.1440x900.dark.png",
+    "docs/planning-map/visalang-overall-build-plan.visual-check.1440x900.light.png",
+    "docs/planning-map/visalang-overall-build-plan.visual-check.2048x1320.dark.png",
+    "docs/planning-map/visalang-overall-build-plan.visual-check.2048x1320.light.png",
+    "docs/planning-map/visual-review.json",
+    "docs/module-handoffs/2026-09-24-01/**"
+  ],
+  "unchangedReviewInputPaths": [
+    "tests/site.test.js"
+  ],
+  "independentAuditReportPath": "docs/planning-map/VISALANG_P00_REBASELINE_INDEPENDENT_AUDIT_2026-09-24.md",
+  "integrationPolicy": {
+    "sharedFiles": [
+      {
+        "path": "src/styles/global.css",
+        "modules": [
+          "W03",
+          "W04"
+        ]
+      },
+      {
+        "path": "src/layouts/GuideLayout.astro",
+        "modules": [
+          "W04",
+          "W08"
+        ]
+      }
+    ],
+    "requirements": [
+      "verify baselineId and every base/candidate byte hash",
+      "submit independent minimal patches; W00 merges segment by segment, never whole-file overwrite",
+      "if main-tree overlap changed: reconcile against baseline, reverify affected behavior, or reallocate baseline",
+      "no module may write main tree",
+      "all build-producing npm commands must be serialized"
+    ],
+    "scopeExpansion": "W03 GuideLayout or any other unlisted source requires W00 exact allocation before edits"
+  },
+  "deferredWindows": [
+    {
+      "moduleId": "W01",
+      "status": "not_allocated_not_dispatched",
+      "nextAction": "research preparation possible under old prompt after fresh assignment; no real-reader contact authorized"
+    },
+    {
+      "moduleId": "W02",
+      "status": "historical_allocation_not_dispatched_by_P00",
+      "nextAction": "Laya offline only; TypeSafe evaluation needs separate data/purpose/budget scope; never use old copy to overwrite current tree"
+    },
+    {
+      "promptId": "P04",
+      "moduleId": "W07/W15",
+      "status": "deferred_not_dispatched",
+      "nextAction": "after relevant factual inputs integrated/reused, refresh baseline; retain LP04 real-reader/calendar gates"
+    },
+    {
+      "promptId": "P05",
+      "moduleId": "W17",
+      "status": "deferred_not_dispatched",
+      "nextAction": "41-page local disposition ledger; no automatic URL/index/ads changes; live observations only after real release"
+    }
+  ],
+  "taskState": {
+    "completed": 25,
+    "inProgress": 5,
+    "pending": 4,
+    "LP_LC": "unchanged"
+  },
+  "releaseStatus": "not_deployed",
+  "externalActionsAuthorized": []
+}

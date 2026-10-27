@@ -1,0 +1,78 @@
+VisaLang preparation checklist
+Route: Germany family reunion A1
+Generated: 2026-09-20
+Scope: This is a language-proof preparation checklist, not a complete visa-document list, an eligibility decision, an exemption decision or an application outcome.
+Application region: German mission responsible for a China application location
+Certificate status: No certificate yet
+
+1. Requirement and authority
+[x] Identify the German mission or authority competent for the application location
+  Done when: The official mission or authority page and the date checked are saved
+  Owner: Competent German mission or receiving immigration authority
+[ ] Record the authority’s current answer about the language proof and any exemption question
+  Done when: The exact route-specific wording and its source or official reply are recorded without turning it into an individual eligibility conclusion
+  Owner: Competent German mission or receiving immigration authority
+
+2. Exact exam product
+[ ] Record the exact adult A1 product that the receiving authority says may be used
+  Done when: The full product name and the authority evidence that applies to this route are saved together
+  Owner: Competent German mission or receiving immigration authority
+[ ] Match the recorded product name to its exam-owner page
+  Done when: The adult product page, product name and source-check date agree
+  Owner: Goethe-Institut or telc gGmbH
+
+3. Booking and payment
+[ ] Verify the selected centre through the relevant exam-owner route
+  Done when: A dated path from the exam owner to the selected centre or an official owner confirmation is saved
+  Owner: Exam owner and selected official or authorised test centre
+[ ] Confirm that the selected centre currently offers the exact adult A1 product
+  Done when: The centre’s current product name, intended session and checked date are recorded
+  Owner: Selected official or authorised test centre
+[ ] Match the booking name to the identification required by the selected centre
+  Done when: The spelling and the centre’s current identification instruction are recorded with no unresolved mismatch
+  Owner: Selected official or authorised test centre
+[ ] Capture the selected centre’s current fee and payment or change terms before paying
+  Done when: The dated fee, currency, payment, cancellation and rescheduling evidence is saved from that centre
+  Owner: Selected official or authorised test centre
+
+4. Test day, result and certificate
+[ ] Reopen the selected centre’s current test-day instructions
+  Done when: The arrival, identification and permitted-items instructions for the booked session have been checked again
+  Owner: Selected official or authorised test centre
+[ ] Record the selected centre’s result and certificate route
+  Done when: The current result notice, certificate collection or delivery process and contact route are saved as planning inputs rather than guarantees
+  Owner: Selected official or authorised test centre
+
+5. Submission review
+[ ] Open the competent mission’s current checklist for the exact application route
+  Done when: The route-specific official checklist and its revision or checked date are saved
+  Owner: Competent German mission or receiving immigration authority
+[ ] Verify the required language-proof document form against the mission checklist
+  Done when: The exact certificate, original or copy question and any translation or verification instruction are recorded from the receiving authority
+  Owner: Competent German mission or receiving immigration authority
+
+Completion: 1/12
+
+Sources:
+- German Federal Foreign Office and the competent German mission: https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682
+  Checked: 2026-09-08
+  Supports: A general language-proof starting point and the need to use the competent mission for route details
+  Source boundary: Does not decide an individual requirement, exemption, accepted certificate, document list or visa outcome
+- Goethe-Institut: https://www.goethe.de/ins/de/en/prf/prf/gzsd1.html
+  Checked: 2026-09-09
+  Supports: The exact adult Goethe-Zertifikat A1: Start Deutsch 1 product identity
+  Source boundary: Does not establish immigration acceptance or a selected centre’s current booking and test-day terms
+- telc gGmbH: https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/
+  Checked: 2026-09-09
+  Supports: The exact Start Deutsch 1 / telc Deutsch A1 product identity
+  Source boundary: Does not establish immigration acceptance or a selected centre’s current booking and test-day terms
+- Goethe-Institut and the selected official or authorised centre: https://www.goethe.de/en/spr/prf.html
+  Checked: 2026-09-09
+  Supports: An exam-owner starting route for identifying a Goethe institute or exam partner before asking that centre for current local instructions
+  Source boundary: Does not prove a seat, current product, fee, identity rule, result date or certificate process at a particular centre
+- telc gGmbH and the selected examination centre: https://www.telc.net/en/language-examinations/find-a-telc-examination-centre/
+  Checked: 2026-09-09
+  Supports: The official finder route used to identify a candidate telc examination centre before requesting its current local instructions
+  Source boundary: A listing does not prove that a centre currently offers the exact A1 product, has a seat or uses any universal local rule
+
+Overall boundary: This is a language-proof preparation checklist, not a complete visa-document list, an eligibility decision, an exemption decision or an application outcome.

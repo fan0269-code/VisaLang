@@ -1,0 +1,56 @@
+[
+  {
+    "locale": "en",
+    "tool": "route-finder",
+    "hidden": false,
+    "invalid": "true",
+    "focus": "country",
+    "field": "country",
+    "recovered": true
+  },
+  {
+    "locale": "en",
+    "tool": "exam-comparison",
+    "hidden": false,
+    "invalid": "true",
+    "focus": "first",
+    "field": "first",
+    "recovered": true
+  },
+  {
+    "locale": "en",
+    "tool": "checklist-generator",
+    "hidden": false,
+    "invalid": "true",
+    "focus": "route",
+    "field": "route",
+    "recovered": true
+  },
+  {
+    "locale": "zh-CN",
+    "tool": "route-finder",
+    "hidden": false,
+    "invalid": "true",
+    "focus": "country",
+    "field": "country",
+    "recovered": true
+  },
+  {
+    "locale": "zh-CN",
+    "tool": "exam-comparison",
+    "hidden": false,
+    "invalid": "true",
+    "focus": "first",
+    "field": "first",
+    "recovered": true
+  },
+  {
+    "locale": "zh-CN",
+    "tool": "checklist-generator",
+    "hidden": false,
+    "invalid": "true",
+    "focus": "route",
+    "field": "route",
+    "recovered": true
+  }
+]

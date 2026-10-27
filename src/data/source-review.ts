@@ -14,9 +14,9 @@ export const comparisonScopes = ['same-route', 'cross-country-comparison'] as co
 export type ComparisonScope = typeof comparisonScopes[number];
 
 export const contentStatusLabels: Record<ContentStatus, string> = {
-  'complete-route': 'Route structure complete',
-  'core-route': 'Core route structure',
-  'starter-overview': 'Starter overview',
+  'complete-route': 'Coverage: complete route guide',
+  'core-route': 'Coverage: core route guide',
+  'starter-overview': 'Coverage: orientation guide',
   'verification-pending': 'Verification pending',
 };
 

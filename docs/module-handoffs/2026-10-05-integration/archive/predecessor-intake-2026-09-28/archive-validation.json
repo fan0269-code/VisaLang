@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-09-28",
+  "baselineDirtyFileChecks": 1150,
+  "baselineHashFailures": [],
+  "candidateManifestChangedFileChecks": 139,
+  "candidateHashFailures": [],
+  "liveMainBaseChecks": 139,
+  "liveMainDivergences": [],
+  "archivedFileChecks": 404,
+  "archiveHashFailures": [],
+  "historicalReceiptChecks": 44,
+  "historicalReceiptFailures": [],
+  "patchDryRuns": {
+    "W03": {
+      "exitCode": 0,
+      "scratchOnly": true
+    },
+    "W04": {
+      "exitCode": 0,
+      "scratchOnly": true
+    },
+    "W08": {
+      "exitCode": 0,
+      "scratchOnly": true
+    },
+    "W07": {
+      "exitCode": 0,
+      "scratchOnly": true
+    }
+  },
+  "moduleIntakeStatuses": {
+    "W03": "verified",
+    "W04": "verified",
+    "W08": "verified",
+    "W07": "verified"
+  },
+  "excludedEvidencePaths": [],
+  "functionalPatchApplied": false,
+  "historicalTestsRerun": false,
+  "validationNote": "A zero-exit patch --dry-run proves the candidate diff fits the declared base bytes in a scratch directory; no candidate patch was applied to the project."
+}

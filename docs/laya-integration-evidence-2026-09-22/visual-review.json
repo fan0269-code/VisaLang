@@ -1,0 +1,21 @@
+{
+  "reviewedAt": "2026-09-22T13:57:43.878482+00:00",
+  "reviewerCapability": "image-capable-agent",
+  "status": "passed",
+  "screenshots": [
+    {
+      "path": "docs/laya-integration-evidence-2026-09-22/zh-desktop.png",
+      "sha256": "f3899f9966aeca247deeea772d0ab3a69a84729cd804fcaa9f1722201e810adc"
+    },
+    {
+      "path": "docs/laya-integration-evidence-2026-09-22/zh-mobile.png",
+      "sha256": "5ec10c22b5b8b6cb6564fa8353c45909b83d688d83bffe2a36753a207d9b1424"
+    },
+    {
+      "path": "docs/laya-integration-evidence-2026-09-22/en-mobile.png",
+      "sha256": "7446d5a5b34ef418411a38d44ff323e8881ed396e4143b9ec5ddaae9f7c87868"
+    }
+  ],
+  "findings": [],
+  "notes": "All three screenshots opened and inspected. New controls and notice readable at desktop and 390px mobile; no horizontal overflow. Existing site vertical scroll and fixed header retained. This is perceptual review, not the independent implementation audit."
+}

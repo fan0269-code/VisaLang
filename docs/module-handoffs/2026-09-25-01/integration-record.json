@@ -1,0 +1,18 @@
+{
+  "batchId": "2026-09-25-01",
+  "baselineId": "b7a9fddd658d95279e05127f32e2ec2cddec7fa8e90c2e254f55df89ff1942b5",
+  "assignmentStatus": "assigned",
+  "executingModules": [
+    "W07/LC07",
+    "W15/local technical acceptance"
+  ],
+  "receivedHandoffs": [],
+  "integratedChanges": [],
+  "moduleImplementationStatus": "not_started",
+  "unchangedOriginalTaskStates": "25/5/4",
+  "LP_LC": "unchanged",
+  "apiCalls": 0,
+  "envLocalRead": false,
+  "releaseStatus": "not_deployed",
+  "vaultStatus": "not_applicable_at_module-assignment-stage"
+}

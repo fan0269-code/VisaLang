@@ -1,0 +1,5 @@
+(version 1)
+(allow default)
+(deny network*)
+(deny file-read* (literal "/Users/a1-6/Documents/2.codex/1.visalang.org/.env.local"))
+(deny file-read* (literal "/private/tmp/visalang-p00-denied-canary.txt"))

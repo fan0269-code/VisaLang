@@ -1,0 +1,59 @@
+---
+import ToolStepper from '../ToolStepper.astro';
+import { commonToolCopy, getToolLinks, type ToolLocale } from '../../data/tool-copy';
+import { MEASUREMENT_CONTRACT_VERSION, MEASUREMENT_TRANSPORT } from '../../data/measurement-contract';
+
+export interface Props {
+  eyebrow: string;
+  title: string;
+  description: string;
+  current: 'finder' | 'checklist' | 'timeline' | 'comparison' | 'reminders';
+  locale?: ToolLocale;
+}
+
+const { eyebrow, title, description, current, locale = 'en' } = Astro.props;
+const copy = commonToolCopy[locale];
+const toolLinks = getToolLinks(locale);
+const planSummary = locale === 'zh-CN'
+  ? '计划默认仅保留在此标签页；可选择在此设备保存 30 天。'
+  : 'Your plan stays in this tab by default; you can optionally save it on this device for 30 days.';
+const detailSummary = locale === 'zh-CN' ? '隐私、重置与保存说明' : 'Privacy, restart, and save details';
+const toolNav = [
+  { id: 'finder', label: copy.nav.finder, href: toolLinks.finder },
+  { id: 'checklist', label: copy.nav.checklist, href: toolLinks.checklist },
+  { id: 'timeline', label: copy.nav.timeline, href: toolLinks.timeline },
+  { id: 'comparison', label: copy.nav.comparison, href: toolLinks.comparison },
+  { id: 'reminders', label: copy.nav.reminders, href: toolLinks.reminders },
+];
+---
+
+<main class="page-shell tool-page" data-measurement-tool={current} data-measurement-contract={MEASUREMENT_CONTRACT_VERSION} data-measurement-transport={MEASUREMENT_TRANSPORT}>
+  <header class="tool-page-header">
+    <p class="eyebrow">{eyebrow}</p>
+    <h1>{title}</h1>
+    <p>{description}</p>
+  </header>
+  <nav class="tool-nav" aria-label={copy.navAria}>
+    {toolNav.map((tool) => <a class:list={[{ active: tool.id === current }]} href={tool.href}>{tool.label}</a>)}
+  </nav>
+  <ToolStepper current={0} labels={[...copy.steps]} />
+  <section class="tool-plan-controls" aria-labelledby="shared-plan-title">
+    <div>
+      <h2 id="shared-plan-title">{copy.sharedTitle}</h2>
+      <p class="tool-plan-summary">{planSummary}</p>
+    </div>
+    <div class="button-row tool-plan-actions">
+      <button class="button button--secondary" type="button" data-plan-save-device>{copy.save}</button>
+      <button class="button button--secondary" type="button" data-plan-clear>{copy.clear}</button>
+    </div>
+    <p class="tool-plan-status" data-plan-status aria-live="polite">{copy.initialStatus}</p>
+    <details class="tool-plan-details">
+      <summary>{detailSummary}</summary>
+      <p><strong>{copy.sharedPrivacyLead}</strong> {copy.sharedPrivacy}</p>
+      <p><strong>{copy.restartLead}</strong> {copy.restartBoundary}</p>
+    </details>
+  </section>
+  <noscript><p class="tool-notice"><strong>{copy.noScriptLead}</strong> {copy.noScript}</p></noscript>
+  <slot />
+  <div class="button-row"><button class="button button--secondary" type="button" data-tool-restart>{copy.restart}</button></div>
+</main>

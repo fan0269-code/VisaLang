@@ -8,6 +8,11 @@ const adsenseHost = 'pagead2.googlesyndication.com';
 const read = (file) => fs.readFileSync(file, 'utf8');
 
 const advertisingFreeRoutes = [
+  'dist/index.html',
+  'dist/germany-family-reunion-a1/index.html',
+  'dist/germany-b1-settlement-citizenship/index.html',
+  'dist/zh/index.html',
+  'dist/zh/germany-family-reunion-a1/index.html',
   'dist/404.html',
   'dist/privacy-policy/index.html',
   'dist/cookie-policy/index.html',
@@ -72,21 +77,20 @@ for (const route of [
   '/guides/category/portugal/',
   '/guides/category/germany-testdaf/',
   '/guides/category/germany-telc/',
+  '/guides/category/germany-a1/',
+  '/guides/category/germany-b1/',
 ]) {
   const html = read(`dist${route}index.html`);
   assert.ok(html.includes('<meta name="robots" content="noindex,follow">'), `pending or starter route should be noindex: ${route}`);
   assert.ok(!sitemap.includes(`<loc>https://visalang.org${route}</loc>`), `pending or starter route should be excluded from sitemap: ${route}`);
 }
 
-for (const file of [
-  'dist/index.html',
-  'dist/guides/german-family-reunion-language-requirement/index.html',
-]) {
+for (const file of ['dist/guides/german-family-reunion-language-requirement/index.html']) {
   assert.ok(read(file).includes(adsenseHost), `ad-eligible control route should keep AdSense: ${file}`);
 }
 
 const germanyCategoryHtml = read('dist/guides/category/germany-a1/index.html');
-assert.ok(!germanyCategoryHtml.includes('<meta name="robots" content="noindex,follow">'), 'Germany A1 category should remain indexable');
-assert.ok(sitemap.includes('<loc>https://visalang.org/guides/category/germany-a1/</loc>'), 'Germany A1 category should remain in sitemap');
+assert.ok(germanyCategoryHtml.includes('<meta name="robots" content="noindex,follow">'), 'Germany A1 category should remain outside indexing');
+assert.ok(!sitemap.includes('<loc>https://visalang.org/guides/category/germany-a1/</loc>'), 'Germany A1 category should remain outside the sitemap');
 
 console.log('AdSense risk-exposure rules passed');

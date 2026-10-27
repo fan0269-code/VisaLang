@@ -10,17 +10,22 @@ import VerificationAlert from '../components/VerificationAlert.astro';
 import ReportOutdatedInfo from '../components/ReportOutdatedInfo.astro';
 import CopyButton from '../components/CopyButton.astro';
 import PrintButton from '../components/PrintButton.astro';
+import ExamProductComparisonTable from '../components/ExamProductComparisonTable.astro';
+import LocalExamFeeTable from '../components/LocalExamFeeTable.astro';
 import { translatedPaths } from '../data/site';
-import { contentStatusCtas, isGuidePrimaryDiscoveryEligible, reviewerRoleLabels, resolveGuideContentStatus } from '../data/source-review';
+import { contentStatusCtas, reviewerRoleLabels, resolveGuideContentStatus } from '../data/source-review';
 import type { ContentStatus } from '../data/source-review';
 import type { ArticleSections } from '../data/article-sections';
+import { getEnglishGuidePublicationPolicy } from '../data/publication-manifest';
+import { validateClaimSet, type ClaimVersionRef } from '../data/claim-registry';
 
 export interface Props {
-  title: string; seoTitle?: string; description: string; publishedDate: string; updatedDate: string; slug: string;
+  title: string; seoTitle?: string; description: string; directAnswer?: string; claimRefs?: readonly ClaimVersionRef[]; publishedDate: string; updatedDate: string; slug: string;
   category?: string; route?: string; eyebrow?: string; readingTime?: string; sourceReviewedAt?: string;
   sourceReviewStatus?: SourceReviewStatus;
   reviewedByRole?: ReviewerRole; author: string;
   contentStatus: ContentStatus; primaryOfficialAuthorityUrl?: string; primaryIntent?: string;
+  routeRequirementAuthorityType?: string; routeRequirementAuthorityUrl?: string;
   noindex?: boolean; enableAds?: boolean;
   audienceScope?: string; finalDecisionAuthorityType?: string; examOwnerUrl?: string; localExecutionPrompt?: string;
   breadcrumbs?: { label: string; href?: string }[]; related?: { title: string; slug: string }[];
@@ -31,20 +36,26 @@ export interface Props {
   decisionStage: DecisionStage; nextGuideSlug?: string; comparisonScope: ComparisonScope;
 }
 
-const { title, seoTitle, description, publishedDate, updatedDate, sourceReviewedAt, sourceReviewStatus = 'pending', reviewedByRole, author, contentStatus, noindex = false, enableAds = true, primaryOfficialAuthorityUrl, primaryIntent, audienceScope, finalDecisionAuthorityType, examOwnerUrl, localExecutionPrompt, decisionStage, nextGuideSlug, comparisonScope, slug, category, eyebrow, readingTime = '5', breadcrumbs = [{ label: 'Home', href: '/' }, { label: title }], related = [], previous, next, routeHref, routeLabel, country, exam, level, headings = [], sections } = Astro.props;
+const { title, seoTitle, description, directAnswer, claimRefs = [], publishedDate, updatedDate, sourceReviewedAt, sourceReviewStatus = 'pending', reviewedByRole, author, contentStatus, noindex = false, enableAds = true, primaryOfficialAuthorityUrl, primaryIntent, audienceScope, finalDecisionAuthorityType, routeRequirementAuthorityType, routeRequirementAuthorityUrl, examOwnerUrl, localExecutionPrompt, decisionStage, nextGuideSlug, comparisonScope, slug, category, eyebrow, readingTime = '5', breadcrumbs = [{ label: 'Home', href: '/' }, { label: title }], related = [], previous, next, routeHref, routeLabel, country, exam, level, headings = [], sections } = Astro.props;
 const status = resolveGuideContentStatus({ category: category ?? '', contentStatus, sourceReviewStatus, primaryOfficialAuthorityUrl, primaryIntent, audienceScope, finalDecisionAuthorityType, examOwnerUrl, localExecutionPrompt });
-const primaryDiscoveryEligible = isGuidePrimaryDiscoveryEligible(status, sourceReviewStatus) && noindex !== true;
-const advertisingEligible = primaryDiscoveryEligible && enableAds !== false;
+const publicationPolicy = getEnglishGuidePublicationPolicy({ slug, contentStatus: status, sourceReviewStatus, noindex, adsEligible: enableAds });
+const primaryDiscoveryEligible = publicationPolicy.index;
+const advertisingEligible = publicationPolicy.ads;
 const ctas = contentStatusCtas(status, { routeHref, primaryOfficialAuthorityUrl, examOwnerUrl, nextGuideSlug });
 const reviewedByLabel = reviewedByRole ? reviewerRoleLabels[reviewedByRole] : sourceReviewStatus === 'pending' ? 'Pending' : 'Not applicable';
 const authorityIsVerified = sourceReviewStatus === 'reviewed' && Boolean(sourceReviewedAt && primaryOfficialAuthorityUrl && finalDecisionAuthorityType);
+const directAnswerIsCurrent = Boolean(directAnswer) && validateClaimSet(claimRefs, {
+  consumerId: `guide:${slug}`,
+  consumerLocale: 'en',
+}).valid;
+const renderedDirectAnswer = directAnswer
+  ? directAnswerIsCurrent
+    ? directAnswer
+    : 'A deterministic answer is not shown because the recorded official claim set is missing, changed, or overdue. Confirm the current requirement with the receiving authority.'
+  : description;
 const showSourceFactTable = authorityIsVerified;
-const nextActionCopy = {
-  requirement: 'Confirm the current requirement with the organisation that will receive your proof.',
-  choice: 'Compare only the options that the receiving organisation currently accepts, then verify the exact exam with its owner.',
-  'local-execution': 'Check the official provider or authorised local centre before booking, paying, or relying on a date.',
-  'submission-review': 'Recheck the receiving authority’s current document instructions before submission.',
-}[decisionStage];
+const routeRequirementAuthorityTypeForTable = routeRequirementAuthorityType ?? finalDecisionAuthorityType;
+const routeRequirementAuthorityUrlForTable = routeRequirementAuthorityUrl ?? primaryOfficialAuthorityUrl;
 const canonicalURL = `https://visalang.org/guides/${slug}/`;
 const translatedPath = translatedPaths[`/guides/${slug}/`];
 const alternates = translatedPath ? [
@@ -82,8 +93,9 @@ const jsonLD = {
           <h1>{title}</h1>
         <section class="guide-summary-box" id="direct-answer" aria-labelledby="direct-answer-title">
           <h2 id="direct-answer-title">Direct answer</h2>
-          <p class="guide-summary-answer">{description}</p>
+          <p class="guide-summary-answer">{renderedDirectAnswer}</p>
           <p class="guide-summary-responsibility">Responsibility: {authorityIsVerified ? `The final decision sits with ${finalDecisionAuthorityType}; VisaLang helps you follow the verification path.` : 'Confirm the final decision authority before acting; VisaLang does not decide individual outcomes.'}</p>
+          <p class="guide-summary-boundary">Scope: {audienceScope ?? 'See the page-specific scope below.'} Source boundary: use the recorded official source and date before relying on this guide.</p>
         </section>
           <dl class="guide-meta" aria-label="Article responsibility and review information">
             <div><dt>Updated</dt><dd><time datetime={updatedDate}>{updatedDate}</time></dd></div>
@@ -98,16 +110,15 @@ const jsonLD = {
             <p>VisaLang does not decide individual eligibility, exemptions, certificate acceptance, document sufficiency, or application outcomes.</p>
           </section>
         </div>
-        <VerificationAlert><p>Requirements, exemptions, accepted certificates, fees, dates, centres, and document rules can change. Verify with the organisation receiving your proof before acting.</p></VerificationAlert>
-        {localExecutionPrompt && <VerificationAlert><p>{localExecutionPrompt}</p></VerificationAlert>}
+        <VerificationAlert><p>Requirements, exemptions, accepted certificates, fees, dates, centres, and document rules can change. Verify with the organisation receiving your proof before acting.</p>{localExecutionPrompt && <p>{localExecutionPrompt}</p>}</VerificationAlert>
 
-        <section id="who-this-applies-to"><h2>Who this applies to</h2>{sections?.who ? <div set:html={sections.who}></div> : <p>Use this guide if you are checking {routeLabel || 'a language-proof route'} before choosing an exam, paying a centre, or submitting a document. It does not decide eligibility, an exemption, or certificate acceptance for an individual case.</p>}</section>
-        <section id="key-decisions"><h2>Key decisions</h2><ol><li>Identify the authority or institution receiving your proof.</li><li>Confirm the exact certificate, level, exam version, and document format it accepts.</li><li>Verify local booking, ID, fee, result, cancellation, and timing details with official sources.</li></ol></section>
-        <section id="detailed-explanation"><h2>Detailed explanation</h2>{sections ? <div set:html={sections.detailed}></div> : <slot />}</section>
-        <section id="what-to-verify-officially"><h2>What to verify officially</h2>{showSourceFactTable ? <div class="source-fact-table"><table><caption>Source-reviewed verification responsibilities for this guide</caption><thead><tr><th scope="col">Item to verify</th><th scope="col">Who finally decides</th><th scope="col">Official source</th><th scope="col">Confirmed on this page</th><th scope="col">You still need to confirm</th></tr></thead><tbody><tr><th scope="row">Current route requirement and accepted proof</th><td>{finalDecisionAuthorityType}</td><td><a class="official-source-link" href={primaryOfficialAuthorityUrl}>Authority source</a></td><td>The official entry and verification sequence recorded on {sourceReviewedAt}.</td><td>Your current individual route, exceptions, document format, and submission instructions.</td></tr>{examOwnerUrl && <tr><th scope="row">Exam product and booking rules</th><td>Official exam owner and authorised local centre</td><td><a class="official-source-link" href={examOwnerUrl}>Exam-owner source</a></td><td>The exam-owner entry used by this guide.</td><td>Current centre authorisation, dates, fees, ID, cancellation, results, and certificate delivery.</td></tr>}</tbody></table></div> : <p class="verification-pending"><strong>Official verification pending.</strong> This page does not yet have the reviewed authority metadata required to publish a source fact table. Confirm the current requirement and accepted proof with the receiving authority before acting.</p>}</section>
-        <section id="common-mistakes"><h2>Common mistakes</h2>{sections?.commonMistakes ? <div set:html={sections.commonMistakes}></div> : <ul><li>Booking before confirming the exact proof for the route.</li><li>Using an old price, date, or centre listing without checking the official page.</li><li>Assuming another applicant's outcome applies to your own case.</li></ul>}</section>
-        <section id="next-action"><h2>Next action</h2>{sections?.nextAction ? <div set:html={sections.nextAction}></div> : <p>{nextActionCopy}</p>}<div class="button-row">{ctas.map((cta) => <a class:list={['button', cta.kind === 'official' ? 'button--secondary' : 'button--primary']} href={cta.href}>{cta.label}</a>)}</div></section>
-        <section id="official-sources"><h2>Official sources</h2>{sections?.officialSources ? <div set:html={sections.officialSources}></div> : <p>No separate official-source list is recorded in this guide. Use the responsible authority and official exam-owner pages before acting.</p>}</section>
+        <section id="who-this-applies-to"><h2>Who this applies to</h2>{sections?.who ? <div set:html={sections.who}></div> : <p class="verification-pending">A page-specific audience and exclusion boundary has not yet been published for this guide.</p>}</section>
+        <section id="key-decisions"><h2>Key decisions</h2>{sections?.keyDecisions ? <div set:html={sections.keyDecisions}></div> : <p class="verification-pending">Page-specific decision steps have not yet been published for this guide.</p>}</section>
+        <section id="detailed-explanation"><h2>Detailed explanation</h2>{slug === 'goethe-a1-vs-telc-a1' && <ExamProductComparisonTable locale="en" />}{slug === 'goethe-b1-vs-telc-b1' && <ExamProductComparisonTable locale="en" level="B1" />}{slug === 'goethe-a1-fees-by-country' && <LocalExamFeeTable locale="en" />}{sections ? <div set:html={sections.detailed}></div> : <slot />}</section>
+        <section id="what-to-verify-officially"><h2>What to verify officially</h2>{showSourceFactTable ? <div class="source-fact-table" role="region" aria-label="Source verification responsibilities. Scroll horizontally to view all columns." tabindex="0"><table><caption>Source-reviewed verification responsibilities for this guide</caption><thead><tr><th scope="col">Item to verify</th><th scope="col">Who finally decides</th><th scope="col">Official source</th><th scope="col">Confirmed on this page</th><th scope="col">You still need to confirm</th></tr></thead><tbody><tr><th scope="row">Current route requirement and accepted proof</th><td>{routeRequirementAuthorityTypeForTable}</td><td><a class="official-source-link" href={routeRequirementAuthorityUrlForTable}>Authority source</a></td><td>The official entry and verification sequence recorded on {sourceReviewedAt}.</td><td>Your current individual route, exceptions, document format, and submission instructions.</td></tr>{examOwnerUrl && <tr><th scope="row">Exam product and booking rules</th><td>Official exam owner and authorised local centre</td><td><a class="official-source-link" href={examOwnerUrl}>Exam-owner source</a></td><td>The exam-owner entry used by this guide.</td><td>Current centre authorisation, dates, fees, ID, cancellation, results, and certificate delivery.</td></tr>}</tbody></table></div> : <p class="verification-pending"><strong>Official verification pending.</strong> This page does not yet have the reviewed authority metadata required to publish a source fact table. Confirm the current requirement and accepted proof with the receiving authority before acting.</p>}</section>
+        <section id="common-mistakes"><h2>Common mistakes</h2>{sections?.commonMistakes ? <div set:html={sections.commonMistakes}></div> : <p class="verification-pending">Page-specific mistakes and consequences have not yet been published for this guide.</p>}</section>
+        <section id="next-action"><h2>Next action</h2>{sections?.nextAction ? <div set:html={sections.nextAction}></div> : <p class="verification-pending">A page-specific next action has not yet been published for this guide.</p>}<div class="button-row">{ctas.map((cta) => <a class:list={['button', cta.kind === 'official' ? 'button--secondary' : 'button--primary']} href={cta.href}>{cta.label}</a>)}</div></section>
+        <section id="official-sources"><h2>Official sources</h2>{sections?.officialSources ? <div set:html={sections.officialSources}></div> : <p class="verification-pending">No page-specific official-source list is published; this guide remains unsuitable for action until the responsible sources are recorded.</p>}</section>
         <aside class="guide-disclaimer" aria-label="Disclaimer"><strong>Planning information only.</strong><p>VisaLang does not provide legal or immigration advice, issue certificates, register exams, or guarantee an application or exam outcome.</p></aside>
         <div class="button-row"><CopyButton target="#guide-content" label="Copy guide" /><PrintButton label="Print guide" /></div>
     </ArticleLayout>

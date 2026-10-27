@@ -7,14 +7,17 @@ import RouteSelector from '../../components/RouteSelector.astro';
 import GuideStatusBadge from '../../components/GuideStatusBadge.astro';
 import homeRouteVisual from '../../assets/home-route-verification.png';
 import { isGuidePrimaryDiscoveryEligible, resolveGuideContentStatus } from '../../data/source-review';
+import { getEnglishGuidePublicationPolicy } from '../../data/publication-manifest';
+import { getPrimaryDiscoveryZhGuides } from '../../data/guide-library';
 
 const guides = await getCollection('guides');
 const publishedGuides = guides
   .map((guide) => ({ ...guide, status: resolveGuideContentStatus(guide.data) }))
-  .filter((guide) => isGuidePrimaryDiscoveryEligible(guide.status, guide.data.sourceReviewStatus) && guide.data.noindex !== true);
-const totalGuideCount = publishedGuides.length + zhGermanyA1Guides.length;
+  .filter((guide) => getEnglishGuidePublicationPolicy({ slug: guide.data.slug, contentStatus: guide.status, sourceReviewStatus: guide.data.sourceReviewStatus, noindex: guide.data.noindex, adsEligible: guide.data.adsEligible }).index);
+const publishedZhGuides = getPrimaryDiscoveryZhGuides(zhGermanyA1Guides);
+const totalGuideCount = publishedGuides.length + publishedZhGuides.length;
 const publishedCategoryCount = new Set(publishedGuides.map((guide) => guide.data.category)).size;
-const zhUpdated = [...zhGermanyA1Guides].sort((a, b) => b.updatedDate.localeCompare(a.updatedDate)).slice(0, 3);
+const zhUpdated = publishedZhGuides.slice(0, 3);
 
 const jsonLD = {
   '@context': 'https://schema.org',
@@ -27,8 +30,8 @@ const jsonLD = {
 ---
 
 <BaseLayout
-  title="签证、永居、入籍语言考试路径导航"
-  description="VisaLang 帮助用户根据签证、永居、入籍、留学或职业注册需求，找到正确的语言考试路径、官方要求、报名材料和备考方向。"
+  title="德国团聚 A1、永居与入籍 B1 语言证明指南"
+  description="了解德国配偶团聚 A1 语言证明，以及永居、入籍 B1 指南（英文内容）；查找官方要求，整理考试报名与材料准备步骤。"
   canonicalURL="https://visalang.org/zh/"
   lang="zh-CN"
   alternates={[
@@ -44,14 +47,14 @@ const jsonLD = {
     <HomeHero
       locale="zh-CN"
       eyebrow="官方来源优先"
-      title="先核验语言证明，再决定报考。"
-      description="确认接收材料的机构，比较可能适用的考试，再回到当前官方说明核验。"
-      primary={{ href: '/tools/route-finder/', label: '使用路线查找器（英文）' }}
-      secondary={{ href: '#zh-guides', label: '浏览中文指南' }}
+      title="把德国语言证明的准备步骤理清楚。"
+      description="先确认申请要求，再选择考试，最后安排报名和材料。VisaLang 目前重点提供德国 A1 配偶团聚规划，并提供德国永居、入籍 B1 语言证明的英文指南。"
+      primary={{ href: '/zh/guides/german-family-reunion-language-requirement/', label: '查看中文 A1 要求' }}
+      secondary={{ href: '/germany-b1-settlement-citizenship/', label: '查看 B1 指南（英文）' }}
       visual={homeRouteVisual}
       visualAlt="用于核验语言证明要求的笔记本与路线图"
       featuredRoute={{
-        label: '最完整的中文路线',
+        label: '当前中文重点路线',
         title: '德国配偶团聚 / 家庭团聚 A1',
         description: '从是否需要 A1 开始，依次核验证书、考点、报名、材料与备考安排。',
         href: '/zh/germany-family-reunion-a1/',
@@ -62,13 +65,12 @@ const jsonLD = {
     <hr class="rule" />
 
     <section class="section" aria-labelledby="zh-stage-title">
-      <h2 class="section-title" id="zh-stage-title">用四次核验完成决定</h2>
+      <h2 class="section-title" id="zh-stage-title">按三个问题往下准备</h2>
       <div class="lane-grid">
         <ol class="stage-list">
-          <li class="stage-card"><div><h3>确认接收材料的机构</h3><p>先找到负责签证、入籍、留学或职业注册决定的官方机构。</p><a href="/tools/route-finder/">选择办理目的（英文）</a></div></li>
-          <li class="stage-card"><div><h3>确认语言等级与证明</h3><p>不要根据他人的路线直接套用 A1、B1 或其他等级。</p><a href="/zh/guides/german-family-reunion-language-requirement/">查看是否需要 A1</a></div></li>
-          <li class="stage-card"><div><h3>比较可能接受的考试</h3><p>先确认接收机构的要求，再比较 Goethe、telc 或其他准确考试产品。</p><a href="/zh/guides/goethe-a1-vs-telc-a1/">比较 Goethe 与 telc</a></div></li>
-          <li class="stage-card"><div><h3>行动前再次核验</h3><p>付款前重查考点、日期、费用、证件、退改、出分和材料要求。</p><a href="/zh/guides/german-a1-documents-checklist/">查看材料清单</a></div></li>
+          <li class="stage-card"><div><h3>需要什么？</h3><p>找到与你的申请地和居留类别对应的官方要求。</p><a href="/zh/guides/german-family-reunion-language-requirement/">查看中文 A1 要求</a></div></li>
+          <li class="stage-card"><div><h3>提交什么证明？</h3><p>核对准确证书名称和考试日期；已有证书是否被受理，仍须向负责你申请的机关确认。</p><a href="/zh/guides/goethe-a1-vs-telc-a1/">比较 Goethe 与 telc</a></div></li>
+          <li class="stage-card"><div><h3>如何安排？</h3><p>把考点、费用、日期、证件和取证事项记在一起，并在行动前再次核验。</p><a href="/zh/guides/german-a1-exam-booking-timeline/">查看时间线与材料核对</a></div></li>
         </ol>
         <aside class="sidebar-panel">
           <h3>最终以接收材料的机构为准。</h3>
@@ -89,13 +91,13 @@ const jsonLD = {
       <p class="section-lede">工具帮助缩小路线，指南说明核验边界、官方入口与下一步。</p>
       <div class="resource-layout">
         <div class="resource-lead">
-          <h3>路线还不清楚时，先使用工具。</h3>
-          <p>从目的、国家和当前说明状态开始，不必先浏览一长串文章。</p>
-          <div class="button-row"><a class="button button--primary" href="/tools/route-finder/">使用路线查找器（英文）</a></div>
+          <h3>需要整理起点时，可使用工具。</h3>
+          <p>路线查找器目前完整配置的是德国 A1 家庭团聚；路线、核对清单、时间线、考试比较和提醒均提供中文界面。</p>
+          <div class="button-row"><a class="button button--primary" href="/zh/tools/route-finder/">使用路线查找器</a></div>
         </div>
         <div class="resource-list">
-          <a class="resource-link" href="/tools/route-finder/"><div><h3>路线查找器（英文）</h3><p>从目的、国家和当前说明状态开始。</p></div><span>使用</span></a>
-          <a class="resource-link" href="#zh-guides"><div><h3>中文核心指南</h3><p>查看德国 A1 的要求、证书、考点、报名和材料核验。</p></div><span>浏览</span></a>
+          <a class="resource-link" href="/zh/tools/route-finder/"><div><h3>路线查找器</h3><p>从目的、国家和当前说明状态开始。</p></div><span>使用</span></a>
+          <a class="resource-link" href="/germany-b1-settlement-citizenship/"><div><h3>德国 B1 指南（英文）</h3><p>分别阅读永居与入籍的语言证明指南；不要把它当作完整的路线判断。</p></div><span>浏览</span></a>
           <a class="resource-link" href="/zh/germany-family-reunion-a1/"><div><h3>德国 A1 中文路线</h3><p>按照决定顺序查看目前最完整的中文专题。</p></div><span>查看</span></a>
         </div>
       </div>

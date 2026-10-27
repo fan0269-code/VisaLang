@@ -1,0 +1,32 @@
+{
+  "tool": "mcp__laya__laya_predict",
+  "device": "mps",
+  "max_tokens": 1024,
+  "note": "MCP 端到端计时包含加载/传输，不能拆成模型纯加载时间。正式离线实验单独计时。以下保存实际返回的关键字段；提示与 questions.json 一致。",
+  "rows": [
+    {
+      "text": "我想去德国和丈夫团聚。",
+      "expected": "family-reunion",
+      "actual": "other",
+      "selected_probability": 0.9228,
+      "confidence": 0.8158,
+      "elapsed_ms": 35947
+    },
+    {
+      "text": "不是家庭团聚，我是去德国读硕士。",
+      "expected": "university",
+      "actual": "university",
+      "selected_probability": 0.9994,
+      "confidence": 0.9975,
+      "elapsed_ms": 2942
+    },
+    {
+      "text": "我有B1证书，下一步怎么办？",
+      "expected": "unclear",
+      "actual": "b1",
+      "selected_probability": 1.0,
+      "confidence": 1.0,
+      "elapsed_ms": 3831
+    }
+  ]
+}

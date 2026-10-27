@@ -1,5 +1,7 @@
 # VisaLang content and UI implementation handoff
 
+> Historical handoff, superseded for current tool persistence and publication state. The 2026-09-09 M2-A record in `docs/VISALANG_M2A_T10_T14_EXECUTION_EVIDENCE_2026-09-09.md` and `src/data/plan-state.ts` now govern the session-first shared-plan model. URL-backed tool statements below describe the dated 2026-07 implementation and are not current behavior.
+
 Review date: 2026-07-14 (Asia/Shanghai)  
 Review scope: current uncommitted workspace compared with `HEAD`; read-only source review plus documentation handoff.  
 Release authority: none. This review did not commit, push or deploy.

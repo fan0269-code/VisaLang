@@ -1,0 +1,20 @@
+......F
+======================================================================
+FAIL: test_metrics_count_failures_without_text_or_high_cardinality (test_app.MetricsTests.test_metrics_count_failures_without_text_or_high_cardinality)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/a1-6/.local/share/uv/python/cpython-3.13.15-macos-aarch64-none/lib/python3.13/asyncio/runners.py", line 119, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/a1-6/.local/share/uv/python/cpython-3.13.15-macos-aarch64-none/lib/python3.13/asyncio/base_events.py", line 726, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/a1-6/Documents/2.codex/1.visalang.org/services/laya-purpose/test_app.py", line 94, in test_metrics_count_failures_without_text_or_high_cardinality
+    self.assertEqual(code, 200)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+AssertionError: 404 != 200
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.016s
+
+FAILED (failures=1)

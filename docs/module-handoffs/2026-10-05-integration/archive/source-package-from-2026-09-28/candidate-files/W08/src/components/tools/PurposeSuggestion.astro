@@ -1,0 +1,26 @@
+---
+const { locale = 'en', mode = 'typesafe' } = Astro.props;
+const zh = locale === 'zh-CN';
+const typesafeNotice = mode === 'typesafe';
+---
+<section class="purpose-suggestion" data-purpose-suggestion data-locale={locale} aria-labelledby="purpose-suggestion-title" hidden>
+  <h3 id="purpose-suggestion-title">{zh ? '用一句话描述你的目的（可选）' : 'Describe your purpose in one sentence (optional)'}</h3>
+  <p id="purpose-suggestion-help">{typesafeNotice ? (zh ? '点击后，这段文字会发送给 TypeSafe AI, Inc. 在美国处理。其隐私政策说明个人数据可能在提供服务或支持业务所需期间保留，且不使用输入训练模型。费用、账户配额与处理设置需由本站运营方另行核验。建议可能出错，请核对后再采用；也可直接手选。请勿填写姓名、证件号码或申请材料。' : 'Clicking sends this text to TypeSafe AI, Inc. for processing in the United States. Its privacy policy says personal data may be retained as reasonably necessary for its services or business and that inputs are not used to train models. VisaLang operator settings, pricing and account quotas require separate verification. Suggestions can be wrong: check before applying, or use the choices below. Do not enter names, identity numbers or case documents.') : (zh ? '仅在点击后，本站的 Laya 用途建议服务才会接收这段文字并在本地模型上处理。建议可能出错，请核对后再采用；也可直接手选。请勿填写姓名、证件号码或申请材料。' : 'Only after you click, VisaLang’s Laya purpose-suggestion service receives this text and processes it with its local model. Suggestions can be wrong: check before applying, or use the choices below. Do not enter names, identity numbers or case documents.')}</p>
+  <label for="purpose-description">{zh ? '你的目的' : 'Your purpose'}</label>
+  <textarea id="purpose-description" rows="3" maxlength="300" autocomplete="off" aria-describedby="purpose-suggestion-help" placeholder={zh ? '例如：我准备去德国读硕士。' : 'For example: I want to study for a master’s degree in Germany.'}></textarea>
+  <button type="button" class="secondary-action" data-purpose-request>{zh ? '获取目的建议' : 'Suggest a purpose'}</button>
+  <p data-purpose-status role="status" aria-live="polite" aria-atomic="true"></p>
+  <button type="button" class="secondary-action" data-purpose-apply hidden>{zh ? '确认并采用这个目的' : 'Confirm and use this purpose'}</button>
+  <p class="purpose-privacy"><a href="/privacy-policy/">{zh ? '了解文字如何处理' : 'How this text is handled'}</a>{typesafeNotice && <> · <a href="https://typesafe.ai/legal/privacy-policy" target="_blank" rel="noopener noreferrer">{zh ? 'TypeSafe 隐私政策' : 'TypeSafe privacy policy'}</a></>}</p>
+</section>
+
+<style>
+  .purpose-suggestion { padding: 1.25rem; margin: 0 0 1.5rem; border: 1px solid var(--border-color, #d5dce5); border-radius: .75rem; background: var(--surface, #fff); }
+  h3 { margin: 0 0 .65rem; }
+  p { line-height: 1.6; }
+  label { display: block; font-weight: 600; margin: .8rem 0 .4rem; }
+  textarea { display: block; width: 100%; box-sizing: border-box; padding: .75rem; font: inherit; border: 1px solid #8795a5; border-radius: .5rem; resize: vertical; margin-bottom: .75rem; }
+  button { max-width: 100%; white-space: normal; }
+  .purpose-privacy { font-size: .875rem; margin-bottom: 0; }
+  [hidden] { display: none !important; }
+</style>

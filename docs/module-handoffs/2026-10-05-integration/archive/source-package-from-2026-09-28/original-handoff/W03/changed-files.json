@@ -1,0 +1,50 @@
+[
+  {
+    "path": "src/components/GlobalHeader.astro",
+    "baseSha256": "a59c82d83c6ba61eebbf34e2b1281d31bc30a371548e0750515bb7cde63506ee",
+    "candidateSha256": "2c921ec1f766b7756bd55a1d98c274902c7e792c5c45ccb8e7ba13dd0c2a9a44",
+    "changeKind": "modify"
+  },
+  {
+    "path": "src/components/HomeHero.astro",
+    "baseSha256": "1b00fb1188ac58661bd6fc2e5067d2cb5bf9b6ce75124220bb929eda95334a3a",
+    "candidateSha256": "7095eca11662aae8971a5e4a28e30d0e73861b79f607740ca3d2db36fc1c73f3",
+    "changeKind": "modify"
+  },
+  {
+    "path": "src/pages/index.astro",
+    "baseSha256": "77ddb74fca442380cba2eaa864a63b07a2cbab469f5e3da84a00a03b634fb2a9",
+    "candidateSha256": "709cc57acbc09fc54035e01c69b2ba50322b81c58a4ec97dfda43f40d4775365",
+    "changeKind": "modify"
+  },
+  {
+    "path": "src/pages/routes/index.astro",
+    "baseSha256": "c4e7924069d44bf4a544e5f67e4c41fa7d12b725cd82b11519fea7b6bb158b9d",
+    "candidateSha256": "99d1ab281eafa924fe205b1ef826a22d1f991f662ecf509a060a7c636fb2adb5",
+    "changeKind": "modify"
+  },
+  {
+    "path": "src/pages/tools/index.astro",
+    "baseSha256": "2147122e845b8ba2ac3b0ed7b3d511515dc99f7647d668216e6f90a955c83d60",
+    "candidateSha256": "4a73b527c9b03b92188381519f9b33e07fc956ed8963576b75ce9553f147e872",
+    "changeKind": "modify"
+  },
+  {
+    "path": "src/pages/zh/index.astro",
+    "baseSha256": "18254e699850703a6a052bdf7213b0ad33ba5d18a0f5f60640d129bb770b9b0c",
+    "candidateSha256": "d8c6709997ee87124f327942e3e443785911ea690d26594862d47809157886c7",
+    "changeKind": "modify"
+  },
+  {
+    "path": "src/styles/global.css",
+    "baseSha256": "91ec92d4c37978c675a969bc66c729c1ec53716799f162243d9b25b7a2dbee8a",
+    "candidateSha256": "32c6b55e671dcf3b00c72e435d609516f7c3a85d65c987ca69baea98418707bd",
+    "changeKind": "modify"
+  },
+  {
+    "path": "tests/task-4-home-routes.test.mjs",
+    "baseSha256": "b6b2c4c318e8739cf4ac84934af81435ee46eae79762e143e765f9b739b0bf79",
+    "candidateSha256": "5917ccf8bd8dbccb2c3d4a5c60a7e2f532aa25230b40e3b62f8c0560a32f04e7",
+    "changeKind": "modify"
+  }
+]

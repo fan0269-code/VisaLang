@@ -1,0 +1,93 @@
+---
+import MobileNavigation from './MobileNavigation.astro';
+import { navItems, site, translatedPaths, ui } from '../data/site';
+import { navigationCurrent } from '../lib/navigation-current';
+
+const isZh = Astro.url.pathname.startsWith('/zh');
+const locale = isZh ? 'zh-CN' : 'en';
+const labels = ui[locale];
+const translations = translatedPaths;
+const reverseTranslations = Object.fromEntries(Object.entries(translatedPaths).map(([en, zh]) => [zh, en]));
+const exactSwitchHref = isZh ? reverseTranslations[Astro.url.pathname] : translations[Astro.url.pathname];
+const switchHref = exactSwitchHref || (isZh ? '/' : '/zh/');
+const switchLabel = exactSwitchHref ? (isZh ? 'English' : '中文') : (isZh ? 'English home' : '中文首页');
+const localHref = (href: string) => isZh && href === '/' ? '/zh/' : isZh && href === '/tools/' ? '/zh/tools/route-finder/' : href;
+const navLabel = (key: keyof typeof labels) => `${labels[key]}${isZh && key !== 'home' && key !== 'tools' ? '（英文）' : ''}`;
+const currentPath = Astro.url.pathname;
+---
+
+<header class="global-header" data-global-header>
+  <div class="global-header__inner">
+    <a class="global-header__brand" href={isZh ? '/zh/' : '/'} aria-label={`${site.name} ${labels.home}`}>
+      <img class="global-header__mark" src="/brand/logo-mark.svg" alt="" width="28" height="28" aria-hidden="true">
+      Visa<span>Lang</span>
+    </a>
+    <nav class="global-header__nav" aria-label={isZh ? '主导航' : 'Primary navigation'}>
+      {navItems.map((item) => {
+        const href = localHref(item.href);
+        const current = navigationCurrent(currentPath, item.key, href);
+        const active = Boolean(current);
+        if (item.key === 'routes') {
+          return (
+            <div class="nav-menu">
+              <a class:list={['nav-menu__link', { active }]} href={href} aria-current={current}>{navLabel('routes')}</a>
+              <details class="nav-menu__disclosure">
+                <summary aria-label={isZh ? '打开路线菜单' : 'Open Routes menu'}></summary>
+                <div class="nav-menu__panel">
+                  {site.routes.map((route) => { const routeHref = isZh && route.id === 'family-reunion' ? '/zh/germany-family-reunion-a1/' : route.href; return <a href={routeHref} aria-current={navigationCurrent(currentPath, 'route-item', routeHref)}>{isZh ? `${route.zh}${route.id === 'family-reunion' ? '' : '（英文）'}` : route.label}</a>; })}
+                </div>
+              </details>
+            </div>
+          );
+        }
+        if (item.key === 'about') {
+          return (
+            <div class="nav-menu">
+              <a class:list={['nav-menu__link', { active }]} href={href} aria-current={current}>{navLabel('about')}</a>
+              <details class="nav-menu__disclosure">
+                <summary aria-label={isZh ? '打开关于菜单' : 'Open About menu'}></summary>
+                <div class="nav-menu__panel">
+                  <a href="/about/" aria-current={navigationCurrent(currentPath, 'about-item', '/about/')}>{isZh ? '关于（英文）' : labels.about}</a>
+                  <a href="/pricing/" aria-current={navigationCurrent(currentPath, 'about-item', '/pricing/')}>{isZh ? '价格与服务状态（英文）' : 'Pricing'}</a>
+                  <a href="/partners/" aria-current={navigationCurrent(currentPath, 'about-item', '/partners/')}>{isZh ? '合作伙伴（英文）' : 'Partners'}</a>
+                </div>
+              </details>
+            </div>
+          );
+        }
+        return <a class:list={[{ active }]} href={href} aria-current={current}>{navLabel(item.key)}</a>;
+      })}
+    </nav>
+    <a class="language-switch" href={switchHref} hreflang={isZh ? 'en' : 'zh-CN'}>{switchLabel}</a>
+    <MobileNavigation locale={locale} switchHref={switchHref} switchIsExact={Boolean(exactSwitchHref)} />
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector<HTMLElement>('[data-global-header]');
+  const menus = Array.from(header?.querySelectorAll<HTMLDetailsElement>('details') ?? []);
+  const closeMenu = (menu: HTMLDetailsElement, restoreFocus = false) => {
+    menu.open = false;
+    if (restoreFocus) menu.querySelector('summary')?.focus();
+  };
+
+  menus.forEach((menu) => {
+    menu.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menu.open) {
+        event.preventDefault();
+        closeMenu(menu, true);
+      }
+    });
+    menu.addEventListener('toggle', () => {
+      if (menu.open) menus.filter((other) => other !== menu).forEach((other) => closeMenu(other));
+    });
+    menu.addEventListener('focusout', () => {
+      requestAnimationFrame(() => {
+        if (!menu.contains(document.activeElement)) closeMenu(menu);
+      });
+    });
+  });
+  document.addEventListener('pointerdown', (event) => {
+    menus.filter((menu) => menu.open && !menu.contains(event.target as Node)).forEach((menu) => closeMenu(menu));
+  });
+</script>

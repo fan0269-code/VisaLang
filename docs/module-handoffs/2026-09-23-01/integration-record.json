@@ -1,0 +1,18 @@
+{
+  "batchId": "2026-09-23-01",
+  "baselineId": "6575f350de1af90c9d439d99573ff3b16c50c17b2de2d234e0a08bd430a232c8",
+  "receivedHandoffs": [],
+  "integratedFiles": [],
+  "integrationCount": 0,
+  "status": "awaiting_actual_module_handoffs",
+  "partialMergeDecisions": [],
+  "gates": {
+    "W01": "no-real-readers => LP00 partial",
+    "W02": "does-not-require-W01-pass",
+    "W10": "unknown-human-benefit => insufficient_evidence; no W11/W12 continuation",
+    "W09": "must-consume-integrated-W08-contract-and-new-baseline",
+    "W13-W14": "independent-demand-required",
+    "W16": "core/laya/ads-checked-separately",
+    "W17": "observation-clock-starts-at-real-release-only"
+  }
+}

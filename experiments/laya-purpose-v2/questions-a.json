@@ -1,0 +1,15 @@
+{
+  "purpose": {
+    "type": "choice",
+    "instructions": "识别用户当前明确想办理的主要目的。忽略被否定的目的。多目的未定、信息不足或只提考试等级时选 unclear。其他明确目的选 other。只分类意图，不判断资格。",
+    "criteria": {
+      "family-reunion": "与配偶或家人在德国团聚",
+      "b1": "德国永居、定居或入籍",
+      "ausbildung": "德国职业培训、双元制 Ausbildung",
+      "nursing": "护士职业认可、护理执业",
+      "university": "大学或研究生申请、学术留学",
+      "other": "旅游等其他明确目的",
+      "unclear": "意图不明、多个目的未决定、只问考试"
+    }
+  }
+}

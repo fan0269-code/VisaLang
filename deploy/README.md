@@ -1,93 +1,24 @@
-# VisaLang Nginx deployment
+# VisaLang website and purpose-provider deployment
 
-Canonical production origin: `https://visalang.org`.
+This runbook replaces the former clone/pull deployment and static-only rollback workflow. `deploy.sh` now requires a prepared immutable bundle and a bound approval receipt; it never pulls `main` or builds on production. Do not run `server-init.sh` on an existing host: its firewall reset is first-host scaffolding, not a migration command.
 
-These files prepare a deployment workflow; their presence does not prove DNS, TLS, Nginx, public redirects, production smoke checks, or rollback have been verified. Production commands require a separately authorised production window.
+1. After separately authorized commit, run `npm ci`, `npm test`, `npm run launch-check` and Python service tests on the exact candidate. A dirty checkout may be packaged for inspection, but activation rejects it. The launch check is **local candidate verification**, not account/server readiness.
+2. Build the purpose service image on Linux amd64 with `docker build --platform linux/amd64 --build-arg PYTHON_IMAGE=python:3.13-slim@sha256:<verified-base-digest> services/laya-purpose`. Use the reviewed Python 3.13 base digest obtained from the registry; no example digest is a usable value. `requirements.lock` is resolved for Linux x86_64/Python3.13 with CPU PyTorch and hash-checked wheels. Record the resulting image digest and SBOM/package inventory. No Docker build is claimed by a dependency resolution receipt.
+3. Stage only the exact checkpoint bytes listed in `services/laya-purpose/model.lock.json` under `/srv/visalang/models/<revision>/`, preserving the `multilingual/` subtree and making it readable to UID10001. No model download occurs at service startup. Provision a previously verified image locally with its registry digest before activation.
+4. `python3 deploy/release.py prepare /tmp/<release-id> --image <registry/repository@sha256:digest> --model-revision <locked-revision>` produces `site/`, `nginx/`, the model lock, source input hashes and `release.json`. Use a lowercase alphanumeric/hyphen ID. Do not rename the bundle; Nginx paths bind its installed name. Inspect with `python3 deploy/release.py verify /tmp/<release-id>` and transfer it without changing bytes to `/var/www/visalang.org/releases/<release-id>/` in an authorized window. Keep it root-owned and non-writable by the web/container users. Transfer/host setup is not performed by prepare.
+5. Fill a private copy of `production-evidence.example.json` with actual Owner authorization, exact release-manifest SHA256 and previous manifest SHA256 (null only on first install). All six evidence documents must exist beside/below the receipt, be marked pass, and have matching SHA256. These are operator attestations backed by evidence, not an automated claim that an ad account or legal policy is compliant. Never mark missing evidence pass to enable the command.
+6. In the separately authorised production window, run `sudo bash deploy/deploy.sh <verified-bundle-path> --approval <private-receipt-path>`. Nginx's enabled site must be absent or a managed symlink; migrate any existing unmanaged vhost after inventory. The host needs Docker, Nginx, curl, Python3 and TLS certificates for apex/www before this step. Do not install another duplicate `visalang_purpose` rate zone or old vhost. A trusted CDN needs separately verified real-IP configuration.
+7. The release manifest selects `purposeProvider` (`typesafe` by default for new bundles; old manifests without the field remain Laya). Before staging Nginx or replacing a container, activation checks that both the target and current release can start: TypeSafe keys for either TypeSafe release, verified model caches for either Laya release, and both image digests. TypeSafe activation requires `TYPESAFE_API_KEY` in the host process environment; Docker receives only the environment variable name, while Laya releases mount the verified model cache. The transaction stages the versioned Nginx configuration, tests it, replaces the purpose-service container, probes real inference, reloads Nginx, checks local TLS HTTP routes and records `current`. The short service replacement interval can return manual-fallback responses; this is not a zero-downtime promise. A caught failure restores the previous bundle's container/config/pointer. If restoration itself fails, the command fails and requires operator intervention; never claim successful rollback from intent. First-install rollback removes the new service/config and relies on the recorded old-DNS/old-host plan. Uncatchable process or host failure requires an operator to inspect the enabled Nginx link, running container digest and current pointer before using an explicitly approved target.
 
-## Files
+The repository currently has a local TypeSafe key only in the ignored `.env.local`; it does not authorize a remote activation. Never put the key in a manifest, command-line value, source file, build arg, image, browser bundle, or log. TypeSafe calls send user-entered descriptions to the provider; the published UI and privacy policy must explain its U.S. processing and retention language. A production activation still requires a separate Owner-authorized maintenance window and all release evidence.
+8. Explicit rollback: `sudo bash deploy/rollback.sh <verified-bundle-path> --approval <rollback-receipt-path>`; the receipt must authorize rollback and bind the current previous release. Both commands verify hashes again. Keep every previous bundle, image and model until the observation window closes; no automatic cleanup runs.
 
-- `server-init.sh` — destructive first-server bootstrap; review before use.
-- `nginx-vhost-template.conf` — canonical apex/`www` Nginx configuration.
-- `legacy-redirects.conf` — executable Nginx legacy redirect rules.
-- `deploy.sh` — clean-source, test-gated, immutable-release deployment.
-- `smoke-test.sh` — black-box public verification after an authorised release.
-- `rollback.sh` — atomic rollback to an explicitly supplied verified release ID.
+### Required production evidence
 
-## Local release gate
+- Independent audit of exact source/artifacts, separate from authorization.
+- Ads/CMP account configuration, applicable consent behavior, Auto ads page exclusions for tools/closed pages, exact ads.txt seller and real browser network behavior on eligible EN content and ad-free tools. Raw HAR files and screenshots must not be committed to Git; sanitize any account/browser evidence. A script URL in HTML is not evidence of actual consent or delivery.
+- Target 2vCPU/4GB Linux host: cold load, repeated requests, busy/429 behavior, static requests during inference, container restart, peak RSS and cgroup/OOM state. Container memory starts at 3GB to leave OS/Nginx headroom. This is an unvalidated allocation until measured. Successful inference must fit the client's 12s timeout; do not use macOS results as target-host capacity evidence.
+- Pre-DNS TLS/SNI, all 17 retained paths, canonical/noindex rules, API through Nginx and rehearsed rollback. Public probes currently cannot establish live old-route behavior (403/timeouts).
+- Exact prior DNS records and prior live host/version recovery procedure. The user controls DNS but has not authorized a change in this implementation window.
 
-Node.js 22.12 or newer and npm must already be installed. The deployment script refuses older or missing runtimes instead of changing the server runtime during a release.
-
-Run from the repository root:
-
-```bash
-npm test
-npm run launch-check
-bash -n deploy/deploy.sh deploy/rollback.sh deploy/smoke-test.sh deploy/server-init.sh
-```
-
-All commands must pass before requesting a production window.
-
-## Production prerequisites
-
-Before production work, record:
-
-1. Target commit and release ID.
-2. Authorised release operator and rollback authoriser.
-3. Current DNS and TLS target.
-4. Installed Nginx configuration and redirect snippet paths.
-5. A previously verified release ID for rollback.
-6. Google Privacy & messaging published-state evidence and the actual non-consent/withdrawal path.
-7. Auto ads enabled-state evidence and Auto ads page exclusions for `/tools/*` and `/guides/`.
-8. Current AdSense Policy Center, CMP, and ads.txt status.
-9. Success criteria and mandatory rollback triggers.
-
-If no previously verified release ID or required AdSense/CMP account evidence exists, stop and establish it in the authorised production-verification plan before deploying.
-
-## Install the Nginx configuration
-
-An authorised server operator installs:
-
-```bash
-sudo install -m 0644 deploy/nginx-vhost-template.conf /etc/nginx/sites-available/visalang.org.conf
-sudo install -m 0644 deploy/legacy-redirects.conf /etc/nginx/snippets/visalang-legacy-redirects.conf
-sudo ln -sfn /etc/nginx/sites-available/visalang.org.conf /etc/nginx/sites-enabled/visalang.org.conf
-sudo nginx -t
-```
-
-Do not reload Nginx unless the production window explicitly authorises the change.
-
-## Deploy
-
-After authorisation:
-
-```bash
-bash deploy/deploy.sh
-```
-
-The script refuses a dirty server source tree, fast-forwards `origin/main`, runs `npm ci`, `npm test`, and `npm run launch-check`, creates an immutable commit-addressed release, validates candidate output and Nginx, then switches `current` atomically.
-
-## Verify
-
-After the authorised switch and reload:
-
-```bash
-BASE_URL=https://visalang.org WWW_URL=https://www.visalang.org bash deploy/smoke-test.sh
-```
-
-Record the command result. Then use a clean browser profile with synthetic non-personal test values to verify the covered-region message, Accept, the actual configured non-consent path, Manage options, withdrawal/reopen behavior, Auto ads placement, CLS, and the advertising-free tool/index routes.
-
-Raw HAR files and screenshots must not be committed to Git, copied into public documentation, or attached to public artifacts. Store them only in the authorised restricted evidence location; shared evidence must remove query strings, cookies, advertising identifiers, consent strings, and session-linked data.
-
-Do not describe production verification as passed unless the script, approved DNS/TLS/header checks, account evidence, and browser checks were actually completed.
-
-## Roll back
-
-Use a release ID already recorded as production-verified:
-
-```bash
-bash deploy/rollback.sh <verified-release-id>
-```
-
-The rollback script rejects malformed, missing, incomplete, outside-directory, and already-current targets. It never chooses a release by directory modification time.
-
-Run the production smoke checks again after rollback. A real rollback or rollback rehearsal requires separate authorisation.
+The service's `/internal/metrics` returns fixed aggregate counts, total inference seconds, busy state and process peak RSS. It is not proxied publicly; collect locally only. It excludes raw input, URL query, IP and text-derived labels. A real inference probe is required because `/healthz` only means the model loaded. Budget <= CNY100/month excludes the domain but includes applicable tax, IPv4 and backup costs; no server has been purchased or selected as available. T31 public checks and 24h/day7 observations begin only after an actual launch.

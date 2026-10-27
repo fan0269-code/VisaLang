@@ -1,0 +1,2 @@
+# Lightweight local ASGI runner for the TypeSafe provider; app.py uses stdlib urllib.
+uvicorn==0.53.0

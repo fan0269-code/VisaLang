@@ -1,0 +1,428 @@
+--- a/src/components/GlobalHeader.astro
++++ b/src/components/GlobalHeader.astro
+@@ -62,3 +62,32 @@
+     <MobileNavigation locale={locale} switchHref={switchHref} switchIsExact={Boolean(exactSwitchHref)} />
+   </div>
+ </header>
++
++<script>
++  const header = document.querySelector<HTMLElement>('[data-global-header]');
++  const menus = Array.from(header?.querySelectorAll<HTMLDetailsElement>('details') ?? []);
++  const closeMenu = (menu: HTMLDetailsElement, restoreFocus = false) => {
++    menu.open = false;
++    if (restoreFocus) menu.querySelector('summary')?.focus();
++  };
++
++  menus.forEach((menu) => {
++    menu.addEventListener('keydown', (event) => {
++      if (event.key === 'Escape' && menu.open) {
++        event.preventDefault();
++        closeMenu(menu, true);
++      }
++    });
++    menu.addEventListener('toggle', () => {
++      if (menu.open) menus.filter((other) => other !== menu).forEach((other) => closeMenu(other));
++    });
++    menu.addEventListener('focusout', () => {
++      requestAnimationFrame(() => {
++        if (!menu.contains(document.activeElement)) closeMenu(menu);
++      });
++    });
++  });
++  document.addEventListener('pointerdown', (event) => {
++    menus.filter((menu) => menu.open && !menu.contains(event.target as Node)).forEach((menu) => closeMenu(menu));
++  });
++</script>
+--- a/src/components/HomeHero.astro
++++ b/src/components/HomeHero.astro
+@@ -11,17 +11,9 @@
+   secondary?: { href: string; label: string };
+   visual: ImageMetadata;
+   visualAlt: string;
+-  featuredRoute: {
+-    label: string;
+-    title: string;
+-    description: string;
+-    href: string;
+-    linkLabel: string;
+-  };
+ }
+ 
+-const { locale, eyebrow, title, description, primary, secondary, visual, visualAlt, featuredRoute } = Astro.props;
+-const routeTitleId = `featured-route-${locale}`;
++const { locale, eyebrow, title, description, primary, secondary, visual, visualAlt } = Astro.props;
+ ---
+ 
+ <header class="home-hero">
+@@ -33,6 +25,7 @@
+       <a class="button button--primary" href={primary.href}>{primary.label}</a>
+       {secondary && <a class="button button--secondary" href={secondary.href}>{secondary.label}</a>}
+     </div>
++    <slot />
+   </div>
+   <div class="home-hero__visual">
+     <Picture
+@@ -47,12 +40,3 @@
+     />
+   </div>
+ </header>
+-
+-<section class="home-route-spotlight" aria-labelledby={routeTitleId}>
+-  <p class="home-route-spotlight__label">{featuredRoute.label}</p>
+-  <div>
+-    <h2 id={routeTitleId}>{featuredRoute.title}</h2>
+-    <p>{featuredRoute.description}</p>
+-  </div>
+-  <a class="text-link" href={featuredRoute.href}>{featuredRoute.linkLabel}</a>
+-</section>
+--- a/src/pages/index.astro
++++ b/src/pages/index.astro
+@@ -1,7 +1,6 @@
+ ---
+ import BaseLayout from '../layouts/BaseLayout.astro';
+ import HomeHero from '../components/HomeHero.astro';
+-import RouteSelector from '../components/RouteSelector.astro';
+ import GuideStatusBadge from '../components/GuideStatusBadge.astro';
+ import homeRouteVisual from '../assets/home-route-verification.png';
+ import { getCollection } from 'astro:content';
+@@ -29,67 +28,36 @@
+       locale="en"
+       eyebrow="Official sources first"
+       title="Plan your German language proof."
+-      description="Start with your application route, understand the evidence you may need, and organise your next steps before booking an exam."
++      description="Germany A1 family reunion: check requirements, existing proof and booking steps. The receiving authority decides what it accepts."
+       primary={{ href: '/germany-family-reunion-a1/', label: 'Start the Germany A1 route' }}
+-      secondary={{ href: '/germany-b1-settlement-citizenship/', label: 'Read Germany B1 guides' }}
+       visual={homeRouteVisual}
+       visualAlt="An open notebook and route map arranged for checking language-proof requirements"
+-      featuredRoute={{
+-        label: 'Main planning route',
+-        title: 'Germany A1 family reunion',
+-        description: 'Our main planning route covers Germany A1 family reunion. Separate guides explain B1 language evidence for settlement permits and citizenship.',
+-        href: '/germany-family-reunion-a1/',
+-        linkLabel: 'View Germany A1 route',
+-      }}
+-    />
+-
+-    <hr class="rule" />
+-
+-    <section class="section" aria-labelledby="stage-title">
+-      <h2 class="section-title" id="stage-title">Start with one of three tasks</h2>
+-      <div class="lane-grid">
++    >
++      <section class="home-tasks" aria-labelledby="stage-title">
++        <h2 id="stage-title">Or go straight to your task</h2>
+         <ol class="stage-list">
+-          <li class="stage-card"><div><h3>Check the requirement</h3><p>Start with the official instruction for your application location and family-reunion category, including any exception question.</p><a href="/guides/german-family-reunion-language-requirement/">Check the requirement</a></div></li>
+-          <li class="stage-card"><div><h3>Already have a certificate?</h3><p>Keep the exact certificate and exam date separate from the receiving authority's current acceptance decision.</p><a href="/guides/goethe-a1-germany-family-reunion/">Already have a certificate?</a></div></li>
+-          <li class="stage-card"><div><h3>Prepare booking and next steps</h3><p>Record only the centre, fee, date, ID and certificate arrangements you have verified for the selected exam.</p><a href="/guides/german-a1-exam-booking-timeline/">Prepare booking and next steps</a></div></li>
++          <li class="stage-card"><div><h3><a href="/guides/german-family-reunion-language-requirement/">Check the requirement</a></h3><p>Find the instruction for your application location and category.</p></div></li>
++          <li class="stage-card"><div><h3><a href="/guides/goethe-a1-germany-family-reunion/">Already have a certificate?</a></h3><p>Record the exact certificate and date; check acceptance with the receiving authority.</p></div></li>
++          <li class="stage-card"><div><h3><a href="/guides/german-a1-exam-booking-timeline/">Prepare booking and next steps</a></h3><p>Record the selected centre, fee, dates and documents to verify before booking.</p></div></li>
+         </ol>
+-        <aside class="sidebar-panel">
+-          <h3>The receiving organisation makes the decision.</h3>
+-          <p>Use its current instructions to confirm the required level, accepted proof, document format, deadline, and any individual exception.</p>
+-          <ul class="check-list">
+-            <li>Check the authority or institution receiving the file.</li>
+-            <li>Check the official exam owner or authorised centre.</li>
+-            <li>Recheck changing terms before booking or submission.</li>
+-          </ul>
+-        </aside>
+-      </div>
+-    </section>
++      </section>
++    </HomeHero>
+ 
+     <hr class="rule" />
+ 
+     <section class="section" aria-labelledby="resources-title">
+-      <h2 class="section-title" id="resources-title">Enter through tools or guides</h2>
+-      <p class="section-lede">Tools narrow the route. Guides explain the boundary, official checks, and supporting evidence.</p>
++      <h2 class="section-title" id="resources-title">What you can use here</h2>
+       <div class="resource-layout">
+         <div class="resource-lead">
+-          <h3>Use Route Finder to organise a starting question.</h3>
+-          <p>Route Finder organises your starting questions. Its fully configured route currently covers Germany A1 family reunion.</p>
+-          <div class="button-row"><a class="button button--primary" href="/tools/route-finder/">Open Route Finder</a></div>
++          <h3>Germany A1: a complete preparation workflow</h3>
++          <p>Our main planning route covers Germany A1 family reunion. Separate guides explain B1 language evidence for settlement permits and citizenship.</p>
++          <p>Route Finder organises your starting questions. Its fully configured route currently covers Germany A1 family reunion. The other four registered routes offer official verification starting points, including B1.</p>
+         </div>
+         <div class="resource-list">
+-          <a class="resource-link" href="/tools/route-finder/"><div><h3>Route Finder</h3><p>Start from purpose, country, and current instruction status.</p></div><span>Use</span></a>
+-          <a class="resource-link" href="/germany-b1-settlement-citizenship/"><div><h3>Germany B1 guides</h3><p>Separate guides for settlement permits and citizenship; verify the applicable authority route before relying on any proof.</p></div><span>Browse</span></a>
+-          <a class="resource-link" href="/germany-family-reunion-a1/"><div><h3>Germany A1 family reunion</h3><p>A configured planning route for staged requirement, exam, booking, and document checks.</p></div><span>Start</span></a>
++          <a class="resource-link" href="/germany-b1-settlement-citizenship/"><div><h3>B1: settlement and citizenship guides</h3><p>A content topic with authority checks; B1 tools remain verification-only.</p></div><span>Read guides</span></a>
++          <a class="resource-link" href="/tools/route-finder/"><div><h3>Other purposes or not sure yet?</h3><p>Choose manually to find the authority and questions to verify. This does not decide eligibility or accepted proof.</p></div><span>Open Route Finder</span></a>
+         </div>
+       </div>
+-    </section>
+-
+-    <hr class="rule" />
+-
+-    <section class="section section--tight" aria-labelledby="purpose-title">
+-      <h2 class="section-title" id="purpose-title">What are you trying to do?</h2>
+-      <p class="section-lede">Start with the decision that brings you here. The receiving authority or institution sets the rule.</p>
+-      <RouteSelector />
+     </section>
+ 
+     <section class="section" aria-labelledby="updated-title">
+--- a/src/pages/routes/index.astro
++++ b/src/pages/routes/index.astro
+@@ -8,10 +8,10 @@
+ ---
+ <BaseLayout title="Language-proof routes" description="Choose a purpose before comparing exams or booking a language test." canonicalURL="https://visalang.org/routes/">
+   <main class="site-main">
+-    <PageHero compact title="Choose your route before you choose an exam." description="Route Finder has one configured planning route: Germany A1 family reunion. Other entries are guide-only or start an official verification question." primary={{ href: '/tools/route-finder/', label: 'Open Route Finder' }} />
++    <PageHero compact title="Choose your route before you choose an exam." description="Route Finder has one configured planning route: Germany A1 family reunion. The other four registered tool routes are verification-only. B1 settlement and citizenship have a separate content topic." primary={{ href: '/tools/route-finder/', label: 'Open Route Finder' }} />
+     <RouteSelector />
+     <VerificationAlert title="A route is not a legal conclusion"><p>Only Germany A1 family reunion is fully configured. B1 settlement and citizenship entries lead to guides; all other entries are verification-only and do not decide eligibility or accepted proof.</p></VerificationAlert>
+     <section class="content-section" aria-labelledby="decision-order-title"><div class="section-header"><h2 id="decision-order-title">Use this decision order</h2></div><DecisionTable rows={[{ question: 'What is your purpose?', action: 'Name the family, study, work, settlement, or citizenship route.', source: 'Your application or programme category' }, { question: 'Who receives the proof?', action: 'Identify the responsible authority, mission, institution, employer, or regulator.', source: 'The receiving organisation' }, { question: 'What exact proof is accepted?', action: 'Confirm the certificate, level, version, format, and timing before booking.', source: 'Written official instructions' }]} /></section>
+-    <section class="content-section" aria-labelledby="route-tools-title"><div class="section-header"><h2 id="route-tools-title">Continue with a planning tool</h2><p>After you identify the organisation receiving your proof, use a checklist or timeline to record what it confirms.</p></div><div class="tool-grid">{site.tools.slice(0, 3).map((tool) => <a class="route-card" href={tool.href}><strong>{tool.label}</strong><small>{tool.description}</small></a>)}</div></section>
++    <section class="content-section" aria-labelledby="route-tools-title"><div class="section-header"><h2 id="route-tools-title">Continue with a planning tool</h2><p>After you identify the organisation receiving your proof, use a checklist or timeline to record what it confirms.</p></div><div class="tool-grid">{site.tools.filter((tool) => tool.id === 'checklist' || tool.id === 'timeline').map((tool) => <a class="route-card" href={tool.href}><strong>{tool.label}</strong><small>{tool.description}</small></a>)}</div></section>
+   </main>
+ </BaseLayout>
+--- a/src/pages/tools/index.astro
++++ b/src/pages/tools/index.astro
+@@ -1,13 +1,12 @@
+ ---
+ import BaseLayout from '../../layouts/BaseLayout.astro';
+ import PageHero from '../../components/PageHero.astro';
+-import ProductStatus from '../../components/ProductStatus.astro';
+ import { site } from '../../data/site';
+ const jsonLD = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'VisaLang decision tools', url: 'https://visalang.org/tools/' };
+ ---
+ <BaseLayout title="Decision tools" description="Use free tools to organise route questions, requirements, timing, exam comparisons, and reminders." canonicalURL="https://visalang.org/tools/" jsonLD={jsonLD} enableAds={false}>
+   <main class="site-main od-tools">
+-    <PageHero compact title="Tools for planning a language-proof route." description="Each tool records your inputs and keeps official verification visible." primary={{ href: '/tools/route-finder/', label: 'Start with Route Finder' }} />
+-    <section class="tool-grid" aria-label="Available tools">{site.tools.map((tool) => <a class="article-card" href={tool.href}><div><ProductStatus status="available" /></div><h2>{tool.label}</h2><p class="card-meta">{tool.description}</p><span class="text-link">Open tool</span></a>)}</section>
++    <PageHero compact title="Tools for planning a language-proof route." description="Choose the tool for your current task. Germany A1 family reunion has the complete preparation workflow; the other four registered routes provide official verification starting points. B1 guides are a separate content topic, with verification-only tools." />
++    <section class="tool-grid" aria-label="Available tools">{site.tools.map((tool) => <a class="article-card" href={tool.href}><h2>{tool.label}</h2><p class="card-meta">{tool.description}</p><span class="text-link">Open tool</span></a>)}</section>
+   </main>
+ </BaseLayout>
+--- a/src/pages/zh/index.astro
++++ b/src/pages/zh/index.astro
+@@ -3,10 +3,9 @@
+ import HomeHero from '../../components/HomeHero.astro';
+ import { getCollection } from 'astro:content';
+ import { zhGermanyA1Guides } from '../../data/zh-germany-a1';
+-import RouteSelector from '../../components/RouteSelector.astro';
+ import GuideStatusBadge from '../../components/GuideStatusBadge.astro';
+ import homeRouteVisual from '../../assets/home-route-verification.png';
+-import { isGuidePrimaryDiscoveryEligible, resolveGuideContentStatus } from '../../data/source-review';
++import { resolveGuideContentStatus } from '../../data/source-review';
+ import { getEnglishGuidePublicationPolicy } from '../../data/publication-manifest';
+ import { getPrimaryDiscoveryZhGuides } from '../../data/guide-library';
+ 
+@@ -48,67 +47,36 @@
+       locale="zh-CN"
+       eyebrow="官方来源优先"
+       title="把德国语言证明的准备步骤理清楚。"
+-      description="先确认申请要求，再选择考试，最后安排报名和材料。VisaLang 目前重点提供德国 A1 配偶团聚规划，并提供德国永居、入籍 B1 语言证明的英文指南。"
+-      primary={{ href: '/zh/guides/german-family-reunion-language-requirement/', label: '查看中文 A1 要求' }}
+-      secondary={{ href: '/germany-b1-settlement-citizenship/', label: '查看 B1 指南（英文）' }}
++      description="德国 A1 配偶团聚规划：查要求、核对已有证书、准备报名。证明是否被接收，以负责你申请的机关为准。"
++      primary={{ href: '/zh/germany-family-reunion-a1/', label: '查看完整 A1 准备流程' }}
+       visual={homeRouteVisual}
+       visualAlt="用于核验语言证明要求的笔记本与路线图"
+-      featuredRoute={{
+-        label: '当前中文重点路线',
+-        title: '德国配偶团聚 / 家庭团聚 A1',
+-        description: '从是否需要 A1 开始，依次核验证书、考点、报名、材料与备考安排。',
+-        href: '/zh/germany-family-reunion-a1/',
+-        linkLabel: '进入德国 A1 中文路线',
+-      }}
+-    />
+-
+-    <hr class="rule" />
+-
+-    <section class="section" aria-labelledby="zh-stage-title">
+-      <h2 class="section-title" id="zh-stage-title">按三个问题往下准备</h2>
+-      <div class="lane-grid">
++    >
++      <section class="home-tasks" aria-labelledby="zh-stage-title">
++        <h2 id="zh-stage-title">也可以直接进入当前任务</h2>
+         <ol class="stage-list">
+-          <li class="stage-card"><div><h3>需要什么？</h3><p>找到与你的申请地和居留类别对应的官方要求。</p><a href="/zh/guides/german-family-reunion-language-requirement/">查看中文 A1 要求</a></div></li>
+-          <li class="stage-card"><div><h3>提交什么证明？</h3><p>核对准确证书名称和考试日期；已有证书是否被受理，仍须向负责你申请的机关确认。</p><a href="/zh/guides/goethe-a1-vs-telc-a1/">比较 Goethe 与 telc</a></div></li>
+-          <li class="stage-card"><div><h3>如何安排？</h3><p>把考点、费用、日期、证件和取证事项记在一起，并在行动前再次核验。</p><a href="/zh/guides/german-a1-exam-booking-timeline/">查看时间线与材料核对</a></div></li>
++          <li class="stage-card"><div><h3><a href="/zh/guides/german-family-reunion-language-requirement/">查要求</a></h3><p>按实际申请地与类别，找到负责机关的说明。</p></div></li>
++          <li class="stage-card"><div><h3><a href="/zh/guides/goethe-a1-germany-family-reunion/">已有 Goethe A1 证书？</a></h3><p>记录证书名称与考试日期，向接收材料的机关核对接收条件。</p></div></li>
++          <li class="stage-card"><div><h3><a href="/zh/guides/german-a1-exam-booking-timeline/">准备报名</a></h3><p>整理所选考点、费用、日期与材料，报名前逐项核验。</p></div></li>
+         </ol>
+-        <aside class="sidebar-panel">
+-          <h3>最终以接收材料的机构为准。</h3>
+-          <p>本站帮助你整理问题与核验顺序，不替代主管机关或考试主办方作出决定。</p>
+-          <ul class="check-list">
+-            <li>核对负责你申请地和个案的官方机构。</li>
+-            <li>核对考试主办方与所选官方或授权考点。</li>
+-            <li>保存页面、回复、报名确认和查看日期。</li>
+-          </ul>
+-        </aside>
+-      </div>
+-    </section>
++      </section>
++    </HomeHero>
+ 
+     <hr class="rule" />
+ 
+     <section class="section" aria-labelledby="zh-resources-title">
+-      <h2 class="section-title" id="zh-resources-title">从工具或指南进入</h2>
+-      <p class="section-lede">工具帮助缩小路线，指南说明核验边界、官方入口与下一步。</p>
++      <h2 class="section-title" id="zh-resources-title">本站能帮你做什么</h2>
+       <div class="resource-layout">
+         <div class="resource-lead">
+-          <h3>需要整理起点时，可使用工具。</h3>
+-          <p>路线查找器目前完整配置的是德国 A1 家庭团聚；路线、核对清单、时间线、考试比较和提醒均提供中文界面。</p>
+-          <div class="button-row"><a class="button button--primary" href="/zh/tools/route-finder/">使用路线查找器</a></div>
++          <h3>德国 A1：完整准备流程</h3>
++          <p>目前完整配置的是德国 A1 配偶团聚规划。路线、核对清单、时间线、考试比较和提醒均提供中文界面。</p>
++          <p>另外四条已登记工具路线仅提供官方核验起点，其中包括 B1；是否接收证明、个案要求与最终结果，仍由负责机构决定。</p>
+         </div>
+         <div class="resource-list">
+-          <a class="resource-link" href="/zh/tools/route-finder/"><div><h3>路线查找器</h3><p>从目的、国家和当前说明状态开始。</p></div><span>使用</span></a>
+-          <a class="resource-link" href="/germany-b1-settlement-citizenship/"><div><h3>德国 B1 指南（英文）</h3><p>分别阅读永居与入籍的语言证明指南；不要把它当作完整的路线判断。</p></div><span>浏览</span></a>
+-          <a class="resource-link" href="/zh/germany-family-reunion-a1/"><div><h3>德国 A1 中文路线</h3><p>按照决定顺序查看目前最完整的中文专题。</p></div><span>查看</span></a>
++          <a class="resource-link" href="/germany-b1-settlement-citizenship/"><div><h3>B1：永居与入籍指南（英文）</h3><p>这是内容专题；B1 工具仍仅提供核验起点，不是完整准备流程。</p></div><span>阅读英文指南</span></a>
++          <a class="resource-link" href="/zh/tools/route-finder/"><div><h3>其他目的，或还不确定？</h3><p>手动选择目的，找到负责机构与待核问题；不据此判断资格或证明是否被接收。</p></div><span>使用路线查找器</span></a>
+         </div>
+       </div>
+-    </section>
+-
+-    <hr class="rule" />
+-
+-    <section class="section section--tight" aria-labelledby="zh-purpose-title">
+-      <h2 class="section-title" id="zh-purpose-title">你准备办理什么？</h2>
+-      <p class="section-lede">德国 A1 家庭团聚已有完整中文路径，其余入口会明确进入英文页面。</p>
+-      <RouteSelector locale="zh-CN" />
+     </section>
+ 
+     <section class="section" id="zh-guides" aria-labelledby="zh-guides-title">
+--- a/src/styles/global.css
++++ b/src/styles/global.css
+@@ -150,7 +150,7 @@
+ .language-switch { white-space: nowrap; }
+ .mobile-navigation { display: none; margin-left: auto; }
+ .mobile-navigation > summary { min-height: 44px; padding: .65rem .8rem; border: 1px solid var(--border); border-radius: var(--radius-sm); list-style: none; cursor: pointer; }
+-.mobile-navigation nav { position: fixed; inset: var(--header-height) 0 auto 0; display: grid; max-height: calc(100dvh - var(--header-height)); overflow: auto; padding: 1rem; border-bottom: 1px solid var(--border); background: var(--surface); box-shadow: var(--shadow-md); }
++.mobile-navigation nav { position: absolute; inset: 100% 0 auto 0; display: grid; max-height: calc(100dvh - var(--header-height)); overflow: auto; padding: 1rem; border-bottom: 1px solid var(--border); background: var(--surface); box-shadow: var(--shadow-md); }
+ .mobile-navigation a { min-height: 48px; padding: .75rem; border-bottom: 1px solid var(--border); color: var(--text); text-decoration: none; }
+ .global-header__nav [aria-current="page"], .global-header__nav [aria-current="location"], .mobile-navigation [aria-current="page"], .mobile-navigation [aria-current="location"] { font-weight: 850; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .3em; }
+ .mobile-navigation__routes { display: grid; padding-left: 1rem; background: var(--surface-subtle); }
+@@ -499,8 +499,7 @@
+   grid-template-columns: minmax(0, 1.06fr) minmax(360px, .94fr);
+   gap: clamp(28px, 4vw, 64px);
+   align-items: center;
+-  min-height: min(720px, calc(100dvh - var(--header-height)));
+-  padding: 48px 0 40px;
++  padding: 24px 0 40px;
+ }
+ 
+ .home-hero__copy {
+@@ -509,10 +508,10 @@
+ }
+ 
+ .home-hero__copy h1 {
+-  max-width: 16ch;
++  max-width: 18ch;
+   margin: 0;
+   color: var(--od-ink);
+-  font-size: clamp(3rem, 5vw, 4.35rem);
++  font-size: clamp(2.4rem, 4vw, 3.5rem);
+   font-weight: 760;
+   line-height: 1.03;
+   letter-spacing: -.05em;
+@@ -525,6 +524,12 @@
+   font-size: clamp(1.05rem, 1.35vw, 1.22rem);
+   line-height: 1.58;
+ }
++
++.home-tasks { margin-top: 24px; }
++.home-tasks h2 { margin: 0; font-size: 1.1rem; }
++.home-tasks .stage-card { padding-block: 8px; }
++.home-tasks .stage-card a { min-height: 44px; margin-top: 0; align-items: center; text-decoration: underline; text-underline-offset: .2em; }
++.home-tasks .stage-card p { margin-top: 0; }
+ 
+ .home-hero__actions {
+   display: flex;
+@@ -1417,13 +1422,13 @@
+ 
+   .home-hero {
+     min-height: auto;
+-    padding: 40px 0 48px;
++    padding: 24px 0 32px;
+   }
+ 
+   .home-hero__copy { max-width: 760px; }
+   .home-hero__copy h1 {
+     max-width: 18ch;
+-    font-size: clamp(2.65rem, 9vw, 3.5rem);
++    font-size: clamp(2rem, 8vw, 3.5rem);
+   }
+ 
+   .home-route-spotlight { grid-template-columns: 1fr; gap: 12px; }
+@@ -1526,8 +1531,10 @@
+   .not-found-search { padding: 18px; }
+ 
+   .home-hero {
+-    padding-top: 32px;
+-  }
++    padding-top: 24px;
++  }
++
++  .home-tasks .stage-card { grid-template-columns: 2rem minmax(0, 1fr); }
+ 
+   .choice-row {
+     grid-template-columns: 1fr;
+--- a/tests/task-4-home-routes.test.mjs
++++ b/tests/task-4-home-routes.test.mjs
+@@ -1,5 +1,8 @@
+ import assert from 'node:assert/strict';
+ import fs from 'node:fs';
++import { routeRegistry } from '../src/data/route-tools.ts';
++import { getChineseGuidePublicationPolicy } from '../src/data/publication-manifest.ts';
++import { zhGermanyA1Guides } from '../src/data/zh-germany-a1.ts';
+ 
+ const read = (file) => fs.readFileSync(file, 'utf8');
+ const home = read('src/pages/index.astro');
+@@ -22,7 +25,7 @@
+ assert.ok(homeSeoTitle && `${homeSeoTitle} | VisaLang`.length <= 60, 'English home keeps its rendered SEO title within the launch snippet budget');
+ assert.match(home, /Our main planning route covers Germany A1 family reunion\. Separate guides explain B1 language evidence/, 'English home distinguishes the configured Germany A1 route from B1 guides');
+ for (const [label, href] of expectedEnglishEntries) {
+-  assert.ok(home.includes(label) && home.includes(`href="${href}"`), `English home exposes the honest ${label} entry`);
++  assert.ok(home.includes(`href="${href}">${label}</a>`), `English home exposes the honest ${label} entry`);
+ }
+ assert.match(home, /Route Finder organises your starting questions\. Its fully configured route currently covers Germany A1 family reunion\./, 'English home states Route Finder\'s configured scope');
+ assert.match(home, /href="\/germany-b1-settlement-citizenship\/"/, 'English home keeps B1 as a real guide destination');
+@@ -33,7 +36,16 @@
+ assert.match(zhHome, /href="\/zh\/tools\/route-finder\/"/, 'Chinese home sends the planning-tool entry to the maintained Chinese Route Finder');
+ assert.doesNotMatch(zhHome, /路线查找器（英文）/, 'Chinese home no longer labels the localized Route Finder as English-only');
+ assert.match(zhHome, /指南（英文）/, 'Chinese home labels English-only guide destinations');
+-assert.doesNotMatch(zhHome, /\/zh\/guides\/goethe-a1-germany-family-reunion\//, 'Chinese home does not invent a Chinese C07 route');
++const chineseTasks = [
++  ['已有 Goethe A1 证书？', '/zh/guides/goethe-a1-germany-family-reunion/'],
++  ['查要求', '/zh/guides/german-family-reunion-language-requirement/'],
++  ['准备报名', '/zh/guides/german-a1-exam-booking-timeline/'],
++];
++for (const [label, href] of chineseTasks) {
++  assert.ok(zhHome.includes(`href="${href}">${label}</a>`), `Chinese task ${label} directly links to its maintained page`);
++  assert.ok(fs.existsSync(`src/pages${href}index.astro`) || fs.existsSync(`src/pages${href.slice(0, -1)}.astro`), `${href} is an existing route`);
++}
++assert.match(read('src/pages/zh/guides/goethe-a1-germany-family-reunion.astro'), /先建立证书记录/, 'the restored Chinese certificate page supplies the task record');
+ 
+ assert.match(routes, /Only Germany A1 family reunion is fully configured/, 'route hub states its single configured scope');
+ assert.match(selector, /Configured planning route/, 'selector uses a reader-facing configured label');
+@@ -44,4 +56,12 @@
+ assert.match(site, /support: 'guide-only'/, 'site data identifies guide-only B1 entries');
+ assert.match(site, /support: 'verify-only'/, 'site data identifies verification-only entries');
+ 
++assert.equal(routeRegistry.filter((route) => route.availability === 'configured').length, 1, 'entry scope retains exactly one configured tool route');
++assert.equal(routeRegistry.filter((route) => route.availability === 'verify-only').length, 4, 'the four other registered tool routes remain verification-only');
++const certificateRecord = zhGermanyA1Guides.find((guide) => guide.slug === 'goethe-a1-germany-family-reunion');
++assert.ok(certificateRecord, 'the Chinese certificate entry is backed by its retained record');
++const certificatePolicy = getChineseGuidePublicationPolicy(certificateRecord);
++assert.equal(certificatePolicy.index, false, 'linking the retained Chinese certificate page does not expand indexing');
++assert.equal(certificatePolicy.ads, false, 'the retained Chinese certificate page stays ad-free');
++
+ console.log('Task 4 home and route support-state contract passed');

@@ -1,5 +1,6 @@
 ---
 import ArticleTOC from '../components/ArticleTOC.astro';
+import B1RoutePaths from '../components/B1RoutePaths.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const canonicalURL = 'https://visalang.org/germany-b1-settlement-citizenship/';
@@ -16,14 +17,14 @@ const headings = [
   { text: 'Planning tools and their limits', id: 'tool-boundary', depth: 2 },
 ];
 const corePages = [
-  { name: 'Settlement permit and B1', url: '/guides/goethe-b1-germany-settlement-work/' },
-  { name: 'Citizenship language proof', url: '/guides/germany-b1-citizenship-language-proof/' },
-  { name: 'Language and civic knowledge', url: '/guides/germany-b1-leben-in-deutschland-and-language-proof/' },
-  { name: 'DTZ, Goethe B1 and telc B1 comparison', url: '/guides/goethe-b1-vs-telc-b1/' },
+  { name: 'Settlement permit B1: which provision', url: '/guides/goethe-b1-germany-settlement-work/' },
+  { name: 'Citizenship B1: § 10 language proof', url: '/guides/germany-b1-citizenship-language-proof/' },
+  { name: 'Leben in Deutschland vs DTZ: two evidence lanes', url: '/guides/germany-b1-leben-in-deutschland-and-language-proof/' },
+  { name: 'Goethe B1 and telc B1 product comparison', url: '/guides/goethe-b1-vs-telc-b1/' },
   { name: 'Fees and booking verification', url: '/guides/goethe-b1-fees-and-booking/' },
   { name: 'Study plan', url: '/guides/goethe-b1-study-plan/' },
-  { name: 'Evidence timeline', url: '/guides/germany-b1-settlement-citizenship-timeline/' },
-  { name: 'Submission checklist', url: '/guides/germany-b1-settlement-citizenship-checklist/' },
+  { name: 'Timeline: which step comes first', url: '/guides/germany-b1-settlement-citizenship-timeline/' },
+  { name: 'Documents checklist: four evidence lanes', url: '/guides/germany-b1-settlement-citizenship-checklist/' },
 ];
 const absoluteUrl = (url: string) => new URL(url, canonicalURL).href;
 const jsonLD = {
@@ -53,7 +54,7 @@ const jsonLD = {
   description={description}
   canonicalURL="https://visalang.org/germany-b1-settlement-citizenship/"
   jsonLD={jsonLD}
-  enableAds={true}
+  enableAds={false}
 >
   <main class="page-shell">
     <article class="guide-article route-hub-page">
@@ -73,6 +74,7 @@ const jsonLD = {
       <p>Save the authority's current page, portal, form or written reply, the route it names, and the date checked. An exam provider can define its product, but it cannot decide whether that proof fits your application.</p>
 
       <h2 id="route-entry">Choose the correct route entry</h2>
+      <B1RoutePaths />
       <div class="guide-related-grid">
         <a class="article-card" href="/guides/goethe-b1-germany-settlement-work/"><p class="card-category">Settlement permit</p><h3>Identify the route before treating B1 as relevant</h3><p>Separate the language question from all other permit conditions.</p></a>
         <a class="article-card" href="/guides/germany-b1-citizenship-language-proof/"><p class="card-category">Naturalisation</p><h3>Keep B1 language evidence inside the wider file</h3><p>Confirm the current evidence and local procedure with the nationality authority.</p></a>
@@ -82,7 +84,8 @@ const jsonLD = {
       <p>B1 language evidence and civic-knowledge evidence answer different questions. The <a href="/guides/germany-b1-leben-in-deutschland-and-language-proof/">Leben in Deutschland guide</a> explains the separation and the limits of the integration-course evidence. Do not assume that one result replaces the other or completes the application.</p>
 
       <h2 id="compare-proof">Compare only possible proof</h2>
-      <p>After the authority identifies possible language evidence, use the <a href="/guides/goethe-b1-vs-telc-b1/">DTZ, Goethe B1 and telc B1 comparison</a>. Compare exact products and document formats, not general recognition claims, anecdotes or an exam brand in isolation.</p>
+      <p>After the authority identifies possible language evidence, use the <a href="/guides/goethe-b1-vs-telc-b1/">Goethe B1 and telc B1 product comparison</a>. Compare exact products and document formats, not general recognition claims, anecdotes or an exam brand in isolation.</p>
+      <p>If the purpose is work or regulated nursing rather than a settlement file, read the <a href="/guides/telc-b1-b2-germany-work-nursing/">telc B1/B2 work and nursing decision boundary</a>, which separates recognition, employer and immigration decisions before any product choice.</p>
 
       <h2 id="verify-centre">Verify the selected centre</h2>
       <p>Use the <a href="/guides/goethe-b1-fees-and-booking/">fees and booking guide</a> to record the selected official or authorised centre, exact product, date, seat, fee scope, identification, cancellation, accessibility, result and certificate process. These local details remain time-sensitive even when this page's source review is current.</p>
@@ -94,18 +97,12 @@ const jsonLD = {
       <p>Use the <a href="/guides/germany-b1-settlement-citizenship-checklist/">settlement and citizenship checklist</a> as the terminal route step. Compare every note with the authority's current instructions, resolve mismatches, and leave unresolved items open rather than forcing the route back into a loop.</p>
 
       <h2 id="preparation-support">Optional preparation support</h2>
-      <p>Preparation becomes useful only after the exam product is relevant and clear. Start with the <a href="/guides/goethe-b1-study-plan/">adjustable study plan</a>, then use the support page that matches a real gap:</p>
-      <ul>
-        <li><a href="/guides/goethe-b1-difficulty-analysis/">Difficulty and weak-area analysis</a></li>
-        <li><a href="/guides/goethe-b1-listening-deep-dive/">Listening practice</a></li>
-        <li><a href="/guides/goethe-b1-mock-exam-routine/">Mock-exam routine</a></li>
-        <li><a href="/guides/goethe-b1-speaking-topics/">Speaking practice</a></li>
-        <li><a href="/guides/goethe-b1-writing-assessment/">Writing self-check</a></li>
-      </ul>
+      <p>Preparation becomes useful only after the exam product is relevant and clear. The <a href="/guides/goethe-b1-study-plan/">adjustable B1 study system</a> now contains the module diagnosis, listening, speaking, writing and mock-review workflows in one reviewed pillar.</p>
+      <p>If the receiving authority has already confirmed a telc product, use the <a href="/guides/telc-b1-b2-exam-format-and-preparation/">telc B1 and B2 format baseline</a> to turn the official mock into a diagnostic record before booking.</p>
 
       <h2 id="tool-boundary">Planning tools and their limits</h2>
       <p><a href="/tools/route-finder/">Route Finder</a> can help frame an authority question. The <a href="/tools/exam-comparison/">Exam Comparison</a>, <a href="/tools/timeline-calculator/">Timeline calculator</a> and <a href="/tools/checklist-generator/">Checklist generator</a> organise information you enter; they do not verify acceptance, dates or eligibility.</p>
-      <p><a href="/route-review/">Route Review</a> is an information boundary, not legal advice or a decision by the competent authority. Browse all pages in the <a href="/guides/category/germany-b1/">Germany B1 guide collection</a>.</p>
+      <p>Use the tools only to organise facts you entered. Return to the <a href="/guides/">approved Guide Library</a> for reviewed content; category pages are not part of the published discovery route.</p>
 
       <section class="official-sources">
         <h2 id="official-sources">Official starting points</h2>
@@ -117,7 +114,7 @@ const jsonLD = {
         </ul>
       </section>
       <p class="compliance-line">Verify current route, evidence, local execution and submission instructions with the competent authority and selected official or authorised centre before acting.</p>
-      <p class="last-updated">Last updated: 2026-07-19</p>
+      <p class="last-updated">Last updated and statutory route sources checked: 2026-09-13</p>
     </article>
   </main>
 </BaseLayout>

@@ -1,0 +1,42 @@
+---
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+export interface Props {
+  locale: 'en' | 'zh-CN';
+  eyebrow: string;
+  title: string;
+  description: string;
+  primary: { href: string; label: string };
+  secondary?: { href: string; label: string };
+  visual: ImageMetadata;
+  visualAlt: string;
+}
+
+const { locale, eyebrow, title, description, primary, secondary, visual, visualAlt } = Astro.props;
+---
+
+<header class="home-hero">
+  <div class="home-hero__copy">
+    <p class="eyebrow">{eyebrow}</p>
+    <h1>{title}</h1>
+    <p>{description}</p>
+    <div class="home-hero__actions">
+      <a class="button button--primary" href={primary.href}>{primary.label}</a>
+      {secondary && <a class="button button--secondary" href={secondary.href}>{secondary.label}</a>}
+    </div>
+    <slot />
+  </div>
+  <div class="home-hero__visual">
+    <Picture
+      src={visual}
+      formats={['avif', 'webp']}
+      widths={[480, 720, 960]}
+      sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1200px) 42vw, 500px"
+      alt={visualAlt}
+      loading="eager"
+      fetchpriority="high"
+      quality={82}
+    />
+  </div>
+</header>

@@ -40,6 +40,14 @@ The implementing agent must address all scoped P0, P1, and P2 findings. The same
 
 The Auditor never approves a deployment, changes an external account, asserts an individual immigration/exam outcome, or impersonates an owner. A separately explicit owner authorization is still required for any commit/push/deployment or external action.
 
+## Planning Map Sync
+
+Treat `docs/planning-map/visalang-overall-build-plan.archify.json` as the editable source for the whole-site planning map and `docs/planning-map/visalang-overall-build-plan.html` as its generated Archify delivery. The map is a derived view of the current Master Package, backlog status overlay, and execution record; it is never a replacement execution authority.
+
+Before completing any content-facing or content-planning maintenance window, update the planning map and `docs/planning-map/sync.json`. Every such window must record a new sync ID, append it to `docs/planning-map/history.json`, classify every frozen candidate path, record the watched-scope digest and current/next task state, and choose one drift result: `aligned`, `approved-deviation`, or `unresolved`. The non-optional watch roots are enforced by `tests/planning-map-governance.test.mjs`; they deliberately cover all `src/` and `public/` files plus the maintained plan/prompt authorities so a content-bearing implementation cannot silently opt out. Put new reusable implementation plans under `docs/superpowers/plans/` and new execution prompts under `docs/prompts/` so they enter that contract. A content-only change may update the visible status snapshot without changing topology; a change to scope, milestones, dependencies, or gates must update the corresponding nodes and edges. `approved-deviation` requires a locatable Owner decision, while `unresolved` blocks completion and release.
+
+Run the Archify showcase validation and atomic delivery, then run its automated browser visual check and inspect the rendered screenshots. Preserve the browser receipt, a separate image-capable perceptual-review receipt, and byte hashes for the HTML and every reviewed screenshot. The independently frozen audit scope must exactly match `scope.changedPaths`, and the Auditor must bind the complete `sync.json` bytes so post-review plan, drift, Owner, or evidence edits fail closed. Include all of those records in the Independent Auditor submission. `tests/planning-map-governance.test.mjs` must pass before handoff. Follow `docs/planning-map/README.md` for the exact trigger scope and update sequence; never hand-edit the generated HTML.
+
 ## Authority-First Content Policy
 
 VisaLang is a verification navigator, not the deciding authority or a replacement for official sources. Every new or materially updated route guide must identify who has authority over each claim before drafting it. Do not treat a general national overview as proof of a local, programme-specific, centre-specific, or individual outcome.
@@ -51,6 +59,14 @@ VisaLang is a verification navigator, not the deciding authority or a replacemen
 - For every other country, establish the equivalent source hierarchy before writing: national authority -> competent receiving/local authority -> official exam provider -> official application or qualification platform. Link readers to the authority that can make the final determination.
 
 For every high-risk factual statement, record the source URL, the date checked, what the source is permitted to support, and its boundary. If the applicable authority, current local rule, fee, deadline, acceptance, exemption, eligibility outcome, or processing time cannot be confirmed, state a concrete reader-side verification action instead of guessing or filling the gap. Never fabricate facts, sources, prices, timelines, eligibility conclusions, acceptance guarantees, or cross-region rules.
+
+## TypeSafe AI Usage
+
+For AI routing, semantic ranking, extraction, or evidence-checking work, read `.agents/skills/typesafe-ai/SKILL.md` and `docs/superpowers/plans/2026-09-24-typesafe-project-adoption.md` before choosing an approach. If the project skill is unavailable, use the installed `typesafe-ai` skill and record the resolved path. Read the current official documentation before writing version-dependent integration code.
+
+Keep exact rules, official-source authority, route coverage, and execution in deterministic code. TypeSafe judgments are advisory; confidence is not correctness or permission. Preserve explicit user confirmation and manual fallback. Credentials and API calls belong on the server; third-party processing needs accurate disclosure and the applicable authorization before sending real input.
+
+The adoption document is a proposal for future integration, not authorization to replace Laya, call a paid API, expand content coverage, or deploy. Its evaluation and privacy gates supplement the existing independent-review and Owner gates. Apply this skill when semantic understanding helps; ordinary static content, exact lookups, and calculations do not require AI.
 
 ## Commits and Pull Requests
 

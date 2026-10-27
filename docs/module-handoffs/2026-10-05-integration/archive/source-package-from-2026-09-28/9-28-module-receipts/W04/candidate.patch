@@ -1,0 +1,290 @@
+--- a/src/content/guides/goethe-a1-germany-family-reunion.md
++++ b/src/content/guides/goethe-a1-germany-family-reunion.md
+@@ -28,7 +28,7 @@
+ routeRequirementAuthorityType: "Competent German mission or receiving immigration authority for the application route"
+ routeRequirementAuthorityUrl: "https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682"
+ examOwnerUrl: "https://www.goethe.de/ins/de/en/prf/ogf.html"
+-localExecutionPrompt: "Record the exact certificate and exam date, then ask the competent mission or receiving authority whether it accepts that document for your current route before relying on it or booking anything."
++localExecutionPrompt: "Record the exact certificate and exam date, then open the responsible German mission’s current checklist or contact page and ask whether it accepts that document for your route before relying on it or booking anything."
+ author: "VisaLang Editorial team"
+ readingTime: "5"
+ eyebrow: "Germany family reunion / existing certificate"
+@@ -52,7 +52,7 @@
+ 
+ ### Your current route and document facts
+ 
+-Keep the actual application location, relationship route, certificate type, exam date, identity details, and any current mission instruction together. Do not replace a missing mission instruction with a provider statement or another applicant’s result.
++Keep the actual application location, relationship route, certificate type, exam date, and current mission instruction together. Do not put a passport/identity number, case number, certificate number, or private document in this reusable record. Do not replace a missing mission instruction with a provider statement or another applicant’s result.
+ 
+ ## Certificate-check record
+ 
+@@ -62,10 +62,11 @@
+ | --- | --- |
+ | Product | Exact passed examination certificate name, or “unknown” |
+ | Exam date | Date shown on the certificate, or “unknown” |
+-| Intended procedure | Your stated family-reunion or spouse application route |
+-| Receiving authority | Competent German mission or receiving immigration authority |
+-| Evidence checked | Official URL, locator, and date checked |
+-| Unresolved question | The exact acceptance or document-form question to ask |
++| Intended procedure and application location | Route name and country/city or mission area; no case number |
++| Current receiving-authority entry | Exact mission or competent authority URL and the route-specific checklist/contact entry |
++| Requirement stated by that authority | Exact certificate/product wording, document form, and any date condition; write “not stated” or “unclear” where appropriate |
++| Evidence checked | Official URL, page/PDF locator, and date you checked it |
++| Unresolved question | The one acceptance, document-form, or date question still to ask |
+ 
+ ## China-only recency context
+ 
+@@ -88,6 +89,6 @@
+ 
+ ## Official sources
+ 
+-- [Goethe-Institut: German exam FAQ](https://www.goethe.de/ins/de/en/prf/ogf.html) — checked 2026-09-08; supports Goethe’s product/certificate distinction and non-expiry statement only, not immigration acceptance.
+-- [German Federal Foreign Office: foreign spouse language FAQ](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682) — checked 2026-09-08; supports a general basic-German starting point and mission verification, not an individual acceptance decision.
+-- [German missions in China: family reunion / marriage settlement basic German proof](https://china.diplo.de/cn-zh/service/visa-einreise/2716606-2716606) — checked 2026-09-08; supports the China-only “usually accepted” wording for the listed scenarios, not a global rule or guarantee.
++- [Goethe-Institut: German exam FAQ](https://www.goethe.de/ins/de/en/prf/ogf.html) — checked 2026-09-25; supports Goethe’s product/certificate distinction and non-expiry statement only, not immigration acceptance.
++- [German Federal Foreign Office: foreign spouse language FAQ](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682) — checked 2026-09-25; supports the general basic-German starting point and directs applicants to the relevant mission, not an individual acceptance decision.
++- [German missions in China: family reunion / marriage settlement basic German proof](https://china.diplo.de/cn-zh/service/visa-einreise/2716606-2716606) — checked 2026-09-25; supports the China-only “usually accepted” wording for the listed scenarios, not a global rule or guarantee.
+--- a/src/data/zh-germany-a1.ts
++++ b/src/data/zh-germany-a1.ts
+@@ -35,7 +35,7 @@
+ {
+   "slug": "goethe-a1-germany-family-reunion",
+   "title": "已有 Goethe A1 证书：递签前核对什么",
+-  "description": "已有证书、准备向主管德国使领馆提交语言证明的读者。",
++  "description": "先记录准确证书名称与考试日期，再打开实际递签地主管机关当前入口，核对它要求的证书、材料形式和日期；仍不清楚就带着一个具体问题询问。",
+   "href": "/zh/guides/goethe-a1-germany-family-reunion/",
+   "englishHref": "/guides/goethe-a1-germany-family-reunion/",
+   "publishedDate": "2026-07-09",
+@@ -53,7 +53,7 @@
+   "finalDecisionAuthorityType": "主管德国使领馆",
+   "primaryOfficialAuthorityUrl": "https://china.diplo.de/cn-zh/service/visa-einreise/2716606-2716606",
+   "examOwnerUrl": "https://www.goethe.de/en/spr/prf.html",
+-  "localExecutionPrompt": "按所选考点及主管使领馆的当前说明逐项核验，不将本站整理表当成官方完整清单。",
++  "localExecutionPrompt": "现在打开实际递签地主管德国使领馆的当前入口；记录准确证书名称、考试日期、官方要求、来源链接和检查日。要求不明确时，保存一个待答问题。",
+   "decisionStage": "local-execution",
+   "nextGuideSlug": "german-family-reunion-language-requirement",
+   "supportingGuideSlugs": [
+--- a/src/pages/zh/guides/goethe-a1-germany-family-reunion.astro
++++ b/src/pages/zh/guides/goethe-a1-germany-family-reunion.astro
+@@ -3,14 +3,13 @@
+ ---
+ 
+ <ZhGuideLayout title="已有 Goethe A1 证书：递签前核对什么" description="已有证书、准备向主管德国使领馆提交语言证明的读者。" slug="goethe-a1-germany-family-reunion" related={['german-family-reunion-language-requirement']}>
+-  <p>已有证书、准备向主管德国使领馆提交语言证明的读者。先把实际问题交给负责的考点或主管机关，再使用下方记录方法整理下一步。本页不作个人接收、考试或签证结果判断。</p>
+-  <Fragment slot="who"><p>已有证书、准备向主管德国使领馆提交语言证明的读者。其他地区读者应重新找到当地适用的官方说明。</p></Fragment>
+-  <Fragment slot="key-decisions"><p>确定准确事项、负责机构及当前官方入口；把已确认的要求与尚未解决的问题分开记录。</p></Fragment>
+-  <h2>先建立证书记录</h2><p>在私人记录中写下证书准确名称、颁发机构、考试日期及姓名拼写。将它与当前身份证件、申请类别和主管使领馆的材料说明逐项比较。请勿在本站输入证书编号、护照号或扫描件。</p>
+-  <h2>分别核对证书与接收条件</h2><p>证书上写了什么，与本次申请接收什么，是两项需要分别确认的信息。德国驻华使领馆的语言证明说明列有证明类别及时间相关要求。不要把“曾经通过”直接理解成“这次一定被接收”，也不要将中国的说明推广到其他国家的使领馆。</p>
+-  <h2>对差异提出一个具体问题</h2><p>如果姓名、考试日期或产品名称与清单要求存在疑问，整理当前官方链接、有关条目和需要确认的差异，向主管使领馆询问提交方式。证书内容或记录问题则向考试颁发机构核对。只有收到负责方的答复后，才能将该疑问标记为已解决。</p>
+-  <h2>保存核验卡</h2><p>记录四栏：需要确认的事项、负责机关、当前来源及查阅日期、尚待回复的问题。向官方发送个人材料前先验证收件渠道，不必在公开论坛发布整张证书。下一步回到语言要求指南，核对申请类别，而不是直接再报一场考试。</p>
++  <Fragment slot="who"><p>适用于已有 Goethe A1 考试证书、要确认它是否适用于当前德国配偶或家庭团聚申请的人。中国递交者使用其实际受理区的德国使领馆入口；其他地区须改用当地主管机关的现行入口。</p><p>本页不判断证书真伪、豁免或个案接收结果。</p></Fragment>
++  <Fragment slot="key-decisions"><ol><li>先抄录证书上的准确考试产品名称和考试日期。</li><li>打开实际申请地主管机关的当前路线清单或联系入口，记录清单要求的证书、文件形式和日期条件；没有写清的标为“待确认”。</li><li>将官方链接、页面/文件位置和检查日与尚待回复的问题保存在私人记录中。</li></ol></Fragment>
++  <h2>可保存的已有证书核验卡</h2><p>复制下表到自己的私人记录。只记申请地与路线名称，不填证件号、案号、证书编号，也不附私人文件或证书扫描件。</p>
++  <table><thead><tr><th>记录项</th><th>填写内容</th></tr></thead><tbody><tr><td>准确产品</td><td>证书所示完整考试名称；看不清时写“待向考试中心确认”</td></tr><tr><td>考试日期</td><td>证书所示日期；不从发证日推算</td></tr><tr><td>申请地与路线</td><td>递交国家/城市或受理区，以及路线名称；不写案号</td></tr><tr><td>当前受理机关入口</td><td>实际负责使领馆或主管机关的路线清单/联系 URL</td></tr><tr><td>该机关要求</td><td>准确证书、材料形式及日期文字；未说明处标“未说明/待确认”</td></tr><tr><td>证据与检查日</td><td>官方链接、页面或 PDF 位置、自己检查的日期</td></tr><tr><td>待确认问题</td><td>一个具体问题，以及已发问/尚未发问状态</td></tr></tbody></table>
++  <h2>区分证书事实与接收决定</h2><p>Goethe 说明其 Goethe-Zertifikat A1 至 C2 本身没有到期日；这只说明考试产品的证书期限，不决定任何移民机关对当前路线、证书日期或文件形式的接收规则。德国驻华使领馆页面中的“通常只接受考试日期最早在一年前的语言证书”仅适用于其列出的中国递签场景；须按实际受理区和路线重查，不能推广为全球期限或个人保证。</p>
++  <h2>需要答复时怎么问</h2><p>把准确产品名称、考试日期、申请地和当前清单链接发给负责接收申请的机关，询问该路线是否接受这张证书及应以何种文件形式提交。证书名称或记录问题问考试颁发方/考点；签证接收问题问受理机关。将答复日期和适用边界记下来，再标记问题是否解决。</p>
+   <Fragment slot="mistakes"><p>不要把其他考点或他人的经历当作自己的确认，不要猜测费用、期限、退费结果或证书接收结论。</p></Fragment>
+-  <Fragment slot="next-action"><p>完成上面的核验记录，带着尚未解决的问题查看<a href="/zh/guides/german-family-reunion-language-requirement/">相关指南</a>，再到负责机构确认。</p></Fragment>
+-  <Fragment slot="sources"><p><a href="https://china.diplo.de/cn-zh/service/visa-einreise/2716606-2716606">适用事项的官方核验入口</a>——核验于 2026-09-22；负责方：主管德国使领馆。仅支持本页所述的核验入口与责任范围，不证明个人材料已被接收或操作已完成。</p></Fragment>
++  <Fragment slot="next-action"><ol><li>按实际递交地，打开德国使领馆的当前家庭团聚材料入口并记录检查日期。</li><li>完成上方核验卡；如证书名称/日期或文件形式未被清楚说明，复制卡片中的待确认问题询问负责机关。</li><li>确认本路线确实需要何种语言证明后，再查看<a href="/zh/guides/german-family-reunion-language-requirement/">家庭团聚语言要求指南</a>或比较考试产品。</li></ol></Fragment>
++  <Fragment slot="sources"><ul><li><a href="https://china.diplo.de/cn-zh/service/visa-einreise/2716606-2716606">德国驻华使领馆：家庭团聚/结婚定居所需基本德语证明</a>——实际检查：2026-09-25；负责者：德国驻华使领馆。页面说明中国适用场景的证明类型、列示情形和“通常”近期性用语；不决定其他受理地区、其他路线或个人文件是否接收。</li><li><a href="https://www.goethe.de/ins/de/en/prf/ogf.html">Goethe-Institut：German exams FAQ</a>——实际检查：2026-09-25；负责者：Goethe-Institut（考试产品所有方）。支持 Goethe 证书本身的产品期限及其与出席证明的区分；不决定签证接受、当地手续或个案结论。</li><li><a href="https://china.diplo.de/cn-zh/service/visa-einreise/nationales-visum-1345434">德国驻华使领馆：长期居留与家庭团聚材料入口</a>——实际检查：2026-09-25；负责者：德国驻华使领馆。支持按申请类别查找当前材料页；读者仍须确认自己受理区与实际路线。</li></ul></Fragment>
+ </ZhGuideLayout>
+--- a/src/pages/zh/guides/german-family-reunion-language-requirement.astro
++++ b/src/pages/zh/guides/german-family-reunion-language-requirement.astro
+@@ -9,9 +9,7 @@
+   englishHref="/guides/german-family-reunion-language-requirement/"
+   related={['goethe-a1-vs-telc-a1', 'goethe-a1-test-centers', 'german-a1-exam-booking-timeline']}
+ >
+-  <p>在中国准备德国配偶团聚时，不要从“先报 Goethe A1”开始。先确定你申请的具体团聚类别和负责使领馆，再核对该路线是否要求基础德语证明、可接受哪些证书以及如何提交。德国驻华使领馆的中文说明可作为中国递签场景的起点，但它不替你完成个案豁免、材料充分性或审批判断。</p>
+-  <p>任何费用、考位、出分日期、证书近期性或豁免结论，只要当前负责页面没有明确对应你的路线，就记为“待主管机关确认”，不用网友经验补空。</p>
+-  <p>建议为本次判断建一条决策记录：写明申请类别、负责机关、官方来源与待确认项。使领馆页面、配偶身份或自己申请类别发生变化时，应触发重新核验，不沿用旧结论。</p>
++  <p>先在私人记录中写下递交国家/城市和具体团聚类别，再打开实际负责该受理区的德国使领馆当前材料入口，确认是否要求语言证明、准确证书和提交形式。若你在中国递交，可从<a href="https://china.diplo.de/cn-zh/service/visa-einreise/nationales-visum-1345434">德国驻华使领馆长期居留与家庭团聚入口</a>按类别查找；其他递交地应使用当地主管机关入口。</p>
+ 
+   <Fragment slot="who">
+     <p>适合尚未确认语言证明要求、已经在中国准备结婚定居或配偶团聚材料的申请人，也适合已有 A1 证书但需要重新核对证书名称与材料形式的人。</p>
+@@ -46,13 +44,18 @@
+     <li><strong>节点四：证明范围是否确认？</strong>否：不报名；是：进入<a href="/zh/guides/goethe-a1-vs-telc-a1/">同路线考试比较</a>。</li>
+   </ol>
+ 
+-  <h2>豁免证据记录卡</h2>
++  <h2>可保存的主管机关问询卡</h2>
++  <p>复制下表到私人记录；只记申请地和路线名称，不填证件号、案号、证书编号，也不附私人文件。</p>
+   <table>
+-    <thead><tr><th>记录项</th><th>写什么</th><th>何时停止推断</th></tr></thead>
++    <thead><tr><th>记录项</th><th>填写内容</th></tr></thead>
+     <tbody>
+-      <tr><td>官方条目</td><td>官方页面标题、URL、版本或访问日期，以及你认为相关的条目。</td><td>条目与你的配偶身份、居留身份或申请类别无法准确对应时。</td></tr>
+-      <tr><td>个案事实</td><td>只写可证明的事实与现有材料，不写“应该可以”。</td><td>必须由审核人员评价材料是否足够时。</td></tr>
+-      <tr><td>确认记录</td><td>官方回复日期、渠道、问题原文和回复可支持的范围。</td><td>回复只是一般信息或要求递交后审核时，不将它写成预批准。</td></tr>
++      <tr><td>问题与申请路线</td><td>是否需语言证明；具体家庭团聚类别及递交国家/城市或受理区。</td></tr>
++      <tr><td>负责机关与当前入口</td><td>实际主管德国使领馆/接收机关名称、当前路线清单或官方联系 URL。</td></tr>
++      <tr><td>机关明示要求</td><td>是否要求证明、准确证书名称/级别、文件形式及页面写明的日期条件；未知处标“未说明/待确认”。</td></tr>
++      <tr><td>已有证书（如适用）</td><td>准确产品名称和考试日期；没有证书则写“不适用”。</td></tr>
++      <tr><td>证据与检查日</td><td>官方链接、相关页面/PDF 条目和你实际查看的日期。</td></tr>
++      <tr><td>未确认项与问询</td><td>一项具体疑问、准备询问的官方渠道、发问日期与收到答复日期（如有）。</td></tr>
++      <tr><td>下一步</td><td>按答复更新材料清单；证明要求明确后，再决定是否比较或预约考试。</td></tr>
+     </tbody>
+   </table>
+ 
+@@ -81,8 +84,8 @@
+ 
+   <Fragment slot="next-action">
+     <ol>
+-      <li>今天先保存一份与你申请类别对应的德国驻华使领馆页面，在文件名中写上访问日期。</li>
+-      <li>完成要求核验树，仅将有明确依据的项目标为“已确认”，其余生成一封询问。</li>
++      <li>先按实际递交地与申请类别打开主管机关材料入口，并在问询卡记录 URL 和检查日。</li>
++      <li>完成要求核验树，仅把官方页面明确写出的事项标为“已确认”；未说明的项目写成一个待答问题。</li>
+       <li>先用<a href="/zh/tools/route-finder/">中文路线查找器</a>保存核验顺序。证明范围明确后，阅读<a href="/zh/guides/goethe-a1-vs-telc-a1/">考试比较页</a>；需要排节点时直接进入<a href="/zh/guides/german-a1-exam-booking-timeline/">报名时间线</a>。</li>
+     </ol>
+   </Fragment>
+--- a/src/layouts/GuideLayout.astro
++++ b/src/layouts/GuideLayout.astro
+@@ -54,6 +54,7 @@
+     : 'A deterministic answer is not shown because the recorded official claim set is missing, changed, or overdue. Confirm the current requirement with the receiving authority.'
+   : description;
+ const showSourceFactTable = authorityIsVerified;
++const compactTaskHeader = ['german-family-reunion-language-requirement', 'goethe-a1-germany-family-reunion'].includes(slug);
+ const routeRequirementAuthorityTypeForTable = routeRequirementAuthorityType ?? finalDecisionAuthorityType;
+ const routeRequirementAuthorityUrlForTable = routeRequirementAuthorityUrl ?? primaryOfficialAuthorityUrl;
+ const canonicalURL = `https://visalang.org/guides/${slug}/`;
+@@ -94,9 +95,11 @@
+         <section class="guide-summary-box" id="direct-answer" aria-labelledby="direct-answer-title">
+           <h2 id="direct-answer-title">Direct answer</h2>
+           <p class="guide-summary-answer">{renderedDirectAnswer}</p>
+-          <p class="guide-summary-responsibility">Responsibility: {authorityIsVerified ? `The final decision sits with ${finalDecisionAuthorityType}; VisaLang helps you follow the verification path.` : 'Confirm the final decision authority before acting; VisaLang does not decide individual outcomes.'}</p>
+-          <p class="guide-summary-boundary">Scope: {audienceScope ?? 'See the page-specific scope below.'} Source boundary: use the recorded official source and date before relying on this guide.</p>
++          {!compactTaskHeader && <><p class="guide-summary-responsibility">Responsibility: {authorityIsVerified ? `The final decision sits with ${finalDecisionAuthorityType}; VisaLang helps you follow the verification path.` : 'Confirm the final decision authority before acting; VisaLang does not decide individual outcomes.'}</p><p class="guide-summary-boundary">Scope: {audienceScope ?? 'See the page-specific scope below.'} Source boundary: use the recorded official source and date before relying on this guide.</p></>}
+         </section>
++        {compactTaskHeader && <section class="guide-primary-action" aria-label="First verification action"><p>{localExecutionPrompt}</p><p><a class="official-source-link" href={primaryOfficialAuthorityUrl}>Open the official starting point and find your mission</a></p></section>}
++        {compactTaskHeader && <details class="guide-authority-details"><summary>Responsibility, review, and source details</summary><dl class="guide-meta" aria-label="Article responsibility and review information"><div><dt>Updated</dt><dd><time datetime={updatedDate}>{updatedDate}</time></dd></div><div><dt>Source review</dt><dd><LastCheckedBadge date={sourceReviewedAt} status={sourceReviewStatus} /></dd></div><div><dt>Written by</dt><dd>{author}</dd></div><div><dt>Reviewed by role</dt><dd>{reviewedByLabel}</dd></div><div><dt>Reading time</dt><dd>{readingTime} min</dd></div></dl><section class="decision-authority" aria-labelledby="who-decides-compact-title"><h2 id="who-decides-compact-title">Who decides this?</h2>{authorityIsVerified ? <><p><strong>Final decision authority:</strong> {finalDecisionAuthorityType}</p><p><a class="official-source-link" href={primaryOfficialAuthorityUrl}>Open the official authority source</a></p></> : <p class="verification-pending"><strong>Official verification pending.</strong> The final decision authority and its official entry have not both been source-reviewed for this page.</p>}<p>VisaLang does not decide individual eligibility, exemptions, certificate acceptance, document sufficiency, or application outcomes.</p></section><VerificationAlert><p>Requirements, exemptions, accepted certificates, fees, dates, centres, and document rules can change. Verify with the organisation receiving your proof before acting.</p>{localExecutionPrompt && <p>{localExecutionPrompt}</p>}</VerificationAlert></details>}
++        {!compactTaskHeader && <>
+           <dl class="guide-meta" aria-label="Article responsibility and review information">
+             <div><dt>Updated</dt><dd><time datetime={updatedDate}>{updatedDate}</time></dd></div>
+             <div><dt>Source review</dt><dd><LastCheckedBadge date={sourceReviewedAt} status={sourceReviewStatus} /></dd></div>
+@@ -109,8 +112,9 @@
+             {authorityIsVerified ? <><p><strong>Final decision authority:</strong> {finalDecisionAuthorityType}</p><p><a class="official-source-link" href={primaryOfficialAuthorityUrl}>Open the official authority source</a></p></> : <p class="verification-pending"><strong>Official verification pending.</strong> The final decision authority and its official entry have not both been source-reviewed for this page.</p>}
+             <p>VisaLang does not decide individual eligibility, exemptions, certificate acceptance, document sufficiency, or application outcomes.</p>
+           </section>
++        </>}
+         </div>
+-        <VerificationAlert><p>Requirements, exemptions, accepted certificates, fees, dates, centres, and document rules can change. Verify with the organisation receiving your proof before acting.</p>{localExecutionPrompt && <p>{localExecutionPrompt}</p>}</VerificationAlert>
++        {!compactTaskHeader && <VerificationAlert><p>Requirements, exemptions, accepted certificates, fees, dates, centres, and document rules can change. Verify with the organisation receiving your proof before acting.</p>{localExecutionPrompt && <p>{localExecutionPrompt}</p>}</VerificationAlert>}
+ 
+         <section id="who-this-applies-to"><h2>Who this applies to</h2>{sections?.who ? <div set:html={sections.who}></div> : <p class="verification-pending">A page-specific audience and exclusion boundary has not yet been published for this guide.</p>}</section>
+         <section id="key-decisions"><h2>Key decisions</h2>{sections?.keyDecisions ? <div set:html={sections.keyDecisions}></div> : <p class="verification-pending">Page-specific decision steps have not yet been published for this guide.</p>}</section>
+--- a/src/components/ZhGuideLayout.astro
++++ b/src/components/ZhGuideLayout.astro
+@@ -52,6 +52,7 @@
+   : [];
+ const renderedDirectAnswer = resolveZhGuideDirectAnswer(guideRecord);
+ const summaryAudienceScope = guideRecord.audienceScope.replace(/[。！？]+$/u, '');
++const compactTaskHeader = ['german-family-reunion-language-requirement', 'goethe-a1-germany-family-reunion'].includes(slug);
+ const relatedSlugs = related.length > 0 ? related : guideRecord.supportingGuideSlugs;
+ const relatedGuides = relatedSlugs
+   .map((relatedSlug) => zhGermanyA1Guides.find((guide) => guide.slug === relatedSlug))
+@@ -138,11 +139,15 @@
+         <p class="eyebrow">德国 A1 / 中文指南</p>
+         <div class="guide-scope-line"><GuideStatusBadge status={guideRecord.contentStatus} locale="zh-CN" /><span>国家：德国</span><span>路线：配偶团聚 / 家庭团聚 A1</span></div>
+         <h1>{title}</h1>
+-        <section class="guide-summary-box" id="direct-answer" aria-label="指南摘要"><h2>直接答案</h2><p class="guide-summary">{renderedDirectAnswer}</p><p class="guide-summary-boundary">范围：{summaryAudienceScope}。来源边界：请以已记录的官方来源和核验日期为准，再确认你的个案。</p></section>
++        <section class="guide-summary-box" id="direct-answer" aria-label="指南摘要"><h2>直接答案</h2><p class="guide-summary">{renderedDirectAnswer}</p>{compactTaskHeader ? <p class="guide-summary-boundary">先完成下方记录；责任与来源详情可展开查看。</p> : <p class="guide-summary-boundary">范围：{summaryAudienceScope}。来源边界：请以已记录的官方来源和核验日期为准，再确认你的个案。</p>}</section>
++        {compactTaskHeader && <section class="guide-primary-action" aria-label="首个核验动作"><p>{guideRecord.localExecutionPrompt}</p><p><a class="official-source-link" href={guideRecord.primaryOfficialAuthorityUrl}>打开当前主管机关入口</a></p></section>}
++        {compactTaskHeader && <details class="guide-authority-details"><summary>责任、审查与来源详情</summary><dl class="guide-meta" aria-label="文章责任和来源状态"><div><dt>首次发布</dt><dd><time datetime={guideRecord.publishedDate}>{guideRecord.publishedDate}</time></dd></div><div><dt>最近更新</dt><dd><time datetime={updatedDate}>{updatedDate}</time></dd></div><div><dt>来源审查</dt><dd><LastCheckedBadge date={guideRecord.sourceReviewedAt} status={guideRecord.sourceReviewStatus} locale="zh-CN" /></dd></div><div><dt>作者</dt><dd>{guideRecord.author}</dd></div><div><dt>审查角色</dt><dd>{reviewerRoleLabel}</dd></div><div><dt>阅读时间</dt><dd>约 {guideRecord.readingTime} 分钟</dd></div></dl><section class="decision-authority" aria-labelledby="zh-who-decides-compact-title"><h2 id="zh-who-decides-compact-title">谁最终决定？</h2><p><strong>最终决定机关：</strong>{guideRecord.finalDecisionAuthorityType}</p><p><a class="official-source-link" href={guideRecord.primaryOfficialAuthorityUrl}>打开官方主管机关入口</a></p>{guideRecord.sourceReviewStatus === 'reviewed' ? <p>来源审查日期只说明记录状态，不代表个案结论已获确认。</p> : <p class="verification-pending"><strong>独立中文来源复核待完成。</strong>当前官方入口用于帮助你执行核验，不表示 VisaLang 已替你确认个案结论。</p>}<p>VisaLang 不判断个案是否适用、是否豁免、证书是否被接受、材料是否充分或申请结果。</p></section><VerificationAlert title="行动前再次核验"><p>政策、考位、费用和证书接受范围可能变化，请以官方最新要求为准。</p><p>{guideRecord.localExecutionPrompt}</p></VerificationAlert></details>}
++        {!compactTaskHeader && <>
+         <dl class="guide-meta" aria-label="文章责任和来源状态"><div><dt>首次发布</dt><dd><time datetime={guideRecord.publishedDate}>{guideRecord.publishedDate}</time></dd></div><div><dt>最近更新</dt><dd><time datetime={updatedDate}>{updatedDate}</time></dd></div><div><dt>来源审查</dt><dd><LastCheckedBadge date={guideRecord.sourceReviewedAt} status={guideRecord.sourceReviewStatus} locale="zh-CN" /></dd></div><div><dt>作者</dt><dd>{guideRecord.author}</dd></div><div><dt>审查角色</dt><dd>{reviewerRoleLabel}</dd></div><div><dt>阅读时间</dt><dd>约 {guideRecord.readingTime} 分钟</dd></div></dl>
+         <section class="decision-authority" aria-labelledby="zh-who-decides-title"><h2 id="zh-who-decides-title">谁最终决定？</h2><p><strong>最终决定机关：</strong>{guideRecord.finalDecisionAuthorityType}</p><p><a class="official-source-link" href={guideRecord.primaryOfficialAuthorityUrl}>打开官方主管机关入口</a></p>{guideRecord.sourceReviewStatus === 'reviewed' ? <p>本页已记录独立中文来源复核日期。</p> : <p class="verification-pending"><strong>独立中文来源复核待完成。</strong>当前官方入口用于帮助你执行核验，不表示 VisaLang 已替你确认个案结论。</p>}<p>VisaLang 不判断个案是否适用、是否豁免、证书是否被接受、材料是否充分或申请结果。</p></section>
++        </>}
+       </div>
+-      <VerificationAlert title="行动前再次核验"><p>政策、考位、费用和证书接受范围可能变化，请以官方最新要求为准。</p><p>{guideRecord.localExecutionPrompt}</p></VerificationAlert>
++      {!compactTaskHeader && <VerificationAlert title="行动前再次核验"><p>政策、考位、费用和证书接受范围可能变化，请以官方最新要求为准。</p><p>{guideRecord.localExecutionPrompt}</p></VerificationAlert>}
+       <section class="guide-template-box" id="who-this-applies-to">
+         <h2>适用对象</h2>
+         <slot name="who"><p class="verification-pending">本页尚未发布页面专属的适用对象与排除边界。</p></slot>
+--- a/src/styles/global.css
++++ b/src/styles/global.css
+@@ -237,6 +237,12 @@
+ .guide-meta dd { margin: 0; font-size: var(--text-sm); }
+ .decision-authority { margin: var(--space-5) 0; padding: var(--space-5); border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface-subtle); }
+ .decision-authority h2 { margin-top: 0; }
++.guide-primary-action { margin: var(--space-4) 0; padding: var(--space-4) var(--space-5); border-inline-start: 4px solid var(--primary); border-radius: var(--radius-sm); background: var(--surface-subtle); }
++.guide-primary-action p { margin: 0; }
++.guide-primary-action p + p { margin-top: var(--space-2); }
++.guide-authority-details { margin: var(--space-3) 0 var(--space-5); padding: var(--space-3) var(--space-4); border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface-subtle); }
++.guide-authority-details > summary { cursor: pointer; color: var(--text-muted); font-size: var(--text-sm); font-weight: 700; }
++.guide-authority-details[open] > summary { margin-bottom: var(--space-3); }
+ .verification-pending { padding: var(--space-4); border: 1px solid var(--risk); border-radius: var(--radius-sm); background: var(--risk-soft); }
+ .official-source-link { font-weight: 800; }
+ .source-fact-table { max-width: 100%; overflow-x: auto; }
+--- a/tests/fan-42-germany-a1-requirement.test.js
++++ b/tests/fan-42-germany-a1-requirement.test.js
+@@ -16,5 +16,25 @@
+ assert.match(guide, /^## Route classification worksheet$/m, 'the requirement root provides a reusable route-classification asset');
+ assert.match(guide, /^## Mission question script$/m, 'the requirement root provides a safe escalation script instead of deciding an exception');
+ assert.match(guide, /^## Scenario: the sponsor has a residence permit$/m, 'the requirement root distinguishes a residence-permit scenario from a German-national route');
++const chineseRequirementPage = fs.readFileSync(path.join(root, 'src/pages/zh/guides/german-family-reunion-language-requirement.astro'), 'utf8');
++assert.match(chineseRequirementPage, /可保存的主管机关问询卡/, 'the Chinese requirement guide has a reusable authority-question card');
++assert.match(chineseRequirementPage, /准确证书名称\/级别、文件形式及页面写明的日期条件/, 'the authority card records the authority’s exact proof requirements');
++assert.match(chineseRequirementPage, /证据与检查日/, 'the authority card records an official evidence link and reader check date');
++assert.match(chineseRequirementPage, /不填证件号、案号、证书编号/, 'the reusable card excludes personal identifiers and private documents');
++
++const certificateGuide = fs.readFileSync(path.join(root, 'src/content/guides/goethe-a1-germany-family-reunion.md'), 'utf8');
++const chineseCertificatePage = fs.readFileSync(path.join(root, 'src/pages/zh/guides/goethe-a1-germany-family-reunion.astro'), 'utf8');
++assert.match(certificateGuide, /^contentStatus: "verification-pending"$/m, 'C07 retains its current content status pending separate evidence');
++assert.match(certificateGuide, /^noindex: true$/m, 'C07 remains noindex');
++assert.match(certificateGuide, /^adsEligible: false$/m, 'C07 remains ad-free');
++for (const field of ['Product', 'Exam date', 'Current receiving-authority entry', 'Requirement stated by that authority', 'Evidence checked', 'Unresolved question']) {
++  assert.ok(certificateGuide.includes(`| ${field} |`), `C07 certificate card records ${field}`);
++}
++assert.match(certificateGuide, /checked 2026-09-25/, 'the changed certificate source record uses the date actually checked');
++assert.match(chineseCertificatePage, /准确产品[\s\S]*考试日期[\s\S]*当前受理机关入口[\s\S]*该机关要求[\s\S]*证据与检查日[\s\S]*待确认问题/, 'the Chinese certificate card includes every required reader record');
++const savedCertificateCard = chineseCertificatePage.match(/<table>([\s\S]*?)<\/table>/)?.[1] || '';
++assert.ok(savedCertificateCard.length > 0, 'the Chinese certificate task supplies a table that can be copied into a private note');
++assert.match(chineseCertificatePage, /不填证件号、案号、证书编号，也不附私人文件或证书扫描件/, 'the card instructions explicitly exclude sensitive identifiers and private files');
++assert.doesNotMatch(savedCertificateCard, /<td>(?:护照号|证书编号|案号|扫描件)<\/td>/, 'the card has no field that collects an identifier or private document');
+ 
+ console.log('FAN-42 Germany A1 requirement review contract passed');
+--- a/tests/source-review-render.test.js
++++ b/tests/source-review-render.test.js
+@@ -112,6 +112,31 @@
+     assert.ok(html.includes(`<link rel="canonical" href="https://visalang.org/guides/${slug}/">`), `${slug} renders its self-canonical`);
+     assert.equal(renderedNext, nextSlug ? `/guides/${nextSlug}/` : '', `${slug} renders only its direct manifest-pillar next step`);
+   }
++
++  const authorityGuideHtml = fs.readFileSync('dist/guides/german-family-reunion-language-requirement/index.html', 'utf8');
++  const certificateGuideHtml = fs.readFileSync('dist/guides/goethe-a1-germany-family-reunion/index.html', 'utf8');
++  const chineseAuthorityGuideHtml = fs.readFileSync('dist/zh/guides/german-family-reunion-language-requirement/index.html', 'utf8');
++  const chineseCertificateGuideHtml = fs.readFileSync('dist/zh/guides/goethe-a1-germany-family-reunion/index.html', 'utf8');
++  for (const [slug, html] of [
++    ['german-family-reunion-language-requirement', authorityGuideHtml],
++    ['goethe-a1-germany-family-reunion', certificateGuideHtml],
++    ['zh/german-family-reunion-language-requirement', chineseAuthorityGuideHtml],
++    ['zh/goethe-a1-germany-family-reunion', chineseCertificateGuideHtml],
++  ]) {
++    const actionPosition = html.indexOf('guide-primary-action');
++    const detailsPosition = html.indexOf('guide-authority-details');
++    assert.ok(actionPosition >= 0 && detailsPosition > actionPosition, `${slug} puts the reader action before the collapsible responsibility metadata`);
++    const detailsTag = html.slice(detailsPosition, html.indexOf('>', detailsPosition) + 1);
++    assert.ok(!/\sopen(?:\s|>)/.test(detailsTag), `${slug} keeps repeated responsibility metadata collapsed initially`);
++  }
++  for (const field of ['Current receiving-authority entry', 'Requirement stated by that authority', 'Evidence checked', 'Unresolved question']) {
++    assert.ok(certificateGuideHtml.includes(field), `English certificate output includes ${field}`);
++  }
++  for (const field of ['当前受理机关入口', '该机关要求', '证据与检查日', '待确认问题']) {
++    assert.ok(chineseCertificateGuideHtml.includes(field), `Chinese certificate output includes ${field}`);
++  }
++  assert.ok(chineseAuthorityGuideHtml.includes('可保存的主管机关问询卡'), 'Chinese requirement output exposes the reusable authority-question card');
++  assert.ok(certificateGuideHtml.includes('noindex') || fs.readFileSync('dist/guides/goethe-a1-germany-family-reunion/index.html', 'utf8').includes('name="robots"'), 'C07 remains generated with its noindex policy');
+ 
+   const highRiskReviewedHtml = fs.readFileSync('dist/guides/ielts-ukvi-uk-visa/index.html', 'utf8');
+   const highRiskReviewedSource = fs.readFileSync('src/content/guides/ielts-ukvi-uk-visa.md', 'utf8');
+--- a/tests/scheme-3-chinese-page-sections.test.mjs
++++ b/tests/scheme-3-chinese-page-sections.test.mjs
+@@ -7,6 +7,8 @@
+   'goethe-a1-test-centers',
+   'german-a1-exam-booking-timeline',
+   'goethe-a1-30-day-study-plan',
++  'german-family-reunion-language-requirement',
++  'goethe-a1-germany-family-reunion',
+ ];
+ const slotNames = ['who', 'key-decisions', 'mistakes', 'next-action', 'sources'];
+ const layout = fs.readFileSync('src/components/ZhGuideLayout.astro', 'utf8');

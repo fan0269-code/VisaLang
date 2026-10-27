@@ -1,0 +1,8 @@
+{
+  "exitCode": 0,
+  "filesMatched": 8,
+  "command": "patch -p1 -i /private/tmp/visalang-W00-2026-09-24-01/W03/docs/module-handoffs/2026-09-24-01/W03/candidate.patch",
+  "workingDirectory": "/private/tmp/visalang-W00-2026-09-24-01/W03/.runtime/patch-verification",
+  "input": "only eight baseline files copied to isolated runtime directory",
+  "candidateId": "f895b5901c6cdfadf4eab53ae770e54994d03dd5767e2efdd7979e53ba5501aa"
+}

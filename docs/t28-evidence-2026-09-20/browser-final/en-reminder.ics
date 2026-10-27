@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//VisaLang//Reminder Planner//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:visalang-confirm-language-requirement-germany-family-reunion-a1-2027020
+ 1@visalang.org
+DTSTAMP:20260920T041401Z
+DTSTART;VALUE=DATE:20270201
+DTEND;VALUE=DATE:20270202
+SUMMARY:Confirm the language requirement
+URL:https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-
+ deutschkenntnisse-606682
+DESCRIPTION:Route or authority: Germany family reunion A1.\nOfficial entry:
+  Federal Foreign Office spouse-language orientation.\nBoundary: This point
+ s readers to the competent mission but does not decide an exemption\, exac
+ t accepted certificate or document\, or individual outcome.\nBoundary: thi
+ s event only prompts a manual check. It does not prove a deadline\, appoin
+ tment\, seat\, result\, certificate\, acceptance\, or notification deliver
+ y.
+END:VEVENT
+END:VCALENDAR

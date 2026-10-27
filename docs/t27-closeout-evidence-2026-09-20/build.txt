@@ -1,0 +1,141 @@
+
+> prebuild
+> npm run clean:astro && npm run clean:dist
+
+
+> clean:astro
+> rm -rf .astro node_modules/.astro
+
+
+> clean:dist
+> rm -rf dist
+
+
+> build
+> astro build
+
+12:01:02 [content] Syncing content
+12:01:02 [content] Synced content
+12:01:02 [types] Generated 376ms
+12:01:02 [build] output: "static"
+12:01:02 [build] mode: "static"
+12:01:02 [build] directory: /Users/a1-6/Documents/2.codex/1.visalang.org/dist/
+12:01:02 [build] Collecting build info...
+12:01:02 [build] ✓ Completed in 405ms.
+12:01:02 [build] Building static entrypoints...
+12:01:03 [vite] ✓ built in 301ms
+12:01:03 [vite] ✓ built in 35ms
+12:01:03 [build] Rearranging server assets...
+
+ generating static routes 
+12:01:03   ├─ /404.html (+9ms) 
+12:01:03   ├─ /about/index.html (+3ms) 
+12:01:03   ├─ /affiliate-disclosure/index.html (+2ms) 
+12:01:03   ├─ /contact/index.html (+2ms) 
+12:01:03   ├─ /cookie-policy/index.html (+1ms) 
+12:01:03   ├─ /editorial-policy/index.html (+1ms) 
+12:01:03   ├─ /exams/index.html (+2ms) 
+12:01:03   ├─ /germany-b1-settlement-citizenship/index.html (+4ms) 
+12:01:03   ├─ /germany-family-reunion-a1/index.html (+5ms) 
+12:01:03   ├─ /guides/category/germany-a1/index.html (+3ms) 
+12:01:03   ├─ /guides/category/germany-b1/index.html (+2ms) 
+12:01:03   ├─ /guides/category/germany-testdaf/index.html (+2ms) 
+12:01:03   ├─ /guides/category/germany-telc/index.html (+1ms) 
+12:01:03   ├─ /guides/category/uk/index.html (+1ms) 
+12:01:03   ├─ /guides/category/canada/index.html (+1ms) 
+12:01:03   ├─ /guides/category/italy/index.html (+1ms) 
+12:01:03   ├─ /guides/category/spain/index.html (+1ms) 
+12:01:03   ├─ /guides/category/france/index.html (+1ms) 
+12:01:03   ├─ /guides/category/finland/index.html (+1ms) 
+12:01:03   ├─ /guides/category/netherlands/index.html (+1ms) 
+12:01:03   ├─ /guides/category/portugal/index.html (+1ms) 
+12:01:03   ├─ /guides/cils-b1-cittadinanza-for-italian-citizenship/index.html (+32ms) 
+12:01:03   ├─ /guides/cils-vs-celi-vs-plida-for-italian-citizenship/index.html (+15ms) 
+12:01:03   ├─ /guides/dele-a2-ccse-spanish-citizenship/index.html (+6ms) 
+12:01:03   ├─ /guides/dele-levels-spanish-citizenship/index.html (+5ms) 
+12:01:03   ├─ /guides/delf-b1-b2-french-work-study/index.html (+5ms) 
+12:01:03   ├─ /guides/dutch-inburgering-a2-b1-for-integration-and-citizenship/index.html (+12ms) 
+12:01:03   ├─ /guides/german-a1-documents-checklist/index.html (+16ms) 
+12:01:03   ├─ /guides/german-a1-exam-booking-timeline/index.html (+18ms) 
+12:01:03   ├─ /guides/german-family-reunion-language-requirement/index.html (+16ms) 
+12:01:03   ├─ /guides/germany-b1-citizenship-language-proof/index.html (+17ms) 
+12:01:03   ├─ /guides/germany-b1-leben-in-deutschland-and-language-proof/index.html (+15ms) 
+12:01:03   ├─ /guides/germany-b1-settlement-citizenship-checklist/index.html (+21ms) 
+12:01:03   ├─ /guides/germany-b1-settlement-citizenship-timeline/index.html (+17ms) 
+12:01:03   ├─ /guides/goethe-a1-30-day-study-plan/index.html (+12ms) 
+12:01:03   ├─ /guides/goethe-a1-fees-by-country/index.html (+26ms) 
+12:01:03   ├─ /guides/goethe-a1-germany-family-reunion/index.html (+7ms) 
+12:01:03   ├─ /guides/goethe-a1-test-centers/index.html (+17ms) 
+12:01:03   ├─ /guides/goethe-a1-vs-telc-a1/index.html (+14ms) 
+12:01:03   ├─ /guides/goethe-b1-fees-and-booking/index.html (+17ms) 
+12:01:03   ├─ /guides/goethe-b1-germany-settlement-work/index.html (+17ms) 
+12:01:03   ├─ /guides/goethe-b1-study-plan/index.html (+20ms) 
+12:01:03   ├─ /guides/goethe-b1-vs-telc-b1/index.html (+14ms) 
+12:01:03   ├─ /guides/ielts-ukvi-uk-visa/index.html (+7ms) 
+12:01:03   ├─ /guides/languagecert-selt-uk-visa/index.html (+6ms) 
+12:01:03   ├─ /guides/portuguese-ciple-a2-for-citizenship-and-residence/index.html (+6ms) 
+12:01:03   ├─ /guides/portuguese-language-for-golden-visa-and-citizenship/index.html (+7ms) 
+12:01:03   ├─ /guides/staatsexamen-nt2-for-work-and-higher-education/index.html (+5ms) 
+12:01:03   ├─ /guides/tcf-canada-vs-tef/index.html (+8ms) 
+12:01:03   ├─ /guides/tcf-irn-french-residence/index.html (+5ms) 
+12:01:03   ├─ /guides/tef-canada-immigration/index.html (+7ms) 
+12:01:03   ├─ /guides/telc-b1-b2-exam-format-and-preparation/index.html (+13ms) 
+12:01:03   ├─ /guides/telc-b1-b2-fees-and-test-centers/index.html (+12ms) 
+12:01:03   ├─ /guides/telc-b1-b2-germany-work-nursing/index.html (+12ms) 
+12:01:03   ├─ /guides/telc-vs-goethe-for-german-visa/index.html (+13ms) 
+12:01:03   ├─ /guides/testdaf-germany-university-admissions/index.html (+8ms) 
+12:01:03   ├─ /guides/testdaf-levels-and-scoring/index.html (+9ms) 
+12:01:03   ├─ /guides/testdaf-preparation-and-practice/index.html (+6ms) 
+12:01:03   ├─ /guides/testdaf-vs-goethe-dsh/index.html (+8ms) 
+12:01:04   ├─ /guides/yki-finnish-citizenship/index.html (+10ms) 
+12:01:04   ├─ /guides/index.html (+7ms) 
+12:01:04   ├─ /partners/index.html (+2ms) 
+12:01:04   ├─ /pricing/index.html (+1ms) 
+12:01:04   ├─ /privacy-policy/index.html (+1ms) 
+12:01:04   ├─ /products/a1-family-reunion-pack/index.html (+1ms) 
+12:01:04   ├─ /products/a1-practice-pack/index.html (+1ms) 
+12:01:04   ├─ /route-review/index.html (+1ms) 
+12:01:04   ├─ /routes/index.html (+1ms) 
+12:01:04   ├─ /terms/index.html (+1ms) 
+12:01:04   ├─ /tools/checklist-generator/index.html (+2ms) 
+12:01:04   ├─ /tools/email-reminders/index.html (+1ms) 
+12:01:04   ├─ /tools/exam-comparison/index.html (+2ms) 
+12:01:04   ├─ /tools/route-finder/index.html (+2ms) 
+12:01:04   ├─ /tools/timeline-calculator/index.html (+1ms) 
+12:01:04   ├─ /tools/index.html (+1ms) 
+12:01:04   ├─ /zh/germany-family-reunion-a1/index.html (+1ms) 
+12:01:04   ├─ /zh/guides/german-a1-exam-booking-timeline/index.html (+2ms) 
+12:01:04   ├─ /zh/guides/german-family-reunion-language-requirement/index.html (+1ms) 
+12:01:04   ├─ /zh/guides/goethe-a1-30-day-study-plan/index.html (+1ms) 
+12:01:04   ├─ /zh/guides/goethe-a1-test-centers/index.html (+1ms) 
+12:01:04   ├─ /zh/guides/goethe-a1-vs-telc-a1/index.html (+1ms) 
+12:01:04   ├─ /zh/tools/checklist-generator/index.html (+1ms) 
+12:01:04   ├─ /zh/tools/email-reminders/index.html (+1ms) 
+12:01:04   ├─ /zh/tools/exam-comparison/index.html (+1ms) 
+12:01:04   ├─ /zh/tools/route-finder/index.html (+1ms) 
+12:01:04   ├─ /zh/tools/timeline-calculator/index.html (+1ms) 
+12:01:04   ├─ /zh/index.html (+4ms) 
+12:01:04   ├─ /index.html (+3ms) 
+12:01:04 ✓ Completed in 728ms.
+
+ generating optimized images 
+12:01:04   ▶ /_astro/home-route-verification.CnUZAwNY_1deNFs.avif (before: 2106kB, after: 21kB) (+339ms) (1/10)
+12:01:04   ▶ /_astro/home-route-verification.CnUZAwNY_OWXxP.avif (before: 2106kB, after: 44kB) (+220ms) (2/10)
+12:01:04   ▶ /_astro/home-route-verification.CnUZAwNY_ZfIAj1.avif (before: 2106kB, after: 75kB) (+347ms) (3/10)
+12:01:05   ▶ /_astro/home-route-verification.CnUZAwNY_Z2agoDR.webp (before: 2106kB, after: 15kB) (+35ms) (4/10)
+12:01:05   ▶ /_astro/home-route-verification.CnUZAwNY_2wDT2r.webp (before: 2106kB, after: 28kB) (+45ms) (5/10)
+12:01:05   ▶ /_astro/home-route-verification.CnUZAwNY_1qWkaA.webp (before: 2106kB, after: 46kB) (+93ms) (6/10)
+12:01:05   ▶ /_astro/home-route-verification.CnUZAwNY_1DwF8M.png (before: 2106kB, after: 69kB) (+110ms) (7/10)
+12:01:05   ▶ /_astro/home-route-verification.CnUZAwNY_1gfP1a.png (before: 2106kB, after: 150kB) (+118ms) (8/10)
+12:01:05   ▶ /_astro/home-route-verification.CnUZAwNY_ayg9j.png (before: 2106kB, after: 268kB) (+174ms) (9/10)
+12:01:05   ▶ /_astro/home-route-verification.CnUZAwNY_RpIye.png (before: 2106kB, after: 590kB) (+319ms) (10/10)
+12:01:05 ✓ Completed in 1.80s.
+
+12:01:05 [build] ✓ Completed in 2.90s.
+12:01:05 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+12:01:05 [build] 88 page(s) built in 3.31s
+12:01:05 [build] Complete!
+
+> postbuild
+> node scripts/enrich-sitemap-lastmod.js
+

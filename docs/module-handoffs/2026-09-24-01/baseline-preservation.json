@@ -1,0 +1,21 @@
+{
+  "baselineId": "cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40",
+  "unchangedBaselineFilesAtCheck": 1303,
+  "allowedCurrentWindowChanges": [
+    "README.md",
+    "docs/TASK_LOG.md",
+    "docs/master-package-2026-09-08/EXECUTION_RECORD.md",
+    "docs/planning-map/visalang-overall-build-plan.archify.json",
+    "docs/planning-map/visalang-overall-build-plan.html",
+    "docs/planning-map/visalang-overall-build-plan.visual-check.1440x900.dark.png",
+    "docs/planning-map/visalang-overall-build-plan.visual-check.1440x900.light.png",
+    "docs/planning-map/visalang-overall-build-plan.visual-check.2048x1320.dark.png",
+    "docs/planning-map/visalang-overall-build-plan.visual-check.2048x1320.light.png",
+    "docs/planning-map/visalang-overall-build-plan.visual-check.json"
+  ],
+  "unexplainedChanges": [],
+  "oldBatchFilesVerifiedUnchanged": 38,
+  "stagedChanges": [],
+  "gitHead": "4cb57e8744c752fed1881281e69e7b24cc7281c4",
+  "note": "Source baseline remains immutable in /private/tmp; planning-map generated evidence may be regenerated within explicit P00 scope. src/public/deploy/services and all old batch bytes preserved."
+}

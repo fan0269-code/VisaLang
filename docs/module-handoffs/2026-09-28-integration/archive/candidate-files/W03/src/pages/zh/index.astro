@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HomeHero from '../../components/HomeHero.astro';
+import { getCollection } from 'astro:content';
+import { zhGermanyA1Guides } from '../../data/zh-germany-a1';
+import GuideStatusBadge from '../../components/GuideStatusBadge.astro';
+import homeRouteVisual from '../../assets/home-route-verification.png';
+import { resolveGuideContentStatus } from '../../data/source-review';
+import { getEnglishGuidePublicationPolicy } from '../../data/publication-manifest';
+import { getPrimaryDiscoveryZhGuides } from '../../data/guide-library';
+
+const guides = await getCollection('guides');
+const publishedGuides = guides
+  .map((guide) => ({ ...guide, status: resolveGuideContentStatus(guide.data) }))
+  .filter((guide) => getEnglishGuidePublicationPolicy({ slug: guide.data.slug, contentStatus: guide.status, sourceReviewStatus: guide.data.sourceReviewStatus, noindex: guide.data.noindex, adsEligible: guide.data.adsEligible }).index);
+const publishedZhGuides = getPrimaryDiscoveryZhGuides(zhGermanyA1Guides);
+const totalGuideCount = publishedGuides.length + publishedZhGuides.length;
+const publishedCategoryCount = new Set(publishedGuides.map((guide) => guide.data.category)).size;
+const zhUpdated = publishedZhGuides.slice(0, 3);
+
+const jsonLD = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'VisaLang',
+  url: 'https://visalang.org/zh/',
+  description: 'VisaLang 帮助用户根据签证、永居、入籍、留学或职业注册需求，找到正确的语言考试路径。',
+  inLanguage: 'zh-CN',
+};
+---
+
+<BaseLayout
+  title="德国团聚 A1、永居与入籍 B1 语言证明指南"
+  description="了解德国配偶团聚 A1 语言证明及永居、入籍 B1 英文指南，查找官方要求，整理考试报名与材料准备步骤。"
+  canonicalURL="https://visalang.org/zh/"
+  lang="zh-CN"
+  alternates={[
+    { lang: 'en', href: 'https://visalang.org/' },
+    { lang: 'zh-CN', href: 'https://visalang.org/zh/' },
+    { lang: 'x-default', href: 'https://visalang.org/' },
+  ]}
+  jsonLD={jsonLD}
+  bodyClass="home-view"
+  heroPreload={homeRouteVisual}
+>
+  <main class="site-main">
+    <HomeHero
+      locale="zh-CN"
+      eyebrow="官方来源优先"
+      title="把德国语言证明的准备步骤理清楚。"
+      description="德国 A1 配偶团聚规划：查要求、核对已有证书、准备报名。证明是否被接收，以负责你申请的机关为准。"
+      primary={{ href: '/zh/germany-family-reunion-a1/', label: '查看完整 A1 准备流程' }}
+      visual={homeRouteVisual}
+      visualAlt="用于核验语言证明要求的笔记本与路线图"
+    >
+      <section class="home-tasks" aria-labelledby="zh-stage-title">
+        <h2 id="zh-stage-title">也可以直接进入当前任务</h2>
+        <ol class="stage-list">
+          <li class="stage-card"><div><h3><a href="/zh/guides/german-family-reunion-language-requirement/">查要求</a></h3><p>按实际申请地与类别，找到负责机关的说明。</p></div></li>
+          <li class="stage-card"><div><h3><a href="/zh/guides/goethe-a1-germany-family-reunion/">已有 Goethe A1 证书？</a></h3><p>记录证书名称与考试日期，向接收材料的机关核对接收条件。</p></div></li>
+          <li class="stage-card"><div><h3><a href="/zh/guides/german-a1-exam-booking-timeline/">准备报名</a></h3><p>整理所选考点、费用、日期与材料，报名前逐项核验。</p></div></li>
+        </ol>
+      </section>
+    </HomeHero>
+
+    <hr class="rule" />
+
+    <section class="section" aria-labelledby="zh-resources-title">
+      <h2 class="section-title" id="zh-resources-title">本站能帮你做什么</h2>
+      <div class="resource-layout">
+        <div class="resource-lead">
+          <h3>德国 A1：完整准备流程</h3>
+          <p>目前完整配置的是德国 A1 配偶团聚规划。路线、核对清单、时间线、考试比较和提醒均提供中文界面。</p>
+          <p>另外四条已登记工具路线仅提供官方核验起点，其中包括 B1；是否接收证明、个案要求与最终结果，仍由负责机构决定。</p>
+        </div>
+        <div class="resource-list">
+          <a class="resource-link" href="/germany-b1-settlement-citizenship/"><div><h3>B1：永居与入籍指南（英文）</h3><p>这是内容专题；B1 工具仍仅提供核验起点，不是完整准备流程。</p></div><span>阅读英文指南</span></a>
+          <a class="resource-link" href="/zh/tools/route-finder/"><div><h3>其他目的，或还不确定？</h3><p>手动选择目的，找到负责机构与待核问题；不据此判断资格或证明是否被接收。</p></div><span>使用路线查找器</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="zh-guides" aria-labelledby="zh-guides-title">
+      <div class="section-header"><h2 id="zh-guides-title">最近更新的中文指南</h2><p>当前中英文主资料库共 {totalGuideCount} 篇指南，覆盖 {publishedCategoryCount} 个已发布路线分类。</p></div>
+      <div class="latest-layout">
+        {zhUpdated[0] && <a class="latest-feature" href={zhUpdated[0].href}><GuideStatusBadge status={zhUpdated[0].contentStatus} locale="zh-CN" /><h3>{zhUpdated[0].title}</h3><p>{zhUpdated[0].description}</p><span class="last-checked">更新于 {zhUpdated[0].updatedDate}</span></a>}
+        <div class="latest-list">{zhUpdated.slice(1).map((guide) => <a class="latest-item" href={guide.href}><div><h3>{guide.title}</h3><p>{guide.description}</p></div><span class="last-checked">更新于 {guide.updatedDate}</span></a>)}</div>
+      </div>
+    </section>
+
+    <section class="section section--tight" aria-labelledby="zh-trust-title">
+      <h2 class="section-title" id="zh-trust-title">可信度来自清楚的边界</h2>
+      <p class="trust-statement"><strong>路线优先，不编造事实。</strong>先识别接收材料的机构，再用其当前官方说明核验语言等级、证明、材料形式、期限和个案例外。政府机关、学校、雇主、考试主办方与所选考点仍是相应要求的最终来源。</p>
+    </section>
+  </main>
+</BaseLayout>

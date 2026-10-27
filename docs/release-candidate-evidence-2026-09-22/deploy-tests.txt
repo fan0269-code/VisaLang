@@ -1,0 +1,14 @@
+test_approval_is_bound_to_operation_baseline_and_evidence_bytes (test_release.BundleTests.test_approval_is_bound_to_operation_baseline_and_evidence_bytes) ... ok
+test_bundle_symlinks_are_rejected (test_release.BundleTests.test_bundle_symlinks_are_rejected) ... ok
+test_byte_and_file_set_tampering_is_rejected (test_release.BundleTests.test_byte_and_file_set_tampering_is_rejected) ... ok
+test_dirty_candidate_cannot_be_activated (test_release.BundleTests.test_dirty_candidate_cannot_be_activated) ... ok
+test_mutable_image_tag_and_missing_approval_are_rejected (test_release.BundleTests.test_mutable_image_tag_and_missing_approval_are_rejected) ... ok
+test_retained_path_redirects_are_not_successful_smoke_checks (test_release.HostSmokeTests.test_retained_path_redirects_are_not_successful_smoke_checks) ... ok
+test_release_manager_exists (test_release.ReleaseTests.test_release_manager_exists) ... ok
+test_success_records_only_after_real_probe_reload_and_smoke (test_release.ReleaseTests.test_success_records_only_after_real_probe_reload_and_smoke) ... ok
+test_switch_rolls_back_config_service_and_pointer_on_failure (test_release.ReleaseTests.test_switch_rolls_back_config_service_and_pointer_on_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.035s
+
+OK

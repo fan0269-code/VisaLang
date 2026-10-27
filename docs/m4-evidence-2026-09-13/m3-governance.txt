@@ -1,0 +1,17 @@
+TAP version 13
+# Planning-map governance contract passed (188 watched files, VL-PMAP-20260911-07).
+# Subtest: tests/planning-map-governance.test.mjs
+ok 1 - tests/planning-map-governance.test.mjs
+  ---
+  duration_ms: 104.715084
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 109.414083

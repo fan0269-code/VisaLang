@@ -1,13 +1,13 @@
 # VisaLang 总体执行规划
 
-> 版本：2026-07-13，历史主规划框架。当前执行顺序与候选状态以 `docs/NEXT_STAGE_EXECUTION_TASKBOOK_2026-08-21.md`、`docs/NEXT_STAGE_PHASE_0_EXECUTION_PLAN_2026-08-21.md`、`docs/RELEASE_CANDIDATE_MANIFEST_2026-08-21.md` 及 `docs/OPERATIONS_STATUS.md` 为准。
+> **superseded（入口校正于2026-09-23）：** 本文保留2026-07-13框架。`docs/VISALANG_ONE_WEEK_SCHEME_3_CONTENT_PLAN_2026-09-01.md`也已是历史方案；当前以2026-09-08 Master Package、状态overlay、最新Owner指令及9/23用户价值优先规划修订为准。历史生产记录不证明当前候选已部署。
 
 ## 文档权威顺序
 
-1. 本文保留长期阶段框架；2026-08-21 之后的当前执行顺序由上方 taskbook、Phase 0 plan、release manifest 和 Operations Status 共同约束。
-2. `docs/OPERATIONS_STATUS.md` 记录当前线上、责任、隐私和商业化门禁；发生冲突时，以该文件的可核查状态为准。
-3. `docs/PROJECT_CONTEXT.md` 是项目地图，不可单独作为上线、服务可用或业务审批的证据。
-4. `docs/TASK_LOG.md` 是历史窗口记录；旧结论不得覆盖上述当前状态。
+1. 当前总规划为 `docs/master-package-2026-09-08/VisaLang-Master-Plan.md`，后续顺序见 `docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md` 与配套内容计划；实际任务状态见同Master目录的overlay和EXECUTION_RECORD。原9/1方案及状态文件仅作历史证据。
+2. `docs/OPERATIONS_STATUS.md` 与 release manifest/reconciliation 文件记录生产、账号和发布证据；它们可以证明或阻塞当前计划，但不自行改变产品战略或授权新工作。
+3. 本文、2026-08-21 taskbook 和 Phase 0 plan 均保留为历史规划证据，不再单独控制当前执行顺序。
+4. `docs/PROJECT_CONTEXT.md` 是项目地图，`docs/TASK_LOG.md` 是历史窗口记录；二者均不可单独作为上线、服务可用或业务审批证据。
 5. `docs/TRAFFIC_SITE_ROADMAP.md` 与 `docs/MONETIZATION_ROADMAP.md` 仅保留为战略参考，不能单独授权分析、留资、邮件、广告、支付或内容扩张。
 
 ## 1. 当前基线与总目标
@@ -86,4 +86,4 @@
 
 每周进行一次 30 分钟复盘：检查 Search Console/分析数据、官方来源变更、内容风险、CTA 状态和发布健康；每月只做一次“是否扩展路线/是否开放商业能力”的决策。没有数据或业务确认时，默认继续阶段 2 的官方来源刷新和核心页深化。
 
-**当前下一执行窗口是发布后稳定化与治理收口**。生产应用基线已按 Security → App 顺序收敛至 `80c6d04`，发布与 smoke 完成；包含本记录的 docs-only 治理 commit 是获批后继版本，不改变产品输出。其进入 origin/生产后，本地 dirty `main` `9e33c5c` 落后 2 个提交，仍不得 reset 或覆盖。下一步补 Search Console/analytics/CMP 等真实证据；在数据基线形成前，不扩张内容、不修改工具逻辑、不接入或扩大第三方服务。
+**历史执行结论（截至 2026-08-21）**：当时的下一窗口是发布后稳定化与治理收口，生产应用 payload 基线记录为 `80c6d04`。该段中的本地分支过渡状态已经结束，不再描述当前仓库。当前下一窗口、独立的 Analytics/AdSense/CMP 证据要求和禁止事项以三份 2026-09-01 规划文档为准；任何当前生产结论仍需新的生产证据。

@@ -1,0 +1,11 @@
+test_clarification_mapping_and_bad_confidence (test_app.ContractTests.test_clarification_mapping_and_bad_confidence) ... ok
+test_invalid_inputs_never_reach_model (test_app.ContractTests.test_invalid_inputs_never_reach_model) ... ok
+test_no_concurrent_inference_queue (test_app.ContractTests.test_no_concurrent_inference_queue) ... ok
+test_suggestion_only (test_app.ContractTests.test_suggestion_only) ... ok
+test_unavailable_and_unknown_output (test_app.ContractTests.test_unavailable_and_unknown_output) ... ok
+test_unicode_limit (test_app.ContractTests.test_unicode_limit) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.013s
+
+OK

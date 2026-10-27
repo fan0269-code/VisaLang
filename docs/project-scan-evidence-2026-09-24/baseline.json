@@ -1,0 +1,8 @@
+{
+  "branch": "codex/scheme-3-one-week-content",
+  "head": "4cb57e8744c752fed1881281e69e7b24cc7281c4",
+  "upstream": "0\t0",
+  "trackedStaged": [],
+  "capturedAt": "2026-09-24T17:49:14.180598+08:00",
+  "note": "Pre-existing dirty work preserved; before copies are the window baseline. Secrets not read."
+}

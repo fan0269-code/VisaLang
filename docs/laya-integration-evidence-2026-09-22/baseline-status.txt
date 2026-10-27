@@ -1,0 +1,241 @@
+ M .gitignore
+ M AGENTS.md
+ M README.md
+ M docs/CONSENT_AND_AD_TECH_DECISION_RECORD.md
+ M docs/CONTENT_MAP.md
+ M docs/CONTENT_UI_IMPLEMENTATION_HANDOFF.md
+ M docs/CONTENT_UPDATE_PLAN_2026-08-14.md
+ M docs/GERMANY_A1_REQUIREMENT_SOURCE_REVIEW_2026-08-15.md
+ M docs/MASTER_EXECUTION_PLAN.md
+ M docs/MONETIZATION_ROADMAP.md
+ M docs/NEXT_STAGE_EXECUTION_TASKBOOK_2026-08-21.md
+ M docs/NEXT_STAGE_PHASE_0_EXECUTION_PLAN_2026-08-21.md
+ M docs/TASK_LOG.md
+ M docs/TRAFFIC_SITE_ROADMAP.md
+ M docs/VISALANG_INDEPENDENT_AUDITOR_AGENT.md
+ M docs/WEEKLY_OPERATING_REVIEW.md
+ M package.json
+ M public/_redirects
+ M scripts/launch-check.js
+ M src/components/CopyButton.astro
+ M src/components/ExportButton.astro
+ M src/components/FilterBar.astro
+ M src/components/GlobalHeader.astro
+ M src/components/GuideCard.astro
+ M src/components/GuideStatusBadge.astro
+ M src/components/MobileNavigation.astro
+ M src/components/PrintButton.astro
+ M src/components/RouteSelector.astro
+ M src/components/SearchInput.astro
+ M src/components/ZhGuideLayout.astro
+ M src/components/tools/ToolResultSupport.astro
+ M src/components/tools/ToolShell.astro
+ M src/content.config.ts
+ M src/content/guides/german-a1-documents-checklist.md
+ M src/content/guides/german-a1-exam-booking-timeline.md
+ D src/content/guides/german-a1-family-reunion-faq.md
+ M src/content/guides/german-family-reunion-language-requirement.md
+ M src/content/guides/germany-b1-citizenship-language-proof.md
+ M src/content/guides/germany-b1-leben-in-deutschland-and-language-proof.md
+ M src/content/guides/germany-b1-settlement-citizenship-checklist.md
+ M src/content/guides/germany-b1-settlement-citizenship-timeline.md
+ M src/content/guides/goethe-a1-30-day-study-plan.md
+ D src/content/guides/goethe-a1-booking-mistakes.md
+ M src/content/guides/goethe-a1-fees-by-country.md
+ M src/content/guides/goethe-a1-germany-family-reunion.md
+ D src/content/guides/goethe-a1-listening-practice.md
+ D src/content/guides/goethe-a1-official-links-practice-resources.md
+ D src/content/guides/goethe-a1-pre-booking-checklist.md
+ D src/content/guides/goethe-a1-retake-policy.md
+ D src/content/guides/goethe-a1-speaking-topics.md
+ D src/content/guides/goethe-a1-study-plan-working-adults.md
+ M src/content/guides/goethe-a1-test-centers.md
+ M src/content/guides/goethe-a1-vs-telc-a1.md
+ D src/content/guides/goethe-a1-writing-practice.md
+ D src/content/guides/goethe-b1-difficulty-analysis.md
+ M src/content/guides/goethe-b1-fees-and-booking.md
+ M src/content/guides/goethe-b1-germany-settlement-work.md
+ D src/content/guides/goethe-b1-listening-deep-dive.md
+ D src/content/guides/goethe-b1-mock-exam-routine.md
+ D src/content/guides/goethe-b1-speaking-topics.md
+ M src/content/guides/goethe-b1-study-plan.md
+ M src/content/guides/goethe-b1-vs-telc-b1.md
+ D src/content/guides/goethe-b1-writing-assessment.md
+ M src/content/guides/telc-b1-b2-exam-format-and-preparation.md
+ M src/data/app-data.ts
+ M src/data/article-sections.ts
+ M src/data/guide-library.ts
+ M src/data/guide-taxonomy.ts
+ M src/data/route-tools.ts
+ M src/data/site.ts
+ M src/data/source-review.ts
+ M src/data/zh-germany-a1.ts
+ M src/layouts/GuideLayout.astro
+ M src/layouts/ToolLayout.astro
+ M src/pages/about.astro
+ M src/pages/contact.astro
+ M src/pages/cookie-policy.astro
+ M src/pages/editorial-policy.astro
+ M src/pages/exams/index.astro
+ M src/pages/germany-b1-settlement-citizenship.astro
+ M src/pages/germany-family-reunion-a1.astro
+ M src/pages/guides/[slug].astro
+ M src/pages/guides/category/[category].astro
+ M src/pages/guides/index.astro
+ M src/pages/index.astro
+ M src/pages/partners.astro
+ M src/pages/pricing.astro
+ M src/pages/privacy-policy.astro
+ M src/pages/products/a1-family-reunion-pack.astro
+ M src/pages/products/a1-practice-pack.astro
+ M src/pages/routes/index.astro
+ M src/pages/terms.astro
+ M src/pages/tools/checklist-generator.astro
+ M src/pages/tools/email-reminders.astro
+ M src/pages/tools/exam-comparison.astro
+ M src/pages/tools/route-finder.astro
+ M src/pages/tools/timeline-calculator.astro
+ M src/pages/zh/germany-family-reunion-a1.astro
+ D src/pages/zh/guides/german-a1-documents-checklist.astro
+ M src/pages/zh/guides/german-a1-exam-booking-timeline.astro
+ M src/pages/zh/guides/german-family-reunion-language-requirement.astro
+ M src/pages/zh/guides/goethe-a1-30-day-study-plan.astro
+ D src/pages/zh/guides/goethe-a1-booking-mistakes.astro
+ D src/pages/zh/guides/goethe-a1-germany-family-reunion.astro
+ M src/pages/zh/guides/goethe-a1-test-centers.astro
+ M src/pages/zh/guides/goethe-a1-vs-telc-a1.astro
+ M src/pages/zh/index.astro
+ M src/scripts/tool-form.ts
+ M src/styles/global.css
+ M tests/adsense-risk-exposure.test.js
+ M tests/canada-window-b.test.js
+ M tests/commercial-pages.test.js
+ M tests/content-integrity.test.js
+ M tests/fan-270-seo.test.js
+ M tests/fan-42-germany-a1-requirement.test.js
+ M tests/fan-43-germany-b1-recheck.test.js
+ M tests/fan-73-guide-trust.test.js
+ M tests/germany-a1-cluster.test.js
+ M tests/germany-b1-cluster.test.js
+ M tests/italy-window-b.test.js
+ M tests/route-tools.test.js
+ M tests/site.test.js
+ M tests/source-review-render.test.js
+ M tests/telc-window-1.test.js
+ M tests/telc-work-nursing.test.js
+?? .claude/
+?? .external/
+?? docs/GROWTH_DATA_DICTIONARY.md
+?? docs/OPERATIONS_EVIDENCE_REGISTER.md
+?? docs/SITE_HEALTH_BASELINE_2026-09-01.md
+?? docs/VISALANG_49_CARD_EXECUTION_OUTCOME_2026-09-01.md
+?? docs/VISALANG_CONTENT_SOURCE_PREPARATION_2026-09-01.md
+?? docs/VISALANG_CURRENT_STATE_2026-09-01.md
+?? docs/VISALANG_HISTORICAL_DISPOSITION_PREPARATION_2026-09-01.md
+?? docs/VISALANG_HISTORICAL_PLAN_SUPERSESSION_PREPARATION_2026-09-01.md
+?? docs/VISALANG_M2A_T10_T14_EXECUTION_EVIDENCE_2026-09-09.md
+?? docs/VISALANG_M2B_T15_T19_EXECUTION_EVIDENCE_2026-09-10.md
+?? docs/VISALANG_M3_OBSIDIAN_SYNC_PAYLOAD_2026-09-11.md
+?? docs/VISALANG_M3_T20_T22_BROWSER_EVIDENCE_2026-09-11.md
+?? docs/VISALANG_M3_T20_T23_EXECUTION_EVIDENCE_2026-09-11.md
+?? docs/VISALANG_M3_T23_MIGRATION_CANDIDATE_ROLLBACK_MAP_2026-09-11.md
+?? docs/VISALANG_M4_OBSIDIAN_SYNC_PAYLOAD_2026-09-13.md
+?? docs/VISALANG_M4_T24_SOURCE_LEDGER_2026-09-13.md
+?? docs/VISALANG_M4_T24_T26_EXECUTION_EVIDENCE_2026-09-13.md
+?? docs/VISALANG_M4_T24_TASK_REVIEW_2026-09-13.md
+?? docs/VISALANG_M4_T25_SOURCE_LEDGER_2026-09-13.md
+?? docs/VISALANG_M4_T25_TASK_REVIEW_2026-09-13.md
+?? docs/VISALANG_M4_T26_LANGUAGE_REVIEW_2026-09-13.md
+?? docs/VISALANG_M4_T26_SOURCE_LEDGER_2026-09-13.md
+?? docs/VISALANG_MASTER_PACKAGE_OBSIDIAN_SYNC_PAYLOAD_2026-09-09.md
+?? docs/VISALANG_ONE_WEEK_SCHEME_3_CONTENT_PLAN_2026-09-01.md
+?? docs/VISALANG_OWNER_INPUT_REQUEST_2026-09-01.md
+?? docs/VISALANG_PHASE0_DAY30_GATE_PRECHECK_2026-09-01.md
+?? docs/VISALANG_SCHEME_3_A1_CLAIM_SOURCE_LEDGER_2026-09-01.md
+?? docs/VISALANG_SCHEME_3_B1_CLAIM_SOURCE_LEDGER_2026-09-01.md
+?? docs/VISALANG_SCHEME_3_INDEPENDENT_AUDIT_2026-09-01.md
+?? docs/VISALANG_SCHEME_3_OBSIDIAN_SYNC_PAYLOAD_2026-09-01.md
+?? docs/VISALANG_SCHEME_3_RELEASE_CANDIDATE_EVIDENCE_2026-09-01.md
+?? docs/VISALANG_SCHEME_3_ZH_CLAIM_SOURCE_LEDGER_2026-09-01.md
+?? docs/VISALANG_T27_EXECUTION_EVIDENCE_2026-09-16.md
+?? docs/VISALANG_T27_OBSIDIAN_SYNC_PAYLOAD_2026-09-16.md
+?? docs/VISALANG_T28_LOCAL_ACCEPTANCE_2026-09-20.md
+?? docs/VISALANG_T28_OBSIDIAN_SYNC_PAYLOAD_2026-09-20.md
+?? docs/m4-evidence-2026-09-13/
+?? docs/master-package-2026-09-08/
+?? docs/planning-map/
+?? docs/prompts/2026-09-10-m2b-closeout-m3-codex.md
+?? docs/superpowers/plans/2026-09-09-visalang-m2b-t15-t19.md
+?? docs/superpowers/plans/2026-09-11-visalang-m3-t20-t23.md
+?? docs/superpowers/plans/2026-09-13-visalang-m4-t24-t26.md
+?? docs/t27-closeout-evidence-2026-09-20/
+?? docs/t27-evidence-2026-09-16/
+?? docs/t28-evidence-2026-09-20/
+?? docs/visalang-runtime-architecture.html
+?? docs/visalang-runtime-architecture.json
+?? docs/visalang-runtime-architecture.visual-check.1440x900.dark.png
+?? docs/visalang-runtime-architecture.visual-check.1440x900.light.png
+?? docs/visalang-runtime-architecture.visual-check.2048x1320.dark.png
+?? docs/visalang-runtime-architecture.visual-check.2048x1320.light.png
+?? docs/visalang-runtime-architecture.visual-check.html
+?? docs/visalang-runtime-architecture.visual-check.json
+?? experiments/
+?? src/components/B1RoutePaths.astro
+?? src/components/ExamProductComparisonTable.astro
+?? src/components/LocalExamFeeTable.astro
+?? src/data/b1-exam-products.ts
+?? src/data/b1-route-claims.ts
+?? src/data/b1-route-paths.ts
+?? src/data/checklist-export.ts
+?? src/data/claim-registry.ts
+?? src/data/guide-discovery.ts
+?? src/data/measurement-contract.ts
+?? src/data/plan-state.ts
+?? src/data/publication-manifest.ts
+?? src/data/reminder-ics.ts
+?? src/data/tool-copy.ts
+?? src/data/url-support-inventory.ts
+?? src/data/zh-guide-task-reconciliation.ts
+?? src/pages/zh/tools/
+?? src/scripts/plan-state.ts
+?? tests/article-sections-key-decisions.test.mjs
+?? tests/claim-registry.test.mjs
+?? tests/m2a-exam-products.test.mjs
+?? tests/m2a-local-fees-centres.test.mjs
+?? tests/m2a-plan-state-integration.test.mjs
+?? tests/m2a-plan-state.test.mjs
+?? tests/m2a-staged-checklist-content.test.mjs
+?? tests/m2a-timeline-contract.test.mjs
+?? tests/m2b-checklist-export.test.mjs
+?? tests/m2b-exam-comparison.test.mjs
+?? tests/m2b-reminder-ics.test.mjs
+?? tests/m2b-route-finder.test.mjs
+?? tests/m2b-timeline-result.test.mjs
+?? tests/m3-chinese-journey.test.mjs
+?? tests/m3-chinese-tool-contract.test.mjs
+?? tests/m3-discovery-trust.test.mjs
+?? tests/m3-generated-seo.test.mjs
+?? tests/m3-migration-map.test.mjs
+?? tests/m4-b1-comparison.test.mjs
+?? tests/m4-b1-routes.test.mjs
+?? tests/m4-study-assets.test.mjs
+?? tests/planning-map-governance.test.mjs
+?? tests/scheme-3-atomic-merge.test.mjs
+?? tests/scheme-3-chinese-fail-closed.test.mjs
+?? tests/scheme-3-chinese-page-sections.test.mjs
+?? tests/scheme-3-chinese-pillars.test.js
+?? tests/scheme-3-content-map.test.mjs
+?? tests/scheme-3-english-content-quality.test.mjs
+?? tests/scheme-3-gates.test.js
+?? tests/scheme-3-plan-authority.test.js
+?? tests/scheme-3-publication.test.mjs
+?? tests/scheme-3-release-candidate.test.mjs
+?? tests/scheme-3-route-hubs.test.js
+?? tests/scheme-3-tool-content.test.js
+?? tests/t27-measurement-privacy.test.mjs
+?? tests/t28-stale-results.test.mjs
+?? tests/task-2-p0-render.test.js
+?? tests/task-4-guides-render.test.mjs
+?? tests/task-4-home-routes.test.mjs
+?? tests/task-5-source-ledger.test.mjs
+?? tests/url-support-inventory.test.mjs

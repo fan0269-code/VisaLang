@@ -5,37 +5,39 @@ import RouteSelector from '../components/RouteSelector.astro';
 import GuideStatusBadge from '../components/GuideStatusBadge.astro';
 import homeRouteVisual from '../assets/home-route-verification.png';
 import { getCollection } from 'astro:content';
-import { isGuidePrimaryDiscoveryEligible, resolveGuideContentStatus } from '../data/source-review';
+import { resolveGuideContentStatus } from '../data/source-review';
+import { getEnglishGuidePublicationPolicy } from '../data/publication-manifest';
+import { getPrimaryDiscoveryZhGuides } from '../data/guide-library';
 import { site } from '../data/site';
 import { zhGermanyA1Guides } from '../data/zh-germany-a1';
 
 const guides = await getCollection('guides');
 const publishedGuides = guides
   .map((guide) => ({ ...guide, status: resolveGuideContentStatus(guide.data) }))
-  .filter((guide) => isGuidePrimaryDiscoveryEligible(guide.status, guide.data.sourceReviewStatus) && guide.data.noindex !== true);
+  .filter((guide) => getEnglishGuidePublicationPolicy({ slug: guide.data.slug, contentStatus: guide.status, sourceReviewStatus: guide.data.sourceReviewStatus, noindex: guide.data.noindex, adsEligible: guide.data.adsEligible }).index);
 const updated = [...publishedGuides]
   .sort((a, b) => b.data.updatedDate.localeCompare(a.data.updatedDate))
   .slice(0, 3);
-const totalGuideCount = publishedGuides.length + zhGermanyA1Guides.length;
+const totalGuideCount = publishedGuides.length + getPrimaryDiscoveryZhGuides(zhGermanyA1Guides).length;
 const publishedCategoryCount = new Set(publishedGuides.map((guide) => guide.data.category)).size;
 const jsonLD = { '@context': 'https://schema.org', '@type': 'WebSite', name: site.name, url: `${site.url}/`, description: 'Official-source-first language-proof route decisions.' };
 ---
 
-<BaseLayout title="Find the language proof required for your route" description="Choose a route, identify the language proof to verify, compare exams, and plan your next official check." canonicalURL="https://visalang.org/" alternates={[{ lang: 'en', href: 'https://visalang.org/' }, { lang: 'zh-CN', href: 'https://visalang.org/zh/' }, { lang: 'x-default', href: 'https://visalang.org/' }]} jsonLD={jsonLD} bodyClass="home-view" enableAds={true} heroPreload={homeRouteVisual}>
+<BaseLayout title="German A1 family reunion and B1 language guides" description="Plan German A1 family-reunion language proof and read B1 settlement and citizenship guides. Find official requirements, exam information and planning checklists." canonicalURL="https://visalang.org/" alternates={[{ lang: 'en', href: 'https://visalang.org/' }, { lang: 'zh-CN', href: 'https://visalang.org/zh/' }, { lang: 'x-default', href: 'https://visalang.org/' }]} jsonLD={jsonLD} bodyClass="home-view" enableAds={false} heroPreload={homeRouteVisual}>
   <main class="site-main">
     <HomeHero
       locale="en"
       eyebrow="Official sources first"
-      title="Verify language proof first."
-      description="Identify the receiving organisation, compare accepted exams, and return to the current official instruction."
-      primary={{ href: '/tools/route-finder/', label: 'Use Route Finder' }}
-      secondary={{ href: '/guides/', label: 'Browse guides' }}
+      title="Plan your German language proof."
+      description="Start with your application route, understand the evidence you may need, and organise your next steps before booking an exam."
+      primary={{ href: '/germany-family-reunion-a1/', label: 'Start the Germany A1 route' }}
+      secondary={{ href: '/germany-b1-settlement-citizenship/', label: 'Read Germany B1 guides' }}
       visual={homeRouteVisual}
       visualAlt="An open notebook and route map arranged for checking language-proof requirements"
       featuredRoute={{
-        label: 'Best-developed route',
+        label: 'Main planning route',
         title: 'Germany A1 family reunion',
-        description: 'Check whether language proof applies, which certificate the receiving authority accepts, and what the selected official centre currently requires.',
+        description: 'Our main planning route covers Germany A1 family reunion. Separate guides explain B1 language evidence for settlement permits and citizenship.',
         href: '/germany-family-reunion-a1/',
         linkLabel: 'View Germany A1 route',
       }}
@@ -44,13 +46,12 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'WebSite', name: sit
     <hr class="rule" />
 
     <section class="section" aria-labelledby="stage-title">
-      <h2 class="section-title" id="stage-title">Make the decision in four checks</h2>
+      <h2 class="section-title" id="stage-title">Start with one of three tasks</h2>
       <div class="lane-grid">
         <ol class="stage-list">
-          <li class="stage-card"><div><h3>Identify the receiving organisation</h3><p>Start with the authority, institution, employer, regulator, or exam body that will receive your proof.</p><a href="/tools/route-finder/">Choose a purpose</a></div></li>
-          <li class="stage-card"><div><h3>Confirm the proof level</h3><p>Check the source that receives your file before treating any A1, B1, B2, or other level as suitable.</p><a href="/guides/">Browse level guides</a></div></li>
-          <li class="stage-card"><div><h3>Compare accepted exams</h3><p>The same level can map to different certificates. Acceptance depends on the receiving organisation.</p><a href="/tools/exam-comparison/">Compare exams</a></div></li>
-          <li class="stage-card"><div><h3>Verify before acting</h3><p>Recheck centre status, dates, fees, ID rules, result timing, and submission requirements before payment.</p><a href="/tools/checklist-generator/">Build a checklist</a></div></li>
+          <li class="stage-card"><div><h3>Check the requirement</h3><p>Start with the official instruction for your application location and family-reunion category, including any exception question.</p><a href="/guides/german-family-reunion-language-requirement/">Check the requirement</a></div></li>
+          <li class="stage-card"><div><h3>Choosing between exams?</h3><p>Compare Goethe A1 and telc A1 as verification options before booking; the receiving authority decides what it accepts.</p><a href="/guides/goethe-a1-vs-telc-a1/">Choosing between exams?</a></div></li>
+          <li class="stage-card"><div><h3>Prepare booking and next steps</h3><p>Record only the centre, fee, date, ID and certificate arrangements you have verified for the selected exam.</p><a href="/guides/german-a1-exam-booking-timeline/">Prepare booking and next steps</a></div></li>
         </ol>
         <aside class="sidebar-panel">
           <h3>The receiving organisation makes the decision.</h3>
@@ -71,14 +72,14 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'WebSite', name: sit
       <p class="section-lede">Tools narrow the route. Guides explain the boundary, official checks, and supporting evidence.</p>
       <div class="resource-layout">
         <div class="resource-lead">
-          <h3>Use a tool when the route is unclear.</h3>
-          <p>If you do not know which language proof matters, begin with the route finder instead of reading a long list first.</p>
-          <div class="button-row"><a class="button button--primary" href="/tools/route-finder/">Use Route Finder</a></div>
+          <h3>Use Route Finder to organise a starting question.</h3>
+          <p>Route Finder organises your starting questions. Its fully configured route currently covers Germany A1 family reunion.</p>
+          <div class="button-row"><a class="button button--primary" href="/tools/route-finder/">Open Route Finder</a></div>
         </div>
         <div class="resource-list">
           <a class="resource-link" href="/tools/route-finder/"><div><h3>Route Finder</h3><p>Start from purpose, country, and current instruction status.</p></div><span>Use</span></a>
-          <a class="resource-link" href="/guides/"><div><h3>Guide library</h3><p>Filter explainers by purpose, route, exam, level, and verification status.</p></div><span>Browse</span></a>
-          <a class="resource-link" href="/germany-family-reunion-a1/"><div><h3>Germany A1 route</h3><p>The most developed route for staged requirement, exam, booking, and document checks.</p></div><span>View</span></a>
+          <a class="resource-link" href="/germany-b1-settlement-citizenship/"><div><h3>Germany B1 guides</h3><p>Separate guides for settlement permits and citizenship; verify the applicable authority route before relying on any proof.</p></div><span>Browse</span></a>
+          <a class="resource-link" href="/germany-family-reunion-a1/"><div><h3>Germany A1 family reunion</h3><p>A configured planning route for staged requirement, exam, booking, and document checks.</p></div><span>Start</span></a>
         </div>
       </div>
     </section>

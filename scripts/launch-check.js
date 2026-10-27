@@ -4,9 +4,49 @@ const path = require('node:path');
 const root = process.cwd();
 const dist = path.join(root, 'dist');
 const checks = [];
+const blockers = [];
 const pass = (message) => checks.push({ ok: true, message });
 const fail = (message) => checks.push({ ok: false, message });
+const block = (message) => blockers.push(message);
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
+const publicationManifestSource = read('src/data/publication-manifest.ts');
+const siteDataSource = read('src/data/site.ts');
+const migrationMapSource = read('docs/VISALANG_M3_T23_MIGRATION_CANDIDATE_ROLLBACK_MAP_2026-09-11.md');
+const migrationMapBlock = migrationMapSource.match(/<!-- M3_T23_MACHINE_RECORD_START -->\s*```json\s*([\s\S]*?)\s*```\s*<!-- M3_T23_MACHINE_RECORD_END -->/);
+if (!migrationMapBlock) throw new Error('Unable to parse the bounded T23 migration candidate map.');
+const migrationCandidateMap = JSON.parse(migrationMapBlock[1]);
+const manifestStringArray = (name) => {
+  const block = publicationManifestSource.match(new RegExp(`export const ${name} = \\[([\\s\\S]*?)\\] as const;`))?.[1];
+  if (!block) throw new Error(`Unable to parse ${name} from the publication manifest.`);
+  return [...block.matchAll(/'([^']+)'/g)].map((match) => match[1]);
+};
+const manifestRedirects = () => {
+  const block = publicationManifestSource.match(/export const guideRedirects:[^=]+ = \{([\s\S]*?)\n\};/)?.[1];
+  if (block === undefined) throw new Error('Unable to parse guideRedirects from the publication manifest.');
+  return Object.fromEntries([...block.matchAll(/'([^']+)':\s*'([^']+)'/g)].map((match) => [match[1], match[2]]));
+};
+const englishPillarSlugs = manifestStringArray('englishPillarSlugs');
+const chinesePillarSlugs = manifestStringArray('chinesePillarSlugs');
+const noindexCategorySlugs = manifestStringArray('noindexCategorySlugs');
+const guideRedirects = manifestRedirects();
+const translatedPathsBlock = siteDataSource.match(/export const translatedPaths:[^=]+ = \{([\s\S]*?)\n\};/)?.[1];
+if (!translatedPathsBlock) throw new Error('Unable to parse translatedPaths from site data.');
+const translatedPaths = Object.fromEntries([...translatedPathsBlock.matchAll(/'([^']+)':\s*'([^']+)'/g)].map((match) => [match[1], match[2]]));
+const adsenseHost = 'pagead2.googlesyndication.com';
+const noindexDirective = '<meta name="robots" content="noindex,follow">';
+const releaseNoindexSupportRoutes = [
+  '/privacy-policy/',
+  '/cookie-policy/',
+  '/terms/',
+  '/editorial-policy/',
+  '/affiliate-disclosure/',
+  '/pricing/',
+  '/partners/',
+  '/route-review/',
+  '/products/a1-family-reunion-pack/',
+  '/products/a1-practice-pack/',
+  '/404.html',
+];
 const listFiles = (directory, suffix, result = []) => {
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
     const full = path.join(directory, entry.name);
@@ -52,7 +92,35 @@ if (!fs.existsSync(dist)) {
 
 const files = listFiles(dist, '.html');
 const pages = files.map((file) => ({ file, route: routeFor(file), html: fs.readFileSync(file, 'utf8') }));
-if (pages.length >= 90) pass(`${pages.length} generated HTML routes found.`); else fail(`Only ${pages.length} generated routes found.`);
+const generatedRouteSet = new Set(pages.map(({ route }) => route));
+const chineseToolRoutes = [
+  '/zh/tools/route-finder/',
+  '/zh/tools/checklist-generator/',
+  '/zh/tools/timeline-calculator/',
+  '/zh/tools/exam-comparison/',
+  '/zh/tools/email-reminders/',
+];
+const missingChineseToolRoutes = chineseToolRoutes.filter((route) => !generatedRouteSet.has(route));
+if (generatedRouteSet.size === pages.length && !missingChineseToolRoutes.length) pass(`All ${pages.length} generated HTML routes are unique and include the five Chinese tools.`); else fail(`Generated route set is incomplete or duplicated; missing Chinese tools: ${missingChineseToolRoutes.join(', ') || 'none'}.`);
+
+const sourcePathForGuideRoute = (route) => {
+  const slug = route.split('/').filter(Boolean).at(-1);
+  return path.join(root, 'src', 'content', 'guides', `${slug}.md`);
+};
+const isGeneratedGuideRoute = (route) => route.startsWith('/guides/')
+  && !route.startsWith('/guides/category/')
+  && route !== '/guides/';
+const generatedGuideOwnershipFailures = pages
+  .filter(({ route }) => isGeneratedGuideRoute(route))
+  .filter(({ route }) => {
+    const sourcePath = sourcePathForGuideRoute(route);
+    if (!fs.existsSync(sourcePath)) return true;
+    const source = fs.readFileSync(sourcePath, 'utf8');
+    const slug = route.split('/').filter(Boolean).at(-1);
+    return frontmatterField(source, 'slug') !== slug || Object.hasOwn(guideRedirects, route);
+  })
+  .map(({ route }) => route);
+if (!generatedGuideOwnershipFailures.length) pass('Every generated guide has current source ownership and is not a manifest redirect.'); else fail(`Generated guide ownership failures: ${generatedGuideOwnershipFailures.join(', ')}.`);
 
 const h1Failures = pages.filter(({ html }) => occurrences(html, /<h1(?:\s|>)/g) !== 1).map(({ route }) => route);
 if (!h1Failures.length) pass('Every generated route has exactly one H1.'); else fail(`H1 count failures: ${h1Failures.slice(0, 5).join(', ')}`);
@@ -126,12 +194,17 @@ const clientScripts = fs.readdirSync(path.join(dist, '_astro'))
   .filter((file) => file.endsWith('.js'))
   .map((file) => read(`dist/_astro/${file}`))
   .join('\n');
-if (comparison.includes('id="comparison-form"') && clientScripts.includes('Official exam page') && clientScripts.includes('colSpan=2')) pass('Exam Comparison shares verification prompts and exposes official exam links.'); else fail('Exam Comparison generated bundle repeats or omits its verification contract.');
+if (
+  comparison.includes('id="comparison-form"')
+  && occurrences(clientScripts, /Official exam page/g) === 1
+  && clientScripts.includes('officialUrl')
+  && !clientScripts.includes('colSpan=2')
+) pass('Exam Comparison renders independent product facts and one official link for each product.'); else fail('Exam Comparison generated bundle repeats, merges, or omits its product verification contract.');
 
 const routeFinder = fs.readFileSync(outputFor('/tools/route-finder/'), 'utf8');
 if (routeFinder.includes('href="/tools/" aria-current="location"') && routeFinder.includes('href="/tools/route-finder/" aria-current="page"')) pass('Navigation distinguishes the Tools section from the exact Route Finder page.'); else fail('Navigation aria-current semantics are inconsistent.');
 
-const guidePages = pages.filter(({ route }) => route.startsWith('/guides/') && !route.startsWith('/guides/category/') && route !== '/guides/');
+const guidePages = pages.filter(({ route }) => isGeneratedGuideRoute(route) && fs.existsSync(sourcePathForGuideRoute(route)));
 const guideFailures = guidePages.filter(({ html }) => {
   const types = jsonLdTypes(html);
   const orderedSections = ['id="direct-answer"', 'id="who-this-applies-to"', 'id="key-decisions"', 'id="detailed-explanation"', 'id="what-to-verify-officially"', 'id="common-mistakes"', 'id="next-action"', 'id="official-sources"'];
@@ -171,44 +244,82 @@ const contentStatusFailures = guidePages.filter(({ route, html }) => {
 if (!contentStatusFailures.length) pass('Every guide article header uses the shared contentStatus gate.'); else fail(`Guide content-status failures: ${contentStatusFailures.slice(0, 5).join(', ')}`);
 const italyRequirement = fs.readFileSync(outputFor('/guides/cils-b1-cittadinanza-for-italian-citizenship/'), 'utf8');
 const italyComparison = fs.readFileSync(outputFor('/guides/cils-vs-celi-vs-plida-for-italian-citizenship/'), 'utf8');
+const italyRequirementSource = read('src/content/guides/cils-b1-cittadinanza-for-italian-citizenship.md');
+const italyComparisonSource = read('src/content/guides/cils-vs-celi-vs-plida-for-italian-citizenship.md');
 if (
   italyRequirement.includes('citizenship-basis requirement check')
-  && italyRequirement.includes('<small>Next guide</small><strong>CILS vs CELI vs PLIDA After an Italian Citizenship Requirement Check</strong>')
+  && italyRequirement.includes('href="/guides/cils-vs-celi-vs-plida-for-italian-citizenship/"')
   && italyComparison.includes('certificate comparison record')
+  && frontmatterField(italyRequirementSource, 'decisionStage') === 'requirement'
+  && frontmatterField(italyComparisonSource, 'decisionStage') === 'choice'
+  && frontmatterField(italyComparisonSource, 'comparisonScope') === 'same-route'
+  && !italyRequirement.includes('<small>Next guide</small>')
   && !italyComparison.includes('<small>Next guide</small>')
-) pass('Italy B-4 keeps the authority-first requirement-to-comparison route.'); else fail('Italy B-4 route or task separation is incomplete.');
+) pass('Italy B-4 keeps distinct requirement and comparison tasks while pending pages stay out of next-guide navigation.'); else fail('Italy B-4 route, task separation, or pending-navigation boundary is incomplete.');
 const canadaRequirement = fs.readFileSync(outputFor('/guides/tef-canada-immigration/'), 'utf8');
 const canadaComparison = fs.readFileSync(outputFor('/guides/tcf-canada-vs-tef/'), 'utf8');
+const canadaRequirementSource = read('src/content/guides/tef-canada-immigration.md');
+const canadaComparisonSource = read('src/content/guides/tcf-canada-vs-tef.md');
 if (
   canadaRequirement.includes('programme-first requirement check')
-  && canadaRequirement.includes('<small>Next guide</small><strong>TEF Canada vs TCF Canada After an Express Entry Requirement Check</strong>')
+  && canadaRequirement.includes('href="/guides/tcf-canada-vs-tef/"')
   && canadaComparison.includes('test comparison record')
   && canadaComparison.includes('Raw scores are not interchangeable')
+  && frontmatterField(canadaRequirementSource, 'decisionStage') === 'requirement'
+  && frontmatterField(canadaComparisonSource, 'decisionStage') === 'choice'
+  && frontmatterField(canadaComparisonSource, 'comparisonScope') === 'same-route'
+  && !canadaRequirement.includes('<small>Next guide</small>')
   && !canadaComparison.includes('<small>Next guide</small>')
-) pass('Canada B-5 keeps the IRCC-first requirement-to-comparison route.'); else fail('Canada B-5 route or task separation is incomplete.');
+) pass('Canada B-5 keeps distinct requirement and comparison tasks while pending pages stay out of next-guide navigation.'); else fail('Canada B-5 route, task separation, or pending-navigation boundary is incomplete.');
 if (!home.includes('Official sources last checked') && home.includes('Recently updated')) pass('Homepage keeps recent editing updates separate from source review.'); else fail('Homepage mixes editing and source-review dates.');
 
 const tools = ['/tools/route-finder/', '/tools/checklist-generator/', '/tools/timeline-calculator/', '/tools/exam-comparison/', '/tools/email-reminders/'];
 const toolFailures = tools.filter((route) => !jsonLdTypes(fs.readFileSync(outputFor(route), 'utf8')).has('WebApplication'));
 if (!toolFailures.length) pass('Every real tool page emits WebApplication structured data.'); else fail(`Tool schema failures: ${toolFailures.join(', ')}`);
 
+const toolSourceFiles = ['route-finder', 'checklist-generator', 'timeline-calculator', 'exam-comparison', 'email-reminders']
+  .map((name) => read(`src/pages/tools/${name}.astro`));
+const toolFormSource = read('src/scripts/tool-form.ts');
+const sharedPlanSource = read('src/scripts/plan-state.ts');
+const sharedPlanHtmlFailures = tools.filter((route) => {
+  const html = fs.readFileSync(outputFor(route), 'utf8');
+  return !html.includes('data-plan-save-device') || !html.includes('data-plan-clear') || !html.includes('data-plan-status');
+});
+if (
+  toolSourceFiles.every((source) => source.includes('setupSharedPlan') && source.includes('plan.persist(') && !/persistedNames|controller\.persist\(|requestSubmit\(\)/.test(source))
+  && !/URLSearchParams|location\.search|history\.replaceState|sessionStorage|localStorage/.test(toolFormSource)
+  && sharedPlanSource.includes('sessionStorage')
+  && sharedPlanSource.includes('data-plan-save-device')
+  && sharedPlanSource.includes('localStorage')
+  && sharedPlanSource.includes('history.replaceState')
+  && !sharedPlanHtmlFailures.length
+) pass('All five tools use versioned session-first shared state, explicit 30-day device save, clear controls, and legacy query cleanup without URL result persistence.'); else fail(`Shared plan integration failures: ${sharedPlanHtmlFailures.join(', ') || 'source contract mismatch'}.`);
+
 const reminder = fs.readFileSync(outputFor('/tools/email-reminders/'), 'utf8');
 if (!/type="email"|Email address/.test(reminder) && reminder.includes('Download ICS') && reminder.includes('Restart this tool')) pass('Reminder Planner uses local, copy, print, text, and ICS paths without collecting email.'); else fail('Reminder Planner still has an email or export gap.');
 
+const privacyPolicy = fs.readFileSync(outputFor('/privacy-policy/'), 'utf8');
+const cookiePolicy = fs.readFileSync(outputFor('/cookie-policy/'), 'utf8');
+if ([privacyPolicy, cookiePolicy].every((html) => html.includes('sessionStorage') && html.includes('30 days') && html.includes('Clear shared plan') && html.includes('server'))) pass('Privacy and cookie policies disclose session state, optional 30-day save, clear behavior, URL cleanup limits, and server-log boundaries.'); else fail('Shared-plan privacy disclosure is incomplete.');
+
 const guideIndex = fs.readFileSync(outputFor('/guides/'), 'utf8');
-for (const label of ['Purpose', 'Country', 'Route', 'Exam', 'Level', 'Language', 'Content status', 'Sort by']) {
-  if (!guideIndex.includes(label)) fail(`Guide library is missing ${label}.`);
-}
-if (!checks.some((check) => !check.ok && check.message.startsWith('Guide library'))) pass('Guide library exposes seven filters, sorting, search, result count, and empty state markup.');
-if (guideIndex.includes('<details class="filter-drawer">') && !guideIndex.includes('<details class="filter-drawer" open>') && guideIndex.includes('aria-live="polite"') && guideIndex.includes('data-clear-all')) pass('Guide library keeps advanced filters closed by default and exposes live results plus Clear all.'); else fail('Guide library filter disclosure or feedback controls are incomplete.');
+const guideFilterNames = [...guideIndex.matchAll(/<select name="([^"]+)" data-guide-filter/g)].map((match) => match[1]);
+if (JSON.stringify(guideFilterNames) === JSON.stringify(['purpose', 'stage', 'language'])
+  && guideIndex.includes('name="sort" data-guide-sort')
+  && guideIndex.includes('data-guide-search')
+  && guideIndex.includes('guide-empty-state')) pass('Guide library exposes exactly Purpose, Stage, and Language filters plus sorting, search, and an empty state.'); else fail(`Guide library discovery controls are incorrect: ${guideFilterNames.join(', ') || 'none'}.`);
+if (!guideIndex.includes('filter-drawer')
+  && guideIndex.includes('aria-live="polite"')
+  && guideIndex.includes('data-clear-all')
+  && guideIndex.includes('data-empty-clear-all')) pass('Guide library exposes direct filters, live results, and Clear all recovery in both normal and zero-result states.'); else fail('Guide library direct filters or feedback controls are incomplete.');
 const guideCardBlocks = [...guideIndex.matchAll(/<article class="article-card guide-card">([\s\S]*?)<\/article>/g)].map((match) => match[1]);
 if (guideCardBlocks.length && guideCardBlocks.every((card) => occurrences(card, /<a(?:\s|>)/g) === 1)) pass('Every rendered Guide Card has one primary link.'); else fail('A rendered Guide Card has zero or multiple links.');
 if (
   guideIndex.includes('Recently updated')
   && !guideIndex.includes('Recently verified')
-  && guideIndex.includes('This primary library contains source-reviewed complete and core route guides.')
+  && guideIndex.includes('This library lists source-reviewed route guides. Research pages stay out of this list until their official sources and distinct reader task have been checked.')
   && !guideIndex.includes('CILS B1 Cittadinanza')
-) pass('Guide cards sort by editing date and exclude pending research pages from primary discovery.'); else fail('Guide cards mix editing, source-review, or primary-discovery semantics.');
+) pass('Guide cards sort by editing date and exclude still-being-checked research pages from the main library.'); else fail('Guide cards mix editing, source review, or reader-availability semantics.');
 const guideIndexTypes = jsonLdTypes(guideIndex);
 const categorySchemaFailures = pages.filter(({ route }) => route.startsWith('/guides/category/')).filter(({ html }) => {
   const types = jsonLdTypes(html); return !types.has('CollectionPage') || !types.has('ItemList');
@@ -216,14 +327,40 @@ const categorySchemaFailures = pages.filter(({ route }) => route.startsWith('/gu
 if (guideIndexTypes.has('CollectionPage') && guideIndexTypes.has('ItemList') && !categorySchemaFailures.length) pass('Guide library and all category routes emit CollectionPage and ItemList data.'); else fail(`Guide collection schema gaps: ${categorySchemaFailures.join(', ') || '/guides/'}`);
 
 const a1Hub = fs.readFileSync(outputFor('/germany-family-reunion-a1/'), 'utf8');
-if (jsonLdTypes(a1Hub).has('FAQPage') && occurrences(a1Hub, /<details>/g) >= 2 && occurrences(a1Hub, /class="route-progress__item/g) === 7) pass('Germany A1 route has visible FAQ data and seven route steps.'); else fail('Germany A1 FAQ or seven-step route is incomplete.');
+if (jsonLdTypes(a1Hub).has('FAQPage') && occurrences(a1Hub, /<details>/g) >= 2 && occurrences(a1Hub, /class="route-progress__item/g) === 7) pass('Germany A1 route has visible FAQ data and the seven-pillar route sequence.'); else fail('Germany A1 FAQ or seven-pillar route is incomplete.');
 
 const hreflangPairs = pages.filter(({ route }) => !route.startsWith('/zh')).flatMap(({ route, html }) => [...html.matchAll(/hreflang="zh-CN" href="https:\/\/visalang\.org([^\"]+)"/g)].map((match) => [route, match[1]]));
 const hreflangFailures = hreflangPairs.filter(([en, zh]) => {
   if (!fs.existsSync(outputFor(zh))) return true;
-  return !fs.readFileSync(outputFor(zh), 'utf8').includes(`hreflang="en" href="https://visalang.org${en}"`);
+  const englishHtml = fs.readFileSync(outputFor(en), 'utf8');
+  const chineseHtml = fs.readFileSync(outputFor(zh), 'utf8');
+  return Object.prototype.hasOwnProperty.call(guideRedirects, en)
+    || Object.prototype.hasOwnProperty.call(guideRedirects, zh)
+    || englishHtml.includes(noindexDirective)
+    || chineseHtml.includes(noindexDirective)
+    || !chineseHtml.includes(`hreflang="en" href="https://visalang.org${en}"`);
 });
-if (hreflangPairs.length >= 7 && !hreflangFailures.length) pass(`All ${hreflangPairs.length} English and Chinese hreflang pairs are reciprocal.`); else fail(`hreflang pair failures: ${hreflangFailures.map((pair) => pair.join(' <-> ')).join(', ')}`);
+const expectedHreflangPairs = Object.entries(translatedPaths);
+const sortPairs = (pairs) => pairs.map((pair) => pair.join(' <-> ')).sort();
+const expectedHreflangRoutePairs = new Map(expectedHreflangPairs.flatMap(([englishRoute, chineseRoute]) => [
+  [englishRoute, [englishRoute, chineseRoute]],
+  [chineseRoute, [englishRoute, chineseRoute]],
+]));
+const exactHreflangRouteFailures = pages.filter(({ route, html }) => {
+  const alternates = [...html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)]
+    .map((match) => `${match[1]}=${match[2]}`)
+    .sort();
+  const pair = expectedHreflangRoutePairs.get(route);
+  if (!pair) return alternates.length > 0;
+  const [englishRoute, chineseRoute] = pair;
+  const expected = [
+    `en=https://visalang.org${englishRoute}`,
+    `x-default=https://visalang.org${englishRoute}`,
+    `zh-CN=https://visalang.org${chineseRoute}`,
+  ].sort();
+  return JSON.stringify(alternates) !== JSON.stringify(expected);
+}).map(({ route }) => route);
+if (JSON.stringify(sortPairs(hreflangPairs)) === JSON.stringify(sortPairs(expectedHreflangPairs)) && !hreflangFailures.length && !exactHreflangRouteFailures.length) pass('Every declared equivalent page pair is reciprocal, indexable, and the only route set emitting hreflang.'); else fail(`Expected the exact ${expectedHreflangPairs.length} reciprocal hreflang pairs; found ${sortPairs(hreflangPairs).join(', ') || 'none'}. Route failures: ${exactHreflangRouteFailures.join(', ') || 'none'}. Pair failures: ${hreflangFailures.map((pair) => pair.join(' <-> ')).join(', ') || 'set mismatch'}`);
 
 const internalFailures = [];
 for (const page of pages) {
@@ -242,98 +379,95 @@ for (const page of pages) {
 if (!internalFailures.length) pass('All generated internal route links resolve.'); else fail(`Broken internal links: ${internalFailures.slice(0, 8).join(', ')}`);
 
 const sitemap = read('dist/sitemap-0.xml');
-const advertisingFreeRoutes = [
-  '/404.html',
-  '/privacy-policy/',
-  '/cookie-policy/',
-  '/terms/',
-  '/editorial-policy/',
-  '/affiliate-disclosure/',
-  '/pricing/',
-  '/partners/',
-  '/route-review/',
-  '/products/a1-family-reunion-pack/',
-  '/products/a1-practice-pack/',
-  '/guides/category/uk/',
-  '/guides/category/canada/',
-  '/guides/category/italy/',
-  '/guides/category/spain/',
-  '/guides/category/france/',
-  '/guides/category/finland/',
-  '/guides/category/netherlands/',
-  '/guides/category/portugal/',
-  '/guides/category/germany-testdaf/',
-  '/guides/category/germany-telc/',
-  '/guides/cils-b1-cittadinanza-for-italian-citizenship/',
-  '/guides/cils-vs-celi-vs-plida-for-italian-citizenship/',
-  '/guides/testdaf-germany-university-admissions/',
-  '/guides/telc-b1-b2-fees-and-test-centers/',
-];
-const advertisingRiskFailures = advertisingFreeRoutes.filter((route) => read(path.relative(root, outputFor(route))).includes('pagead2.googlesyndication.com'));
-if (!advertisingRiskFailures.length) pass('404, noindex, commercial-placeholder, and thin country category routes exclude the AdSense runtime.'); else fail(`AdSense risk-route failures: ${advertisingRiskFailures.join(', ')}`);
+const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+const noindexPages = pages.filter(({ html }) => html.includes(noindexDirective));
+const advertisingPages = pages.filter(({ html }) => html.includes(adsenseHost));
+const englishPillarRoutes = englishPillarSlugs.map((slug) => `/guides/${slug}/`);
+const chinesePillarRoutes = chinesePillarSlugs.map((slug) => `/zh/guides/${slug}/`);
+const expectedAdvertisingRoutes = englishPillarRoutes.filter((route) => {
+  const source = fs.readFileSync(sourcePathForGuideRoute(route), 'utf8');
+  return frontmatterField(source, 'adsEligible') !== 'false';
+}).sort();
 
-const commercialPlaceholderRoutes = [
-  '/pricing/',
-  '/partners/',
-  '/route-review/',
-  '/products/a1-family-reunion-pack/',
-  '/products/a1-practice-pack/',
-];
-const commercialIndexFailures = commercialPlaceholderRoutes.filter((route) => {
-  const html = read(path.relative(root, outputFor(route)));
-  return !html.includes('<meta name="robots" content="noindex,follow">') || sitemap.includes(`<loc>https://visalang.org${route}</loc>`);
-});
-if (!commercialIndexFailures.length) pass('All five commercial placeholder routes are noindex and excluded from the sitemap.'); else fail(`Commercial placeholder index failures: ${commercialIndexFailures.join(', ')}`);
+if (englishPillarSlugs.length === 15 && chinesePillarSlugs.length === 5 && noindexCategorySlugs.length === 12 && Object.keys(guideRedirects).length === 0) {
+  pass('Publication manifest supplies the exact 15 English pillars, 5 Chinese pillars, 12 closed categories, and zero active candidate redirects.');
+} else {
+  fail(`Publication manifest count mismatch: English ${englishPillarSlugs.length}, Chinese ${chinesePillarSlugs.length}, categories ${noindexCategorySlugs.length}, redirects ${Object.keys(guideRedirects).length}.`);
+}
 
-const guideDiscoveryFailures = guidePages.filter(({ route, html }) => {
-  const slug = route.split('/').filter(Boolean).at(-1);
-  const source = read(`src/content/guides/${slug}.md`);
-  const status = frontmatterField(source, 'contentStatus');
-  const sourceReviewStatus = frontmatterField(source, 'sourceReviewStatus') || 'pending';
-  const explicitlyNoindex = frontmatterField(source, 'noindex') === 'true';
-  const explicitlyAdsIneligible = frontmatterField(source, 'adsEligible') === 'false';
-  const primaryDiscoveryEligible = sourceReviewStatus === 'reviewed'
-    && (status === 'complete-route' || status === 'core-route')
-    && !explicitlyNoindex;
-  const advertisingEligible = primaryDiscoveryEligible && !explicitlyAdsIneligible;
-  const hasNoindex = html.includes('<meta name="robots" content="noindex,follow">');
-  const hasAds = html.includes('pagead2.googlesyndication.com');
-  const inSitemap = sitemap.includes(`<loc>https://visalang.org${route}</loc>`);
-  const discoveryFailure = primaryDiscoveryEligible
-    ? hasNoindex || !inSitemap
-    : !hasNoindex || inSitemap;
-  const advertisingFailure = advertisingEligible ? !hasAds : hasAds;
-  return discoveryFailure || advertisingFailure;
+const missingChineseToolSitemapUrls = chineseToolRoutes.filter((route) => !sitemapUrls.includes(`https://visalang.org${route}`));
+if (new Set(sitemapUrls).size === sitemapUrls.length && !missingChineseToolSitemapUrls.length) pass(`All ${sitemapUrls.length} sitemap URLs are unique and include the five indexable Chinese tools.`); else fail(`Sitemap is duplicated or missing Chinese tools: ${missingChineseToolSitemapUrls.join(', ') || 'none'}.`);
+if (noindexPages.length === 65) pass('Exactly 65 generated pages are noindex.'); else fail(`Expected 65 noindex pages; found ${noindexPages.length}.`);
+if (advertisingPages.length === 14 && JSON.stringify(advertisingPages.map(({ route }) => route).sort()) === JSON.stringify(expectedAdvertisingRoutes)) {
+  pass('Only the 14 advertising-eligible English pillars load AdSense.');
+} else {
+  fail(`AdSense allowlist mismatch: ${advertisingPages.map(({ route }) => route).sort().join(', ') || 'no advertising pages'}.`);
+}
+
+const sitemapPolicyFailures = pages.filter(({ route, html }) => {
+  const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
+  if (!canonical) return route !== '/404.html';
+  const shouldBeIndexed = !html.includes(noindexDirective);
+  return sitemapUrls.includes(canonical) !== shouldBeIndexed;
 }).map(({ route }) => route);
-const guideTaxonomySource = read('src/data/guide-taxonomy.ts');
-const explicitlyNoindexCategorySlugs = new Set(
-  [...guideTaxonomySource.matchAll(/\{[^{}]*slug: '([^']+)'[^{}]*noindex: true[^{}]*\}/g)].map((match) => match[1])
-);
-const categoryDiscoveryFailures = pages.filter(({ route }) => route.startsWith('/guides/category/')).filter(({ route, html }) => {
-  const categorySlug = route.split('/').filter(Boolean).at(-1);
-  const hasEligibleGuide = guidePages.some(({ route: guideRoute }) => {
-    const slug = guideRoute.split('/').filter(Boolean).at(-1);
-    const source = read(`src/content/guides/${slug}.md`);
-    const category = frontmatterField(source, 'category');
-    const status = frontmatterField(source, 'contentStatus');
-    const sourceReviewStatus = frontmatterField(source, 'sourceReviewStatus') || 'pending';
-    const explicitlyNoindex = frontmatterField(source, 'noindex') === 'true';
-    return route === `/guides/category/${category}/`
-      && sourceReviewStatus === 'reviewed'
-      && (status === 'complete-route' || status === 'core-route')
-      && !explicitlyNoindex;
-  });
-  const hasNoindex = html.includes('<meta name="robots" content="noindex,follow">');
-  const hasAds = html.includes('pagead2.googlesyndication.com');
-  const inSitemap = sitemap.includes(`<loc>https://visalang.org${route}</loc>`);
-  const eligible = hasEligibleGuide && !explicitlyNoindexCategorySlugs.has(categorySlug);
-  return eligible ? hasNoindex || hasAds || !inSitemap : !hasNoindex || hasAds || inSitemap;
-});
-if (!guideDiscoveryFailures.length && !categoryDiscoveryFailures.length) pass('All guide and category routes follow the fail-closed discovery, sitemap, and advertising gate.'); else fail(`Discovery-policy failures: ${[...guideDiscoveryFailures, ...categoryDiscoveryFailures].slice(0, 8).join(', ')}`);
+if (!sitemapPolicyFailures.length) pass('Sitemap membership exactly matches rendered indexability.'); else fail(`Sitemap/indexability mismatches: ${sitemapPolicyFailures.slice(0, 8).join(', ')}.`);
 
-const germanyCategoryRoute = '/guides/category/germany-a1/';
-const germanyCategoryHtml = read(path.relative(root, outputFor(germanyCategoryRoute)));
-if (!germanyCategoryHtml.includes('<meta name="robots" content="noindex,follow">') && sitemap.includes(`<loc>https://visalang.org${germanyCategoryRoute}</loc>`)) pass('Germany A1 category remains indexable and in the sitemap.'); else fail('Germany A1 category index policy was changed unexpectedly.');
+const pillarFailures = [...englishPillarRoutes, ...chinesePillarRoutes].filter((route) => {
+  if (!fs.existsSync(outputFor(route))) return true;
+  const html = fs.readFileSync(outputFor(route), 'utf8');
+  const shouldAdvertise = expectedAdvertisingRoutes.includes(route);
+  return html.includes(noindexDirective)
+    || !sitemapUrls.includes(`https://visalang.org${route}`)
+    || html.includes(adsenseHost) !== shouldAdvertise;
+});
+if (!pillarFailures.length) pass('All 20 manifest pillars are indexable, in the sitemap, and follow their advertising policies.'); else fail(`Pillar publication failures: ${pillarFailures.slice(0, 8).join(', ')}.`);
+
+const pendingGuidePages = guidePages.filter(({ route }) => !englishPillarRoutes.includes(route));
+const pendingGuideFailures = pendingGuidePages.filter(({ route, html }) => html.includes(noindexDirective) === false
+  || html.includes(adsenseHost)
+  || sitemapUrls.includes(`https://visalang.org${route}`)).map(({ route }) => route);
+if (pendingGuidePages.length === 38 && !pendingGuideFailures.length) pass('Exactly 38 non-pillar English guides are noindex, advertising-free, and outside the sitemap.'); else fail(`Pending English guide gate mismatch: found ${pendingGuidePages.length}; failures ${pendingGuideFailures.slice(0, 8).join(', ') || 'count mismatch'}.`);
+
+const categoryRoutes = noindexCategorySlugs.map((slug) => `/guides/category/${slug}/`);
+const renderedCategoryRoutes = pages.filter(({ route }) => route.startsWith('/guides/category/')).map(({ route }) => route).sort();
+const categoryFailures = categoryRoutes.filter((route) => {
+  if (!fs.existsSync(outputFor(route))) return true;
+  const html = fs.readFileSync(outputFor(route), 'utf8');
+  return !html.includes(noindexDirective) || html.includes(adsenseHost) || sitemapUrls.includes(`https://visalang.org${route}`);
+});
+if (JSON.stringify(renderedCategoryRoutes) === JSON.stringify([...categoryRoutes].sort()) && !categoryFailures.length) pass('Exactly 12 manifest categories are noindex, advertising-free, and outside the sitemap.'); else fail(`Closed category failures: ${categoryFailures.join(', ') || 'rendered category set differs from manifest'}.`);
+
+const supportFailures = releaseNoindexSupportRoutes.filter((route) => {
+  if (!fs.existsSync(outputFor(route))) return true;
+  const html = fs.readFileSync(outputFor(route), 'utf8');
+  return !html.includes(noindexDirective) || html.includes(adsenseHost) || sitemapUrls.includes(`https://visalang.org${route}`);
+});
+if (releaseNoindexSupportRoutes.length === 11 && !supportFailures.length) pass('Exactly 11 policy, placeholder, and error routes are noindex, advertising-free, and outside the sitemap.'); else fail(`Policy/placeholder/error failures: ${supportFailures.join(', ') || 'count mismatch'}.`);
+
+const indexableNonPillarPages = pages.filter(({ route, html }) => !html.includes(noindexDirective)
+  && !englishPillarRoutes.includes(route)
+  && !chinesePillarRoutes.includes(route));
+const expectedIndexableNonPillarRoutes = [
+  '/',
+  '/about/',
+  '/contact/',
+  '/exams/',
+  '/germany-b1-settlement-citizenship/',
+  '/germany-family-reunion-a1/',
+  '/guides/',
+  '/routes/',
+  '/tools/',
+  '/tools/checklist-generator/',
+  '/tools/email-reminders/',
+  '/tools/exam-comparison/',
+  '/tools/route-finder/',
+  '/tools/timeline-calculator/',
+  '/zh/',
+  '/zh/germany-family-reunion-a1/',
+  ...chineseToolRoutes,
+].sort();
+const actualIndexableNonPillarRoutes = indexableNonPillarPages.map(({ route }) => route).sort();
+if (JSON.stringify(actualIndexableNonPillarRoutes) === JSON.stringify(expectedIndexableNonPillarRoutes)) pass('The exact non-pillar home, hub, directory, tool, trust, and Chinese-tool route set is indexable.'); else fail(`Indexable non-pillar route mismatch: ${actualIndexableNonPillarRoutes.join(', ') || 'none'}.`);
 
 const netherlandsWindowBRoutes = [
   '/guides/dutch-inburgering-a2-b1-for-integration-and-citizenship/',
@@ -374,7 +508,37 @@ if (
   && redirects.includes('/guides/yki-vs-other-finland-options/ /guides/yki-finnish-citizenship/ 301')
   && redirects.includes('/guides/yki-vs-other-finland-options.html /guides/yki-finnish-citizenship/ 301')
   && redirects.includes('/guides/:slug.html /guides/:slug/ 301')
-) pass('Legacy static helpers and retired guide URLs have direct 301 redirects.'); else fail('Legacy redirects are incomplete.');
+) pass('The generated redirect artifact includes the established compatibility declarations.'); else fail('Established compatibility declarations are incomplete in the generated redirect artifact.');
+
+// The September 11 map is historical evidence; current retained decisions are separate.
+const retained = JSON.parse(read('deploy/retained-routes.json'));
+const retainedErrors = [];
+const historicalPaths = migrationCandidateMap.records.map(r => r.sourceUrl).sort();
+const retainedPaths = retained.records.map(r => r.path).sort();
+if (JSON.stringify(retainedPaths) !== JSON.stringify(historicalPaths)) retainedErrors.push('retained register must cover the exact 17 historical paths');
+if (!fs.existsSync(path.join(root, retained.ownerDecisionRef))) retainedErrors.push('missing Owner decision');
+for (const record of retained.records) {
+  if (record.disposition !== 'RETAIN' || record.index !== false || record.sitemap !== false || record.ads !== false) retainedErrors.push(`${record.path}: invalid retained policy`);
+  if (!fs.existsSync(path.join(root, record.sourcePath)) || !fs.existsSync(outputFor(record.path))) { retainedErrors.push(`${record.path}: missing source or output`); continue; }
+  const html = fs.readFileSync(outputFor(record.path), 'utf8');
+  if (record.canonical !== `https://visalang.org${record.path}` || !html.includes(`rel="canonical" href="${record.canonical}"`)) retainedErrors.push(`${record.path}: canonical mismatch`);
+  if (!html.includes(noindexDirective) || html.includes(adsenseHost) || sitemapUrls.includes(record.canonical)) retainedErrors.push(`${record.path}: publication policy mismatch`);
+  if (Object.hasOwn(guideRedirects, record.path) || redirects.split(/\r?\n/).some(line => line.trim().split(/\s+/)[0] === record.path)) retainedErrors.push(`${record.path}: active redirect conflict`);
+  if (!fs.existsSync(path.join(root, record.sourceLedger))) retainedErrors.push(`${record.path}: missing source review`);
+}
+if (retainedErrors.length) fail(`T23 retained-route failures: ${retainedErrors.join('; ')}`);
+else pass('T23 local retention checks pass for all 17 historical URLs; production HTTP and indexing remain unverified.');
+
+const redirectSourceSet = new Set(Object.keys(guideRedirects));
+const staleRedirectLinks = [];
+for (const page of pages) {
+  for (const match of page.html.matchAll(/href="([^"]+)"/g)) {
+    const rawHref = match[1].split('#')[0].split('?')[0];
+    const href = rawHref.startsWith('https://visalang.org/') ? rawHref.slice('https://visalang.org'.length) : rawHref;
+    if (redirectSourceSet.has(href)) staleRedirectLinks.push(`${page.route} -> ${href}`);
+  }
+}
+if (!staleRedirectLinks.length) pass('Generated internal links, canonicals, and hreflang do not point to a redirect-declared candidate source URL.'); else fail(`Redirect-candidate source links remain: ${staleRedirectLinks.slice(0, 8).join(', ')}.`);
 
 const css = read('dist/_astro/' + fs.readdirSync(path.join(dist, '_astro')).find((file) => file.endsWith('.css')));
 if (css.includes('prefers-reduced-motion') && css.includes('overflow-x:auto') && css.includes('min-height:44px')) pass('Built CSS includes reduced-motion, overflow, and target-size protections.'); else fail('Built accessibility or responsive CSS protections are incomplete.');
@@ -382,6 +546,9 @@ if (css.includes('prefers-reduced-motion') && css.includes('overflow-x:auto') &&
 const errors = checks.filter((check) => !check.ok);
 console.log('\n=== VisaLang Launch Readiness ===\n');
 for (const check of checks) console.log(`  ${check.ok ? '✓' : '✗'} ${check.message}`);
-console.log(`\n--- Summary ---\n  Pass: ${checks.length - errors.length}\n  Fail: ${errors.length}`);
-console.log(errors.length ? '\n  NOT READY.' : '\n  READY.');
-process.exit(errors.length ? 1 : 0);
+for (const message of blockers) console.log(`  ⚠ ${message}`);
+console.log(`\n--- Summary ---\n  Pass: ${checks.length - errors.length}\n  Fail: ${errors.length}\n  Blocked: ${blockers.length}`);
+if (errors.length) console.log('\n  NOT READY.');
+else if (blockers.length) console.log('\n  BLOCKED.');
+else console.log('\n  LOCAL CANDIDATE CHECKS PASSED; production evidence is separate.');
+process.exit(errors.length || blockers.length ? 1 : 0);

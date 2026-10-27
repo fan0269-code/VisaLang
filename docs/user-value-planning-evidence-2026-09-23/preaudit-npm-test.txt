@@ -1,0 +1,120 @@
+
+> test
+> node tests/site.test.js
+
+commercial page rules passed
+AdSense risk-exposure rules passed
+Germany A1 seven-pillar source and content rules passed
+FAN-42 Germany A1 requirement review contract passed
+FAN-73 guide trust and interaction contract passed
+FAN-75 CSS cascade assertions passed.
+Germany B1 pillar rules passed
+Germany TestDaF cluster rules passed
+P0 five-country source status and route rules passed
+Finland window B consolidation rules passed
+Italy window B remediation rules passed
+Canada window B remediation rules passed
+Netherlands window B remediation rules passed
+FAN-34 telc first-slice contract passed
+FAN-37 telc format and preparation contract passed
+FAN-38 telc fees and test centres contract passed
+FAN-39 telc work and nursing contract passed
+FAN-43 Germany B1 source recheck contract passed
+node:assert:883
+    throw err;
+    ^
+
+AssertionError [ERR_ASSERTION]: the content ledger records the completed Spain wording acceptance
+    at Object.<anonymous> (/Users/a1-6/Documents/2.codex/1.visalang.org/tests/content-integrity.test.js:383:8)
+    at Module._compile (node:internal/modules/cjs/loader:1781:14)
+    at Object..js (node:internal/modules/cjs/loader:1913:10)
+    at Module.load (node:internal/modules/cjs/loader:1505:32)
+    at Function._load (node:internal/modules/cjs/loader:1309:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)
+    at Module.require (node:internal/modules/cjs/loader:1527:12)
+    at require (node:internal/modules/helpers:147:16)
+    at Object.<anonymous> (/Users/a1-6/Documents/2.codex/1.visalang.org/tests/site.test.js:24:1)
+    at Module._compile (node:internal/modules/cjs/loader:1781:14) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: '# VisaLang Content Execution Ledger\n' +
+    '\n' +
+    '<!-- SCHEME-3-CURRENT-START -->\n' +
+    '## Current Scheme 3 publication map\n' +
+    '\n' +
+    'Updated: 2026-09-22; M3 final serial verification recorded in the M4 execution evidence; current M4 review state is recorded separately below.\n' +
+    'Authority: historical publication baseline `docs/VISALANG_ONE_WEEK_SCHEME_3_CONTENT_PLAN_2026-09-01.md`, reconciled for the current local batch by `docs/master-package-2026-09-08/VisaLang-Master-Plan.md`\n' +
+    'Code source of truth: `src/data/publication-manifest.ts`\n' +
+    '\n' +
+    'The 2026-09-22 local source candidate has 15 English pillars, 5 Chinese pillars, 38 non-pillar English guides, 12 noindex categories and 17 retained supporting URLs. Current generated output: 105 pages, 41 sitemap URLs, 64 noindex pages and 14 ad-enabled pages. Historical M2-A output was 83 pages / 36 sitemap / 47 noindex; historical M3 output was 88 / 41 / 47. Those earlier reviews do not certify this new candidate. Advertising remains allowlisted for 14 English pillars; retained supporting URLs and the fee guide remain ad-free. Production URL observations are inconclusive (403/timeouts). Current review authority: `docs/planning-map/VISALANG_PRODUCTION_CANDIDATE_INDEPENDENT_AUDIT_2026-09-22.md`; no production release is authorized.\n' +
+    '\n' +
+    "The 38 non-pillar English guides comprise 24 other support guides (23 Scheme 3 support guides plus the restored English C07 existing-certificate page) and 14 English supporting guides restored on September 22. C07 remains directly reachable, self-canonical, `noindex,follow`, ad-free and outside primary discovery. The English C01 is general orientation while the Chinese C01 is China-application-location-specific, so that non-equivalent pair intentionally has no reciprocal hreflang. The other four equivalent English/Chinese guide pairs remain among the M3 candidate's 11 genuine reciprocal hreflang pairs.\n" +
+    '\n' +
+    '### M3 T20–T23 local implementation-review outcome\n' +
+    '\n' +
+    '- T19 remains `in_progress`: local ICS generation and the downloaded bytes are verified, but a real calendar-client import is unauthorized and `not_tested`.\n' +
+    '- T20 is `completed` at the local implementation-review gate after the same Independent Auditor returned round-3 `PASS` with no P0/P1/P2 findings. Five Chinese tool routes reuse shared facts and calculations, and eight historical Chinese A1 tasks reconcile to five maintained guide routes, with three preserved as absorbed task modules.\n' +
+    '- T21 is `completed` at the local implementation-review gate under that same `PASS`. Guide discovery uses four explicit purposes (`family`, `settlement`, `citizenship`, and `preparation`) and exactly three public filter facets (Purpose, Stage, and Language). The exam directory retains 31 records: the two exact registry-backed A1 products are supported and prioritized, while the other 29 are reference-only.\n' +
+    '- T22 is `completed` at the local implementation-review gate under that same `PASS`: the source-generated/local-preview output is 88 pages / 41 sitemap / 47 noindex / 14 ad-eligible, and the equivalence registry emits 11 genuine reciprocal hreflang pairs. Production HTTP remains `not_observed`, so this status is not deployment or live-index evidence.\n' +
+    '- T23 is `in_progress`: the Owner-authorized local candidate retains all 17 original paths. `deploy/retained-routes.json` and the September 22 evidence supersede active migration candidates; production installation and public HTTP/index state remain unverified.\n' +
+    '\n' +
+    '### M4 T24–T26 current content contract\n' +
+    '\n' +
+    'The M3 directory count above is its historical outcome. M4 preserves all 31 entries and now configures four exact adult products (Goethe/telc A1 and B1), leaving 27 reference-only entries. B1 comparison uses independent product evidence and does not extend the A1 immigration checklist. Eight maintained B1 pillars and their hub retain their URLs and publication policy.\n' +
+    '\n' +
+    'T24 separates the general settlement, skilled-worker settlement, EU Blue Card settlement and naturalisation statutory routes, with distinct language, knowledge, wider-condition and competent-authority actions. T25 compares the two exact adult B1 products and gives local booking/quote worksheets. T26 adds diagnosis/retest and weekly records plus original writing/speaking revisions, transfer tasks and self-checks. German examples received a separate AI editorial language review; they have no official score or human examiner endorsement.\n' +
+    '\n' +
+    'The M4 source ledgers and independent task reviews are dated 2026-09-13. The exact final whole-window verdict and verification boundaries are recorded in `docs/planning-map/VISALANG_M4_INDEPENDENT_AUDIT_2026-09-13.md` and `docs/VISALANG_M4_T24_T26_EXECUTION_EVIDENCE_2026-09-13.md`; a candidate is complete only if that audit returns PASS. T19 remains partial; T23 is now in_progress under the September 22 retention decision, with production verification still open. Release/Owner decisions stay separate.\n' +
+    '\n' +
+    '### English pillars\n' +
+    '\n' +
+    '| Route | Primary task |\n' +
+    '| --- | --- |\n' +
+    '| `german-family-reunion-language-requirement` | Decide whether A1 may apply and record the competent authority. |\n' +
+    '| `goethe-a1-vs-telc-a1` | Compare exact A1 products only after route acceptance is confirmed. |\n' +
+    '| `goethe-a1-test-centers` | Verify an official centre and its current local terms before payment. |\n' +
+    '| `goethe-a1-fees-by-country` | Compare four scoped Germany/Beijing 2026 fee records without converting currencies or inferring availability. |\n' +
+    '| `german-a1-exam-booking-timeline` | Build a reverse timeline from confirmed dates and an explicit unknown-date branch. |\n' +
+    '| `german-a1-documents-checklist` | Separate registration, exam-day and application-submission evidence. |\n' +
+    '| `goethe-a1-30-day-study-plan` | Run a diagnostic-led 30-day practice and error-review system. |\n' +
+    '| `goethe-b1-germany-settlement-work` | Identify the settlement route and responsible local authority before using B1. |\n' +
+    "| `germany-b1-citizenship-language-proof` | Record the citizenship authority's accepted language-evidence path. |\n" +
+    '| `germany-b1-leben-in-deutschland-and-language-proof` | Keep language and civic-knowledge evidence as separate decisions. |\n' +
+    '| `goethe-b1-vs-telc-b1` | Compare exact adult Goethe-Zertifikat B1 and Zertifikat Deutsch / telc Deutsch B1 products; distinguish DTZ without implying tool support. |\n' +
+    '| `goethe-b1-fees-and-booking` | Capture dated centre, fee, ID and cancellation evidence before booking. |\n' +
+    '| `germany-b1-settlement-citizenship-timeline` | Reverse-plan application, test, result and evidence nodes without invented durations. |\n' +
+    '| `germany-b1-settlement-citizenship-checklist` | Audit route evidence, missing items and versions before submission. |\n' +
+    '| `goethe-b1-study-plan` | Fill diagnosis, weekly and retest records; use original writing and speaking revision exercises without official scoring or outcome promises. |\n' +
+    '\n' +
+    'Official-claim boundaries and update triggers are recorded in `docs/VISALANG_SCHEME_3_A1_CLAIM_SOURCE_LEDGER_2026-09-01.md`, `docs/VISALANG_SCHEME_3_B1_CLAIM_SOURCE_LEDGER_2026-09-01.md` and the M2-A evidence record `docs/VISALANG_M2A_T10_T14_EXECUTION_EVIDENCE_2026-09-09.md`. The 2026-09-01 B1 ledger is historical; materially revised M4 content uses `docs/VISALANG_M4_T24_SOURCE_LEDGER_2026-09-13.md`, `docs/VISALANG_M4_T25_SOURCE_LEDGER_2026-09-13.md` and `docs/VISALANG_M4_T26_SOURCE_LEDGER_2026-09-13.md`.\n' +
+    '\n' +
+    '### M2-A T10–T14 content and shared-tool contracts\n' +
+    '\n' +
+    '- Exact-product comparison uses the versioned Goethe-Zertifikat A1: Start Deutsch 1 and Start Deutsch 1 / telc Deutsch A1 records. Each product owns its format, duration, scoring and whole/partial-sitting facts; the receiving authority owns route acceptance and the selected centre owns current local execution.\n' +
+    '- The configured Germany family-reunion A1 checklist is a five-stage language-proof working list with stable atomic IDs, explicit owners, source routes and done-when evidence. It is not a complete or universal visa-document checklist.\n' +
+    '- Local fee evidence is limited to the Goethe-Institut Germany 2026 official price page/national-network price page and the named Goethe-Institut Beijing 2026 registration page. Four category records remain in EUR or CNY without conversion; centre routes do not imply a live session, seat, checkout amount or individual category eligibility. Unknown fee fallback output explicitly carries status, owner, action and boundary.\n' +
+    '- Timeline planning uses calendar days and the formulas `D - W - P` and `D - W - P - R`. Every buffer is an explicit user assumption or locally confirmed input, and neither output is an official deadline, real retake path or outcome promise.\n' +
+    '- Shared-plan state is browser-local continuity, not a personal eligibility result, remote account, email service or application record. It defaults to session storage, uses local storage only after an explicit 30-day save, validates stable IDs and current rule/claim versions, and keeps `zh-CN` locale separate from `applicationRegionId`; Chinese UI language never selects China or Beijing as the application region.\n' +
+    '\n' +
+    '### Chinese pillars\n' +
+    '\n' +
+    'The Chinese pages are China-specific editorial routes, not literal translations. Their five slugs are:\n' +
+    '\n' +
+    '- `german-family-reunion-language-requirement`\n' +
+    '- `goethe-a1-vs-telc-a1`\n' +
+    '- `goethe-a1-test-centers`\n' +
+    '- `german-a1-exam-booking-timeline`\n' +
+    '- `goethe-a1-30-day-study-plan`\n' +
+    '\n' +
+    "Each page uses German missions in China, the exam owner's China site or a selected official/authorised centre as appropriate. Its claim boundaries, update triggers and Chinese enquiry-template evidence are recorded in `docs/VISALANG_SCHEME_3_ZH_CLAIM_SOURCE_LEDGER_2026-09-01.md`.\n" +
+    '\n' +
+    '### Closed and merged surfaces\n' +
+    '\n' +
+    '- The 24 non-pillar English guides outside the 14 restored English supporting pages remain directly reachable, noindex, ad-free and absent from discovery and the sitemap: 23 Scheme 3 support guides plus the restored C07 review surface.\n' +
+    '- Categories `germany-a1`, `germany-b1`, `germany-testdaf`, `germany-telc`, `uk`, `canada`, `italy`, `spain`, `france`, `finland`, `netherlands` and '... 2562 more characters,
+  expected: /Project-owner wording acceptance completed on 2026-07-19/i,
+  operator: 'match',
+  diff: 'simple'
+}
+
+Node.js v22.23.2

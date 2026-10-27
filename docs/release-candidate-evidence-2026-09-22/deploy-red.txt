@@ -1,0 +1,14 @@
+Fss
+======================================================================
+FAIL: test_release_manager_exists (test_release.ReleaseTests.test_release_manager_exists)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/a1-6/Documents/2.codex/1.visalang.org/deploy/tests/test_release.py", line 10, in test_release_manager_exists
+    self.assertTrue(Path(spec.origin).exists(), 'transactional release manager must exist')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : transactional release manager must exist
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+FAILED (failures=1, skipped=2)

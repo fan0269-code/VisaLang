@@ -1,0 +1,2 @@
+Minimal diff reconstructed by reversing only the recorded T28 patch. Reconstructed baseline SHA-256 matches the before-window baseline-hashes.json: 09997e41fe7f449501004f19416d4dcf0e792a1fadbd43a7d693d149b72c074f
+No historical source changes are attributed to T28.

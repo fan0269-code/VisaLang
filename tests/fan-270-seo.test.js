@@ -1,6 +1,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const { englishPillarSlugs } = require('../src/data/publication-manifest.ts');
 
 const read = (file) => fs.readFileSync(file, 'utf8');
 const baseLayout = read('src/layouts/BaseLayout.astro');
@@ -30,14 +31,20 @@ assert.ok(baseLayout.includes('providedOgImage ? undefined : 1200') && baseLayou
 assert.ok(baseLayout.includes('{ogImageAlt && <meta') && baseLayout.includes('{ogImageWidth && <meta') && baseLayout.includes('{ogImageHeight && <meta'), 'optional custom-image metadata renders only when accurate values are available');
 
 const guideFiles = fs.readdirSync('src/content/guides').filter((file) => file.endsWith('.md'));
-const seoTitles = guideFiles.flatMap((file) => {
+const guideTitleRecords = guideFiles.map((file) => {
   const source = read(path.join('src/content/guides', file));
-  const value = source.match(/^seoTitle:\s*["']([^"']+)["']/m)?.[1];
-  return value ? [{ file, value }] : [];
+  return {
+    file,
+    slug: source.match(/^slug:\s*["']([^"']+)["']/m)?.[1] || '',
+    title: source.match(/^title:\s*["']([^"']+)["']/m)?.[1] || '',
+    seoTitle: source.match(/^seoTitle:\s*["']([^"']+)["']/m)?.[1] || '',
+  };
 });
-assert.ok(seoTitles.length >= 16, 'the long indexable guide titles have dedicated SEO titles');
-for (const { file, value } of seoTitles) {
-  assert.ok(value.length <= 49, `${file} keeps seoTitle within 49 characters before the brand suffix`);
+const pillarTitleRecords = guideTitleRecords.filter(({ slug }) => englishPillarSlugs.includes(slug));
+assert.equal(pillarTitleRecords.length, 15, 'SEO checks cover every indexable English pillar');
+for (const { file, title, seoTitle } of pillarTitleRecords) {
+  if (title.length > 49) assert.ok(seoTitle, `${file} gives its long indexable title a dedicated SEO title`);
+  assert.ok((seoTitle || title).length <= 49, `${file} keeps its selected SEO title within 49 characters before the brand suffix`);
 }
 
 const png = fs.readFileSync('public/images/og-default.png');

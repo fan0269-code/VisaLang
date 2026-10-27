@@ -1,0 +1,51 @@
+{
+  "initial-main": {
+    "exit": "terminated",
+    "reason": "Hidden navigation locator; initial evidence retained"
+  },
+  "initial-extra": {
+    "exitCode": 0,
+    "scenarioPass": 4,
+    "scenarioFail": 2
+  },
+  "stale-results-red": {
+    "exitCode": 1,
+    "cases": 6,
+    "hiddenFalse": 6
+  },
+  "fix-build": {
+    "exitCode": 0
+  },
+  "stale-results-green": {
+    "exitCode": 0,
+    "cases": 6
+  },
+  "main-final": {
+    "exitCode": 0,
+    "scenarioPass": 50,
+    "scenarioFail": 2,
+    "boundary": "runner records individual statuses, exit 0 is not all-scenarios-pass"
+  },
+  "extra-final": {
+    "exitCode": 0,
+    "scenarioPass": 6
+  },
+  "keyboard-supplement": {
+    "exitCode": 0,
+    "englishFinder": "pass",
+    "chineseTabTraversal": "observed",
+    "chineseFullNativeDropdownFlow": "not_tested"
+  },
+  "console-check": {
+    "exitCode": 0,
+    "routes": 10,
+    "onlyRequestFailure": "blocked external favicon"
+  },
+  "pdf-render": {
+    "exitCode": 0,
+    "pages": 10
+  },
+  "focused-form-integration": {
+    "exitCode": 0
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "reviewerCapability": "image-capable-agent",
+  "status": "bounded-review-complete",
+  "inspectedScreenshots": [
+    "browser-final/en-375-exam-comparison.png",
+    "browser-final/zh-390-checklist-generator.png",
+    "browser-final/zh-375-route-finder.png",
+    "browser-final/zh-reminder.png",
+    "browser-final/en-checklist-print.png",
+    "browser-final/zh-checklist-print.png",
+    "print-pages/en-1.png",
+    "print-pages/en-2.png",
+    "print-pages/en-3.png",
+    "print-pages/en-4.png",
+    "print-pages/en-5.png",
+    "print-pages/zh-1.png",
+    "print-pages/zh-2.png",
+    "print-pages/zh-3.png",
+    "print-pages/zh-4.png",
+    "print-pages/zh-5.png",
+    "print-pages/en-3-detail.png"
+  ],
+  "observations": "Selected mobile screenshots show readable form/results and contained horizontal comparison scrolling. All 10 PDF pages inspected; stage/task/source text is preserved without clipped pagination. Higher-resolution page 3 confirms small-label readability (low-resolution raster was ambiguous). No claim to have visually inspected every saved mobile screenshot. Physical print and other devices untested."
+}

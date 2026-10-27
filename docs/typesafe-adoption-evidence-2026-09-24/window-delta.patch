@@ -1,0 +1,60 @@
+--- before/AGENTS.md
++++ candidate/AGENTS.md
+@@ -60,6 +60,14 @@
+ 
+ For every high-risk factual statement, record the source URL, the date checked, what the source is permitted to support, and its boundary. If the applicable authority, current local rule, fee, deadline, acceptance, exemption, eligibility outcome, or processing time cannot be confirmed, state a concrete reader-side verification action instead of guessing or filling the gap. Never fabricate facts, sources, prices, timelines, eligibility conclusions, acceptance guarantees, or cross-region rules.
+ 
++## TypeSafe AI Usage
++
++For AI routing, semantic ranking, extraction, or evidence-checking work, read `.agents/skills/typesafe-ai/SKILL.md` and `docs/superpowers/plans/2026-09-24-typesafe-project-adoption.md` before choosing an approach. If the project skill is unavailable, use the installed `typesafe-ai` skill and record the resolved path. Read the current official documentation before writing version-dependent integration code.
++
++Keep exact rules, official-source authority, route coverage, and execution in deterministic code. TypeSafe judgments are advisory; confidence is not correctness or permission. Preserve explicit user confirmation and manual fallback. Credentials and API calls belong on the server; third-party processing needs accurate disclosure and the applicable authorization before sending real input.
++
++The adoption document is a proposal for future integration, not authorization to replace Laya, call a paid API, expand content coverage, or deploy. Its evaluation and privacy gates supplement the existing independent-review and Owner gates. Apply this skill when semantic understanding helps; ordinary static content, exact lookups, and calculations do not require AI.
++
+ ## Commits and Pull Requests
+ 
+ Use the established imperative prefixes: `feat:`, `fix:`, `content:`, `docs:`, or `style:` (for example, `fix: preserve tool fallback state`). Keep each commit narrowly scoped. Pull requests should state the user-facing effect, affected routes/data, verification commands and results, linked issue where applicable, and screenshots for visual changes. Flag deployment assumptions separately from source-code completion.
+--- before/README.md
++++ candidate/README.md
+@@ -1,4 +1,10 @@
+ # VisaLang
++
++## TypeSafe AI 项目规范 — 2026-09-24
++
++[使用规范与接入方案](docs/superpowers/plans/2026-09-24-typesafe-project-adoption.md)将已有 TypeSafe 技能落实到本项目：优先提出用途建议对照实验，保留用户确认、手选回退和确定性路线规则。当前仅完成文档接入，未调用 API、替换 Laya 或扩大既有模块范围。后续相关 AI 任务先按 `AGENTS.md` 读取技能与方案。
++
++本轮规划同步为 `VL-PMAP-20260924-01`；下方2026-09-23同步编号保留为对应历史窗口。独立结论见 `docs/planning-map/VISALANG_TYPESAFE_ADOPTION_INDEPENDENT_AUDIT_2026-09-24.md`。技术候选的实施、费用／数据发送和上线仍须各自获得授权。
+ 
+ ## 2026-09-23 W00 隔离分配准备（当前增补）
+ 
+--- before/docs/TASK_LOG.md
++++ candidate/docs/TASK_LOG.md
+@@ -3915,3 +3915,12 @@
+ - 独立Node依赖、Python环境及W02离线权重副本已准备；只验证metadata/字节，未运行模型或真人研究。功能窗口启动时复核基线与端口，按dispatch的逐路径范围工作。
+ - 规划图为状态更新，sync `VL-PMAP-20260923-05`，drift `aligned`。独立审核权威：`docs/planning-map/VISALANG_W00_DISPATCH_INDEPENDENT_AUDIT_2026-09-23.md`；本行不预先声明其结论。图与视觉证据、候选manifest、基线npm-test实际exit 0见批次目录。新报告存在后再跑最终规划治理与完整npm test，结果保存在批次指定的外部post-audit证据路径，不改已审核字节。
+ - 页面/导航/元数据/部署实现无变更，launch-check未新增运行；最终npm test仍必跑。Vault目录与模板缺失，payload待同步、owner pending、deployment not_started；无提交、推送、部署或外部动作。
++
++
++## 2026-09-24 — TypeSafe AI project standards and integration proposal
++
++- Owner requested applying TypeSafe and explicitly selected project-level standards and an integration proposal. Added the AGENTS skill entry, README index and `docs/superpowers/plans/2026-09-24-typesafe-project-adoption.md`.
++- Recommended an isolated purpose-suggestion comparison while preserving manual choice, user confirmation and deterministic authority/coverage rules. TypeSafe remains unimplemented and unmeasured. No SDK install, inference, key access, runtime change, account action, commit, push or deployment.
++- Existing dirty baseline is recorded in `docs/typesafe-adoption-evidence-2026-09-24/baseline.json`; unrelated bytes preserved. T/LP/LC status, W00 allocations and graph topology unchanged.
++- Baseline npm test passed. Archify showcase/deliver passed 9/9, browser retry passed after sandbox Chrome SIGABRT; four exact light/dark PNGs received image-capable review. Candidate preaudit and final gate results are recorded separately; this entry does not pre-approve them. Standalone build/launch-check not_run: documentation/planning-only scope, no routes/runtime/deployment changes. Builds invoked by the full test suite are captured in its output.
++- Planning sync `VL-PMAP-20260924-01`, drift: aligned. Review authority: `docs/planning-map/VISALANG_TYPESAFE_ADOPTION_INDEPENDENT_AUDIT_2026-09-24.md`; only the separate Auditor records the verdict. Obsidian target/template missing; local pending payload retained, actual sync blocked. Release remains not_deployed.
+--- before/docs/planning-map/visalang-overall-build-plan.archify.json
++++ candidate/docs/planning-map/visalang-overall-build-plan.archify.json
+@@ -290,9 +290,9 @@
+       "title": "当前真实状态",
+       "items": [
+         "25 完成／5 进行中／4 待开始",
+-        "三份隔离副本待派发；模块未实施",
+-        "同步：VL-PMAP-20260923-05",
+-        "指纹：527ad0ec 41468923 b4b3cfb2 cca4827e 1d06d64e d9b7f843 95a2cc4b 202ba7a3"
++        "TypeSafe 规范与方案；尚未接入",
++        "同步：VL-PMAP-20260924-01",
++        "指纹：3158bf95 975a88b2 658d7938 9b9bf7ff 30a32eda 10eb6996 74fd2319 256545d9"
+       ]
+     },
+     {

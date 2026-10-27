@@ -1,0 +1,684 @@
+--- a/README.md
++++ b/README.md
+@@ -82,6 +82,10 @@
+ maintenance window must refresh the planning-map sync record and record whether
+ the change is aligned, an Owner-approved deviation, or unresolved drift.
+ 
++## Laya-era planning update — 2026-09-23
++
++The [whole-site plan](docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md) and [content plan](docs/superpowers/plans/2026-09-23-visalang-laya-content-plan.md) supplement the Master Package. They define LP01–LP08 and LC01–LC12 as pending work, preserve the 25 completed / 5 in-progress / 4 pending original tasks, and retain the website + Laya + ads joint-release gate. This planning update does not implement or release those work packages.
++
+ ## Current Boundary
+ 
+ The local baseline is HEAD `4cb57e8744c752fed1881281e69e7b24cc7281c4` on
+--- a/docs/CONTENT_MAP.md
++++ b/docs/CONTENT_MAP.md
+@@ -9,7 +9,7 @@
+ 
+ The 2026-09-22 local source candidate has 15 English pillars, 5 Chinese pillars, 38 non-pillar English guides, 12 noindex categories and 17 retained supporting URLs. Current generated output: 105 pages, 41 sitemap URLs, 64 noindex pages and 14 ad-enabled pages. Historical M2-A output was 83 pages / 36 sitemap / 47 noindex; historical M3 output was 88 / 41 / 47. Those earlier reviews do not certify this new candidate. Advertising remains allowlisted for 14 English pillars; retained supporting URLs and the fee guide remain ad-free. Production URL observations are inconclusive (403/timeouts). Current review authority: `docs/planning-map/VISALANG_PRODUCTION_CANDIDATE_INDEPENDENT_AUDIT_2026-09-22.md`; no production release is authorized.
+ 
+-The 38 non-pillar English guides comprise 23 retained Scheme 3 support guides plus the restored English C07 existing-certificate page. C07 remains directly reachable, self-canonical, `noindex,follow`, ad-free and outside primary discovery. The English C01 is general orientation while the Chinese C01 is China-application-location-specific, so that non-equivalent pair intentionally has no reciprocal hreflang. The other four equivalent English/Chinese guide pairs remain among the M3 candidate's 11 genuine reciprocal hreflang pairs.
++The 38 non-pillar English guides comprise 24 other support guides (23 Scheme 3 support guides plus the restored English C07 existing-certificate page) and 14 English supporting guides restored on September 22. C07 remains directly reachable, self-canonical, `noindex,follow`, ad-free and outside primary discovery. The English C01 is general orientation while the Chinese C01 is China-application-location-specific, so that non-equivalent pair intentionally has no reciprocal hreflang. The other four equivalent English/Chinese guide pairs remain among the M3 candidate's 11 genuine reciprocal hreflang pairs.
+ 
+ ### M3 T20–T23 local implementation-review outcome
+ 
+@@ -25,7 +25,7 @@
+ 
+ T24 separates the general settlement, skilled-worker settlement, EU Blue Card settlement and naturalisation statutory routes, with distinct language, knowledge, wider-condition and competent-authority actions. T25 compares the two exact adult B1 products and gives local booking/quote worksheets. T26 adds diagnosis/retest and weekly records plus original writing/speaking revisions, transfer tasks and self-checks. German examples received a separate AI editorial language review; they have no official score or human examiner endorsement.
+ 
+-Current source ledgers and independent task reviews are dated 2026-09-22. The exact final whole-window verdict and verification boundaries are recorded in `docs/planning-map/VISALANG_M4_INDEPENDENT_AUDIT_2026-09-22.md` and `docs/VISALANG_M4_T24_T26_EXECUTION_EVIDENCE_2026-09-22.md`; a candidate is complete only if that audit returns PASS. T19 remains partial, T23 remains blocked, and release/Owner decisions stay separate.
++The M4 source ledgers and independent task reviews are dated 2026-09-13. The exact final whole-window verdict and verification boundaries are recorded in `docs/planning-map/VISALANG_M4_INDEPENDENT_AUDIT_2026-09-13.md` and `docs/VISALANG_M4_T24_T26_EXECUTION_EVIDENCE_2026-09-13.md`; a candidate is complete only if that audit returns PASS. T19 remains partial; T23 is now in_progress under the September 22 retention decision, with production verification still open. Release/Owner decisions stay separate.
+ 
+ ### English pillars
+ 
+@@ -47,7 +47,7 @@
+ | `germany-b1-settlement-citizenship-checklist` | Audit route evidence, missing items and versions before submission. |
+ | `goethe-b1-study-plan` | Fill diagnosis, weekly and retest records; use original writing and speaking revision exercises without official scoring or outcome promises. |
+ 
+-Official-claim boundaries and update triggers are recorded in `docs/VISALANG_SCHEME_3_A1_CLAIM_SOURCE_LEDGER_2026-09-01.md`, `docs/VISALANG_SCHEME_3_B1_CLAIM_SOURCE_LEDGER_2026-09-01.md` and the M2-A evidence record `docs/VISALANG_M2A_T10_T14_EXECUTION_EVIDENCE_2026-09-09.md`. The 2026-09-01 B1 ledger is historical; materially revised M4 content uses `docs/VISALANG_M4_T24_SOURCE_LEDGER_2026-09-22.md`, `docs/VISALANG_M4_T25_SOURCE_LEDGER_2026-09-22.md` and `docs/VISALANG_M4_T26_SOURCE_LEDGER_2026-09-22.md`.
++Official-claim boundaries and update triggers are recorded in `docs/VISALANG_SCHEME_3_A1_CLAIM_SOURCE_LEDGER_2026-09-01.md`, `docs/VISALANG_SCHEME_3_B1_CLAIM_SOURCE_LEDGER_2026-09-01.md` and the M2-A evidence record `docs/VISALANG_M2A_T10_T14_EXECUTION_EVIDENCE_2026-09-09.md`. The 2026-09-01 B1 ledger is historical; materially revised M4 content uses `docs/VISALANG_M4_T24_SOURCE_LEDGER_2026-09-13.md`, `docs/VISALANG_M4_T25_SOURCE_LEDGER_2026-09-13.md` and `docs/VISALANG_M4_T26_SOURCE_LEDGER_2026-09-13.md`.
+ 
+ ### M2-A T10–T14 content and shared-tool contracts
+ 
+@@ -71,13 +71,19 @@
+ 
+ ### Closed and merged surfaces
+ 
+-- The 24 non-pillar English guides remain directly reachable, noindex, ad-free and absent from discovery and the sitemap: 23 Scheme 3 support guides plus the restored C07 review surface.
++- The 24 non-pillar English guides outside the 14 restored English supporting pages remain directly reachable, noindex, ad-free and absent from discovery and the sitemap: 23 Scheme 3 support guides plus the restored C07 review surface.
+ - Categories `germany-a1`, `germany-b1`, `germany-testdaf`, `germany-telc`, `uk`, `canada`, `italy`, `spain`, `france`, `finland`, `netherlands` and `portugal` are noindex, ad-free and outside the sitemap.
+ - The 17 historical merge proposals are preserved in `guideRedirectCandidates`; active `guideRedirects` is empty. All 17 original URLs now have maintained sources in the local candidate and are governed by `deploy/retained-routes.json`.
+ - A redirect is enabled only after its target content and source ledger receive independent review. This record does not authorize commit, push, deployment, publication or AdSense resubmission.
+ 
+ 2026-09-22 Owner-authorized retention supersedes the previous consolidation candidate: all 14 EN and 3 ZH paths have distinct rewritten source tasks, self-canonicals, noindex and no ads. Indexing expansion is not authorized by source restoration. Current decisions: `deploy/retained-routes.json`; historical map stays unchanged. Live observations returned 403/timeouts, so public availability and indexing remain unverified.
+ 
++### Laya-aware next content window — 2026-09-23
++
++The [current content plan](superpowers/plans/2026-09-23-visalang-laya-content-plan.md) defines LC01–LC12 as pending content assets, not new mandatory URLs or a reset of completed T tasks. Priority is capability/confirmation/recovery copy, intent-to-content mapping, A1 requirements/existing certificate, product/booking/material/time tasks, then bounded A1/B1 practice and source maintenance. Official claims, user-intent examples and content mappings are separate versioned assets. Only family/A1 is a configured full tool route; B1 and other recognised purposes remain verify-only. No automatic content generation, expanded indexing, advertising or route eligibility follows from Laya classification.
++
++This planning window corrects count wording and M4 evidence links only; no guide text, source-check date, publication policy or implementation changed. It preserves the 17 original paths and the current 15 EN/5 ZH pillar and 14 advertising allowlists. See the [whole-site plan](superpowers/plans/2026-09-23-visalang-laya-overall-plan.md) for LP01–LP08 and the conditional release sequence.
++
+ <!-- SCHEME-3-CURRENT-END -->
+ 
+ ## Archived pre-Scheme 3 ledger
+--- a/docs/MASTER_EXECUTION_PLAN.md
++++ b/docs/MASTER_EXECUTION_PLAN.md
+@@ -1,10 +1,10 @@
+ # VisaLang 总体执行规划
+ 
+-> **superseded（2026-09-01）：** 本文保留 2026-07-13 的长期规划框架，仅作为点时证据。当前唯一执行权威为 `docs/VISALANG_ONE_WEEK_SCHEME_3_CONTENT_PLAN_2026-09-01.md`；生产证据继续以 `docs/OPERATIONS_STATUS.md` 为准。
++> **superseded（入口校正于2026-09-23）：** 本文保留2026-07-13框架。`docs/VISALANG_ONE_WEEK_SCHEME_3_CONTENT_PLAN_2026-09-01.md`也已是历史方案；当前以2026-09-08 Master Package、状态overlay、最新Owner指令及9/23 Laya规划增补为准。历史生产记录不证明当前候选已部署。
+ 
+ ## 文档权威顺序
+ 
+-1. 当前一周内容收缩、来源复核和验收顺序仅由 `docs/VISALANG_ONE_WEEK_SCHEME_3_CONTENT_PLAN_2026-09-01.md` 定义；`docs/VISALANG_CURRENT_STATE_2026-09-01.md` 只记录状态证据。
++1. 当前总规划为 `docs/master-package-2026-09-08/VisaLang-Master-Plan.md`，后续顺序见 `docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md` 与配套内容计划；实际任务状态见同Master目录的overlay和EXECUTION_RECORD。原9/1方案及状态文件仅作历史证据。
+ 2. `docs/OPERATIONS_STATUS.md` 与 release manifest/reconciliation 文件记录生产、账号和发布证据；它们可以证明或阻塞当前计划，但不自行改变产品战略或授权新工作。
+ 3. 本文、2026-08-21 taskbook 和 Phase 0 plan 均保留为历史规划证据，不再单独控制当前执行顺序。
+ 4. `docs/PROJECT_CONTEXT.md` 是项目地图，`docs/TASK_LOG.md` 是历史窗口记录；二者均不可单独作为上线、服务可用或业务审批证据。
+--- a/docs/TASK_LOG.md
++++ b/docs/TASK_LOG.md
+@@ -3878,3 +3878,11 @@
+ Planning sync `VL-PMAP-20260922-02`, `approved-deviation` under the cited Owner scope; classified candidate paths and byte evidence live in sync.json. Independent verdict authority: `docs/planning-map/VISALANG_PRODUCTION_CANDIDATE_INDEPENDENT_AUDIT_2026-09-22.md`. Final full-suite/governance commands follow the immutable audit record; no verdict is self-issued here. Website + Laya + ads remain a joint release condition. No purchase, commit, push, server/DNS/account change or deployment performed.
+ 
+ Current-window drift: approved-deviation.
++
++## 2026-09-23 — Laya-aware whole-site and content planning
++
++Owner requested a written next-stage plan and a whole-site/content-plan update after Laya. Added the two September 23 supplements in `docs/superpowers/plans/`: current capability analysis, LP01–LP08, LC01–LC12, pending model/host targets and a conditional 12-week sequence. Preserved original T01–T34 implementation and release states. Corrected planning authority entry points, the 38=24+14 non-pillar decomposition and M4 evidence links to their actual September 13 files. No product/guide/model/route/index/ad/deployment change was made.
++
++Fresh build/launch-check passes 57/57 locally. Archify showcase/delivery and the final automated desktop check pass; four exact light/dark screenshots received separate image-capable inspection. The initial sandbox Chrome startup failure is retained; approved retry of the same command succeeded. Full-suite preaudit evidence, baseline hashes, previous planning bytes, manifest and delta are in `docs/laya-planning-evidence-2026-09-23/`; final governance/full-suite commands follow the independent report.
++
++Sync: `VL-PMAP-20260923-01`; drift: approved-deviation for Owner-requested planning only. Independent verdict authority: `docs/planning-map/VISALANG_LAYA_PLANNING_INDEPENDENT_AUDIT_2026-09-23.md`. The implementation agent does not self-issue PASS. Required Vault root/template absent; unsynced review payload remains review / needs_human_review true / owner_decision pending / deployment_status not_started. No purchase, commit, push, external account action or deployment occurred.
+--- a/docs/master-package-2026-09-08/VisaLang-Master-Plan.md
++++ b/docs/master-package-2026-09-08/VisaLang-Master-Plan.md
+@@ -11,7 +11,15 @@
+ **技术栈：** 历史项目背景为 Astro，尚未取得源码进行本轮确认。Codex 必须先核实仓库；若确为 Astro 则继续使用仓库锁定版本与已有组件方案，不因本规划换成 Next.js、WordPress 或新建站平台。
+ 
+ **依据：** 2026-09-08 公开站点审计、64 个已读取 URL 清单、38 篇主指南、5 个工具样例测试和首批替换文案。本规划规定未来建设方向，不代表线上修改已完成。
++
++## 2026-09-23 规划增补（当前阅读入口）
++
++Owner要求分析全站建设并更新加入Laya后的内容规划。后续方案见[全站建设规划](../superpowers/plans/2026-09-23-visalang-laya-overall-plan.md)及[内容建设计划](../superpowers/plans/2026-09-23-visalang-laya-content-plan.md)。本次只交付规划，LP01–LP08和LC01–LC12均待实施；原T01–T34实际状态不重置。
++
++本文件以下正文保留9/8规划基线。其“尚未取得源码”是历史编制状态：当前仓库已确认使用Astro，产品底座本地完成25项。9/22已授权的可选、用户确认后采用的Laya目的分类服务，是第2节及第4节原静态/浏览器默认边界的有界例外；不扩展为聊天、RAG、自动文章或资格判断。只有family/A1是完整configured工具路线；B1内容深化与verify-only工具状态分开。
+ 
++当前发布顺序由9/22最新Owner选择约束：网站、Laya、广告联合发布，先完成质量、Linux容量、账户/同意、目标主机与回滚证据；本文旧的分批发布描述不授权拆开上线。其他国家、新意图、索引与广告扩张仍需独立范围决定。规划审核不能代替Owner发布授权。
++
+ ## 阅读与使用顺序
+ 
+ 1. 将完整交付包解压到项目可访问位置，保留原始审计材料。阅读本文件和 `VisaLang-Codex-Start.md`。
+--- a/docs/master-package-2026-09-08/BACKLOG_STATUS_OVERLAY_2026-09-09.md
++++ b/docs/master-package-2026-09-08/BACKLOG_STATUS_OVERLAY_2026-09-09.md
+@@ -1,6 +1,6 @@
+ # Master Package backlog execution overlay
+ 
+-Checked: 2026-09-22 (Asia/Shanghai)
++Checked: 2026-09-23 (Asia/Shanghai); planning refresh only, implementation states unchanged
+ 
+ Release status: `not_deployed`
+ 
+@@ -64,3 +64,10 @@
+ ## 2026-09-22 local joint-release candidate
+ 
+ Owner decision: `docs/superpowers/plans/2026-09-22-production-candidate.md`. Current evidence: `docs/release-candidate-evidence-2026-09-22/acceptance.md`. Existing retrospective M3/M4 paragraphs describe their frozen windows; current rows above govern execution status. Review verdict lives only in `docs/planning-map/VISALANG_PRODUCTION_CANDIDATE_INDEPENDENT_AUDIT_2026-09-22.md`. Website, Laya and ads must launch together; local source review is not production readiness.
++
++
++## 2026-09-23 next-window planning overlay
++
++The Owner requested a whole-site analysis and a Laya-aware content plan. The supplement is `docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md`; the sole LC01–LC12 definitions are in its paired content plan. LP01–LP08 and LC01–LC12 are all `pending` / `not_deployed`, proposed implementation work rather than completed work or authorization for production action. Original T01–T34 counts remain 25 completed, five in_progress and four pending. Full A1 configured support is distinct from B1 content and verify-only tools.
++
++Next sequence: freeze intent/content definitions and independent evaluation; improve Laya and measure Linux capacity; close A1/calendar/browser and account/host/rollback evidence; separately authorize the joint release; then measure and select bounded content improvements. No automatic country, route-rule, index or ads expansion. Sync `VL-PMAP-20260923-01`; planning-only approved deviation is bound to the exact Owner request in the supplement, not an approval of future implementation or release.
+--- a/docs/master-package-2026-09-08/EXECUTION_RECORD.md
++++ b/docs/master-package-2026-09-08/EXECUTION_RECORD.md
+@@ -1,8 +1,8 @@
+ # Master Package execution record
+ 
+-Checked: 2026-09-13 (Asia/Shanghai)  
+-Execution status: `completed` at task-review gate for T01–T18, T20–T22 and T24–T26; T27 local implementation in progress pending independent review; T19 partial/in progress; T23 evidence-map-only/blocked  
+-Release status: `not_deployed`
++Checked: 2026-09-23 (Asia/Shanghai); current summary from the September 22 candidate and September 23 planning refresh.  
++Execution status: T01–T18, T20–T22, T24–T27 completed locally; T19/T23/T28/T29/T30 in_progress; T31–T34 pending. LP/LC planning packages are pending, not implementation completion.  
++Release status: `not_deployed`. Earlier dated sections below retain historical findings and limits.
+ 
+ ## Authority and checkout baseline
+ 
+@@ -188,3 +188,12 @@
+ Owner authorized local code/document implementation and preservation of original URLs. Exact plan: `docs/superpowers/plans/2026-09-22-production-candidate.md`. Baseline, 17 retained source/route decisions, model results, browser/keyboard verification and deployment-tool tests: `docs/release-candidate-evidence-2026-09-22/acceptance.md`. T23 local source/config inconsistency repaired; production HTTP remains inconclusive. T28/T29/T30 partial, T31–T34 pending. Real model matches 11/20; Mac RSS 4.14 GB is a capacity warning, not a Linux result. Calendar import and configured Vault sync remain blocked.
+ 
+ Planning sync `VL-PMAP-20260922-02`, `approved-deviation` under the cited Owner scope; classified candidate paths and byte evidence live in sync.json. Independent verdict authority: `docs/planning-map/VISALANG_PRODUCTION_CANDIDATE_INDEPENDENT_AUDIT_2026-09-22.md`. Final full-suite/governance commands follow the immutable audit record; no verdict is self-issued here. Website + Laya + ads remain a joint release condition. No purchase, commit, push, server/DNS/account change or deployment performed.
++
++
++## 2026-09-23 — Whole-site and content planning after Laya
++
++Owner requested “那应该怎么做，写出规划，并分析全站建设规划，加入laya后，更新内容建设规划”. Delivered planning supplements under `docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md` and `2026-09-23-visalang-laya-content-plan.md`: current capability analysis, A/B/C choices, LP01–LP08, LC01–LC12, quality/capacity targets and a conditional 12-week sequence. No new implementation, model evaluation, user study or production result is claimed. The first complete tool route remains family/A1; B1 is a content topic with verify-only tools. Current original task states remain unchanged.
++
++Corrected current planning entry points, the English non-pillar count decomposition and M4 links to their actual September 13 evidence. No source-check dates were refreshed without reading the underlying source. Source content, application code, deployment config and historical production records remain unchanged. Prior planning-map bytes are preserved in `docs/laya-planning-evidence-2026-09-23/before/`.
++
++Sync `VL-PMAP-20260923-01`, drift: approved-deviation for Owner-requested planning only. Independent verdict authority: `docs/planning-map/VISALANG_LAYA_PLANNING_INDEPENDENT_AUDIT_2026-09-23.md`. Required Vault root/template absent; local payload remains unsynced, review/pending/not_started. No commit, push, purchase, account action or deployment occurred.
+--- a/docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md
++++ b/docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md
+@@ -0,0 +1,140 @@
++# VisaLang 全站建设规划更新：加入 Laya 后的下一阶段
++
++日期：2026-09-23。交付性质：规划更新；产品实施、生产验收与部署状态不因本文改变。
++
++## 1. 本次决策依据与授权
++
++Owner 本轮原话：“那应该怎么做，写出规划，并分析全站建设规划，加入laya后，更新内容建设规划”。本指令授权分析、编制并同步规划；不构成新功能实施、购买、提交、推送、账户设置或部署授权。
++
++本文是 2026-09-08 Master Package 的增补，与[内容建设计划](2026-09-23-visalang-laya-content-plan.md)共同说明 Laya 接入后的工作顺序。保留 T01–T34 基线及实际状态；不重开已完成任务，也不把新增 LP/LC 工作包计入既有完成数。9 月 22 日已明确的原网址保留、网站＋Laya＋广告联合发布、月度服务器预算不超过人民币 100 元（域名除外）继续有效。日期是排期假设，不是上线承诺。
++
++当前权威顺序：最新 Owner 明确指令 → Master Plan 及本增补 → 原始 backlog＋实际状态 overlay → 执行证据。规划图仅展示这些记录。`docs/MASTER_EXECUTION_PLAN.md` 为历史资料，其旧的“方案三唯一权威”入口在本轮纠正。
++
++## 2. 全站诊断：已经具备什么，真正缺什么
++
++| 方面 | 当前证据 | 建设判断与行动 |
++|---|---|---|
++| 产品与内容 | T01–T18、T20–T22、T24–T27 共25项本地完成；T19/T23/T28/T29/T30进行中；T31–T34待开始 | 已处 M5 发布候选阶段；不能按25/34推导整体完成百分比 |
++| 内容资产 | 53篇英文指南＝15个支柱＋24个其他支持页＋14个恢复支持页；中文5个支柱＋3个恢复支持页 | 先提高既有资产可用性；不以继续加文章作为进度指标 |
++| 发布候选 | 9/22产物105页、41条sitemap、64页noindex、14页启用广告；57项本地launch检查通过 | 这是保存的本地结果，不是现网状态；本轮不改变索引、广告或路由配置 |
++| 工具支持 | 只有德国family/A1为完整configured准备流程；B1、Ausbildung、nursing、university为verify-only | B1内容深化不等于B1工具规则已完成；UI与文章必须准确表达支持层级 |
++| Laya | 双语可选建议、确认后填入目的、人工回退已实现；20例服务评测11正确，歧义0/4 | 接口可运行与分类有用分开验收；先修语义、拒识与评测，不能靠免责声明弥补误判 |
++| 服务资源 | Mac峰值RSS 4,140,924,928字节；无目标Linux容量结果和实际容器镜像 | 3GB容器或4GB整机不能默认可用；先测再选型，不承诺量化能解决 |
++| 运营与增长 | 缺当前GSC、广告/同意账户证据和生产观察；统计契约不等于采集服务 | 数据未知不写成零；先形成可信发布与维护能力，再做需求驱动扩展 |
++
++证据：`docs/release-candidate-evidence-2026-09-22/acceptance.md`、同目录 `laya-comparison.md`、当前 overlay、`src/data/publication-manifest.ts`、`src/data/route-tools.ts`。本地独立PASS仅覆盖其冻结候选，不批准生产发布。当前工作树含大量既有未提交改动，HEAD不能复现全部候选。
++
++旧规划仍适用的部分：德国优先、A1先闭环、来源先于规则、五工具共用事实与状态、英文核心与中文重点路径、每页独有任务、真实证据后扩展。需要更新的部分：从纯静态/浏览器工具增加可选推理服务；从页面清单增加意图与澄清资产；从页面验收增加模型质量/容量/隐私验收；发布包要共同绑定网站、服务、模型、配置与回滚。
++
++## 3. 产品方向与三种方案
++
++| 方案 | 内容与技术投入 | 结论 |
++|---|---|---|
++| A：维持当前目的建议，先达到上线门槛 | 明确标签、拒识与恢复文案；独立评测、Linux验证；复用现有文章 | **当前推荐**，承接已有实现 |
++| B：目的确认后的内容导航 | 建立“目的→阶段→核验问题→责任机关→文章/工具”确定映射；验证对读者有实际帮助 | A通过后分批建设；先在现有页面加模块，不默认新增SEO页面 |
++| C：通用聊天、自动资格判断或自动内容发布 | 另需生成/检索系统、时效与引用控制、范围和责任设计 | 不纳入本周期；Laya本身是非生成式结构化决策模型 |
++
++推荐主流程：**直接手选目的，或主动提交短描述获得Laya建议 → 用户确认/改选 → 用户提供国家与必要阶段信息 → 确定性规则 → 已核验内容与下一步清单 → 有权机关作最终判断。**手选入口与文章直达始终存在；阅读和工具使用不以模型成功为前提。
++
++Laya的职责仅为降低选错入口的概率，收益尚待验证。它不生成签证要求、不判定豁免、不选择广告、不决定证书接受、不自动填国家、不把B1这个词直接解释成永居或入籍。结果必须沿用已有支持范围；未支持的目的提供明确核验出口。用户点击“采用”不是模型正确性的标签。
++
++## 4. 全站信息架构与技术建设
++
++| 站点层 | 后续建设重点 | 验收输出 |
++|---|---|---|
++| 首页、Routes、Tools | 明示A1完整流程/B1信息专题/其他目的核验；Laya作为可选入口 | 新读者能区分服务范围并找到手选路径；不宣传全目的自动规划 |
++| A1/B1路线页 | 用读者阶段连接指南和五工具；B1分开长期居留与入籍 | 每步有完成标准；B1未配置结果不进入A1清单 |
++| 指南与指南库 | 增加有用的核验表、诊断记录和失败恢复；搜索/筛选保留 | 每页解决独立问题，下一步存在且符合范围 |
++| 事实与映射 | 事实记录、产品版本、支持范围、意图语料、内容映射分别管理 | 内容更新不自动训练模型；模型改动不自动认证事实 |
++| 模型与服务 | 单进程驻留、受限请求、明确拒识、失效响应保护、精确token预算检查 | 有限候选比较与独立盲测；所有异常下手选可完成 |
++| 发布与运营 | 联合不可变发布包、同源API、广告/同意验证、真实回滚 | 各项证据绑定同一个已审核版本，不能混用本地/旧站结果 |
++
++沿用Astro与现有Python服务；本期不引入账号、数据库、跨设备同步、邮件后端、向量库或新框架。官方事实继续静态生成；规则决定支持状态；Laya仅传回枚举建议或无法判断。原始描述不写入计划存储、URL、模型指标或广告系统。若未来需要采集表达或行为，另行明确同意、最小字段、保留周期和访问责任，不能以“改进模型”为理由默认留存访客输入。
++
++## 5. 质量与资源门槛（拟议目标，全部待测）
++
++### 5.1 先冻结评测，再改模型
++
++本轮仅提出协议，没有创建语料或取得新结果。先统一6类目的＋unclear的标注规范；考试咨询、多个未定目的、否定/历史经历不能强行落入一个申请目的。内容缺口与模型误判分别记录。
++
++- 开发集至少120条，用于修改方案；既有20/28/48条实验只作回归，不作盲测。
++- 新独立保留集240条：EN/ZH各120；每种语言6类明确目的各15条，unclear 30条，共180明确＋60需澄清。另建120条困难集，EN/ZH各60，覆盖否定、当前/过去/未来、护理三分、单问等级、多目的、未覆盖国家、短期探亲、混合语言、长输入和操纵输出。
++- 两名独立标注者先盲标再裁决分歧，记录实际身份/角色；不得把AI审阅写成真人研究。同源句、翻译和近似改写只进同一split。冻结哈希后，调参者不接触保留集答案；看过并用于修复的保留集转回归，新候选需新的独立保留集。
++- 比较手选流程、当前Laya、有限规则对照、最多两个候选混合方案。v2规则44/48来自自构样本，只是实验线索，不能替换独立评测或直接上生产。
++
++| 指标与分母 | 拟议上线门槛 |
++|---|---|
++| 240条7类准确率（清晰输入被拒识也算错） | 总体≥90%，每种语言≥90%；报告宏F1与混淆矩阵 |
++| 具体建议精确率＝正确具体建议/全部具体建议 | 总体≥95%；每个具体目的≥90%，某类无建议视为未通过 |
++| 明确输入覆盖率＝180条明确输入中给出具体建议的比例 | ≥85%；不能靠全部拒识提高精确率 |
++| unclear召回率＝60条应澄清中正确拒识/澄清比例 | ≥95% |
++| 困难集错误强分类＝应澄清却强选、或明确目的被选为另一个目的 / 120 | ≤2%；预先列出的关键安全回归零失败 |
++| 交互边界 | 未确认零自动填写/导航/出结果；超时、busy、关闭模型、旧响应均可手选完成 |
++
++所有指标必须报告整数分子/分母及95%置信区间；没有达到门槛不能用“用户会纠正”豁免。上述样本量是首轮筛查规模，单类样本仍小，点估计通过不能宣称真实访客90%准确。若采用confidence阈值，先加独立校准集；不能把未经校准的confidence当正确概率。
++
++### 5.2 Linux与成本门槛
++
++在拟部署架构、锁定依赖和权重上测冷启动峰值、热请求、长输入、并发拒绝、断线后推理、重启、真实推理探针与静态站并行访问。拟议目标：热请求端到端p95≤2秒、p99≤5秒；24小时持续运行无OOM、无持续内存增长；网站/代理/服务全部运行时峰值占物理内存≤75%。记录负载、样本数和硬件，12秒前端回退仍需独立验证。
++
++若目标不达标，先定位加载峰值和驻留占用，再实验精度、加载方式或模型选择；任何变更均重跑质量与容量门槛。不假定量化接口可用，不承诺特定节省比例。每月≤100元必须按续费价格、税、IPv4、备份和必要流量合计核实；本轮没有选购或认定任何机型符合预算。
++
++预算、模型质量与联合发布条件无法同时满足时，提交实测成本/效果对比，由Owner决定调整预算、技术方案或发布日期。保持现有联合发布决定，不自动改成无Laya/无广告先发布。
++
++## 6. 可执行工作包与顺序
++
++以下LP均为`pending`、`not_deployed`；这是待实施清单，不表示本轮已获产品实施或生产操作授权。LC内容包的唯一定义见配套内容计划。
++
++| ID | 工作与已有T任务关系 | 前置 | 完成标准与主要位置 |
++|---|---|---|---|
++| LP01 | 冻结意图定义、支持层级和测评协议；补T28/T29输入 | LC01–LC03定义 | 目的/unclear矩阵、独立split、来源和评分脚本设计；`services/laya-purpose/`、`experiments/`的后续冻结产物 |
++| LP02 | 修正并比较Laya有限候选；不扩资格规则 | LP01 | 质量表全达标、误判归因、确切token裁剪保护、确认/回退回归；未通过则继续阻塞联合发布 |
++| LP03 | Linux实镜像和容量/费用验证；补T30 | 固定候选与可用测试环境 | 镜像/模型/源代码身份一致；容量与费用表、24小时运行；环境缺失不填假结果 |
++| LP04 | A1内容与工具闭环验收；补T19/T28/T29 | LC01–LC07 | 英中关键任务、键盘/移动端、误判恢复；授权的一次性日历目的地实际导入，未取得则保留T19部分状态 |
++| LP05 | 广告、账户、隐私与主机发布证据；补T23/T30 | 有权人员及实际环境 | 真实账户与CMP/加载证据；17旧URL、TLS、同源API、旧站备份和全量回滚演练 |
++| LP06 | 冻结联合发布候选；T31 | LP02–LP05通过＋独立Auditor PASS | 可复现的已审核提交/镜像/配置与明确Owner授权；提交、推送、上线各按实际授权执行 |
++| LP07 | 上线后维护和内容有效性；T32/T33 | 真实上线时刻 | 24小时/第7天运行检查，后续4周真实数据；无采集能力时明确不可得，不伪造基线 |
++| LP08 | B1深入与下一周期取舍；T34 | A1闭环通过、对应来源/需求/维护产能 | LC08–LC12按条件完成，最多三项下一周期改进；新国家/意图/工具规则单独立项 |
++
++LP03可先做环境可用性调查，LP04内容准备可与LP02并行；正式性能结论必须使用最终候选，LP06不能越过任何联合门槛。缺账户或服务器时继续无依赖的来源、文案、语料与本地验证工作。
++
++## 7. 12周滚动排期和产能
++
++W1从后续实施窗口启动日计算，不从本文日期倒推已发生。下表为每周12–16小时的初始预算假设；Owner实际可用产能待确认。前两周结束根据实耗重排，低于每周8小时则延长期限并优先LC01–LC07，不压缩审核。交付单位是验收通过的任务资产包，不是文章数量。
++
++| 时段 | 建设轨 | 内容轨 | 阶段出口 |
++|---|---|---|---|
++| W1–2 | LP01；LP02候选比较；LP03环境调查 | LC01–LC04；LC05/06先做来源缺口登记 | 明确能力与标签、独立评测可执行、A1最关键缺口排序 |
++| W3–4 | LP02/03实测；LP04/05并行 | LC05–LC07及中文恢复路径 | A1可用闭环；质量、容量、广告等证据齐备才可进入发布决定 |
++| W5–8 | 通过门槛后LP06；LP07从真实上线日计时 | LC08；按来源与需求推进LC09–LC11 | 发布未通过则继续收敛，不按周数伪造上线或运营数据 |
++| W9–12 | LP07/08复盘 | LC12、逾期来源复核、最多三项改进 | 数据不足则延长观察；其他国家、更多城市、付费产品不自动启动 |
++
++建议产能分配：前4周模型/平台约40%、A1内容与双语约40%、复核/证据约20%；后期按实际失败点重排。角色分工：实施者负责候选，来源核验者负责具体主张，独立Auditor负责质量门槛，Owner负责商业/账户/支出/发布。实际人员及代理身份在每批记录；不得用角色名称假装已有人承担持续运营。
++
++第一周的最小交付：①支持范围与6+1类标注定义；②开发/盲测划分及冻结规则；③LC02的采用/改选/无法判断文案和LC04已有证书核验表；④服务器测试与广告证据缺口清单。不是一周内承诺上线。
++
++## 8. 成效、商业与扩展
++
++北极星是读者正确找到适用核验入口并完成一个准备动作。使用独立给定的测试任务核对正确性；模型采用率、访问量和广告曝光不能替代任务正确完成。
++
++先用5–8名可招募且同意参与的读者做探索性手选/辅助流程对照，记录任务正确完成、误入路径、恢复、耗时与理解反馈；这是拟议研究，尚未招募，不自动联系任何人。小样本仅发现问题，不能当转化提升证明。
++
++上线后在已获准且实际可用的数据范围内观察：GSC页面/查询、按定义的工具完成代理指标、纠错问题、官方链接可用性、来源逾期数、服务错误/延迟/内存。T27只定义事件且当前无分析发送器；服务聚合指标也不等于用户路径数据。采集新增行为前单独核对批准和隐私说明，不存自由文本或身份。
++
++广告保持现有14篇英文支柱白名单，工具、敏感核验与支持页不因Laya接入自动开广告；费用页仍无广告。广告收入与账户审批不列为内容完成标准。付费包、联盟、会员、邮件与新国家需要独立需求证据、真实交付能力和Owner范围决定。
++
++## 9. 一手依据与局限
++
++以下网页查阅日均为2026-09-23；本轮不更新任何移民/考试法律事实或费用。技术建议基于锁定版本和当前官方说明，主分支文档不能冒充锁定版本实测。
++
++| 来源 | 支持本文的范围 | 不支持的外推 |
++|---|---|---|
++| [Laya官方模型卡](https://huggingface.co/convaiinnovations/laya) | 非生成式typed decisions、多语言检查点与模型限制 | 本站准确率、资格结论、目标机可用性 |
++| [Laya官方仓库](https://github.com/NandhaKishorM/laya) | Router加载取舍、校准注意事项、独立微调流程 | 修改提示即可稳定改善、支持语言即等于网站覆盖 |
++| [官方agent.py](https://raw.githubusercontent.com/NandhaKishorM/laya/main/laya/agent.py)、[common.py](https://raw.githubusercontent.com/NandhaKishorM/laya/main/laya/common.py) | 加载与共享token预算机制的研究入口；已用0.3.5须另核对应代码 | 300字符绝不截断、未经测量的量化节省 |
++| [PyPI 0.3.5](https://pypi.org/project/laya/0.3.5/) | 当前依赖的发行身份 | 新版能力已部署 |
++| [Google有用内容指引](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) | 优先原创价值、任务满足与可靠性 | 搜索排名、流量或收入保证 |
++| [Google生成式内容指引](https://developers.google.com/search/docs/fundamentals/using-gen-ai-content) | 批量无增值页面的风险与准确性要求 | AI参与即有惩罚、或加入Laya即可获得搜索优势 |
++| [Google搜索AI功能指引](https://developers.google.com/search/docs/appearance/ai-features) | 继续以常规可抓取、可索引和有用内容建设为基础 | 必须建设AI专用页面或特殊标记 |
++
++本轮交付完成以本次独立审计及规划图同步证据为准。Vault指定路径/模板在本机缺失时保留未同步payload，不把它描述为已写入。部署仍为`not_started`，业务审批仍为`pending`。
+--- a/docs/superpowers/plans/2026-09-23-visalang-laya-content-plan.md
++++ b/docs/superpowers/plans/2026-09-23-visalang-laya-content-plan.md
+@@ -0,0 +1,101 @@
++# VisaLang 内容建设计划：从文章目录到可完成的准备任务
++
++日期：2026-09-23。配套[全站建设规划](2026-09-23-visalang-laya-overall-plan.md)。本文为后续实施规划；所有LC包初始状态均为`pending`、发布为`not_deployed`。本轮只更新规划与记录，没有改文章正文、规则、Laya模型或广告。
++
++## 1. 内容目标与存量处理
++
++目标是让读者选对任务、找到有决定权的机构，并带走一份可执行的准备记录。Laya增加了自然语言入口，但不会自动验证来源，也不会替读者作资格判断。优先增强现有内容，按缺口修改；已经达到标准的段落保留，不重写已通过审核的全文来制造工作量。
++
++当前英文53篇＝15个支柱＋24个其他支持页＋14个9/22恢复支持页；中文5个支柱＋3个恢复支持页。17个恢复网址包含14EN＋3ZH，不应再重复计入。页面计数与生产上线分开；当前发布策略仍为15EN/5ZH支柱，14个EN广告白名单。恢复支持页继续self-canonical、noindex、无广告、在sitemap外；本轮未授权扩索引。
++
++| 资产群 | 本周期处理 | 不做的自动推断 |
++|---|---|---|
++| 15 EN／5 ZH支柱 | 按LC包核对任务、事实版本、工具衔接与可带走结果 | 支柱不代表所有当地规则和例外已覆盖 |
++| 17恢复支持网址 | 保持独立任务与原网址，检查与支柱的分工、相关链接和恢复路径 | 恢复源码不等于可以索引、展示广告或已在公网正常 |
++| 24其他EN支持页 | 按风险/来源到期维护，优先C07已有证书；其他国家保持有限范围 | 无GSC数据不等于无需求、无价值，也不自动删除 |
++| 12分类页及参考考试目录 | 保持当前政策，确认检索用途与范围说明 | 目录有考试名称不等于完整服务路线 |
++
++## 2. 加入Laya后新增的三类内容资产
++
++| 资产 | 必备字段 | 维护边界 |
++|---|---|---|
++| 权威事实 | claim ID、事实、地区/产品/程序、source URL、责任机关、段落定位、checkedAt、可支持范围、边界、有效/复查触发、引用位置 | 官方法律/受理、考试主办方、当地考点、编辑建议分开；不得以模型输出作来源 |
++| 意图语料 | sample ID、原句、语言、当前目的、排除目的、需澄清原因、难例类型、来源/同意依据、标注者、split与冻结版本 | 首期可用独立编写的合成情境；不默默保存访客输入，不把测试样本当真实需求或搜索量 |
++| 目的到内容映射 | intent、用户显式阶段、内容入口、支持级别、下一步、失败回退、事实/规则版本、语言/地区 | 先由用户确认目的，再用确定映射；未配置路线不被模型标签升级成完整流程 |
++
++标注意图与核验事实是两道不同工序。改变文章不会自动改变模型；调模型不会使文章事实自动通过。先写清“family和settlement差在哪里”“只问B1考试为什么需要澄清”，再写模型标签或帮助文案。
++
++## 3. 读者任务链与全站承接
++
++**A1主线：**确认目的与申请地 → 查负责机关和要求 → 已有证书核查/考试选择 → 官方报名与报价 → 报名、考日、递交三类材料 → 时间假设 → 练习与复盘 → 清单/日历保存 → 最终受理核验。
++
++**B1内容线：**选择长期居留或入籍专题 → 进一步明确现有四个路径/未知情况 → 分开核查语言、知识和其他条件 → 找主管机关 → 比较具体考试 → 本地报名/预算 → 时间与材料工作表 → 诊断/复测。B1仍不是Finder/Checklist的完整configured流程。
++
++| 用户目的/表达 | 内容承接与澄清 | 工具边界 |
++|---|---|---|
++| 配偶团聚 family | A1路线及要求；已有证书由读者明确选择 | 德国已配置A1准备流程；不保证个案资格 |
++| 长期居留或入籍 | B1专题先区分实际程序；模型合并标签仍需手选下一层 | verify-only；不能把A1清单替代B1材料工作表 |
++| Ausbildung | 查具体培训/学校/接收方和相关官方程序 | 有限核验指引；不承诺已配置完整路线 |
++| 护理 | 区分培训、大学学位、职业认可/执业，信息不足先澄清 | 使用现有参考内容和有权机构入口；不判认可结果 |
++| 大学学习 | 查目标大学和具体项目；一般平台只作定位入口 | verify-only；不由模型判断项目接受哪种证明 |
++| 明确其他目的 other（如短期旅游） | 说明本站范围，提供手选与相应核验出口 | 不把other当入境许可或无需证明结论 |
++| 仅问考试等级、多个目的或不清楚 unclear | 手选、考试参考或澄清；不硬塞进移民路径 | 不自动生成“无需证明”或确定资格结论 |
++
++正文只解释确有来源的内容。上述机构分工是选源规则，不是在本轮新增任何具体申请要求。
++
++## 4. LC01–LC12内容工作包
++
++下表路由为现有承接位置；“EN/ZH”表示对应页面实际存在时分别维护，不表示为所有英文路径自动新建中文版本。指南slug按`/guides/<slug>/`，中文按`/zh/guides/<slug>/`；工具用现有`/tools/`及`/zh/tools/`。每包先出缺口清单，命中才改；至少有一个可验收成果，不能只刷新日期。
++
++| ID / 优先级 / 窗口 | 精确承接位置与语言 | 本包独有交付物 | Laya边界、依赖与验收 |
++|---|---|---|---|
++| LC01 / P0 / W1 | `/`、`/zh/`、`/routes/`、`/tools/` | 完整准备流程/内容专题/官方核验三层能力表；首页与目录一致 | 对齐`routeRegistry`；目的可识别≠路线可完整输出；一次读者任务检查可辨别支持范围 |
++| LC02 / P0 / W1 | 双语`route-finder`；`/privacy-policy/` | 输入示例、采用前核对、手选改正、含糊/多目的、不可用继续、文字处理说明 | 仅主动发送；不输入证件；确认前不改表单；所有恢复文案有实际UI状态对应；依赖LC01 |
++| LC03 / P0 / W1–2 | 内部意图表；双语Finder说明；`services/laya-purpose/questions.json`对应定义 | 定义/排除项/反例/澄清句/内容入口/支持层级；评测与回归分开 | 6类目的＋unclear；依赖LC01/02；盲测按全站计划协议，不能从同一例句不断改写后宣称泛化 |
++| LC04 / P0 / W2 | EN/ZH `german-family-reunion-language-requirement`、`goethe-a1-germany-family-reunion` | 主管机关提问表；证书产品/日期/文书形式核验卡；C07缺口与状态决定 | 证书状态由读者提供，模型不判断可用性；依赖逐项官方核验；保留当前C07 noindex/ad-free |
++| LC05 / P1 / W3 | EN/ZH `goethe-a1-vs-telc-a1`、双语`exam-comparison` | 两个准确成人产品的差异卡和当地待问表；先确认受理再比较 | 复用版本化产品事实，Laya不选品牌；依赖LC04；未知字段不能用笼统说明冒充核实 |
++| LC06 / P1 / W3 | EN `goethe-a1-test-centers`、`goethe-a1-fees-by-country`、`goethe-a1-pre-booking-checklist`、`goethe-a1-booking-mistakes`；ZH现有centres/booking-mistakes | 产品/姓名/考点/报价/取消规则的付款前记录；分币种预算；报名故障恢复顺序 | 每条当地事实绑定考点/核验日；中文不默认北京；依赖当地取证与LC05；不产生付款成功或退款承诺 |
++| LC07 / P1 / W4 | EN/ZH现有`german-a1-documents-checklist`、`german-a1-exam-booking-timeline`；双语checklist-generator/timeline-calculator/email-reminders | 三类材料表、已确认值/假设表、可复制行动记录、真实日历导入证据 | 不从描述推日期；依赖LC04/06与既有日期契约；下载和导入分别验收，未测保留T19部分状态 |
++| LC08 / P1 / W5 | EN/ZH `goethe-a1-30-day-study-plan`；EN `goethe-a1-study-plan-working-adults`、`goethe-a1-listening-practice`、`goethe-a1-speaking-topics`、`goethe-a1-writing-practice` | 先选一项缺口，完成诊断→一组训练→自查→复测；在职时间预算与漏学调整 | 先复用已做训练资产；有明确新增价值才添；依赖产品说明、语言复核；无官方评分/通过预测 |
++| LC09 / P1 / W6 | EN B1 hub；`goethe-b1-germany-settlement-work`、`germany-b1-citizenship-language-proof`、`germany-b1-leben-in-deutschland-and-language-proof` | 复核四分支/未知分支的语言、知识、其他条件与主管机关卡；问询记录 | 模型合并b1只用于继续选择；依赖A1闭环与M4来源复核；不假设已有中文B1 hub或新规则 |
++| LC10 / P1 / W7 | EN `goethe-b1-vs-telc-b1`、`goethe-b1-fees-and-booking`、`germany-b1-settlement-citizenship-timeline`、`germany-b1-settlement-citizenship-checklist`；双语comparison | 精确B1产品差异、本地报价/退改/文书交付工作表、材料版本记录 | 依赖LC09与B1独立产品事实；不带入A1配置清单，不推断个案受理 |
++| LC11 / P2 / W8 | EN `goethe-b1-study-plan`、`goethe-b1-writing-assessment`、`goethe-b1-speaking-topics`、`goethe-b1-mock-exam-routine` | 由弱项证据选一组初稿→修改理由→迁移练习→自查→复测 | 依赖LC10、真实问题或明确任务测试、语言复核能力；不扩成自动作文评分服务 |
++| LC12 / P2 / W9–12 | `/routes/`、`/guides/`、`/exams/`及现有非核心参考页；已有EN/ZH入口 | 有限范围交接卡、来源到期清单、未解决任务表；最多三项下一周期候选 | 不因识别大学/护理/培训就新建完整路线；需要需求、来源、独有资产和维护预算 |
++
++C07特别检查：英文页面当前`contentStatus: verification-pending`与`sourceReviewStatus: reviewed`并存。已核验来源不等于任务完整或已批准索引；先检查其支持范围、读者产物和审核记录，再提出状态决定，不能在规划同步时直接提升状态。
++
++## 5. 每包如何生产与验收
++
++流程：①读者任务与当前页面缺口 → ②权威分工与来源台账 → ③可使用资产草稿 → ④正文/工具/译文一致性 → ⑤实际页面与任务测试 → ⑥独立Auditor修正复核 → ⑦规划图与Vault同步 → ⑧进入另行授权的发布批次。
++
++每项高风险新增或实质修改事实100%记录URL、检查日、责任方、段落定位、允许支持内容、边界和使用位置。通用国家概览不能证明某项目、地方、考点或个案的结果。无法确认价格、时间、豁免或接受结论时，写出具体询问对象、需要询问的问题和应保存的回答，不填估计值。核验日只有实际重读相关来源后才更新。
++
++每包记录：LC ID、关联原T/C任务、主要URL、语言/地区、具体产品、事实版本、独有资产、最多三个下一步、关联工具/译文、实际实施者/独立复核者、核验日、复查触发、实现状态、发布状态、风险和证据。草稿/来源完成/本地验收/生产发布分别记录，不用一个“完成”覆盖所有门槛。
++
++通用验收：标题问题在开头回答；边界明确；关键事实可追溯；产物可实际填写/练习/保存；下一步可到达；误判可改正；英文和中文引用相同事实版本但不混淆地区。只有任务和范围等价才配hreflang。无效链接、错误资格结论和版本不一致不能被平均评分抵消。
++
++首轮每周选择1个复杂资产包或1–2个实质小更新作为产能预算，复核工作包含在内；并非发文配额。若已有资产通过检查，该包记录“检查通过、无正文变更”，把时间转给失败路径或来源缺口。
++
++## 6. 搜索、双语与索引策略
++
++继续做静态可读的主答案、清晰任务标题、来源、内链和真实结构化数据。目的描述、模型结果和私人计划不生成可索引的参数页；不为每个意图改写组合制造着陆页。加入Laya本身不是排名优势；有用程度、可靠性和原创资产才是内容建设的衡量对象。[Google有用内容指引](https://developers.google.com/search/docs/fundamentals/creating-helpful-content)、[生成式内容指引](https://developers.google.com/search/docs/fundamentals/using-gen-ai-content)（2026-09-23查阅；不保证排名）。
++
++中文优先补核心任务、采用/改选/失败恢复和中国场景确有依据的模块；不机械翻译所有支持页。英文也必须明确地区；语言选择不写入申请地假设。其他语言暂缓。
++
++17个恢复支持页在W10逐页复盘“独有用途、内容质量、相关入口、历史信号、维护能力”。有价值也不自动恢复索引：需要单独提出URL清单、内链/sitemap/canonical/hreflang/广告影响、来源和实际可得GSC证据，再经独立审核与范围决定。索引评估与保留网址是不同动作；没有搜索数据就如实标未知。
++
++## 7. 维护、测量和扩展条件
++
++拟议维护节奏：每周处理读者纠错和官方变化线索；每月扫一次来源到期及链接；可变费用/报名内容默认30天复查，制度/格式内容默认90天复查，来源声明的更早日期或变更事件优先。到期未读不能只刷新日期，关键事实过期时回到待核验动作。频率为资源规划，不是现有自动化，也不是来源有效期保证。
++
++上线前用固定任务脚本记录独立完成/需帮助/失败，按语言、目的和支持状态报告分子分母；拟议真实读者测试尚未执行。上线后只有获准且实际采集的数据才可做增长决策：GSC展现/点击与查询、已定义且真实发送的工具事件、纠错反馈、服务聚合指标。当前T27无传输，不可给出真实工具完成率；确认Laya建议不等于结果正确。
++
++扩展一项新范围前同时满足：现有A1任务维护稳定、无未解决关键事实错误；明确需求证据；既有页面无法承接；完整官方来源链；独有可交付资产；维护角色与预算；相应语言/模型/规则评测。先试一个任务，不同时开多个国家、城市、考试品牌和新语言。B1完整工具规则如要增加，另立LP/任务，不在LC内容更新中顺带实施。
++
++W9–12优先复查模型失败恢复、两种语言理解差异、17个恢复页与24个其他支持页的任务分工，再选择最多三项改进。若尚未部署，继续本地任务测试，保持线上指标未知；24小时/第7天观察从实际上线计时。
++
++## 8. 本轮规划验收与后续交接
++
++本轮修正内容台账中的38页算式、M4失效日期链接和旧规划权威入口；保留历史生产证据，不把9/13核验日期写成今天。同步Master增补、overlay、执行记录、规划图和本地Vault待审核payload。任何正文、模型、工具、索引与生产改动均留给后续明确窗口。
++
++本轮独立审计：`docs/planning-map/VISALANG_LAYA_PLANNING_INDEPENDENT_AUDIT_2026-09-23.md`；同步ID：`VL-PMAP-20260923-01`。审计结论以该独立报告为准，本文不自发PASS。Vault实际路径不可用时明确blocked；Owner决定pending，deployment not_started。
+--- a/docs/planning-map/visalang-overall-build-plan.archify.json
++++ b/docs/planning-map/visalang-overall-build-plan.archify.json
+@@ -2,7 +2,7 @@
+   "schema_version": 2,
+   "diagram_type": "workflow",
+   "meta": {
+-    "title": "VisaLang 网站整体建设规划与偏航门禁",
++    "title": "VisaLang 网站建设规划：内容与 Laya",
+     "locale": "zh-CN",
+     "output": "docs/planning-map/visalang-overall-build-plan.html",
+     "quality_profile": "showcase"
+@@ -29,20 +29,20 @@
+   "phases": [
+     {
+       "id": "foundation",
+-      "label": "方向与基础",
++      "label": "定位与已完成基础",
+       "fromCol": 0,
+       "toCol": 1
+     },
+     {
+       "id": "core",
+-      "label": "A1 核心闭环",
++      "label": "内容资产与模型验收",
+       "fromCol": 2,
+       "toCol": 3,
+       "variant": "emphasis"
+     },
+     {
+       "id": "expansion",
+-      "label": "双语深化与证据扩展",
++      "label": "联合发布与持续建设",
+       "fromCol": 4,
+       "toCol": 5,
+       "variant": "dashed"
+@@ -50,11 +50,11 @@
+   ],
+   "groups": [
+     {
+-      "id": "current_delivery",
+-      "label": "A1 与双语底座",
++      "id": "content_model",
++      "label": "规划下一批；不代表已实施",
+       "lane": "milestones",
+       "fromCol": 2,
+-      "toCol": 4,
++      "toCol": 3,
+       "variant": "emphasis"
+     },
+     {
+@@ -68,28 +68,28 @@
+   ],
+   "mainPath": [
+     "north_star",
+-    "m0_m1",
+-    "m2a",
+-    "m2b",
+-    "m3",
+-    "m4_m6"
++    "foundation_done",
++    "content_intent",
++    "laya_gate",
++    "joint_release",
++    "operate_expand"
+   ],
+   "semanticChecks": {
+     "allowedRoots": [
+       "north_star"
+     ],
+     "allowedTerminals": [
+-      "m4_m6",
++      "operate_expand",
+       "owner_release"
+     ],
+     "requiredEdges": [
+       {
+-        "from": "m2b",
+-        "to": "m3"
++        "from": "content_intent",
++        "to": "laya_gate"
+       },
+       {
+-        "from": "drift_gate",
+-        "to": "automated_evidence"
++        "from": "laya_gate",
++        "to": "joint_release"
+       },
+       {
+         "from": "independent_audit",
+@@ -99,7 +99,7 @@
+     "requiredPaths": [
+       {
+         "from": "north_star",
+-        "to": "m4_m6"
++        "to": "operate_expand"
+       },
+       {
+         "from": "north_star",
+@@ -117,52 +117,54 @@
+       "lane": "strategy",
+       "col": 0,
+       "type": "frontend",
+-      "label": "德国路线导航",
+-      "sublabel": "A1 优先，证据扩展",
+-      "tag": "North Star"
++      "label": "德国准备导航",
++      "sublabel": "目的确认与核验",
++      "tag": "A1 优先／B1 深化"
+     },
+     {
+-      "id": "m0_m1",
++      "id": "foundation_done",
+       "lane": "milestones",
+       "col": 1,
+-      "type": "backend",
+-      "label": "M0–M1 基线",
+-      "sublabel": "T01–T09 已完成"
++      "type": "database",
++      "label": "既有内容与工具",
++      "sublabel": "25 项已完成",
++      "tag": "5 项进行中"
+     },
+     {
+-      "id": "m2a",
++      "id": "content_intent",
+       "lane": "milestones",
+       "col": 2,
+-      "type": "database",
+-      "label": "M2-A 事实底座",
+-      "sublabel": "T10–T14 已完成"
++      "type": "backend",
++      "label": "内容＋意图资产",
++      "sublabel": "12 包内容待实施",
++      "tag": "事实与语料分开"
+     },
+     {
+-      "id": "m2b",
++      "id": "laya_gate",
+       "lane": "milestones",
+       "col": 3,
+       "type": "security",
+-      "label": "M2-B 工具闭环",
+-      "sublabel": "Laya 建议需确认",
+-      "tag": "质量／容量待验证"
++      "label": "Laya 上线门槛",
++      "sublabel": "质量＋容量待验",
++      "tag": "未达标不上线"
+     },
+     {
+-      "id": "m3",
++      "id": "joint_release",
+       "lane": "milestones",
+       "col": 4,
+-      "type": "frontend",
+-      "label": "M3 双语 SEO",
+-      "sublabel": "17 旧网址本地保留",
+-      "tag": "T23 公网待验"
++      "type": "cloud",
++      "label": "M5 联合发布",
++      "sublabel": "网站＋模型＋广告",
++      "tag": "验证后另行授权"
+     },
+     {
+-      "id": "m4_m6",
++      "id": "operate_expand",
+       "lane": "milestones",
+       "col": 5,
+-      "type": "cloud",
+-      "label": "M4–M6 发布",
+-      "sublabel": "T28–T30 部分",
+-      "tag": "T31–T34 待执行"
++      "type": "frontend",
++      "label": "M6 内容运营",
++      "sublabel": "A1 巩固／B1 深化",
++      "tag": "扩展须需求证据"
+     },
+     {
+       "id": "change_freeze",
+@@ -218,38 +220,37 @@
+   ],
+   "edges": [
+     {
+-      "id": "main_north_foundation",
++      "id": "main_north_star_foundation_done",
+       "from": "north_star",
+-      "to": "m0_m1",
++      "to": "foundation_done",
+       "role": "main"
+     },
+     {
+-      "id": "main_foundation_m2a",
+-      "from": "m0_m1",
+-      "to": "m2a",
++      "id": "main_foundation_done_content_intent",
++      "from": "foundation_done",
++      "to": "content_intent",
+       "role": "main"
+     },
+     {
+-      "id": "main_m2a_m2b",
+-      "from": "m2a",
+-      "to": "m2b",
++      "id": "main_content_intent_laya_gate",
++      "from": "content_intent",
++      "to": "laya_gate",
+       "role": "main",
+-      "label": "规则保留／建议需确认"
++      "label": "建议确认后用规则"
+     },
+     {
+-      "id": "main_m2b_m3",
+-      "from": "m2b",
+-      "to": "m3",
+-      "label": "修正＋证据＋Auditor PASS",
+-      "variant": "emphasis",
+-      "role": "main"
++      "id": "main_laya_gate_joint_release",
++      "from": "laya_gate",
++      "to": "joint_release",
++      "role": "main",
++      "label": "质量／容量／广告都通过"
+     },
+     {
+-      "id": "main_m3_future",
+-      "from": "m3",
+-      "to": "m4_m6",
+-      "label": "旧址验收后联合发布",
+-      "role": "main"
++      "id": "main_joint_release_operate_expand",
++      "from": "joint_release",
++      "to": "operate_expand",
++      "role": "main",
++      "label": "上线后 24 小时／7 天"
+     },
+     {
+       "id": "branch_window",
+@@ -307,29 +308,29 @@
+       "dot": "amber",
+       "title": "当前真实状态",
+       "items": [
+-        "权威：Master Package＋Owner 本地授权",
+-        "T23／T28–T30 部分；尚未部署",
+-        "同步：VL-PMAP-20260922-02",
+-        "指纹：4c075afd 782bfdc3 0a00e725 ee108a21 2d10670b 4621edcf fb21fd39 b19f7256"
++        "基线：25 完成／5 进行中／4 待开始",
++        "Laya 11/20；Mac 峰值 4.14 GB",
++        "同步：VL-PMAP-20260923-01",
++        "指纹：955cffb7 7a007a59 5069f6f6 65315241 c0e78f73 10613222 da15069a f7b7d3ce"
+       ]
+     },
+     {
+       "dot": "cyan",
+-      "title": "下一执行阶段",
++      "title": "12 周滚动内容计划",
+       "items": [
+-        "本次：旧址保留＋联合版本与回滚工具",
+-        "Laya：11/20；Mac 峰值 4.14 GB",
+-        "下一步：模型改进／Linux 容量／广告验证",
+-        "日历导入／Vault 路径仍受阻"
++        "1–2 周：能力说明、意图语料、A1 核心",
++        "3–4 周：工具与报名／材料闭环",
++        "5–8 周：训练资产与 B1 条件式深化",
++        "9–12 周：真实数据决定最多三项改进"
+       ]
+     },
+     {
+       "dot": "emerald",
+-      "title": "偏航判定",
++      "title": "本次授权与边界",
+       "items": [
+-        "approved-deviation：Owner 授权本地实施",
+-        "旧网址优先；网站、模型与广告同步上线",
+-        "购买／提交／DNS／部署仍须另行授权"
++        "approved-deviation：仅更新建设规划",
++        "Laya 建议不产生资格、费用或官方结论",
++        "新内容、模型改动与发布尚未执行"
+       ]
+     }
+   ]

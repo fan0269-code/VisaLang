@@ -1,0 +1,128 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const { execFileSync } = require('node:child_process');
+
+const build = (adsMode) => execFileSync('npm', ['run', 'build'], {
+  stdio: 'pipe',
+  env: { ...process.env, VISALANG_PURPOSE_MODE: 'off', VISALANG_ADS_MODE: adsMode },
+});
+
+const adsenseHost = 'pagead2.googlesyndication.com';
+const read = (file) => fs.readFileSync(file, 'utf8');
+const listHtml = (directory, result = []) => {
+  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+    const file = `${directory}/${entry.name}`;
+    if (entry.isDirectory()) listHtml(file, result);
+    else if (entry.name.endsWith('.html')) result.push(file);
+  }
+  return result;
+};
+
+build('off');
+assert.deepEqual(JSON.parse(read('dist/runtime-features.json')), {
+  schemaVersion: 1, purposeSuggestions: 'off', advertising: 'off',
+});
+assert.equal(listHtml('dist').filter((file) => read(file).includes(adsenseHost)).length, 0,
+  'advertising-off build has zero pages loading the advertising runtime');
+assert.ok(!read('dist/tools/route-finder/index.html').includes('data-purpose-suggestion'),
+  'core-only Route Finder has no suggestion UI');
+assert.ok(!read('dist/zh/tools/route-finder/index.html').includes('data-purpose-suggestion'),
+  'core-only Chinese Route Finder has no suggestion UI');
+
+build('on');
+assert.deepEqual(JSON.parse(read('dist/runtime-features.json')), {
+  schemaVersion: 1, purposeSuggestions: 'off', advertising: 'on',
+});
+
+const advertisingFreeRoutes = [
+  'dist/index.html',
+  'dist/germany-family-reunion-a1/index.html',
+  'dist/germany-b1-settlement-citizenship/index.html',
+  'dist/zh/index.html',
+  'dist/zh/germany-family-reunion-a1/index.html',
+  'dist/404.html',
+  'dist/privacy-policy/index.html',
+  'dist/cookie-policy/index.html',
+  'dist/terms/index.html',
+  'dist/editorial-policy/index.html',
+  'dist/affiliate-disclosure/index.html',
+  'dist/pricing/index.html',
+  'dist/partners/index.html',
+  'dist/route-review/index.html',
+  'dist/products/a1-family-reunion-pack/index.html',
+  'dist/products/a1-practice-pack/index.html',
+  'dist/guides/yki-finnish-citizenship/index.html',
+  'dist/guides/cils-b1-cittadinanza-for-italian-citizenship/index.html',
+  'dist/guides/testdaf-germany-university-admissions/index.html',
+  'dist/guides/telc-b1-b2-fees-and-test-centers/index.html',
+  'dist/guides/category/uk/index.html',
+  'dist/guides/category/canada/index.html',
+  'dist/guides/category/italy/index.html',
+  'dist/guides/category/spain/index.html',
+  'dist/guides/category/france/index.html',
+  'dist/guides/category/finland/index.html',
+  'dist/guides/category/netherlands/index.html',
+  'dist/guides/category/portugal/index.html',
+  'dist/guides/category/germany-testdaf/index.html',
+  'dist/guides/category/germany-telc/index.html',
+  'dist/guides/category/germany-a1/index.html',
+  'dist/guides/category/germany-b1/index.html',
+];
+
+for (const file of advertisingFreeRoutes) {
+  assert.ok(fs.existsSync(file), `risk route should still generate: ${file}`);
+  assert.ok(!read(file).includes(adsenseHost), `risk route should not load AdSense: ${file}`);
+}
+
+const commercialRoutes = [
+  '/pricing/',
+  '/partners/',
+  '/route-review/',
+  '/products/a1-family-reunion-pack/',
+  '/products/a1-practice-pack/',
+];
+const sitemap = read('dist/sitemap-0.xml');
+
+for (const route of commercialRoutes) {
+  const file = `dist${route}index.html`;
+  assert.ok(read(file).includes('<meta name="robots" content="noindex,follow">'), `commercial placeholder should be noindex: ${route}`);
+  assert.ok(!sitemap.includes(`<loc>https://visalang.org${route}</loc>`), `commercial placeholder should be excluded from sitemap: ${route}`);
+}
+
+for (const route of [
+  '/guides/yki-finnish-citizenship/',
+  '/guides/cils-b1-cittadinanza-for-italian-citizenship/',
+  '/guides/testdaf-germany-university-admissions/',
+  '/guides/telc-b1-b2-fees-and-test-centers/',
+  '/guides/category/uk/',
+  '/guides/category/canada/',
+  '/guides/category/italy/',
+  '/guides/category/spain/',
+  '/guides/category/france/',
+  '/guides/category/finland/',
+  '/guides/category/netherlands/',
+  '/guides/category/portugal/',
+  '/guides/category/germany-testdaf/',
+  '/guides/category/germany-telc/',
+  '/guides/category/germany-a1/',
+  '/guides/category/germany-b1/',
+]) {
+  const html = read(`dist${route}index.html`);
+  assert.ok(html.includes('<meta name="robots" content="noindex,follow">'), `pending or starter route should be noindex: ${route}`);
+  assert.ok(!sitemap.includes(`<loc>https://visalang.org${route}</loc>`), `pending or starter route should be excluded from sitemap: ${route}`);
+}
+
+for (const file of ['dist/guides/german-family-reunion-language-requirement/index.html']) {
+  assert.ok(read(file).includes(adsenseHost), `ad-eligible control route should keep AdSense: ${file}`);
+}
+const loadedAds = listHtml('dist').filter((file) => read(file).includes(adsenseHost));
+assert.equal(loadedAds.length, 14, 'advertising-on build loads no more than the existing 14 eligible pages');
+for (const route of ['dist/index.html', 'dist/tools/route-finder/index.html', 'dist/zh/tools/route-finder/index.html']) {
+  assert.ok(!read(route).includes(adsenseHost), `home and tools remain ad-free: ${route}`);
+}
+
+const germanyCategoryHtml = read('dist/guides/category/germany-a1/index.html');
+assert.ok(germanyCategoryHtml.includes('<meta name="robots" content="noindex,follow">'), 'Germany A1 category should remain outside indexing');
+assert.ok(!sitemap.includes('<loc>https://visalang.org/guides/category/germany-a1/</loc>'), 'Germany A1 category should remain outside the sitemap');
+
+console.log('Advertising off/on build and risk-exposure rules passed');

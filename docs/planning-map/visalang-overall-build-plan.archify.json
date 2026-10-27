@@ -1,0 +1,321 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "VisaLang 全站建设规划：A1 核心与可选用途建议",
+    "locale": "zh-CN",
+    "output": "docs/planning-map/visalang-overall-build-plan.html",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    {
+      "id": "core",
+      "label": "核心建设主线"
+    },
+    {
+      "id": "optional",
+      "label": "按证据独立推进"
+    },
+    {
+      "id": "governance",
+      "label": "每次变更／发布共用门禁",
+      "variant": "exception"
+    }
+  ],
+  "phases": [
+    {
+      "id": "validate",
+      "label": "前两周：并行初验与修正",
+      "fromCol": 0,
+      "toCol": 1,
+      "variant": "emphasis"
+    },
+    {
+      "id": "prepare",
+      "label": "核心发布准备",
+      "fromCol": 2,
+      "toCol": 3
+    },
+    {
+      "id": "operate",
+      "label": "真实反馈后再扩展",
+      "fromCol": 4,
+      "toCol": 5,
+      "variant": "dashed"
+    }
+  ],
+  "mainPath": [
+    "reader_validation",
+    "a1_core",
+    "core_candidate",
+    "operate_expand"
+  ],
+  "semanticChecks": {
+    "allowedRoots": [
+      "reader_validation",
+      "authority_map_sync"
+    ],
+    "allowedTerminals": [
+      "laya_gate",
+      "ads_gate",
+      "b1_gate",
+      "owner_release"
+    ],
+    "requiredEdges": [
+      {
+        "from": "reader_validation",
+        "to": "a1_core"
+      },
+      {
+        "from": "a1_core",
+        "to": "core_candidate"
+      },
+      {
+        "from": "core_candidate",
+        "to": "operate_expand"
+      },
+      {
+        "from": "independent_audit",
+        "to": "owner_release"
+      },
+      {
+        "from": "reader_validation",
+        "to": "laya_gate"
+      }
+    ],
+    "requiredPaths": [
+      {
+        "from": "reader_validation",
+        "to": "operate_expand"
+      },
+      {
+        "from": "authority_map_sync",
+        "to": "owner_release"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": "reader_validation",
+      "lane": "core",
+      "col": 0,
+      "type": "frontend",
+      "label": "首轮并行验证",
+      "sublabel": "LP00 ＋ LP01a",
+      "tag": "读者任务／有限技术初验"
+    },
+    {
+      "id": "a1_core",
+      "lane": "core",
+      "col": 1,
+      "type": "backend",
+      "label": "A1 核心闭环",
+      "sublabel": "LP04 · 优先三项",
+      "tag": "复用并修正现有资产"
+    },
+    {
+      "id": "core_candidate",
+      "lane": "core",
+      "col": 3,
+      "type": "cloud",
+      "label": "核心发布候选",
+      "sublabel": "LP05a / 06-core",
+      "tag": "隔离候选待集成验收"
+    },
+    {
+      "id": "operate_expand",
+      "lane": "core",
+      "col": 5,
+      "type": "frontend",
+      "label": "实际运营反馈",
+      "sublabel": "LP07 · 上线后",
+      "tag": "每两周选择下一批"
+    },
+    {
+      "id": "laya_gate",
+      "lane": "optional",
+      "col": 1,
+      "type": "security",
+      "label": "用途建议投入",
+      "sublabel": "LP01b→质量→容量",
+      "tag": "按提供方分别验证"
+    },
+    {
+      "id": "ads_gate",
+      "lane": "optional",
+      "col": 3,
+      "type": "security",
+      "label": "广告独立启用",
+      "sublabel": "账户／同意／体验",
+      "tag": "未就绪只暂停广告"
+    },
+    {
+      "id": "b1_gate",
+      "lane": "optional",
+      "col": 5,
+      "type": "database",
+      "label": "B1 条件式深化",
+      "sublabel": "独立需求＋维护能力",
+      "tag": "维护继续／扩展待证"
+    },
+    {
+      "id": "authority_map_sync",
+      "lane": "governance",
+      "col": 0,
+      "type": "database",
+      "label": "冻结与权威同步",
+      "sublabel": "范围／计划／指纹"
+    },
+    {
+      "id": "drift_gate",
+      "lane": "governance",
+      "col": 1,
+      "type": "security",
+      "label": "偏航检查",
+      "sublabel": "范围／权威／依赖",
+      "tag": "证据／发布"
+    },
+    {
+      "id": "automated_evidence",
+      "lane": "governance",
+      "col": 2,
+      "type": "backend",
+      "label": "自动与视觉验证",
+      "sublabel": "测试＋Archify"
+    },
+    {
+      "id": "independent_audit",
+      "lane": "governance",
+      "col": 4,
+      "type": "security",
+      "label": "独立 Auditor",
+      "sublabel": "P0–P2 归零",
+      "tag": "必需"
+    },
+    {
+      "id": "owner_release",
+      "lane": "governance",
+      "col": 5,
+      "type": "external",
+      "label": "Owner 逐次授权",
+      "sublabel": "核心／模型／广告",
+      "tag": "当前未部署"
+    }
+  ],
+  "edges": [
+    {
+      "id": "main_validation_core",
+      "from": "reader_validation",
+      "to": "a1_core",
+      "role": "main",
+      "label": "只需读者验证"
+    },
+    {
+      "id": "main_core_candidate",
+      "from": "a1_core",
+      "to": "core_candidate",
+      "role": "main",
+      "label": "闭环与解耦验收"
+    },
+    {
+      "id": "main_candidate_operate",
+      "from": "core_candidate",
+      "to": "operate_expand",
+      "role": "main",
+      "label": "共用门禁通过后上线"
+    },
+    {
+      "id": "branch_laya",
+      "from": "reader_validation",
+      "to": "laya_gate",
+      "role": "branch",
+      "label": "汇总双轨证据",
+      "variant": "dashed"
+    },
+    {
+      "id": "branch_ads",
+      "from": "core_candidate",
+      "to": "ads_gate",
+      "role": "branch",
+      "label": "独立验收",
+      "variant": "dashed"
+    },
+    {
+      "id": "branch_b1",
+      "from": "operate_expand",
+      "to": "b1_gate",
+      "role": "branch",
+      "label": "有独立需求",
+      "variant": "dashed"
+    },
+    {
+      "id": "sync_drift",
+      "from": "authority_map_sync",
+      "to": "drift_gate",
+      "role": "branch"
+    },
+    {
+      "id": "sync_evidence",
+      "from": "drift_gate",
+      "to": "automated_evidence",
+      "role": "branch",
+      "label": "偏航已解决"
+    },
+    {
+      "id": "sync_audit",
+      "from": "automated_evidence",
+      "to": "independent_audit",
+      "role": "branch"
+    },
+    {
+      "id": "sync_owner",
+      "from": "independent_audit",
+      "to": "owner_release",
+      "role": "branch",
+      "label": "PASS 不代替发布授权",
+      "variant": "security"
+    },
+    {
+      "id": "drift_return",
+      "from": "drift_gate",
+      "to": "authority_map_sync",
+      "role": "return",
+      "label": "未解决：返回修正",
+      "variant": "security"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "amber",
+      "title": "当前真实状态",
+      "items": [
+        "原始任务状态：25 完成／5 进行中／4 待开始",
+        "N00：4 个归档包、139 项候选/基准记录已核验；尚未集成",
+        "当前任务：N00 治理结项（视觉证据、Obsidian 记录与独审仍待闭环）",
+        "下一任务：N01 串行集成（N00 Auditor PASS 后启动）",
+          "本次同步：VL-PMAP-20261011-03",
+          "监测指纹：0ed8de28 bf80593d 6a39269f 93925fa1 6cc0b5b1 03ec1600 fed7b668 9f40e84c"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "下一步：接收与串行集成",
+      "items": [
+        "W03/W04 ready_for_integration；W08/W07 partial，归档不升级模块验收",
+        "顺序固定：W03 → W04 → W08 → W07；共享冲突按分段三方合并处理",
+        "W07缺Playwright；W04缺截图/打印验证；W08真实Git与生产环境未验证",
+        "当前 drift: unresolved；N01、N02、N03、N04 按门槛顺序推进"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "独立候选，共用质量门禁",
+      "items": [
+        "核心解耦已有隔离候选，尚待验收",
+        "各次发布均需独立审核＋Owner 授权",
+        "真人／日历／主机证据门槛保留",
+        "本批不读凭据、不调用 API、不部署"
+      ]
+    }
+  ]
+}

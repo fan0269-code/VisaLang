@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "batchId": "2026-09-24-01",
+  "moduleId": "W03",
+  "promptId": "P01",
+  "planningPackages": [
+    "LC01"
+  ],
+  "baselineId": "cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40",
+  "sourceRoot": "/Users/a1-6/Documents/2.codex/1.visalang.org",
+  "workspacePath": "/private/tmp/visalang-W00-2026-09-24-01/W03",
+  "snapshotPath": "/private/tmp/visalang-W00-2026-09-24-01/baseline",
+  "baselineManifestPath": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-24-01/baseline-manifest.json",
+  "byteVerificationPath": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-24-01/W03-byte-verification.json",
+  "promptPath": "docs/prompts/2026-09-24-next-stage/P01-entry-ui.md",
+  "requiredCommonPath": "docs/prompts/2026-09-23-module-build/COMMON.md",
+  "assignmentStatus": "prepared_awaiting_owner_dispatch",
+  "implementationStatus": "not_started",
+  "allowedWritePaths": [
+    "src/pages/index.astro",
+    "src/pages/zh/index.astro",
+    "src/pages/routes/index.astro",
+    "src/pages/tools/index.astro",
+    "src/components/HomeHero.astro",
+    "src/components/RouteSelector.astro",
+    "src/components/GlobalHeader.astro",
+    "src/components/MobileNavigation.astro",
+    "src/styles/global.css",
+    "tests/task-4-home-routes.test.mjs",
+    "tests/m3-discovery-trust.test.mjs",
+    "docs/module-handoffs/2026-09-24-01/W03/**"
+  ],
+  "runtimeWritePaths": [
+    "node_modules/**",
+    "dist/**",
+    ".astro/**",
+    ".venv/**",
+    ".runtime/**"
+  ],
+  "runtimeRules": "Independent local runtime paths only; no writable sharing, lockfile upgrades, installs/downloads or credential reads. Future build-producing npm commands serialized.",
+  "environmentRecord": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-24-01/environment-preflight.json",
+  "evidenceDependencies": [
+    {
+      "evidencePath": "docs/module-handoffs/2026-09-24-01/snapshot-verification.json",
+      "status": "verified",
+      "sha256": "a5ed376b0912bd451407ab8816f0591172b879c1e464ed51a4ac90c8f05697cb"
+    },
+    {
+      "evidencePath": "docs/module-handoffs/2026-09-24-01/environment-preflight.json",
+      "status": "independent-local-dependency-copies-verified",
+      "sha256": "c0f22f5b2a7431816ad09bbd48257bdcedf5f2ad0965f2d7abd2ce4bff6804b1"
+    },
+    {
+      "evidencePath": "docs/PROJECT_SCAN_2026-09-24.md",
+      "status": "known-local-defects; not-human-or-production-evidence",
+      "sha256": "73bed7daafecb7ba8b1050b6d0d1a8fec8c68d8b9fbab0a57dd17346208dc1f1"
+    },
+    {
+      "evidencePath": "docs/superpowers/plans/2026-09-24-visalang-next-stage-content-ui.md",
+      "status": "governing-execution-supplement; T/LP/LC-gates-unchanged",
+      "sha256": "3f97cd8226aa72142f81c2c8024c3c110659c817789d751ebcec51daf9c95cff"
+    },
+    {
+      "evidencePath": "docs/project-scan-evidence-2026-09-24/ui/receipt.json",
+      "status": "historical-local-browser-evidence",
+      "sha256": "3242268dd4e8180708cf7521d40f86f4c074ddc7792509a4cb2649b4685fa8a3"
+    },
+    {
+      "moduleId": "W01",
+      "status": "not-prerequisite-for-confirmed-local-defect-maintenance; real-readers-not-tested"
+    }
+  ],
+  "limitations": [
+    "No real-reader evidence; local known-defect work does not close LP00/LP04.",
+    "GuideLayout is not granted by P01; request W00 path allocation only if concretely needed.",
+    "Route coverage/index/ads policy are read-only."
+  ],
+  "handoffStatus": "not_received",
+  "dispatchEvidence": null,
+  "externalActionsAuthorized": []
+}

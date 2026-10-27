@@ -1,0 +1,5 @@
+# W00 Owner scope — 2026-09-23
+
+The current user supplied the complete W00 integration prompt, authorizing local allocation, integration and verification, and explicitly stated that this does not mean other windows have been dispatched and does not authorize commit/push/deployment. Exact operative sentences: “优先准备 W01、W02、W08；W03/W04可另批根据产能启动。” and “向用户返回可直接给每窗口的分配路径和对应提示词；只有用户明确要你创建任务时才调用新任务工具。”
+
+This batch therefore prepares W01/W02/W08 only. No functional module is started, no user-owned task is created, and no actual module handoff has arrived. The user may dispatch each existing prompt together with its allocation. Future integration is conditioned on actual candidate evidence, not the availability of a directory. All external actions remain outside this authorization. LP/LC and 25/5/4 remain unchanged. The ordinary execution-skill worktree/commit/TDD workflow is superseded by the explicit W00 dirty-snapshot/no-commit scope; the batch ledger lives here rather than altering an unrelated SDD workspace. There is no product behavior change requiring a new product test.

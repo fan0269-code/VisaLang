@@ -1,0 +1,44 @@
+[
+  {
+    "command": "npm run build",
+    "exitCode": 0,
+    "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/final-0.log",
+    "baselineId": "f895b5901c6cdfadf4eab53ae770e54994d03dd5767e2efdd7979e53ba5501aa",
+    "candidateManifestPath": "docs/module-handoffs/2026-09-24-01/W03/candidate-manifest.json"
+  },
+  {
+    "command": "node tests/task-4-home-routes.test.mjs",
+    "exitCode": 0,
+    "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/final-1.log",
+    "baselineId": "f895b5901c6cdfadf4eab53ae770e54994d03dd5767e2efdd7979e53ba5501aa",
+    "candidateManifestPath": "docs/module-handoffs/2026-09-24-01/W03/candidate-manifest.json"
+  },
+  {
+    "command": "node tests/m3-discovery-trust.test.mjs",
+    "exitCode": 0,
+    "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/final-2.log",
+    "baselineId": "f895b5901c6cdfadf4eab53ae770e54994d03dd5767e2efdd7979e53ba5501aa",
+    "candidateManifestPath": "docs/module-handoffs/2026-09-24-01/W03/candidate-manifest.json"
+  },
+  {
+    "command": "node tests/scheme-3-publication.test.mjs",
+    "exitCode": 0,
+    "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/final-3.log",
+    "baselineId": "f895b5901c6cdfadf4eab53ae770e54994d03dd5767e2efdd7979e53ba5501aa",
+    "candidateManifestPath": "docs/module-handoffs/2026-09-24-01/W03/candidate-manifest.json"
+  },
+  {
+    "command": "node tests/scheme-3-route-hubs.test.js",
+    "exitCode": 0,
+    "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/final-4.log",
+    "baselineId": "f895b5901c6cdfadf4eab53ae770e54994d03dd5767e2efdd7979e53ba5501aa",
+    "candidateManifestPath": "docs/module-handoffs/2026-09-24-01/W03/candidate-manifest.json"
+  },
+  {
+    "command": "node tests/m3-chinese-journey.test.mjs",
+    "exitCode": 0,
+    "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/final-5.log",
+    "baselineId": "f895b5901c6cdfadf4eab53ae770e54994d03dd5767e2efdd7979e53ba5501aa",
+    "candidateManifestPath": "docs/module-handoffs/2026-09-24-01/W03/candidate-manifest.json"
+  }
+]

@@ -16,4 +16,5 @@
 /guides/yki-vs-other-finland-options.html /guides/yki-finnish-citizenship/ 301
 /guides/:slug.html /guides/:slug/ 301
 /zh/guides/:slug.html /zh/guides/:slug/ 301
+/zh/* /zh/404/index.html 404
 /* /404.html 404

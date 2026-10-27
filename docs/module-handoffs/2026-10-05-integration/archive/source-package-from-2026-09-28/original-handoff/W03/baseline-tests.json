@@ -1,0 +1,26 @@
+[
+  {
+    "command": "npm run build",
+    "exitCode": 0,
+    "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/before-0.log",
+    "phase": "baseline"
+  },
+  {
+    "command": "node tests/task-4-home-routes.test.mjs",
+    "exitCode": 0,
+    "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/before-1.log",
+    "phase": "baseline"
+  },
+  {
+    "command": "node tests/m3-discovery-trust.test.mjs",
+    "exitCode": 0,
+    "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/before-2.log",
+    "phase": "baseline"
+  },
+  {
+    "command": "node tests/scheme-3-publication.test.mjs",
+    "exitCode": 0,
+    "logPath": "docs/module-handoffs/2026-09-24-01/W03/logs/before-3.log",
+    "phase": "baseline"
+  }
+]

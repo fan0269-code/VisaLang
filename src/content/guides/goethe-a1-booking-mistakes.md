@@ -1,60 +1,62 @@
 ---
-title: "Goethe A1 booking mistakes for family reunion"
-description: "Avoid common Goethe A1 booking mistakes by checking the exam version, official centre, ID rules, dates, fees, and cancellation terms before paying."
+title: "Goethe A1 booking: recover from an error"
+description: "Use an error record to resolve a name, payment or confirmation problem with your selected examination centre."
 category: "germany-a1"
 slug: "goethe-a1-booking-mistakes"
 publishedDate: "2026-07-02"
-updatedDate: "2026-07-22"
-sourceReviewedAt: "2026-07-22"
+updatedDate: "2026-09-22"
+sourceReviewedAt: "2026-09-22"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
-contentStatus: "complete-route"
-primaryIntent: "Goethe A1 booking mistakes for family reunion decision support"
+contentStatus: "core-route"
+noindex: true
+adsEligible: false
+primaryIntent: "Use an error record to resolve a name, payment or confirmation problem with your selected examination centre."
 decisionStage: "local-execution"
-nextGuideSlug: "german-a1-documents-checklist"
 comparisonScope: "same-route"
-audienceScope: "Adults checking the Goethe-Zertifikat A1: Start Deutsch 1 product and local booking terms before payment."
-finalDecisionAuthorityType: "Receiving German authority for proof acceptance; Goethe-Institut and authorised local centre for booking"
-primaryOfficialAuthorityUrl: "https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11"
+audienceScope: "Use an error record to resolve a name, payment or confirmation problem with your selected examination centre."
+finalDecisionAuthorityType: "Selected examination centre for the specific booking"
+primaryOfficialAuthorityUrl: "https://www.goethe.de/en/spr/prf.html"
 examOwnerUrl: "https://www.goethe.de/en/spr/prf.html"
-localExecutionPrompt: "Confirm proof acceptance with the competent authority and obtain the exact centre's current date, fee, ID, payment, cancellation, rescheduling, result and certificate instructions before paying."
+localExecutionPrompt: "Open the linked official source and the selected centre or competent mission instructions before relying on any individual or local outcome."
 author: "VisaLang Editorial team"
-readingTime: "8"
-featured: false
-eyebrow: "Germany family reunion"
-route: "germany-a1"
-supportingGuideSlugs: ["goethe-a1-pre-booking-checklist", "goethe-a1-test-centers"]
+readingTime: "4"
+nextGuideSlug: "goethe-a1-test-centers"
+supportingGuideSlugs: ["goethe-a1-test-centers"]
 ---
-## The mistake happens before payment
 
-Most booking problems begin when a reader treats an A1 label, a course advert, or an old price as enough evidence. Pause before payment and verify the exam, the centre, and the route requirement separately.
+## Who this is for
 
-## Seven mistakes to avoid
+Use an error record to resolve a name, payment or confirmation problem with your selected examination centre. This page provides a working method, not an individual exam or application decision.
 
-1. Booking before confirming that A1 proof applies to your case.
-2. Paying for a German course when you need an official examination booking.
-3. Choosing an A1 listing without matching the exact adult exam name to your route.
-4. Treating a copied address or social post as proof that a centre is official.
-5. Letting the booking name differ from the passport or accepted ID you will use.
-6. Paying without reading the local payment, cancellation, and rescheduling terms.
-7. Planning from the exam date alone without checking result timing, certificate delivery, and a possible backup attempt.
+## Key decisions
 
-## Stop-and-check list
+Choose the exact product or application task first. Keep official requirements separate from the original practice or checking activities below.
 
-Before payment, keep one record with the official centre link, exact exam name, date, registration deadline, fee, payment deadline, ID instruction, result process, certificate process, and cancellation rule.
+## Name or identity details differ
 
-If one item is missing, do not fill the gap with a forum answer. Ask the official centre for its current instruction and save the reply with your booking record.
+Compare your submitted name with the identity document the centre instructs you to use. Record the mismatch and booking reference privately. Contact the centre through its official channel before assuming that a new booking is necessary; only it can explain its correction process.
 
-## If you already paid
+## Payment appears to have failed
 
-Read the confirmation and the local terms first. Contact the official centre promptly through its published channel, explain the exact issue, and ask which options are available. Do not assume a transfer, refund, correction, or new seat is available until the centre confirms it.
+Check the centre’s confirmation and your payment provider’s transaction state. Do not keep paying to force a confirmation. Save the time, reference and displayed error, masking unrelated financial details, and ask the centre whether the booking is registered and whether any action is needed.
+
+## No confirmation arrives
+
+Check the submitted email address, spam folder and centre’s published response process. A payment record and a reserved examination seat are separate facts to verify. If the instructions do not resolve the problem, ask for the booking status using the reference already issued.
+
+## Use a concise recovery message
+
+Send one issue per request: session, booking reference, observed problem and requested confirmation. Keep copies of replies. Do not send passport scans to an unverified address, and do not assume a cancellation, refund or date change has happened until the responsible provider confirms it.
+
+## Mistakes to avoid
+
+Do not treat a sample, practice result or another person’s experience as confirmation of your own booking, certificate acceptance or readiness. Record unresolved questions rather than filling in dates, fees or outcomes.
 
 ## Next action
 
-Run the [Goethe A1 pre-booking checklist](/guides/goethe-a1-pre-booking-checklist/), then check [German A1 documents checklist](/guides/german-a1-documents-checklist/), [Goethe A1 test centers](/guides/goethe-a1-test-centers/), and the [German A1 exam booking timeline](/guides/german-a1-exam-booking-timeline/).
+Complete the working record above, then use [the related guide](/guides/goethe-a1-test-centers/) to continue. Reopen the official source for any current product, local or application requirement.
 
 ## Official sources
 
-- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [Goethe-Zertifikat A1: Start Deutsch 1 terms and conditions](https://www.goethe.de/pro/relaunch/prf/en/Durchfuehrungsbestimmungen_A1_Start_Deutsch_1.pdf)
-- [Federal Foreign Office: Visas for Germany](https://www.auswaertiges-amt.de/en/visa-service/215870-215870)
+- [Official task reference](https://www.goethe.de/en/spr/prf.html) — checked 2026-09-22. Supports the official reference entry point for this task; the activities on this page are original editorial guidance. Owner: Selected examination centre for the specific booking. It does not establish your result, booking availability, price, exemption or individual acceptance.

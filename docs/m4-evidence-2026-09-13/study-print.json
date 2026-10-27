@@ -1,0 +1,34 @@
+{
+  "keyboard": {
+    "focused": true,
+    "scrollLeft": 1,
+    "clientWidth": 341,
+    "scrollWidth": 680
+  },
+  "print": [
+    {
+      "width": 678,
+      "content": 678,
+      "tableWidth": 678,
+      "headings": [
+        "Module and exact task source",
+        "What happened",
+        "Likely cause",
+        "One repair action",
+        "Retest task/date",
+        "What changed?"
+      ]
+    },
+    {
+      "width": 678,
+      "content": 678,
+      "tableWidth": 678,
+      "headings": [
+        "Slot",
+        "Planned work",
+        "Evidence to keep",
+        "Completed / next change"
+      ]
+    }
+  ]
+}

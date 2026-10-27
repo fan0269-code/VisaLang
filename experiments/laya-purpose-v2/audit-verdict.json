@@ -1,0 +1,100 @@
+{
+  "agent": "visalang-independent-auditor",
+  "reviewer_independent": true,
+  "reviewed_at": "2026-09-22T13:39:53.463954+00:00",
+  "baseline": "codex/scheme-3-one-week-content@4cb57e8744c752fed1881281e69e7b24cc7281c4",
+  "scope": {
+    "docs/TASK_LOG.md": "1d4f99bad5ac05ab044f74f51ebe0f5a9fd9af2eca721c53d1bd504738964376",
+    "experiments/laya-purpose-v2/ANNOTATION.md": "5fe3c95b226ea7647213b9fedea1f961f4573900635d25465d73720484fda61b",
+    "experiments/laya-purpose-v2/README.md": "f883075dc811a6ca820e426f657837c407b65c90ac9826928e8e9cdde9c79633",
+    "experiments/laya-purpose-v2/analyze.mjs": "c077902dd5076180a6542fc0b0989983530dce1cf7efe79204ad87502507edc9",
+    "experiments/laya-purpose-v2/candidate-freeze.json": "b1e2015daf7d46cbe7be41b1e892b2648e8a890ad9f27f7104fda362a33511e6",
+    "experiments/laya-purpose-v2/check-runtime.py": "1048c7a70a35aa9e204af09edb679887e536625755f445a1cc5d6f8b59dac5d8",
+    "experiments/laya-purpose-v2/demo.mjs": "73a6c5f27fdc7dd88611a95dfa8cbdef845303dc811e7dde1c1266471342b58d",
+    "experiments/laya-purpose-v2/development.json": "5c4f55b573323a2f2052dd06bec3fa04051baacd5e0f585eba7981e72102c111",
+    "experiments/laya-purpose-v2/evidence/baseline-status.txt": "dddf37458154667d8c97b67a351b664ce7d7f84d78eba904b4eda3200994f825",
+    "experiments/laya-purpose-v2/evidence/baseline.json": "0276abeed732d21d2be429dca253070d0f2679b6e2656e24647a43e1192f751d",
+    "experiments/laya-purpose-v2/evidence/candidate-freeze-initial.json": "0a737b93682f1a56219018e7b2afdb3a23991b8fee5f5b2c0038b016ee8e6ee9",
+    "experiments/laya-purpose-v2/evidence/evaluate.stderr.log": "cd826933746a7b92c3a1edc8181105264e244b2dba183ddf024c721128583412",
+    "experiments/laya-purpose-v2/evidence/evaluate.stdout.jsonl": "1796336718fef19bc30486556871d6fe05289b57e277ad6c77742b640705e698",
+    "experiments/laya-purpose-v2/evidence/final-status.txt": "e9bf56d16fde4e0404bd460441762b3ec8a888ebb096e11d53848698a613e223",
+    "experiments/laya-purpose-v2/evidence/npm-test.log": "727d46f7efe9661780b83d28ff1e5726d067467a218e848c7acae5e0f5535c02",
+    "experiments/laya-purpose-v2/evidence/planning-governance-final.log": "efa6da87f6c0a8c6d1b7a2f5cf5da5a3eb50ac498fa9d3579ba2bd2d8add52f0",
+    "experiments/laya-purpose-v2/evidence/planning-governance.log": "7b3ab0c8ccfc5e64872efbc11368559b5b0820699775a4534b898b3bfe585cbf",
+    "experiments/laya-purpose-v2/evidence/preexisting-governance-failure.json": "beab2af8b57991595080910519a0f94044326ad951cb3c2f4462166a7162ac7d",
+    "experiments/laya-purpose-v2/evidence/results.json": "565d55e92040a7188ce72c57e00f1d9854a72588441269677d84694114a75f60",
+    "experiments/laya-purpose-v2/evidence/results.md": "7df2cec2ffb9ca030d13ba57f72944f249aa99761e658833e4becbf993e9e3c9",
+    "experiments/laya-purpose-v2/evidence/runtime-check.log": "612dbe06978b8585bab266cdabb27163d8501a3c95ec0e5c003e993429c88067",
+    "experiments/laya-purpose-v2/evidence/runtime-checks.json": "ae712fb2fcf828e2481d6fe7727c01392469a2c0c297ce62e5245e1541bfdf7a",
+    "experiments/laya-purpose-v2/evidence/startup-failure-incomplete-cache.log": "94d56bef00b3937df870fa8e46be5ac612ef3405670737a1ff0a5da79c78063e",
+    "experiments/laya-purpose-v2/evidence/summary.json": "1d16e0f05bf821d848a4b1c4160213467e62a2517049c9d71e90734aa6e30b6b",
+    "experiments/laya-purpose-v2/evidence/verification.json": "44c7b042792940bb9e16f64c7a97f1a7ad7e87885bdd5b561edc9418e648eb9b",
+    "experiments/laya-purpose-v2/evidence/verify.log": "49b6efb6835745e9c35dd487e5849ad4904afdc10917d6dc6ae48ce339daebe0",
+    "experiments/laya-purpose-v2/freeze.json": "72386dc6b3a3bd0e03a75dfc963eab16f56bf952da32989090e6922ae123d6dc",
+    "experiments/laya-purpose-v2/frozen.json": "6e46e5a46501ff7f62f33df11b4d14bdb0c3ab015b11ff8bbe7660b0495891f5",
+    "experiments/laya-purpose-v2/labels.json": "1e6c4d292735ad35e2ec932f3fb85cae9bf590b7b1dac991021df2e119633cc0",
+    "experiments/laya-purpose-v2/questions-a.json": "3224d9b9d3a1494702e167e9d7ae227b4639dfe420bd1a7b8f870cb1a49180d0",
+    "experiments/laya-purpose-v2/questions-b.json": "0cd42acad4c977e5e79297147bec5d5f054fd9ed3d0888ec9109fc7e056d798a",
+    "experiments/laya-purpose-v2/questions-c-gate.json": "e5ffcb45e8de247c4416cb4c29442a621228ed98864aeee7710caf0b3143ce7e",
+    "experiments/laya-purpose-v2/rules.py": "172fef546a392d2b189c0fafda2e7d4414ae70dff37da0e260d114e1fe504071",
+    "experiments/laya-purpose-v2/verify.mjs": "7d0ad318a328f104c27a41a7b3cfa6c36ce3fc51f14919149a06deca54dcfd37",
+    "experiments/laya-purpose-v2/worker.py": "ed609c70a3020c9088fdb4e836d0fdd02b570df60948640f55884d31e2a5fa27",
+    "experiments/laya-purpose-v2/evidence/audit-submission.json": "770164346c31ee8e9f01633c74615286304ff0e71b3fdc2b325a29a02acb5fe0"
+  },
+  "scope_description": "35 submitted paths plus submission itself; Task Log substantive review limited to appended v2 entry, full file bound. Other dirty baseline excluded.",
+  "submission_sha256": "770164346c31ee8e9f01633c74615286304ff0e71b3fdc2b325a29a02acb5fe0",
+  "agent_review_status": "pass",
+  "overall_verdict": "PASS",
+  "findings": [],
+  "review_round": 2,
+  "review_history": [
+    {
+      "round": 1,
+      "verdict": "FAIL",
+      "submission_sha256": "76b6b3a4b72639e86a8612c8c3ae13af436204e7c6283a85c7afdc166ebcc7ca",
+      "findings": [
+        {
+          "id": "V2-P2-001",
+          "severity": "P2",
+          "path": "experiments/laya-purpose-v2/README.md; evidence/preexisting-governance-failure.json; evidence/verification.json; evidence/audit-submission.json; docs/TASK_LOG.md appended entry",
+          "locator": "Repository governance hash narrative",
+          "evidence": "tests/planning-map-governance.test.mjs:234 asserts stored binding as actual and current-file hash as expected. Stored receipt is d9fbc94e..., pre-v2 baseline/current file was 997604ab..., contrary to narrative. Baseline/prefix hashes confirm 997604ab.",
+          "required_action": "Correct hash roles in scoped narrative/structured evidence and refresh submission. Preserve raw logs and planning authorities."
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "verdict": "PASS",
+      "resolved": [
+        "V2-P2-001"
+      ],
+      "remediation": "Corrected stored/current hash roles; final governance rerun confirms external blocker remains. Candidates, datasets and all model results unchanged."
+    }
+  ],
+  "owner_authorization": "not_applicable",
+  "deployment_status": "not_started",
+  "planning_drift_status": "not_applicable",
+  "repository_gate": "BLOCKED: npm test and planning governance fail on pre-existing Task Log binding; bounded experiment audit does not waive repository handoff/release gate",
+  "checks": [
+    "All 35 file hashes and submission hash checked in both review rounds",
+    "Task Log baseline prefix hash intact; only v2 appended entry is substantive scope",
+    "node experiments/laya-purpose-v2/verify.mjs PASS",
+    "Independent Python recomputation of all matrices, precision/recall, accuracy, fixes/regressions and high-confidence-error lists PASS",
+    "All 76 JSONL records exactly equal results.json rows",
+    "Separate live local CPU worker session: single PID/load, repeated outputs equal, null-type error recovery PASS",
+    "Local Laya 0.3.5 build_sequence source agrees with token inspection; all recorded token counts reviewed; no dataset truncation",
+    "v1/src/public hashes preserved; baseline/final status inventories reviewed",
+    "Submitted recovery/cache/environment failure evidence and actual npm/governance logs reviewed"
+  ],
+  "limits": [
+    "Synthetic implementation-authored frozen set is not independent blind test; historical freeze timing is recorded evidence, not third-party attestation",
+    "PASS approves experimental implementation/report only, not production suitability or statistical generalization",
+    "Probability/confidence is not empirical accuracy; no real user cost experiment",
+    "No commit/push/deployment, external service, account action or business decision authorized"
+  ],
+  "candidate_scope_digest": null,
+  "diagram_source_sha256": null,
+  "diagram_artifact_sha256": null,
+  "sync_receipt_sha256": null
+}

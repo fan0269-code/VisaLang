@@ -1,8 +1,9 @@
 const assert = require('node:assert/strict');
+const { execFileSync } = require('node:child_process');
 const fs = require('node:fs');
 const path = require('node:path');
+const { englishPillarSlugs, noindexCategorySlugs } = require('../src/data/publication-manifest.ts');
 
-require('./route-tools.test.js');
 require('./commercial-pages.test.js');
 require('./adsense-risk-exposure.test.js');
 require('./germany-a1-cluster.test.js');
@@ -26,6 +27,51 @@ require('./deploy.test.js');
 require('./fan-254-dependency-audit.test.js');
 require('./fan-270-seo.test.js');
 require('./fan-273-404-recovery.test.js');
+for (const testFile of [
+  'tests/laya-purpose.test.mjs',
+  'tests/route-tools.test.js',
+  'tests/article-sections-key-decisions.test.mjs',
+  'tests/scheme-3-publication.test.mjs',
+  'tests/scheme-3-chinese-fail-closed.test.mjs',
+  'tests/scheme-3-english-content-quality.test.mjs',
+  'tests/scheme-3-chinese-pillars.test.js',
+  'tests/scheme-3-chinese-page-sections.test.mjs',
+  'tests/scheme-3-tool-content.test.js',
+  'tests/scheme-3-route-hubs.test.js',
+  'tests/scheme-3-gates.test.js',
+  'tests/scheme-3-atomic-merge.test.mjs',
+  'tests/scheme-3-content-map.test.mjs',
+  'tests/scheme-3-plan-authority.test.js',
+  'tests/scheme-3-release-candidate.test.mjs',
+  'tests/claim-registry.test.mjs',
+  'tests/url-support-inventory.test.mjs',
+  'tests/task-2-p0-render.test.js',
+  'tests/task-4-home-routes.test.mjs',
+  'tests/task-4-guides-render.test.mjs',
+  'tests/task-5-source-ledger.test.mjs',
+  'tests/m2a-exam-products.test.mjs',
+  'tests/m2a-staged-checklist-content.test.mjs',
+  'tests/m2a-local-fees-centres.test.mjs',
+  'tests/m2a-timeline-contract.test.mjs',
+  'tests/m2a-plan-state.test.mjs',
+  'tests/m2a-plan-state-integration.test.mjs',
+  'tests/m2b-route-finder.test.mjs',
+  'tests/m2b-checklist-export.test.mjs',
+  'tests/m2b-exam-comparison.test.mjs',
+  'tests/m2b-timeline-result.test.mjs',
+  'tests/m2b-reminder-ics.test.mjs',
+  'tests/m3-chinese-tool-contract.test.mjs',
+  'tests/m3-chinese-journey.test.mjs',
+  'tests/m3-discovery-trust.test.mjs',
+  'tests/m3-generated-seo.test.mjs',
+  'tests/m3-migration-map.test.mjs',
+  'tests/m4-b1-routes.test.mjs',
+  'tests/m4-b1-comparison.test.mjs',
+  'tests/m4-study-assets.test.mjs',
+  'tests/t27-measurement-privacy.test.mjs',
+]) {
+  execFileSync(process.execPath, [testFile], { stdio: 'inherit' });
+}
 
 const read = (file) => fs.readFileSync(file, 'utf8');
 const exists = (file) => fs.existsSync(file);
@@ -51,6 +97,7 @@ const src = {
   filterBar: read('src/components/FilterBar.astro'),
   guideCard: read('src/components/GuideCard.astro'),
   guideTaxonomy: read('src/data/guide-taxonomy.ts'),
+  guideDiscovery: read('src/data/guide-discovery.ts'),
   route: read('src/pages/germany-family-reunion-a1.astro'),
   tools: read('src/pages/tools/index.astro'),
   reminder: read('src/pages/tools/email-reminders.astro'),
@@ -61,6 +108,7 @@ const src = {
   headers: read('public/_headers'),
   adsTxt: exists('public/ads.txt') ? read('public/ads.txt') : '',
   sourceReview: read('src/data/source-review.ts'),
+  publicationManifest: read('src/data/publication-manifest.ts'),
   launchCheck: read('scripts/launch-check.js'),
   guideStatusBadge: read('src/components/GuideStatusBadge.astro'),
   navigationCurrent: exists('src/lib/navigation-current.ts') ? read('src/lib/navigation-current.ts') : '',
@@ -107,28 +155,33 @@ assert.match(
   'BaseLayout conditionally renders the approved AdSense loader through enableAds',
 );
 assert.ok(!src.base.includes('static.cloudflareinsights.com'), 'shared layout does not load Cloudflare Web Analytics');
-assert.ok(src.tool.includes('enableAds={false}'), 'ToolLayout disables advertising for URL-backed tools');
+assert.ok(src.tool.includes('enableAds={false}'), 'ToolLayout disables advertising for local planning tools');
 assert.ok(src.tools.includes('enableAds={false}'), 'tools index disables advertising');
+for (const toolDirectoryLabel of ['What you enter', 'What you get', 'What it cannot decide', 'current tab session', '30 days']) {
+  assert.ok(src.tools.includes(toolDirectoryLabel), `tools directory explains ${toolDirectoryLabel}`);
+}
+for (const toolId of ['finder', 'checklist', 'timeline', 'comparison', 'reminders']) {
+  assert.match(src.tools, new RegExp(`^  ${toolId}: \\{`, 'm'), `tools directory documents ${toolId} inputs, output, and boundaries`);
+}
 assert.ok(src.guides.includes('enableAds={false}'), 'searchable guide library index disables advertising');
-assert.ok(src.home.includes('enableAds={true}'), 'homepage explicitly opts into the AdSense loader');
-assert.ok(src.guide.includes('isGuidePrimaryDiscoveryEligible') && src.guide.includes('enableAds={advertisingEligible}') && src.guide.includes('noindex={!primaryDiscoveryEligible}'), 'guide advertising and indexing use the shared fail-closed gate');
+assert.ok(src.home.includes('enableAds={false}'), 'homepage explicitly remains advertising-free');
+assert.ok(src.guide.includes('getEnglishGuidePublicationPolicy') && src.guide.includes('enableAds={advertisingEligible}') && src.guide.includes('noindex={!primaryDiscoveryEligible}'), 'guide advertising and indexing use the manifest publication gate');
 assert.ok(src.notFound.includes('enableAds={false}'), '404 page explicitly disables advertising');
-assert.ok(src.guideCategory.includes('noindex={!indexEligible}') && src.guideCategory.includes('enableAds={false}'), 'guide categories are indexed only when they contain discovery-eligible guides and remain ad-free');
-assert.ok(src.guideCategory.includes('allCategoryGuides') && src.guideCategory.includes('withheldGuideCount') && src.guideCategory.includes('currently meet the primary discovery gate'), 'withheld category guides are described accurately without returning them to primary discovery');
-assert.ok(src.launchCheck.includes('explicitlyNoindexCategorySlugs') && src.launchCheck.includes('!explicitlyNoindexCategorySlugs.has(categorySlug)'), 'launch check respects the taxonomy noindex veto for categories');
+assert.ok(src.guideCategory.includes('getCategoryPublicationPolicy') && src.guideCategory.includes('noindex={!indexEligible}') && src.guideCategory.includes('enableAds={false}'), 'guide categories use the manifest noindex policy and remain ad-free');
+assert.ok(src.guideCategory.includes('allCategoryGuides') && src.guideCategory.includes('withheldGuideCount') && src.guideCategory.includes('not listed here while'), 'research-only category guides are described accurately without returning them to the Guide Library');
+assert.ok(src.launchCheck.includes("manifestStringArray('noindexCategorySlugs')") && src.launchCheck.includes('Exactly 12 manifest categories are noindex'), 'launch check parses and enforces the manifest category closure');
 assert.ok(
-  src.launchCheck.includes('const advertisingEligible = primaryDiscoveryEligible && !explicitlyAdsIneligible')
-    && src.launchCheck.includes('const discoveryFailure = primaryDiscoveryEligible')
-    && src.launchCheck.includes('const advertisingFailure = advertisingEligible ? !hasAds : hasAds'),
-  'launch check keeps guide discovery eligibility separate from the explicit advertising veto',
+  src.launchCheck.includes('Only the 14 advertising-eligible English pillars load AdSense.')
+    && src.launchCheck.includes('Sitemap membership exactly matches rendered indexability.'),
+  'launch check enforces the manifest advertising allowlist separately from sitemap indexability',
 );
-assert.ok(src.sourceReview.includes('isGuidePrimaryDiscoveryEligible'), 'one shared helper controls primary-discovery eligibility');
+assert.ok(src.publicationManifest.includes('getEnglishGuidePublicationPolicy') && src.publicationManifest.includes('getCategoryPublicationPolicy'), 'one publication manifest controls guide and category release policy');
 assert.equal(src.adsTxt, 'google.com, pub-3018617123550799, DIRECT, f08c47fec0942fa0\n', 'ads.txt declares the approved direct Google seller');
-assert.ok(src.privacy.includes('How VisaLang handles visitor data, advertising choices, URL state, local storage, and server logs.'), 'privacy policy description covers advertising choices');
-for (const text of ['VisaLang uses Google AdSense on ad-eligible content pages', 'Google Privacy & messaging', 'Google Ads Settings', 'places only the non-sensitive values needed to restore that result in the page URL']) {
+assert.ok(src.privacy.includes('How VisaLang handles visitor data, advertising choices, shared tool state, browser storage, URL cleanup, and server logs.'), 'privacy policy description covers advertising and shared-plan storage');
+for (const text of ['Google AdSense loader', 'Google Privacy &amp; messaging/CMP', 'Google Analytics, Cloudflare Web Analytics', 't27.v1', 'Google Ads Settings', 'Shared tool plan:', 'Save on this device for 30 days', 'Legacy URL cleanup']) {
   assert.ok(src.privacy.includes(text), `privacy policy includes ${text}`);
 }
-for (const text of ['Google AdSense and Google Privacy & messaging', 'Current tools do not store their form fields in local storage.', 'Route progress:', 'current route step in browser local storage']) {
+for (const text of ['Google AdSense loader', 'Google Privacy &amp; messaging/CMP', 'Google Analytics, Cloudflare Web Analytics', 't27.v1', 'Shared tool plan:', 'Optional 30-day device copy:', 'Route progress:', 'current route step in browser local storage', 'Legacy URL query cleanup']) {
   assert.ok(src.cookies.includes(text), `cookie policy includes ${text}`);
 }
 assert.ok(!src.headers.includes('Content-Security-Policy:'), 'headers leaves CSP to Google-managed advertising requirements');
@@ -136,13 +189,11 @@ for (const header of ['X-Content-Type-Options:', 'X-Frame-Options:', 'Referrer-P
   assert.ok(src.headers.includes(header), `headers retains ${header}`);
 }
 
-for (const page of [
-  'dist/index.html',
-  'dist/guides/german-family-reunion-language-requirement/index.html',
-]) {
+for (const page of ['dist/guides/german-family-reunion-language-requirement/index.html']) {
   assert.ok(read(page).includes(adsenseLoader), `ad-eligible generated page loads AdSense: ${page}`);
 }
 for (const page of [
+  'dist/index.html',
   'dist/tools/index.html',
   'dist/tools/route-finder/index.html',
   'dist/tools/checklist-generator/index.html',
@@ -175,18 +226,18 @@ assert.ok(src.styleArchitecture.includes('one stylesheet') && src.styleArchitect
 const activeCssBeforeArchive = src.css.split('@media not all')[0];
 assert.equal((activeCssBeforeArchive.match(/(?:^|\n):root\s*\{/g) || []).length, 1, 'core tokens have one effective base definition');
 const viewportBreakpoints = [...src.css.matchAll(/@media\s*\(max-width:\s*(\d+)px\)/g)].map((match) => Number(match[1]));
-assert.ok(viewportBreakpoints.length > 0 && viewportBreakpoints.every((width) => [375, 768, 1024].includes(width)), 'active viewport media queries use only the approved breakpoint set');
+assert.ok(viewportBreakpoints.length > 0 && viewportBreakpoints.every((width) => [375, 480, 768, 1024].includes(width)), 'active viewport media queries use only the approved breakpoint set, including the verified single-column filter threshold');
 assert.ok(src.css.includes('@media (max-width: 375px)'), 'design system defines the 375px compact layout');
 assert.ok(src.css.includes('min-height: 44px'), 'interactive controls use a reasonable hit area');
 assert.ok(src.css.includes('overflow-x: auto'), 'wide tables and tool navigation can scroll safely');
 
-assert.ok(src.home.includes('Verify language proof first.'), 'homepage has the concise route-planning task');
+assert.ok(src.home.includes('Start with your application route, understand the evidence you may need, and organise your next steps before booking an exam.'), 'homepage opens with the approved route-first planning task');
 assert.ok(src.home.includes('<HomeHero') && src.zhHome.includes('<HomeHero'), 'English and Chinese homepages share the HomeHero composition');
 assert.ok(src.homeHero.includes("import { Picture } from 'astro:assets'") && src.homeHero.includes("formats={['avif', 'webp']}") && src.homeHero.includes('fetchpriority="high"'), 'HomeHero uses responsive high-priority Astro image output');
 assert.ok(src.base.includes('rel="preload"') && src.base.includes('imagesrcset={heroPreloadSrcset}') && src.base.includes('type="image/avif"'), 'BaseLayout preloads the responsive AVIF candidate selected for the home hero');
 assert.ok(exists('src/assets/home-route-verification.png'), 'homepage visual source is a local managed asset');
 assert.ok(src.homeHero.includes('home-route-spotlight') && !src.home.includes('route-entry') && !src.home.includes('route-console'), 'featured route uses a dedicated editorial strip instead of the old card or console');
-assert.ok(src.home.includes("label: 'Use Route Finder'") && src.home.includes("label: 'Browse guides'"), 'homepage has consistent primary and secondary action labels');
+assert.ok(src.home.includes("label: 'Start the Germany A1 route'") && src.home.includes("label: 'Read Germany B1 guides'"), 'homepage hero labels match the approved configured-route and guide-only destinations');
 assert.ok(src.home.includes('<RouteSelector'), 'homepage uses the shared purpose selector');
 assert.ok(src.zhHome.includes('<RouteSelector locale="zh-CN"') && src.zhHome.includes('bodyClass="home-view"'), 'Chinese homepage shares the route selector and home design scope');
 assert.ok(src.zhHome.includes('publishedCategoryCount') && !src.zhHome.includes('guideCategories.length'), 'Chinese homepage reports only dynamically published route categories');
@@ -202,7 +253,8 @@ assert.ok(!src.home.includes('button--accent'), 'homepage does not use warning a
 assert.ok(src.home.includes('publishedGuides.length'), 'homepage guide count follows the primary-discovery scope');
 assert.ok(src.home.includes('publishedCategoryCount'), 'homepage category count follows the primary-discovery scope');
 assert.ok(src.css.includes('--font-display: var(--font-sans)') && src.css.includes('background: var(--od-surface);\n  color: var(--od-copy);'), 'shared typography and footer stay in the page theme');
-assert.ok(src.about.includes('publishedEnglishGuides') && src.about.includes('Current discovery scope') && src.about.includes('not an independent guarantee of page quality or AdSense approval'), 'About explains the conservative discovery boundary');
+assert.ok(src.about.includes('publishedEnglishGuides') && src.about.includes('What you can use now') && src.about.includes('Research coverage'), 'About explains available and research-only coverage in reader-facing terms');
+assert.doesNotMatch(src.about, /metadata checks|primary discovery|AdSense approval|verification-pending/i, 'About does not expose internal publication workflow language');
 assert.ok(!src.siteData.includes("href: '/guides/testdaf-germany-university-admissions/'") && !src.siteData.includes("href: '/guides/telc-b1-b2-germany-work-nursing/'"), 'primary route navigation does not promote withheld guides');
 
 for (const file of ['src/pages/routes/index.astro', 'src/pages/exams/index.astro', 'src/pages/tools/index.astro']) {
@@ -214,7 +266,10 @@ assert.ok(src.tool.includes("'@type': 'WebApplication'"), 'real tools emit WebAp
 assert.ok(read('src/components/tools/ToolShell.astro').includes('data-tool-restart'), 'tools have a restart control');
 assert.ok(read('src/components/tools/ToolShell.astro').includes('<ToolStepper current={0}'), 'tool progress starts at Step 1');
 assert.ok(!read('src/components/tools/ToolShell.astro').includes('localStorage'), 'tools do not silently persist planning fields in localStorage');
+assert.ok(read('src/components/tools/ToolShell.astro').includes('data-plan-save-device') && read('src/components/tools/ToolShell.astro').includes('data-plan-clear'), 'tools expose explicit 30-day save and shared-plan clear controls');
 const toolFormController = read('src/scripts/tool-form.ts');
+const sharedPlanController = read('src/scripts/plan-state.ts');
+const sharedPlanModel = read('src/data/plan-state.ts');
 const routeFinderTool = read('src/pages/tools/route-finder.astro');
 const toolResultSupport = read('src/components/tools/ToolResultSupport.astro');
 assert.ok(toolFormController.includes("setAttribute('aria-invalid', 'true')") && toolFormController.includes("field.removeAttribute('aria-invalid')"), 'tool validation sets and clears field invalid state');
@@ -222,35 +277,63 @@ assert.ok(toolFormController.includes("closest('li')?.remove()") && toolFormCont
 assert.ok(toolFormController.includes('data-error-summary') && toolFormController.includes('failures[0].field.focus()'), 'tool validation renders an error summary and focuses the first invalid field');
 assert.ok(toolFormController.includes('aria-describedby') && toolFormController.includes('field.id}-error'), 'tool validation connects stable field errors with aria-describedby');
 assert.ok(toolFormController.includes('setStep(1)') && toolFormController.includes('setStep(2)'), 'tool progress moves through input and result states');
-assert.ok(toolFormController.includes('new URLSearchParams(location.search)') && toolFormController.includes('history.replaceState'), 'tool state restores from and persists to a shareable URL');
+assert.doesNotMatch(toolFormController, /URLSearchParams|location\.search|history\.replaceState|sessionStorage|localStorage/, 'tool form controller contains no persistence transport');
+assert.ok(sharedPlanController.includes('sessionStorage') && sharedPlanController.includes('data-plan-save-device') && sharedPlanController.includes('localStorage'), 'shared plan uses session storage by default and local storage only through the explicit device-save control');
+assert.ok(sharedPlanModel.includes('schemaVersion') && sharedPlanModel.includes('applicationRegionId') && sharedPlanModel.includes('claimVersions'), 'shared plan has versioned route, region, and claim fields');
 assert.ok(src.css.includes('.tool-error-summary') && src.css.includes('[aria-invalid="true"]'), 'tool errors use text, borders, and background rather than color alone');
 for (const toolPage of ['route-finder', 'checklist-generator', 'timeline-calculator', 'exam-comparison', 'email-reminders']) {
   const toolSource = read(`src/pages/tools/${toolPage}.astro`);
   assert.ok(toolSource.includes('novalidate') && toolSource.includes('setupToolForm'), `${toolPage} uses shared accessible client validation`);
-  assert.ok(toolSource.includes('controller.persist()') && toolSource.includes('controller.markResult()'), `${toolPage} persists successful URL-backed results and marks Step 3`);
-  if (toolPage !== 'route-finder') assert.ok(toolSource.includes('requestSubmit()'), `${toolPage} restores successful URL-backed results automatically`);
+  assert.ok(toolSource.includes('setupSharedPlan') && toolSource.includes('plan.persist(') && toolSource.includes('controller.markResult()'), `${toolPage} persists a schema-approved session patch and marks Step 3`);
+  assert.doesNotMatch(toolSource, /persistedNames|controller\.persist\(|requestSubmit\(\)/, `${toolPage} does not persist or auto-submit a result through the URL`);
 }
 const comparisonTool = read('src/pages/tools/exam-comparison.astro');
-assert.ok(comparisonTool.includes("setAttribute('role', 'region')") && comparisonTool.includes("setAttribute('aria-label', 'Exam comparison table."), 'exam comparison table uses a named region');
+assert.ok(
+  comparisonTool.includes("setAttribute('role', 'region')")
+    && comparisonTool.includes("isZh ? '考试比较表，可横向滚动查看全部列。' : 'Exam comparison table. Scroll horizontally to view all columns.'"),
+  'exam comparison table uses a locale-aware named region',
+);
 assert.ok(comparisonTool.includes('tableWrap.tabIndex = 0') && comparisonTool.includes('Scroll left and right to view all comparison columns.'), 'exam comparison region is keyboard focusable and has a narrow-screen scroll hint');
-assert.ok(comparisonTool.includes('sharedCell.colSpan = 2') && comparisonTool.includes('sourcesLabel.textContent = \'Official exam page\''), 'exam comparison shares one verification prompt across both exam columns and routes each exam to its own official page');
+assert.ok(comparisonTool.includes('compareExamProducts') && comparisonTool.includes('fact.firstValue') && comparisonTool.includes('fact.secondValue'), 'exam comparison renders independently sourced product facts in both columns');
+assert.ok(!comparisonTool.includes('sharedCell.colSpan = 2') && comparisonTool.includes("sourcesLabel.textContent = isZh ? '官方考试产品页' : 'Official exam page'"), 'exam comparison no longer substitutes one shared reminder for two product values and localizes the source-row label');
 assert.ok(!comparisonTool.includes('firstCell.textContent = dimension.value') && !comparisonTool.includes('secondCell.textContent = dimension.value'), 'exam comparison no longer fills both columns with the same dimension value');
 assert.ok(src.css.includes('.tool-table-hint { display: block; }') && src.css.includes('overscroll-behavior-inline: contain'), 'comparison table exposes its hint at the mobile breakpoint and contains horizontal scrolling');
-assert.ok(routeFinderTool.includes("persistedNames: ['country', 'purpose', 'level', 'certificate']"), 'route-finder restores only route classification fields from the URL');
-assert.match(routeFinderTool, /<input\s+name="location"\s+required\b/, 'route-finder keeps application location required for the current page result');
-assert.match(routeFinderTool, /<input\s+name="targetDate"\s+type="date"\s+required\b/, 'route-finder keeps target submission date required for the current page result');
-assert.doesNotMatch(routeFinderTool, /persistedNames:\s*\[[^\]]*(?:location|targetDate)/s, 'route-finder does not persist location or target date to the URL');
-assert.doesNotMatch(routeFinderTool, /restored[\s\S]*requestSubmit\(\)/, 'route-finder does not automatically submit after restoring partial URL state');
-assert.ok(toolResultSupport.includes("const { resultId, guideHref = '/guides/', guideLabel = 'Browse route guides' } = Astro.props;"), 'ToolResultSupport defaults to a route-neutral guide handoff');
+assert.match(routeFinderTool, /<select\s+name="applicationRegionId"/, 'route-finder keeps the bounded application-region field available for relevant routes');
+assert.doesNotMatch(routeFinderTool, /<input\s+name="location"/, 'route-finder no longer accepts application location as free text');
+assert.match(routeFinderTool, /<select\s+name="relationship"/, 'route-finder keeps the bounded relationship category available for relevant routes');
+assert.ok(
+  routeFinderTool.includes('getRouteFinderQuestionRelevance')
+    && routeFinderTool.includes('field.required = isRelevant')
+    && routeFinderTool.includes('field.disabled = !isRelevant')
+    && routeFinderTool.includes('label.hidden = !isRelevant'),
+  'route-finder conditionally shows, enables, and requires only follow-up questions relevant to the selected route',
+);
+assert.doesNotMatch(routeFinderTool, /name="(?:level|targetDate)"/, 'route-finder leaves language level and target date to exam or timeline planning');
+assert.doesNotMatch(routeFinderTool, /requestSubmit\(\)/, 'route-finder does not automatically submit after restoring shared state');
+assert.ok(
+  toolResultSupport.includes("const { resultId, locale = 'en' } = Astro.props;")
+    && toolResultSupport.includes("guideHref = locale === 'zh-CN' ? '/zh/' : '/guides/'")
+    && toolResultSupport.includes('guideLabel = copy.browseGuides')
+    && toolResultSupport.includes('getToolLinks(locale)'),
+  'ToolResultSupport derives a route-neutral guide handoff and continuation links from the selected locale',
+);
 assert.ok(!toolResultSupport.includes('Germany B1 settlement and citizenship route'), 'ToolResultSupport does not push unrelated Germany route defaults');
-assert.ok(routeFinderTool.includes('route.guide?.href'), 'configured route-finder results use the configured route guide link when available');
+assert.ok(
+  read('src/data/route-tools.ts').includes('guide: route.guide') && routeFinderTool.includes('result.guide?.href'),
+  'configured route-finder results carry the configured route guide through the resolver to the rendered result',
+);
 assert.ok(routeFinderTool.includes('checklistLink.href = toolLinks.checklist'), 'configured route-finder results use the shared Checklist tool link');
 assert.ok(routeFinderTool.includes('timelineLink.href = toolLinks.timeline'), 'configured route-finder results use the shared Timeline tool link');
 assert.ok(read('src/data/route-tools.ts').includes("availability: 'verify-only'"), 'unsupported routes stop at an official-verification-required state');
-assert.ok(read('src/data/route-tools.ts').includes('if (!route) return []'), 'unsupported routes do not generate a pseudo-checklist');
+assert.ok(read('src/data/route-tools.ts').includes("status: 'unsupported'") && read('src/data/route-tools.ts').includes('No route-specific checklist is configured'), 'unsupported routes do not generate a pseudo-checklist');
 assert.ok(!/value="(21|28|7)"/.test(read('src/pages/tools/timeline-calculator.astro')), 'timeline does not assume default result or retake timing');
 assert.ok(!/type="email"|Email address/.test(src.reminder), 'Reminder Planner does not collect email');
-assert.ok(src.reminder.includes('Download ICS'), 'Reminder Planner exports an ICS calendar file');
+assert.ok(
+  src.reminder.includes('data-download-ics')
+    && src.reminder.includes('{copy.text.download}')
+    && read('src/data/tool-copy.ts').includes("download: 'Download ICS'"),
+  'Reminder Planner exposes the localized ICS download control',
+);
 assert.ok(src.reminder.includes('ToolResultSupport'), 'Reminder Planner offers shared copy, print, and export actions');
 
 assert.equal((src.guide.match(/<h1>/g) || []).length, 1, 'ArticleLayout declares one H1');
@@ -269,34 +352,29 @@ assert.ok(!read('src/pages/guides/[slug].astro').includes('GermanyA1RouteSupport
 assert.ok(src.guide.includes("'@type': 'Article'"), 'articles emit Article data');
 assert.ok(src.guide.includes("'@type': 'BreadcrumbList'"), 'articles emit BreadcrumbList data');
 
-for (const filter of ['purpose', 'country', 'route', 'exam', 'level', 'language', 'status']) {
-  assert.ok(src.guides.includes(`name: '${filter}'`), `guide library includes ${filter} filter`);
+for (const filter of ['purpose', 'stage', 'language']) {
+  assert.ok(src.guideTaxonomy.includes(`name: '${filter}'`), `guide discovery taxonomy includes ${filter} filter`);
 }
-for (const sort of ['Recently updated', 'Route relevance', 'Content maturity']) {
+for (const retiredFilter of ['country', 'route', 'exam', 'level', 'status']) {
+  assert.ok(!src.guideTaxonomy.includes(`name: '${retiredFilter}'`), `guide discovery taxonomy omits the retired ${retiredFilter} filter`);
+}
+for (const sort of ['Recently updated', 'Route relevance']) {
   assert.ok(src.filterBar.includes(sort), `guide library includes ${sort} sorting`);
 }
-for (const status of ['Route structure complete', 'Core route structure']) {
-  assert.ok(src.guides.includes(status), `guide library includes ${status} status`);
-}
-for (const status of ['starter-overview', 'verification-pending']) {
-  assert.ok(!src.guides.includes(`value: '${status}'`), `guide library withholds ${status} from primary discovery`);
-}
-for (const oldFilterLabel of ['Complete route', 'Core route']) {
-  assert.ok(!src.guides.includes(`label: '${oldFilterLabel}'`), `guide library no longer uses ${oldFilterLabel} as a filter label`);
-}
+assert.ok(!src.filterBar.includes('Content maturity'), 'guide sorting does not expose internal maturity state');
 const expectedContentStatusLabels = {
-  'complete-route': 'Route structure complete',
-  'core-route': 'Core route structure',
-  'starter-overview': 'Starter overview',
+  'complete-route': 'Coverage: complete route guide',
+  'core-route': 'Coverage: core route guide',
+  'starter-overview': 'Coverage: orientation guide',
   'verification-pending': 'Verification pending',
 };
 for (const [status, label] of Object.entries(expectedContentStatusLabels)) {
   assert.ok(src.sourceReview.includes(`'${status}': '${label}'`), `source-review labels ${status} as ${label}`);
 }
 const expectedChineseStatusLabels = {
-  'complete-route': '路线结构完整',
-  'core-route': '核心路线结构',
-  'starter-overview': '入门概览',
+  'complete-route': '覆盖范围：完整路线指南',
+  'core-route': '覆盖范围：核心路线指南',
+  'starter-overview': '覆盖范围：入门指南',
   'verification-pending': '待核验',
 };
 for (const [status, label] of Object.entries(expectedChineseStatusLabels)) {
@@ -310,25 +388,25 @@ assert.ok(src.guide.includes('showSourceFactTable') && src.guide.includes('sourc
 assert.ok(src.guide.includes('Who decides this?') && src.guide.includes('Official verification pending.'), 'English guides expose the deciding-authority boundary');
 assert.ok(src.zhGuide.includes('谁最终决定？') && src.zhGuide.includes('独立中文来源复核待完成'), 'Chinese guides preserve an explicit pending source boundary');
 assert.ok(src.guide.includes("author: { '@type': 'Organization', name: author }") && src.zhGuide.includes("author: { '@type': 'Organization', name: guideRecord.author }"), 'Article JSON-LD authors use a controlled Organization type with the same controlled name, without inventing a Person');
-assert.ok(src.guideTaxonomy.includes('Guides remain outside primary discovery until their source and content status meet the publication gate.'), 'other categories explain the fail-closed discovery boundary');
+assert.ok(src.guideTaxonomy.includes('listed in the main library only after their official sources and distinct reader task have been checked'), 'other categories explain the reader-facing availability boundary');
 assert.ok(src.guides.includes('history.replaceState'), 'guide filters persist to URL parameters');
-assert.ok(src.guides.includes("params.get('q')") && src.guides.includes('params.get(filter.name)') && src.guides.includes("params.get('sort')"), 'guide filters restore search, facets, and sort from URL parameters');
+assert.ok(src.guides.includes('parseGuideDiscoveryState(location.search)') && src.guides.includes('serializeGuideDiscoveryState(state)'), 'guide filters restore and serialize controlled URL state');
+assert.ok(src.guideDiscovery.includes("params.get('q')") && src.guideDiscovery.includes("params.get('purpose')") && src.guideDiscovery.includes("params.get('stage')") && src.guideDiscovery.includes("params.get('language')"), 'guide URL state is limited to search, Purpose, Stage, and Language');
 assert.ok(src.guides.includes('guide-empty-state'), 'guide library has an empty state');
-assert.ok(src.guides.includes('Showing ${visible}'), 'guide library reports result count');
-assert.ok(src.filterBar.includes('<details class="filter-drawer">') && !src.filterBar.includes('<details class="filter-drawer" open>'), 'advanced filters are closed by default, including narrow viewports');
-assert.ok(src.filterBar.includes('More filters') && src.filterBar.includes('quick-filter-bar'), 'Purpose and Country remain quick filters while advanced controls use a disclosure');
+assert.ok(src.guideDiscovery.includes('Showing ${visible}') && src.guides.includes('summarizeGuideDiscoveryResults'), 'guide library reports result count through its shared behavior');
+assert.ok(!src.filterBar.includes('More filters') && !src.filterBar.includes('filter-drawer'), 'the three public facets do not hide behind an unnecessary advanced-filter drawer');
 assert.ok(src.filterBar.includes('aria-live="polite"') && src.filterBar.includes('data-clear-all'), 'guide filters expose live result feedback and Clear all');
 assert.equal((src.guideCard.match(/<a\s/g) || []).length, 1, 'each Guide Card exposes one primary keyboard link');
-assert.ok(src.guideCard.includes('Direct answer:') && src.guideCard.includes('Updated <time') && src.guideCard.includes('<LastCheckedBadge'), 'Guide Cards expose direct answer, updated date, and source-review state');
-assert.ok(src.css.includes('@media (max-width: 768px)') && src.css.includes('.od-guide-library .filter-drawer > summary { display: flex; }'), 'Guide Library keeps the advanced-filter disclosure available at narrow widths');
+assert.ok(src.guideCard.includes('Guide summary:') && src.guideCard.includes('Updated <time') && src.guideCard.includes('<LastCheckedBadge'), 'Guide Cards expose a summary, updated date, and source-review state');
+assert.ok(src.css.includes('@media (max-width: 768px)') && src.css.includes('.od-guide-library .quick-filter-bar'), 'Guide Library retains a responsive layout for its public controls');
 
 const guideSlugSrc = read('src/pages/guides/[slug].astro');
 assert.ok(guideSlugSrc.includes("if (sameRoute || sameCountry) return true;") && guideSlugSrc.includes("frontmatter.comparisonScope !== 'same-route' && candidate.data.decisionStage === frontmatter.decisionStage"), 'related-guide filtering gates same-decisionStage cross-country links behind a non-same-route comparison scope');
 assert.ok(!guideSlugSrc.includes('sameDecisionStage || sameCountry') && !guideSlugSrc.includes('sameRoute || sameDecisionStage'), 'related-guide filter no longer short-circuits on sameDecisionStage before the comparisonScope gate');
 
 const routeSteps = [
-  'Confirm whether A1 applies', 'Confirm the accepted proof', 'Compare exam options', 'Verify centre and booking',
-  'Build the timeline', 'Prepare documents and exam', 'Recheck before submission',
+  'Confirm whether A1 applies', 'Compare exam options', 'Verify centre and booking',
+  'Confirm the local fee', 'Build the timeline', 'Prepare and recheck documents', 'Use the 30-day study system',
 ];
 let previous = -1;
 for (const step of routeSteps) {
@@ -361,7 +439,9 @@ assert.ok(exists('src/content/guides/portuguese-language-for-golden-visa-and-cit
 assert.ok(!exists('src/content/guides/yki-vs-other-finland-options.md'), 'the duplicate Finland guide source is retired');
 
 const contentFiles = fs.readdirSync('src/content/guides').filter((file) => file.endsWith('.md'));
-assert.equal(contentFiles.length, 53, 'guide collection reflects the Finland consolidation');
+assert.equal(contentFiles.length, 53, 'guide collection reflects Scheme 3 consolidation plus the two authority-reviewed Master Package restorations');
+assert.equal(englishPillarSlugs.length, 15, 'the publication manifest retains exactly 15 English pillars');
+assert.equal(noindexCategorySlugs.length, 12, 'the publication manifest retains exactly 12 closed categories');
 for (const file of contentFiles) {
   const source = read(path.join('src/content/guides', file));
   for (const field of ['title', 'description', 'category', 'slug', 'publishedDate', 'updatedDate', 'contentStatus', 'readingTime']) {
@@ -369,4 +449,6 @@ for (const file of contentFiles) {
   }
 }
 
+execFileSync(process.execPath, ['tests/retained-routes.test.mjs', '--built'], { stdio: 'inherit' });
 console.log('site UI, route, guide, tool, SEO, accessibility, and migration checks passed');
+execFileSync(process.execPath, ['tests/planning-map-governance.test.mjs'], { stdio: 'inherit' });

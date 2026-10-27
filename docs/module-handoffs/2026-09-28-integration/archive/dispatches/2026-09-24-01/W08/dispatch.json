@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "batchId": "2026-09-24-01",
+  "moduleId": "W08",
+  "promptId": "P03",
+  "planningPackages": [
+    "LP05a"
+  ],
+  "baselineId": "cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40",
+  "sourceRoot": "/Users/a1-6/Documents/2.codex/1.visalang.org",
+  "workspacePath": "/private/tmp/visalang-W00-2026-09-24-01/W08",
+  "snapshotPath": "/private/tmp/visalang-W00-2026-09-24-01/baseline",
+  "baselineManifestPath": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-24-01/baseline-manifest.json",
+  "byteVerificationPath": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-24-01/W08-byte-verification.json",
+  "promptPath": "docs/prompts/2026-09-24-next-stage/P03-core-decoupling.md",
+  "requiredCommonPath": "docs/prompts/2026-09-23-module-build/COMMON.md",
+  "assignmentStatus": "prepared_awaiting_owner_dispatch",
+  "implementationStatus": "not_started",
+  "allowedWritePaths": [
+    "src/data/runtime-features.ts",
+    "astro.config.mjs",
+    "src/layouts/BaseLayout.astro",
+    "src/layouts/GuideLayout.astro",
+    "src/components/tools/PurposeSuggestion.astro",
+    "src/scripts/purpose-suggestion.ts",
+    "src/pages/tools/route-finder.astro",
+    "src/pages/zh/tools/route-finder.astro",
+    "src/pages/privacy-policy.astro",
+    "src/pages/cookie-policy.astro",
+    "deploy/release.py",
+    "deploy/deploy.sh",
+    "deploy/rollback.sh",
+    "deploy/smoke-test.sh",
+    "deploy/nginx-vhost-template.conf",
+    "deploy/laya-purpose-nginx.conf",
+    "deploy/production-evidence.example.json",
+    "deploy/README.md",
+    "deploy/tests/test_release.py",
+    "scripts/launch-check.js",
+    "tests/deploy.test.js",
+    "tests/adsense-risk-exposure.test.js",
+    "tests/scheme-3-release-candidate.test.mjs",
+    "tests/site.test.js",
+    "tests/laya-purpose.test.mjs",
+    "tests/runtime-features.test.mjs",
+    "docs/module-handoffs/2026-09-24-01/W08/**"
+  ],
+  "runtimeWritePaths": [
+    "node_modules/**",
+    "dist/**",
+    ".astro/**",
+    ".venv/**",
+    ".runtime/**"
+  ],
+  "runtimeRules": "Independent local runtime paths only; no writable sharing, lockfile upgrades, installs/downloads or credential reads. Future build-producing npm commands serialized.",
+  "environmentRecord": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-24-01/environment-preflight.json",
+  "evidenceDependencies": [
+    {
+      "evidencePath": "docs/module-handoffs/2026-09-24-01/snapshot-verification.json",
+      "status": "verified",
+      "sha256": "a5ed376b0912bd451407ab8816f0591172b879c1e464ed51a4ac90c8f05697cb"
+    },
+    {
+      "evidencePath": "docs/module-handoffs/2026-09-24-01/environment-preflight.json",
+      "status": "independent-local-dependency-copies-verified",
+      "sha256": "c0f22f5b2a7431816ad09bbd48257bdcedf5f2ad0965f2d7abd2ce4bff6804b1"
+    },
+    {
+      "evidencePath": "docs/PROJECT_SCAN_2026-09-24.md",
+      "status": "known-local-defects; not-human-or-production-evidence",
+      "sha256": "73bed7daafecb7ba8b1050b6d0d1a8fec8c68d8b9fbab0a57dd17346208dc1f1"
+    },
+    {
+      "evidencePath": "docs/superpowers/plans/2026-09-24-visalang-next-stage-content-ui.md",
+      "status": "governing-execution-supplement; T/LP/LC-gates-unchanged",
+      "sha256": "3f97cd8226aa72142f81c2c8024c3c110659c817789d751ebcec51daf9c95cff"
+    },
+    {
+      "evidencePath": "deploy/release.py",
+      "status": "current-joint-release-contract",
+      "locator": "verify/prepare: laya|typesafe; adsRequired true",
+      "sha256": "0fabd741b881fe357be0643095bce56685e739761b1e6399b6913ce797a7779e"
+    },
+    {
+      "evidencePath": "docs/superpowers/plans/2026-09-24-typesafe-project-adoption.md",
+      "status": "historical-local-enablement-only",
+      "locator": "section 10; its waiting-review sentence is historical, final report below controls",
+      "sha256": "5f6aee3828903887df49bbb58943db2d1f207a82dca55e9ec9961a6804fe099d"
+    },
+    {
+      "evidencePath": "docs/planning-map/VISALANG_TYPESAFE_ENABLEMENT_INDEPENDENT_AUDIT_2026-09-24.md",
+      "status": "historical-round4-PASS-for-its-bound-bytes-only",
+      "sha256": "d10422df2a377db5a73010df9e5b2a57a7af71a435dba656fc89412d00b660a9"
+    },
+    {
+      "evidencePath": "docs/typesafe-enable-evidence-2026-09-24/owner-scope.md",
+      "status": "historical-one-synthetic-smoke; not-new-call-permission",
+      "sha256": "5fcf2824cd490adf7308160070b6ba20c93a8fe3929c015d06ae3d570f37e610"
+    },
+    {
+      "moduleId": "W01/W02/W10",
+      "status": "not-prerequisites-for-local-core-decoupling"
+    }
+  ],
+  "limitations": [
+    "Core-only is not implemented/accepted: release.py accepts only laya/typesafe and requires adsRequired=true.",
+    "No target host, backup, TLS, production retained URLs, real rollback evidence; LP05a cannot pass on local engineering alone.",
+    "No .git in candidate; Git-dependent prepare belongs to W00 after integration in real main tree; no identity or candidateOnly bypass.",
+    "services/** is not assigned; preserve existing TypeSafe implementation. Additional service changes require exact W00 allocation.",
+    "No API calls or .env.local reads. Six configuration combinations and failure recovery use local mocks/assertions."
+  ],
+  "handoffStatus": "not_received",
+  "dispatchEvidence": null,
+  "externalActionsAuthorized": []
+}

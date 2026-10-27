@@ -1,0 +1,216 @@
+{
+  "schemaVersion": 1,
+  "batchId": "2026-09-25-01",
+  "moduleId": "W07/LC07 + W15/local technical acceptance",
+  "baselineId": "b7a9fddd658d95279e05127f32e2ec2cddec7fa8e90c2e254f55df89ff1942b5",
+  "candidateId": "fade80f7978095fe88340f110089c00990ba1117e56cc7cedd521b307048d703",
+  "implementationStatus": "partial",
+  "changedFiles": [
+    {
+      "path": "src/components/tools/ToolShell.astro",
+      "baseSha256": "45563cea0d09b87780fc3e002d6748558561845debbabbea0bf953ffc36a501d",
+      "candidateSha256": "07edbb7fef78bf2c6f0841be5da57f0066fef748ae3a9ea852c5370a4fd2ed5c",
+      "changeKind": "modify"
+    },
+    {
+      "path": "src/pages/tools/route-finder.astro",
+      "baseSha256": "43dbdfed7fef56a09fefe0e2779458675403c84fb22a4acb06d34f3558d3d599",
+      "candidateSha256": "74e58c49d5b4fbdae527e6a0d89ecacee359a4e0193b9d11a4e28a1039784ab0",
+      "changeKind": "modify"
+    },
+    {
+      "path": "src/pages/tools/checklist-generator.astro",
+      "baseSha256": "95909307f39ce1e615eed00d604772b7f29aa6f9107578972377f6b43255263c",
+      "candidateSha256": "9263b1c51d68dbf80b30ea6096a4c9c022e64dab77a1f0e851532cc35577d82a",
+      "changeKind": "modify"
+    },
+    {
+      "path": "src/styles/global.css",
+      "baseSha256": "91ec92d4c37978c675a969bc66c729c1ec53716799f162243d9b25b7a2dbee8a",
+      "candidateSha256": "c15cbed5f347599b7a34371ea3b2f256baee821a35bc1a9d1f1c925b31a55940",
+      "changeKind": "modify"
+    },
+    {
+      "path": "tests/m2a-plan-state-integration.test.mjs",
+      "baseSha256": "f9b5c2c17524748a67661b3bd60817107f4465559228c2d3990aeccb201989da",
+      "candidateSha256": "f073f2e38bdc7658946f0925d46278ff3cd5c3ae0d3a2e9cc5d0402e8d406438",
+      "changeKind": "modify"
+    },
+    {
+      "path": "tests/m2b-route-finder.test.mjs",
+      "baseSha256": "3b0e04339cbbd17560f9f650ded1c4bfc05d73d695344a5f606bed053b55b5f9",
+      "candidateSha256": "7de0add7f0d4bbf4bb312c55ee9a4c77b45341b773eeb36910437e4b4848c7e6",
+      "changeKind": "modify"
+    },
+    {
+      "path": "tests/m2b-checklist-export.test.mjs",
+      "baseSha256": "3667b49e2ef55c11781a8c8c797af0774e570ef823b27c060975fe515041b4bc",
+      "candidateSha256": "87eb2b2cf8afe6dc261ab0106627fbb9f2d847abd0b8df815f23bdf2e27a00cb",
+      "changeKind": "modify"
+    },
+    {
+      "path": "tests/t28-stale-results.test.mjs",
+      "baseSha256": "5279975a313ffe97483261a74f6c13168f004a00278c78c969c3aeed5742eacf",
+      "candidateSha256": "c3305ec69609194bb4e12d76cca88c86cc36a24bb7dc513dbf6a94d4981d35d4",
+      "changeKind": "modify"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-25-01/W07/README.md",
+      "baseSha256": null,
+      "candidateSha256": "bc85e5bc9e2811018b6acae7d1aa8e364fa496cff6cb1c6be2892fb34f39a84a",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-25-01/W07/calendar-import-status.md",
+      "baseSha256": null,
+      "candidateSha256": "087660b794f54293f33ad423fa92e528cdf26907001b2849f91376893348d931",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-25-01/W07/evidence/logs/m2a-plan-state-integration.log",
+      "baseSha256": null,
+      "candidateSha256": "83db50295a359885e183994a38dbc7659d2e70940339817f7b815b7ce4e7d08a",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-25-01/W07/evidence/logs/m2b-checklist-export.log",
+      "baseSha256": null,
+      "candidateSha256": "a64c6bea432e447d396194b3901e0ae61e87949130c9c26364fa7e20a95a561d",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-25-01/W07/evidence/logs/m2b-route-finder.log",
+      "baseSha256": null,
+      "candidateSha256": "b680c1b632e56c6e54d1eb85711afd7564310b5cc51c43ca610c5e9ea93a542d",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-25-01/W07/evidence/logs/m3-chinese-tool-contract.log",
+      "baseSha256": null,
+      "candidateSha256": "3435f9c7abb650856b52c852a775691690916f202bfc6c57f0c8f5ef469d220a",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-25-01/W07/evidence/logs/npm-run-build.log",
+      "baseSha256": null,
+      "candidateSha256": "ff8146936d1514a34fab39393ba41cfea7002c3da1b6f3f6134ecfe26b43f5b0",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-25-01/W07/evidence/logs/t28-stale-results.log",
+      "baseSha256": null,
+      "candidateSha256": "b2aa9380ed4f6cfa85484fb3d4149f3dd62a9c0044a98d689e03b288ddd2422f",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-25-01/W07/evidence/observation-receipt.md",
+      "baseSha256": null,
+      "candidateSha256": "e3b3afe2983c0448cf2be294a395fa69a9980db34816ff54c23ac6672d97c64a",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-25-01/W07/materials-and-assumptions.md",
+      "baseSha256": null,
+      "candidateSha256": "5b42bb99fd2c656ef6c43c0fec1c1e6776db35596614ab0bbe77ae8878b4fdfe",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-25-01/W07/record-tool-gap-list.md",
+      "baseSha256": null,
+      "candidateSha256": "905b68634a94b85d121216c1ed9ff8516906112992748b9cf5b85ad4b5b282f5",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-25-01/W07/state-and-export-checks.md",
+      "baseSha256": null,
+      "candidateSha256": "33c576d016bb2d7ff455a72452996d679a72b4738f9efcd3aa1c21c07617c646",
+      "changeKind": "add"
+    }
+  ],
+  "tests": [
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-25-01/W07/evidence/logs/npm-run-build.log",
+      "baselineId": "fade80f7978095fe88340f110089c00990ba1117e56cc7cedd521b307048d703"
+    },
+    {
+      "command": "node tests/m2a-plan-state-integration.test.mjs",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-25-01/W07/evidence/logs/m2a-plan-state-integration.log",
+      "baselineId": "fade80f7978095fe88340f110089c00990ba1117e56cc7cedd521b307048d703"
+    },
+    {
+      "command": "node tests/m2b-route-finder.test.mjs",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-25-01/W07/evidence/logs/m2b-route-finder.log",
+      "baselineId": "fade80f7978095fe88340f110089c00990ba1117e56cc7cedd521b307048d703"
+    },
+    {
+      "command": "node tests/m2b-checklist-export.test.mjs",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-25-01/W07/evidence/logs/m2b-checklist-export.log",
+      "baselineId": "fade80f7978095fe88340f110089c00990ba1117e56cc7cedd521b307048d703"
+    },
+    {
+      "command": "node tests/m3-chinese-tool-contract.test.mjs",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-25-01/W07/evidence/logs/m3-chinese-tool-contract.log",
+      "baselineId": "fade80f7978095fe88340f110089c00990ba1117e56cc7cedd521b307048d703"
+    },
+    {
+      "command": "node tests/t28-stale-results.test.mjs",
+      "exitCode": 1,
+      "logPath": "docs/module-handoffs/2026-09-25-01/W07/evidence/logs/t28-stale-results.log",
+      "baselineId": "fade80f7978095fe88340f110089c00990ba1117e56cc7cedd521b307048d703"
+    }
+  ],
+  "dependencies": [
+    {
+      "moduleId": "W04/LC04",
+      "evidencePath": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-25-01/reused-factual-assets.json",
+      "status": "W00-registered reuse-only source-reviewed assets; no W04 handoff claimed; facts unchanged"
+    },
+    {
+      "moduleId": "W06/LC06",
+      "evidencePath": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-25-01/reused-factual-assets.json",
+      "status": "W00-registered reuse-only source-reviewed assets; no W06 handoff claimed; facts unchanged"
+    }
+  ],
+  "sharedFileChanges": [
+    {
+      "path": "src/components/tools/ToolShell.astro",
+      "interfaceChange": false,
+      "note": "Shared tool plan summary and nearby privacy/restart disclosure presentation."
+    },
+    {
+      "path": "src/styles/global.css",
+      "interfaceChange": false,
+      "note": "Shared tool result scroll offset, table horizontal scrolling, result evidence/print styles."
+    },
+    {
+      "path": "src/pages/tools/route-finder.astro",
+      "interfaceChange": false,
+      "note": "Route-specific result ordering, explicit actions and evidence/export presentation."
+    },
+    {
+      "path": "src/pages/tools/checklist-generator.astro",
+      "interfaceChange": false,
+      "note": "Checklist-specific result ordering and page-local evidence serialization; shared checklist-export data API left unchanged."
+    }
+  ],
+  "limitations": [
+    "T28 exited 1 before launching because Playwright is absent from the assigned dependency copy. The added actual geometry assertion has not passed in a browser.",
+    "A fresh CUA run was blocked by Mac lock and browser inventory failure. Baseline screenshot was visible during the task but not persisted; exact scrollY is unavailable. No post-change screenshot or viewport matrix is claimed.",
+    "EN/ZH at 375/390/768/desktop, keyboard/zoom, print and downloaded file contents remain unverified in a browser. Clipboard failure, storage-denied and 30-day expiration are covered only by local/code contracts, not live browser interactions.",
+    "Real readers, real devices, actual calendar-client import and production remain untested. LP04 remains partial; no T/LP/LC thresholds are changed.",
+    "No formula, legal-rule data, checked date, fee fact or claim version changed. No commit, push, deployment, external API, account, real-calendar write or human contact was performed.",
+    "W00 retains the sole responsibility for serial integration, global governance, final integration verification and independent audit."
+  ],
+  "nextActions": [
+    "W00 integrate candidate.patch serially against the current dirty tree and resolve any source drift using changed-file-hashes.json; do not replace whole files.",
+    "Provision/use an already available approved local browser test dependency or run the CUA browser after the Mac is unlocked; execute T28, save screenshots/geometry receipts, and complete the viewport/language/keyboard/print/download matrix.",
+    "Verify clipboard denial fallback, storage blocked, session restore, 30-day device expiry and clear in an actual browser; keep calendar-client import as an explicit separate not-tested item until authorized and performed.",
+    "Run W00 governance/full validation and submit the exact frozen integrated scope to the independent read-only auditor. Keep LP04 partial until the real-reader gate is met."
+  ]
+}

@@ -1,6 +1,8 @@
 ---
-export interface Props { label?: string; filename?: string; target: string; }
-const { label = 'Export text file', filename = 'visalang-plan.txt', target } = Astro.props;
+import { commonToolCopy, type ToolLocale } from '../data/tool-copy';
+export interface Props { label?: string; filename?: string; target: string; locale?: ToolLocale; }
+const { locale = 'en' } = Astro.props;
+const { label = commonToolCopy[locale].export, filename = 'visalang-plan.txt', target } = Astro.props;
 ---
 <button class="button button--secondary" type="button" data-export-target={target} data-export-filename={filename}>{label}</button>
 <script>

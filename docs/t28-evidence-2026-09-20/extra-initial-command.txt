@@ -1,0 +1,6 @@
+stale-ruleVersion pass
+stale-claimVersions pass
+expired-device pass
+malformed-storage pass
+stale-finder-result fail
+stale-comparison-result fail

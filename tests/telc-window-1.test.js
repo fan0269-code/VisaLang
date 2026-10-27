@@ -43,8 +43,8 @@ assert.match(html, /Official sources last checked: <time datetime="2026-08-14">2
 assert.doesNotMatch(html, /Official verification pending/, 'the reviewed guide does not render a conflicting pending state');
 assert.match(html, /Source-reviewed verification responsibilities for this guide/, 'the generated guide renders the bounded authority and source responsibilities');
 assert.match(html, /Final decision authority:<\/strong> Responsible German mission, embassy or consulate and any competent receiving immigration authority/, 'the generated guide renders the responsible authority boundary');
-assert.match(html, />Starter overview<\//, 'the bounded source review does not promote content maturity');
-assert.doesNotMatch(html, />Route structure complete<\/|>Core route structure<\//, 'the generated guide remains outside mature content states');
+assert.match(html, />Coverage: orientation guide<\//, 'the bounded source review does not promote content maturity');
+assert.doesNotMatch(html, />Coverage: complete route guide<\/|>Coverage: core route guide<\//, 'the generated guide remains outside mature content states');
 
 console.log('FAN-34 telc first-slice contract passed');
 
@@ -76,6 +76,6 @@ assert.doesNotMatch(formatSource, /(?:€|EUR|\$)\s?\d+|(?:result|certificate|pa
 const formatHtml = fs.readFileSync(`dist/guides/${formatSlug}/index.html`, 'utf8');
 assert.match(formatHtml, /Official sources last checked: <time datetime="2026-08-14">2026-08-14<\/time>/, 'the generated format guide renders its bounded source-review date');
 assert.doesNotMatch(formatHtml, /Official verification pending/, 'the reviewed format guide does not render a conflicting pending state');
-assert.match(formatHtml, />Starter overview<\//, 'the format guide remains visibly outside mature states');
+assert.match(formatHtml, />Coverage: orientation guide<\//, 'the format guide remains visibly outside mature states');
 
 console.log('FAN-37 telc format and preparation contract passed');

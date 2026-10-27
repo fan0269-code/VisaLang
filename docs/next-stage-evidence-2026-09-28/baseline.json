@@ -1,0 +1,1103 @@
+{
+  "branch": "codex/scheme-3-one-week-content",
+  "head": "4cb57e8744c752fed1881281e69e7b24cc7281c4",
+  "upstream": "origin/codex/scheme-3-one-week-content",
+  "aheadBehindLocalRefsOnly": "0\t0",
+  "statusCounts": {
+    "staged": 0,
+    "trackedDirty": 129,
+    "untracked": 974
+  },
+  "preservedImplementationFiles": [
+    {
+      "path": "src/assets/home-route-verification.png",
+      "sha256": "4e228eb27bcd1c342d39300fcc49a4215a6ee8d1e27abfd3181791c5e648e9eb"
+    },
+    {
+      "path": "src/components/ArticleCard.astro",
+      "sha256": "f29274c18e6546a874bbb8bf6419ed5e9bf72e061c5b802a39c395ef2ad07e0e"
+    },
+    {
+      "path": "src/components/ArticleTOC.astro",
+      "sha256": "a853e0318b47d042c409711a6f9316074224c58f75c1ac0627a7f0fce49bf499"
+    },
+    {
+      "path": "src/components/B1RoutePaths.astro",
+      "sha256": "c63d2255893b057d09e9b94b46e03018ade36d938f5d068619398cfe27b63b6a"
+    },
+    {
+      "path": "src/components/Breadcrumbs.astro",
+      "sha256": "edea8bd509a240d24e4974b65e708071e737ee793ffaca83693e271c14bdab83"
+    },
+    {
+      "path": "src/components/ComparisonTable.astro",
+      "sha256": "59bcf4a64e053a5266f08b226c975057f47b4721daeebab435fb7d2960db726a"
+    },
+    {
+      "path": "src/components/CopyButton.astro",
+      "sha256": "4b4c62274809c9c5ca99169f58e5fb9764bbe916502951d57313491d79fc9501"
+    },
+    {
+      "path": "src/components/DecisionTable.astro",
+      "sha256": "415c523e1029dcc6c063eb81866b848d998418a06e23943705bdf68793a4a74b"
+    },
+    {
+      "path": "src/components/ExamProductComparisonTable.astro",
+      "sha256": "5b9a60a5231807f09bef15ed8a2e898c54df1c0e9ef08688d64afcd178b4d237"
+    },
+    {
+      "path": "src/components/ExportButton.astro",
+      "sha256": "7dc4005bc305b6f4cdd5168712539a386bc9d380b6913af012df18fadc445762"
+    },
+    {
+      "path": "src/components/FilterBar.astro",
+      "sha256": "396d34984947d02ba3d280a6d7946f8ad88c7a759b51174f57c6845cdfb7b1e5"
+    },
+    {
+      "path": "src/components/GlobalFooter.astro",
+      "sha256": "97c377a6b22448b82bf8108e56c1eae86f39ba76cccd1487036a2640a51f8aec"
+    },
+    {
+      "path": "src/components/GlobalHeader.astro",
+      "sha256": "a59c82d83c6ba61eebbf34e2b1281d31bc30a371548e0750515bb7cde63506ee"
+    },
+    {
+      "path": "src/components/GuideCard.astro",
+      "sha256": "f42de75a8ca48d73a5fea6d997449e7f0ae23bb3f15575097d162a3167c16d53"
+    },
+    {
+      "path": "src/components/GuideStatusBadge.astro",
+      "sha256": "98a1e19cf0b5bab8a6e207854a45f651f88c9d2c075020a8807e5512f3e816e2"
+    },
+    {
+      "path": "src/components/HomeHero.astro",
+      "sha256": "1b00fb1188ac58661bd6fc2e5067d2cb5bf9b6ce75124220bb929eda95334a3a"
+    },
+    {
+      "path": "src/components/LastCheckedBadge.astro",
+      "sha256": "517fc87fccbcfa87c677dd3d6aeb8c983e874ef6f3a02256d0fd47136ad3fe66"
+    },
+    {
+      "path": "src/components/LocalExamFeeTable.astro",
+      "sha256": "7fa373b2aa3f58d1c34c3e70219eae1b10fe61c72f3017e9d7f1e1a5d9a9304f"
+    },
+    {
+      "path": "src/components/MobileNavigation.astro",
+      "sha256": "0ac6eae9edaa9feebaa7fddcab1d820d026f423f3279a27fcf78f520bf0355ac"
+    },
+    {
+      "path": "src/components/PageHero.astro",
+      "sha256": "fe4735057f935fd2cb1990d35f03d8c7dadf3a6252c8a0593d18dd1a4bcadd02"
+    },
+    {
+      "path": "src/components/PrintButton.astro",
+      "sha256": "4a536ebfb33b141a831df05a8977afee1a9017cd1ee900507fe704369a43a11d"
+    },
+    {
+      "path": "src/components/ProductStatus.astro",
+      "sha256": "45894a72e424589b26e05747e3807e784f1961b12d83e70324a133461debbb59"
+    },
+    {
+      "path": "src/components/RelatedGuides.astro",
+      "sha256": "b3f1dc9c5ed886ab3b5daeedb17ca7bd37d3734934e317565d122ecafe305f81"
+    },
+    {
+      "path": "src/components/ReportOutdatedInfo.astro",
+      "sha256": "d27311a85c35761db5841af3cfd695ccd0312aa552bb8ba7c8c761fcade8f6f4"
+    },
+    {
+      "path": "src/components/RouteProgress.astro",
+      "sha256": "cfc5fc6da14d8243a430afafe55b4c9ce5bb57c75c2afcc557bcfecbcd910a3f"
+    },
+    {
+      "path": "src/components/RouteSelector.astro",
+      "sha256": "76c737c291be59503cf5d12178919f5252daeb7218c4f774e6c1e52bf243e050"
+    },
+    {
+      "path": "src/components/SearchInput.astro",
+      "sha256": "0f7ed81d01331f74717b20696961a53a2a62695ceec52b3030b1dbadc7dc201a"
+    },
+    {
+      "path": "src/components/SourceCard.astro",
+      "sha256": "52491deee711c3bebdafbd3585bfd829f27e1bd3088315c90fa256661fb734f0"
+    },
+    {
+      "path": "src/components/ToolResultPanel.astro",
+      "sha256": "7daac5cbaabb107733f6b92f14ee1cedc600e1294b221ef8979c2ec5c9ea8e4c"
+    },
+    {
+      "path": "src/components/ToolStepper.astro",
+      "sha256": "ba7f8113f797a189dd98338198b651e590ed6c44d6209685ee0372d5b51ce5d4"
+    },
+    {
+      "path": "src/components/TrustNotice.astro",
+      "sha256": "96f5c299bb8db2e61739780430a77b9a443a822253453597b328eb11e78b2b93"
+    },
+    {
+      "path": "src/components/VerificationAlert.astro",
+      "sha256": "47143c176ce8e87f64825dd2efe760008321b35132de93352abe54a02c12b9c0"
+    },
+    {
+      "path": "src/components/ZhGuideLayout.astro",
+      "sha256": "f072fb15ab38ecc715ed560b8b6d287f4f76f581c4ae919762ca2b8564ad0cf3"
+    },
+    {
+      "path": "src/components/products/CommercialBoundary.astro",
+      "sha256": "bebe7b99156cd3c9a73afbe5b51795325f636cdb60f4e6540171935e2d318945"
+    },
+    {
+      "path": "src/components/products/CommercialPageShell.astro",
+      "sha256": "a7ab743695fa43ac54df311db7f0b35e78427d3ff07007d456afbe5ec192fc41"
+    },
+    {
+      "path": "src/components/products/IntentCTA.astro",
+      "sha256": "00e421ebe1b3db04b93739d8436d0c0a4f5dcd648a1c6ab999475435d04e756c"
+    },
+    {
+      "path": "src/components/tools/PurposeSuggestion.astro",
+      "sha256": "8731bea476aec356c8fb14d1b3e39d9813bd30161c030962a824be4a60eb0339"
+    },
+    {
+      "path": "src/components/tools/ToolResultSupport.astro",
+      "sha256": "c990a7e784fa48891898c6f469cdcffa7ac2956069fef33bb6d29123d53f8adf"
+    },
+    {
+      "path": "src/components/tools/ToolShell.astro",
+      "sha256": "45563cea0d09b87780fc3e002d6748558561845debbabbea0bf953ffc36a501d"
+    },
+    {
+      "path": "src/content/guides/cils-b1-cittadinanza-for-italian-citizenship.md",
+      "sha256": "6a5e23207c710184dd025adf7c980a8b7ff42bd048cc3cde957546f2566d9772"
+    },
+    {
+      "path": "src/content/guides/cils-vs-celi-vs-plida-for-italian-citizenship.md",
+      "sha256": "859ae00edcfb14b3c772952c21b11862ed4b85e966dfac8f39ea6a27ea202d4d"
+    },
+    {
+      "path": "src/content/guides/dele-a2-ccse-spanish-citizenship.md",
+      "sha256": "f754099348fe3f3b49c2c2fe556969d5a65363c50166f2b7f9c2c3b2c01218e1"
+    },
+    {
+      "path": "src/content/guides/dele-levels-spanish-citizenship.md",
+      "sha256": "5810e33ff5a1a0bceaa7c35433aef4251d090ab724bbf3418bbaac254cba6d26"
+    },
+    {
+      "path": "src/content/guides/delf-b1-b2-french-work-study.md",
+      "sha256": "7f312942c3f9eb1a8202c6e13751e9b5132b03c5241855521e7133a5b01d86cb"
+    },
+    {
+      "path": "src/content/guides/dutch-inburgering-a2-b1-for-integration-and-citizenship.md",
+      "sha256": "4ca21b9306d666140f4f669688c2394e56bd8813c4e66d0b610d7fb3f7e8a41a"
+    },
+    {
+      "path": "src/content/guides/german-a1-documents-checklist.md",
+      "sha256": "65db1fef77beef4011dcac0c2b634a3840c4b2130a8ca9d50a3ad32989bb542d"
+    },
+    {
+      "path": "src/content/guides/german-a1-exam-booking-timeline.md",
+      "sha256": "4cea463b6bb0e1b2f532857e3b309f466315b786c394b377fb0557d2ca04a0c6"
+    },
+    {
+      "path": "src/content/guides/german-a1-family-reunion-faq.md",
+      "sha256": "9fe9c0e9bddd2ef0037b0ff9ba2440a60c06002fb42ccb0e90e8e9347dd238f3"
+    },
+    {
+      "path": "src/content/guides/german-family-reunion-language-requirement.md",
+      "sha256": "470221283ed7cbb3bfa5305cd53360ade24024d3ae68ecb74513b1bb44e04dd4"
+    },
+    {
+      "path": "src/content/guides/germany-b1-citizenship-language-proof.md",
+      "sha256": "52d81cf520cff87b8ca5cf311eafd6f95fc697644783da49637f8b2b1430a387"
+    },
+    {
+      "path": "src/content/guides/germany-b1-leben-in-deutschland-and-language-proof.md",
+      "sha256": "1e2698392139b65574684204ba9734d5c1b4e822c349e3e38ccb3943b136099f"
+    },
+    {
+      "path": "src/content/guides/germany-b1-settlement-citizenship-checklist.md",
+      "sha256": "f51908cb586262c2f37bcedff327ccff41f957a12f0efe3ebc5fe20274fa24ae"
+    },
+    {
+      "path": "src/content/guides/germany-b1-settlement-citizenship-timeline.md",
+      "sha256": "58a5a93ad479d7ef6f87c945111d8e11d7e862b2a1b8e7498c3cd8a97847bbac"
+    },
+    {
+      "path": "src/content/guides/goethe-a1-30-day-study-plan.md",
+      "sha256": "3667196f625cc15b3da0eecd7b81dd1b4d6e7419c141367161b3fb0cbe3895ac"
+    },
+    {
+      "path": "src/content/guides/goethe-a1-booking-mistakes.md",
+      "sha256": "27c7433b92de00574c34336be3646d4efeacfedf0597fb34abc1c5edd07d893c"
+    },
+    {
+      "path": "src/content/guides/goethe-a1-fees-by-country.md",
+      "sha256": "83eb8fae490c804d6770b7e1c67eca453584d2a618a7c261927a13e140792b2e"
+    },
+    {
+      "path": "src/content/guides/goethe-a1-germany-family-reunion.md",
+      "sha256": "3114080078fa622af598b03badbed4ea54e18d95fbce4d68d11cbc05d73f080d"
+    },
+    {
+      "path": "src/content/guides/goethe-a1-listening-practice.md",
+      "sha256": "7486313ee2fa3808ce0d14967fc4749857568c4f2e6c5ea56bcf93b5584bb542"
+    },
+    {
+      "path": "src/content/guides/goethe-a1-official-links-practice-resources.md",
+      "sha256": "8d987dd8d705474cd4af3bcdec80c0430eea2f2d91f528d84a6dfe599541657f"
+    },
+    {
+      "path": "src/content/guides/goethe-a1-pre-booking-checklist.md",
+      "sha256": "c45860e4b126832372cf429cfbeac954b9b80d501e7db7aad33a17d4658dd791"
+    },
+    {
+      "path": "src/content/guides/goethe-a1-retake-policy.md",
+      "sha256": "4430ee77a645b8bed47b4c25d5c96312cfddca36f1519db413376034909cec3f"
+    },
+    {
+      "path": "src/content/guides/goethe-a1-speaking-topics.md",
+      "sha256": "c010badf4339555fc6ba74b4ae148c0d4687829a5e86031e0cd50c5f3a2a9d0a"
+    },
+    {
+      "path": "src/content/guides/goethe-a1-study-plan-working-adults.md",
+      "sha256": "bacb28f3b1eaf74d87bdfcc1dd30440d7bc3a59957414cffc0006fc4188e7d98"
+    },
+    {
+      "path": "src/content/guides/goethe-a1-test-centers.md",
+      "sha256": "9d35641e9f0587f0b6d4566b8b78825fc2903a26577d6d939d5f39ecc2803bcb"
+    },
+    {
+      "path": "src/content/guides/goethe-a1-vs-telc-a1.md",
+      "sha256": "c2d5ba9d4c917954c35fb8cba49792765855247ca91801762aca456644db3039"
+    },
+    {
+      "path": "src/content/guides/goethe-a1-writing-practice.md",
+      "sha256": "ce92e8efe028719f5b76eda12f6be48ffc972a98ac6c2e73dfb42e0c5124d180"
+    },
+    {
+      "path": "src/content/guides/goethe-b1-difficulty-analysis.md",
+      "sha256": "dc53f9b5183d90355005e4e8a9ee809311794351df3ee33a7c8c8ab3760a502a"
+    },
+    {
+      "path": "src/content/guides/goethe-b1-fees-and-booking.md",
+      "sha256": "0226fc76de6b057884848b29271acf5a2d7efb086f168688a9dfcfcb83336836"
+    },
+    {
+      "path": "src/content/guides/goethe-b1-germany-settlement-work.md",
+      "sha256": "6fc726657c12516e547950f950262a6d9d5b2c535a07d3d5a3ab746c5a1d0854"
+    },
+    {
+      "path": "src/content/guides/goethe-b1-listening-deep-dive.md",
+      "sha256": "d9f09e5d4b82a58b85930efeb11304533584b99cf5add09ee02aa0384cd2a241"
+    },
+    {
+      "path": "src/content/guides/goethe-b1-mock-exam-routine.md",
+      "sha256": "15cac04d09f6d3cefef8468a424641922ed605e94489fa04e2bf58aabfb12db9"
+    },
+    {
+      "path": "src/content/guides/goethe-b1-speaking-topics.md",
+      "sha256": "9385fb6b1d2ee663728c536334d29b0b9e0fcdf626b7dbe3e08bd21ac07b2d9f"
+    },
+    {
+      "path": "src/content/guides/goethe-b1-study-plan.md",
+      "sha256": "ee05a3b4bfb0f9b8441fef05cf470c5cefc08d741a9e828a5186040b2659a371"
+    },
+    {
+      "path": "src/content/guides/goethe-b1-vs-telc-b1.md",
+      "sha256": "4d34ccb68e8912d9e5451a6e55e46febe110a84f8cd34cc0a486c34861a7f8f3"
+    },
+    {
+      "path": "src/content/guides/goethe-b1-writing-assessment.md",
+      "sha256": "9a6e1d1ee2686f364e69d1d7f7f2e745cc2cc44f6db495e970db69e512a41ddb"
+    },
+    {
+      "path": "src/content/guides/ielts-ukvi-uk-visa.md",
+      "sha256": "1f72d986f9beb9e87836cab0848bc85d073d461dee7c3ef4cb90053177853b5b"
+    },
+    {
+      "path": "src/content/guides/languagecert-selt-uk-visa.md",
+      "sha256": "caa094ba2ea1b736f44d8387bec03a90b14fa87256e55a47109d1fe1ec6fa89b"
+    },
+    {
+      "path": "src/content/guides/portuguese-ciple-a2-for-citizenship-and-residence.md",
+      "sha256": "d3a772ea9d639a721c9683174b15c8ba573489b13962f5ce27e540cc45f56563"
+    },
+    {
+      "path": "src/content/guides/portuguese-language-for-golden-visa-and-citizenship.md",
+      "sha256": "ffefad089dd077bf2598ae0cb028655a5e51845eb9cc2e66b8f9c135835ee409"
+    },
+    {
+      "path": "src/content/guides/staatsexamen-nt2-for-work-and-higher-education.md",
+      "sha256": "093c9c320d9be6dace0a46128b40253954b656a288a27f84e13ffd9155c21003"
+    },
+    {
+      "path": "src/content/guides/tcf-canada-vs-tef.md",
+      "sha256": "e7675a3e34d7085f6bd0a335d84460245493a00bfc82e799578953e334c9ff7b"
+    },
+    {
+      "path": "src/content/guides/tcf-irn-french-residence.md",
+      "sha256": "2fc63dc38c90df1408e2dffbb925d7e0174780bb88d61058767c80425b036029"
+    },
+    {
+      "path": "src/content/guides/tef-canada-immigration.md",
+      "sha256": "7f216e74469a492ff1df0b710fe91dec9e6884db645a6a5499ba1a183139a018"
+    },
+    {
+      "path": "src/content/guides/telc-b1-b2-exam-format-and-preparation.md",
+      "sha256": "e38a97ecb4dcb6753c7ccedd754ddae654e116d11305adf723d7df8c2932ab41"
+    },
+    {
+      "path": "src/content/guides/telc-b1-b2-fees-and-test-centers.md",
+      "sha256": "02d0d12f5b06beb1ef251dbc6d047b610418b1c7755fd398b1b38c684fff0a3f"
+    },
+    {
+      "path": "src/content/guides/telc-b1-b2-germany-work-nursing.md",
+      "sha256": "d91a7b5cffafbe91ff99460bf33a919476fe32df0f4da74db0f15316de3b56f8"
+    },
+    {
+      "path": "src/content/guides/telc-vs-goethe-for-german-visa.md",
+      "sha256": "60f259d4eeff66b6612f70cffaed6228c3eb97b90d587285fa64f0fcc63b5af6"
+    },
+    {
+      "path": "src/content/guides/testdaf-germany-university-admissions.md",
+      "sha256": "f367b653be72e439a2f037da7dd96a47723c5323247725a7d1c1bc74d1829dc3"
+    },
+    {
+      "path": "src/content/guides/testdaf-levels-and-scoring.md",
+      "sha256": "b6e8f6f1bf98d54604bbbc6349e43d8f301ab1504cf7f3df7fff06e0b3770aae"
+    },
+    {
+      "path": "src/content/guides/testdaf-preparation-and-practice.md",
+      "sha256": "41e8e396fe5cb9f44c4c4efd3fda3e676072be0b5e610898b5e373268e35e62e"
+    },
+    {
+      "path": "src/content/guides/testdaf-vs-goethe-dsh.md",
+      "sha256": "af9cfe25a7de447cb967cc58076c2dfad07ec8dff426ccd4b6d0b4f43f1b226d"
+    },
+    {
+      "path": "src/content/guides/yki-finnish-citizenship.md",
+      "sha256": "8f1003dc1f4090fb5e8d28416058a29933d100b0fa394264f8c7d1e28a7dc3a8"
+    },
+    {
+      "path": "src/content.config.ts",
+      "sha256": "723ef6237504d5e53dfd146d811986ecc6ecd015fab7b0660876190733f136ca"
+    },
+    {
+      "path": "src/data/app-data.ts",
+      "sha256": "e56bda773f98fccf69e69379de0b7344641466834678109e0c25afd215e5cca2"
+    },
+    {
+      "path": "src/data/article-sections.ts",
+      "sha256": "a697161cfd89c8f62e799fafaaed3abbc22e8d0d907c80f40b9d2d279e917618"
+    },
+    {
+      "path": "src/data/b1-exam-products.ts",
+      "sha256": "fce400c5992c6606d1c06edb97b50dbb099901c94cbb21084ea7e84fad3c0e4f"
+    },
+    {
+      "path": "src/data/b1-route-claims.ts",
+      "sha256": "c7319d122160ecc1453354ad95f379cebe7ee125bbf75587e72df21cfae73437"
+    },
+    {
+      "path": "src/data/b1-route-paths.ts",
+      "sha256": "23c9a523268ceb97388b84416483b1cf087703378b5607a94705682ab27a1efa"
+    },
+    {
+      "path": "src/data/checklist-export.ts",
+      "sha256": "76fdc5a8c03df88fae61a7fcc0791cdc4aae5bf90e4212d954c784a0720ba148"
+    },
+    {
+      "path": "src/data/claim-registry.ts",
+      "sha256": "20470769f472a85fded1e634d335f375a3963d8501225882d36e08a98202b4b0"
+    },
+    {
+      "path": "src/data/commercial-offers.ts",
+      "sha256": "c0dbfeaec7841c3e5902f803bb87216f36c9cfdddb9eda41c8496e431ceb0a6b"
+    },
+    {
+      "path": "src/data/guide-discovery.ts",
+      "sha256": "2b5181d19e339f0595d2a97bd0ffe522d0287c84da786c7a8dcb40a88c3784df"
+    },
+    {
+      "path": "src/data/guide-library.ts",
+      "sha256": "5ae11d91ead6088844e0fb5719f66c50efea53cae8b583ed9c5e0db09f511f2d"
+    },
+    {
+      "path": "src/data/guide-taxonomy.ts",
+      "sha256": "5d3f0df9e329f1b66d5f3917da187ee8a236502e9d3ecfb761a3423abb0bf6c8"
+    },
+    {
+      "path": "src/data/measurement-contract.ts",
+      "sha256": "ab50e0dd0b16fcade76f77661e07ca2b9d3c27aae5c8f56c55b41fd297c609f3"
+    },
+    {
+      "path": "src/data/plan-state.ts",
+      "sha256": "02821581762328ef1293c55c573b3749ecb83da53241554ec0b4885d774f22ae"
+    },
+    {
+      "path": "src/data/publication-manifest.ts",
+      "sha256": "ab721a3b52cb4b02ec9142ab60ec3bbf6f311856ef8bf38787b433aa22a48b47"
+    },
+    {
+      "path": "src/data/reminder-ics.ts",
+      "sha256": "3ff79daab8595a50434f907d78c3c0e45d52185f9723f47c3574feca4338a7d2"
+    },
+    {
+      "path": "src/data/route-tools.ts",
+      "sha256": "f2cba2823afd2fa0233c41728a94fd4ffd4d648cac5f5bde861f9160a72b4d39"
+    },
+    {
+      "path": "src/data/site.ts",
+      "sha256": "d2a68aed44ae73c4445990f2ab1e2fc09114fff37f099b3f755a5629d9a66838"
+    },
+    {
+      "path": "src/data/source-review.ts",
+      "sha256": "ab95e82425aa27aa64a1e0a78efbadb410bd13ca1e66e241adb5b3a7977050ab"
+    },
+    {
+      "path": "src/data/tool-copy.ts",
+      "sha256": "05f91db8c3a2e777185f686c16203139c5f65f6316f162ce36a1d1763795dc97"
+    },
+    {
+      "path": "src/data/url-support-inventory.ts",
+      "sha256": "e1aa5ec2d6a088a7000fa701df2cd8e0055e8008ef1e44c55a1e5dc64cf7046f"
+    },
+    {
+      "path": "src/data/zh-germany-a1.ts",
+      "sha256": "e56b0a667d01a2c1dba05ae938063a673c963a353f03c112c57b0c5f7fe5b0c1"
+    },
+    {
+      "path": "src/data/zh-guide-task-reconciliation.ts",
+      "sha256": "28ec6ce2731c40176cd531e5329382bd04e858bc445ed494f3bc37c59e29a44a"
+    },
+    {
+      "path": "src/layouts/ArticleLayout.astro",
+      "sha256": "8b117f165f7c6fcf24861cad2ac41ff5842e98b86f9bb046f8f69e7566a940b1"
+    },
+    {
+      "path": "src/layouts/BaseLayout.astro",
+      "sha256": "33243945c29b7c5f83254721082f8d692f876dcb4278112ad5c24ea38bec71c8"
+    },
+    {
+      "path": "src/layouts/GuideLayout.astro",
+      "sha256": "f2a62b080afc164f209b2da4ad44c5c91bce612dedcccdfae34044949877eafb"
+    },
+    {
+      "path": "src/layouts/ToolLayout.astro",
+      "sha256": "0b4c31f24cf2d8401dc9fbc3489ca14d31ed2cc3052ebd95be821987b911aca3"
+    },
+    {
+      "path": "src/lib/navigation-current.ts",
+      "sha256": "fa464f5d9b9dde09038a115d0700acba8adeb1ebc63d64608442b982cd24f948"
+    },
+    {
+      "path": "src/pages/404.astro",
+      "sha256": "5501e80522c912393d455d608f22e020fb4e076d971da97e9ff9472ce7dde819"
+    },
+    {
+      "path": "src/pages/about.astro",
+      "sha256": "6ad63cbf88916c5d2ad08d85149abef6f8ea577fb3accd1b84c3fe9445fab9c4"
+    },
+    {
+      "path": "src/pages/affiliate-disclosure.astro",
+      "sha256": "7e89614bac3bce15e1753d5bf7fae85619c0d4bd3a0a5d317d9fe3961059be3f"
+    },
+    {
+      "path": "src/pages/contact.astro",
+      "sha256": "593251f7d99b3ade1230bb5459129a48c2b03b23492bf81b46551354dd0b022b"
+    },
+    {
+      "path": "src/pages/cookie-policy.astro",
+      "sha256": "89e462875d5cc4867c33711e00cb6dd20ede4e8c534dc655600e863272e380f2"
+    },
+    {
+      "path": "src/pages/editorial-policy.astro",
+      "sha256": "617b5a1eba665616e20783701b44dff50fba17a67a512b59ce1096c991b16a2f"
+    },
+    {
+      "path": "src/pages/exams/index.astro",
+      "sha256": "bfa9ac72f69f53d67a4dc8048de53f1f54739a4097297f46c41c2b7773c32031"
+    },
+    {
+      "path": "src/pages/germany-b1-settlement-citizenship.astro",
+      "sha256": "9b1b84b587d0da2e34e9c85476d809ea30c6055a33626c2115b04ede05f703dc"
+    },
+    {
+      "path": "src/pages/germany-family-reunion-a1.astro",
+      "sha256": "f0d4532916ae15f5eaa43ec0d98fb618e7b1be24e8a935e63f1f0b437ac07c71"
+    },
+    {
+      "path": "src/pages/guides/[slug].astro",
+      "sha256": "d1e29f1ea7e0176c22f10a1fc9e15f94daeaab1a4880729f0ba7e4fdaee77cd2"
+    },
+    {
+      "path": "src/pages/guides/category/[category].astro",
+      "sha256": "402956942bf995865b3e8e63705095efc01011c2397bf77a38f1031af92b3842"
+    },
+    {
+      "path": "src/pages/guides/index.astro",
+      "sha256": "bc21da53606d67f398bf0f703356bd304ccccb57ba86054e38d9b05ca95bb030"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "sha256": "77ddb74fca442380cba2eaa864a63b07a2cbab469f5e3da84a00a03b634fb2a9"
+    },
+    {
+      "path": "src/pages/partners.astro",
+      "sha256": "1646cda9968dc34ca5ac5b36c72b18dd06e5e266d13040f4975e38f255210df1"
+    },
+    {
+      "path": "src/pages/pricing.astro",
+      "sha256": "6f076081a0899f86134e491c21c3070301097abe32c721ac7d6cdb06ba040917"
+    },
+    {
+      "path": "src/pages/privacy-policy.astro",
+      "sha256": "27b4ef4c54ac58063182ed2c2dfe533fd8b4abcdb631bec99192831a11af1f34"
+    },
+    {
+      "path": "src/pages/products/a1-family-reunion-pack.astro",
+      "sha256": "d1bff5bc6a2fb9d039ce5ec1b6897f1315c543d5dad5b3637fc4bb247801bf02"
+    },
+    {
+      "path": "src/pages/products/a1-practice-pack.astro",
+      "sha256": "2eeeaf2d88d9ec1debdf5dcf55e0c0c759194f4a94d3590a469790bd7982db15"
+    },
+    {
+      "path": "src/pages/route-review.astro",
+      "sha256": "f1af8f464dffcd949b602dd21c74d965065d00ed0d8ee122d47b34de60d7d6e1"
+    },
+    {
+      "path": "src/pages/routes/index.astro",
+      "sha256": "c4e7924069d44bf4a544e5f67e4c41fa7d12b725cd82b11519fea7b6bb158b9d"
+    },
+    {
+      "path": "src/pages/terms.astro",
+      "sha256": "d5f1ae0f4077023d7e1c903eee23740b37fe472d2e04c5199346ac5ed4caa134"
+    },
+    {
+      "path": "src/pages/tools/checklist-generator.astro",
+      "sha256": "95909307f39ce1e615eed00d604772b7f29aa6f9107578972377f6b43255263c"
+    },
+    {
+      "path": "src/pages/tools/email-reminders.astro",
+      "sha256": "11dce5c99349d5a027a46e408c3e4165936ba314f7b0dac88fd50a64840f8be2"
+    },
+    {
+      "path": "src/pages/tools/exam-comparison.astro",
+      "sha256": "10c14d844eb8be7417a9e058d8715aa3f72c7bbad10dfac9c2f465fa375bfb64"
+    },
+    {
+      "path": "src/pages/tools/index.astro",
+      "sha256": "2147122e845b8ba2ac3b0ed7b3d511515dc99f7647d668216e6f90a955c83d60"
+    },
+    {
+      "path": "src/pages/tools/route-finder.astro",
+      "sha256": "43dbdfed7fef56a09fefe0e2779458675403c84fb22a4acb06d34f3558d3d599"
+    },
+    {
+      "path": "src/pages/tools/timeline-calculator.astro",
+      "sha256": "d902959b14f73da888a5bb80b32693b5e7f9077e274eb650a1c0e878eda6288f"
+    },
+    {
+      "path": "src/pages/zh/germany-family-reunion-a1.astro",
+      "sha256": "b3771d34086665d5e2fdaa4ce8d485d00990cc6d74ae7fe75bf05aa89ec368c5"
+    },
+    {
+      "path": "src/pages/zh/guides/german-a1-documents-checklist.astro",
+      "sha256": "314d1a31a5fd8fb1a0fc1160fc8477f2005cfbd5a4473593839d243bda4082f1"
+    },
+    {
+      "path": "src/pages/zh/guides/german-a1-exam-booking-timeline.astro",
+      "sha256": "bcae213219b4c36eb64619eab5524616a830e30a23eedccf4351c39ec7a8a95b"
+    },
+    {
+      "path": "src/pages/zh/guides/german-family-reunion-language-requirement.astro",
+      "sha256": "8b927feedaa0983e4d4e7c7f159adec639e9eac2eb0120cd304e706941c3dd07"
+    },
+    {
+      "path": "src/pages/zh/guides/goethe-a1-30-day-study-plan.astro",
+      "sha256": "04ff9f3f00db6b44766f805ebc3b5c2eec6e9e44518e61dc8a4f285e2064dc1e"
+    },
+    {
+      "path": "src/pages/zh/guides/goethe-a1-booking-mistakes.astro",
+      "sha256": "78cf3ab8c56c9d9d7e59e07d9824a5a2f379c6def2b626ce0dfc9a300b647773"
+    },
+    {
+      "path": "src/pages/zh/guides/goethe-a1-germany-family-reunion.astro",
+      "sha256": "7c50660155c3345417c6f2d121c960edaa53e37089a740b9ede38da71759f3db"
+    },
+    {
+      "path": "src/pages/zh/guides/goethe-a1-test-centers.astro",
+      "sha256": "b841e2b27d4e419f97f414339c227349f598a4b6901efe566a9629c997e1d7cb"
+    },
+    {
+      "path": "src/pages/zh/guides/goethe-a1-vs-telc-a1.astro",
+      "sha256": "5c99d6a28ee640c12a17eb23d99e28a85b6a4483b07da602acf99d0e3e8d34ab"
+    },
+    {
+      "path": "src/pages/zh/index.astro",
+      "sha256": "18254e699850703a6a052bdf7213b0ad33ba5d18a0f5f60640d129bb770b9b0c"
+    },
+    {
+      "path": "src/pages/zh/tools/checklist-generator.astro",
+      "sha256": "d93976e810bcfaa26f18d01e6e787c46a53520b2325ac0efdde93d0e8bf55451"
+    },
+    {
+      "path": "src/pages/zh/tools/email-reminders.astro",
+      "sha256": "d119bce6e906e7a426886c63a4ef7f1fff5be17731a967b44cda57ffafa2f1f7"
+    },
+    {
+      "path": "src/pages/zh/tools/exam-comparison.astro",
+      "sha256": "43929544d85722e71c5955a07bfe17615f5c977e795952797969b0bfeb07b7bf"
+    },
+    {
+      "path": "src/pages/zh/tools/route-finder.astro",
+      "sha256": "3de30b16566e5192f06a27e7783b8b149016b6287454ed2766e97e3c2d2808dd"
+    },
+    {
+      "path": "src/pages/zh/tools/timeline-calculator.astro",
+      "sha256": "1766a13527eaac8c6a1155883159a1f1a13cff063d2100b4ddc96643bb1c6eb9"
+    },
+    {
+      "path": "src/scripts/plan-state.ts",
+      "sha256": "e335225b1b3f8521b53b02948abaa9d8e5a384ae8eff0c675b9d1c731a1211d8"
+    },
+    {
+      "path": "src/scripts/purpose-suggestion.ts",
+      "sha256": "a06e0d119037bbd27bb0f30a05d523a672a67b01c5444da687cf9d978fce0975"
+    },
+    {
+      "path": "src/scripts/tool-form.ts",
+      "sha256": "938f2b2ff8e6aed9fa3280e401584622825e8c8b398eedbc04e28080b34a3529"
+    },
+    {
+      "path": "src/styles/global.css",
+      "sha256": "91ec92d4c37978c675a969bc66c729c1ec53716799f162243d9b25b7a2dbee8a"
+    },
+    {
+      "path": "public/_headers",
+      "sha256": "5e40b057ba2615055c29288c0980bf920e49f46c607310ff08e6bd164e574ad8"
+    },
+    {
+      "path": "public/_redirects",
+      "sha256": "e1cd7e7af7f55fd1daad4acd3deb2591cc90a4b18b0e71108ab4c32a932358c8"
+    },
+    {
+      "path": "public/ads.txt",
+      "sha256": "30af148e4a97735d533ffbd400e8dce78039dd75ae1b52324df29e0ef9ce19f8"
+    },
+    {
+      "path": "public/brand/logo-mark.svg",
+      "sha256": "5b1ab67d4493698bb30898d51cbcd51963e504754b62f7f91a09afec4768bcd4"
+    },
+    {
+      "path": "public/brand/logo.svg",
+      "sha256": "c98f1cb5824b74ad259e27825ca976d74793f1a488f2f1d452c659755269149e"
+    },
+    {
+      "path": "public/favicon.svg",
+      "sha256": "5a6ce12608b3a5a1e127ff44f4950871b546d9791f486fe03d02ca7067d3f098"
+    },
+    {
+      "path": "public/images/og-default.png",
+      "sha256": "4770a2377e28b94cbd75a4c22521014f53116652013db1cd211d40581e33dfb6"
+    },
+    {
+      "path": "public/images/og-default.svg",
+      "sha256": "ca2fd768b5ad2c6507032e1ea0289019000fc800f551b21fbb065113ccbb65b3"
+    },
+    {
+      "path": "public/images/route-atlas-hero.png",
+      "sha256": "da33eaa8ef0e309fcc35484d3c1ce7704729538274458c2a79fb6b64f6578a2d"
+    },
+    {
+      "path": "public/robots.txt",
+      "sha256": "6be3864938240f730eb5f4dbfdd12708fb7b69019c70722d5937fc87169b8ccc"
+    },
+    {
+      "path": "deploy/.gitignore",
+      "sha256": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b"
+    },
+    {
+      "path": "deploy/README.md",
+      "sha256": "1ad731327f8b9f0d353d449792e055d93f169f26a8cd1625dd70ca9b8c365090"
+    },
+    {
+      "path": "deploy/deploy.sh",
+      "sha256": "96721fc254b2d2d64c5bc156cfc37dfb3b9175fce92a5cfd687350528759381e"
+    },
+    {
+      "path": "deploy/harden.sh",
+      "sha256": "f6273a22d68538f2a8ea00a7cd9a662ab93ea65f01ab4aa732141efb073b158c"
+    },
+    {
+      "path": "deploy/laya-purpose-nginx.conf",
+      "sha256": "f0eaa793ae6ce1069e4be49314aa350098737b21d08db752458b7178b6a3fed2"
+    },
+    {
+      "path": "deploy/legacy-redirects.conf",
+      "sha256": "e5657750951b86e97f401256da9f4e86bdeed68316edc4d28ba312ab3795884f"
+    },
+    {
+      "path": "deploy/nginx-vhost-template.conf",
+      "sha256": "3b58f648f5c47f8969a88f020e52a17ca4e65734ca929bfbc279dc89dfc99917"
+    },
+    {
+      "path": "deploy/production-evidence.example.json",
+      "sha256": "53a6195b404878c80d24718e4cb97b6ca6108b98016a7afb693b7c085277fdc2"
+    },
+    {
+      "path": "deploy/release.py",
+      "sha256": "0fabd741b881fe357be0643095bce56685e739761b1e6399b6913ce797a7779e"
+    },
+    {
+      "path": "deploy/retained-routes.json",
+      "sha256": "ee04674c55ae7ddbd9d26c366c2e9c5cfb7a11c85ec65f536ed77d2dbe94b6ff"
+    },
+    {
+      "path": "deploy/rollback.sh",
+      "sha256": "7b3993d29c55f4511cf931926a14a87683b3257d370c0eba55780b48a3a35101"
+    },
+    {
+      "path": "deploy/server-init.sh",
+      "sha256": "cbd394c06819d06da64064ee8641d38c05ea9e52b611522077354a5ae3dcf397"
+    },
+    {
+      "path": "deploy/smoke-test.sh",
+      "sha256": "4f7f5dd64f1b4a7468b937e6b17ecfb143cc6e7465390924e0b7c1a59eaefcb2"
+    },
+    {
+      "path": "deploy/tests/test_release.py",
+      "sha256": "ec5348bf5764706d5b62ebaa0c48aea17239c37eff007c7f65ebbe082c7ff3c2"
+    },
+    {
+      "path": "services/laya-purpose/.dockerignore",
+      "sha256": "7d26a37f62f499dded43cb153a77dede0ce2fb88875204dbe1cf495055383200"
+    },
+    {
+      "path": "services/laya-purpose/.gitignore",
+      "sha256": "4cad133d4f0a6cf4bba15f1b8bbae48d6a55f20b94f75487c51a93cc6a5af59f"
+    },
+    {
+      "path": "services/laya-purpose/Dockerfile",
+      "sha256": "0fd942e6bd7657d723b4aef256414a565650697b00ea15583b83039556059743"
+    },
+    {
+      "path": "services/laya-purpose/README.md",
+      "sha256": "b499c2b9c8d36d7bff82e87b3fa174bd51c87aeec0a37fd6df739da6bd7a2f92"
+    },
+    {
+      "path": "services/laya-purpose/app.py",
+      "sha256": "217965f7dfd3516168c48f0d0b6b8f285d2af3a23cf56a52bf2061d34888d622"
+    },
+    {
+      "path": "services/laya-purpose/model.lock.json",
+      "sha256": "b50b8ed63f1c3acf001c1165fee4d2c51f8bda14d68aab5b77c6b802d2a8e444"
+    },
+    {
+      "path": "services/laya-purpose/probe.py",
+      "sha256": "2b3a15730a71c9660d01ef61ab2ff7c3ff4b5419dc2f53e2e0f0db88abadf529"
+    },
+    {
+      "path": "services/laya-purpose/questions.json",
+      "sha256": "e85060559b230e28e190061ce54203f60dcc710d97469bf540f0854e928e8c72"
+    },
+    {
+      "path": "services/laya-purpose/requirements-typesafe.txt",
+      "sha256": "0394f568ae762ccc1b71af35308b6c4c78b3bacee98826b4db4aac8563afa638"
+    },
+    {
+      "path": "services/laya-purpose/requirements.in",
+      "sha256": "41541ac2c8f2127ddcf75814a8cec829a58135dd057e27eecf35e0c684a96063"
+    },
+    {
+      "path": "services/laya-purpose/requirements.lock",
+      "sha256": "ac7f05bb200bf9849ea58a5b57e66e6f1bf11df06e1248af3d3391a5b3b09f67"
+    },
+    {
+      "path": "services/laya-purpose/requirements.txt",
+      "sha256": "eede4b6a842b859ad03e509d9ffaafab23667e5fc8002127a2c18bda9ba44f0c"
+    },
+    {
+      "path": "services/laya-purpose/test_app.py",
+      "sha256": "127daf5ad25a816630be90dd0152343c4fe929402e288bf5e4b31ba6798a34fa"
+    },
+    {
+      "path": "tests/adsense-risk-exposure.test.js",
+      "sha256": "d589c5e0700871cd1f73a5693b364c7339af538a3d9694f0a68f0890b30b2d05"
+    },
+    {
+      "path": "tests/article-sections-key-decisions.test.mjs",
+      "sha256": "e656b7466240fc5cc812c03dbee46653fd5fbe46e7cd280267a758083bfb35d0"
+    },
+    {
+      "path": "tests/canada-window-b.test.js",
+      "sha256": "cfcef678040bf8c1aa6f4150643b05b4fec6e16f784b456f1681614c1860dc4e"
+    },
+    {
+      "path": "tests/claim-registry.test.mjs",
+      "sha256": "d123930896c5d791ceb5d4147e84f8bbb5b4683dfd4273bab52126e396e554ec"
+    },
+    {
+      "path": "tests/commercial-pages.test.js",
+      "sha256": "88f1197396510ac49fbb691be5dc9f5320295a927cf4174eb8dc6b8c05936e95"
+    },
+    {
+      "path": "tests/content-integrity.test.js",
+      "sha256": "9cb5316a02cdabf7ceed7ab1fcc7aaf216b2a3f47e5a530ca2780e3acc9ba3c2"
+    },
+    {
+      "path": "tests/deploy.test.js",
+      "sha256": "3295dc85504c5ca023fb6eb4ea4777342152defe561681cae7aa74ba2673c1b7"
+    },
+    {
+      "path": "tests/fan-254-dependency-audit.test.js",
+      "sha256": "beaf90c580273d6fcd4c71a141b9ebc8b596805eb8bea10228aab1eb1b03aec9"
+    },
+    {
+      "path": "tests/fan-270-seo.test.js",
+      "sha256": "5c5ffb8fe810b69cfebe0adabf5dba00006bbdda1c5fab1b558e1f77782678c2"
+    },
+    {
+      "path": "tests/fan-273-404-recovery.test.js",
+      "sha256": "4341fcc70d71aa5e9d1103251b525d10be2355a9580c3b143500ae79ef15f215"
+    },
+    {
+      "path": "tests/fan-42-germany-a1-requirement.test.js",
+      "sha256": "2a7d040d18997469084e503b7e7b608d160305cb0a31bfaf10d571b22abf14be"
+    },
+    {
+      "path": "tests/fan-43-germany-b1-recheck.test.js",
+      "sha256": "a85e6baa8624f7cfe9e630afa5031670a2933b443b05e1130dce8f273796f7e5"
+    },
+    {
+      "path": "tests/fan-73-guide-trust.test.js",
+      "sha256": "307df5a046340c10150b020c3cb5e2a2e63b91ea87158c46e81d8f75c7815765"
+    },
+    {
+      "path": "tests/fan-75-css-cascade.test.js",
+      "sha256": "ab1281ae16837d30798c402c03cca06c86e6991e645d7759da509490a8a30f17"
+    },
+    {
+      "path": "tests/finland-window-b.test.js",
+      "sha256": "7f1d832b391cae1af625aaa953a5bfc1a558fc6d2d903438dd14b2aa0e2e922a"
+    },
+    {
+      "path": "tests/frontmatter-field.js",
+      "sha256": "e544a30a1b18bef811320d100f80dd924f04be54afb1d22cf9b475eec306a02a"
+    },
+    {
+      "path": "tests/germany-a1-cluster.test.js",
+      "sha256": "3d1ed837d0252b59f59ddb5d9ad08958d37e6589b04d226828eaffa68f9f2fd6"
+    },
+    {
+      "path": "tests/germany-b1-cluster.test.js",
+      "sha256": "cdd067f0dee57d5f38c1a1d8e998c0bbe86f85f835f6c57fffa7b70627095209"
+    },
+    {
+      "path": "tests/germany-testdaf-cluster.test.js",
+      "sha256": "1bef889d4824e03612918ca7a25bf73e0b8a8b113ead58f6ec2efb55698017d3"
+    },
+    {
+      "path": "tests/italy-window-b.test.js",
+      "sha256": "4a29d061f7796687d4c750aea499847504596952555b92720d461c97e6566994"
+    },
+    {
+      "path": "tests/laya-purpose.test.mjs",
+      "sha256": "2ca4265f368d3a025be26329e82bb58667cdabc194b01789d167d2684e75f76f"
+    },
+    {
+      "path": "tests/m2a-exam-products.test.mjs",
+      "sha256": "a09abc5f8ec075b6e6fda92e92a0c1244240c4badab659e69419093c7f5f1dbb"
+    },
+    {
+      "path": "tests/m2a-local-fees-centres.test.mjs",
+      "sha256": "ebc4ee0a9e975fda961a073421600843dbee413b33246204b2defe13adf7e4bd"
+    },
+    {
+      "path": "tests/m2a-plan-state-integration.test.mjs",
+      "sha256": "f9b5c2c17524748a67661b3bd60817107f4465559228c2d3990aeccb201989da"
+    },
+    {
+      "path": "tests/m2a-plan-state.test.mjs",
+      "sha256": "b847e2678951df7503a425c36a7452e92f6eff3f41f732e0fcadae42553e0972"
+    },
+    {
+      "path": "tests/m2a-staged-checklist-content.test.mjs",
+      "sha256": "463c786244512e87b13ac169c5c5c652b7df482c9b3edc26438468ad70e1150a"
+    },
+    {
+      "path": "tests/m2a-timeline-contract.test.mjs",
+      "sha256": "c74d8395d8f3e986d1bfc2845085ccad0dd57a45850b531b5c999a79852dc1eb"
+    },
+    {
+      "path": "tests/m2b-checklist-export.test.mjs",
+      "sha256": "3667b49e2ef55c11781a8c8c797af0774e570ef823b27c060975fe515041b4bc"
+    },
+    {
+      "path": "tests/m2b-exam-comparison.test.mjs",
+      "sha256": "50dcac1d4c8e2e57c9a7d8d27176653bb3ca15fd7ad2347db3e3274233bbab0b"
+    },
+    {
+      "path": "tests/m2b-reminder-ics.test.mjs",
+      "sha256": "c1c7dda82e1e65fa57ec93e86bc415e5923b06ce06c6ab3e788d42310a9a53ef"
+    },
+    {
+      "path": "tests/m2b-route-finder.test.mjs",
+      "sha256": "3b0e04339cbbd17560f9f650ded1c4bfc05d73d695344a5f606bed053b55b5f9"
+    },
+    {
+      "path": "tests/m2b-timeline-result.test.mjs",
+      "sha256": "a37848789cc08104ff2685fc553c5b9f3264adea94c3d2c62215e67a4bdcbc23"
+    },
+    {
+      "path": "tests/m3-chinese-journey.test.mjs",
+      "sha256": "13436b0932773f2595808b82ce1dcdebc882398db787f1636f5957bc24c5ac2e"
+    },
+    {
+      "path": "tests/m3-chinese-tool-contract.test.mjs",
+      "sha256": "d198662b4abd0bafe801d5cbbdc2e8a4efdeba0cdf581c5e440c355e8d108ceb"
+    },
+    {
+      "path": "tests/m3-discovery-trust.test.mjs",
+      "sha256": "4b3195f0c08e1bddb18da9c97488dff7db83e94085b5b58b7a35d01fa8ecdd9b"
+    },
+    {
+      "path": "tests/m3-generated-seo.test.mjs",
+      "sha256": "e1cc0a2ab16924e551576fe6a0a77572c25fc551d26a8539070b600a35d107ae"
+    },
+    {
+      "path": "tests/m3-migration-map.test.mjs",
+      "sha256": "2dc1c4c3c428884ba70218f6eaf3a0ffae51ecb1d86cc3a2ac78125112e6b84c"
+    },
+    {
+      "path": "tests/m4-b1-comparison.test.mjs",
+      "sha256": "258595640582e89c9abb5cf8fcf4f5066c4e0d33bb255fd6b48b4356e303413d"
+    },
+    {
+      "path": "tests/m4-b1-routes.test.mjs",
+      "sha256": "9e7ac94647df4ab76ad541b44bb4a36d9e0461b5ef87610b7ffd62f59fe6f808"
+    },
+    {
+      "path": "tests/m4-study-assets.test.mjs",
+      "sha256": "2f55c786cc896e6c5f5bc555b13fe4e0a269d03851bf92de3f662901f59aff5f"
+    },
+    {
+      "path": "tests/netherlands-window-b.test.js",
+      "sha256": "3c5657fdd6f0bb8aac65fa2025458c68a9ebec22e4fdf1347a3ca737f188d96b"
+    },
+    {
+      "path": "tests/p0-five-countries.test.js",
+      "sha256": "3bd68d3063a44675d7afa895272b281cf4b9ef08f848b6109deb9e62e20773cb"
+    },
+    {
+      "path": "tests/planning-map-governance.test.mjs",
+      "sha256": "5483a1054467e3a4f9dd4371f76d32e2a923bc229bf1e0abe34d08cfa784eeac"
+    },
+    {
+      "path": "tests/retained-routes.test.mjs",
+      "sha256": "df358f009cc41e7219e12850ea0518c04f0a077fefc002e9d3d7c7af8758fda3"
+    },
+    {
+      "path": "tests/route-tools.test.js",
+      "sha256": "4b32d325cfb3cfcef93a61d0088269b15959275cdefdeab8a8fb1250bd9f5266"
+    },
+    {
+      "path": "tests/scheme-3-atomic-merge.test.mjs",
+      "sha256": "c0b0529661d6c714bb52ab34c8de60898f76ae984556b2b42969167a9627f62c"
+    },
+    {
+      "path": "tests/scheme-3-chinese-fail-closed.test.mjs",
+      "sha256": "c11e2e6b105f14702f6f0af31b09702db52a5383509de4d2edc8a66f73346690"
+    },
+    {
+      "path": "tests/scheme-3-chinese-page-sections.test.mjs",
+      "sha256": "9411928ef326f8bf5936cc0e9328dd8dce2fd69827d67042a1f5408ab94d2fbe"
+    },
+    {
+      "path": "tests/scheme-3-chinese-pillars.test.js",
+      "sha256": "38f8351dc0ae153aa0439676f181ad1a6671658506dc2111ab662b1f6b54e789"
+    },
+    {
+      "path": "tests/scheme-3-content-map.test.mjs",
+      "sha256": "f871c936f1668d95e7b942dda12a67c6c8b4cc0a319875f5d4cb7114134d1b86"
+    },
+    {
+      "path": "tests/scheme-3-english-content-quality.test.mjs",
+      "sha256": "07e769bb047fc6625b70fc097759c368837e90d02a90e81f0f366d3a25711da0"
+    },
+    {
+      "path": "tests/scheme-3-gates.test.js",
+      "sha256": "f3efc70d624d0aa1b51f0b9d6614f55d4687cf8f4a786c4cbf80095d76c76bf9"
+    },
+    {
+      "path": "tests/scheme-3-plan-authority.test.js",
+      "sha256": "753664416106130540975d15f59389d78cbc8300bb9b72c543d7b8b94f7b8281"
+    },
+    {
+      "path": "tests/scheme-3-publication.test.mjs",
+      "sha256": "e99a06cfefc21bae10e07c621be501da54afbd309715b26a1e6db46cdf4c08de"
+    },
+    {
+      "path": "tests/scheme-3-release-candidate.test.mjs",
+      "sha256": "ad3adcc801ba7ce43b42f24e75247a232b71def6321ade2276a5414cb0913689"
+    },
+    {
+      "path": "tests/scheme-3-route-hubs.test.js",
+      "sha256": "b4e047b3c30151b0b498c7647b41526ec8cc46a10331d02fcb535a21731d2f92"
+    },
+    {
+      "path": "tests/scheme-3-tool-content.test.js",
+      "sha256": "905d3504137154fa97b477a8c552be7b846e462a7d1354bc99f03ac5d37ef028"
+    },
+    {
+      "path": "tests/site.test.js",
+      "sha256": "4bce5115c3995c3d641c6eb1c4b7b961e1990e7795b1b7dec20f6feee9da3a37"
+    },
+    {
+      "path": "tests/source-review-render.test.js",
+      "sha256": "d99212f74de6210df20223ac2bf2a28dbc6cbc5536d8f461fe96a45fe018ab5c"
+    },
+    {
+      "path": "tests/t27-measurement-privacy.test.mjs",
+      "sha256": "71b1d33cdddf790ff38257f17230c25e1f8ca1f50544eda90d4217c5232ee755"
+    },
+    {
+      "path": "tests/t28-stale-results.test.mjs",
+      "sha256": "5279975a313ffe97483261a74f6c13168f004a00278c78c969c3aeed5742eacf"
+    },
+    {
+      "path": "tests/task-2-p0-render.test.js",
+      "sha256": "643fceee7e8af7215657f4559727c1c928245f163463b2aecba64b28b21cbaa9"
+    },
+    {
+      "path": "tests/task-4-guides-render.test.mjs",
+      "sha256": "1d303085a41c7d07d45ece5a206f7f3b94705004649dfdaa2f57c055de6dd468"
+    },
+    {
+      "path": "tests/task-4-home-routes.test.mjs",
+      "sha256": "b6b2c4c318e8739cf4ac84934af81435ee46eae79762e143e765f9b739b0bf79"
+    },
+    {
+      "path": "tests/task-5-source-ledger.test.mjs",
+      "sha256": "dd8f92371d4e7ab73ade7b528baf7651b349c2fff092e25d88dd667266241a39"
+    },
+    {
+      "path": "tests/telc-fees-centres.test.js",
+      "sha256": "99bd568a934820a111cbc4ca5088a0412cf747530a81fb0edcd41df3bd7f7f28"
+    },
+    {
+      "path": "tests/telc-window-1.test.js",
+      "sha256": "181411f7f902e42a4efe615c706835cc425cbf19312f9d83df66c000f02fff49"
+    },
+    {
+      "path": "tests/telc-work-nursing.test.js",
+      "sha256": "f039aa676297a519b8369808ae858b1d81fa3eec42482e8a0bb39052b3c11833"
+    },
+    {
+      "path": "tests/url-support-inventory.test.mjs",
+      "sha256": "f9d0f4fc50848b60e583efc34a2597fa70ffd52a82cd5b5c786570413d778a6e"
+    }
+  ],
+  "vaultRootExists": false,
+  "vaultTemplateExists": false
+}

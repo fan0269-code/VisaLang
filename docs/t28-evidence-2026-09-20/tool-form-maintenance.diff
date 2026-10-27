@@ -1,0 +1,31 @@
+--- baseline/src/scripts/tool-form.ts
++++ current/src/scripts/tool-form.ts
+@@ -19,6 +19,11 @@
+     .reduce((value, [key, replacement]) => value.replace(`{${key}}`, String(replacement)), template);
+   const fields = [...form.querySelectorAll<ToolField>('input, select, textarea')].filter((field) => field.name);
+   const summary = form.querySelector<HTMLElement>('[data-error-summary]');
++  const invalidateResult = () => {
++    document.querySelectorAll<HTMLElement>('.tool-result, .tool-result-panel').forEach((result) => {
++      result.hidden = true;
++    });
++  };
+   const steps = [...document.querySelectorAll<HTMLElement>('[data-tool-step]')];
+   const setStep = (step: number) => steps.forEach((item, index) => {
+     item.classList.toggle('current', index === step);
+@@ -80,7 +85,7 @@
+         summary.append(heading, list);
+       }
+     }
+-    if (failures.length) { failures[0].field.focus(); return false; }
++    if (failures.length) { invalidateResult(); failures[0].field.focus(); return false; }
+     return true;
+   };
+   const validate = () => showFailures(fields.map((field) => ({ field, message: errorFor(field) })).filter((item) => item.message));
+@@ -92,6 +97,7 @@
+   fields.forEach((field) => {
+     errorElement(field);
+     const repair = () => {
++      invalidateResult();
+       if (!errorFor(field)) {
+         clearFieldError(field);
+         summary?.querySelector(`a[href="#${CSS.escape(field.id)}"]`)?.closest('li')?.remove();

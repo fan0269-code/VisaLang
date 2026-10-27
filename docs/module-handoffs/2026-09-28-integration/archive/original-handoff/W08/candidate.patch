@@ -1,0 +1,1230 @@
+--- a/astro.config.mjs
++++ b/astro.config.mjs
+@@ -1,5 +1,9 @@
+ import { defineConfig } from 'astro/config';
+ import sitemap from '@astrojs/sitemap';
++import { writeFile } from 'node:fs/promises';
++import { resolveRuntimeFeatures } from './src/data/runtime-features.ts';
++
++const runtimeFeatures = resolveRuntimeFeatures(process.env);
+ 
+ const noindexSitemapPaths = [
+   '/affiliate-disclosure/',
+@@ -20,6 +24,9 @@
+ 
+ export default defineConfig({
+   site: 'https://visalang.org',
++  define: {
++    __VISALANG_RUNTIME_FEATURES__: JSON.stringify(runtimeFeatures),
++  },
+   integrations: [
+     sitemap({
+       filter: (page) => {
+@@ -27,11 +34,19 @@
+         return !noindexSitemapPaths.includes(pathname);
+       },
+     }),
++    {
++      name: 'visalang-runtime-features-manifest',
++      hooks: {
++        'astro:build:done': async ({ dir }) => {
++          await writeFile(new URL('runtime-features.json', dir), `${JSON.stringify(runtimeFeatures, null, 2)}\n`);
++        },
++      },
++    },
+   ],
+   trailingSlash: 'always',
+   vite: {
+     server: {
+-      proxy: {
++      proxy: runtimeFeatures.purposeSuggestions === 'off' ? {} : {
+         '/api/purpose-suggestion/': 'http://127.0.0.1:8011',
+       },
+     },
+--- a/deploy/README.md
++++ b/deploy/README.md
+@@ -2,23 +2,25 @@
+ 
+ This runbook replaces the former clone/pull deployment and static-only rollback workflow. `deploy.sh` now requires a prepared immutable bundle and a bound approval receipt; it never pulls `main` or builds on production. Do not run `server-init.sh` on an existing host: its firewall reset is first-host scaffolding, not a migration command.
+ 
+-1. After separately authorized commit, run `npm ci`, `npm test`, `npm run launch-check` and Python service tests on the exact candidate. A dirty checkout may be packaged for inspection, but activation rejects it. The launch check is **local candidate verification**, not account/server readiness.
+-2. Build the purpose service image on Linux amd64 with `docker build --platform linux/amd64 --build-arg PYTHON_IMAGE=python:3.13-slim@sha256:<verified-base-digest> services/laya-purpose`. Use the reviewed Python 3.13 base digest obtained from the registry; no example digest is a usable value. `requirements.lock` is resolved for Linux x86_64/Python3.13 with CPU PyTorch and hash-checked wheels. Record the resulting image digest and SBOM/package inventory. No Docker build is claimed by a dependency resolution receipt.
+-3. Stage only the exact checkpoint bytes listed in `services/laya-purpose/model.lock.json` under `/srv/visalang/models/<revision>/`, preserving the `multilingual/` subtree and making it readable to UID10001. No model download occurs at service startup. Provision a previously verified image locally with its registry digest before activation.
+-4. `python3 deploy/release.py prepare /tmp/<release-id> --image <registry/repository@sha256:digest> --model-revision <locked-revision>` produces `site/`, `nginx/`, the model lock, source input hashes and `release.json`. Use a lowercase alphanumeric/hyphen ID. Do not rename the bundle; Nginx paths bind its installed name. Inspect with `python3 deploy/release.py verify /tmp/<release-id>` and transfer it without changing bytes to `/var/www/visalang.org/releases/<release-id>/` in an authorized window. Keep it root-owned and non-writable by the web/container users. Transfer/host setup is not performed by prepare.
+-5. Fill a private copy of `production-evidence.example.json` with actual Owner authorization, exact release-manifest SHA256 and previous manifest SHA256 (null only on first install). All six evidence documents must exist beside/below the receipt, be marked pass, and have matching SHA256. These are operator attestations backed by evidence, not an automated claim that an ad account or legal policy is compliant. Never mark missing evidence pass to enable the command.
++1. The sole runtime feature contract is `dist/runtime-features.json`, emitted from `src/data/runtime-features.ts`. Set `VISALANG_PURPOSE_MODE=off|laya|typesafe` and `VISALANG_ADS_MODE=off|on` before building; both default to `off`. Use the same environment for `npm run launch-check`. Release flags do not select modes. Ads mode only gates existing publication-manifest eligibility; it does not add eligible pages.
++2. After separately authorized commit, run `npm ci`, `npm test`, `npm run launch-check` and Python service tests on the exact candidate. A dirty checkout may be packaged for inspection, but activation rejects it. The launch check is **local candidate verification**, not account/server readiness.
++3. Build a purpose-service image only for `purposeSuggestions=laya|typesafe`, on Linux amd64 with `docker build --platform linux/amd64 --build-arg PYTHON_IMAGE=python:3.13-slim@sha256:<verified-base-digest> services/laya-purpose`. Use the reviewed Python 3.13 base digest obtained from the registry; no example digest is a usable value. `requirements.lock` is resolved for Linux x86_64/Python3.13 with CPU PyTorch and hash-checked wheels. Record the resulting image digest and SBOM/package inventory. No Docker build is claimed by a dependency resolution receipt.
++4. Stage exact checkpoint bytes from `services/laya-purpose/model.lock.json` only for Laya mode. Keep the locked `multilingual/` subtree readable to UID10001. TypeSafe mode does not need a Laya revision or weight cache; it requires the `TYPESAFE_API_KEY` host secret. Purpose-off needs no Python image, model, TypeSafe key, service container or Nginx proxy.
++5. `python3 deploy/release.py prepare /tmp/<release-id> [--image <registry/repository@sha256:digest>] [--model-revision <locked-revision>]` derives mode from the built contract and produces `site/`, mode-specific `nginx/`, source input hashes and `release.json`. Supply `--image` for either enabled provider and `--model-revision` only for Laya. Use a lowercase alphanumeric/hyphen ID. Do not rename the bundle; Nginx paths bind its installed name. Inspect with `python3 deploy/release.py verify /tmp/<release-id>` and transfer it without changing bytes to `/var/www/visalang.org/releases/<release-id>/` in an authorized window. Keep it root-owned and non-writable by the web/container users. Transfer/host setup is not performed by prepare.
++6. Fill a private copy of `production-evidence.example.json` with actual Owner authorization, exact release-manifest SHA256 and previous manifest SHA256 (null only on first install). Required evidence documents must exist beside/below the receipt, have a mode-appropriate status and matching SHA256. Ads-off requires `adsConsent=not_applicable` backed by real zero-load/zero-page evidence; purpose-off requires `capacity=not_applicable` backed by proof of no optional service dependency. TypeSafe also requires separate privacy/processing and price/quota evidence. Never mark missing evidence pass to enable the command.
+ 6. In the separately authorised production window, run `sudo bash deploy/deploy.sh <verified-bundle-path> --approval <private-receipt-path>`. Nginx's enabled site must be absent or a managed symlink; migrate any existing unmanaged vhost after inventory. The host needs Docker, Nginx, curl, Python3 and TLS certificates for apex/www before this step. Do not install another duplicate `visalang_purpose` rate zone or old vhost. A trusted CDN needs separately verified real-IP configuration.
+-7. The release manifest selects `purposeProvider` (`typesafe` by default for new bundles; old manifests without the field remain Laya). Before staging Nginx or replacing a container, activation checks that both the target and current release can start: TypeSafe keys for either TypeSafe release, verified model caches for either Laya release, and both image digests. TypeSafe activation requires `TYPESAFE_API_KEY` in the host process environment; Docker receives only the environment variable name, while Laya releases mount the verified model cache. The transaction stages the versioned Nginx configuration, tests it, replaces the purpose-service container, probes real inference, reloads Nginx, checks local TLS HTTP routes and records `current`. The short service replacement interval can return manual-fallback responses; this is not a zero-downtime promise. A caught failure restores the previous bundle's container/config/pointer. If restoration itself fails, the command fails and requires operator intervention; never claim successful rollback from intent. First-install rollback removes the new service/config and relies on the recorded old-DNS/old-host plan. Uncatchable process or host failure requires an operator to inspect the enabled Nginx link, running container digest and current pointer before using an explicitly approved target.
++7. The release manifest stores the canonical `features` object. Legacy v1 manifests without `features` remain compatible only when `adsRequired` is an explicit boolean and the provider is legacy Laya or a structurally valid TypeSafe release; absent provider means legacy Laya. Contradictory fields, unknown values, and missing ad state are rejected. Before staging Nginx or replacing a container, activation checks that both target and current release can start: TypeSafe key for TypeSafe releases, verified model cache for Laya releases, and both image digests when a provider is enabled. Purpose-off releases need none of these and omit the purpose proxy. Mode changes restore the previous provider/config/pointer on failure. `/api/purpose-suggestion/` GET probes test only the HTTP method guard (405 enabled, 404 off); they send no text and make no model API call. Static HTTP/TLS smoke does not establish model quality, account readiness or consent behavior. The short service replacement interval can return manual-fallback responses; this is not a zero-downtime promise. If restoration fails, the command fails and requires operator intervention. First-install rollback and uncatchable host failure still require the recorded old-DNS/old-host plan and explicit operator action.
+ 
+-The repository currently has a local TypeSafe key only in the ignored `.env.local`; it does not authorize a remote activation. Never put the key in a manifest, command-line value, source file, build arg, image, browser bundle, or log. TypeSafe calls send user-entered descriptions to the provider; the published UI and privacy policy must explain its U.S. processing and retention language. A production activation still requires a separate Owner-authorized maintenance window and all release evidence.
++Never put a TypeSafe key in a manifest, command-line value, source file, build arg, image, browser bundle or log. TypeSafe requests send user-entered descriptions only in TypeSafe mode after a user click. The UI and policy disclose U.S. processing, potential retention, the provider's no-training statement, and unresolved local price/quota/account settings. A production activation still requires separate Owner authorization and all release evidence.
+ 8. Explicit rollback: `sudo bash deploy/rollback.sh <verified-bundle-path> --approval <rollback-receipt-path>`; the receipt must authorize rollback and bind the current previous release. Both commands verify hashes again. Keep every previous bundle, image and model until the observation window closes; no automatic cleanup runs.
+ 
+ ### Required production evidence
+ 
+ - Independent audit of exact source/artifacts, separate from authorization.
+-- Ads/CMP account configuration, applicable consent behavior, Auto ads page exclusions for tools/closed pages, exact ads.txt seller and real browser network behavior on eligible EN content and ad-free tools. Raw HAR files and screenshots must not be committed to Git; sanitize any account/browser evidence. A script URL in HTML is not evidence of actual consent or delivery.
++- When ads are on: Ads/CMP account configuration, applicable consent behavior, Auto ads page exclusions for tools/closed pages, exact ads.txt seller and real browser network behavior on eligible EN content and ad-free tools. When ads are off: preserve a verified zero-loader/zero-page evidence record as `not_applicable`, never as consent pass. Raw HAR files and screenshots must not be committed to Git; sanitize any account/browser evidence. A script URL in HTML is not evidence of actual consent or delivery.
++- For TypeSafe mode: current provider terms and processing evidence, account-specific pricing/quota/budget evidence, and independently measured performance/quality before any claim about fit. Official API docs describe token usage, not VisaLang's price or account quota. For Laya, retain the existing local-model lock and target-host capacity gate.
+ - Target 2vCPU/4GB Linux host: cold load, repeated requests, busy/429 behavior, static requests during inference, container restart, peak RSS and cgroup/OOM state. Container memory starts at 3GB to leave OS/Nginx headroom. This is an unvalidated allocation until measured. Successful inference must fit the client's 12s timeout; do not use macOS results as target-host capacity evidence.
+ - Pre-DNS TLS/SNI, all 17 retained paths, canonical/noindex rules, API through Nginx and rehearsed rollback. Public probes currently cannot establish live old-route behavior (403/timeouts).
+ - Exact prior DNS records and prior live host/version recovery procedure. The user controls DNS but has not authorized a change in this implementation window.
+ 
+-The service's `/internal/metrics` returns fixed aggregate counts, total inference seconds, busy state and process peak RSS. It is not proxied publicly; collect locally only. It excludes raw input, URL query, IP and text-derived labels. A real inference probe is required because `/healthz` only means the model loaded. Budget <= CNY100/month excludes the domain but includes applicable tax, IPv4 and backup costs; no server has been purchased or selected as available. T31 public checks and 24h/day7 observations begin only after an actual launch.
++The service's `/internal/metrics` returns fixed aggregate counts, total inference seconds, busy state and process peak RSS. It is not proxied publicly; collect locally only. It excludes raw input, URL query, IP and text-derived labels. `/healthz` only means the local model loaded, and the transaction's GET method probe only proves the HTTP guard is reachable; neither proves purpose quality. Any future live inference probe requires its own explicit request, data and cost authorization. Budget <= CNY100/month excludes the domain but includes applicable tax, IPv4 and backup costs; no server has been purchased or selected as available. T31 public checks and 24h/day7 observations begin only after an actual launch.
+--- a/deploy/laya-purpose-nginx.conf
++++ b/deploy/laya-purpose-nginx.conf
+@@ -1,4 +1,4 @@
+-# Include within the canonical HTTPS server block ONLY after the service is ready.
++# Include within the canonical HTTPS server block only when purposeSuggestions is laya or typesafe.
+ # This file assumes the limit_req_zone below is defined in nginx's http context:
+ # limit_req_zone $binary_remote_addr zone=visalang_purpose:10m rate=6r/m;
+ location = /api/purpose-suggestion/ {
+--- a/deploy/production-evidence.example.json
++++ b/deploy/production-evidence.example.json
+@@ -8,6 +8,8 @@
+     "independentAudit": { "status": "pending", "path": "", "sha256": "" },
+     "adsConsent": { "status": "pending", "path": "", "sha256": "" },
+     "capacity": { "status": "pending", "path": "", "sha256": "" },
++    "typesafePrivacy": { "status": "pending", "path": "", "sha256": "" },
++    "typesafeQuota": { "status": "pending", "path": "", "sha256": "" },
+     "preDnsTls": { "status": "pending", "path": "", "sha256": "" },
+     "rollbackRehearsal": { "status": "pending", "path": "", "sha256": "" },
+     "dnsBackup": { "status": "pending", "path": "", "sha256": "" }
+--- a/deploy/release.py
++++ b/deploy/release.py
+@@ -19,7 +19,11 @@
+ SITE = Path('/var/www/visalang.org')
+ ENABLED = Path('/etc/nginx/sites-enabled/visalang.org')
+ CONTAINER = 'visalang-laya-purpose'
+-GATES = ('independentAudit', 'adsConsent', 'capacity', 'preDnsTls', 'rollbackRehearsal', 'dnsBackup')
++BASE_GATES = ('independentAudit', 'preDnsTls', 'rollbackRehearsal', 'dnsBackup')
++FEATURE_MODES = {
++    'purposeSuggestions': ('off', 'laya', 'typesafe'),
++    'advertising': ('off', 'on'),
++}
+ 
+ 
+ def sha(file):
+@@ -37,6 +41,58 @@
+ def require(condition, message):
+     if not condition:
+         raise ValueError(message)
++
++
++def runtime_features(value):
++    require(isinstance(value, dict) and value.get('schemaVersion') == 1,
++            'Runtime feature contract v1 required')
++    require(set(value) == {'schemaVersion', 'purposeSuggestions', 'advertising'},
++            'Runtime feature contract contains unknown or missing fields')
++    normalized = {
++        'schemaVersion': 1,
++        'purposeSuggestions': value.get('purposeSuggestions'),
++        'advertising': value.get('advertising'),
++    }
++    for key, allowed in FEATURE_MODES.items():
++        require(normalized[key] in allowed, f'Unsupported runtime feature mode: {key}')
++    return normalized
++
++
++def manifest_features(manifest):
++    features = manifest.get('features')
++    if features is None:
++        # Only historical, explicit joint releases can be inferred safely.
++        require(type(manifest.get('adsRequired')) is bool,
++                'Ambiguous legacy manifest: explicit adsRequired is required')
++        provider = manifest.get('purposeProvider', 'laya')
++        require(provider in ('laya', 'typesafe'), 'Unsupported legacy purpose provider')
++        features = {'schemaVersion': 1, 'purposeSuggestions': provider,
++                    'advertising': 'on' if manifest['adsRequired'] else 'off'}
++    features = runtime_features(features)
++    legacy = {
++        'purposeProvider': None if features['purposeSuggestions'] == 'off' else features['purposeSuggestions'],
++        'adsRequired': features['advertising'] == 'on',
++    }
++    for key, expected in legacy.items():
++        if key in manifest and manifest[key] != expected:
++            raise ValueError('Conflicting legacy feature fields')
++    purpose = features['purposeSuggestions']
++    if purpose == 'laya':
++        require(manifest.get('layaRequired') is True, 'Laya provider release contract required')
++        require(manifest.get('typesafeRequired') in (None, False)
++                and not manifest.get('typesafeModel'), 'Laya release cannot require TypeSafe settings')
++    elif purpose == 'typesafe':
++        require(manifest.get('layaRequired') is False and manifest.get('typesafeRequired') is True,
++                'TypeSafe provider release contract required')
++        require(manifest.get('typesafeModel') == 'jev-latest', 'Reviewed TypeSafe model alias required')
++        require(not manifest.get('modelRevision'), 'TypeSafe release cannot require an unrelated Laya model revision')
++    else:
++        require(manifest.get('layaRequired') in (None, False)
++                and manifest.get('typesafeRequired') in (None, False)
++                and not manifest.get('typesafeModel') and not manifest.get('modelRevision')
++                and not manifest.get('purposeProvider'),
++                'Purpose-off release cannot require a provider')
++    return features
+ 
+ 
+ def verify(bundle):
+@@ -46,32 +102,67 @@
+     require(type(m.get('candidateOnly')) is bool, 'Explicit candidate state required')
+     require(m['schema'] == 'visalang.release.v1', 'Unsupported release schema')
+     require(re.fullmatch(r'[0-9a-f]{40}', m['sourceCommit']), 'Exact source commit required')
+-    require(re.fullmatch(r'[a-z0-9][a-z0-9._/-]*@sha256:[0-9a-f]{64}', m['image']), 'Immutable registry image digest required')
+-    require(re.fullmatch(r'[0-9a-f]{40}', m['modelRevision']), 'Exact model revision required')
+-    provider = m.get('purposeProvider', 'laya')  # manifests created before provider selection remain Laya releases
+-    require(provider in ('laya', 'typesafe'), 'Unsupported purpose provider')
+-    require(m['adsRequired'] is True, 'Advertising release contract required')
+-    if provider == 'laya':
+-        require(m['layaRequired'] is True, 'Laya provider release contract required')
++    features = manifest_features(m)
++    m['features'] = features
++    on = features['purposeSuggestions'] != 'off'
++    if on:
++        require(re.fullmatch(r'[a-z0-9][a-z0-9._/-]*@sha256:[0-9a-f]{64}', m.get('image', '')),
++                'Immutable purpose-service image digest required')
+     else:
+-        require(m.get('layaRequired') is False and m.get('typesafeRequired') is True,
+-                'TypeSafe provider release contract required')
+-        require(m.get('typesafeModel') == 'jev-latest', 'Reviewed TypeSafe model alias required')
++        require(not m.get('image') and not m.get('modelRevision') and not m.get('typesafeModel'),
++                'Purpose-off release cannot require an image, model or TypeSafe setting')
++    if features['purposeSuggestions'] == 'laya':
++        require(re.fullmatch(r'[0-9a-f]{40}', m.get('modelRevision', '')), 'Exact model revision required')
++    elif features['purposeSuggestions'] == 'typesafe':
++        require(not m.get('modelRevision'), 'TypeSafe release cannot require an unrelated Laya model revision')
++    runtime_file = bundle / 'site/runtime-features.json'
++    require(runtime_file.is_file(), 'Built runtime feature contract is missing')
++    require(runtime_features(json.loads(runtime_file.read_text())) == features,
++            'Built/runtime feature contract differs from release manifest')
+     actual = tree_hashes(bundle)
+     actual.pop('release.json', None)
+     require(actual == m['files'], 'Bundle file set/bytes changed after packaging')
+     require('site/index.html' in actual and 'nginx/site.conf' in actual, 'Incomplete bundle')
++    if on:
++        require('nginx/laya.conf' in actual, 'Purpose service Nginx route is missing')
++        config = (bundle / 'nginx/site.conf').read_text()
++        require(re.search(r'(?m)^\s*include\s+[^;]+/nginx/laya\.conf;', config) is not None,
++                'Enabled-purpose release is missing its Nginx proxy include')
++        require('limit_req_zone $binary_remote_addr zone=visalang_purpose:10m rate=6r/m;' in config,
++                'Enabled-purpose release is missing its local request-capacity guard')
++    else:
++        require('nginx/laya.conf' not in actual, 'Purpose-off release must omit the service proxy')
++        config = (bundle / 'nginx/site.conf').read_text()
++        require('nginx/laya.conf' not in config and 'zone=visalang_purpose' not in config,
++                'Purpose-off release must omit its Nginx proxy and rate-limit zone')
++    html_paths = [p for p in actual if p.startswith('site/') and p.endswith('.html')]
++    ad_host = 'pagead2.googlesyndication.com'
++    ad_paths = [p for p in html_paths if ad_host in (bundle / p).read_text(errors='replace')]
++    if features['advertising'] == 'off':
++        require(not ad_paths, 'Advertising-off release contains an advertising page or loader')
++    else:
++        require(len(ad_paths) <= 14 and all(re.fullmatch(r'site/guides/[a-z0-9-]+/index\.html', p) for p in ad_paths),
++                'Advertising-on release exceeds or leaves the existing English guide-page ceiling')
++    if features['purposeSuggestions'] == 'off':
++        require(not any('data-purpose-suggestion' in (bundle / p).read_text(errors='replace') for p in html_paths),
++                'Purpose-off release contains the optional suggestion interface')
+     return m
+ 
+ 
+-def prepare(out, image, model_revision, purpose_provider='typesafe'):
++def prepare(out, image=None, model_revision=None):
+     out = Path(out).resolve()
+     require(not out.exists(), 'Refuse to overwrite an existing release')
+     require((ROOT / 'dist/index.html').is_file(), 'Build and validate the site first')
+-    require(re.fullmatch(r'[a-z0-9][a-z0-9._/-]*@sha256:[0-9a-f]{64}', image), 'Supply a built image by registry digest, never a tag')
+-    require(purpose_provider in ('laya', 'typesafe'), 'Unsupported purpose provider')
+-    model_lock = json.loads((ROOT / 'services/laya-purpose/model.lock.json').read_text())
+-    require(model_revision == model_lock['revision'], 'Only the reviewed model revision is allowed')
++    features = runtime_features(json.loads((ROOT / 'dist/runtime-features.json').read_text()))
++    provider = features['purposeSuggestions']
++    if provider != 'off':
++        require(re.fullmatch(r'[a-z0-9][a-z0-9._/-]*@sha256:[0-9a-f]{64}', image or ''),
++                'Supply a purpose-service image by registry digest, never a tag')
++    if provider == 'laya':
++        model_lock = json.loads((ROOT / 'services/laya-purpose/model.lock.json').read_text())
++        require(model_revision == model_lock['revision'], 'Only the reviewed model revision is allowed for Laya mode')
++    else:
++        require(model_revision is None, 'Laya model revision is not accepted outside Laya mode')
+     out.mkdir(parents=True)
+     try:
+         shutil.copytree(ROOT / 'dist', out / 'site')
+@@ -81,12 +172,18 @@
+         installed = SITE / 'releases' / out.name
+         config = (ROOT / 'deploy/nginx-vhost-template.conf').read_text()
+         config = config.replace('root /var/www/visalang.org/current;', f'root {installed}/site;')
+-        config = config.replace('include /etc/nginx/snippets/visalang-legacy-redirects.conf;', f'include {installed}/nginx/legacy.conf;\n    include {installed}/nginx/laya.conf;')
+-        config = 'limit_req_zone $binary_remote_addr zone=visalang_purpose:10m rate=6r/m;\n' + config
++        includes = f'include {installed}/nginx/legacy.conf;'
++        if provider != 'off':
++            includes += f'\n    include {installed}/nginx/laya.conf;'
++            config = 'limit_req_zone $binary_remote_addr zone=visalang_purpose:10m rate=6r/m;\n' + config
++        config = config.replace('include /etc/nginx/snippets/visalang-legacy-redirects.conf;', includes)
+         (out / 'nginx/site.conf').write_text(config)
+         shutil.copy2(ROOT / 'deploy/legacy-redirects.conf', out / 'nginx/legacy.conf')
+-        shutil.copy2(ROOT / 'deploy/laya-purpose-nginx.conf', out / 'nginx/laya.conf')
+-        shutil.copy2(ROOT / 'services/laya-purpose/model.lock.json', out / 'model.lock.json')
++        if provider != 'off':
++            shutil.copy2(ROOT / 'deploy/laya-purpose-nginx.conf', out / 'nginx/laya.conf')
++        shutil.copy2(ROOT / 'dist/runtime-features.json', out / 'site/runtime-features.json')
++        if provider == 'laya':
++            shutil.copy2(ROOT / 'services/laya-purpose/model.lock.json', out / 'model.lock.json')
+         shutil.copy2(ROOT / 'deploy/retained-routes.json', out / 'retained-routes.json')
+         # Commit alone cannot describe a dirty candidate. Bind all application inputs.
+         source = subprocess.check_output(['git', 'ls-files', '-co', '--exclude-standard', '-z'], cwd=ROOT).decode().split('\0')
+@@ -95,11 +192,14 @@
+         dirty = subprocess.check_output(['git', 'status', '--porcelain'], cwd=ROOT).decode()
+         m = {'schema': 'visalang.release.v1', 'releaseId': out.name,
+              'sourceCommit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT).decode().strip(),
+-             'candidateOnly': bool(dirty), 'image': image, 'modelRevision': model_revision,
+-             'purposeProvider': purpose_provider,
+-             'typesafeRequired': purpose_provider == 'typesafe',
+-             'typesafeModel': 'jev-latest' if purpose_provider == 'typesafe' else None,
+-             'adsRequired': True, 'layaRequired': purpose_provider == 'laya', 'files': tree_hashes(out)}
++             'candidateOnly': bool(dirty), 'features': features,
++             'files': tree_hashes(out)}
++        if provider != 'off':
++            m['image'] = image
++        if provider == 'laya':
++            m.update(modelRevision=model_revision, layaRequired=True)
++        elif provider == 'typesafe':
++            m.update(typesafeRequired=True, typesafeModel='jev-latest', layaRequired=False)
+         write_json(out / 'release.json', m)
+         verify(out)
+     except Exception:
+@@ -117,12 +217,30 @@
+     require(r['operation'] == operation and r['ownerAuthorized'] is True, 'Explicit operation authorization missing')
+     require(r.get('previousReleaseSha256') == previous_hash, 'Approval does not bind the current rollback baseline')
+     require(r.get('ownerDecisionRef', '').strip(), 'Locatable Owner decision required')
+-    for key in GATES:
++    required = list(BASE_GATES)
++    if m['features']['purposeSuggestions'] == 'laya':
++        required.append('capacity')
++    if m['features']['purposeSuggestions'] == 'typesafe':
++        required.extend(('typesafePrivacy', 'typesafeQuota'))
++    for key in required:
+         gate = r.get('evidence', {}).get(key, {})
+-        require(gate.get('status') == 'pass', f'Missing release evidence: {key}')
++        require(gate.get('status') == 'pass', f'Missing release evidence: {key} (expected pass)')
+         file = (receipt.parent / gate.get('path', '')).resolve()
+         require(file.is_relative_to(receipt.parent) and file.is_file(), f'Invalid evidence path: {key}')
+         require(sha(file) == gate.get('sha256'), f'Changed evidence: {key}')
++    capacity = r.get('evidence', {}).get('capacity', {})
++    capacity_expected = 'pass' if m['features']['purposeSuggestions'] == 'laya' else 'not_applicable'
++    require(capacity.get('status') == capacity_expected,
++            f'Missing release evidence: capacity (expected {capacity_expected})')
++    capacity_file = (receipt.parent / capacity.get('path', '')).resolve()
++    require(capacity_file.is_relative_to(receipt.parent) and capacity_file.is_file(), 'Invalid evidence path: capacity')
++    require(sha(capacity_file) == capacity.get('sha256'), 'Changed evidence: capacity')
++    ads = r.get('evidence', {}).get('adsConsent', {})
++    ads_expected = 'pass' if m['features']['advertising'] == 'on' else 'not_applicable'
++    require(ads.get('status') == ads_expected, f'Missing release evidence: adsConsent (expected {ads_expected})')
++    ads_file = (receipt.parent / ads.get('path', '')).resolve()
++    require(ads_file.is_relative_to(receipt.parent) and ads_file.is_file(), 'Invalid evidence path: adsConsent')
++    require(sha(ads_file) == ads.get('sha256'), 'Changed evidence: adsConsent')
+     return m
+ 
+ 
+@@ -165,7 +283,9 @@
+ 
+     def preflight(self, release):
+         m = verify(release)
+-        provider = m.get('purposeProvider', 'laya')
++        provider = m['features']['purposeSuggestions']
++        if provider == 'off':
++            return
+         if provider == 'typesafe':
+             require(bool(os.environ.get('TYPESAFE_API_KEY', '').strip()),
+                     'TypeSafe API key must be configured in the host environment before activation or rollback')
+@@ -177,7 +297,13 @@
+ 
+     def start(self, release):
+         m = verify(release)
+-        provider = m.get('purposeProvider', 'laya')
++        provider = m['features']['purposeSuggestions']
++        if provider == 'off':
++            existing = subprocess.run(['docker', 'container', 'inspect', CONTAINER], capture_output=True)
++            if existing.returncode == 0:
++                self.run('docker', 'rm', '-f', CONTAINER)
++                self.model_changed = True
++            return
+         if provider == 'typesafe':
+             require(bool(os.environ.get('TYPESAFE_API_KEY', '').strip()),
+                     'TypeSafe API key must be configured in the host environment before activation')
+@@ -205,14 +331,20 @@
+         self.run(*command)
+ 
+     def probe(self, release):
++        provider = verify(release)['features']['purposeSuggestions']
++        if provider == 'off':
++            existing = subprocess.run(['docker', 'container', 'inspect', CONTAINER], capture_output=True)
++            require(existing.returncode != 0, 'Purpose-off release must not leave the optional service running')
++            return
+         last = None
+         for _ in range(30):
+             try:
+-                request = urllib.request.Request('http://127.0.0.1:8011/api/purpose-suggestion/',
+-                    data=b'{"text":"I want to apply for a university degree."}', headers={'Content-Type': 'application/json'})
+-                with urllib.request.urlopen(request, timeout=10) as r:
+-                    result = json.load(r)
+-                require(result.get('status') in ('suggestion', 'needs_clarification') and result.get('requiresConfirmation') is True, 'Inference contract failed')
++                request = urllib.request.Request('http://127.0.0.1:8011/api/purpose-suggestion/', method='GET')
++                try:
++                    urllib.request.urlopen(request, timeout=10)
++                    raise ValueError('Purpose endpoint unexpectedly accepted GET')
++                except urllib.error.HTTPError as response:
++                    require(response.code == 405, 'Purpose service probe did not reach the expected method guard')
+                 return
+             except Exception as e:
+                 last = e
+@@ -231,13 +363,13 @@
+                 '--write-out', '%{http_code}', 'https://visalang.org' + route], timeout=15)
+             require(status.strip() == b'200', f'Expected HTTP 200 for retained/core path: {route}')
+ 
+-        response = subprocess.check_output([
+-            'curl', '--fail', '--silent', '--show-error', '--max-time', '12',
+-            '--resolve', 'visalang.org:443:127.0.0.1', '-H', 'Content-Type: application/json',
+-            '--data', '{"text":"I want to apply for a university degree."}',
+-            'https://visalang.org/api/purpose-suggestion/'], timeout=15)
+-        result = json.loads(response)
+-        require(result.get('requiresConfirmation') is True and result.get('status') in ('suggestion', 'needs_clarification'), 'Nginx inference contract failed')
++        provider = verify(release)['features']['purposeSuggestions']
++        status = subprocess.check_output([
++            'curl', '--silent', '--show-error', '--max-time', '12', '-X', 'GET',
++            '--resolve', 'visalang.org:443:127.0.0.1', '-o', '/dev/null',
++            '--write-out', '%{http_code}', 'https://visalang.org/api/purpose-suggestion/'], timeout=15)
++        expected = b'404' if provider == 'off' else b'405'
++        require(status.strip() == expected, 'Optional-purpose Nginx route does not match runtime mode')
+ 
+     def record(self, release):
+         self.link(Path(release), SITE / 'current')
+@@ -263,15 +395,14 @@
+     parser = argparse.ArgumentParser(description=__doc__)
+     sub = parser.add_subparsers(dest='command', required=True)
+     build = sub.add_parser('prepare')
+-    build.add_argument('out'); build.add_argument('--image', required=True); build.add_argument('--model-revision', required=True)
+-    build.add_argument('--purpose-provider', choices=('typesafe', 'laya'), default='typesafe')
++    build.add_argument('out'); build.add_argument('--image'); build.add_argument('--model-revision')
+     check = sub.add_parser('verify'); check.add_argument('bundle')
+     for name in ('activate', 'rollback'):
+         p = sub.add_parser(name); p.add_argument('bundle'); p.add_argument('--approval', required=True)
+     args = parser.parse_args()
+     if args.command == 'prepare':
+         require(re.fullmatch(r'[a-z0-9][a-z0-9-]{0,63}', Path(args.out).name), 'Use a safe release directory name')
+-        print(json.dumps(prepare(args.out, args.image, args.model_revision, args.purpose_provider), indent=2)); return
++        print(json.dumps(prepare(args.out, args.image, args.model_revision), indent=2)); return
+     bundle = Path(args.bundle).resolve()
+     if args.command == 'verify': print(json.dumps(verify(bundle), indent=2)); return
+     require(os.geteuid() == 0, 'Host mutation requires root and an authorized maintenance window')
+--- a/deploy/smoke-test.sh
++++ b/deploy/smoke-test.sh
+@@ -3,6 +3,10 @@
+ 
+ BASE_URL="${BASE_URL:-https://visalang.org}"
+ WWW_URL="${WWW_URL:-https://www.visalang.org}"
++PURPOSE_MODE="${VISALANG_PURPOSE_MODE:-off}"
++ADS_MODE="${VISALANG_ADS_MODE:-off}"
++# The optional-purpose Nginx route is checked with a body-free GET method probe;
++# the smoke test never sends an inference request or reader input.
+ 
+ check_200() {
+   local path="$1"
+@@ -34,7 +38,18 @@
+ 
+ homepage="$(curl -fsS "$BASE_URL/")"
+ printf '%s' "$homepage" | grep -Fq 'rel="canonical" href="https://visalang.org/"' || { echo "✗ Homepage canonical is not visalang.org"; exit 1; }
+-printf '%s' "$homepage" | grep -Fq 'pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3018617123550799' || { echo "✗ Homepage does not contain the approved AdSense loader"; exit 1; }
++if printf '%s' "$homepage" | grep -Fq 'pagead2.googlesyndication.com'; then
++  echo "✗ Homepage must remain advertising-free"
++  exit 1
++fi
++
++eligible_page="$(curl -fsS "$BASE_URL/guides/german-family-reunion-language-requirement/")"
++if [ "$ADS_MODE" = "on" ]; then
++  printf '%s' "$eligible_page" | grep -Fq 'pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3018617123550799' || { echo "✗ Advertising-on mode is missing the eligible guide loader"; exit 1; }
++elif printf '%s' "$eligible_page" | grep -Fq 'pagead2.googlesyndication.com'; then
++  echo "✗ Advertising-off mode loaded AdSense"
++  exit 1
++fi
+ 
+ tool_page="$(curl -fsS "$BASE_URL/tools/route-finder/")"
+ if printf '%s' "$tool_page" | grep -Fq 'pagead2.googlesyndication.com'; then
+@@ -45,6 +60,16 @@
+ guides_index="$(curl -fsS "$BASE_URL/guides/")"
+ if printf '%s' "$guides_index" | grep -Fq 'pagead2.googlesyndication.com'; then
+   echo "✗ Searchable Guide Library index must not load AdSense"
++  exit 1
++fi
++
++purpose_status="$(curl -sS -o /dev/null -w '%{http_code}' -X GET "$BASE_URL/api/purpose-suggestion/")"
++if [ "$PURPOSE_MODE" = "off" ] && [ "$purpose_status" != "404" ]; then
++  echo "✗ Purpose-off mode should omit the proxy route, got $purpose_status"
++  exit 1
++fi
++if [ "$PURPOSE_MODE" != "off" ] && [ "$purpose_status" != "405" ]; then
++  echo "✗ Purpose-on mode should reach the service method guard, got $purpose_status"
+   exit 1
+ fi
+ 
+--- a/deploy/tests/test_release.py
++++ b/deploy/tests/test_release.py
+@@ -48,17 +48,83 @@
+             module.switch_release('new', 'old', Backend())
+         self.assertEqual(calls, [('preflight', 'new'), ('preflight', 'old')])
+ 
++    def test_failed_mode_transition_restores_exact_previous_mode(self):
++        module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
++        for target_mode, previous_mode in [
++            ('laya', 'off'), ('off', 'typesafe'), ('typesafe', 'laya'),
++            ('laya', 'typesafe'), ('typesafe', 'off'),
++        ]:
++            calls = []
++            class Backend:
++                def preflight(self, release): calls.append(('preflight', release))
++                def stage(self, release): calls.append(('stage', release))
++                def validate(self, release): calls.append(('validate', release))
++                def start(self, release):
++                    calls.append(('start', release))
++                    if release == target_mode: raise RuntimeError('injected start failure')
++                def restore(self, release): calls.append(('restore', release))
++            with self.assertRaisesRegex(RuntimeError, 'injected start failure'):
++                module.switch_release(target_mode, previous_mode, Backend())
++            self.assertEqual(calls[-1], ('restore', previous_mode))
++
++    def test_restore_failure_is_reported_instead_of_hidden(self):
++        module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
++        class Backend:
++            def __getattr__(self, name):
++                def run(release):
++                    if name == 'start' and release == 'new': raise RuntimeError('target failed')
++                    if name == 'restore': raise OSError('restore failed')
++                return run
++        with self.assertRaisesRegex(OSError, 'restore failed'):
++            module.switch_release('new', 'old', Backend())
++
+ class BundleTests(unittest.TestCase):
+     def setUp(self):
+         self.module = importlib.util.module_from_spec(spec); spec.loader.exec_module(self.module)
+         self.tmp = tempfile.TemporaryDirectory(); self.addCleanup(self.tmp.cleanup)
+         self.bundle = Path(self.tmp.name) / 'release-a'; self.bundle.mkdir()
+         (self.bundle/'site').mkdir(); (self.bundle/'site/index.html').write_text('site')
++        self.features={'schemaVersion':1,'purposeSuggestions':'off','advertising':'off'}
++        self.module.write_json(self.bundle/'site/runtime-features.json',self.features)
+         (self.bundle/'nginx').mkdir(); (self.bundle/'nginx/site.conf').write_text('config')
+         self.manifest={'schema':'visalang.release.v1','sourceCommit':'a'*40,'candidateOnly':False,
+-                       'image':'example/laya@sha256:'+'b'*64,'modelRevision':'c'*40,
+-                       'adsRequired':True,'layaRequired':True,'files':self.module.tree_hashes(self.bundle)}
+-        self.module.write_json(self.bundle/'release.json',self.manifest)
++                       'features':self.features.copy(),
++                       'files':self.module.tree_hashes(self.bundle)}
++        self.module.write_json(self.bundle/'release.json',self.manifest)
++
++    def set_features(self, purpose, advertising):
++        self.features={'schemaVersion':1,'purposeSuggestions':purpose,'advertising':advertising}
++        self.module.write_json(self.bundle/'site/runtime-features.json',self.features)
++        self.manifest['features']=self.features.copy()
++        (self.bundle/'nginx/site.conf').write_text('config')
++        for key in ['image','modelRevision','typesafeRequired','typesafeModel','layaRequired','purposeProvider','adsRequired']:
++            self.manifest.pop(key,None)
++        (self.bundle/'nginx/laya.conf').unlink(missing_ok=True)
++        if purpose != 'off':
++            (self.bundle/'nginx/laya.conf').write_text('purpose endpoint route')
++            (self.bundle/'nginx/site.conf').write_text('limit_req_zone $binary_remote_addr zone=visalang_purpose:10m rate=6r/m;\ninclude /releases/release-a/nginx/laya.conf;')
++            self.manifest['image']='example/laya@sha256:'+'b'*64
++        if purpose == 'laya':
++            self.manifest.update(modelRevision='c'*40,layaRequired=True)
++        elif purpose == 'typesafe':
++            self.manifest.update(typesafeRequired=True,typesafeModel='jev-latest',layaRequired=False)
++        hashes=self.module.tree_hashes(self.bundle); hashes.pop('release.json',None)
++        self.manifest['files']=hashes
++        self.module.write_json(self.bundle/'release.json',self.manifest)
++
++    def test_ads_off_requires_zero_loader_and_runtime_manifest_match(self):
++        (self.bundle/'site/index.html').write_text('<script src="https://pagead2.googlesyndication.com/x.js"></script>')
++        hashes=self.module.tree_hashes(self.bundle); hashes.pop('release.json',None)
++        self.manifest['files']=hashes; self.module.write_json(self.bundle/'release.json',self.manifest)
++        with self.assertRaisesRegex(ValueError, 'Advertising-off'):
++            self.module.verify(self.bundle)
++
++    def test_pre_contract_candidate_without_build_mode_manifest_is_refused(self):
++        (self.bundle/'site/runtime-features.json').unlink()
++        hashes=self.module.tree_hashes(self.bundle); hashes.pop('release.json',None)
++        self.manifest['files']=hashes; self.module.write_json(self.bundle/'release.json',self.manifest)
++        with self.assertRaisesRegex(ValueError, 'Built runtime feature contract is missing'):
++            self.module.verify(self.bundle)
+ 
+     def test_byte_and_file_set_tampering_is_rejected(self):
+         self.module.verify(self.bundle)
+@@ -69,6 +135,7 @@
+         with self.assertRaisesRegex(ValueError,'file set'):self.module.verify(self.bundle)
+ 
+     def test_mutable_image_tag_and_missing_approval_are_rejected(self):
++        self.set_features('typesafe','off')
+         self.manifest['image']='example/laya:latest'
+         self.module.write_json(self.bundle/'release.json',self.manifest)
+         with self.assertRaisesRegex(ValueError,'digest'):self.module.verify(self.bundle)
+@@ -84,7 +151,9 @@
+         receipt=Path(self.tmp.name)/'approval.json'
+         r={'ownerAuthorized':True,'ownerDecisionRef':'unit-test-only', 'operation':'activate',
+            'releaseSha256':self.module.sha(self.bundle/'release.json'),'previousReleaseSha256':None,
+-           'evidence':{k:{'status':'pass','path':'evidence.txt','sha256':self.module.sha(evidence)} for k in self.module.GATES}}
++           'evidence':{k:{'status':'pass','path':'evidence.txt','sha256':self.module.sha(evidence)} for k in self.module.BASE_GATES}}
++        r['evidence']['capacity']={'status':'not_applicable','path':'evidence.txt','sha256':self.module.sha(evidence)}
++        r['evidence']['adsConsent']={'status':'not_applicable','path':'evidence.txt','sha256':self.module.sha(evidence)}
+         self.module.write_json(receipt,r)
+         self.module.approval(self.bundle,receipt,'activate',None)
+         with self.assertRaisesRegex(ValueError,'operation'):self.module.approval(self.bundle,receipt,'rollback',None)
+@@ -97,15 +166,91 @@
+         with self.assertRaisesRegex(ValueError,'symlinks'):self.module.verify(self.bundle)
+ 
+     def test_old_manifest_defaults_to_laya_and_typesafe_manifest_is_explicit(self):
+-        self.assertEqual(self.module.verify(self.bundle).get('purposeProvider', 'laya'), 'laya')
++        self.set_features('laya','on')
++        self.manifest.pop('features')
++        self.manifest.update(purposeProvider='laya', adsRequired=True, layaRequired=True)
++        self.module.write_json(self.bundle/'release.json',self.manifest)
++        self.assertEqual(self.module.verify(self.bundle)['features'],
++                         {'schemaVersion': 1, 'purposeSuggestions': 'laya', 'advertising': 'on'})
+         self.manifest.update(purposeProvider='typesafe', typesafeRequired=True,
+                              typesafeModel='jev-latest', layaRequired=False)
+-        self.module.write_json(self.bundle/'release.json',self.manifest)
+-        self.assertEqual(self.module.verify(self.bundle)['purposeProvider'], 'typesafe')
++        self.manifest.pop('modelRevision',None)
++        self.features={'schemaVersion':1,'purposeSuggestions':'typesafe','advertising':'on'}
++        self.module.write_json(self.bundle/'site/runtime-features.json',self.features)
++        self.manifest.update(image='example/laya@sha256:'+'b'*64)
++        (self.bundle/'nginx/laya.conf').write_text('purpose endpoint route')
++        hashes=self.module.tree_hashes(self.bundle); hashes.pop('release.json',None)
++        self.manifest['files']=hashes
++        self.module.write_json(self.bundle/'release.json',self.manifest)
++        self.assertEqual(self.module.verify(self.bundle)['features']['purposeSuggestions'], 'typesafe')
+         self.manifest['typesafeRequired'] = False
+         self.module.write_json(self.bundle/'release.json',self.manifest)
+         with self.assertRaisesRegex(ValueError, 'TypeSafe provider release contract'):
+             self.module.verify(self.bundle)
++
++    def test_all_six_feature_combinations_verify_without_unrelated_laya_requirements(self):
++        for purpose in ['off', 'laya', 'typesafe']:
++            for advertising in ['off', 'on']:
++                self.set_features(purpose,advertising)
++                self.assertEqual(self.module.verify(self.bundle)['features']['purposeSuggestions'], purpose)
++
++    def test_conflicting_legacy_fields_are_rejected(self):
++        self.set_features('off','off')
++        self.manifest.update(purposeProvider='typesafe', adsRequired=True)
++        self.module.write_json(self.bundle/'release.json', self.manifest)
++        with self.assertRaisesRegex(ValueError, 'Conflicting legacy feature fields'):
++            self.module.verify(self.bundle)
++
++    def test_typesafe_release_approval_requires_privacy_and_quota_evidence(self):
++        self.set_features('typesafe','off')
++        evidence=Path(self.tmp.name)/'evidence.txt'; evidence.write_text('bound evidence')
++        receipt=Path(self.tmp.name)/'approval.json'
++        gates={k:{'status':'pass','path':'evidence.txt','sha256':self.module.sha(evidence)} for k in self.module.BASE_GATES}
++        gates.update(capacity={'status':'not_applicable','path':'evidence.txt','sha256':self.module.sha(evidence)},
++                     adsConsent={'status':'not_applicable','path':'evidence.txt','sha256':self.module.sha(evidence)})
++        payload={'ownerAuthorized':True,'ownerDecisionRef':'unit-test-only','operation':'activate',
++                 'releaseSha256':self.module.sha(self.bundle/'release.json'),'previousReleaseSha256':None,'evidence':gates}
++        self.module.write_json(receipt,payload)
++        with self.assertRaisesRegex(ValueError, 'typesafePrivacy'):
++            self.module.approval(self.bundle,receipt,'activate',None)
++        for key in ['typesafePrivacy','typesafeQuota']:
++            payload['evidence'][key]={'status':'pass','path':'evidence.txt','sha256':self.module.sha(evidence)}
++        self.module.write_json(receipt,payload)
++        self.module.approval(self.bundle,receipt,'activate',None)
++
++    def test_typesafe_capacity_is_not_the_laya_local_model_gate(self):
++        self.set_features('typesafe','off')
++        evidence=Path(self.tmp.name)/'evidence.txt'; evidence.write_text('bound evidence')
++        receipt=Path(self.tmp.name)/'approval.json'
++        gates={k:{'status':'pass','path':'evidence.txt','sha256':self.module.sha(evidence)} for k in self.module.BASE_GATES}
++        gates.update(capacity={'status':'not_applicable','path':'evidence.txt','sha256':self.module.sha(evidence)},
++                     typesafePrivacy={'status':'pass','path':'evidence.txt','sha256':self.module.sha(evidence)},
++                     typesafeQuota={'status':'pass','path':'evidence.txt','sha256':self.module.sha(evidence)},
++                     adsConsent={'status':'not_applicable','path':'evidence.txt','sha256':self.module.sha(evidence)})
++        payload={'ownerAuthorized':True,'ownerDecisionRef':'unit-test-only','operation':'activate',
++                 'releaseSha256':self.module.sha(self.bundle/'release.json'),'previousReleaseSha256':None,'evidence':gates}
++        self.module.write_json(receipt,payload)
++        self.module.approval(self.bundle,receipt,'activate',None)
++        payload['evidence']['capacity']['status']='pass'
++        self.module.write_json(receipt,payload)
++        with self.assertRaisesRegex(ValueError,'capacity.*not_applicable'):
++            self.module.approval(self.bundle,receipt,'activate',None)
++
++    def test_laya_release_requires_local_capacity_evidence(self):
++        self.set_features('laya','off')
++        evidence=Path(self.tmp.name)/'evidence.txt'; evidence.write_text('bound evidence')
++        receipt=Path(self.tmp.name)/'approval.json'
++        gates={k:{'status':'pass','path':'evidence.txt','sha256':self.module.sha(evidence)} for k in self.module.BASE_GATES}
++        gates.update(capacity={'status':'not_applicable','path':'evidence.txt','sha256':self.module.sha(evidence)},
++                     adsConsent={'status':'not_applicable','path':'evidence.txt','sha256':self.module.sha(evidence)})
++        payload={'ownerAuthorized':True,'ownerDecisionRef':'unit-test-only','operation':'activate',
++                 'releaseSha256':self.module.sha(self.bundle/'release.json'),'previousReleaseSha256':None,'evidence':gates}
++        self.module.write_json(receipt,payload)
++        with self.assertRaisesRegex(ValueError,'capacity.*pass'):
++            self.module.approval(self.bundle,receipt,'activate',None)
++        payload['evidence']['capacity']['status']='pass'
++        self.module.write_json(receipt,payload)
++        self.module.approval(self.bundle,receipt,'activate',None)
+ 
+ class HostSmokeTests(unittest.TestCase):
+     def test_retained_path_redirects_are_not_successful_smoke_checks(self):
+@@ -116,10 +261,12 @@
+             module.write_json(bundle/'retained-routes.json', {'records':[{'path':'/guides/retained/'}]})
+             host=object.__new__(module.Host)
+             for rejected in [b'301', b'302', b'204', b'404']:
+-                with patch.object(module.subprocess, 'check_output', side_effect=[b'200',b'200',rejected]), patch.object(host, 'run'):
++                with patch.object(module, 'verify', return_value={'features': {'purposeSuggestions':'off'}}), \
++                     patch.object(module.subprocess, 'check_output', side_effect=[b'200',b'200',rejected]), patch.object(host, 'run'):
+                     with self.assertRaisesRegex(ValueError, 'HTTP 200'):
+                         host.smoke(bundle)
+-            with patch.object(module.subprocess, 'check_output', side_effect=[b'200',b'200',b'200',b'{"status":"suggestion","requiresConfirmation":true}']), patch.object(host, 'run'):
++            with patch.object(module, 'verify', return_value={'features': {'purposeSuggestions':'off'}}), \
++                 patch.object(module.subprocess, 'check_output', side_effect=[b'200',b'200',b'200',b'404']), patch.object(host, 'run'):
+                 host.smoke(bundle)
+ 
+ 
+@@ -133,7 +280,7 @@
+             calls.append(args)
+         host.run = fake_run
+         host.model_changed = False
+-        release = {'purposeProvider': 'typesafe', 'typesafeModel': 'jev-latest',
++        release = {'features':{'purposeSuggestions':'typesafe','advertising':'off'}, 'typesafeModel': 'jev-latest',
+                    'image': 'example/laya@sha256:' + 'b' * 64}
+         with patch.object(module, 'verify', return_value=release), \
+              patch.dict(module.os.environ, {'TYPESAFE_API_KEY': 'test-only-secret'}), \
+@@ -151,7 +298,7 @@
+         host = object.__new__(module.Host)
+         host.run = lambda *args: self.fail('Docker must not run without the TypeSafe key')
+         with patch.object(module, 'verify', return_value={
+-            'purposeProvider': 'typesafe', 'typesafeModel': 'jev-latest',
++            'features':{'purposeSuggestions':'typesafe','advertising':'off'}, 'typesafeModel': 'jev-latest',
+             'image': 'example/laya@sha256:' + 'b' * 64,
+         }), patch.dict(module.os.environ, {}, clear=True):
+             with self.assertRaisesRegex(ValueError, 'key must be configured'):
+@@ -168,11 +315,13 @@
+             (target / 'model.lock.json').write_text('{"files":{}}')
+             manifests = {
+                 str(target): {
+-                    'purposeProvider': 'laya', 'modelRevision': 'c' * 40,
++                'purposeProvider': 'laya', 'modelRevision': 'c' * 40,
++                    'features':{'purposeSuggestions':'laya','advertising':'off'},
+                     'image': 'example/laya@sha256:' + 'b' * 64,
+                 },
+                 'old-typesafe': {
+                     'purposeProvider': 'typesafe', 'typesafeModel': 'jev-latest',
++                    'features':{'purposeSuggestions':'typesafe','advertising':'off'},
+                     'image': 'example/laya@sha256:' + 'd' * 64,
+                 },
+             }
+--- a/scripts/launch-check.js
++++ b/scripts/launch-check.js
+@@ -88,6 +88,20 @@
+ if (!fs.existsSync(dist)) {
+   console.error('dist/ is missing. Run npm run build first.');
+   process.exit(1);
++}
++
++const runtimeFeaturesPath = path.join(dist, 'runtime-features.json');
++if (!fs.existsSync(runtimeFeaturesPath)) throw new Error('dist/runtime-features.json is missing.');
++const runtimeFeatures = JSON.parse(fs.readFileSync(runtimeFeaturesPath, 'utf8'));
++const expectedRuntimeFeatures = {
++  schemaVersion: 1,
++  purposeSuggestions: process.env.VISALANG_PURPOSE_MODE || 'off',
++  advertising: process.env.VISALANG_ADS_MODE || 'off',
++};
++if (JSON.stringify(runtimeFeatures) !== JSON.stringify(expectedRuntimeFeatures)) {
++  fail(`Built runtime feature contract does not match requested modes: ${JSON.stringify(runtimeFeatures)}.`);
++} else {
++  pass(`Built runtime contract is purpose=${runtimeFeatures.purposeSuggestions}, ads=${runtimeFeatures.advertising}.`);
+ }
+ 
+ const files = listFiles(dist, '.html');
+@@ -398,10 +412,25 @@
+ const missingChineseToolSitemapUrls = chineseToolRoutes.filter((route) => !sitemapUrls.includes(`https://visalang.org${route}`));
+ if (new Set(sitemapUrls).size === sitemapUrls.length && !missingChineseToolSitemapUrls.length) pass(`All ${sitemapUrls.length} sitemap URLs are unique and include the five indexable Chinese tools.`); else fail(`Sitemap is duplicated or missing Chinese tools: ${missingChineseToolSitemapUrls.join(', ') || 'none'}.`);
+ if (noindexPages.length === 64) pass('Exactly 64 generated pages are noindex.'); else fail(`Expected 64 noindex pages; found ${noindexPages.length}.`);
+-if (advertisingPages.length === 14 && JSON.stringify(advertisingPages.map(({ route }) => route).sort()) === JSON.stringify(expectedAdvertisingRoutes)) {
+-  pass('Only the 14 advertising-eligible English pillars load AdSense.');
++const expectedLoadedAdRoutes = runtimeFeatures.advertising === 'on' ? expectedAdvertisingRoutes : [];
++if (advertisingPages.length === expectedLoadedAdRoutes.length
++  && JSON.stringify(advertisingPages.map(({ route }) => route).sort()) === JSON.stringify(expectedLoadedAdRoutes)) {
++  pass(runtimeFeatures.advertising === 'on'
++    ? 'Only the existing 14 advertising-eligible English pillars load AdSense.'
++    : 'Advertising is off: zero generated pages load AdSense.');
+ } else {
+-  fail(`AdSense allowlist mismatch: ${advertisingPages.map(({ route }) => route).sort().join(', ') || 'no advertising pages'}.`);
++  fail(`AdSense ${runtimeFeatures.advertising} mode mismatch: ${advertisingPages.map(({ route }) => route).sort().join(', ') || 'no advertising pages'}.`);
++}
++
++const purposeUiPages = pages.filter(({ html }) => html.includes('data-purpose-suggestion'));
++if (runtimeFeatures.purposeSuggestions === 'off' && purposeUiPages.length === 0) {
++  pass('Purpose suggestions are off: zero generated pages contain the optional suggestion UI.');
++} else if (runtimeFeatures.purposeSuggestions !== 'off' && purposeUiPages.some(({ route }) => !['/tools/route-finder/', '/zh/tools/route-finder/'].includes(route))) {
++  fail(`Purpose suggestion UI appeared outside the bilingual Route Finder: ${purposeUiPages.map(({ route }) => route).join(', ')}.`);
++} else if (runtimeFeatures.purposeSuggestions !== 'off' && purposeUiPages.length === 2) {
++  pass(`Purpose suggestion UI is present only on the two Route Finder pages (${runtimeFeatures.purposeSuggestions}).`);
++} else if (runtimeFeatures.purposeSuggestions !== 'off') {
++  fail(`Purpose suggestion mode expected two bilingual tool pages; found ${purposeUiPages.length}.`);
+ }
+ 
+ const sitemapPolicyFailures = pages.filter(({ route, html }) => {
+@@ -415,7 +444,7 @@
+ const pillarFailures = [...englishPillarRoutes, ...chinesePillarRoutes].filter((route) => {
+   if (!fs.existsSync(outputFor(route))) return true;
+   const html = fs.readFileSync(outputFor(route), 'utf8');
+-  const shouldAdvertise = expectedAdvertisingRoutes.includes(route);
++  const shouldAdvertise = runtimeFeatures.advertising === 'on' && expectedAdvertisingRoutes.includes(route);
+   return html.includes(noindexDirective)
+     || !sitemapUrls.includes(`https://visalang.org${route}`)
+     || html.includes(adsenseHost) !== shouldAdvertise;
+--- a/src/components/tools/PurposeSuggestion.astro
++++ b/src/components/tools/PurposeSuggestion.astro
+@@ -1,16 +1,17 @@
+ ---
+-const { locale = 'en' } = Astro.props;
++const { locale = 'en', mode = 'typesafe' } = Astro.props;
+ const zh = locale === 'zh-CN';
++const typesafeNotice = mode === 'typesafe';
+ ---
+ <section class="purpose-suggestion" data-purpose-suggestion data-locale={locale} aria-labelledby="purpose-suggestion-title" hidden>
+   <h3 id="purpose-suggestion-title">{zh ? '用一句话描述你的目的（可选）' : 'Describe your purpose in one sentence (optional)'}</h3>
+-  <p id="purpose-suggestion-help">{zh ? '点击后，这段文字会发送给 TypeSafe AI, Inc. 在美国处理。其隐私政策说明个人数据可能在提供服务或支持业务所需期间保留。建议可能出错，请核对后再采用；也可以直接使用下面的选项。请勿填写姓名、证件号码或申请材料。' : 'Clicking sends this text to TypeSafe AI, Inc. for processing in the United States. Its privacy policy says personal data may be retained as reasonably necessary to provide its services or support its business. Suggestions can be wrong: check before applying, or use the choices below. Do not enter names, identity numbers or case documents.'}</p>
++  <p id="purpose-suggestion-help">{typesafeNotice ? (zh ? '点击后，这段文字会发送给 TypeSafe AI, Inc. 在美国处理。其隐私政策说明个人数据可能在提供服务或支持业务所需期间保留，且不使用输入训练模型。费用、账户配额与处理设置需由本站运营方另行核验。建议可能出错，请核对后再采用；也可直接手选。请勿填写姓名、证件号码或申请材料。' : 'Clicking sends this text to TypeSafe AI, Inc. for processing in the United States. Its privacy policy says personal data may be retained as reasonably necessary for its services or business and that inputs are not used to train models. VisaLang operator settings, pricing and account quotas require separate verification. Suggestions can be wrong: check before applying, or use the choices below. Do not enter names, identity numbers or case documents.') : (zh ? '仅在点击后，本站的 Laya 用途建议服务才会接收这段文字并在本地模型上处理。建议可能出错，请核对后再采用；也可直接手选。请勿填写姓名、证件号码或申请材料。' : 'Only after you click, VisaLang’s Laya purpose-suggestion service receives this text and processes it with its local model. Suggestions can be wrong: check before applying, or use the choices below. Do not enter names, identity numbers or case documents.')}</p>
+   <label for="purpose-description">{zh ? '你的目的' : 'Your purpose'}</label>
+   <textarea id="purpose-description" rows="3" maxlength="300" autocomplete="off" aria-describedby="purpose-suggestion-help" placeholder={zh ? '例如：我准备去德国读硕士。' : 'For example: I want to study for a master’s degree in Germany.'}></textarea>
+   <button type="button" class="secondary-action" data-purpose-request>{zh ? '获取目的建议' : 'Suggest a purpose'}</button>
+   <p data-purpose-status role="status" aria-live="polite" aria-atomic="true"></p>
+   <button type="button" class="secondary-action" data-purpose-apply hidden>{zh ? '确认并采用这个目的' : 'Confirm and use this purpose'}</button>
+-  <p class="purpose-privacy"><a href="/privacy-policy/">{zh ? '了解文字如何处理' : 'How this text is handled'}</a> · <a href="https://typesafe.ai/legal/privacy-policy" target="_blank" rel="noopener noreferrer">{zh ? 'TypeSafe 隐私政策' : 'TypeSafe privacy policy'}</a></p>
++  <p class="purpose-privacy"><a href="/privacy-policy/">{zh ? '了解文字如何处理' : 'How this text is handled'}</a>{typesafeNotice && <> · <a href="https://typesafe.ai/legal/privacy-policy" target="_blank" rel="noopener noreferrer">{zh ? 'TypeSafe 隐私政策' : 'TypeSafe privacy policy'}</a></>}</p>
+ </section>
+ 
+ <style>
+--- a/src/data/runtime-features.ts
++++ b/src/data/runtime-features.ts
+@@ -0,0 +1,38 @@
++export type PurposeSuggestionMode = 'off' | 'laya' | 'typesafe';
++export type AdvertisingMode = 'off' | 'on';
++
++export interface RuntimeFeatures {
++  schemaVersion: 1;
++  purposeSuggestions: PurposeSuggestionMode;
++  advertising: AdvertisingMode;
++}
++
++const purposeModes = new Set<PurposeSuggestionMode>(['off', 'laya', 'typesafe']);
++const advertisingModes = new Set<AdvertisingMode>(['off', 'on']);
++
++export function resolveRuntimeFeatures(env: Record<string, string | undefined> = {}): RuntimeFeatures {
++  const purposeSuggestions = env.VISALANG_PURPOSE_MODE ?? 'off';
++  const advertising = env.VISALANG_ADS_MODE ?? 'off';
++  if (!purposeModes.has(purposeSuggestions as PurposeSuggestionMode)
++    || !advertisingModes.has(advertising as AdvertisingMode)) {
++    throw new Error('Unsupported runtime feature mode');
++  }
++  return {
++    schemaVersion: 1,
++    purposeSuggestions: purposeSuggestions as PurposeSuggestionMode,
++    advertising: advertising as AdvertisingMode,
++  };
++}
++
++declare const __VISALANG_RUNTIME_FEATURES__: RuntimeFeatures | undefined;
++
++const runtimeEnvironment = (globalThis as typeof globalThis & {
++  process?: { env?: Record<string, string | undefined> };
++}).process?.env ?? {};
++
++export const runtimeFeatures: RuntimeFeatures = typeof __VISALANG_RUNTIME_FEATURES__ === 'undefined'
++  ? resolveRuntimeFeatures(runtimeEnvironment)
++  : __VISALANG_RUNTIME_FEATURES__;
++
++export const purposeSuggestionsEnabled = runtimeFeatures.purposeSuggestions !== 'off';
++export const advertisingEnabled = runtimeFeatures.advertising === 'on';
+--- a/src/layouts/BaseLayout.astro
++++ b/src/layouts/BaseLayout.astro
+@@ -4,6 +4,7 @@
+ import { organisationJsonLD, site, ui } from '../data/site';
+ import { getImage } from 'astro:assets';
+ import type { ImageMetadata } from 'astro';
++import { advertisingEnabled } from '../data/runtime-features';
+ import '../styles/global.css';
+ 
+ export interface Props {
+@@ -96,7 +97,7 @@
+   {ogImageAlt && <meta name="twitter:image:alt" content={ogImageAlt}>}
+   {heroPreloadCandidates.length > 0 && <link rel="preload" as="image" href={heroPreloadCandidates.at(-1)?.src} imagesrcset={heroPreloadSrcset} imagesizes={heroPreloadSizes} type="image/avif" fetchpriority="high">}
+   <link rel="icon" href="https://visalang.org/favicon.svg" type="image/svg+xml">
+-  {enableAds && <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3018617123550799" crossorigin="anonymous"></script>}
++  {advertisingEnabled && enableAds && <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3018617123550799" crossorigin="anonymous"></script>}
+   {structuredData.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)}></script>)}
+ </head>
+ <body class={bodyClass}>
+--- a/src/pages/cookie-policy.astro
++++ b/src/pages/cookie-policy.astro
+@@ -1,6 +1,7 @@
+ ---
+ import BaseLayout from '../layouts/BaseLayout.astro';
+-const updated = '2026-09-16';
++import { runtimeFeatures } from '../data/runtime-features';
++const updated = '2026-09-25';
+ ---
+ 
+ <BaseLayout title="Cookie Policy" description="How VisaLang uses advertising consent, session storage, optional local storage, and legacy URL cleanup." noindex={true} enableAds={false}>
+@@ -15,7 +16,8 @@
+ 
+         <h2>Local storage we use</h2>
+         <ul>
+-          <li><strong>Advertising source boundary:</strong> the current Astro source can emit the Google AdSense loader only for ad-eligible English guide pages. Tool pages and the searchable Guide Library index do not load it. This repository does not verify a deployed AdSense account, served ads, Google Privacy &amp; messaging/CMP message, regional consent path, or partner identifier behavior. Google Analytics, Cloudflare Web Analytics, and custom measurement events are not loaded or sent by the current Astro source.</li>
++          <li><strong>Advertising source boundary:</strong> {runtimeFeatures.advertising === 'on' ? 'this build can emit the Google AdSense loader only for ad-eligible English guide pages. Tool pages and the searchable Guide Library index do not load it.' : 'advertising is disabled in this build and no page loads the AdSense script.'} This repository does not verify a deployed AdSense account, served ads, Google Privacy &amp; messaging/CMP message, regional consent path, or partner identifier behavior. Google Analytics, Cloudflare Web Analytics, and custom measurement events are not loaded or sent by the current Astro source.</li>
++          <li><strong>Purpose suggestion:</strong> {runtimeFeatures.purposeSuggestions === 'off' ? 'the optional purpose-suggestion UI and request code are disabled in this build; the manual choices remain available.' : runtimeFeatures.purposeSuggestions === 'typesafe' ? 'only after you click “Suggest a purpose,” the text is sent to TypeSafe AI, Inc. for processing in the United States; its privacy policy describes potential retention and states that inputs are not used to train models.' : 'only after you click “Suggest a purpose,” the text is sent to VisaLang’s local Laya service for model processing.'} You can always use manual choices instead.</li>
+           <li><strong>Shared tool plan:</strong> current tools store only schema-approved plan fields in browser <code>sessionStorage</code> by default so fields can move between tools in the same tab. New results are not written to URL query parameters. Reminder dates, optional source URLs, free text and identity-like data are excluded from the shared plan.</li>
+           <li><strong>Optional 30-day device copy:</strong> browser <code>localStorage</code> is used for shared tool fields only after you activate “Save on this device for 30 days.” A saved snapshot is no longer restored after expiry and is removed on a later visit; the site does not run a background timer after you close it.</li>
+           <li><strong>Legacy per-tool local storage:</strong> current tool pages attempt to remove the fixed <code>visalang-tool:...</code> local-storage copies used by older tool versions on the same site origin. “Clear shared plan” repeats that cleanup. One domain cannot read or delete another domain’s storage, and browser site-data settings are the complete removal path for an old origin or when storage access is blocked.</li>
+@@ -30,7 +32,8 @@
+         <p>We do not use third-party social-media tracking cookies. Third-party sites you visit from VisaLang, including official sources and advertising destinations, apply their own policies.</p>
+ 
+         <h2>Managing cookies</h2>
+-        <p>Use the Google consent/privacy control where available to consent, use the configured non-consent path, manage options, or change a previous advertising choice. You can also manage personalised advertising through <a href="https://adssettings.google.com/" rel="nofollow noopener noreferrer">Google Ads Settings</a>.</p>
++        {runtimeFeatures.advertising === 'on' && <p>Use the Google consent/privacy control where available to consent, use the configured non-consent path, manage options, or change a previous advertising choice. You can also manage personalised advertising through <a href="https://adssettings.google.com/" rel="nofollow noopener noreferrer">Google Ads Settings</a>.</p>}
++        {runtimeFeatures.advertising === 'off' && <p>Advertising is disabled in this build, so no AdSense script is loaded. Ads.txt may still be published as an account declaration; it does not cause a browser request by itself.</p>}
+         <p>“Restart this tool” resets the current form and the plan fields owned by that tool. The shared route remains when Checklist or Reminder is restarted; shared date or exam choices can be cleared by their owning tool. Use “Clear shared plan” to request removal of the tab-session state, optional device copy, and known same-origin legacy per-tool local storage. This does not remove the separately stored route-progress key. You can clear or block site storage in browser settings to remove both systems.</p>
+ 
+         <h2>Legacy URL query cleanup</h2>
+--- a/src/pages/privacy-policy.astro
++++ b/src/pages/privacy-policy.astro
+@@ -1,7 +1,8 @@
+ ---
+ import BaseLayout from '../layouts/BaseLayout.astro';
++import { runtimeFeatures } from '../data/runtime-features';
+ const jsonLD = { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Privacy Policy' };
+-const updated = '2026-09-24';
++const updated = '2026-09-25';
+ ---
+ 
+ <BaseLayout title="Privacy Policy" description="How VisaLang handles visitor data, advertising choices, shared tool state, browser storage, URL cleanup, and server logs." jsonLD={jsonLD} noindex={true} enableAds={false}>
+@@ -16,8 +17,8 @@
+ 
+         <h2>Services and information we use</h2>
+         <ul>
+-          <li><strong>Optional purpose suggestion:</strong> clicking “Suggest a purpose” in Route Finder sends the short text you enter to TypeSafe AI, Inc. for processing in the United States. TypeSafe’s <a href="https://typesafe.ai/legal/privacy-policy" target="_blank" rel="noopener noreferrer">privacy policy</a> says its services are hosted in the United States and that it may retain personal data as reasonably necessary to provide services or support its business. Do not enter names, identity numbers, immigration details or case documents. VisaLang does not add this text to shared plans or URLs, but the current form keeps it in the page until you clear it, apply a suggestion, restart the tool or leave the page. VisaLang's service and proxy do not log request bodies; deployment-side technical request logging is described below. Suggestions are fallible and require your confirmation. You can use the manual purpose choices without sending text.</li>
+-          <li><strong>Advertising source boundary:</strong> the current Astro source can emit the Google AdSense loader only on the publication manifest’s ad-eligible English guide pages. Tool pages, the searchable Guide Library index, home, route hubs, policy pages, and commercial pages disable that loader. This repository does not verify a current AdSense account, served ads, Auto ads settings, Google Privacy &amp; messaging/CMP behavior, regional consent behavior, or partner identifiers. Google Analytics, Cloudflare Web Analytics, and custom measurement events are not loaded or sent by the current Astro source.</li>
++          {runtimeFeatures.purposeSuggestions === 'off' ? <li><strong>Purpose suggestion:</strong> this build disables the optional purpose-suggestion UI and request code. The form’s manual purpose choices and deterministic route remain available.</li> : <li><strong>Optional purpose suggestion:</strong> clicking “Suggest a purpose” in Route Finder sends the short text you enter to {runtimeFeatures.purposeSuggestions === 'typesafe' ? <>TypeSafe AI, Inc. for processing in the United States. TypeSafe’s <a href="https://typesafe.ai/legal/privacy-policy" target="_blank" rel="noopener noreferrer">privacy policy</a> says its services are hosted in the United States, it does not train models on inputs, and it may retain personal data as reasonably necessary for its services or business. Price, account quota and account processing settings require separate operator verification.</> : <>VisaLang’s Laya service for processing with a locally hosted model.</>} Do not enter names, identity numbers, immigration details or case documents. VisaLang does not add this text to shared plans or URLs, but the current form keeps it in the page until you clear it, apply a suggestion, restart the tool or leave the page. VisaLang's service and proxy do not log request bodies; deployment-side technical request logging is described below. Suggestions are fallible and require your confirmation. You can use the manual purpose choices without sending text.</li>}
++          <li><strong>Advertising source boundary:</strong> {runtimeFeatures.advertising === 'on' ? <>this build can emit the Google AdSense loader only on the publication manifest’s ad-eligible English guide pages. Tool pages, the searchable Guide Library index, home, route hubs, policy pages, and commercial pages disable that loader.</> : <>advertising is off in this build; no AdSense loader is emitted and no page loads it.</>} This repository does not verify a current AdSense account, served ads, Auto ads settings, Google Privacy &amp; messaging/CMP behavior, regional consent behavior, or partner identifiers. Google Analytics, Cloudflare Web Analytics, and custom measurement events are not loaded or sent by the current Astro source.</li>
+           <li><strong>Shared tool plan:</strong> after a tool successfully generates a result, schema-approved fields such as fixed route/region/answer/exam IDs, a target date, bounded planning buffers, and stable checklist booleans are stored in browser <code>sessionStorage</code> by default so another tool in the same tab can restore them. Reminder dates, optional source URLs, free text, identity data, document contents and payment data are not part of the shared plan. No new tool result is written to a page URL.</li>
+           <li><strong>Optional device copy:</strong> only when you choose “Save on this device for 30 days” does the current shared-plan snapshot go to browser <code>localStorage</code>. It is ignored and removed on a later visit after its 30-day expiry; this is not a background deletion promise. Later session edits do not update that snapshot unless you save again.</li>
+           <li><strong>Legacy per-tool local storage:</strong> current tool pages attempt to remove the fixed <code>visalang-tool:...</code> local-storage copies created by older tool versions on the same site origin. “Clear shared plan” also attempts to remove every known same-origin legacy per-tool key. Browser blocking can prevent that cleanup, and one domain cannot read or delete another domain’s storage, so browser site-data settings remain the complete removal path for an old origin.</li>
+@@ -36,7 +37,8 @@
+         </ul>
+ 
+         <h2>Cookies and privacy choices</h2>
+-        <p>Where the Google consent message is shown, use Consent, Manage options, or the available non-consent path to make a choice. You can reopen or change advertising choices through the Google privacy control where it is available. You can also manage personalised advertising through <a href="https://adssettings.google.com/" rel="nofollow noopener noreferrer">Google Ads Settings</a>.</p>
++        {runtimeFeatures.advertising === 'on' && <p>Where the Google consent message is shown, use Consent, Manage options, or the available non-consent path to make a choice. You can reopen or change advertising choices through the Google privacy control where it is available. You can also manage personalised advertising through <a href="https://adssettings.google.com/" rel="nofollow noopener noreferrer">Google Ads Settings</a>.</p>}
++        {runtimeFeatures.advertising === 'off' && <p>Advertising is disabled in this build, so VisaLang does not load the AdSense script. If a future build enables advertising, its account approval, consent message and regional behavior need separate verification.</p>}
+         <p>“Restart this tool” resets the current form and the plan fields owned by that tool. The shared route remains when Checklist or Reminder is restarted; date or exam choices shared with other tools can be cleared when their owning tool is restarted. Use “Clear shared plan” to request removal of the tab-session plan, optional 30-day device copy, and known same-origin legacy per-tool local storage; current visible fields remain until you restart the current tool. Browser settings can clear all VisaLang site storage, including separate route-step progress. Tool routes and the searchable Guide Library index do not load the AdSense runtime.</p>
+ 
+         <h2>Legacy URL cleanup</h2>
+@@ -46,7 +48,7 @@
+         <p>Our guides link to official exam providers and government authorities. Once you leave visalang.org, their privacy policies apply. We are not responsible for practices on external sites.</p>
+ 
+         <h2>Advertising and measurement boundary</h2>
+-        <p>Where a deployed, account-authorised AdSense configuration is active, Google and its partners may process advertising signals according to the applicable Google settings and your choices. The source-level loader and <a href="https://visalang.org/ads.txt">ads.txt</a> entry do not prove account approval, served ads, consent, regional behavior, or legal approval.</p>
++        <p>{runtimeFeatures.advertising === 'on' ? 'Where a deployed, account-authorised AdSense configuration is active, Google and its partners may process advertising signals according to the applicable Google settings and your choices.' : 'Advertising is disabled in this build, so it emits no AdSense loader.'} The source-level loader and <a href="https://visalang.org/ads.txt">ads.txt</a> entry do not prove account approval, served ads, consent, regional behavior, or legal approval.</p>
+         <p>The <code>t27.v1</code> measurement contract is local and definition-only. It sends no events and stores no measurement records. It permits only fixed tool IDs, the <code>en</code>/<code>zh-CN</code> locale enum, finite result states, and explicit takeaway actions. It excludes names, email addresses, IP addresses, full URLs or queries, free text, dates, raw answers, document contents, notes, and third-party identifiers. It does not create a traffic baseline or count a fallback as a successful completion.</p>
+ 
+         <h2>Your rights</h2>
+--- a/src/pages/tools/route-finder.astro
++++ b/src/pages/tools/route-finder.astro
+@@ -2,6 +2,7 @@
+ import ToolLayout from '../../layouts/ToolLayout.astro';
+ import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
+ import PurposeSuggestion from '../../components/tools/PurposeSuggestion.astro';
++import { runtimeFeatures } from '../../data/runtime-features';
+ import { applicationRegionOptions, familyRelationshipOptions } from '../../data/plan-state';
+ import { getToolCopy, type ToolLocale } from '../../data/tool-copy';
+ 
+@@ -20,9 +21,9 @@
+ 
+ <ToolLayout eyebrow={copy.eyebrow} title={copy.title} description={copy.description} current="finder" locale={locale}>
+     <div class="tool-workspace">
+-      <form id="route-finder-form" class="tool-form" novalidate inert aria-busy="true">
++      <form id="route-finder-form" class="tool-form" data-purpose-mode={runtimeFeatures.purposeSuggestions} novalidate inert aria-busy="true">
+         <div class="tool-form-heading"><h2>{copy.formTitle}</h2><p>{copy.formIntro}</p></div>
+-        <PurposeSuggestion locale={locale} />
++        {runtimeFeatures.purposeSuggestions !== 'off' && <PurposeSuggestion locale={locale} mode={runtimeFeatures.purposeSuggestions} />}
+         <div class="tool-field-grid">
+           <label>{copy.fields.country}<select name="country" required><option value="">{copy.text.selectCountry}</option><option value="germany">{copy.text.germany}</option><option value="other">{copy.text.otherCountry}</option></select></label>
+           <label>{copy.fields.purpose}<select name="purpose" required><option value="">{copy.text.selectPurpose}</option><option value="family-reunion">{copy.text.family}</option><option value="b1">{copy.text.b1}</option><option value="ausbildung">{copy.text.ausbildung}</option><option value="nursing">{copy.text.nursing}</option><option value="university">{copy.text.university}</option><option value="other">{copy.text.otherPurpose}</option></select></label>
+@@ -79,7 +80,6 @@
+   import { getToolCopy, getToolLinks } from '../../data/tool-copy';
+   import { setupSharedPlan } from '../../scripts/plan-state';
+   import { setupToolForm } from '../../scripts/tool-form';
+-  import { setupPurposeSuggestion } from '../../scripts/purpose-suggestion';
+ 
+   const form = document.querySelector<HTMLFormElement>('#route-finder-form');
+   const resultPanel = document.querySelector<HTMLElement>('#route-finder-result');
+@@ -114,7 +114,10 @@
+ 
+   const plan = setupSharedPlan({ toolId: 'finder', form });
+   const controller = form ? setupToolForm(form, { locale, onRestart: () => plan.restartCurrentTool() }) : undefined;
+-  if (form) setupPurposeSuggestion(form);
++  if (form && form.dataset.purposeMode !== 'off') {
++    const { setupPurposeSuggestion } = await import('../../scripts/purpose-suggestion');
++    setupPurposeSuggestion(form);
++  }
+   form?.elements.namedItem('country')?.addEventListener('change', syncRelevantQuestions);
+   form?.elements.namedItem('purpose')?.addEventListener('change', syncRelevantQuestions);
+   syncRelevantQuestions();
+--- a/tests/adsense-risk-exposure.test.js
++++ b/tests/adsense-risk-exposure.test.js
+@@ -2,10 +2,37 @@
+ const fs = require('node:fs');
+ const { execFileSync } = require('node:child_process');
+ 
+-execFileSync('npm', ['run', 'build'], { stdio: 'pipe' });
++const build = (adsMode) => execFileSync('npm', ['run', 'build'], {
++  stdio: 'pipe',
++  env: { ...process.env, VISALANG_PURPOSE_MODE: 'off', VISALANG_ADS_MODE: adsMode },
++});
+ 
+ const adsenseHost = 'pagead2.googlesyndication.com';
+ const read = (file) => fs.readFileSync(file, 'utf8');
++const listHtml = (directory, result = []) => {
++  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
++    const file = `${directory}/${entry.name}`;
++    if (entry.isDirectory()) listHtml(file, result);
++    else if (entry.name.endsWith('.html')) result.push(file);
++  }
++  return result;
++};
++
++build('off');
++assert.deepEqual(JSON.parse(read('dist/runtime-features.json')), {
++  schemaVersion: 1, purposeSuggestions: 'off', advertising: 'off',
++});
++assert.equal(listHtml('dist').filter((file) => read(file).includes(adsenseHost)).length, 0,
++  'advertising-off build has zero pages loading the advertising runtime');
++assert.ok(!read('dist/tools/route-finder/index.html').includes('data-purpose-suggestion'),
++  'core-only Route Finder has no suggestion UI');
++assert.ok(!read('dist/zh/tools/route-finder/index.html').includes('data-purpose-suggestion'),
++  'core-only Chinese Route Finder has no suggestion UI');
++
++build('on');
++assert.deepEqual(JSON.parse(read('dist/runtime-features.json')), {
++  schemaVersion: 1, purposeSuggestions: 'off', advertising: 'on',
++});
+ 
+ const advertisingFreeRoutes = [
+   'dist/index.html',
+@@ -88,9 +115,14 @@
+ for (const file of ['dist/guides/german-family-reunion-language-requirement/index.html']) {
+   assert.ok(read(file).includes(adsenseHost), `ad-eligible control route should keep AdSense: ${file}`);
+ }
++const loadedAds = listHtml('dist').filter((file) => read(file).includes(adsenseHost));
++assert.equal(loadedAds.length, 14, 'advertising-on build loads no more than the existing 14 eligible pages');
++for (const route of ['dist/index.html', 'dist/tools/route-finder/index.html', 'dist/zh/tools/route-finder/index.html']) {
++  assert.ok(!read(route).includes(adsenseHost), `home and tools remain ad-free: ${route}`);
++}
+ 
+ const germanyCategoryHtml = read('dist/guides/category/germany-a1/index.html');
+ assert.ok(germanyCategoryHtml.includes('<meta name="robots" content="noindex,follow">'), 'Germany A1 category should remain outside indexing');
+ assert.ok(!sitemap.includes('<loc>https://visalang.org/guides/category/germany-a1/</loc>'), 'Germany A1 category should remain outside the sitemap');
+ 
+-console.log('AdSense risk-exposure rules passed');
++console.log('Advertising off/on build and risk-exposure rules passed');
+--- a/tests/deploy.test.js
++++ b/tests/deploy.test.js
+@@ -116,7 +116,9 @@
+ }
+ assert.ok(smoke.includes('rel="canonical" href="https://visalang.org/"'), 'smoke test verifies the production canonical');
+ assert.ok(smoke.includes('https://www.visalang.org'), 'smoke test checks www canonicalisation');
+-assert.ok(smoke.includes('pagead2.googlesyndication.com'), 'smoke test verifies the active AdSense runtime on eligible content');
++assert.ok(smoke.includes('ADS_MODE') && smoke.includes('Advertising-off mode loaded AdSense'), 'smoke test follows the selected advertising mode on an eligible page');
++assert.ok(smoke.includes('Homepage must remain advertising-free'), 'smoke test keeps the homepage ad-free in every mode');
++assert.ok(smoke.includes('PURPOSE_MODE') && smoke.includes('optional-purpose Nginx route'), 'smoke test verifies the purpose-service route mode without making an inference request');
+ assert.ok(smoke.includes('/tools/route-finder/'), 'smoke test verifies the tool route remains advertising-free');
+ assert.ok(smoke.includes('google.com, pub-3018617123550799, DIRECT, f08c47fec0942fa0'), 'smoke test verifies the production ads.txt seller line');
+ assert.ok(smoke.includes('content-security-policy'), 'smoke test verifies the approved CSP removal');
+--- a/tests/laya-purpose.test.mjs
++++ b/tests/laya-purpose.test.mjs
+@@ -16,6 +16,9 @@
+ assert.match(component, /TypeSafe AI, Inc\./, 'provider is identified before text submission');
+ assert.match(component, /United States/, 'provider processing region is disclosed');
+ assert.match(component, /typesafe\.ai\/legal\/privacy-policy/, 'provider privacy policy is linked');
++assert.match(component, /mode = 'typesafe'/, 'the rendered copy is selected from the configured provider mode');
++assert.match(component, /VisaLang’s Laya purpose-suggestion service/, 'Laya mode does not misidentify its provider');
++assert.match(component, /account quota/, 'TypeSafe copy states that cost and quota require operator verification');
+ const client = fs.readFileSync('src/scripts/purpose-suggestion.ts', 'utf8');
+ assert.ok(!/localStorage|sessionStorage|console\./.test(client), 'no raw input persistence or logging');
+ assert.match(client, /credentials: 'omit'/);
+--- a/tests/runtime-features.test.mjs
++++ b/tests/runtime-features.test.mjs
+@@ -0,0 +1,30 @@
++import assert from 'node:assert/strict';
++import { resolveRuntimeFeatures } from '../src/data/runtime-features.ts';
++
++const purposeModes = ['off', 'laya', 'typesafe'];
++const adModes = ['off', 'on'];
++
++for (const purposeSuggestions of purposeModes) {
++  for (const advertising of adModes) {
++    assert.deepEqual(
++      resolveRuntimeFeatures({ VISALANG_PURPOSE_MODE: purposeSuggestions, VISALANG_ADS_MODE: advertising }),
++      { schemaVersion: 1, purposeSuggestions, advertising },
++      `resolves ${purposeSuggestions}/${advertising}`,
++    );
++  }
++}
++
++assert.deepEqual(resolveRuntimeFeatures({}), {
++  schemaVersion: 1,
++  purposeSuggestions: 'off',
++  advertising: 'off',
++}, 'default build is core-only');
++
++for (const invalid of [
++  { VISALANG_PURPOSE_MODE: 'true', VISALANG_ADS_MODE: 'off' },
++  { VISALANG_PURPOSE_MODE: 'off', VISALANG_ADS_MODE: 'false' },
++]) {
++  assert.throws(() => resolveRuntimeFeatures(invalid), /Unsupported runtime feature mode/);
++}
++
++console.log('Runtime feature mode contract passed.');
+--- a/tests/scheme-3-release-candidate.test.mjs
++++ b/tests/scheme-3-release-candidate.test.mjs
+@@ -80,6 +80,7 @@
+   route: routeFor(file),
+   html: fs.readFileSync(file, 'utf8'),
+ }));
++const runtimeFeatures = JSON.parse(fs.readFileSync(path.join(dist, 'runtime-features.json'), 'utf8'));
+ const sitemap = fs.readFileSync(path.join(dist, 'sitemap-0.xml'), 'utf8');
+ const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+ const noindexPages = pages.filter(({ html }) => html.includes(noindexDirective));
+@@ -98,7 +99,8 @@
+ assert.equal(new Set(sitemapUrls).size, sitemapUrls.length, 'the release candidate sitemap contains each canonical URL once');
+ for (const route of chineseToolRoutes) assert.ok(sitemapUrls.includes(`https://visalang.org${route}`), `the release candidate sitemap contains Chinese tool route: ${route}`);
+ assert.equal(noindexPages.length, 64, 'the release candidate generates exactly 47 noindex pages after promoting the reviewed fee guide');
+-assert.equal(advertisingPages.length, 14, 'the release candidate exposes AdSense on exactly 14 pages');
++assert.equal(advertisingPages.length, runtimeFeatures.advertising === 'on' ? 14 : 0,
++  'the release candidate follows the independent advertising mode and existing 14 page limit');
+ 
+ const indexableCanonicals = pages
+   .filter(({ html }) => !html.includes(noindexDirective))
+@@ -111,7 +113,9 @@
+   .filter((slug) => !/^adsEligible:\s*false\s*$/m.test(fs.readFileSync(path.join(root, 'src/content/guides', `${slug}.md`), 'utf8')))
+   .map((slug) => `/guides/${slug}/`)
+   .sort();
+-assert.deepEqual(advertisingPages.map(({ route }) => route).sort(), expectedAdvertisingRoutes, 'only the 14 advertising-eligible English pillars load AdSense');
++assert.deepEqual(advertisingPages.map(({ route }) => route).sort(),
++  runtimeFeatures.advertising === 'on' ? expectedAdvertisingRoutes : [],
++  'only the existing eligible English pillars load AdSense when advertising is on');
+ const chinesePillarRoutes = chinesePillarSlugs.map((slug) => `/zh/guides/${slug}/`);
+ for (const route of [...englishPillarRoutes, ...chinesePillarRoutes]) {
+   const html = fs.readFileSync(outputFor(route), 'utf8');
+--- a/tests/site.test.js
++++ b/tests/site.test.js
+@@ -29,6 +29,7 @@
+ require('./fan-273-404-recovery.test.js');
+ for (const testFile of [
+   'tests/laya-purpose.test.mjs',
++  'tests/runtime-features.test.mjs',
+   'tests/route-tools.test.js',
+   'tests/article-sections-key-decisions.test.mjs',
+   'tests/scheme-3-publication.test.mjs',
+@@ -145,14 +146,15 @@
+ assert.ok(src.base.includes('rel="canonical"'), 'shared layout emits canonical URLs');
+ assert.ok(src.base.includes('hreflang'), 'shared layout emits hreflang links');
+ const adsenseLoader = 'pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3018617123550799';
++const builtFeatures = JSON.parse(read('dist/runtime-features.json'));
+ assert.ok(src.base.includes('enableAds?: boolean'), 'BaseLayout exposes an enableAds prop');
+ assert.ok(src.base.includes('enableAds = false'), 'BaseLayout keeps advertising off unless a content page opts in');
+ assert.equal((src.base.match(/pagead2\.googlesyndication\.com/g) || []).length, 1, 'BaseLayout declares the AdSense host once');
+ assert.ok(src.base.includes(adsenseLoader), 'BaseLayout loads the configured AdSense publisher script');
+ assert.match(
+   src.base,
+-  /\{\s*enableAds\s*&&\s*<script\s+async\s+src="https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-3018617123550799"\s+crossorigin="anonymous"><\/script>\s*\}/,
+-  'BaseLayout conditionally renders the approved AdSense loader through enableAds',
++  /\{\s*advertisingEnabled\s*&&\s*enableAds\s*&&\s*<script\s+async\s+src="https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-3018617123550799"\s+crossorigin="anonymous"><\/script>\s*\}/,
++  'BaseLayout requires both the runtime advertising switch and publication eligibility',
+ );
+ assert.ok(!src.base.includes('static.cloudflareinsights.com'), 'shared layout does not load Cloudflare Web Analytics');
+ assert.ok(src.tool.includes('enableAds={false}'), 'ToolLayout disables advertising for local planning tools');
+@@ -165,7 +167,8 @@
+ assert.ok(src.guideCategory.includes('allCategoryGuides') && src.guideCategory.includes('withheldGuideCount') && src.guideCategory.includes('not listed here while'), 'research-only category guides are described accurately without returning them to the Guide Library');
+ assert.ok(src.launchCheck.includes("manifestStringArray('noindexCategorySlugs')") && src.launchCheck.includes('Exactly 12 manifest categories are noindex'), 'launch check parses and enforces the manifest category closure');
+ assert.ok(
+-  src.launchCheck.includes('Only the 14 advertising-eligible English pillars load AdSense.')
++  src.launchCheck.includes('Only the existing 14 advertising-eligible English pillars load AdSense.')
++    && src.launchCheck.includes('Advertising is off: zero generated pages load AdSense.')
+     && src.launchCheck.includes('Sitemap membership exactly matches rendered indexability.'),
+   'launch check enforces the manifest advertising allowlist separately from sitemap indexability',
+ );
+@@ -184,7 +187,7 @@
+ }
+ 
+ for (const page of ['dist/guides/german-family-reunion-language-requirement/index.html']) {
+-  assert.ok(read(page).includes(adsenseLoader), `ad-eligible generated page loads AdSense: ${page}`);
++  assert.equal(read(page).includes(adsenseLoader), builtFeatures.advertising === 'on', `ad-eligible generated page follows the runtime advertising mode: ${page}`);
+ }
+ for (const page of [
+   'dist/index.html',
+--- a/docs/module-handoffs/2026-09-24-01/W08/runtime-feature-contract.md
++++ b/docs/module-handoffs/2026-09-24-01/W08/runtime-feature-contract.md
+@@ -0,0 +1,36 @@
++# W08 runtime feature contract v1
++
++Shared W09/W16 interface for batch `2026-09-24-01`; baseline `cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40`.
++
++## Canonical shape
++
++```json
++{"schemaVersion":1,"purposeSuggestions":"off | laya | typesafe","advertising":"off | on"}
++```
++
++`src/data/runtime-features.ts` owns the contract. Select with `VISALANG_PURPOSE_MODE` and `VISALANG_ADS_MODE`; both default to `off`. Astro injects the resolved object and writes the same bytes to `dist/runtime-features.json`. `release.py prepare` reads that built file; `release.json.features`, Nginx, service startup, probe and evidence conditions derive from it. Release flags cannot pick a mode. Advertising `on` only permits existing `publication-manifest.ts` eligible English articles; it cannot add pages. Home, tools, guide index, Chinese, policy, category, pending and commercial pages remain ad-free.
++
++## Six-mode matrix
++
++| Purpose | Ads | Runtime and dependencies |
++|---|---|---|
++| off | off | No suggestion markup, client initialization, request or proxy; no ad loader. EN/ZH manual choices, deterministic routes and saved state remain. No Python image/model/cache/key/service. `capacity` and `adsConsent` must be hash-bound `not_applicable` evidence proving absence. |
++| off | on | Same core-only behavior; current eligible EN article set (14) may load ads; home/tools stay at zero. No provider dependencies; ads consent/account evidence must pass. |
++| laya | off | Explicit local Laya provider copy; user-triggered only; failures keep manual choice. Requires immutable image, exact locked model revision/weights and capacity evidence. No TypeSafe key/privacy/quota gate. Ads evidence is N/A with zero-load proof. |
++| laya | on | Laya requirements plus only the existing eligible EN pages. Ads consent/account evidence must pass. |
++| typesafe | off | User-triggered only; pre-send copy names TypeSafe, US processing, policy retention/no-training terms, and unresolved local price/quota settings. Requires immutable image, `jev-latest`, server `TYPESAFE_API_KEY`, and TypeSafe privacy/processing plus price/quota evidence. Laya local capacity evidence is N/A; no Laya revision/cache/weights. Ads evidence is N/A. |
++| typesafe | on | TypeSafe requirements plus only existing eligible EN pages; both TypeSafe and ads evidence must pass. Laya local capacity evidence is N/A; no Laya revision/cache/weights. |
++
++Provider outage, missing credentials, malformed output, timeout or disabled mode leaves manual selection available. No model branch decides eligibility or submits a route choice.
++
++## Old candidates
++
++- New bundles contain exactly `features` and matching `site/runtime-features.json`; extra/missing fields, unknown values or conflicting legacy mirrors fail closed. New manifests do not emit `purposeProvider`, `adsRequired`, or provider booleans as a parallel source.
++- Legacy v1 manifests without `features` are inferred only with explicit boolean `adsRequired`; absent `purposeProvider` means legacy Laya. Legacy TypeSafe must satisfy its prior `typesafeModel`, `typesafeRequired=true`, `layaRequired=false` shape. Its built runtime file must match the inferred mode.
++- Pre-contract bundles without `site/runtime-features.json`, ambiguous ad mode, incomplete provider requirements, mismatched bytes or mode conflict are refused and must be rebuilt; no in-place migration. Dirty candidates, source hashes, candidate identity, owner receipt and rollback baseline gates remain.
++
++## Transitions and failure recovery
++
++Mode changes create a new immutable candidate. The transaction preflights target and current release, stages/validates mode-specific Nginx, starts or removes the optional service, uses a body-free GET guard (405 enabled, 404 off), reloads and smokes static/retained routes before recording `current`. Any failure restores the exact previous service/config/pointer; restore failure propagates. Laya alone requires the local capacity gate; TypeSafe requires its key presence plus privacy/processing and quota/price evidence and does not require Laya capacity or weights. TypeSafe preflight passes the environment-variable name to Docker. Builds and probes make no model API call.
++
++W09/W16 consume `dist/runtime-features.json` and `release.json.features` after W00 serial integration. Do not create a second toggle or infer activation from `ads.txt`. LP04, actual host/backup/TLS/rollback, Owner and production evidence remain separate.
+--- a/docs/module-handoffs/2026-09-24-01/W08/typesafe-official-evidence.md
++++ b/docs/module-handoffs/2026-09-24-01/W08/typesafe-official-evidence.md
+@@ -0,0 +1,12 @@
++# TypeSafe official documentation check
++
++Checked 2026-09-25. Project references: `.agents/skills/typesafe-ai/SKILL.md` and `docs/superpowers/plans/2026-09-24-typesafe-project-adoption.md` §10.
++
++| Official source | Supports | Boundary |
++|---|---|---|
++| [Documentation index](https://docs.typesafe.ai/llms.txt) | Current official API and Choice documentation locations. | Not local execution, price, quota, privacy or quality evidence. |
++| [HTTP API](https://docs.typesafe.ai/api) | `POST /v1/systemone`, Bearer key, state/model/questions request shape, typed Choice results, usage token fields and 401/422/429/529 errors. | Token usage does not state VisaLang pricing/account quota. No call was made. |
++| [Choice](https://docs.typesafe.ai/primitives/choice) | Fixed-option selection, answer probabilities/confidence and advice to include an `other`/none outcome. | Confidence is not this project's measured accuracy or permission. |
++| [Privacy policy](https://typesafe.ai/legal/privacy-policy) | US hosting; policy says inputs are not used to train/fine-tune models and personal data may be retained as reasonably necessary for services/business. | Does not verify account processing settings, contract/DPA applicability, specific retention/deletion, VisaLang legal compliance or quality. |
++
++W08 preserves the server-side key boundary and pre-send disclosure. Price, account quota/settings, real-user input, accuracy, actual cost and production latency remain unverified; TypeSafe release gates therefore require separate privacy/processing and price/quota receipts. No credentials were read and no API request was made.

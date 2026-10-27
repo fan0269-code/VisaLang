@@ -1,59 +1,64 @@
 ---
-title: "Goethe A1 writing practice: short forms and messages"
-seoTitle: "Goethe A1 writing practice"
-description: "Build a safe Goethe A1 writing-practice routine for short forms and messages, then verify the current local format with official materials."
+title: "Goethe A1 writing: check task completion"
+description: "Practise short original messages and identify missing information before polishing grammar."
 category: "germany-a1"
 slug: "goethe-a1-writing-practice"
 publishedDate: "2026-07-11"
-updatedDate: "2026-07-22"
-sourceReviewedAt: "2026-07-22"
+updatedDate: "2026-09-22"
+sourceReviewedAt: "2026-09-22"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
-contentStatus: "complete-route"
-primaryIntent: "Goethe A1 writing practice: short forms and messages decision support"
+contentStatus: "core-route"
+noindex: true
+adsEligible: false
+primaryIntent: "Practise short original messages and identify missing information before polishing grammar."
 decisionStage: "local-execution"
-nextGuideSlug: "goethe-a1-30-day-study-plan"
 comparisonScope: "same-route"
-audienceScope: "Adults preparing the writing section of Goethe-Zertifikat A1: Start Deutsch 1 with current official practice material."
-finalDecisionAuthorityType: "Goethe-Institut for exam format and an authorised local centre for local administration"
+audienceScope: "Practise short original messages and identify missing information before polishing grammar."
+finalDecisionAuthorityType: "Goethe-Institut for examination format; selected examination centre for local administration"
 primaryOfficialAuthorityUrl: "https://www.goethe.de/en/spr/prf/ueb/pa1.html"
 examOwnerUrl: "https://www.goethe.de/en/spr/prf.html"
-localExecutionPrompt: "Use the current Goethe A1 adult writing training and confirm any centre-specific format, date, ID and test-day instruction with the authorised local centre."
+localExecutionPrompt: "Open the linked official source and the selected centre or competent mission instructions before relying on any individual or local outcome."
 author: "VisaLang Editorial team"
-readingTime: "6"
-featured: false
-eyebrow: "Germany family reunion"
-route: "germany-a1"
-supportingGuideSlugs: ["goethe-a1-speaking-topics", "goethe-a1-official-links-practice-resources"]
+readingTime: "4"
+nextGuideSlug: "goethe-a1-30-day-study-plan"
+supportingGuideSlugs: ["goethe-a1-30-day-study-plan"]
 ---
 
-## Scope of this guide
+## Who this is for
 
-Use this page when you have already confirmed that an A1 exam route is relevant and need a repeatable way to practise short written communication. It is not a prediction of your local exam tasks, a substitute for official materials, or proof that a certificate will be accepted.
+Practise short original messages and identify missing information before polishing grammar. This page provides a working method, not an individual exam or application decision.
 
-## Practise abilities, not predicted prompts
+## Key decisions
 
-Build short practice around everyday purposes: entering personal details carefully, asking for simple information, confirming an appointment, or writing a brief message. Practise clear spelling, the details requested, and a simple greeting and closing where the task calls for them.
+Choose the exact product or application task first. Keep official requirements separate from the original practice or checking activities below.
 
-Do not memorise a single paragraph and reuse it everywhere. Change the name, time, place, reason, and requested action so that you are practising how to respond rather than copying a script.
+## Underline what the reader needs
 
-## A short writing routine
+For an original practice prompt, imagine telling a friend that an appointment has moved. List the new day, time and meeting place before writing. Use fictional details. The example is a learning exercise, not an official sample or required word count.
 
-1. Choose one official sample or an original practice prompt.
-2. Underline the information you must include before writing.
-3. Write a short first version without a translation app.
-4. Check names, numbers, dates, and whether every requested detail appears.
-5. Rewrite one sentence more clearly, then keep an error note for the next session.
+## Write a first version independently
 
-## Verify the current format officially
+Draft the message without automatic translation. Keep it short enough to reread carefully. Compare each required detail with your planning list before making stylistic improvements; a polished sentence does not compensate for an omitted meeting time.
 
-Use current official sample material to understand the format you are preparing for. If your local centre provides a different instruction, that instruction takes priority. Do not buy copied answers, leaked tasks, or services that promise a score or pass.
+## Use a two-pass check
+
+First check task completion: recipient, reason, requested action and key details. Then check whether spelling, word order or number errors change the meaning. Mark uncertain language for later feedback instead of silently replacing the entire message with machine output.
+
+## Test a new variation
+
+Change the recipient and one important detail, then write again the next day. Keep the original and revision in your private error log. Use the official adult training material for format and assessment references; this checklist does not calculate an examination score.
+
+## Mistakes to avoid
+
+Do not treat a sample, practice result or another person’s experience as confirmation of your own booking, certificate acceptance or readiness. Record unresolved questions rather than filling in dates, fees or outcomes.
 
 ## Next action
 
-Pair this routine with [Goethe A1 speaking topics](/guides/goethe-a1-speaking-topics/) and the [30-day study plan](/guides/goethe-a1-30-day-study-plan/). Before payment, return to the [Germany A1 family reunion hub](/germany-family-reunion-a1/) to confirm the route, centre, and timing questions still fit your plan.
+Complete the working record above, then use [the related guide](/guides/goethe-a1-30-day-study-plan/) to continue. Reopen the official source for any current product, local or application requirement.
 
 ## Official sources
 
-- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [Official Goethe A1 exam training](https://www.goethe.de/en/spr/prf/ueb/pa1.html)
+- [Official task reference](https://www.goethe.de/en/spr/prf/ueb/pa1.html) — checked 2026-09-22. Supports the official reference entry point for this task; the activities on this page are original editorial guidance. Owner: Goethe official adult A1 writing material. It does not establish your result, booking availability, price, exemption or individual acceptance.
+
+The official A1 page provides adult practice material; select the adult section.

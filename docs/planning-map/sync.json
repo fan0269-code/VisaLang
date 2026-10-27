@@ -1,0 +1,275 @@
+{
+  "schemaVersion": 1,
+  "syncId": "VL-PMAP-20261011-03",
+  "checkedAt": "2026-10-11T19:00:00+08:00",
+  "authority": {
+    "status": "derived-view-only",
+    "paths": [
+      "docs/master-package-2026-09-08/VisaLang-Master-Plan.md",
+      "docs/master-package-2026-09-08/VisaLang-Codex-Backlog.csv",
+      "docs/master-package-2026-09-08/BACKLOG_STATUS_OVERLAY_2026-09-09.md",
+      "docs/master-package-2026-09-08/EXECUTION_RECORD.md"
+    ],
+    "authorityDigest": "3dea5d458fa34c66501f6ced33b038bb3ca2dc286ba189fb8f460923c287f0d3"
+  },
+  "scope": {
+    "triggerClasses": [
+      "content",
+      "content-planning"
+    ],
+    "watchRoots": [
+      "AGENTS.md",
+      "README.md",
+      "docs/CONTENT_MAP.md",
+      "docs/VISALANG_INDEPENDENT_AUDITOR_AGENT.md",
+      "docs/VISALANG_ONE_WEEK_SCHEME_3_CONTENT_PLAN_2026-09-01.md",
+      "docs/master-package-2026-09-08",
+      "docs/prompts",
+      "docs/superpowers/plans",
+      "public",
+      "src"
+    ],
+    "watchedScopeDigest": "0ed8de28bf80593d6a39269f93925fa16cc0b5b103ec1600fed7b6689f40e84c",
+    "watchedFileCount": 260,
+    "changedPaths": [
+      "docs/planning-map/baseline-2026-10-11/history.json",
+      "docs/planning-map/baseline-2026-10-11/sync.json",
+      "docs/planning-map/baseline-2026-10-11/visalang-overall-build-plan.archify.json",
+      "docs/planning-map/baseline-2026-10-11/visalang-overall-build-plan.html",
+      "docs/planning-map/baseline-2026-10-11/visalang-overall-build-plan.visual-check.json",
+      "docs/planning-map/baseline-2026-10-11/visual-review.json",
+      "docs/planning-map/governance-preaudit.log",
+      "docs/planning-map/history.json",
+      "docs/planning-map/initial-worktree-status-2026-10-11.txt",
+      "docs/planning-map/README.md",
+      "docs/planning-map/sync.json",
+      "docs/planning-map/visalang-overall-build-plan.archify.json",
+      "docs/planning-map/visalang-overall-build-plan.deliver.json",
+      "docs/planning-map/visalang-overall-build-plan.html",
+      "docs/planning-map/visalang-overall-build-plan.validate.json",
+      "docs/planning-map/visalang-overall-build-plan.visual-check.json",
+      "docs/planning-map/visual-review.json",
+      "docs/prompts/2026-10-11-next-stage/N00-governance-closeout.md",
+      "docs/prompts/2026-10-11-next-stage/README.md",
+      "docs/superpowers/plans/2026-10-11-visalang-project-roadmap.md",
+      "docs/TASK_LOG.md",
+      "docs/VISALANG_UPDATE_RECORD_REVIEW_2026-10-11.md",
+      "tests/site.test.js"
+    ],
+    "pathClassifications": {
+      "docs/planning-map/baseline-2026-10-11/history.json": "governance-evidence",
+      "docs/planning-map/baseline-2026-10-11/sync.json": "governance-evidence",
+      "docs/planning-map/baseline-2026-10-11/visalang-overall-build-plan.archify.json": "governance-evidence",
+      "docs/planning-map/baseline-2026-10-11/visalang-overall-build-plan.html": "governance-evidence",
+      "docs/planning-map/baseline-2026-10-11/visalang-overall-build-plan.visual-check.json": "governance-evidence",
+      "docs/planning-map/baseline-2026-10-11/visual-review.json": "governance-evidence",
+      "docs/planning-map/governance-preaudit.log": "governance-evidence",
+      "docs/planning-map/history.json": "governance-output",
+      "docs/planning-map/initial-worktree-status-2026-10-11.txt": "governance-evidence",
+      "docs/planning-map/README.md": "governance-source",
+      "docs/planning-map/sync.json": "governance-output",
+      "docs/planning-map/visalang-overall-build-plan.archify.json": "governance-source",
+      "docs/planning-map/visalang-overall-build-plan.deliver.json": "generated-evidence",
+      "docs/planning-map/visalang-overall-build-plan.html": "generated-artifact",
+      "docs/planning-map/visalang-overall-build-plan.validate.json": "generated-evidence",
+      "docs/planning-map/visalang-overall-build-plan.visual-check.json": "generated-evidence",
+      "docs/planning-map/visual-review.json": "generated-evidence",
+      "docs/prompts/2026-10-11-next-stage/N00-governance-closeout.md": "content-planning",
+      "docs/prompts/2026-10-11-next-stage/README.md": "content-planning",
+      "docs/superpowers/plans/2026-10-11-visalang-project-roadmap.md": "content-planning",
+      "docs/TASK_LOG.md": "governance-output",
+      "docs/VISALANG_UPDATE_RECORD_REVIEW_2026-10-11.md": "governance-evidence",
+      "tests/site.test.js": "governance-test"
+    },
+    "candidateByteBindings": {
+      "docs/planning-map/baseline-2026-10-11/history.json": "a93b975e8355261baea52b328436c8380a0a975b0a0fc5624cb9588d6fa8f8be",
+      "docs/planning-map/baseline-2026-10-11/sync.json": "0e2191b14c712e260441436267432a520943b3f3c6f49de542a376066b9fd688",
+      "docs/planning-map/baseline-2026-10-11/visalang-overall-build-plan.archify.json": "1bbe4f4686af3b6ceaf1488b921dee1b4643ed22c3dcbf52fe9dc771b7c9085c",
+      "docs/planning-map/baseline-2026-10-11/visalang-overall-build-plan.html": "da9dc5811eb9f0a35de2cb8cc7d9ecf123c068cae3fe737627ee558772d2f177",
+      "docs/planning-map/baseline-2026-10-11/visalang-overall-build-plan.visual-check.json": "e70608bb557c2cbb89e17baa0406ed4acc076e6b82982b139a0546de51995821",
+      "docs/planning-map/baseline-2026-10-11/visual-review.json": "1678f5d88dd26b3ad1761c40d3da4f25bbda2edae27147882c9053b5ea97e675",
+      "docs/planning-map/governance-preaudit.log": "decbaf34c6f5d155546669dcbab868a3acd513fc99c3d6a6bf0a1402051e2286",
+      "docs/planning-map/history.json": "1305991269dadfd744410485bd2acca7bcf67d6d5d181378716c0f3f1b03c218",
+      "docs/planning-map/initial-worktree-status-2026-10-11.txt": "65b0dc84f77553189f64b6d05afd714e6e33ad40e7af1554ba5bb87c7cdf78ae",
+      "docs/planning-map/README.md": "da78fc0111742da47d48805a771d9f7789a589e1d25b8265a3df2f0dfdebb295",
+      "docs/planning-map/visalang-overall-build-plan.archify.json": "566fd5ccb8656664c3eedf872bfab2d248dfa4065552afbfd277d296e414e3a8",
+      "docs/planning-map/visalang-overall-build-plan.deliver.json": "0cd1b6ea9fd850cc580d872ac2fe388c73ce326c5f234ebf27352a26d659deb2",
+      "docs/planning-map/visalang-overall-build-plan.html": "481d1e69270d421421478d43c93f6987743009324b9ae4563e65121b233ba3ce",
+      "docs/planning-map/visalang-overall-build-plan.validate.json": "44e46b41fe5045fb69dbe617e7051aa5fba6abe9ed17cb90afef4139d8730240",
+      "docs/planning-map/visalang-overall-build-plan.visual-check.json": "58268546ec4a48226dc433a31646dc8f4b9852d121dd2f6775be37e007d1b837",
+      "docs/planning-map/visual-review.json": "c028abc6ba98fdb578d299ee675d1d045daf752f5064d6edeeb6f0e552eeb1d6",
+      "docs/TASK_LOG.md": "bd04fe5c9a248bde3ba8c3bbdb963641594553005cd44018eb3851167d1f9b9e",
+      "docs/VISALANG_UPDATE_RECORD_REVIEW_2026-10-11.md": "09e38573bbd79aaf477c19ccef08642fdcf22d11deaeb92da6fb2ee4ed296eac",
+      "tests/site.test.js": "961917e4ccaa75228df71b886e7fbc3de9fdd334fd91f07a08ba8024179d0982"
+    }
+  },
+  "history": {
+    "path": "docs/planning-map/history.json",
+    "sha256": "1305991269dadfd744410485bd2acca7bcf67d6d5d181378716c0f3f1b03c218"
+  },
+  "planState": {
+    "currentPhase": "N00 governance closeout remains blocked: browser environment and Vault path/template are unavailable; N00-G recovery prompt and audit/test sequence clarified; no integration",
+    "completedTasks": [
+      "T01-T18",
+      "T20-T22",
+      "T24-T27"
+    ],
+    "candidateTasks": [
+      "T19-calendar-import",
+      "T23-production-retention-evidence",
+      "T28-user-device-acceptance",
+      "T29-core-fixes-and-conditional-model-quality",
+      "T30-core-decoupling-and-branch-host-verification"
+    ],
+    "pendingPlanningPackages": [
+      "LP00",
+      "LP01a",
+      "LP01b",
+      "LP02-LP04",
+      "LP05a",
+      "LP05b",
+      "LP06-core",
+      "LP06-laya",
+      "LP06-ads",
+      "LP07-LP08",
+      "LC01-LC12"
+    ],
+    "nextTasks": [
+      "N00-governance-closeout-after-browser-visual-and-audit-gates",
+      "N01-serial-integration-W03-W04-W08-W07",
+      "N02-LC12-41-page-ledger-and-source-queue",
+      "N03-evidence-backed-up-to-three-content-fixes",
+      "N04-frozen-core-candidate-independent-audit"
+    ],
+    "conditionalTasks": [
+      "LP01b-combine-reader-and-initial-technical-evidence",
+      "LP02-LP03-expanded-Laya-only-after-continuation",
+      "LP05b-LP06-ads-independent-evidence",
+      "LP06-laya-independent-activation",
+      "LC08-practice-demand",
+      "LC09-LC11-independent-B1-demand",
+      "LP07-T32-T33-after-actual-release",
+      "LP08-LC12-two-week-review",
+      "T19-calendar-client-import",
+      "T23-public-URL-verification"
+    ],
+    "affectedNodeIds": [
+      "core_candidate"
+    ],
+    "affectedEdgeIds": [],
+    "typesafeProposal": {
+      "status": "local_provider_enabled_one_synthetic_smoke_accuracy_not_evaluated",
+      "path": "docs/superpowers/plans/2026-09-24-typesafe-project-adoption.md",
+      "nextDecision": "separate-accuracy-study-and-production-authorization"
+    },
+    "scanSummary": {
+      "originalTaskCount": 34,
+      "completedLocalTasks": 25,
+      "inProgressTasks": 5,
+      "pendingTasks": 4,
+      "unweightedTaskCompletionPercent": 73.5,
+      "guideRoutes": 61,
+      "pillars": 20,
+      "supportAndReference": 41,
+      "featureImplementationThisWindow": false
+    },
+    "p00Batch": {
+      "batchId": "2026-09-24-01",
+      "baselineId": "cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40",
+      "preparedModules": [
+        "W03",
+        "W04",
+        "W08"
+      ],
+      "executingModules": [],
+      "handoffCount": 0,
+      "integrationCount": 0,
+      "implementationStatus": "not_started",
+      "deferred": {
+        "P04": "W07/W15",
+        "P05": "W17"
+      },
+      "historicalBatchPreserved": "2026-09-23-01",
+      "historicalSnapshotOnly": true
+    },
+    "moduleObservation": {
+      "observedAt": "2026-10-05T12:35:32+08:00",
+      "recordPath": "docs/module-handoffs/2026-10-05-integration/intake.json",
+      "candidateModules": [
+        "W03",
+        "W04",
+        "W08",
+        "W07"
+      ],
+      "candidateRecordsVerified": 139,
+      "distinctImplementationPaths": 43,
+      "integratedModules": [],
+      "qualityApproval": "not_granted_by_intake",
+      "archiveBatchPath": "docs/module-handoffs/2026-10-05-integration",
+      "archiveVerification": "417/417 archived files; 139/139 candidates and live bases; 44/44 historical receipts; four scratch patch dry-runs passed",
+      "temporaryHandoffFiles": "original handoff.json and candidate.patch files absent; exact bytes retained from 2026-09-28 archive"
+    },
+    "currentTask": "N00-G-governance-closeout (blocked pending browser/Vault/audit gates)",
+    "nextTask": "N01-serial-integration-W03-W04-W08-W07 (blocked until N00 passes)"
+  },
+  "diagramChange": {
+    "mode": "status-only",
+    "sourcePath": "docs/planning-map/visalang-overall-build-plan.archify.json",
+    "sourceSha256": "566fd5ccb8656664c3eedf872bfab2d248dfa4065552afbfd277d296e414e3a8",
+    "artifactPath": "docs/planning-map/visalang-overall-build-plan.html",
+    "artifactSha256": "481d1e69270d421421478d43c93f6987743009324b9ae4563e65121b233ba3ce",
+    "archifyVersion": "2.17",
+    "validation": {
+      "quality": "showcase",
+      "checks": 9,
+      "errors": 0,
+      "warnings": 0
+    },
+    "delivery": {
+      "status": "pass",
+      "atomic": true,
+      "receiptPath": "docs/planning-map/visalang-overall-build-plan.deliver.json",
+      "receiptSha256": "0cd1b6ea9fd850cc580d872ac2fe388c73ce326c5f234ebf27352a26d659deb2"
+    },
+    "browserEvidence": "blocked",
+    "browserEvidenceKind": "automated-browser",
+    "browserEvidencePath": "docs/planning-map/visalang-overall-build-plan.visual-check.json",
+    "browserEvidenceSha256": "58268546ec4a48226dc433a31646dc8f4b9852d121dd2f6775be37e007d1b837",
+    "visualReview": "blocked",
+    "visualReviewPath": "docs/planning-map/visual-review.json",
+    "visualReviewSha256": "c028abc6ba98fdb578d299ee675d1d045daf752f5064d6edeeb6f0e552eeb1d6",
+    "correctionRounds": 0,
+    "validationEvidencePath": "docs/planning-map/visalang-overall-build-plan.validate.json",
+    "validationEvidenceSha256": "44e46b41fe5045fb69dbe617e7051aa5fba6abe9ed17cb90afef4139d8730240"
+  },
+  "drift": {
+    "status": "unresolved",
+    "basis": "The N00-G prompt routing and planning-map governance sequence were corrected in this status-only maintenance window. Archify showcase validation and atomic delivery pass for the current HTML, but no current-artifact browser receipt, screenshots, or perceptual pass exist because the same Chrome environment has not changed after two SIGABRT attempts. The configured Obsidian destination/template remain absent. N00 and N01 stay blocked; no release authorization is implied.",
+    "planRefs": [
+      "docs/master-package-2026-09-08/VisaLang-Master-Plan.md",
+      "docs/master-package-2026-09-08/VisaLang-Codex-Backlog.csv",
+      "docs/master-package-2026-09-08/BACKLOG_STATUS_OVERLAY_2026-09-09.md",
+      "docs/master-package-2026-09-08/EXECUTION_RECORD.md",
+      "docs/superpowers/plans/2026-10-11-visalang-project-roadmap.md",
+      "docs/superpowers/plans/2026-09-28-visalang-integration-content-acceptance.md",
+      "docs/module-handoffs/2026-10-05-integration/README.md",
+      "docs/VISALANG_UPDATE_RECORD_REVIEW_2026-10-07.md",
+      "docs/prompts/2026-10-11-next-stage/N00-governance-closeout.md",
+      "docs/prompts/2026-10-11-next-stage/README.md",
+      "docs/planning-map/README.md"
+    ],
+    "ownerDecisionRef": null,
+    "releaseImpact": "blocked"
+  },
+  "audit": {
+    "required": true,
+    "scopeContract": "exact-changed-paths",
+    "requiresSyncReceiptSha256": true,
+    "recordPath": "docs/planning-map/VISALANG_PROJECT_PLAN_INDEPENDENT_AUDIT_2026-10-11.md",
+    "status": "blocked"
+  },
+  "releaseStatus": "not_deployed",
+  "vaultStatus": "blocked",
+  "currentTask": "N00-G-governance-closeout (blocked: current-artifact browser/perceptual evidence and Vault readback unavailable)",
+  "nextTask": "N01-serial-integration-W03-W04-W08-W07 (blocked until N00 gates pass)"
+}

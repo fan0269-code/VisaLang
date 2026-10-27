@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "VL-PMAP-20260920-01-visual-r1",
+  "reviewedAt": "2026-09-20T04:05:22+00:00",
+  "reviewerCapability": "image-capable-agent",
+  "status": "passed",
+  "artifact": {
+    "path": "docs/planning-map/visalang-overall-build-plan.html",
+    "sha256": "da52236ee4d4b2baad5a0371261d541bed9f3d480105d9291b97a4c0d9ab6585"
+  },
+  "browserEvidence": {
+    "path": "docs/planning-map/visalang-overall-build-plan.visual-check.json",
+    "sha256": "116e2684455b3bd19b05eb3b71cb8c803ef55608b0c04f6030ce000d2e575d6b"
+  },
+  "screenshots": [
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.1440x900.dark.png",
+      "sha256": "36aba8d7bb18e8cd22b6736b74a762c3ce81995c343429902c641e04c93e623c",
+      "width": 1440,
+      "height": 900,
+      "theme": "dark"
+    },
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.1440x900.light.png",
+      "sha256": "27effe61c03b8919b6f67d036b43091261be5975c825a05a3230cefdca6c9959",
+      "width": 1440,
+      "height": 900,
+      "theme": "light"
+    },
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.2048x1320.dark.png",
+      "sha256": "8479c3bd5e603b84e901f107e0abbea6b782c8e5d3e7037aee763fd284017d67",
+      "width": 2048,
+      "height": 1320,
+      "theme": "dark"
+    },
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.2048x1320.light.png",
+      "sha256": "d792e3637e0c98616c495c11b24a13b5cdff40d7bbf30f0ccb3fd584c6b0b01f",
+      "width": 2048,
+      "height": 1320,
+      "theme": "light"
+    }
+  ],
+  "findings": [],
+  "correctionRounds": 0,
+  "notes": "All four exact PNGs inspected with image-capable tool. Both themes readable; nodes, edges and cards contained without visible overlap/clipping. Automated containment separately recorded; not an independent implementation audit."
+}

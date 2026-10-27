@@ -1,0 +1,7 @@
+# Independent review submission
+
+Review only the frozen module-prompt maintenance scope in candidate-manifest.json. Read docs/VISALANG_INDEPENDENT_AUDITOR_AGENT.md. You must not have researched, planned or implemented this current window. The only write permitted is the new report docs/planning-map/VISALANG_MODULE_PROMPTS_INDEPENDENT_AUDIT_2026-09-23.md.
+
+Review all 19 window prompts, COMMON handoff/isolation rules, dispatch plan and index, maintained authority addenda, map/status/receipts and historical retention. Examine real code/test paths read-only where needed to test whether instructions are executable. Ensure no circular full-protocol prerequisite; no implicit simultaneous core/model/ads gate; no false reader/Linux/account/production evidence; no unsafe concurrent writes or requirement to discard dirty work. Inspect all four screenshot bytes independently and bind the full sync hash. Final npm test will run after your report to satisfy the report gate; do not predeclare its result.
+
+Exact baseline branch/HEAD/upstream/dirty state is recorded in baseline.json and baseline-status.txt. Pre-existing work is preserved. Scope.changedPaths must match your report scope exactly, including excluded evidence/verification inputs; your report is excluded from its own hash. Report PASS only with no scoped P0–P2; otherwise specify fixes for the same reviewer to re-audit. Authorization and deployment are separate; Vault is blocked, not silently completed.

@@ -1,0 +1,48 @@
+{
+  "at": "2026-09-22T12:46:54.680260+00:00",
+  "commands": [
+    {
+      "command": "node --check experiments/laya-purpose-v2/demo.mjs",
+      "exit_code": 0
+    },
+    {
+      "command": "LAYA_PYTHON=<configured Python> LAYA_DEVICE=cpu node experiments/laya-purpose-v2/demo.mjs --evaluate --output experiments/laya-purpose-v2/evidence/results.json",
+      "exit_code": 0,
+      "log": "evaluate.stdout.jsonl"
+    },
+    {
+      "command": "node experiments/laya-purpose-v2/verify.mjs",
+      "exit_code": 0,
+      "log": "verify.log"
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 <configured Python> experiments/laya-purpose-v2/check-runtime.py",
+      "exit_code": 0,
+      "log": "runtime-check.log"
+    },
+    {
+      "command": "npm test",
+      "exit_code": 1,
+      "log": "npm-test.log",
+      "note": "All suites before final planning governance passed. Fails pre-existing Task Log binding."
+    },
+    {
+      "command": "node tests/planning-map-governance.test.mjs",
+      "exit_code": 1,
+      "log": "planning-governance.log",
+      "note": "Before v2 Task Log append; expected operand is baseline/current file 997604ab..., actual operand is stored receipt d9fbc94e...."
+    },
+    {
+      "command": "node tests/planning-map-governance.test.mjs",
+      "exit_code": 1,
+      "log": "planning-governance-final.log",
+      "note": "After required append; same binding failure."
+    },
+    {
+      "command": "npm run build / npm run launch-check",
+      "status": "not_run",
+      "reason": "No route/navigation/metadata/deployment changes in this isolated experiment."
+    }
+  ],
+  "repository_gate": "blocked: pre-existing planning receipt Task Log mismatch; no authority repair authorized in isolated experiment"
+}

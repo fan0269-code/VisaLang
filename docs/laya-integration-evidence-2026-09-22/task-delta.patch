@@ -1,0 +1,676 @@
+--- a/astro.config.mjs
++++ b/astro.config.mjs
+@@ -29,6 +29,13 @@
+     }),
+   ],
+   trailingSlash: 'always',
++  vite: {
++    server: {
++      proxy: {
++        '/api/purpose-suggestion/': 'http://127.0.0.1:8011',
++      },
++    },
++  },
+   build: {
+     format: 'directory',
+   },
+--- a/deploy/laya-purpose-nginx.conf
++++ b/deploy/laya-purpose-nginx.conf
+@@ -0,0 +1,21 @@
++# Include within the canonical HTTPS server block ONLY after the service is ready.
++# This file assumes the limit_req_zone below is defined in nginx's http context:
++# limit_req_zone $binary_remote_addr zone=visalang_purpose:10m rate=6r/m;
++location = /api/purpose-suggestion/ {
++    limit_req zone=visalang_purpose burst=3 nodelay;
++    limit_req_status 429;
++    client_max_body_size 4k;
++    client_body_timeout 5s;
++    client_body_buffer_size 8k;
++    proxy_request_buffering off;
++    proxy_buffering off;
++    proxy_cache off;
++    proxy_connect_timeout 2s;
++    proxy_send_timeout 5s;
++    proxy_read_timeout 15s;
++    proxy_pass http://127.0.0.1:8011;
++    proxy_set_header Host $host;
++    proxy_set_header Cookie "";
++    proxy_set_header Authorization "";
++    access_log off;
++}
+--- a/deploy/README.md
++++ b/deploy/README.md
+@@ -13,8 +13,12 @@
+ - `smoke-test.sh` — black-box public verification after an authorised release.
+ - `rollback.sh` — atomic rollback to an explicitly supplied verified release ID.
+ 
+-## Local release gate
++## Optional Laya purpose service
+ 
++Route Finder's purpose suggestions require the separately deployed resident Python service described in `services/laya-purpose/README.md`. Install `laya-purpose-nginx.conf` only after its upstream is ready and the `visalang_purpose` rate-limit zone is defined in Nginx's `http` context. The endpoint is `/api/purpose-suggestion/` (including its trailing slash); the browser keeps manual choices available if it fails. The existing static deployment script does not provision model weights, build/start the service, or install this optional snippet. Those are explicit prerequisites for an authorized Laya production rollout.
++
++## Local release gate commands
++
+ Node.js 22.12 or newer and npm must already be installed. The deployment script refuses older or missing runtimes instead of changing the server runtime during a release.
+ 
+ Run from the repository root:
+--- a/docs/master-package-2026-09-08/BACKLOG_STATUS_OVERLAY_2026-09-09.md
++++ b/docs/master-package-2026-09-08/BACKLOG_STATUS_OVERLAY_2026-09-09.md
+@@ -52,3 +52,8 @@
+ were confirmed before M4 edits. T19 remains partial, T23 blocked, and formal
+ Vault sync remains blocked by the absent configured directory/template. No
+ release authorization is supplied by these local task statuses.
++
++
++## 2026-09-22 Owner-approved extension — Laya purpose suggestions
++
++Optional source-level integration into the existing bilingual Route Finder is authorized separately from the original task sequence. Design/Owner decision: `docs/superpowers/plans/2026-09-22-laya-purpose-integration.md`. Laya suggests a purpose; the user must confirm before the existing selector changes. Country and rule/claim evaluation remain deterministic and separate. Independent source-review authority is `docs/planning-map/VISALANG_LAYA_INDEPENDENT_AUDIT_2026-09-22.md`. Actual verification and remaining deployment prerequisites: `docs/laya-integration-evidence-2026-09-22/acceptance.md`. This extension does not mark T19/T23/T28/T29 complete or authorize a production action.
+--- a/docs/master-package-2026-09-08/EXECUTION_RECORD.md
++++ b/docs/master-package-2026-09-08/EXECUTION_RECORD.md
+@@ -174,3 +174,10 @@
+ T27 completed after formal closeout Auditor round-3 PASS and post-report focused/npm test/build/planning governance/diff exit 0; launch-check retained only T23 blocked. Exact accepted sync and evidence archived under docs/t28-evidence-2026-09-20/t27-accepted-planning-map and t27-postaudit. No collector and no real data.
+ 
+ T28 remains in_progress: double-language five-tool local chain, 375/390/768 viewport operations, actual clipboard/download/ICS bytes, print PDFs and state recovery recorded. Fixed one P2 shared stale-result defect; six bilingual regression cases pass. Main 50 pass / 2 native-arrow keyboard automation failures; supplemental English Finder keyboard flow passes. Chinese full dropdown keyboard operation, real users/devices, calendar import and delivery remain not_tested. Full report docs/VISALANG_T28_LOCAL_ACCEPTANCE_2026-09-20.md. No broad T29 repair justified by current findings; retain T29 for later confirmed defects and regression consolidation. Current sync VL-PMAP-20260920-02, aligned; final independent report is docs/planning-map/VISALANG_T28_INDEPENDENT_AUDIT_2026-09-20.md. T19 partial/T23 blocked/Vault blocked and all release boundaries preserved.
++
++
++## 2026-09-22 — Owner-authorized Laya advisory purpose integration
++
++Owner explicitly requested “要接入正式的流程” and selected “独立服务器或容器（推荐，可先完成实现）” in the current Codex task. Locatable decision and exact design: `docs/superpowers/plans/2026-09-22-laya-purpose-integration.md`. This is an approved scope extension: optional bilingual text-to-purpose suggestion, explicit user confirmation, existing deterministic resolver, independent resident Python service. No classifier output is an immigration/exam decision. Initial MCP accuracy was 5/10 and is not a reliability guarantee; new configuration accuracy remains unestablished.
++
++Local source integration and verification are submitted under sync VL-PMAP-20260922-01, approved-deviation. Independent review remains governed by `docs/planning-map/VISALANG_LAYA_INDEPENDENT_AUDIT_2026-09-22.md`; only its recorded PASS closes source review. T19 partial, T23 blocked, T28 in_progress and T29 pending remain unchanged. Production service provisioning, Docker image build/target sizing, Nginx validation, account-side prerequisites and deployment remain unverified/not_started. No commit/push/deployment is authorized by this implementation request.
+--- a/docs/superpowers/plans/2026-09-22-laya-purpose-integration.md
++++ b/docs/superpowers/plans/2026-09-22-laya-purpose-integration.md
+@@ -0,0 +1,37 @@
++# Laya purpose suggestion integration
++
++**Goal:** Integrate an optional, confirmation-gated Laya purpose suggestion into the real bilingual Route Finder, with an independently deployable Python service.
++
++**Authority / approved design:** The Owner requested “要接入正式的流程” after the suggestion → user confirmation → existing rules design was presented, and selected “独立服务器或容器（推荐，可先完成实现）” on 2026-09-22 in the current task. This authorizes implementation of a new advisory service and UI, not a live deployment, account change, commit or push. The existing Master Plan explicitly permits latest Owner instructions and bounded autonomous implementation (section 586 of the source at baseline). No new immigration/exam factual claims are introduced.
++
++**Architecture:** Static Astro continues serving the pages. A same-origin POST endpoint is reverse-proxied by Nginx to one resident multilingual Laya worker in a separate Python/container service. It accepts only bounded text and returns one allowlisted purpose or clarification. Only a user's confirm click fills the existing select; the deterministic resolver still owns route output. The model does not infer country, credentials or eligibility. Both languages get equivalent UI; source text is not persisted in browser storage, query parameters or application logs.
++
++**Tech stack:** Existing Astro/TypeScript; Python 3.13; Laya 0.3.5; Uvicorn 0.53.0; Nginx; optional Docker. No new frontend dependency.
++
++## Implementation and acceptance
++
++- [x] Implement `services/laya-purpose/app.py`, bounded POST schema, label mapping, no-store response, startup model load, single in-flight inference, malformed-output fallback; keep model-specific questions in `questions.json`.
++- [x] Add pinned top-level requirements, non-root/read-only-compatible Dockerfile and Nginx snippet. Document offline cache provisioning, image/model pinning, private upstream, rate limit, request timeout, no body logging, real-host activation/rollback.
++- [x] Add `PurposeSuggestion.astro` and `purpose-suggestion.ts`; integrate into both locale versions through shared Route Finder. Keep textarea unnamed; no automatic field mutation, result generation, navigation or persistence.
++- [x] Update the privacy page to accurately describe optional transmission and transient processing, preserving infrastructure-log boundary.
++- [x] Verify malformed/oversized input, unavailable model, unknown output, clarification and concurrent requests with Python contract tests. Verify allowlist and required confirmation with Node tests.
++- [x] Verify real Laya through local HTTP and the rendered page; separately inject responses for deterministic browser recovery tests. Check pending edits, manually changed purpose, reset, timeout, HTTP error, unknown label, clarification, confirmation and existing route result invalidation.
++- [x] Run npm test and launch-check. Record exact outcomes, distinguish model correctness from integration correctness, and keep Docker/production validation explicitly unverified if unavailable.
++- [ ] Sync the planning map via Archify, inspect screenshot evidence, bind hashes and freeze exact task delta. Request a separate read-only VisaLang Independent Auditor; repair scoped P0/P1/P2 and use the same Auditor for re-review.
++- [x] Create the required Vault review record, or report unavailable Vault path and retain a repository fallback payload. No production authorization is inferred.
++
++## Review focus and rulings
++
++1. A model can be confidently wrong: every suggestion still requires a user's explicit confirmation; no confidence threshold enables automatic routing.
++2. A reply can arrive after the input/selection/reset has changed: version guard plus abort must discard it.
++3. An unavailable API must never prevent manual selection or submitting existing valid fields.
++4. Raw free text must never enter FormData/shared plan, URL, logging or analytics. The optional API necessarily transmits it; UI and privacy copy must state this.
++5. The static website cannot invoke the developer's MCP. The deployable service and same-origin proxy are mandatory deployment prerequisites; local integration is not a live rollout.
++
++Ruling: Keep the current dirty branch and preserve unrelated changes; record exact pre-turn bytes/hashes and task delta rather than creating a clean worktree that would omit the current implementation. No commit is authorized.
++
++Ruling: The current Owner request extends the prior plan with an advisory Laya service. Record approved-deviation with this locatable Owner instruction, preserve existing T19/T23/T28/T29 task states, and do not claim release authorization.
++
++Ruling: Current intent accuracy is inadequate for automatic decisions, but the authorized user-confirmed suggestion can be implemented without granting the model any route authority. Service/contract tests do not assert classifier accuracy.
++
++Verification ledger: six Python service contract tests passed; Node contract assertions passed; ten rendered interaction cases passed plus page/viewport checks. Real Laya HTTP/browser integration returned university for the one recorded synthetic smoke. Initial parallel npm test/launch-check runs conflicted over Astro generated cache; sequential npm rerun reached only the pre-existing/stale planning-map receipt gate, to be rerun after this window sync. Build passes; launch-check is 59 pass / 0 fail / 1 existing T23 block. Docker daemon unavailable; Nginx executable absent. Vault template/path does not exist on this host. Browser plugin absent, so bundled Playwright/Chrome was used.
+--- a/docs/TASK_LOG.md
++++ b/docs/TASK_LOG.md
+@@ -3860,3 +3860,12 @@
+ - Repository npm test and planning governance were run and fail on a pre-existing Task Log byte-binding mismatch, demonstrated before this append (baseline current file 997604ab..., stored receipt d9fbc94e...). All preceding npm site suites passed. Final governance recheck and exact statuses are in `evidence/verification.json`; do not claim whole-repository green. Build/launch-check not run: no route/navigation/metadata/deployment changes.
+ - Planning map/Archify and Obsidian sync not applicable to isolated experiment; no content/authority/watch-root edits. Do not modify those authorities to manufacture a passing gate. Repository-wide governance handoff remains blocked separately.
+ - Separate read-only VisaLang Independent Auditor submission: `experiments/laya-purpose-v2/evidence/audit-submission.json`; the Auditor alone records the verdict in `experiments/laya-purpose-v2/AUDIT.md` and `audit-verdict.json`. No self-approval. Scope review is distinct from repository-wide governance status and Owner deployment authorization.
++
++
++## 2026-09-22 — Laya purpose suggestions integrated for local source review
++
++Owner requested formal-flow integration and chose an independent Python server/container. Implemented optional bilingual Route Finder description → suggestion → explicit confirmation; existing deterministic route rules and manual selections remain authoritative. Added offline resident service, request/response limits, non-persistent processing, deployment snippets and contract/browser regression coverage. Updated privacy disclosure without new immigration/exam facts.
++
++Actual verification: six Python tests, Node contracts, ten browser interaction cases plus viewport checks, and real-model HTTP/browser smoke passed. Build passed; launch-check 59 pass / 0 fail / 1 existing T23 block. Full-suite pre-audit run reached stale planning governance; final rerun follows refreshed sync and the separate independent report. Evidence: `docs/laya-integration-evidence-2026-09-22/acceptance.md`. Initial concurrent build attempt raced on Astro cache; rerun sequentially. Docker daemon unavailable and Nginx executable absent, so image/production validation is not claimed.
++
++Planning sync: VL-PMAP-20260922-01, drift: approved-deviation, based on the locatable Owner instruction in `docs/superpowers/plans/2026-09-22-laya-purpose-integration.md`. Exact independent review authority: `docs/planning-map/VISALANG_LAYA_INDEPENDENT_AUDIT_2026-09-22.md`; this Task Log does not self-approve. T19 partial/T23 blocked/T28 in_progress/T29 pending preserved. Vault path/template unavailable; review/pending/not_started payload prepared under evidence. No commit, push, deployment, account change or publication performed.
+--- a/services/laya-purpose/.dockerignore
++++ b/services/laya-purpose/.dockerignore
+@@ -0,0 +1,4 @@
++__pycache__
++*.pyc
++.venv
++test_*.py
+--- a/services/laya-purpose/.gitignore
++++ b/services/laya-purpose/.gitignore
+@@ -0,0 +1,3 @@
++__pycache__/
++*.pyc
++.venv/
+--- a/services/laya-purpose/app.py
++++ b/services/laya-purpose/app.py
+@@ -0,0 +1,143 @@
++"""Bounded, non-persistent ASGI purpose suggestions; one resident model per worker."""
++import asyncio
++import json
++import math
++import os
++from pathlib import Path
++
++QUESTIONS = json.loads(Path(__file__).with_name('questions.json').read_text())
++PURPOSES = {
++    'family_reunion': 'family-reunion',
++    'settlement_citizenship': 'b1',
++    'vocational_training': 'ausbildung',
++    'nursing_recognition': 'nursing',
++    'university': 'university',
++    'other': 'other',
++}
++MAX_BYTES = 4096
++MAX_CHARS = 300
++
++
++def load_model():
++    os.environ.update(HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1',
++                      HF_HUB_DISABLE_TELEMETRY='1', TOKENIZERS_PARALLELISM='false',
++                      USE_TF='0')
++    import laya
++    return laya.load(os.environ.get('LAYA_MODEL', 'convaiinnovations/laya'),
++                     subfolder=os.environ.get('LAYA_SUBFOLDER', 'multilingual') or None,
++                     device=os.environ.get('LAYA_DEVICE', 'cpu'))
++
++
++def validate_input(body):
++    if not isinstance(body, dict) or set(body) != {'text'}:
++        raise ValueError('invalid input')
++    text = body['text']
++    if not isinstance(text, str) or not 1 <= len(text.strip()) <= MAX_CHARS:
++        raise ValueError('invalid input')
++    if any(ord(char) < 32 and char not in '\n\r\t' for char in text):
++        raise ValueError('invalid input')
++    return text.strip()
++
++
++def public_result(result):
++    """Never expose model actions, probabilities, raw text, or unbounded labels."""
++    answer = result['answers']['purpose']
++    choice = answer['choice']
++    confidence = answer['confidence']
++    if (choice not in {*PURPOSES, 'unclear'} or isinstance(confidence, bool)
++            or not isinstance(confidence, (int, float))
++            or not math.isfinite(confidence) or not 0 <= confidence <= 1):
++        raise ValueError('invalid model output')
++    # A truncation signal cannot yield a suggestion. Scores never authorize actions.
++    if choice == 'unclear' or result.get('usage', {}).get('input_tokens', 1024) >= 1024:
++        return {'status': 'needs_clarification', 'purpose': None, 'requiresConfirmation': True}
++    return {'status': 'suggestion', 'purpose': PURPOSES[choice], 'requiresConfirmation': True}
++
++
++class PurposeApp:
++    def __init__(self, predictor=None):
++        self.predictor = predictor
++        self.lock = asyncio.Lock()
++
++    async def respond(self, send, status, body):
++        data = json.dumps(body, ensure_ascii=False).encode()
++        await send({'type': 'http.response.start', 'status': status, 'headers': [
++            (b'content-type', b'application/json; charset=utf-8'),
++            (b'cache-control', b'no-store'),
++            (b'x-content-type-options', b'nosniff'),
++        ]})
++        await send({'type': 'http.response.body', 'body': data})
++
++    async def __call__(self, scope, receive, send):
++        if scope['type'] == 'lifespan':
++            while True:
++                event = await receive()
++                if event['type'] == 'lifespan.startup':
++                    try:
++                        if self.predictor is None:
++                            model = await asyncio.to_thread(load_model)
++                            self.predictor = lambda text: model.predict(text, QUESTIONS)
++                        await send({'type': 'lifespan.startup.complete'})
++                    except Exception:
++                        await send({'type': 'lifespan.startup.failed', 'message': 'Laya model could not start; check offline cache and configuration.'})
++                        return
++                elif event['type'] == 'lifespan.shutdown':
++                    await send({'type': 'lifespan.shutdown.complete'})
++                    return
++        if scope['type'] != 'http':
++            return
++        path, method = scope['path'], scope['method']
++        if path == '/healthz' and method == 'GET':
++            await self.respond(send, 200 if self.predictor else 503, {'ready': self.predictor is not None})
++            return
++        if path != '/api/purpose-suggestion/':
++            await self.respond(send, 404, {'error': 'not_found'})
++            return
++        if method != 'POST':
++            await self.respond(send, 405, {'error': 'method_not_allowed'})
++            return
++        headers = dict(scope.get('headers', []))
++        if headers.get(b'content-type', b'').split(b';')[0].strip().lower() != b'application/json':
++            await self.respond(send, 415, {'error': 'json_required'})
++            return
++        if scope.get('query_string'):
++            await self.respond(send, 400, {'error': 'query_not_allowed'})
++            return
++        if not self.predictor or self.lock.locked():
++            await self.respond(send, 503, {'error': 'temporarily_unavailable'})
++            return
++        try:
++            data = bytearray()
++            async with asyncio.timeout(5):
++                while True:
++                    event = await receive()
++                    if event['type'] == 'http.disconnect':
++                        return
++                    data.extend(event.get('body', b''))
++                    if len(data) > MAX_BYTES:
++                        await self.respond(send, 413, {'error': 'input_too_large'})
++                        return
++                    if not event.get('more_body', False):
++                        break
++            text = validate_input(json.loads(data))
++        except TimeoutError:
++            await self.respond(send, 408, {'error': 'request_timeout'})
++            return
++        except (ValueError, UnicodeError):
++            await self.respond(send, 400, {'error': 'invalid_input'})
++            return
++        # Recheck after receiving the body; reject concurrent inference without a queue.
++        if self.lock.locked():
++            await self.respond(send, 503, {'error': 'temporarily_unavailable'})
++            return
++        async with self.lock:
++            try:
++                result = await asyncio.to_thread(self.predictor, text)
++                output = public_result(result)
++            except Exception:
++                await self.respond(send, 503, {'error': 'temporarily_unavailable'})
++                return
++        await self.respond(send, 200, output)
++
++
++app = PurposeApp()
+--- a/services/laya-purpose/Dockerfile
++++ b/services/laya-purpose/Dockerfile
+@@ -0,0 +1,11 @@
++FROM python:3.13-slim
++WORKDIR /app
++COPY requirements.txt .
++RUN pip install --no-cache-dir -r requirements.txt \
++    && useradd --uid 10001 --create-home app
++COPY app.py questions.json ./
++ENV HF_HOME=/models HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 HF_HUB_DISABLE_TELEMETRY=1 LAYA_DEVICE=cpu
++USER 10001
++EXPOSE 8011
++HEALTHCHECK --start-period=120s --interval=30s --timeout=5s CMD python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8011/healthz', timeout=3)"
++CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8011", "--workers", "1", "--no-access-log", "--no-proxy-headers", "--limit-concurrency", "16", "--timeout-keep-alive", "5"]
+--- a/services/laya-purpose/questions.json
++++ b/services/laya-purpose/questions.json
+@@ -0,0 +1,15 @@
++{
++  "purpose": {
++    "type": "choice",
++    "instructions": "识别用户当前明确要办理的主要目的。不要选择被否定的目的。目的不明或多个目的尚未决定时选 unclear。有明确的其他目的时选 other。只分类目的，不判断国家支持范围、资格或语言要求。B1证书本身不代表永居或入籍。",
++    "criteria": {
++      "family_reunion": "与配偶或家人团聚并共同生活",
++      "settlement_citizenship": "申请永久居留或入籍",
++      "vocational_training": "申请双元制或其他职业培训",
++      "nursing_recognition": "办理护士职业资格认可或执业",
++      "university": "申请大学本科、硕士或博士",
++      "other": "明确的其他目的，例如旅游或补领证书",
++      "unclear": "目的不明确或多个候选目的尚未决定"
++    }
++  }
++}
+--- a/services/laya-purpose/README.md
++++ b/services/laya-purpose/README.md
+@@ -0,0 +1,47 @@
++# Laya purpose suggestion service
++
++This is the deployable service for Route Finder, not an automatic immigration decision. Every suggestion requires a user click before it fills the existing purpose field. All existing route rules and manual choices remain available. No confidence threshold authorizes a choice: high-confidence mistakes were observed in the initial ten-case MCP test (5/10 correct). The renamed-label schema in this service has not been established as more accurate.
++
++## Contract and local use
++
++Python 3.13, `laya==0.3.5`, `uvicorn==0.53.0`. Install from `requirements.txt` in an isolated environment. A cached multilingual checkpoint is required; startup deliberately fails if it is absent. Runtime downloads and Hugging Face telemetry are disabled. Model import/load happens once during ASGI startup. Run **one worker**; additional workers duplicate model memory.
++
++```bash
++cd services/laya-purpose
++LAYA_DEVICE=cpu /path/to/venv/bin/uvicorn app:app --host 127.0.0.1 --port 8011 --workers 1 --no-access-log --no-proxy-headers --limit-concurrency 16
++```
++
++`GET /healthz` returns readiness. `POST /api/purpose-suggestion/` accepts only JSON `{"text":"我想去德国读硕士。"}` with 1–300 trimmed Unicode characters and at most 4096 body bytes. It returns either `{"status":"suggestion","purpose":"university","requiresConfirmation":true}` or `{"status":"needs_clarification","purpose":null,"requiresConfirmation":true}`. Purpose IDs match the existing six select values. Extra fields, query strings, malformed JSON and unknown model labels fail closed. No generic prediction endpoint is exposed; users cannot supply model instructions.
++
++One inference runs at a time; simultaneous requests get 503 with no queue. The client aborts after 12 seconds and preserves manual use. A disconnected client does not kill the CPU operation: capacity stays occupied until inference completes. Monitor service health and resource use; terminate/restart a stuck process operationally. Health reports loaded state, not model accuracy or inference liveness. There is no database, text cache or application request logging. Do not enable request-body capture, debug logging, tracing, or access logs containing input at any proxy/APM layer.
++
++## Container deployment
++
++Build from this directory (`docker build -t visalang-laya-purpose .`). On the target architecture, provision the reviewed checkpoint into a Hugging Face cache directory before starting; make it readable to UID 10001. The cache is an operator-managed, read-only artifact. Record its exact revision/hash with the image digest in the release record; do not silently upgrade model weights. Configure `LAYA_MODEL` and `LAYA_SUBFOLDER` when using a different pinned local checkpoint. Memory/CPU limits below are starting allocations, not measured production sizing; validate on the target host.
++
++```bash
++docker run -d --name visalang-laya-purpose --restart unless-stopped \
++  --read-only --tmpfs /tmp:rw,noexec,nosuid,size=256m \
++  --cap-drop ALL --security-opt no-new-privileges \
++  --memory 4g --cpus 2 --pids-limit 128 \
++  -p 127.0.0.1:8011:8011 \
++  -v /srv/visalang/laya-cache:/models:ro \
++  visalang-laya-purpose
++```
++
++The image installs pinned top-level packages; transitive dependencies must be frozen by recording the built image digest for rollout and rollback. This task does not claim a Docker build or target-host capacity test unless recorded in the acceptance evidence.
++
++The repository uses Nginx. In its `http` context, add `limit_req_zone $binary_remote_addr zone=visalang_purpose:10m rate=6r/m;`. Install `deploy/laya-purpose-nginx.conf` and include it inside the canonical HTTPS server block. Existing `/api/purpose-suggestion/` requests must go to this service while all other routes stay static. Validate with `nginx -t` before an authorized reload. Behind a trusted CDN, configure real client IP handling explicitly or rate limiting may group visitors under a proxy address.
++
++For a separate machine, use a private network or authenticated TLS reverse proxy and restrict upstream access to the website proxy. Do not expose port 8011 publicly, enable wildcard CORS, or put service secrets in frontend code. The browser always uses the same-origin path; it never calls the operator's Codex MCP or workstation.
++
++Production activation requires explicit owner authorization plus model/cache readiness, real HTTP and browser tests, rate-limit checks, memory/load measurements, logging review, and a recorded previous release/image digest. Roll back by removing the API include and restoring the previous site release; manual selection continues working when the API is unavailable. A service suggestion is not a country, eligibility, exemption or certificate-acceptance decision.
++
++## Verification
++
++```bash
++python3 -m unittest discover -s services/laya-purpose -p 'test_*.py' -v
++node tests/laya-purpose.test.mjs
++```
++
++Run these commands from the repository root. The Python tests inject a predictor to exercise the HTTP boundary without downloading weights. Real-model smoke evidence and browser tests are recorded separately. No claim of improved intent accuracy follows from passing these contract tests.
+--- a/services/laya-purpose/requirements.txt
++++ b/services/laya-purpose/requirements.txt
+@@ -0,0 +1,2 @@
++laya==0.3.5
++uvicorn==0.53.0
+--- a/services/laya-purpose/test_app.py
++++ b/services/laya-purpose/test_app.py
+@@ -0,0 +1,85 @@
++import asyncio
++import json
++import threading
++import unittest
++from app import PurposeApp, public_result, validate_input
++
++
++def prediction(choice='university'):
++    return {'answers': {'purpose': {'choice': choice, 'confidence': 1.0}},
++            'usage': {'input_tokens': 240}}
++
++
++async def request(app, payload=None, method='POST', path='/api/purpose-suggestion/', raw=None, headers=None):
++    events = []
++    async def send(event):
++        events.append(event)
++    async def receive():
++        return {'type': 'http.request', 'body': raw if raw is not None else json.dumps(payload).encode()}
++    scope = {'type': 'http', 'method': method, 'path': path, 'query_string': b'',
++             'headers': headers if headers is not None else [(b'content-type', b'application/json')]}
++    await app(scope, receive, send)
++    return events[0]['status'], json.loads(events[1]['body']), events[0]['headers']
++
++
++class ContractTests(unittest.IsolatedAsyncioTestCase):
++    async def test_suggestion_only(self):
++        code, body, headers = await request(PurposeApp(lambda _: prediction()), {'text': '读硕士'})
++        self.assertEqual(code, 200)
++        self.assertEqual(body, {'status': 'suggestion', 'purpose': 'university', 'requiresConfirmation': True})
++        self.assertIn((b'cache-control', b'no-store'), headers)
++
++    async def test_invalid_inputs_never_reach_model(self):
++        def unexpected(_):
++            self.fail('Invalid input reached model')
++        app = PurposeApp(unexpected)
++        for value in [None, [], {}, {'text': ''}, {'text': ' '}, {'text': 123},
++                      {'text': '字' * 301}, {'text': 'a', 'questions': {}}, {'text': '\0'}]:
++            self.assertEqual((await request(app, value))[0], 400)
++        self.assertEqual((await request(app, raw=b'broken'))[0], 400)
++        self.assertEqual((await request(app, raw=b'x' * 4097))[0], 413)
++        self.assertEqual((await request(app, {}, headers=[]))[0], 415)
++        self.assertEqual((await request(app, {}, method='GET'))[0], 405)
++        self.assertEqual((await request(app, {}, path='/predict'))[0], 404)
++
++    async def test_unavailable_and_unknown_output(self):
++        self.assertEqual((await request(PurposeApp(), {'text': '大学'}))[0], 503)
++        self.assertEqual((await request(PurposeApp(lambda _: prediction('invented')), {'text': '大学'}))[0], 503)
++        def fails(_):
++            raise RuntimeError('secret text must not leak')
++        result = await request(PurposeApp(fails), {'text': '大学'})
++        self.assertEqual(result[1], {'error': 'temporarily_unavailable'})
++
++    async def test_no_concurrent_inference_queue(self):
++        started, finish = threading.Event(), threading.Event()
++        def slow(_):
++            started.set()
++            finish.wait(3)
++            return prediction()
++        app = PurposeApp(slow)
++        first = asyncio.create_task(request(app, {'text': '大学'}))
++        await asyncio.to_thread(started.wait, 2)
++        try:
++            self.assertEqual((await request(app, {'text': '护士'}))[0], 503)
++        finally:
++            finish.set()
++        self.assertEqual((await first)[0], 200)
++
++    def test_clarification_mapping_and_bad_confidence(self):
++        self.assertEqual(public_result(prediction('unclear'))['status'], 'needs_clarification')
++        self.assertEqual(public_result(prediction('settlement_citizenship'))['purpose'], 'b1')
++        result = prediction()
++        result['usage']['input_tokens'] = 1024
++        self.assertIsNone(public_result(result)['purpose'])
++        for invalid in [float('nan'), float('inf'), True, -1, 2]:
++            result = prediction()
++            result['answers']['purpose']['confidence'] = invalid
++            with self.assertRaises(ValueError):
++                public_result(result)
++
++    def test_unicode_limit(self):
++        self.assertEqual(len(validate_input({'text': '学' * 300})), 300)
++
++
++if __name__ == '__main__':
++    unittest.main()
+--- a/src/components/tools/PurposeSuggestion.astro
++++ b/src/components/tools/PurposeSuggestion.astro
+@@ -0,0 +1,25 @@
++---
++const { locale = 'en' } = Astro.props;
++const zh = locale === 'zh-CN';
++---
++<section class="purpose-suggestion" data-purpose-suggestion data-locale={locale} aria-labelledby="purpose-suggestion-title" hidden>
++  <h3 id="purpose-suggestion-title">{zh ? '用一句话描述你的目的（可选）' : 'Describe your purpose in one sentence (optional)'}</h3>
++  <p id="purpose-suggestion-help">{zh ? '点击后会将这段文字发送给本站的分类服务。建议可能出错，请核对后再采用；也可以直接使用下面的选项。请勿填写姓名、证件号码或申请材料。' : 'Clicking sends this text to our classification service. Suggestions can be wrong: check before applying, or use the choices below. Do not enter names, identity numbers or case documents.'}</p>
++  <label for="purpose-description">{zh ? '你的目的' : 'Your purpose'}</label>
++  <textarea id="purpose-description" rows="3" maxlength="300" autocomplete="off" aria-describedby="purpose-suggestion-help" placeholder={zh ? '例如：我准备去德国读硕士。' : 'For example: I want to study for a master’s degree in Germany.'}></textarea>
++  <button type="button" class="secondary-action" data-purpose-request>{zh ? '获取目的建议' : 'Suggest a purpose'}</button>
++  <p data-purpose-status role="status" aria-live="polite" aria-atomic="true"></p>
++  <button type="button" class="secondary-action" data-purpose-apply hidden>{zh ? '确认并采用这个目的' : 'Confirm and use this purpose'}</button>
++  <p class="purpose-privacy"><a href="/privacy-policy/">{zh ? '了解文字如何处理' : 'How this text is handled'}</a></p>
++</section>
++
++<style>
++  .purpose-suggestion { padding: 1.25rem; margin: 0 0 1.5rem; border: 1px solid var(--border-color, #d5dce5); border-radius: .75rem; background: var(--surface, #fff); }
++  h3 { margin: 0 0 .65rem; }
++  p { line-height: 1.6; }
++  label { display: block; font-weight: 600; margin: .8rem 0 .4rem; }
++  textarea { display: block; width: 100%; box-sizing: border-box; padding: .75rem; font: inherit; border: 1px solid #8795a5; border-radius: .5rem; resize: vertical; margin-bottom: .75rem; }
++  button { max-width: 100%; white-space: normal; }
++  .purpose-privacy { font-size: .875rem; margin-bottom: 0; }
++  [hidden] { display: none !important; }
++</style>
+--- a/src/pages/privacy-policy.astro
++++ b/src/pages/privacy-policy.astro
+@@ -1,7 +1,7 @@
+ ---
+ import BaseLayout from '../layouts/BaseLayout.astro';
+ const jsonLD = { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Privacy Policy' };
+-const updated = '2026-09-16';
++const updated = '2026-09-22';
+ ---
+ 
+ <BaseLayout title="Privacy Policy" description="How VisaLang handles visitor data, advertising choices, shared tool state, browser storage, URL cleanup, and server logs." jsonLD={jsonLD} noindex={true} enableAds={false}>
+@@ -12,10 +12,11 @@
+         <p class="guide-summary">Last updated: {updated}</p>
+ 
+         <h2>Overview</h2>
+-        <p>VisaLang (visalang.org) is a static informational website. We do not require you to create an account, and we do not collect sensitive personal data such as passport numbers, immigration documents, or payment details.</p>
++        <p>VisaLang (visalang.org) provides informational pages and optional tools. We do not require an account. Please do not enter passport numbers, immigration documents, payment details or other sensitive case information.</p>
+ 
+         <h2>Services and information we use</h2>
+         <ul>
++          <li><strong>Optional purpose suggestion:</strong> clicking “Suggest a purpose” in Route Finder sends the short text you enter to the site's classification service. The service uses Laya to suggest a fixed purpose category for you to confirm. The application does not save this text, add it to shared plans or URLs, use it for training, or forward it to a third-party model API. Text remains in the current page until you clear it, apply a suggestion, restart the tool or leave the page. Server-side processing is transient; deployment-side infrastructure logging is described below. You can use the manual purpose choices without sending text.</li>
+           <li><strong>Advertising source boundary:</strong> the current Astro source can emit the Google AdSense loader only on the publication manifest’s ad-eligible English guide pages. Tool pages, the searchable Guide Library index, home, route hubs, policy pages, and commercial pages disable that loader. This repository does not verify a current AdSense account, served ads, Auto ads settings, Google Privacy &amp; messaging/CMP behavior, regional consent behavior, or partner identifiers. Google Analytics, Cloudflare Web Analytics, and custom measurement events are not loaded or sent by the current Astro source.</li>
+           <li><strong>Shared tool plan:</strong> after a tool successfully generates a result, schema-approved fields such as fixed route/region/answer/exam IDs, a target date, bounded planning buffers, and stable checklist booleans are stored in browser <code>sessionStorage</code> by default so another tool in the same tab can restore them. Reminder dates, optional source URLs, free text, identity data, document contents and payment data are not part of the shared plan. No new tool result is written to a page URL.</li>
+           <li><strong>Optional device copy:</strong> only when you choose “Save on this device for 30 days” does the current shared-plan snapshot go to browser <code>localStorage</code>. It is ignored and removed on a later visit after its 30-day expiry; this is not a background deletion promise. Later session edits do not update that snapshot unless you save again.</li>
+--- a/src/pages/tools/route-finder.astro
++++ b/src/pages/tools/route-finder.astro
+@@ -1,6 +1,7 @@
+ ---
+ import ToolLayout from '../../layouts/ToolLayout.astro';
+ import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
++import PurposeSuggestion from '../../components/tools/PurposeSuggestion.astro';
+ import { applicationRegionOptions, familyRelationshipOptions } from '../../data/plan-state';
+ import { getToolCopy, type ToolLocale } from '../../data/tool-copy';
+ 
+@@ -21,6 +22,7 @@
+     <div class="tool-workspace">
+       <form id="route-finder-form" class="tool-form" novalidate inert aria-busy="true">
+         <div class="tool-form-heading"><h2>{copy.formTitle}</h2><p>{copy.formIntro}</p></div>
++        <PurposeSuggestion locale={locale} />
+         <div class="tool-field-grid">
+           <label>{copy.fields.country}<select name="country" required><option value="">{copy.text.selectCountry}</option><option value="germany">{copy.text.germany}</option><option value="other">{copy.text.otherCountry}</option></select></label>
+           <label>{copy.fields.purpose}<select name="purpose" required><option value="">{copy.text.selectPurpose}</option><option value="family-reunion">{copy.text.family}</option><option value="b1">{copy.text.b1}</option><option value="ausbildung">{copy.text.ausbildung}</option><option value="nursing">{copy.text.nursing}</option><option value="university">{copy.text.university}</option><option value="other">{copy.text.otherPurpose}</option></select></label>
+@@ -77,6 +79,7 @@
+   import { getToolCopy, getToolLinks } from '../../data/tool-copy';
+   import { setupSharedPlan } from '../../scripts/plan-state';
+   import { setupToolForm } from '../../scripts/tool-form';
++  import { setupPurposeSuggestion } from '../../scripts/purpose-suggestion';
+ 
+   const form = document.querySelector<HTMLFormElement>('#route-finder-form');
+   const resultPanel = document.querySelector<HTMLElement>('#route-finder-result');
+@@ -111,6 +114,7 @@
+ 
+   const plan = setupSharedPlan({ toolId: 'finder', form });
+   const controller = form ? setupToolForm(form, { locale, onRestart: () => plan.restartCurrentTool() }) : undefined;
++  if (form) setupPurposeSuggestion(form);
+   form?.elements.namedItem('country')?.addEventListener('change', syncRelevantQuestions);
+   form?.elements.namedItem('purpose')?.addEventListener('change', syncRelevantQuestions);
+   syncRelevantQuestions();
+--- a/src/scripts/purpose-suggestion.ts
++++ b/src/scripts/purpose-suggestion.ts
+@@ -0,0 +1,86 @@
++const purposes = new Set(['family-reunion', 'b1', 'ausbildung', 'nursing', 'university', 'other']);
++
++export function parsePurposeSuggestion(value: unknown): string | null {
++  if (!value || typeof value !== 'object') throw new Error('Invalid suggestion');
++  const data = value as Record<string, unknown>;
++  if (data.requiresConfirmation !== true) throw new Error('Confirmation required');
++  if (data.status === 'needs_clarification' && data.purpose === null) return null;
++  if (data.status !== 'suggestion' || typeof data.purpose !== 'string' || !purposes.has(data.purpose)) throw new Error('Invalid purpose');
++  return data.purpose;
++}
++
++export function setupPurposeSuggestion(form: HTMLFormElement) {
++  const panel = document.querySelector<HTMLElement>('[data-purpose-suggestion]');
++  const input = panel?.querySelector<HTMLTextAreaElement>('textarea');
++  const request = panel?.querySelector<HTMLButtonElement>('[data-purpose-request]');
++  const apply = panel?.querySelector<HTMLButtonElement>('[data-purpose-apply]');
++  const status = panel?.querySelector<HTMLElement>('[data-purpose-status]');
++  const purpose = form.elements.namedItem('purpose');
++  if (!panel || !input || !request || !apply || !status || !(purpose instanceof HTMLSelectElement)) return;
++  const zh = panel.dataset.locale === 'zh-CN';
++  let version = 0;
++  let controller: AbortController | undefined;
++  let candidate: string | null = null;
++  const invalidate = () => {
++    version += 1;
++    controller?.abort();
++    controller = undefined;
++    candidate = null;
++    apply.hidden = true;
++    request.disabled = false;
++    status.textContent = '';
++    panel.removeAttribute('aria-busy');
++  };
++  input.addEventListener('input', invalidate);
++  form.addEventListener('change', invalidate);
++  form.addEventListener('reset', () => { invalidate(); input.value = ''; });
++  form.addEventListener('submit', invalidate);
++  request.addEventListener('click', async () => {
++    invalidate();
++    const text = input.value.trim();
++    if (!text || [...text].length > 300) {
++      status.textContent = zh ? '请输入 1–300 字的简短目的，或直接选择下方选项。' : 'Enter a short purpose (1–300 characters), or choose below.';
++      input.focus();
++      return;
++    }
++    const current = version;
++    controller = new AbortController();
++    const pending = controller;
++    const timeout = window.setTimeout(() => pending.abort(), 12000);
++    request.disabled = true;
++    panel.setAttribute('aria-busy', 'true');
++    status.textContent = zh ? '正在识别目的…你仍可直接选择下方选项。' : 'Looking for a purpose… You can still choose below.';
++    try {
++      const response = await fetch('/api/purpose-suggestion/', {
++        method: 'POST', headers: { 'Content-Type': 'application/json' },
++        body: JSON.stringify({ text }), signal: pending.signal,
++        credentials: 'omit', cache: 'no-store', redirect: 'error',
++      });
++      if (!response.ok) throw new Error('Service unavailable');
++      const next = parsePurposeSuggestion(await response.json());
++      if (current !== version) return;
++      candidate = next;
++      if (!next) {
++        status.textContent = zh ? '还不能确定单一目的。请补充说明，或直接选择下方选项。' : 'A single purpose is not clear. Add detail or choose below.';
++        return;
++      }
++      const label = [...purpose.options].find((option) => option.value === next)?.textContent || '';
++      status.textContent = zh ? `建议目的：${label}。请核对；这不代表资格、证书要求或国家路线已确认。` : `Suggested purpose: ${label}. Please check; eligibility, certificate requirements and country coverage are not confirmed.`;
++      apply.hidden = false;
++    } catch {
++      if (current === version) status.textContent = zh ? '暂时无法获取建议。请直接使用下方选项，或稍后重试。' : 'Suggestions are unavailable. Use the choices below or try again later.';
++    } finally {
++      window.clearTimeout(timeout);
++      if (current === version) { request.disabled = false; panel.removeAttribute('aria-busy'); }
++    }
++  });
++  apply.addEventListener('click', () => {
++    if (!candidate) return;
++    purpose.value = candidate;
++    purpose.dispatchEvent(new Event('change', { bubbles: true }));
++    input.value = '';
++    status.textContent = zh ? '已采用。请继续确认国家和其他信息。' : 'Applied. Continue confirming the country and other details.';
++    purpose.focus();
++  });
++  panel.hidden = false;
++}
+--- a/tests/laya-purpose.test.mjs
++++ b/tests/laya-purpose.test.mjs
+@@ -0,0 +1,19 @@
++import assert from 'node:assert/strict';
++import fs from 'node:fs';
++import { parsePurposeSuggestion } from '../src/scripts/purpose-suggestion.ts';
++
++for (const purpose of ['family-reunion', 'b1', 'ausbildung', 'nursing', 'university', 'other']) {
++  assert.equal(parsePurposeSuggestion({ status: 'suggestion', purpose, requiresConfirmation: true }), purpose);
++}
++assert.equal(parsePurposeSuggestion({ status: 'needs_clarification', purpose: null, requiresConfirmation: true }), null);
++for (const invalid of [null, {}, { status: 'suggestion', purpose: 'university', requiresConfirmation: false },
++  { status: 'suggestion', purpose: '<script>', requiresConfirmation: true },
++  { status: 'needs_clarification', purpose: 'university', requiresConfirmation: true }]) {
++  assert.throws(() => parsePurposeSuggestion(invalid));
++}
++const component = fs.readFileSync('src/components/tools/PurposeSuggestion.astro', 'utf8');
++assert.ok(!/name=/.test(component), 'free text stays outside FormData/shared-plan fields');
++const client = fs.readFileSync('src/scripts/purpose-suggestion.ts', 'utf8');
++assert.ok(!/localStorage|sessionStorage|console\./.test(client), 'no raw input persistence or logging');
++assert.match(client, /credentials: 'omit'/);
++console.log('Laya purpose contract tests passed');
+--- a/tests/site.test.js
++++ b/tests/site.test.js
+@@ -28,6 +28,7 @@
+ require('./fan-270-seo.test.js');
+ require('./fan-273-404-recovery.test.js');
+ for (const testFile of [
++  'tests/laya-purpose.test.mjs',
+   'tests/route-tools.test.js',
+   'tests/article-sections-key-decisions.test.mjs',
+   'tests/scheme-3-publication.test.mjs',

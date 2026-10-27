@@ -2,7 +2,8 @@
   "scripts": {
     "dev": "astro dev",
     "clean:astro": "rm -rf .astro node_modules/.astro",
-    "prebuild": "npm run clean:astro",
+    "clean:dist": "rm -rf dist",
+    "prebuild": "npm run clean:astro && npm run clean:dist",
     "build": "astro build",
     "postbuild": "node scripts/enrich-sitemap-lastmod.js",
     "preview": "astro preview",

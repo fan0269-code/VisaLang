@@ -1,25 +1,17 @@
 ---
 export interface Option { value: string; label: string; }
 export interface Filter { name: string; label: string; options: Option[]; }
-export interface Props { filters: Filter[]; }
+export interface Props { filters: readonly Filter[]; }
 const { filters } = Astro.props;
-const quickFilters = filters.filter((filter) => ['purpose', 'country'].includes(filter.name));
-const advancedFilters = filters.filter((filter) => !['purpose', 'country'].includes(filter.name));
 ---
-<form class="guide-filter-form" data-filter-form>
-  <div class="quick-filter-bar" aria-label="Quick filters">
-    {quickFilters.map((filter) => <label><span>{filter.label}</span><select name={filter.name} data-guide-filter><option value="">All {filter.label.toLowerCase()} options</option>{filter.options.map((option) => <option value={option.value}>{option.label}</option>)}</select></label>)}
+<form class="guide-filter-form" data-filter-form data-enhanced-controls>
+  <div class="quick-filter-bar">
+    {filters.map((filter) => <label><span>{filter.label}</span><select name={filter.name} data-guide-filter disabled><option value="">All {filter.label.toLowerCase()} options</option>{filter.options.map((option) => <option value={option.value}>{option.label}</option>)}</select></label>)}
+    <label><span>Sort by</span><select name="sort" data-guide-sort disabled><option value="updated">Recently updated</option><option value="relevance">Route relevance</option></select></label>
   </div>
-  <details class="filter-drawer">
-    <summary>More filters</summary>
-    <div class="filter-bar">
-      {advancedFilters.map((filter) => <label><span>{filter.label}</span><select name={filter.name} data-guide-filter><option value="">All {filter.label.toLowerCase()} options</option>{filter.options.map((option) => <option value={option.value}>{option.label}</option>)}</select></label>)}
-      <label><span>Sort by</span><select name="sort" data-guide-sort><option value="updated">Recently updated</option><option value="relevance">Route relevance</option><option value="maturity">Content maturity</option></select></label>
-    </div>
-  </details>
   <div class="filter-feedback">
     <div class="active-filters" data-active-filters hidden><strong>Active filters</strong><div class="active-filter-list"></div></div>
     <p class="filter-status" aria-live="polite" aria-atomic="true"></p>
-    <button class="button button--secondary" type="button" data-clear-all>Clear all</button>
+    <button class="button button--secondary" type="button" data-clear-all disabled>Clear all</button>
   </div>
 </form>

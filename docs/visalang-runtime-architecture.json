@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "VisaLang 高层运行时架构",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/fan0269-code/VisaLang.git",
+      "revision": "2ef029f28c03a5838b3ec9add90d851259e81f82"
+    },
+    "viewBox": [1680, 780]
+  },
+  "components": [
+    {
+      "id": "content-data",
+      "type": "database",
+      "label": "指南内容与路线数据",
+      "tag": "build-time source",
+      "pos": [60, 160],
+      "size": [260, 92],
+      "sources": [
+        { "path": "src/content.config.ts", "line": 72, "end_line": 77, "label": "guide collection" },
+        { "path": "src/data/route-tools.ts", "line": 12, "end_line": 45, "label": "route registry" }
+      ]
+    },
+    {
+      "id": "astro-source",
+      "type": "frontend",
+      "label": "Astro 页面与共享 UI",
+      "tag": "source of truth",
+      "pos": [60, 340],
+      "size": [260, 92],
+      "sources": [
+        { "path": "src/pages/index.astro", "line": 2, "end_line": 14, "label": "page composition" },
+        { "path": "src/layouts/BaseLayout.astro", "line": 1, "end_line": 12, "label": "shared shell" }
+      ]
+    },
+    {
+      "id": "astro-build",
+      "type": "backend",
+      "label": "Astro 静态构建",
+      "pos": [470, 250],
+      "size": [250, 100],
+      "sources": [
+        { "path": "package.json", "line": 3, "end_line": 11, "label": "build scripts" },
+        { "path": "astro.config.mjs", "line": 1, "end_line": 26, "label": "Astro config" }
+      ]
+    },
+    {
+      "id": "static-output",
+      "type": "cloud",
+      "label": "静态产物 dist/",
+      "tag": "generated artifact",
+      "pos": [790, 250],
+      "size": [250, 100],
+      "sources": [
+        { "path": "README.md", "line": 7, "end_line": 16, "label": "static output" }
+      ]
+    },
+    {
+      "id": "quality-gate",
+      "type": "security",
+      "label": "测试与发布门禁",
+      "tag": "fail closed",
+      "pos": [790, 450],
+      "size": [250, 100],
+      "sources": [
+        { "path": "scripts/launch-check.js", "line": 78, "end_line": 105, "label": "generated-site checks" },
+        { "path": "deploy/README.md", "line": 16, "end_line": 28, "label": "release gate" }
+      ]
+    },
+    {
+      "id": "nginx-release",
+      "type": "cloud",
+      "label": "Nginx 生产发布",
+      "pos": [1110, 250],
+      "size": [260, 100],
+      "sources": [
+        { "path": "deploy/deploy.sh", "line": 51, "end_line": 84, "label": "atomic release" },
+        { "path": "deploy/nginx-vhost-template.conf", "line": 23, "end_line": 68, "label": "static serving" }
+      ]
+    },
+    {
+      "id": "browser",
+      "type": "external",
+      "label": "访客浏览器",
+      "pos": [1450, 250],
+      "size": [160, 100]
+    },
+    {
+      "id": "client-tools",
+      "type": "frontend",
+      "label": "浏览器内工具交互",
+      "tag": "no application server",
+      "pos": [1110, 470],
+      "size": [260, 100],
+      "sources": [
+        { "path": "src/scripts/tool-form.ts", "line": 77, "end_line": 111, "label": "URL state" },
+        { "path": "src/pages/tools/email-reminders.astro", "line": 22, "end_line": 49, "label": "local ICS" }
+      ]
+    },
+    {
+      "id": "official-authorities",
+      "type": "external",
+      "label": "官方机构与考试提供方",
+      "pos": [1450, 470],
+      "size": [160, 100],
+      "sources": [
+        { "path": "src/data/route-tools.ts", "line": 20, "end_line": 27, "label": "authority boundary" }
+      ]
+    }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "仓库与构建时", "wraps": ["content-data", "astro-source", "astro-build", "static-output", "quality-gate"], "pad": 34 },
+    { "kind": "region", "label": "生产服务与浏览器运行时", "wraps": ["nginx-release", "browser", "client-tools"], "pad": 34 }
+  ],
+  "connections": [
+    { "id": "content-to-build", "from": "content-data", "to": "astro-build", "label": "加载内容与路线数据", "labelAt": [365, 276] },
+    { "id": "source-to-build", "from": "astro-source", "to": "astro-build", "label": "编译页面与共享组件", "labelAt": [365, 326] },
+    { "id": "build-to-dist", "from": "astro-build", "to": "static-output", "label": "生成静态站点" },
+    { "id": "dist-to-gate", "from": "static-output", "to": "quality-gate", "label": "检查生成路由与元数据", "variant": "dashed", "labelAt": [915, 364] },
+    { "id": "gate-to-release", "from": "quality-gate", "to": "nginx-release", "label": "门禁通过后复制并切换", "variant": "emphasis" },
+    { "id": "release-to-browser", "from": "nginx-release", "to": "browser", "label": "HTTPS 静态响应", "variant": "emphasis", "labelAt": [1410, 246] },
+    { "id": "browser-to-tools", "from": "browser", "to": "client-tools", "label": "执行页面内脚本" },
+    { "id": "tools-to-authorities", "from": "client-tools", "to": "official-authorities", "label": "用户主动打开并核验", "variant": "dashed", "labelAt": [1410, 584] }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "构建模型", "items": ["Astro 在构建时读取 Markdown、路由数据和页面组件。", "运行时不依赖应用服务器或数据库。"] },
+    { "dot": "emerald", "title": "发布路径", "items": ["dist/ 先经 npm test 与 launch-check 验证。", "生产端以 Nginx current 软链接切换不可变发布。"] },
+    { "dot": "amber", "title": "用户边界", "items": ["工具状态保存在 URL 或浏览器本地；提醒导出为本地 ICS。", "具体签证、考试和交易要求仍由官方机构决定。"] }
+  ]
+}

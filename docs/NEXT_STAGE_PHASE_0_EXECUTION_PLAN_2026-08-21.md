@@ -1,5 +1,7 @@
 # VisaLang 下一阶段 Phase 0 具体执行计划
 
+> **superseded（2026-09-01）：** 本文是已完成阶段的点时证据，不是当前执行授权。当前唯一执行权威为 `docs/VISALANG_ONE_WEEK_SCHEME_3_CONTENT_PLAN_2026-09-01.md`。
+>
 > 日期：2026-08-21
 > 上位任务书：`docs/NEXT_STAGE_EXECUTION_TASKBOOK_2026-08-21.md`
 > 执行范围：VL-N1～VL-N5 发布基线收敛包

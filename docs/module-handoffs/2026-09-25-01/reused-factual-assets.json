@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "batchId": "2026-09-25-01",
+  "baselineId": "b7a9fddd658d95279e05127f32e2ec2cddec7fa8e90c2e254f55df89ff1942b5",
+  "recordedBy": "W00",
+  "recordedAt": "2026-09-25",
+  "purpose": "Register existing W04/W06 fact assets for P04 reuse as instructed; no claim or formula changes.",
+  "assets": [
+    {
+      "moduleId": "W04/LC04",
+      "status": "reused_existing_source_reviewed_asset; no new W04 handoff; fact files are read-only in P04",
+      "evidence": [
+        {
+          "path": "src/data/claim-registry.ts",
+          "sha256": "20470769f472a85fded1e634d335f375a3963d8501225882d36e08a98202b4b0",
+          "purpose": "Versioned C07 certificate recency/acceptance claim; includes responsible mission source, scope and boundary."
+        },
+        {
+          "path": "src/content/guides/goethe-a1-germany-family-reunion.md",
+          "sha256": "3114080078fa622af598b03badbed4ea54e18d95fbce4d68d11cbc05d73f080d",
+          "purpose": "Existing certificate-check worksheet and location-scoped decision boundary."
+        },
+        {
+          "path": "tests/task-5-source-ledger.test.mjs",
+          "sha256": "dd8f92371d4e7ab73ade7b528baf7651b349c2fff092e25d88dd667266241a39",
+          "purpose": "Source ledger contract for high-risk C07 facts."
+        },
+        {
+          "path": "docs/VISALANG_M2A_T10_T14_EXECUTION_EVIDENCE_2026-09-09.md",
+          "sha256": "053923349a0f82b7fd8a6cd487fc494e51b0074c0c9cd06e227c667093f162dc",
+          "purpose": "Historical M2-A implementation and independent-review evidence; does not replace fresh P04 technical validation."
+        }
+      ],
+      "limits": "Reuse only the existing source-reviewed facts and worksheet. Do not change values, jurisdictions, checked dates or acceptance conclusions; P04 only changes presentation/order."
+    },
+    {
+      "moduleId": "W06/LC06",
+      "status": "reused_existing_source_reviewed_asset; no new W06 handoff; fact files are read-only in P04",
+      "evidence": [
+        {
+          "path": "src/data/claim-registry.ts",
+          "sha256": "20470769f472a85fded1e634d335f375a3963d8501225882d36e08a98202b4b0",
+          "purpose": "Versioned A1 Germany/Beijing fee claims and four scoped local fee records, including official URLs, sourceCheckedAt, nextReviewAt and boundaries."
+        },
+        {
+          "path": "src/data/route-tools.ts",
+          "sha256": "f2cba2823afd2fa0233c41728a94fd4ffd4d648cac5f5bde861f9160a72b4d39",
+          "purpose": "Existing deterministic route/tool limits and verification boundaries consumed by results."
+        },
+        {
+          "path": "tests/m2a-local-fees-centres.test.mjs",
+          "sha256": "ebc4ee0a9e975fda961a073421600843dbee413b33246204b2defe13adf7e4bd",
+          "purpose": "Contract for geographic scope, current fees/centres and confirmation actions."
+        },
+        {
+          "path": "tests/claim-registry.test.mjs",
+          "sha256": "d123930896c5d791ceb5d4147e84f8bbb5b4683dfd4273bab52126e396e554ec",
+          "purpose": "Versioned fact status and fee boundary contract."
+        },
+        {
+          "path": "docs/VISALANG_M2A_T10_T14_EXECUTION_EVIDENCE_2026-09-09.md",
+          "sha256": "053923349a0f82b7fd8a6cd487fc494e51b0074c0c9cd06e227c667093f162dc",
+          "purpose": "Historical M2-A implementation and independent-review evidence; not proof of P04 UX behavior."
+        }
+      ],
+      "limits": "Four A1 fee records remain read-only. Their recorded nextReviewAt is 2026-10-09; no source recheck or date refresh is authorized or claimed in P04."
+    }
+  ],
+  "unavailableHandoffs": [
+    "No completed W04/P02 or W06 handoff was present in the 2026-09-24-01 dispatch. These source-reviewed assets are reused in place and do not imply either module was dispatched or completed."
+  ]
+}

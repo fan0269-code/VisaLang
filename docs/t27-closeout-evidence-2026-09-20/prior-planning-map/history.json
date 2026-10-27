@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "sequence": 1,
+      "syncId": "VL-PMAP-20260910-01",
+      "checkedAt": "2026-09-10T09:03:59+08:00",
+      "previousRecordSha256": null,
+      "watchedScopeDigest": "b7766e40c50a8cd9bf693bed4bfbdb0fc7d9e41fd4944098d5877e58a6f551b1",
+      "diagramSourceSha256": "06b9d62a28abe917dd2e62533618c4ea9f7985902d97ab819eda57689737ab00",
+      "diagramArtifactSha256": "8ee8a1f89881d8e014e449a5100ae43a1c8cec94e6d5e4568869bd09274b19c8",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 2,
+      "syncId": "VL-PMAP-20260911-01",
+      "checkedAt": "2026-09-11T10:23:06+08:00",
+      "previousRecordSha256": "852f70a643e0b367d04c5eae7e7cbd38d804584eda6c945c86bb2861629d772b",
+      "watchedScopeDigest": "0ad860a344ff0cf317158edf7ae64606e66904e43c4456a6a1dc2fa9d16722b3",
+      "diagramSourceSha256": "57d5e8038faa8c670214c2a691f84d6d059a12c4a111d1c63962a9a63f7d9212",
+      "diagramArtifactSha256": "3f49e9812e873d7ffb03db9656d6c00eaa80f841b69516d1f6ae764be8a47cf4",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 3,
+      "syncId": "VL-PMAP-20260911-02",
+      "checkedAt": "2026-09-11T14:28:23+08:00",
+      "previousRecordSha256": "3f513bf1b5bf8aadb5ec11f9dda0d7b55336850194b93a3f7904d5bfe3423242",
+      "watchedScopeDigest": "ece900719e41e3f3a3c8116c683e69cf819dfd583fbe4a3ef85769809417cc96",
+      "diagramSourceSha256": "d21e8fcb516dc9a463eeb63453aa0aedeaf8018f9285d19db999b017353acdb0",
+      "diagramArtifactSha256": "9ad35c334a792d9e194fb5202aaf9df88f6f5ea5b14778dd7a8cb7398c5cb300",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 4,
+      "syncId": "VL-PMAP-20260911-03",
+      "checkedAt": "2026-09-11T14:39:01+08:00",
+      "previousRecordSha256": "ad3e1302bdc884b367a2c0a3653d98fec4c121396c5bad1796212b25ce6cda82",
+      "watchedScopeDigest": "46f8f2b7a0ccf821a67d377e217c01be079f92e8e59bab676a559a0595281e83",
+      "diagramSourceSha256": "82f249258a9a33a2ce63fbba05c3683d884fb9611df86fdf47d7f3f17b77fac6",
+      "diagramArtifactSha256": "c457c67447f51849aa8e3766629eafb8915e83562593c1f678c5a2f88112125c",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 5,
+      "syncId": "VL-PMAP-20260911-04",
+      "checkedAt": "2026-09-11T16:26:00+08:00",
+      "previousRecordSha256": "cd31b91ec9f06fc1769203bc9525d2335134367d389f69cbdfa6e9488f947347",
+      "watchedScopeDigest": "41214bb8c93b2ac5dd5789501ae2fc4d546e1dac39d62601828306e3f1faaed1",
+      "diagramSourceSha256": "06de6e0320731c91f2604282c559075b9a89c47f6bfa5e5a58d0ce4ef76c038d",
+      "diagramArtifactSha256": "50bb252fbc49598063ddd9d0aaa2f6b96e318ca15fbda4986466260fbafaf038",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 6,
+      "syncId": "VL-PMAP-20260911-05",
+      "checkedAt": "2026-09-11T17:24:04+08:00",
+      "previousRecordSha256": "d1f3baa39c71cf7dc0774b50a5105f1ccf74edfbc747404f1d2cc27c49b5205f",
+      "watchedScopeDigest": "5ea440fd47a1ab02f3e552e7e5ce25dd279229ef32337514fe1593e2b2cdf5e9",
+      "diagramSourceSha256": "f3b9ab9dbca036d81a588e6c7702b0002468dea39dda887717a6cf29633105c4",
+      "diagramArtifactSha256": "e0c76b0b60079bd5aac74bd498d8c7b87d861a118f14bd8062cbd83394a3e249",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 7,
+      "syncId": "VL-PMAP-20260911-06",
+      "checkedAt": "2026-09-11T18:19:10+08:00",
+      "previousRecordSha256": "0c798aaee487bb7ed4dbde210fb8f91e15d33758763d95479a65213e76023548",
+      "watchedScopeDigest": "2c5c76689fbae0ae2a56044fccf0dbb7fa985a51c5743a785e5073be5589c656",
+      "diagramSourceSha256": "07dfe10c7fd0d83d79e8b388b7b0d36f322a1b03147bbe1cf5a3faad53dd7cf5",
+      "diagramArtifactSha256": "e667258bd67290b07a56b25acc978168e19946ef9a371b4a94cafe68346e189b",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 8,
+      "syncId": "VL-PMAP-20260911-07",
+      "checkedAt": "2026-09-11T18:36:55+08:00",
+      "previousRecordSha256": "4ada5a923414d26f35faa8d5ad10f38c53a8762b1fe51cc4ef82d32742fca32a",
+      "watchedScopeDigest": "65c712c944fa0ce8f120286e28e95db146ab3a93956502a2b93f13ed31071cb1",
+      "diagramSourceSha256": "77815243715be17dbc7c702f2e7d0e5fc0172fb277a9c2d83893b6b9264864c6",
+      "diagramArtifactSha256": "d34939ab7244a0e9bf18a47a1589994588f8f0b9cdf71113025b3637a5dac0db",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 9,
+      "syncId": "VL-PMAP-20260913-01",
+      "checkedAt": "2026-09-13T18:36:15+08:00",
+      "previousRecordSha256": "425eba1a7c1e38727489b8d9b75d138e97e13c9320d5eb547840e67d8092987e",
+      "watchedScopeDigest": "192971e53828179e88075e992e3ee7324a78afb7dda248c0c25c45d4f6be197d",
+      "diagramSourceSha256": "a79057bd48e632e38dd9be715b747b0954460ad476eed672d4755f441eb76a72",
+      "diagramArtifactSha256": "c8175bd379b592eff9103dc63a46320572b27957c0243916051b7ac7c9ad9500",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 10,
+      "syncId": "VL-PMAP-20260913-02",
+      "checkedAt": "2026-09-13T18:42:05+08:00",
+      "previousRecordSha256": "64f9f88fb836f03fc8cff9e4364370a771eb1d9e16eced47ff625a66c03b6de5",
+      "watchedScopeDigest": "192971e53828179e88075e992e3ee7324a78afb7dda248c0c25c45d4f6be197d",
+      "diagramSourceSha256": "2bd4c2b1381f7e8b1925ffa93337ddf551618b985c9cb4d33512a9bec1062ea7",
+      "diagramArtifactSha256": "f783eab1432b5189b83486852f8b681f6bd979a5309cbbff807705be3e129352",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 11,
+      "syncId": "VL-PMAP-20260916-01",
+      "checkedAt": "2026-09-16T10:08:00+08:00",
+      "previousRecordSha256": "6a2dba53dd9f6265e55ce54c569ad0642d738afd9502a8f1a417b8d928d3b170",
+      "watchedScopeDigest": "c4876a08107b8febff43a22ca1cea69328dde48d063dcbe4100502e2122bbf3e",
+      "diagramSourceSha256": "e1ad5e2a56f15cf2efc7fe34fa6ae7379b36e0b822eeec32e9687c6040e2ef06",
+      "diagramArtifactSha256": "4a334ccbbe4fc9243c50629541a7511d36e73b0ec1a215f875fbff91150ee143",
+      "driftStatus": "aligned"
+    }
+  ]
+}

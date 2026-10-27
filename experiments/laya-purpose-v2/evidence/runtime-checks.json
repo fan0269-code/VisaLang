@@ -1,0 +1,732 @@
+{
+  "status": "PASS",
+  "elapsed_s": 29.880024875004892,
+  "session": [
+    {
+      "ready": true,
+      "pid": 85790,
+      "model_load_count": 1,
+      "import_ms": 793.1988330019522,
+      "resolve_hash_ms": 325.12683299864875,
+      "load_ms": 26115.005500003463,
+      "model": "convaiinnovations/laya",
+      "subfolder": "multilingual",
+      "resolved_checkpoint": "/Users/a1-6/.cache/huggingface/hub/models--convaiinnovations--laya/snapshots/1c5edc17a7acd8701df6fc341c0d179f1c62c982/multilingual",
+      "checkpoint_sha256": {
+        "encoder/config.json": "83f6916d13ef0f556ac461f28308dc2bffa7ebeadee8ec9e2db5812020ea5bb4",
+        "model.safetensors": "9d628fd971b700382ac6f65920a86f149777b2e748e0c955fb3b19695aa8f204",
+        "rl_agent_config.json": "25061739243b617ad88d1219ba6f8a9c86c5881ca28df024fa2d9b3b2fcc30c6",
+        "tokenizer/tokenizer.json": "609d8f4c067cd3950f88594c5a802616cea245823836ef5848ee4fc40aab5b6f",
+        "tokenizer/tokenizer_config.json": "6c6b2d8e3c84ce0e671c129cd6b374b235d6f9863042a5836358d00a89bbb5a1"
+      },
+      "device": "cpu",
+      "python": "3.13.15 (main, Aug 25 2026, 13:50:12) [Clang 22.1.3 ]",
+      "libraries": {
+        "laya": "0.3.5",
+        "torch": "2.14.0",
+        "transformers": "5.17.0",
+        "tokenizers": "0.23.2",
+        "huggingface-hub": "1.32.0",
+        "safetensors": "0.8.0"
+      },
+      "common_py_sha256": "f231d42fcec84da203222fcaa89c083b22776e00341e66e118183d754e1dcabf",
+      "max_tokens": 1024,
+      "head_max_tokens": 256,
+      "offline": true
+    },
+    {
+      "results": {
+        "A": {
+          "actual": "university",
+          "probabilities": {
+            "family-reunion": 0.0,
+            "b1": 0.0,
+            "ausbildung": 0.0,
+            "nursing": 0.0,
+            "university": 1.0,
+            "other": 0.0,
+            "unclear": 0.0
+          },
+          "confidence": 1.0,
+          "stages": [
+            {
+              "stage": "purpose",
+              "choice": "university",
+              "probabilities": {
+                "family-reunion": 0.0,
+                "b1": 0.0,
+                "ausbildung": 0.0,
+                "nursing": 0.0,
+                "university": 1.0,
+                "other": 0.0,
+                "unclear": 0.0
+              },
+              "confidence": 1.0,
+              "inference_ms": 71.09754200064344,
+              "total_ms": 73.39475000480888,
+              "input_tokens": 147,
+              "token_audit": {
+                "input_tokens_raw": 7,
+                "input_tokens_kept": 7,
+                "input_truncated": false,
+                "instruction_tokens_raw": 50,
+                "instruction_tokens_kept": 50,
+                "option_tokens_raw": [
+                  15,
+                  14,
+                  13,
+                  11,
+                  10,
+                  8,
+                  15
+                ],
+                "option_tokens_kept": [
+                  15,
+                  14,
+                  13,
+                  11,
+                  10,
+                  8,
+                  15
+                ],
+                "sequence_tokens": 147
+              }
+            }
+          ],
+          "total_ms": 73.39795799634885
+        },
+        "B": {
+          "actual": "university",
+          "probabilities": {
+            "family-reunion": 0.0,
+            "b1": 0.0,
+            "ausbildung": 0.0,
+            "nursing": 0.0,
+            "university": 1.0,
+            "other": 0.0,
+            "unclear": 0.0
+          },
+          "confidence": 1.0,
+          "stages": [
+            {
+              "stage": "purpose",
+              "choice": "大学学位申请",
+              "probabilities": {
+                "家庭团聚": 0.0,
+                "永居或入籍": 0.0,
+                "职业培训": 0.0,
+                "护士执业认可": 0.0,
+                "大学学位申请": 1.0,
+                "其他明确目的": 0.0,
+                "目的不明确": 0.0
+              },
+              "confidence": 1.0,
+              "inference_ms": 74.72883399896091,
+              "total_ms": 75.52741700055776,
+              "input_tokens": 131,
+              "token_audit": {
+                "input_tokens_raw": 7,
+                "input_tokens_kept": 7,
+                "input_truncated": false,
+                "instruction_tokens_raw": 29,
+                "instruction_tokens_kept": 29,
+                "option_tokens_raw": [
+                  10,
+                  17,
+                  12,
+                  13,
+                  15,
+                  9,
+                  15
+                ],
+                "option_tokens_kept": [
+                  10,
+                  17,
+                  12,
+                  13,
+                  15,
+                  9,
+                  15
+                ],
+                "sequence_tokens": 131
+              }
+            }
+          ],
+          "total_ms": 75.53337499848567
+        },
+        "C": {
+          "actual": "university",
+          "probabilities": null,
+          "confidence": null,
+          "stages": [
+            {
+              "stage": "gate",
+              "choice": "明确单一当前目的",
+              "probabilities": {
+                "明确单一当前目的": 0.625,
+                "信息不足或仅问考试": 0.2243,
+                "多目的未定": 0.1507
+              },
+              "confidence": 0.1678,
+              "inference_ms": 46.23995799920522,
+              "total_ms": 46.765459002926946,
+              "input_tokens": 82,
+              "token_audit": {
+                "input_tokens_raw": 7,
+                "input_tokens_kept": 7,
+                "input_truncated": false,
+                "instruction_tokens_raw": 26,
+                "instruction_tokens_kept": 26,
+                "option_tokens_raw": [
+                  13,
+                  19,
+                  13
+                ],
+                "option_tokens_kept": [
+                  13,
+                  19,
+                  13
+                ],
+                "sequence_tokens": 82
+              }
+            },
+            {
+              "stage": "purpose",
+              "choice": "大学学位申请",
+              "probabilities": {
+                "家庭团聚": 0.0,
+                "永居或入籍": 0.0,
+                "职业培训": 0.0,
+                "护士执业认可": 0.0,
+                "大学学位申请": 1.0,
+                "其他明确目的": 0.0,
+                "目的不明确": 0.0
+              },
+              "confidence": 1.0,
+              "inference_ms": 64.92575000447687,
+              "total_ms": 65.41233300231397,
+              "input_tokens": 131,
+              "token_audit": {
+                "input_tokens_raw": 7,
+                "input_tokens_kept": 7,
+                "input_truncated": false,
+                "instruction_tokens_raw": 29,
+                "instruction_tokens_kept": 29,
+                "option_tokens_raw": [
+                  10,
+                  17,
+                  12,
+                  13,
+                  15,
+                  9,
+                  15
+                ],
+                "option_tokens_kept": [
+                  10,
+                  17,
+                  12,
+                  13,
+                  15,
+                  9,
+                  15
+                ],
+                "sequence_tokens": 131
+              }
+            }
+          ],
+          "total_ms": 112.18545800511492
+        },
+        "D": {
+          "actual": "university",
+          "probabilities": null,
+          "confidence": null,
+          "stages": [],
+          "total_ms": 1.1255409990553744
+        }
+      },
+      "pid": 85790,
+      "request_count": 1,
+      "model_load_count": 1
+    },
+    {
+      "error": "请输入1–300字符非空短文本；另有真实token截断检查",
+      "pid": 85790,
+      "model_load_count": 1
+    },
+    {
+      "error": "请输入1–300字符非空短文本；另有真实token截断检查",
+      "pid": 85790,
+      "model_load_count": 1
+    },
+    {
+      "error": "请输入1–300字符非空短文本；另有真实token截断检查",
+      "pid": 85790,
+      "model_load_count": 1
+    },
+    {
+      "error": "User text would be token-truncated; request rejected",
+      "pid": 85790,
+      "model_load_count": 1
+    },
+    {
+      "results": {
+        "A": {
+          "actual": "university",
+          "probabilities": {
+            "family-reunion": 0.0,
+            "b1": 0.0,
+            "ausbildung": 0.0,
+            "nursing": 0.0,
+            "university": 1.0,
+            "other": 0.0,
+            "unclear": 0.0
+          },
+          "confidence": 1.0,
+          "stages": [
+            {
+              "stage": "purpose",
+              "choice": "university",
+              "probabilities": {
+                "family-reunion": 0.0,
+                "b1": 0.0,
+                "ausbildung": 0.0,
+                "nursing": 0.0,
+                "university": 1.0,
+                "other": 0.0,
+                "unclear": 0.0
+              },
+              "confidence": 1.0,
+              "inference_ms": 69.63629200618016,
+              "total_ms": 69.9769999991986,
+              "input_tokens": 147,
+              "token_audit": {
+                "input_tokens_raw": 7,
+                "input_tokens_kept": 7,
+                "input_truncated": false,
+                "instruction_tokens_raw": 50,
+                "instruction_tokens_kept": 50,
+                "option_tokens_raw": [
+                  15,
+                  14,
+                  13,
+                  11,
+                  10,
+                  8,
+                  15
+                ],
+                "option_tokens_kept": [
+                  15,
+                  14,
+                  13,
+                  11,
+                  10,
+                  8,
+                  15
+                ],
+                "sequence_tokens": 147
+              }
+            }
+          ],
+          "total_ms": 69.98145900433883
+        },
+        "B": {
+          "actual": "university",
+          "probabilities": {
+            "family-reunion": 0.0,
+            "b1": 0.0,
+            "ausbildung": 0.0,
+            "nursing": 0.0,
+            "university": 1.0,
+            "other": 0.0,
+            "unclear": 0.0
+          },
+          "confidence": 1.0,
+          "stages": [
+            {
+              "stage": "purpose",
+              "choice": "大学学位申请",
+              "probabilities": {
+                "家庭团聚": 0.0,
+                "永居或入籍": 0.0,
+                "职业培训": 0.0,
+                "护士执业认可": 0.0,
+                "大学学位申请": 1.0,
+                "其他明确目的": 0.0,
+                "目的不明确": 0.0
+              },
+              "confidence": 1.0,
+              "inference_ms": 66.95458400645293,
+              "total_ms": 67.42645799386082,
+              "input_tokens": 131,
+              "token_audit": {
+                "input_tokens_raw": 7,
+                "input_tokens_kept": 7,
+                "input_truncated": false,
+                "instruction_tokens_raw": 29,
+                "instruction_tokens_kept": 29,
+                "option_tokens_raw": [
+                  10,
+                  17,
+                  12,
+                  13,
+                  15,
+                  9,
+                  15
+                ],
+                "option_tokens_kept": [
+                  10,
+                  17,
+                  12,
+                  13,
+                  15,
+                  9,
+                  15
+                ],
+                "sequence_tokens": 131
+              }
+            }
+          ],
+          "total_ms": 67.43291699967813
+        },
+        "C": {
+          "actual": "university",
+          "probabilities": null,
+          "confidence": null,
+          "stages": [
+            {
+              "stage": "gate",
+              "choice": "明确单一当前目的",
+              "probabilities": {
+                "明确单一当前目的": 0.625,
+                "信息不足或仅问考试": 0.2243,
+                "多目的未定": 0.1507
+              },
+              "confidence": 0.1678,
+              "inference_ms": 48.88583299907623,
+              "total_ms": 49.24095800379291,
+              "input_tokens": 82,
+              "token_audit": {
+                "input_tokens_raw": 7,
+                "input_tokens_kept": 7,
+                "input_truncated": false,
+                "instruction_tokens_raw": 26,
+                "instruction_tokens_kept": 26,
+                "option_tokens_raw": [
+                  13,
+                  19,
+                  13
+                ],
+                "option_tokens_kept": [
+                  13,
+                  19,
+                  13
+                ],
+                "sequence_tokens": 82
+              }
+            },
+            {
+              "stage": "purpose",
+              "choice": "大学学位申请",
+              "probabilities": {
+                "家庭团聚": 0.0,
+                "永居或入籍": 0.0,
+                "职业培训": 0.0,
+                "护士执业认可": 0.0,
+                "大学学位申请": 1.0,
+                "其他明确目的": 0.0,
+                "目的不明确": 0.0
+              },
+              "confidence": 1.0,
+              "inference_ms": 68.15216600080021,
+              "total_ms": 68.61945799755631,
+              "input_tokens": 131,
+              "token_audit": {
+                "input_tokens_raw": 7,
+                "input_tokens_kept": 7,
+                "input_truncated": false,
+                "instruction_tokens_raw": 29,
+                "instruction_tokens_kept": 29,
+                "option_tokens_raw": [
+                  10,
+                  17,
+                  12,
+                  13,
+                  15,
+                  9,
+                  15
+                ],
+                "option_tokens_kept": [
+                  10,
+                  17,
+                  12,
+                  13,
+                  15,
+                  9,
+                  15
+                ],
+                "sequence_tokens": 131
+              }
+            }
+          ],
+          "total_ms": 117.86733299959451
+        },
+        "D": {
+          "actual": "university",
+          "probabilities": null,
+          "confidence": null,
+          "stages": [],
+          "total_ms": 0.02195800334447995
+        }
+      },
+      "pid": 85790,
+      "request_count": 3,
+      "model_load_count": 1
+    },
+    {
+      "error": "Expecting property name enclosed in double quotes: line 1 column 2 (char 1)",
+      "pid": 85790,
+      "model_load_count": 1
+    },
+    {
+      "results": {
+        "A": {
+          "actual": "university",
+          "probabilities": {
+            "family-reunion": 0.0,
+            "b1": 0.0,
+            "ausbildung": 0.0,
+            "nursing": 0.0,
+            "university": 1.0,
+            "other": 0.0,
+            "unclear": 0.0
+          },
+          "confidence": 1.0,
+          "stages": [
+            {
+              "stage": "purpose",
+              "choice": "university",
+              "probabilities": {
+                "family-reunion": 0.0,
+                "b1": 0.0,
+                "ausbildung": 0.0,
+                "nursing": 0.0,
+                "university": 1.0,
+                "other": 0.0,
+                "unclear": 0.0
+              },
+              "confidence": 1.0,
+              "inference_ms": 72.44333299604477,
+              "total_ms": 72.93391699931817,
+              "input_tokens": 147,
+              "token_audit": {
+                "input_tokens_raw": 7,
+                "input_tokens_kept": 7,
+                "input_truncated": false,
+                "instruction_tokens_raw": 50,
+                "instruction_tokens_kept": 50,
+                "option_tokens_raw": [
+                  15,
+                  14,
+                  13,
+                  11,
+                  10,
+                  8,
+                  15
+                ],
+                "option_tokens_kept": [
+                  15,
+                  14,
+                  13,
+                  11,
+                  10,
+                  8,
+                  15
+                ],
+                "sequence_tokens": 147
+              }
+            }
+          ],
+          "total_ms": 72.93795800069347
+        },
+        "B": {
+          "actual": "university",
+          "probabilities": {
+            "family-reunion": 0.0,
+            "b1": 0.0,
+            "ausbildung": 0.0,
+            "nursing": 0.0,
+            "university": 1.0,
+            "other": 0.0,
+            "unclear": 0.0
+          },
+          "confidence": 1.0,
+          "stages": [
+            {
+              "stage": "purpose",
+              "choice": "大学学位申请",
+              "probabilities": {
+                "家庭团聚": 0.0,
+                "永居或入籍": 0.0,
+                "职业培训": 0.0,
+                "护士执业认可": 0.0,
+                "大学学位申请": 1.0,
+                "其他明确目的": 0.0,
+                "目的不明确": 0.0
+              },
+              "confidence": 1.0,
+              "inference_ms": 69.09595800243551,
+              "total_ms": 69.5507499985979,
+              "input_tokens": 131,
+              "token_audit": {
+                "input_tokens_raw": 7,
+                "input_tokens_kept": 7,
+                "input_truncated": false,
+                "instruction_tokens_raw": 29,
+                "instruction_tokens_kept": 29,
+                "option_tokens_raw": [
+                  10,
+                  17,
+                  12,
+                  13,
+                  15,
+                  9,
+                  15
+                ],
+                "option_tokens_kept": [
+                  10,
+                  17,
+                  12,
+                  13,
+                  15,
+                  9,
+                  15
+                ],
+                "sequence_tokens": 131
+              }
+            }
+          ],
+          "total_ms": 69.55604100221535
+        },
+        "C": {
+          "actual": "university",
+          "probabilities": null,
+          "confidence": null,
+          "stages": [
+            {
+              "stage": "gate",
+              "choice": "明确单一当前目的",
+              "probabilities": {
+                "明确单一当前目的": 0.625,
+                "信息不足或仅问考试": 0.2243,
+                "多目的未定": 0.1507
+              },
+              "confidence": 0.1678,
+              "inference_ms": 50.47829099930823,
+              "total_ms": 50.82445900188759,
+              "input_tokens": 82,
+              "token_audit": {
+                "input_tokens_raw": 7,
+                "input_tokens_kept": 7,
+                "input_truncated": false,
+                "instruction_tokens_raw": 26,
+                "instruction_tokens_kept": 26,
+                "option_tokens_raw": [
+                  13,
+                  19,
+                  13
+                ],
+                "option_tokens_kept": [
+                  13,
+                  19,
+                  13
+                ],
+                "sequence_tokens": 82
+              }
+            },
+            {
+              "stage": "purpose",
+              "choice": "大学学位申请",
+              "probabilities": {
+                "家庭团聚": 0.0,
+                "永居或入籍": 0.0,
+                "职业培训": 0.0,
+                "护士执业认可": 0.0,
+                "大学学位申请": 1.0,
+                "其他明确目的": 0.0,
+                "目的不明确": 0.0
+              },
+              "confidence": 1.0,
+              "inference_ms": 69.37237500096671,
+              "total_ms": 69.99429099960253,
+              "input_tokens": 131,
+              "token_audit": {
+                "input_tokens_raw": 7,
+                "input_tokens_kept": 7,
+                "input_truncated": false,
+                "instruction_tokens_raw": 29,
+                "instruction_tokens_kept": 29,
+                "option_tokens_raw": [
+                  10,
+                  17,
+                  12,
+                  13,
+                  15,
+                  9,
+                  15
+                ],
+                "option_tokens_kept": [
+                  10,
+                  17,
+                  12,
+                  13,
+                  15,
+                  9,
+                  15
+                ],
+                "sequence_tokens": 131
+              }
+            }
+          ],
+          "total_ms": 120.8237500031828
+        },
+        "D": {
+          "actual": "university",
+          "probabilities": null,
+          "confidence": null,
+          "stages": [],
+          "total_ms": 0.022250002075452358
+        }
+      },
+      "pid": 85790,
+      "request_count": 4,
+      "model_load_count": 1
+    }
+  ],
+  "stderr": "",
+  "failure_cases": [
+    {
+      "case": "unset_python",
+      "exit_code": 1,
+      "stderr": "设置 LAYA_PYTHON 后运行：node experiments/laya-purpose-v2/demo.mjs [--text \"文本\" | --evaluate [--output 文件.json]]\n",
+      "stdout": ""
+    },
+    {
+      "case": "missing_python",
+      "exit_code": 1,
+      "stderr": "spawn /nonexistent-laya-v2/python ENOENT\n",
+      "stdout": ""
+    },
+    {
+      "case": "missing_cache",
+      "exit_code": 1,
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/a1-6/Documents/2.codex/1.visalang.org/experiments/laya-purpose-v2/worker.py\", line 53, in <module>\n    checkpoint = Path(snapshot_download(model_id, local_files_only=True, allow_patterns=[\n                      ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        prefix + name for name in ['rl_agent_config.json', 'model.safetensors', 'tokenizer/*', 'encoder/*']]))\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/a1-6/Documents/14.laya/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_validators.py\", line 91, in _inner_fn\n    return fn(*args, **kwargs)\n  File \"/Users/a1-6/Documents/14.laya/.venv/lib/python3.13/site-packages/huggingface_hub/utils/_http.py\", line 266, in _inner\n    return fn(*args, **kwargs)\n  File \"/Users/a1-6/Documents/14.laya/.venv/lib/python3.13/site-packages/huggingface_hub/_snapshot_download.py\", line 363, in snapshot_download\n    raise LocalEntryNotFoundError(\n    ...<3 lines>...\n    )\nhuggingface_hub.errors.LocalEntryNotFoundError: Cannot find an appropriate cached snapshot folder for the specified revision on the local disk and outgoing traffic has been disabled. To enable repo look-ups and downloads online, pass 'local_files_only=False' as input.\nLaya 进程已退出 (1)\n",
+      "stdout": ""
+    },
+    {
+      "case": "missing_laya",
+      "exit_code": 1,
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/a1-6/Documents/2.codex/1.visalang.org/experiments/laya-purpose-v2/worker.py\", line 38, in <module>\n    import laya\nModuleNotFoundError: No module named 'laya'\nLaya 进程已退出 (1)\n",
+      "stdout": ""
+    }
+  ]
+}

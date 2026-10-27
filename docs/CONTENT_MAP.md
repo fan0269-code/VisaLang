@@ -1,5 +1,112 @@
 # VisaLang Content Execution Ledger
 
+## 2026-09-23 W00 隔离分配准备（当前增补）
+
+本轮 Owner 已发送 W00 调度提示词，授权本地冻结、分配和验证；按其优先顺序准备 W01、W02、W08，未把功能模块自动派发。[分配与字节证据](../docs/module-handoffs/2026-09-23-01/README.md)及 `docs/module-handoffs/2026-09-23-01/dispatch.json` 是本批实际分配记录。当前工作树 1,115 文件已冻结，三份无 .git 的完整候选及独立依赖已逐项校验；省略的两个可选外部仓库和纳入的15份旧实验日志已登记。
+
+本轮无模块 handoff、无产品集成，W01/W02/W08 状态为 prepared_awaiting_owner_dispatch；LP/LC 仍 pending，原 T=25完成/5进行中/4待开始不变。真人、目标主机、账户与上线观察均未取得；W01无真人保持partial，W02不等待W01通过，W08本地成果不替代LP05a真实环境验收。W09消费已集成W08契约；W10无真人收益证据不能继续W11/12；W13/14仍按自身需求；W16三候选分别核对，W17从真实发布计时。
+
+本轮为分配准备维护窗口，sync `VL-PMAP-20260923-05`，drift `aligned`；审核权威仅为 `docs/planning-map/VISALANG_W00_DISPATCH_INDEPENDENT_AUDIT_2026-09-23.md`，结论以该独立报告及最终实际测试为准。历史增补保留为各自冻结窗口。Vault目录/模板缺失，待同步payload为blocked；无提交、推送、部署、招募、模型运行或外部账户行动授权。
+
+
+<!-- SCHEME-3-CURRENT-START -->
+### 2026-09-23 current module handoff
+
+[Window prompt directory](prompts/2026-09-23-module-build/README.md) maps LC01 to W03, LC04–07 to W04–07, initial LC02/03 preparation to W02 and full assets to conditional W11, LC08 to W13, LC09–11 to W14, and LC12 to W17. W01 supplies real-reader evidence; W15 checks the integrated core journey; W00 handles shared-file integration and mandatory governance. All content assets remain subject to the existing task-specific source and demand gates. No article facts, checked dates, URLs, indexing or ad policies changed in this prompt-only window. Sync `VL-PMAP-20260923-04`; the new independent report is `docs/planning-map/VISALANG_MODULE_PROMPTS_INDEPENDENT_AUDIT_2026-09-23.md`. Prompt-ready does not advance implementation status.
+
+## Current Scheme 3 publication map
+
+Updated: 2026-09-22; M3 final serial verification recorded in the M4 execution evidence; current M4 review state is recorded separately below.
+Authority: historical publication baseline `docs/VISALANG_ONE_WEEK_SCHEME_3_CONTENT_PLAN_2026-09-01.md`, reconciled for the current local batch by `docs/master-package-2026-09-08/VisaLang-Master-Plan.md`
+Code source of truth: `src/data/publication-manifest.ts`
+
+The 2026-09-22 local source candidate has 15 English pillars, 5 Chinese pillars, 38 non-pillar English guides, 12 noindex categories and 17 retained supporting URLs. Current generated output: 106 pages, 41 sitemap URLs, 65 noindex pages and 14 ad-enabled pages. Historical M2-A output was 83 pages / 36 sitemap / 47 noindex; historical M3 output was 88 / 41 / 47. Those earlier reviews do not certify this new candidate. Advertising remains allowlisted for 14 English pillars; retained supporting URLs and the fee guide remain ad-free. Production URL observations are inconclusive (403/timeouts). Current review authority: `docs/planning-map/VISALANG_PRODUCTION_CANDIDATE_INDEPENDENT_AUDIT_2026-09-22.md`; no production release is authorized.
+
+The 38 non-pillar English guides comprise 24 other support guides (23 Scheme 3 support guides plus the restored English C07 existing-certificate page) and 14 English supporting guides restored on September 22. C07 remains directly reachable, self-canonical, `noindex,follow`, ad-free and outside primary discovery. The English C01 is general orientation while the Chinese C01 is China-application-location-specific, so that non-equivalent pair intentionally has no reciprocal hreflang. The other four equivalent English/Chinese guide pairs remain among the M3 candidate's 11 genuine reciprocal hreflang pairs.
+
+### M3 T20–T23 local implementation-review outcome
+
+- T19 remains `in_progress`: local ICS generation and the downloaded bytes are verified, but a real calendar-client import is unauthorized and `not_tested`.
+- T20 is `completed` at the local implementation-review gate after the same Independent Auditor returned round-3 `PASS` with no P0/P1/P2 findings. Five Chinese tool routes reuse shared facts and calculations, and eight historical Chinese A1 tasks reconcile to five maintained guide routes, with three preserved as absorbed task modules.
+- T21 is `completed` at the local implementation-review gate under that same `PASS`. Guide discovery uses four explicit purposes (`family`, `settlement`, `citizenship`, and `preparation`) and exactly three public filter facets (Purpose, Stage, and Language). The exam directory retains 31 records: the two exact registry-backed A1 products are supported and prioritized, while the other 29 are reference-only.
+- T22 is `completed` at the local implementation-review gate under that same `PASS`: the source-generated/local-preview output is 88 pages / 41 sitemap / 47 noindex / 14 ad-eligible, and the equivalence registry emits 11 genuine reciprocal hreflang pairs. Production HTTP remains `not_observed`, so this status is not deployment or live-index evidence.
+- T23 is `in_progress`: the Owner-authorized local candidate retains all 17 original paths. `deploy/retained-routes.json` and the September 22 evidence supersede active migration candidates; production installation and public HTTP/index state remain unverified.
+
+### M4 T24–T26 current content contract
+
+The M3 directory count above is its historical outcome. M4 preserves all 31 entries and now configures four exact adult products (Goethe/telc A1 and B1), leaving 27 reference-only entries. B1 comparison uses independent product evidence and does not extend the A1 immigration checklist. Eight maintained B1 pillars and their hub retain their URLs and publication policy.
+
+T24 separates the general settlement, skilled-worker settlement, EU Blue Card settlement and naturalisation statutory routes, with distinct language, knowledge, wider-condition and competent-authority actions. T25 compares the two exact adult B1 products and gives local booking/quote worksheets. T26 adds diagnosis/retest and weekly records plus original writing/speaking revisions, transfer tasks and self-checks. German examples received a separate AI editorial language review; they have no official score or human examiner endorsement.
+
+The M4 source ledgers and independent task reviews are dated 2026-09-13. The exact final whole-window verdict and verification boundaries are recorded in `docs/planning-map/VISALANG_M4_INDEPENDENT_AUDIT_2026-09-13.md` and `docs/VISALANG_M4_T24_T26_EXECUTION_EVIDENCE_2026-09-13.md`; a candidate is complete only if that audit returns PASS. T19 remains partial; T23 is now in_progress under the September 22 retention decision, with production verification still open. Release/Owner decisions stay separate.
+
+### English pillars
+
+| Route | Primary task |
+| --- | --- |
+| `german-family-reunion-language-requirement` | Decide whether A1 may apply and record the competent authority. |
+| `goethe-a1-vs-telc-a1` | Compare exact A1 products only after route acceptance is confirmed. |
+| `goethe-a1-test-centers` | Verify an official centre and its current local terms before payment. |
+| `goethe-a1-fees-by-country` | Compare four scoped Germany/Beijing 2026 fee records without converting currencies or inferring availability. |
+| `german-a1-exam-booking-timeline` | Build a reverse timeline from confirmed dates and an explicit unknown-date branch. |
+| `german-a1-documents-checklist` | Separate registration, exam-day and application-submission evidence. |
+| `goethe-a1-30-day-study-plan` | Run a diagnostic-led 30-day practice and error-review system. |
+| `goethe-b1-germany-settlement-work` | Identify the settlement route and responsible local authority before using B1. |
+| `germany-b1-citizenship-language-proof` | Record the citizenship authority's accepted language-evidence path. |
+| `germany-b1-leben-in-deutschland-and-language-proof` | Keep language and civic-knowledge evidence as separate decisions. |
+| `goethe-b1-vs-telc-b1` | Compare exact adult Goethe-Zertifikat B1 and Zertifikat Deutsch / telc Deutsch B1 products; distinguish DTZ without implying tool support. |
+| `goethe-b1-fees-and-booking` | Capture dated centre, fee, ID and cancellation evidence before booking. |
+| `germany-b1-settlement-citizenship-timeline` | Reverse-plan application, test, result and evidence nodes without invented durations. |
+| `germany-b1-settlement-citizenship-checklist` | Audit route evidence, missing items and versions before submission. |
+| `goethe-b1-study-plan` | Fill diagnosis, weekly and retest records; use original writing and speaking revision exercises without official scoring or outcome promises. |
+
+Official-claim boundaries and update triggers are recorded in `docs/VISALANG_SCHEME_3_A1_CLAIM_SOURCE_LEDGER_2026-09-01.md`, `docs/VISALANG_SCHEME_3_B1_CLAIM_SOURCE_LEDGER_2026-09-01.md` and the M2-A evidence record `docs/VISALANG_M2A_T10_T14_EXECUTION_EVIDENCE_2026-09-09.md`. The 2026-09-01 B1 ledger is historical; materially revised M4 content uses `docs/VISALANG_M4_T24_SOURCE_LEDGER_2026-09-13.md`, `docs/VISALANG_M4_T25_SOURCE_LEDGER_2026-09-13.md` and `docs/VISALANG_M4_T26_SOURCE_LEDGER_2026-09-13.md`.
+
+### M2-A T10–T14 content and shared-tool contracts
+
+- Exact-product comparison uses the versioned Goethe-Zertifikat A1: Start Deutsch 1 and Start Deutsch 1 / telc Deutsch A1 records. Each product owns its format, duration, scoring and whole/partial-sitting facts; the receiving authority owns route acceptance and the selected centre owns current local execution.
+- The configured Germany family-reunion A1 checklist is a five-stage language-proof working list with stable atomic IDs, explicit owners, source routes and done-when evidence. It is not a complete or universal visa-document checklist.
+- Local fee evidence is limited to the Goethe-Institut Germany 2026 official price page/national-network price page and the named Goethe-Institut Beijing 2026 registration page. Four category records remain in EUR or CNY without conversion; centre routes do not imply a live session, seat, checkout amount or individual category eligibility. Unknown fee fallback output explicitly carries status, owner, action and boundary.
+- Timeline planning uses calendar days and the formulas `D - W - P` and `D - W - P - R`. Every buffer is an explicit user assumption or locally confirmed input, and neither output is an official deadline, real retake path or outcome promise.
+- Shared-plan state is browser-local continuity, not a personal eligibility result, remote account, email service or application record. It defaults to session storage, uses local storage only after an explicit 30-day save, validates stable IDs and current rule/claim versions, and keeps `zh-CN` locale separate from `applicationRegionId`; Chinese UI language never selects China or Beijing as the application region.
+
+### Chinese pillars
+
+The Chinese pages are China-specific editorial routes, not literal translations. Their five slugs are:
+
+- `german-family-reunion-language-requirement`
+- `goethe-a1-vs-telc-a1`
+- `goethe-a1-test-centers`
+- `german-a1-exam-booking-timeline`
+- `goethe-a1-30-day-study-plan`
+
+Each page uses German missions in China, the exam owner's China site or a selected official/authorised centre as appropriate. Its claim boundaries, update triggers and Chinese enquiry-template evidence are recorded in `docs/VISALANG_SCHEME_3_ZH_CLAIM_SOURCE_LEDGER_2026-09-01.md`.
+
+### Closed and merged surfaces
+
+- The 24 non-pillar English guides outside the 14 restored English supporting pages remain directly reachable, noindex, ad-free and absent from discovery and the sitemap: 23 Scheme 3 support guides plus the restored C07 review surface.
+- Categories `germany-a1`, `germany-b1`, `germany-testdaf`, `germany-telc`, `uk`, `canada`, `italy`, `spain`, `france`, `finland`, `netherlands` and `portugal` are noindex, ad-free and outside the sitemap.
+- The 17 historical merge proposals are preserved in `guideRedirectCandidates`; active `guideRedirects` is empty. All 17 original URLs now have maintained sources in the local candidate and are governed by `deploy/retained-routes.json`.
+- A redirect is enabled only after its target content and source ledger receive independent review. This record does not authorize commit, push, deployment, publication or AdSense resubmission.
+
+2026-09-22 Owner-authorized retention supersedes the previous consolidation candidate: all 14 EN and 3 ZH paths have distinct rewritten source tasks, self-canonicals, noindex and no ads. Indexing expansion is not authorized by source restoration. Current decisions: `deploy/retained-routes.json`; historical map stays unchanged. Live observations returned 403/timeouts, so public availability and indexing remain unverified.
+
+### Parallel early validation content window — 2026-09-23
+
+The [current content plan](superpowers/plans/2026-09-23-visalang-laya-content-plan.md) preserves LC01–LC12 and original URLs. Prioritize LC01 capability clarity and LC04 authority/certificate checks, then fix observed product-choice, booking, material, time and saved-action failures through LC05–LC07. Reuse adequate existing assets; no page quota or automatic new URL is introduced. LP00 adds 5–8 consenting real-reader exploratory sessions before larger investment; no recruitment or user-test result is claimed.
+
+LC02–LC03 separate minimal early-validation materials from full activation assets. Existing label definitions, input/confirmation/recovery copy and bounded comparison scripts support LP01a alongside LP00 without waiting for reader failure; full assets and larger corpora follow the LP01b evidence decision. Neither portion is a dependency of the A1 core. LC08 practice and LC09–LC11 B1 deepening need their own demand, source and maintenance evidence; routine source correction continues. LC12 collects gaps every two weeks and makes a monthly expansion choice. Official claims, user-intent examples and content mappings remain separate assets. Only family/A1 is configured; recognised purposes do not create eligibility rules.
+
+The Owner-approved planning revision removes mandatory joint website/model/ads release, while the existing implementation remains coupled and requires future adaptation. No guide text, source-check date, route, indexing, ads configuration or product code changes in this window. Preserve 17 original paths, 15 EN/5 ZH pillar policy and 14 advertising allowlist entries. The [whole-site plan](superpowers/plans/2026-09-23-visalang-laya-overall-plan.md) is the source for pending LP00–LP08 and independent-candidate dependencies. Earlier dated review evidence remains historical; current sync is `VL-PMAP-20260923-03`.
+
+LP01a records old-case regression separately from new small-sample results; technical signals do not demonstrate reader benefit or production readiness. LP00 may compare manual and assisted tasks in its first consenting-reader sessions; no actual study or model evaluation is performed by this planning update.
+
+<!-- SCHEME-3-CURRENT-END -->
+
+## Archived pre-Scheme 3 ledger
+
+Everything below is the 2026-08-15 point-in-time ledger. It is preserved as source and decision history, but its 53-English/8-Chinese counts and individual discovery dispositions are superseded by the bounded current map above.
+
 Updated: 2026-08-15
 Source of truth: `src/content/guides/*.md`, `src/data/zh-germany-a1.ts`, and the current source-review schema.
 
@@ -72,13 +179,13 @@ Exam-execution fields for the matrix: exact products are IELTS for UKVI / IELTS 
 | dele-levels-spanish-citizenship | EN | spain | spain | verification-pending | Spain citizenship language-proof planning | choice | Spanish citizenship authority | Instituto Cervantes | 2026-07-19 | 2026-07-19 | partial | Accepted evidence and individual dispensation remain unresolved | Project-owner wording acceptance completed on 2026-07-19; recheck accepted evidence | P0 |
 | ielts-ukvi-uk-visa | EN | uk | uk | verification-pending | UK visa English-language evidence planning | requirement | UKVI | IELTS | 2026-07-21 | 2026-07-21 | reviewed-bounded | Exact route, product, location and local terms remain specific | Match GOV.UK route to approved IELTS product | P0 |
 | languagecert-selt-uk-visa | EN | uk | uk | verification-pending | UK visa English-language evidence planning | choice | UKVI | LANGUAGECERT | 2026-07-21 | 2026-07-21 | reviewed-bounded | Exact route, product, location and local terms remain specific | Verify listed product and provider terms | P0 |
-| german-a1-documents-checklist | EN | germany-a1 | germany-a1 | complete-route | German A1 documents checklist: booking, test day, visa decision support | submission-review | German mission / competent visa authority and selected centre | Goethe-Institut | 2026-07-18 | 2026-07-18 | reviewed | Reader-specific mission and centre instructions remain dynamic | Recheck before submission | P1 |
-| german-a1-exam-booking-timeline | EN | germany-a1 | germany-a1 | complete-route | German A1 exam booking timeline decision support | local-execution | German mission / competent visa authority and selected centre | Goethe-Institut | 2026-07-18 | 2026-07-18 | reviewed | Reader-entered dates and local execution remain dynamic | Recheck confirmed dates | P1 |
+| german-a1-documents-checklist | EN | germany-a1 | germany-a1 | complete-route | German A1 documents checklist: booking, test day, visa decision support | submission-review | German mission / competent visa authority and selected centre | Goethe-Institut | 2026-09-09 | 2026-09-09 | reviewed | Reader-specific mission and centre instructions remain dynamic | Recheck before submission | P1 |
+| german-a1-exam-booking-timeline | EN | germany-a1 | germany-a1 | complete-route | Calendar-day D/W/P/R planning with base and additional-buffer dates | local-execution | German mission / competent visa authority and selected centre | Goethe-Institut / telc | 2026-09-09 | 2026-09-09 | reviewed | Inputs are user assumptions or local facts; neither result guarantees a session, result, certificate or deadline | Recheck every input and the actual session before acting | P1 |
 | german-a1-family-reunion-faq | EN | germany-a1 | germany-a1 | complete-route | German A1 family reunion FAQ: language proof questions decision support | requirement | German mission / responsible foreigners authority | Goethe-Institut | 2026-07-22 | 2026-07-22 | reviewed-bounded | Applicant route, exception and local execution remain current and specific | Confirm the route, then compare accepted providers | P1 |
 | german-family-reunion-language-requirement | EN | germany-a1 | germany-a1 | complete-route | German family reunion language requirement guide decision support | requirement | German mission / competent visa authority | Goethe-Institut / telc | 2026-08-15 | 2026-08-15 | reviewed | Individual route, mission instructions and exception decisions remain authority-specific | Match the route and recheck the responsible mission | P1 |
 | goethe-a1-30-day-study-plan | EN | germany-a1 | germany-a1 | complete-route | 30-day Goethe A1 study plan for family reunion decision support | local-execution | Goethe-Institut / authorised local centre | Goethe-Institut | 2026-07-22 | 2026-07-22 | reviewed-bounded | Thirty days is an editorial schedule; local date, ID and test-day rules remain dynamic | Calibrate with official training and confirmed local instructions | P1 |
 | goethe-a1-booking-mistakes | EN | germany-a1 | germany-a1 | complete-route | Goethe A1 booking mistakes for family reunion decision support | local-execution | Receiving German authority / authorised local centre | Goethe-Institut | 2026-07-22 | 2026-07-22 | reviewed-bounded | Acceptance, date, fee, ID, cancellation and result process remain current and specific | Verify each item before payment | P1 |
-| goethe-a1-fees-by-country | EN | germany-a1 | germany-a1 | complete-route | Goethe A1 exam fees: check your local price decision support | local-execution | Selected official or authorised centre | Goethe-Institut | 2026-07-19 | 2026-07-19 | reviewed | Beijing example does not establish another centre's price | Recheck the selected centre | P1 |
+| goethe-a1-fees-by-country | EN | germany-a1 | germany-a1 | complete-route | Four scoped 2026 Goethe A1 fee records for Germany and Beijing, kept in original currency | local-execution | Selected official or authorised centre | Goethe-Institut | 2026-09-09 | 2026-09-09 | reviewed | Categories, final checkout and availability remain local; Beijing is not China-wide and Germany is not every partner | Recheck the exact product, centre, category and final charge before payment | P1 |
 | goethe-a1-germany-family-reunion | EN | germany-a1 | germany-a1 | complete-route | Goethe A1 for Germany family reunion visa proof decision support | requirement | German mission / responsible foreigners authority | Goethe-Institut | 2026-07-22 | 2026-07-22 | reviewed-bounded | Applicant route, exception, proof acceptance and local execution remain specific | Save the mission instruction before comparing providers | P1 |
 | goethe-a1-listening-practice | EN | germany-a1 | germany-a1 | complete-route | Goethe A1 listening practice: a safe daily routine decision support | local-execution | Goethe-Institut / authorised local centre | Goethe-Institut | 2026-07-22 | 2026-07-22 | reviewed-bounded | Local format and test-day instructions remain centre-specific | Use current official adult training | P1 |
 | goethe-a1-official-links-practice-resources | EN | germany-a1 | germany-a1 | complete-route | Goethe A1 official links and practice resources: where to verify decision support | local-execution | German mission / Goethe-Institut / authorised local centre | Goethe-Institut | 2026-07-22 | 2026-07-22 | reviewed-bounded | Acceptance and local execution remain current and specific | Match every question to its deciding source | P1 |
@@ -86,8 +193,8 @@ Exam-execution fields for the matrix: exact products are IELTS for UKVI / IELTS 
 | goethe-a1-retake-policy | EN | germany-a1 | germany-a1 | complete-route | Goethe A1 retake: plan your next attempt decision support | local-execution | Selected official or authorised centre | Goethe-Institut | 2026-07-19 | 2026-07-19 | reviewed | Local date, fee and seat remain dynamic | Recheck the selected centre | P1 |
 | goethe-a1-speaking-topics | EN | germany-a1 | germany-a1 | complete-route | Goethe A1 speaking topics: safe practice plan decision support | local-execution | Goethe-Institut / authorised local centre | Goethe-Institut | 2026-07-22 | 2026-07-22 | reviewed-bounded | Original drills are editorial practice; local format remains current | Use official adult speaking training | P1 |
 | goethe-a1-study-plan-working-adults | EN | germany-a1 | germany-a1 | complete-route | Goethe A1 study plan for working adults: realistic 8-week routine decision support | local-execution | Goethe-Institut / authorised local centre | Goethe-Institut | 2026-07-22 | 2026-07-22 | reviewed-bounded | Eight weeks is an editorial schedule; local timing remains dynamic | Adapt the plan to official training and confirmed dates | P1 |
-| goethe-a1-test-centers | EN | germany-a1 | germany-a1 | complete-route | Goethe A1 test centers: verify an official exam centre decision support | local-execution | Official exam owner and selected centre | Goethe-Institut | 2026-07-19 | 2026-07-19 | reviewed | Current local product, date and seat remain dynamic | Recheck the selected centre | P1 |
-| goethe-a1-vs-telc-a1 | EN | germany-a1 | germany-a1 | complete-route | Goethe A1 vs telc A1: choose a family reunion exam decision support | choice | German mission / competent visa authority | Goethe-Institut / telc | 2026-07-18 | 2026-07-18 | reviewed | Individual proof acceptance remains with the receiving authority | Confirm before comparison | P1 |
+| goethe-a1-test-centers | EN | germany-a1 | germany-a1 | complete-route | Verify an official exam centre, its local fee route and booking boundaries | local-execution | Official exam owner and selected centre | Goethe-Institut / telc | 2026-09-09 | 2026-09-09 | reviewed | Current product, price, category, date and seat remain local and dynamic | Recheck the selected centre before payment | P1 |
+| goethe-a1-vs-telc-a1 | EN | germany-a1 | germany-a1 | complete-route | Compare independently sourced Goethe A1 and telc A1 product facts | choice | German mission / competent visa authority | Goethe-Institut / telc | 2026-09-09 | 2026-09-09 | reviewed | Individual proof acceptance and local execution remain with their responsible owners | Confirm acceptance, then compare exact products | P1 |
 | goethe-a1-writing-practice | EN | germany-a1 | germany-a1 | complete-route | Goethe A1 writing practice: short forms and messages decision support | local-execution | Goethe-Institut / authorised local centre | Goethe-Institut | 2026-07-22 | 2026-07-22 | reviewed-bounded | Original drills are editorial practice; local format remains current | Use official adult writing training | P1 |
 | germany-b1-citizenship-language-proof | EN | germany-b1 | germany-b1 | core-route | Separate citizenship language proof from the full file | requirement | Competent local nationality authority | BAMF DTZ / LiD | 2026-07-19 | 2026-07-19 | reviewed | Individual route, exception and document acceptance remain local | Confirm possible proof | P1 |
 | germany-b1-leben-in-deutschland-and-language-proof | EN | germany-b1 | germany-b1 | core-route | Separate civic knowledge from language proof | requirement | Competent local nationality or foreigners authority | BAMF DTZ / LiD | 2026-07-19 | 2026-07-19 | reviewed | LiD is not universally interchangeable with every civic-knowledge proof | Confirm route evidence | P1 |
@@ -117,10 +224,10 @@ Exam-execution fields for the matrix: exact products are IELTS for UKVI / IELTS 
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | german-family-reunion-language-requirement | ZH | germany-a1 | germany-a1 | complete-route | Confirm whether A1 may apply before choosing proof | requirement | German mission / competent visa authority | Goethe-Institut / telc | 2026-07-19 | 2026-07-19 | reviewed | Individual route remains authority-specific | Recheck before acting | P1 |
 | goethe-a1-germany-family-reunion | ZH | germany-a1 | germany-a1 | complete-route | Verify possible family-reunion A1 proof | requirement | German mission / competent visa authority | Goethe-Institut / telc | 2026-07-19 | 2026-07-19 | reviewed | Exact proof remains authority-specific | Confirm proof format | P1 |
-| goethe-a1-vs-telc-a1 | ZH | germany-a1 | germany-a1 | complete-route | Compare Goethe A1 and telc A1 safely | choice | German mission / competent visa authority | Goethe-Institut / telc | 2026-07-19 | 2026-07-19 | reviewed | Acceptance remains authority-specific | Compare only confirmed options | P1 |
-| goethe-a1-test-centers | ZH | germany-a1 | germany-a1 | complete-route | Verify an official or authorised centre | local-execution | Exam owner and selected centre | Goethe-Institut | 2026-07-19 | 2026-07-19 | reviewed | Current local execution remains dynamic | Recheck the centre | P1 |
+| goethe-a1-vs-telc-a1 | ZH | germany-a1 | germany-a1 | complete-route | Compare Goethe A1 and telc A1 safely | choice | German mission / competent visa authority | Goethe-Institut / telc | 2026-09-09 | 2026-09-09 | reviewed | Acceptance remains authority-specific | Compare only confirmed options | P1 |
+| goethe-a1-test-centers | ZH | germany-a1 | germany-a1 | complete-route | Verify an official or authorised centre and the Beijing-only fee path | local-execution | Exam owner and selected centre | Goethe-Institut | 2026-09-09 | 2026-09-09 | reviewed | Beijing evidence is not China-wide; current local execution remains dynamic | Recheck the named centre | P1 |
 | goethe-a1-booking-mistakes | ZH | germany-a1 | germany-a1 | complete-route | Avoid local booking errors | local-execution | Selected official/authorised centre | Goethe-Institut | 2026-07-19 | 2026-07-19 | reviewed | Current local execution remains dynamic | Recheck the centre | P1 |
-| german-a1-exam-booking-timeline | ZH | germany-a1 | germany-a1 | complete-route | Plan from confirmed dates | local-execution | German mission and selected centre | Goethe-Institut | 2026-07-19 | 2026-07-19 | reviewed | Reader-specific dates remain dynamic | Use confirmed dates | P1 |
+| german-a1-exam-booking-timeline | ZH | germany-a1 | germany-a1 | complete-route | 用自然日 D/W/P/R 倒排基础日期与额外余量日期 | local-execution | German mission and selected centre | Goethe-Institut | 2026-09-09 | 2026-09-09 | reviewed | 用户输入和具体考点事实仍需核验，余量不保证真实重考链路 | 使用已确认输入并核查实际场次 | P1 |
 | german-a1-documents-checklist | ZH | germany-a1 | germany-a1 | complete-route | Separate exam-day and visa documents | submission-review | German mission and selected exam centre | Goethe-Institut | 2026-07-19 | 2026-07-19 | reviewed | Final documents remain authority- and centre-specific | Recheck both lists | P1 |
 | goethe-a1-30-day-study-plan | ZH | germany-a1 | germany-a1 | complete-route | Prepare with official practice materials | local-execution | Exam owner for format; receiving authority for acceptance | Goethe-Institut | 2026-07-19 | 2026-07-19 | reviewed | Thirty days is an editorial template, not a guarantee | Adapt to confirmed dates | P1 |
 

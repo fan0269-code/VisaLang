@@ -1,0 +1,132 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ArticleLayout from './ArticleLayout.astro';
+import RelatedGuides from '../components/RelatedGuides.astro';
+import GuideStatusBadge from '../components/GuideStatusBadge.astro';
+import LastCheckedBadge from '../components/LastCheckedBadge.astro';
+import type { ComparisonScope, DecisionStage, ReviewerRole, SourceReviewStatus } from '../data/source-review';
+import VerificationAlert from '../components/VerificationAlert.astro';
+import ReportOutdatedInfo from '../components/ReportOutdatedInfo.astro';
+import CopyButton from '../components/CopyButton.astro';
+import PrintButton from '../components/PrintButton.astro';
+import ExamProductComparisonTable from '../components/ExamProductComparisonTable.astro';
+import LocalExamFeeTable from '../components/LocalExamFeeTable.astro';
+import { translatedPaths } from '../data/site';
+import { contentStatusCtas, reviewerRoleLabels, resolveGuideContentStatus } from '../data/source-review';
+import type { ContentStatus } from '../data/source-review';
+import type { ArticleSections } from '../data/article-sections';
+import { getEnglishGuidePublicationPolicy } from '../data/publication-manifest';
+import { validateClaimSet, type ClaimVersionRef } from '../data/claim-registry';
+
+export interface Props {
+  title: string; seoTitle?: string; description: string; directAnswer?: string; claimRefs?: readonly ClaimVersionRef[]; publishedDate: string; updatedDate: string; slug: string;
+  category?: string; route?: string; eyebrow?: string; readingTime?: string; sourceReviewedAt?: string;
+  sourceReviewStatus?: SourceReviewStatus;
+  reviewedByRole?: ReviewerRole; author: string;
+  contentStatus: ContentStatus; primaryOfficialAuthorityUrl?: string; primaryIntent?: string;
+  routeRequirementAuthorityType?: string; routeRequirementAuthorityUrl?: string;
+  noindex?: boolean; enableAds?: boolean;
+  audienceScope?: string; finalDecisionAuthorityType?: string; examOwnerUrl?: string; localExecutionPrompt?: string;
+  breadcrumbs?: { label: string; href?: string }[]; related?: { title: string; slug: string }[];
+  previous?: { title: string; slug: string }; next?: { title: string; slug: string };
+  routeHref?: string; routeLabel?: string; country?: string; exam?: string; level?: string;
+  headings?: { slug: string; text: string; depth?: number }[];
+  sections?: ArticleSections;
+  decisionStage: DecisionStage; nextGuideSlug?: string; comparisonScope: ComparisonScope;
+}
+
+const { title, seoTitle, description, directAnswer, claimRefs = [], publishedDate, updatedDate, sourceReviewedAt, sourceReviewStatus = 'pending', reviewedByRole, author, contentStatus, noindex = false, enableAds = true, primaryOfficialAuthorityUrl, primaryIntent, audienceScope, finalDecisionAuthorityType, routeRequirementAuthorityType, routeRequirementAuthorityUrl, examOwnerUrl, localExecutionPrompt, decisionStage, nextGuideSlug, comparisonScope, slug, category, eyebrow, readingTime = '5', breadcrumbs = [{ label: 'Home', href: '/' }, { label: title }], related = [], previous, next, routeHref, routeLabel, country, exam, level, headings = [], sections } = Astro.props;
+const status = resolveGuideContentStatus({ category: category ?? '', contentStatus, sourceReviewStatus, primaryOfficialAuthorityUrl, primaryIntent, audienceScope, finalDecisionAuthorityType, examOwnerUrl, localExecutionPrompt });
+const publicationPolicy = getEnglishGuidePublicationPolicy({ slug, contentStatus: status, sourceReviewStatus, noindex, adsEligible: enableAds });
+const primaryDiscoveryEligible = publicationPolicy.index;
+const advertisingEligible = publicationPolicy.ads;
+const ctas = contentStatusCtas(status, { routeHref, primaryOfficialAuthorityUrl, examOwnerUrl, nextGuideSlug });
+const reviewedByLabel = reviewedByRole ? reviewerRoleLabels[reviewedByRole] : sourceReviewStatus === 'pending' ? 'Pending' : 'Not applicable';
+const authorityIsVerified = sourceReviewStatus === 'reviewed' && Boolean(sourceReviewedAt && primaryOfficialAuthorityUrl && finalDecisionAuthorityType);
+const directAnswerIsCurrent = Boolean(directAnswer) && validateClaimSet(claimRefs, {
+  consumerId: `guide:${slug}`,
+  consumerLocale: 'en',
+}).valid;
+const renderedDirectAnswer = directAnswer
+  ? directAnswerIsCurrent
+    ? directAnswer
+    : 'A deterministic answer is not shown because the recorded official claim set is missing, changed, or overdue. Confirm the current requirement with the receiving authority.'
+  : description;
+const showSourceFactTable = authorityIsVerified;
+const compactTaskHeader = ['german-family-reunion-language-requirement', 'goethe-a1-germany-family-reunion'].includes(slug);
+const routeRequirementAuthorityTypeForTable = routeRequirementAuthorityType ?? finalDecisionAuthorityType;
+const routeRequirementAuthorityUrlForTable = routeRequirementAuthorityUrl ?? primaryOfficialAuthorityUrl;
+const canonicalURL = `https://visalang.org/guides/${slug}/`;
+const translatedPath = translatedPaths[`/guides/${slug}/`];
+const alternates = translatedPath ? [
+  { lang: 'en', href: canonicalURL },
+  { lang: 'zh-CN', href: `https://visalang.org${translatedPath}` },
+  { lang: 'x-default', href: canonicalURL },
+] : [];
+const absoluteUrl = (href: string) => new URL(href, 'https://visalang.org').href;
+const tocHeadings = [
+  { text: 'Direct answer', id: 'direct-answer', depth: 2 },
+  { text: 'Who this applies to', id: 'who-this-applies-to', depth: 2 },
+  { text: 'Key decisions', id: 'key-decisions', depth: 2 },
+  { text: 'Detailed explanation', id: 'detailed-explanation', depth: 2 },
+  ...headings.map((heading) => ({ text: heading.text, id: heading.slug, depth: heading.depth })),
+  { text: 'What to verify officially', id: 'what-to-verify-officially', depth: 2 },
+  { text: 'Common mistakes', id: 'common-mistakes', depth: 2 },
+  { text: 'Next action', id: 'next-action', depth: 2 },
+  { text: 'Official sources', id: 'official-sources', depth: 2 },
+].filter((heading, index, list) => list.findIndex((item) => item.id === heading.id) === index);
+const jsonLD = {
+  '@context': 'https://schema.org', '@graph': [
+    { '@type': 'Article', headline: title, description, url: canonicalURL, datePublished: publishedDate, dateModified: updatedDate, author: { '@type': 'Organization', name: author }, publisher: { '@type': 'Organization', name: 'VisaLang', url: 'https://visalang.org/' }, inLanguage: 'en', mainEntityOfPage: canonicalURL },
+    { '@type': 'BreadcrumbList', itemListElement: breadcrumbs.map((crumb, index) => ({ '@type': 'ListItem', position: index + 1, name: crumb.label, item: crumb.href ? absoluteUrl(crumb.href) : canonicalURL })) },
+  ],
+};
+---
+
+<BaseLayout title={seoTitle ?? title} description={description} canonicalURL={canonicalURL} ogType="article" alternates={alternates} jsonLD={jsonLD} noindex={!primaryDiscoveryEligible} enableAds={advertisingEligible}>
+  <main class="guide-page od-guide-article">
+    <Breadcrumbs path={breadcrumbs} />
+    <ArticleLayout articleId="guide-content" headings={tocHeadings}>
+        <div slot="article-header" class="guide-article__header">
+          {eyebrow && <p class="page-kicker">{eyebrow}</p>}
+          <div class="guide-scope-line"><GuideStatusBadge status={status} />{country && <span>Country: {country}</span>}{routeLabel && <span>Route: {routeLabel}</span>}</div>
+          <h1>{title}</h1>
+        <section class="guide-summary-box" id="direct-answer" aria-labelledby="direct-answer-title">
+          <h2 id="direct-answer-title">Direct answer</h2>
+          <p class="guide-summary-answer">{renderedDirectAnswer}</p>
+          {!compactTaskHeader && <><p class="guide-summary-responsibility">Responsibility: {authorityIsVerified ? `The final decision sits with ${finalDecisionAuthorityType}; VisaLang helps you follow the verification path.` : 'Confirm the final decision authority before acting; VisaLang does not decide individual outcomes.'}</p><p class="guide-summary-boundary">Scope: {audienceScope ?? 'See the page-specific scope below.'} Source boundary: use the recorded official source and date before relying on this guide.</p></>}
+        </section>
+        {compactTaskHeader && <section class="guide-primary-action" aria-label="First verification action"><p>{localExecutionPrompt}</p><p><a class="official-source-link" href={primaryOfficialAuthorityUrl}>Open the official starting point and find your mission</a></p></section>}
+        {compactTaskHeader && <details class="guide-authority-details"><summary>Responsibility, review, and source details</summary><dl class="guide-meta" aria-label="Article responsibility and review information"><div><dt>Updated</dt><dd><time datetime={updatedDate}>{updatedDate}</time></dd></div><div><dt>Source review</dt><dd><LastCheckedBadge date={sourceReviewedAt} status={sourceReviewStatus} /></dd></div><div><dt>Written by</dt><dd>{author}</dd></div><div><dt>Reviewed by role</dt><dd>{reviewedByLabel}</dd></div><div><dt>Reading time</dt><dd>{readingTime} min</dd></div></dl><section class="decision-authority" aria-labelledby="who-decides-compact-title"><h2 id="who-decides-compact-title">Who decides this?</h2>{authorityIsVerified ? <><p><strong>Final decision authority:</strong> {finalDecisionAuthorityType}</p><p><a class="official-source-link" href={primaryOfficialAuthorityUrl}>Open the official authority source</a></p></> : <p class="verification-pending"><strong>Official verification pending.</strong> The final decision authority and its official entry have not both been source-reviewed for this page.</p>}<p>VisaLang does not decide individual eligibility, exemptions, certificate acceptance, document sufficiency, or application outcomes.</p></section><VerificationAlert><p>Requirements, exemptions, accepted certificates, fees, dates, centres, and document rules can change. Verify with the organisation receiving your proof before acting.</p>{localExecutionPrompt && <p>{localExecutionPrompt}</p>}</VerificationAlert></details>}
+        {!compactTaskHeader && <>
+          <dl class="guide-meta" aria-label="Article responsibility and review information">
+            <div><dt>Updated</dt><dd><time datetime={updatedDate}>{updatedDate}</time></dd></div>
+            <div><dt>Source review</dt><dd><LastCheckedBadge date={sourceReviewedAt} status={sourceReviewStatus} /></dd></div>
+            <div><dt>Written by</dt><dd>{author}</dd></div>
+            <div><dt>Reviewed by role</dt><dd>{reviewedByLabel}</dd></div>
+            <div><dt>Reading time</dt><dd>{readingTime} min</dd></div>
+          </dl>
+          <section class="decision-authority" aria-labelledby="who-decides-title">
+            <h2 id="who-decides-title">Who decides this?</h2>
+            {authorityIsVerified ? <><p><strong>Final decision authority:</strong> {finalDecisionAuthorityType}</p><p><a class="official-source-link" href={primaryOfficialAuthorityUrl}>Open the official authority source</a></p></> : <p class="verification-pending"><strong>Official verification pending.</strong> The final decision authority and its official entry have not both been source-reviewed for this page.</p>}
+            <p>VisaLang does not decide individual eligibility, exemptions, certificate acceptance, document sufficiency, or application outcomes.</p>
+          </section>
+        </>}
+        </div>
+        {!compactTaskHeader && <VerificationAlert><p>Requirements, exemptions, accepted certificates, fees, dates, centres, and document rules can change. Verify with the organisation receiving your proof before acting.</p>{localExecutionPrompt && <p>{localExecutionPrompt}</p>}</VerificationAlert>}
+
+        <section id="who-this-applies-to"><h2>Who this applies to</h2>{sections?.who ? <div set:html={sections.who}></div> : <p class="verification-pending">A page-specific audience and exclusion boundary has not yet been published for this guide.</p>}</section>
+        <section id="key-decisions"><h2>Key decisions</h2>{sections?.keyDecisions ? <div set:html={sections.keyDecisions}></div> : <p class="verification-pending">Page-specific decision steps have not yet been published for this guide.</p>}</section>
+        <section id="detailed-explanation"><h2>Detailed explanation</h2>{slug === 'goethe-a1-vs-telc-a1' && <ExamProductComparisonTable locale="en" />}{slug === 'goethe-b1-vs-telc-b1' && <ExamProductComparisonTable locale="en" level="B1" />}{slug === 'goethe-a1-fees-by-country' && <LocalExamFeeTable locale="en" />}{sections ? <div set:html={sections.detailed}></div> : <slot />}</section>
+        <section id="what-to-verify-officially"><h2>What to verify officially</h2>{showSourceFactTable ? <div class="source-fact-table"><table><caption>Source-reviewed verification responsibilities for this guide</caption><thead><tr><th scope="col">Item to verify</th><th scope="col">Who finally decides</th><th scope="col">Official source</th><th scope="col">Confirmed on this page</th><th scope="col">You still need to confirm</th></tr></thead><tbody><tr><th scope="row">Current route requirement and accepted proof</th><td>{routeRequirementAuthorityTypeForTable}</td><td><a class="official-source-link" href={routeRequirementAuthorityUrlForTable}>Authority source</a></td><td>The official entry and verification sequence recorded on {sourceReviewedAt}.</td><td>Your current individual route, exceptions, document format, and submission instructions.</td></tr>{examOwnerUrl && <tr><th scope="row">Exam product and booking rules</th><td>Official exam owner and authorised local centre</td><td><a class="official-source-link" href={examOwnerUrl}>Exam-owner source</a></td><td>The exam-owner entry used by this guide.</td><td>Current centre authorisation, dates, fees, ID, cancellation, results, and certificate delivery.</td></tr>}</tbody></table></div> : <p class="verification-pending"><strong>Official verification pending.</strong> This page does not yet have the reviewed authority metadata required to publish a source fact table. Confirm the current requirement and accepted proof with the receiving authority before acting.</p>}</section>
+        <section id="common-mistakes"><h2>Common mistakes</h2>{sections?.commonMistakes ? <div set:html={sections.commonMistakes}></div> : <p class="verification-pending">Page-specific mistakes and consequences have not yet been published for this guide.</p>}</section>
+        <section id="next-action"><h2>Next action</h2>{sections?.nextAction ? <div set:html={sections.nextAction}></div> : <p class="verification-pending">A page-specific next action has not yet been published for this guide.</p>}<div class="button-row">{ctas.map((cta) => <a class:list={['button', cta.kind === 'official' ? 'button--secondary' : 'button--primary']} href={cta.href}>{cta.label}</a>)}</div></section>
+        <section id="official-sources"><h2>Official sources</h2>{sections?.officialSources ? <div set:html={sections.officialSources}></div> : <p class="verification-pending">No page-specific official-source list is published; this guide remains unsuitable for action until the responsible sources are recorded.</p>}</section>
+        <aside class="guide-disclaimer" aria-label="Disclaimer"><strong>Planning information only.</strong><p>VisaLang does not provide legal or immigration advice, issue certificates, register exams, or guarantee an application or exam outcome.</p></aside>
+        <div class="button-row"><CopyButton target="#guide-content" label="Copy guide" /><PrintButton label="Print guide" /></div>
+    </ArticleLayout>
+    <RelatedGuides guides={related} routeHref={routeHref} routeLabel={routeLabel} previous={previous} next={next} />
+    <ReportOutdatedInfo pageTitle={title} />
+  </main>
+</BaseLayout>

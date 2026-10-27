@@ -24,7 +24,7 @@ readingTime: "9"
 featured: false
 eyebrow: "Germany · telc"
 route: "germany-telc"
-supportingGuideSlugs: ["telc-b1-b2-fees-and-test-centers", "telc-vs-goethe-for-german-visa", "goethe-b1-study-plan", "goethe-b1-mock-exam-routine"]
+supportingGuideSlugs: ["telc-b1-b2-fees-and-test-centers", "telc-vs-goethe-for-german-visa", "goethe-b1-study-plan"]
 ---
 
 ## Confirm the exact product first

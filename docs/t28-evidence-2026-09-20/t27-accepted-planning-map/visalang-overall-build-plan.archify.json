@@ -1,0 +1,335 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "VisaLang 网站整体建设规划与偏航门禁",
+    "locale": "zh-CN",
+    "output": "docs/planning-map/visalang-overall-build-plan.html",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    {
+      "id": "strategy",
+      "label": "产品方向"
+    },
+    {
+      "id": "milestones",
+      "label": "建设里程碑"
+    },
+    {
+      "id": "governance",
+      "label": "每次内容／规划更新"
+    },
+    {
+      "id": "release",
+      "label": "独立复核与外部门禁",
+      "variant": "exception"
+    }
+  ],
+  "phases": [
+    {
+      "id": "foundation",
+      "label": "方向与基础",
+      "fromCol": 0,
+      "toCol": 1
+    },
+    {
+      "id": "core",
+      "label": "A1 核心闭环",
+      "fromCol": 2,
+      "toCol": 3,
+      "variant": "emphasis"
+    },
+    {
+      "id": "expansion",
+      "label": "双语深化与证据扩展",
+      "fromCol": 4,
+      "toCol": 5,
+      "variant": "dashed"
+    }
+  ],
+  "groups": [
+    {
+      "id": "current_delivery",
+      "label": "A1 与双语底座",
+      "lane": "milestones",
+      "fromCol": 2,
+      "toCol": 4,
+      "variant": "emphasis"
+    },
+    {
+      "id": "continuous_sync",
+      "label": "强制同步循环",
+      "lane": "governance",
+      "fromCol": 0,
+      "toCol": 4,
+      "variant": "security"
+    }
+  ],
+  "mainPath": [
+    "north_star",
+    "m0_m1",
+    "m2a",
+    "m2b",
+    "m3",
+    "m4_m6"
+  ],
+  "semanticChecks": {
+    "allowedRoots": [
+      "north_star"
+    ],
+    "allowedTerminals": [
+      "m4_m6",
+      "owner_release"
+    ],
+    "requiredEdges": [
+      {
+        "from": "m2b",
+        "to": "m3"
+      },
+      {
+        "from": "drift_gate",
+        "to": "automated_evidence"
+      },
+      {
+        "from": "independent_audit",
+        "to": "owner_release"
+      }
+    ],
+    "requiredPaths": [
+      {
+        "from": "north_star",
+        "to": "m4_m6"
+      },
+      {
+        "from": "north_star",
+        "to": "owner_release"
+      },
+      {
+        "from": "change_freeze",
+        "to": "independent_audit"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": "north_star",
+      "lane": "strategy",
+      "col": 0,
+      "type": "frontend",
+      "label": "德国路线导航",
+      "sublabel": "A1 优先，证据扩展",
+      "tag": "North Star"
+    },
+    {
+      "id": "m0_m1",
+      "lane": "milestones",
+      "col": 1,
+      "type": "backend",
+      "label": "M0–M1 基线",
+      "sublabel": "T01–T09 已完成"
+    },
+    {
+      "id": "m2a",
+      "lane": "milestones",
+      "col": 2,
+      "type": "database",
+      "label": "M2-A 事实底座",
+      "sublabel": "T10–T14 已完成"
+    },
+    {
+      "id": "m2b",
+      "lane": "milestones",
+      "col": 3,
+      "type": "security",
+      "label": "M2-B 工具闭环",
+      "sublabel": "T15–T18 已过审",
+      "tag": "T19 部分"
+    },
+    {
+      "id": "m3",
+      "lane": "milestones",
+      "col": 4,
+      "type": "frontend",
+      "label": "M3 双语 SEO",
+      "sublabel": "T20–T22 已过审",
+      "tag": "T23 阻塞"
+    },
+    {
+      "id": "m4_m6",
+      "lane": "milestones",
+      "col": 5,
+      "type": "cloud",
+      "label": "M4–M6 扩展",
+      "sublabel": "T24–T26 已过审",
+      "tag": "T27 收尾复审"
+    },
+    {
+      "id": "change_freeze",
+      "lane": "governance",
+      "col": 0,
+      "type": "messagebus",
+      "label": "冻结变更",
+      "sublabel": "内容／规划路径"
+    },
+    {
+      "id": "authority_map_sync",
+      "lane": "governance",
+      "col": 1,
+      "type": "database",
+      "label": "权威与图同步",
+      "sublabel": "计划＋范围指纹"
+    },
+    {
+      "id": "drift_gate",
+      "lane": "governance",
+      "col": 2,
+      "type": "security",
+      "label": "五维偏航检查",
+      "sublabel": "范围／权威／依赖",
+      "tag": "证据／发布"
+    },
+    {
+      "id": "automated_evidence",
+      "lane": "governance",
+      "col": 3,
+      "type": "backend",
+      "label": "自动与视觉验证",
+      "sublabel": "测试＋Archify"
+    },
+    {
+      "id": "independent_audit",
+      "lane": "release",
+      "col": 4,
+      "type": "security",
+      "label": "独立 Auditor",
+      "sublabel": "P0–P2 归零",
+      "tag": "必需"
+    },
+    {
+      "id": "owner_release",
+      "lane": "release",
+      "col": 5,
+      "type": "external",
+      "label": "Owner 门禁",
+      "sublabel": "提交／部署另行授权",
+      "tag": "not_deployed"
+    }
+  ],
+  "edges": [
+    {
+      "id": "main_north_foundation",
+      "from": "north_star",
+      "to": "m0_m1",
+      "role": "main"
+    },
+    {
+      "id": "main_foundation_m2a",
+      "from": "m0_m1",
+      "to": "m2a",
+      "role": "main"
+    },
+    {
+      "id": "main_m2a_m2b",
+      "from": "m2a",
+      "to": "m2b",
+      "role": "main"
+    },
+    {
+      "id": "main_m2b_m3",
+      "from": "m2b",
+      "to": "m3",
+      "label": "修正＋证据＋Auditor PASS",
+      "variant": "emphasis",
+      "role": "main"
+    },
+    {
+      "id": "main_m3_future",
+      "from": "m3",
+      "to": "m4_m6",
+      "label": "双语范围与移动证据通过",
+      "role": "main"
+    },
+    {
+      "id": "branch_window",
+      "from": "north_star",
+      "to": "change_freeze",
+      "label": "每个维护窗口",
+      "variant": "dashed",
+      "role": "branch"
+    },
+    {
+      "id": "sync_authority",
+      "from": "change_freeze",
+      "to": "authority_map_sync",
+      "role": "branch"
+    },
+    {
+      "id": "sync_drift",
+      "from": "authority_map_sync",
+      "to": "drift_gate",
+      "role": "branch"
+    },
+    {
+      "id": "sync_evidence",
+      "from": "drift_gate",
+      "to": "automated_evidence",
+      "label": "aligned／approved",
+      "variant": "emphasis",
+      "role": "branch"
+    },
+    {
+      "id": "sync_audit",
+      "from": "automated_evidence",
+      "to": "independent_audit",
+      "role": "branch"
+    },
+    {
+      "id": "sync_owner",
+      "from": "independent_audit",
+      "to": "owner_release",
+      "label": "PASS 只关闭质量门禁",
+      "variant": "security",
+      "role": "branch"
+    },
+    {
+      "id": "drift_return",
+      "from": "drift_gate",
+      "to": "authority_map_sync",
+      "label": "unresolved：收缩或补授权",
+      "variant": "security",
+      "role": "return"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "amber",
+      "title": "当前真实状态",
+      "items": [
+        "权威：Master Package；图为派生视图",
+        "T27 收尾复审；T19 部分／T23 阻塞",
+        "同步：VL-PMAP-20260920-01",
+        "指纹：dcb48389 9d2b17aa 0b36ca48 4acfc080 c4ff11c1 24324e10 43b1eed9 53326308"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "下一执行阶段",
+      "items": [
+        "当前：T27 契约复核，无真实采集",
+        "随后：T28 任务测试 → T29 修复",
+        "T27 独立审查／T19 导入／T23 迁移仍有门禁",
+        "提交与部署需 Owner 另行授权"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "偏航判定",
+      "items": [
+        "aligned：任务、依赖、来源、证据与授权一致",
+        "approved-deviation：必须引用 Owner 决定",
+        "unresolved：阻塞完成与发布，返回收缩范围"
+      ]
+    }
+  ]
+}

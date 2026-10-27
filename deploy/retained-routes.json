@@ -1,0 +1,180 @@
+{
+  "schema": "visalang.retained-routes.v1",
+  "decisionDate": "2026-09-22",
+  "ownerDecisionRef": "docs/superpowers/plans/2026-09-22-production-candidate.md",
+  "historicalMap": "docs/VISALANG_M3_T23_MIGRATION_CANDIDATE_ROLLBACK_MAP_2026-09-11.md",
+  "releaseScope": "local-candidate-only",
+  "productionVerification": "blocked-403-and-timeout",
+  "records": [
+    {
+      "path": "/guides/german-a1-family-reunion-faq/",
+      "sourcePath": "src/content/guides/german-a1-family-reunion-faq.md",
+      "disposition": "RETAIN",
+      "canonical": "https://visalang.org/guides/german-a1-family-reunion-faq/",
+      "index": false,
+      "sitemap": false,
+      "ads": false,
+      "sourceLedger": "docs/release-candidate-evidence-2026-09-22/retained-source-ledger.json"
+    },
+    {
+      "path": "/guides/goethe-a1-pre-booking-checklist/",
+      "sourcePath": "src/content/guides/goethe-a1-pre-booking-checklist.md",
+      "disposition": "RETAIN",
+      "canonical": "https://visalang.org/guides/goethe-a1-pre-booking-checklist/",
+      "index": false,
+      "sitemap": false,
+      "ads": false,
+      "sourceLedger": "docs/release-candidate-evidence-2026-09-22/retained-source-ledger.json"
+    },
+    {
+      "path": "/guides/goethe-a1-booking-mistakes/",
+      "sourcePath": "src/content/guides/goethe-a1-booking-mistakes.md",
+      "disposition": "RETAIN",
+      "canonical": "https://visalang.org/guides/goethe-a1-booking-mistakes/",
+      "index": false,
+      "sitemap": false,
+      "ads": false,
+      "sourceLedger": "docs/release-candidate-evidence-2026-09-22/retained-source-ledger.json"
+    },
+    {
+      "path": "/guides/goethe-a1-retake-policy/",
+      "sourcePath": "src/content/guides/goethe-a1-retake-policy.md",
+      "disposition": "RETAIN",
+      "canonical": "https://visalang.org/guides/goethe-a1-retake-policy/",
+      "index": false,
+      "sitemap": false,
+      "ads": false,
+      "sourceLedger": "docs/release-candidate-evidence-2026-09-22/retained-source-ledger.json"
+    },
+    {
+      "path": "/guides/goethe-a1-study-plan-working-adults/",
+      "sourcePath": "src/content/guides/goethe-a1-study-plan-working-adults.md",
+      "disposition": "RETAIN",
+      "canonical": "https://visalang.org/guides/goethe-a1-study-plan-working-adults/",
+      "index": false,
+      "sitemap": false,
+      "ads": false,
+      "sourceLedger": "docs/release-candidate-evidence-2026-09-22/retained-source-ledger.json"
+    },
+    {
+      "path": "/guides/goethe-a1-official-links-practice-resources/",
+      "sourcePath": "src/content/guides/goethe-a1-official-links-practice-resources.md",
+      "disposition": "RETAIN",
+      "canonical": "https://visalang.org/guides/goethe-a1-official-links-practice-resources/",
+      "index": false,
+      "sitemap": false,
+      "ads": false,
+      "sourceLedger": "docs/release-candidate-evidence-2026-09-22/retained-source-ledger.json"
+    },
+    {
+      "path": "/guides/goethe-a1-listening-practice/",
+      "sourcePath": "src/content/guides/goethe-a1-listening-practice.md",
+      "disposition": "RETAIN",
+      "canonical": "https://visalang.org/guides/goethe-a1-listening-practice/",
+      "index": false,
+      "sitemap": false,
+      "ads": false,
+      "sourceLedger": "docs/release-candidate-evidence-2026-09-22/retained-source-ledger.json"
+    },
+    {
+      "path": "/guides/goethe-a1-speaking-topics/",
+      "sourcePath": "src/content/guides/goethe-a1-speaking-topics.md",
+      "disposition": "RETAIN",
+      "canonical": "https://visalang.org/guides/goethe-a1-speaking-topics/",
+      "index": false,
+      "sitemap": false,
+      "ads": false,
+      "sourceLedger": "docs/release-candidate-evidence-2026-09-22/retained-source-ledger.json"
+    },
+    {
+      "path": "/guides/goethe-a1-writing-practice/",
+      "sourcePath": "src/content/guides/goethe-a1-writing-practice.md",
+      "disposition": "RETAIN",
+      "canonical": "https://visalang.org/guides/goethe-a1-writing-practice/",
+      "index": false,
+      "sitemap": false,
+      "ads": false,
+      "sourceLedger": "docs/release-candidate-evidence-2026-09-22/retained-source-ledger.json"
+    },
+    {
+      "path": "/guides/goethe-b1-difficulty-analysis/",
+      "sourcePath": "src/content/guides/goethe-b1-difficulty-analysis.md",
+      "disposition": "RETAIN",
+      "canonical": "https://visalang.org/guides/goethe-b1-difficulty-analysis/",
+      "index": false,
+      "sitemap": false,
+      "ads": false,
+      "sourceLedger": "docs/release-candidate-evidence-2026-09-22/retained-source-ledger.json"
+    },
+    {
+      "path": "/guides/goethe-b1-mock-exam-routine/",
+      "sourcePath": "src/content/guides/goethe-b1-mock-exam-routine.md",
+      "disposition": "RETAIN",
+      "canonical": "https://visalang.org/guides/goethe-b1-mock-exam-routine/",
+      "index": false,
+      "sitemap": false,
+      "ads": false,
+      "sourceLedger": "docs/release-candidate-evidence-2026-09-22/retained-source-ledger.json"
+    },
+    {
+      "path": "/guides/goethe-b1-listening-deep-dive/",
+      "sourcePath": "src/content/guides/goethe-b1-listening-deep-dive.md",
+      "disposition": "RETAIN",
+      "canonical": "https://visalang.org/guides/goethe-b1-listening-deep-dive/",
+      "index": false,
+      "sitemap": false,
+      "ads": false,
+      "sourceLedger": "docs/release-candidate-evidence-2026-09-22/retained-source-ledger.json"
+    },
+    {
+      "path": "/guides/goethe-b1-speaking-topics/",
+      "sourcePath": "src/content/guides/goethe-b1-speaking-topics.md",
+      "disposition": "RETAIN",
+      "canonical": "https://visalang.org/guides/goethe-b1-speaking-topics/",
+      "index": false,
+      "sitemap": false,
+      "ads": false,
+      "sourceLedger": "docs/release-candidate-evidence-2026-09-22/retained-source-ledger.json"
+    },
+    {
+      "path": "/guides/goethe-b1-writing-assessment/",
+      "sourcePath": "src/content/guides/goethe-b1-writing-assessment.md",
+      "disposition": "RETAIN",
+      "canonical": "https://visalang.org/guides/goethe-b1-writing-assessment/",
+      "index": false,
+      "sitemap": false,
+      "ads": false,
+      "sourceLedger": "docs/release-candidate-evidence-2026-09-22/retained-source-ledger.json"
+    },
+    {
+      "path": "/zh/guides/goethe-a1-germany-family-reunion/",
+      "sourcePath": "src/pages/zh/guides/goethe-a1-germany-family-reunion.astro",
+      "disposition": "RETAIN",
+      "canonical": "https://visalang.org/zh/guides/goethe-a1-germany-family-reunion/",
+      "index": false,
+      "sitemap": false,
+      "ads": false,
+      "sourceLedger": "docs/release-candidate-evidence-2026-09-22/retained-source-ledger.json"
+    },
+    {
+      "path": "/zh/guides/goethe-a1-booking-mistakes/",
+      "sourcePath": "src/pages/zh/guides/goethe-a1-booking-mistakes.astro",
+      "disposition": "RETAIN",
+      "canonical": "https://visalang.org/zh/guides/goethe-a1-booking-mistakes/",
+      "index": false,
+      "sitemap": false,
+      "ads": false,
+      "sourceLedger": "docs/release-candidate-evidence-2026-09-22/retained-source-ledger.json"
+    },
+    {
+      "path": "/zh/guides/german-a1-documents-checklist/",
+      "sourcePath": "src/pages/zh/guides/german-a1-documents-checklist.astro",
+      "disposition": "RETAIN",
+      "canonical": "https://visalang.org/zh/guides/german-a1-documents-checklist/",
+      "index": false,
+      "sitemap": false,
+      "ads": false,
+      "sourceLedger": "docs/release-candidate-evidence-2026-09-22/retained-source-ledger.json"
+    }
+  ]
+}

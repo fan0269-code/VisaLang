@@ -1,0 +1,5 @@
+Command: npm test
+Exit code: 1
+Observed: all functional/site/T27 assertions completed before the final planning-map governance step.
+Blocking step: tests/planning-map-governance.test.mjs rejected the candidate because the required independent Auditor report is unavailable at docs/planning-map/VISALANG_T27_INDEPENDENT_AUDIT_2026-09-16.md.
+Interpretation: not a functional regression and not a PASS; independent review remains unavailable, so governance and T27 completion remain blocked.

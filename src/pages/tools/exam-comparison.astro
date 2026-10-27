@@ -1,86 +1,234 @@
 ---
 import ToolLayout from '../../layouts/ToolLayout.astro';
 import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
-import { examComparisonOptions } from '../../data/route-tools';
+import { getExamComparisonOptions } from '../../data/route-tools';
+import { getToolCopy, type ToolLocale } from '../../data/tool-copy';
+
+export interface Props { locale?: ToolLocale; }
+const { locale = 'en' } = Astro.props;
+const copy = getToolCopy('comparison', locale);
+const isZh = locale === 'zh-CN';
+const examComparisonOptions = getExamComparisonOptions({ locale });
 ---
 
-<ToolLayout eyebrow="Planning aid, not an acceptance decision" title="Exam Comparison" description="Compare configured verification questions for two A1 exam options. This tool does not rank providers or decide which certificate an authority will accept." current="comparison">
+<ToolLayout eyebrow={copy.eyebrow} title={copy.title} description={copy.description} current="comparison" locale={locale}>
     <div class="tool-workspace">
-      <form id="comparison-form" class="tool-form" novalidate>
-        <div class="tool-form-heading"><h2>Choose two configured exams</h2><p>Fees, result timing, centre coverage, and acceptance are always local checks—not comparison claims.</p></div>
+      <form id="comparison-form" class="tool-form" novalidate inert>
+        <div class="tool-form-heading"><h2>{copy.formTitle}</h2><p>{copy.formIntro}</p></div>
         <div class="tool-field-grid">
-          <label>First exam<select name="first" required><option value="">Select an exam</option>{examComparisonOptions.map((exam) => <option value={exam.id}>{exam.label}</option>)}</select></label>
-          <label>Second exam<select name="second" required><option value="">Select an exam</option>{examComparisonOptions.map((exam) => <option value={exam.id}>{exam.label}</option>)}</select></label>
+          <label>{copy.fields.first}<select name="first" required><option value="">{copy.text.selectFirst}</option>{examComparisonOptions.map((exam) => <option value={exam.id}>{exam.label}</option>)}</select></label>
+          <label>{copy.fields.second}<select name="second" required><option value="">{copy.text.selectSecond}</option>{examComparisonOptions.map((exam) => <option value={exam.id}>{exam.label}</option>)}</select></label>
         </div>
         <div class="tool-error-summary" id="comparison-error" data-error-summary role="alert" tabindex="-1" hidden></div>
-        <button class="primary-action" type="submit">Compare verification questions</button>
+        <button class="primary-action" type="submit">{copy.submitLabel}</button>
       </form>
       <section id="comparison-result" class="tool-result" hidden aria-live="polite" tabindex="-1">
         <div id="comparison-summary"></div>
-        <ToolResultSupport resultId="comparison-summary" />
+        <ToolResultSupport resultId="comparison-summary" locale={locale} />
       </section>
     </div>
+
+    {isZh && <section class="tool-guidance" data-tool-guidance aria-labelledby="comparison-guidance-title">
+      <h2 id="comparison-guidance-title">{copy.guidanceTitle}</h2>
+      <p>接收机关已说明你需要解决哪项准确证明问题后，再用本工具并列两个已配置产品的格式和评分事实。它不是机构排名，也不能推断两个产品可互换。</p>
+      <h3>比较范围</h3>
+      <p>请选择两个成人 A1 产品，或两个成人 B1 产品；不同等级不能比较。B1 产品比较不会把 A1 核对清单变成已支持的 B1 移民路线。</p>
+      <p>表格比较考试主办方来源中的笔试结构、口试形式、分数规则及是否可分部分参加；当地费用、名额、出分流程和接收机关是否接受会保持为独立的待核验项。</p>
+      <h3>何时应停止</h3>
+      <p>若机关回复中的产品名称与考点产品不完全一致、机关尚未回答接受问题、无法确认官方或授权考点，或当前报名条款不可得，请记录问题并联系负责方，不要按猜测选择。</p>
+      <h3>下一项官方核验</h3>
+      <p>先向接收机关确认准确证书是否适用于准确路线，再用 <a href="https://www.goethe.de/en/spr/prf.html" target="_blank" rel="noreferrer">Goethe-Institut 考试目录</a>和 <a href="https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/" target="_blank" rel="noreferrer">telc Deutsch A1 官方产品页</a>或 <a href="https://www.telc.net/sprachpruefungen/deutsch/zertifikat-deutsch-telc-deutsch-b1/" target="_blank" rel="noreferrer">telc Deutsch B1 官方产品页</a>确认产品并找到当地官方渠道。</p>
+    </section>}
+    {!isZh && <section class="tool-guidance" data-tool-guidance aria-labelledby="comparison-guidance-title">
+      <h2 id="comparison-guidance-title">When Exam Comparison helps</h2>
+      <p>Use this tool after the receiving authority has told you which exact proof question you must resolve. It places independently sourced format and scoring facts beside two configured exam products. It is not a provider ranking and should not be used to infer that two products are interchangeable. Do not choose an exam from brand familiarity, an unverified price screenshot, or another applicant's acceptance outcome.</p>
+
+      <p>Choose two adult A1 products or two adult B1 products. Cross-level pairs are unavailable. B1 comparison does not add a supported immigration route to the A1 checklist.</p>
+      <h3>Example input: compare two A1 options</h3>
+      <dl data-tool-example-input>
+        <dt>First product</dt><dd>Goethe-Zertifikat A1: Start Deutsch 1.</dd>
+        <dt>Second product</dt><dd>Start Deutsch 1 / telc Deutsch A1.</dd>
+        <dt>Route record kept alongside the comparison</dt><dd>The competent receiving authority, exact application purpose, official response about acceptable proof, and the date that response was checked.</dd>
+      </dl>
+
+      <h3>What the comparison output means</h3>
+      <div data-tool-example-output>
+        <p>The table compares the exact product's written structure, oral format, score rule, and whole-or-partial sitting rule from exam-owner sources. It then keeps local execution and receiving-authority acceptance outside those product facts. The output does not decide which exam is easier, cheaper, faster, available, or accepted for an individual route.</p>
+      </div>
+
+      <h3>Stop before choosing an exam</h3>
+      <p>Stop if the product name on the authority response does not exactly match the product at the centre, if the authority has not answered the acceptance question, if no official or authorised centre can be identified, or if current booking terms are unavailable. Do not act on the comparison when either column still depends on a guess; record the unanswered question and contact its owner.</p>
+
+      <h3>Official follow-up after comparing</h3>
+      <p>Ask the receiving authority whether the exact named certificate is acceptable for the exact route. Then use the <a href="https://www.goethe.de/en/spr/prf.html" target="_blank" rel="noreferrer">Goethe-Institut examination directory</a> and <a href="https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/" target="_blank" rel="noreferrer">official telc Deutsch A1 product page</a> or <a href="https://www.telc.net/sprachpruefungen/deutsch/zertifikat-deutsch-telc-deutsch-b1/" target="_blank" rel="noreferrer">official telc Deutsch B1 product page</a> to identify the product and reach an official local channel. Exam owners define products; centres control local transactions; only the receiving authority can decide what it accepts.</p>
+    </section>}
 </ToolLayout>
 
 <script>
-  import { examComparisonDimensions, examComparisonOptions } from '../../data/route-tools';
+  import { compareExamProducts, getExamComparisonOptions } from '../../data/route-tools';
+  import { getToolCopy } from '../../data/tool-copy';
+  import { setupSharedPlan } from '../../scripts/plan-state';
   import { setupToolForm } from '../../scripts/tool-form';
 
   const form = document.querySelector<HTMLFormElement>('#comparison-form');
   const resultPanel = document.querySelector<HTMLElement>('#comparison-result');
   const summary = document.querySelector<HTMLElement>('#comparison-summary');
+  const locale = document.documentElement.lang === 'zh-CN' ? 'zh-CN' : 'en';
+  const isZh = locale === 'zh-CN';
+  const copy = getToolCopy('comparison', locale);
+  const examComparisonOptions = getExamComparisonOptions({ locale });
 
-  const controller = form ? setupToolForm(form, {
-    persistedNames: ['first', 'second'],
-    customError: (field, currentForm) => field.name === 'second' && field.value && field.value === String(new FormData(currentForm).get('first') || '') ? 'Choose two different exams.' : undefined,
-  }) : undefined;
+  const plan = setupSharedPlan({ toolId: 'comparison', form });
+  const controller = form ? setupToolForm(form, { locale, onRestart: () => plan.restartCurrentTool() }) : undefined;
+  const renderComparisonStatus = (status: 'same_product' | 'unsupported', message: string) => {
+    if (!summary || !resultPanel) return;
+    summary.replaceChildren();
+    const statusText = document.createElement('p');
+    statusText.className = `tool-result-status tool-result-status--${status === 'same_product' ? 'information' : 'unsupported'}`;
+    statusText.textContent = status === 'same_product' ? (isZh ? '状态：选择了同一产品' : 'Status: same product selected') : (isZh ? '状态：暂时无法比较' : 'Status: comparison unavailable');
+    const heading = document.createElement('h2');
+    heading.textContent = status === 'same_product' ? (isZh ? '请选择另一个产品' : 'Choose a different second product') : (isZh ? '当前产品证据不可用' : 'Current product evidence is unavailable');
+    const explanation = document.createElement('p');
+    explanation.textContent = message;
+    const missingHeading = document.createElement('h3');
+    missingHeading.textContent = status === 'same_product' ? (isZh ? '需要更改什么' : 'What to change') : (isZh ? '缺少什么' : 'What is missing');
+    const missing = document.createElement('p');
+    missing.textContent = status === 'same_product'
+      ? (isZh ? '请选择同一等级的另一个准确成人考试产品，使两列代表不同产品。' : 'Select another exact adult product at the same level so each column represents a different product.')
+      : (isZh ? '需要两个不同、当前且经过来源复核的产品记录，才能显示事实。' : 'Two different, current, source-reviewed product records are required before facts can be shown.');
+    const actionHeading = document.createElement('h3');
+    actionHeading.textContent = isZh ? '在哪里核验' : 'Where to verify';
+    const actions = document.createElement('ul');
+    examComparisonOptions.forEach((product) => {
+      const item = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = product.officialUrl;
+      link.target = '_blank';
+      link.rel = 'noreferrer';
+      link.textContent = product.label;
+      item.append(link, isZh ? ' — 先向考试主办方核验准确产品，再另行确认当地执行。' : ' — verify the exact product with its exam owner, then check local delivery separately.');
+      actions.append(item);
+    });
+    const boundary = document.createElement('p');
+    boundary.textContent = isZh ? '此状态不会推断产品事实、当地费用、名额、出分时间或接收机关是否接受。' : 'No product facts, local fee, seat, result timing, or receiving-authority acceptance are inferred in this state.';
+    summary.append(statusText, heading, explanation, missingHeading, missing, actionHeading, actions, boundary);
+    resultPanel.hidden = false;
+    controller?.markResult();
+    resultPanel.focus();
+  };
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
     if (!controller?.validate()) return;
     const data = Object.fromEntries(new FormData(form).entries());
-    const first = examComparisonOptions.find((exam) => exam.id === data.first);
-    const second = examComparisonOptions.find((exam) => exam.id === data.second);
-    if (!first || !second || !summary || !resultPanel) return;
-    controller.persist();
+    const comparison = compareExamProducts(String(data.first || ''), String(data.second || ''), { locale });
+    if (!summary || !resultPanel) return;
+    if (comparison.status !== 'ready') {
+      if (comparison.status === 'same_product') renderComparisonStatus('same_product', comparison.message);
+      if (comparison.status === 'unsupported') renderComparisonStatus('unsupported', comparison.message);
+      return;
+    }
+    if (!('rows' in comparison)) return;
+    plan.persist({ firstExamId: data.first, secondExamId: data.second });
     summary.replaceChildren();
     const heading = document.createElement('h2');
-    heading.textContent = `${first.label} and ${second.label}`;
+    heading.textContent = `${comparison.first.name}${isZh ? ' 与 ' : ' and '}${comparison.second.name}`;
     const intro = document.createElement('p');
-    intro.textContent = 'This is a structured official-check list, not a recommendation or a statement of acceptance.';
+    intro.textContent = isZh ? '以下是考试主办方的产品事实，不是排名、当地报名承诺或移民机关接受声明。' : 'These are exam-owner product facts, not a ranking, local booking promise, or statement of immigration acceptance.';
     const tableWrap = document.createElement('div');
     tableWrap.className = 'tool-table-wrap';
-    tableWrap.setAttribute('role', 'region');
-    tableWrap.setAttribute('aria-label', 'Exam comparison table. Scroll horizontally to view all columns.');
     tableWrap.tabIndex = 0;
+    tableWrap.setAttribute('role', 'region');
+    tableWrap.setAttribute('aria-label', isZh ? '考试比较表，可横向滚动查看全部列。' : 'Exam comparison table. Scroll horizontally to view all columns.');
     const tableHint = document.createElement('p');
     tableHint.className = 'tool-table-hint';
-    tableHint.textContent = 'Scroll left and right to view all comparison columns.';
+    tableHint.textContent = isZh ? '左右滚动可查看全部比较列。' : 'Scroll left and right to view all comparison columns.';
     const table = document.createElement('table');
     const header = document.createElement('tr');
-    ['Configured dimension', first.label, second.label].forEach((label) => { const cell = document.createElement('th'); cell.scope = 'col'; cell.textContent = label; header.append(cell); });
+    [isZh ? '产品事实' : 'Product fact', comparison.first.name, comparison.second.name].forEach((label) => { const cell = document.createElement('th'); cell.scope = 'col'; cell.textContent = label; header.append(cell); });
     const head = document.createElement('thead'); head.append(header); table.append(head);
     const body = document.createElement('tbody');
-    examComparisonDimensions.forEach((dimension) => {
+    comparison.rows.forEach((fact) => {
       const row = document.createElement('tr');
-      const dimensionCell = document.createElement('th'); dimensionCell.scope = 'row'; dimensionCell.textContent = dimension.label;
-      const sharedCell = document.createElement('td'); sharedCell.colSpan = 2; sharedCell.textContent = dimension.value;
-      row.append(dimensionCell, sharedCell); body.append(row);
+      const labelCell = document.createElement('th');
+      labelCell.scope = 'row';
+      labelCell.textContent = fact.label;
+      const firstCell = document.createElement('td');
+      const firstValue = document.createElement('p');
+      firstValue.textContent = fact.firstValue;
+      const firstSource = document.createElement('a');
+      firstSource.href = fact.firstSourceUrl;
+      firstSource.textContent = isZh ? '官方来源' : 'Official source';
+      firstSource.rel = 'noreferrer';
+      firstSource.target = '_blank';
+      const firstChecked = document.createElement('p');
+      firstChecked.textContent = `${isZh ? '核验日期：' : 'Checked: '}${fact.firstSourceCheckedAt}`;
+      firstCell.append(firstValue, firstSource, firstChecked);
+      const secondCell = document.createElement('td');
+      const secondValue = document.createElement('p');
+      secondValue.textContent = fact.secondValue;
+      const secondSource = document.createElement('a');
+      secondSource.href = fact.secondSourceUrl;
+      secondSource.textContent = isZh ? '官方来源' : 'Official source';
+      secondSource.rel = 'noreferrer';
+      secondSource.target = '_blank';
+      const secondChecked = document.createElement('p');
+      secondChecked.textContent = `${isZh ? '核验日期：' : 'Checked: '}${fact.secondSourceCheckedAt}`;
+      secondCell.append(secondValue, secondSource, secondChecked);
+      row.append(labelCell, firstCell, secondCell);
+      body.append(row);
+    });
+    comparison.localRows.forEach((fact) => {
+      const row = document.createElement('tr');
+      row.className = 'verification-pending';
+      const labelCell = document.createElement('th');
+      labelCell.scope = 'row';
+      labelCell.textContent = fact.label;
+      const buildLocalCell = (value: string, status: string, owner: string, action: string, boundary: string) => {
+        const cell = document.createElement('td');
+        const statusText = document.createElement('p');
+        const statusLabel = document.createElement('strong');
+        statusLabel.textContent = status === 'needs_authority_confirmation' ? (isZh ? '状态：需要主管方确认' : 'Status: needs authority confirmation') : `${isZh ? '状态' : 'Status'}: ${status}`;
+        statusText.append(statusLabel);
+        const valueText = document.createElement('p'); valueText.textContent = value;
+        const ownerText = document.createElement('p'); ownerText.textContent = `${isZh ? '负责方' : 'Owner'}: ${owner}`;
+        const actionText = document.createElement('p'); actionText.textContent = `${isZh ? '核验动作' : 'Action'}: ${action}`;
+        const boundaryText = document.createElement('p'); boundaryText.textContent = `${isZh ? '边界' : 'Boundary'}: ${boundary}`;
+        cell.append(statusText, valueText, ownerText, actionText, boundaryText);
+        return cell;
+      };
+      row.append(
+        labelCell,
+        buildLocalCell(fact.firstValue, fact.firstStatus, fact.firstOwner, fact.firstAction, fact.firstBoundary),
+        buildLocalCell(fact.secondValue, fact.secondStatus, fact.secondOwner, fact.secondAction, fact.secondBoundary),
+      );
+      body.append(row);
     });
     const sourcesRow = document.createElement('tr');
-    const sourcesLabel = document.createElement('th'); sourcesLabel.scope = 'row'; sourcesLabel.textContent = 'Official exam page';
+    const sourcesLabel = document.createElement('th'); sourcesLabel.scope = 'row'; sourcesLabel.textContent = isZh ? '官方考试产品页' : 'Official exam page';
     sourcesRow.append(sourcesLabel);
-    [first, second].forEach((exam) => {
+    [comparison.first, comparison.second].forEach((exam) => {
       const cell = document.createElement('td');
-      const link = document.createElement('a'); link.href = exam.officialUrl; link.textContent = exam.label; link.rel = 'noreferrer'; link.target = '_blank';
+      const link = document.createElement('a'); link.href = exam.officialUrl; link.textContent = exam.name; link.rel = 'noreferrer'; link.target = '_blank';
       cell.append(link);
       sourcesRow.append(cell);
     });
     body.append(sourcesRow);
+    const practiceRow = document.createElement('tr');
+    const practiceLabel = document.createElement('th'); practiceLabel.scope = 'row'; practiceLabel.textContent = isZh ? '官方练习材料' : 'Official practice material';
+    practiceRow.append(practiceLabel);
+    const firstPracticeCell = document.createElement('td');
+    const firstPractice = document.createElement('a'); firstPractice.href = comparison.first.officialPracticeUrl; firstPractice.textContent = isZh ? '官方练习材料' : 'Official practice material'; firstPractice.rel = 'noreferrer'; firstPractice.target = '_blank';
+    firstPracticeCell.append(firstPractice);
+    const secondPracticeCell = document.createElement('td');
+    const secondPractice = document.createElement('a'); secondPractice.href = comparison.second.officialPracticeUrl; secondPractice.textContent = isZh ? '官方练习材料' : 'Official practice material'; secondPractice.rel = 'noreferrer'; secondPractice.target = '_blank';
+    secondPracticeCell.append(secondPractice);
+    practiceRow.append(firstPracticeCell, secondPracticeCell);
+    body.append(practiceRow);
     table.append(body); tableWrap.append(table);
     summary.append(heading, intro, tableHint, tableWrap);
     resultPanel.hidden = false;
     controller.markResult();
     resultPanel.focus();
   });
-  if (controller?.restored) form?.requestSubmit();
+  controller?.activate();
 </script>

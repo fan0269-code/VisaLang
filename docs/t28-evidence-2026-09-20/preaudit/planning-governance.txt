@@ -1,0 +1,24 @@
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: candidate byte binding is current: docs/planning-map/visalang-overall-build-plan.archify.json
++ actual - expected
+
++ '5fa46b6633a8965215c0aca90b81a1f34c689eac717cbea8d6759d589543cfbc'
+- 'c55a7504247e16f3b6c31d3f9c0085d71522e51b5b3f8e54e6c62001b80aa76a'
+
+    at validateCandidateByteBindings (file:///Users/a1-6/Documents/2.codex/1.visalang.org/tests/planning-map-governance.test.mjs:234:12)
+    at file:///Users/a1-6/Documents/2.codex/1.visalang.org/tests/planning-map-governance.test.mjs:243:32
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: '5fa46b6633a8965215c0aca90b81a1f34c689eac717cbea8d6759d589543cfbc',
+  expected: 'c55a7504247e16f3b6c31d3f9c0085d71522e51b5b3f8e54e6c62001b80aa76a',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v22.23.2

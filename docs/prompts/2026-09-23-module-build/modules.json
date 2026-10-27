@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "kind": "execution-prompt-index-not-task-status",
+  "baselinePlanningSync": "VL-PMAP-20260923-03",
+  "deliverySync": "VL-PMAP-20260923-04",
+  "modules": [
+    {
+      "id": "W00",
+      "prompt": "W00-integration.md",
+      "title": "集成调度与治理",
+      "packages": "全体共用治理",
+      "startCondition": "Owner选定批次",
+      "deliverable": "单写者，先分配隔离副本",
+      "mapNodes": [
+        "authority_map_sync",
+        "drift_gate",
+        "automated_evidence"
+      ],
+      "status": "prompt-ready-only"
+    },
+    {
+      "id": "W01",
+      "prompt": "W01-reader-validation.md",
+      "title": "A1真实读者任务",
+      "packages": "LP00",
+      "startCondition": "可立即准备；真人结果需实际同意读者",
+      "deliverable": "脚本、观察记录、最多三项问题",
+      "mapNodes": [
+        "reader_validation"
+      ],
+      "status": "prompt-ready-only"
+    },
+    {
+      "id": "W02",
+      "prompt": "W02-laya-initial.md",
+      "title": "Laya有限初验",
+      "packages": "LP01a；LC02/03最小整理",
+      "startCondition": "与W01并行，不等真人或手选失败",
+      "deliverable": "旧回归、新小样本、比较及限制",
+      "mapNodes": [
+        "reader_validation"
+      ],
+      "status": "prompt-ready-only"
+    },
+    {
+      "id": "W03",
+      "prompt": "W03-entry-scope.md",
+      "title": "首页与能力入口",
+      "packages": "LC01",
+      "startCondition": "可先核查支持范围/已知缺陷",
+      "deliverable": "三层能力与一致入口",
+      "mapNodes": [
+        "a1_core"
+      ],
+      "status": "prompt-ready-only"
+    },
+    {
+      "id": "W04",
+      "prompt": "W04-authority-certificate.md",
+      "title": "主管机关与已有证书",
+      "packages": "LC04",
+      "startCondition": "可先维护来源/已知缺陷",
+      "deliverable": "机关问询表、证书核验卡、C07判断",
+      "mapNodes": [
+        "a1_core"
+      ],
+      "status": "prompt-ready-only"
+    },
+    {
+      "id": "W05",
+      "prompt": "W05-exam-comparison.md",
+      "title": "考试选择与对比",
+      "packages": "LC05",
+      "startCondition": "W04对应任务/产品事实＋实际比较缺口",
+      "deliverable": "准确产品差异与当地待问表",
+      "mapNodes": [
+        "a1_core"
+      ],
+      "status": "prompt-ready-only"
+    },
+    {
+      "id": "W06",
+      "prompt": "W06-booking.md",
+      "title": "报名与预算",
+      "packages": "LC06",
+      "startCondition": "W05对应任务＋当地来源＋报名缺口",
+      "deliverable": "付款前记录、分币种预算与恢复",
+      "mapNodes": [
+        "a1_core"
+      ],
+      "status": "prompt-ready-only"
+    },
+    {
+      "id": "W07",
+      "prompt": "W07-record-tools.md",
+      "title": "材料、时间与行动记录",
+      "packages": "LC07",
+      "startCondition": "W04/W06相关事实＋材料时间保存缺口",
+      "deliverable": "三类材料、确认/假设、复制与下载",
+      "mapNodes": [
+        "a1_core"
+      ],
+      "status": "prompt-ready-only"
+    },
+    {
+      "id": "W08",
+      "prompt": "W08-core-decoupling.md",
+      "title": "核心站独立运行与发布适配",
+      "packages": "LP05a",
+      "startCondition": "本地实现可先行；真实主机另需环境与授权",
+      "deliverable": "统一功能开关、构建/探针/回滚适配",
+      "mapNodes": [
+        "core_candidate"
+      ],
+      "status": "prompt-ready-only"
+    },
+    {
+      "id": "W09",
+      "prompt": "W09-ads.md",
+      "title": "广告独立验收",
+      "packages": "LP05b",
+      "startCondition": "已集成W08配置；真实账户证据另核",
+      "deliverable": "同意/关闭/加载/体验与账户缺口",
+      "mapNodes": [
+        "ads_gate"
+      ],
+      "status": "prompt-ready-only"
+    },
+    {
+      "id": "W10",
+      "prompt": "W10-laya-decision.md",
+      "title": "Laya继续投入判断",
+      "packages": "LP01b",
+      "startCondition": "W01/W02实际证据；缺失可出证据不足",
+      "deliverable": "continue/pause/insufficient_evidence",
+      "mapNodes": [
+        "laya_gate"
+      ],
+      "status": "prompt-ready-only"
+    },
+    {
+      "id": "W11",
+      "prompt": "W11-laya-quality.md",
+      "title": "Laya完整质量及上线资产",
+      "packages": "LP02；LC02/03完整资产",
+      "startCondition": "W10 continue；先冻结完整协议再优化",
+      "deliverable": "独立评测、有限候选、确认回退与文案",
+      "mapNodes": [
+        "laya_gate"
+      ],
+      "status": "prompt-ready-only"
+    },
+    {
+      "id": "W12",
+      "prompt": "W12-laya-capacity.md",
+      "title": "Laya Linux容量与成本",
+      "packages": "LP03",
+      "startCondition": "W10 continue；正式验收用W11固定候选",
+      "deliverable": "真实Linux资源/24h/预算实证",
+      "mapNodes": [
+        "laya_gate"
+      ],
+      "status": "prompt-ready-only"
+    },
+    {
+      "id": "W13",
+      "prompt": "W13-a1-practice.md",
+      "title": "A1一个训练任务",
+      "packages": "LC08",
+      "startCondition": "独立学习需求＋复核能力",
+      "deliverable": "诊断→练习→自查→复测",
+      "mapNodes": [
+        "operate_expand"
+      ],
+      "status": "prompt-ready-only"
+    },
+    {
+      "id": "W14",
+      "prompt": "W14-b1-content.md",
+      "title": "B1有限内容深化",
+      "packages": "LC09–LC11",
+      "startCondition": "B1独立需求/缺口/来源/维护能力",
+      "deliverable": "先一个任务；LC10/11逐项有条件",
+      "mapNodes": [
+        "b1_gate"
+      ],
+      "status": "prompt-ready-only"
+    },
+    {
+      "id": "W15",
+      "prompt": "W15-core-journey.md",
+      "title": "A1完整任务验收",
+      "packages": "LP04",
+      "startCondition": "W01真实任务＋W03/04＋W05–07必要缺口已集成",
+      "deliverable": "英中/移动/键盘/恢复/保存与复验",
+      "mapNodes": [
+        "a1_core"
+      ],
+      "status": "prompt-ready-only"
+    },
+    {
+      "id": "W16",
+      "prompt": "W16-release-candidates.md",
+      "title": "分别冻结候选",
+      "packages": "LP06-core/laya/ads",
+      "startCondition": "每次选择一个目标，按各自门槛",
+      "deliverable": "候选身份、证据及待授权项",
+      "mapNodes": [
+        "core_candidate",
+        "ads_gate",
+        "laya_gate",
+        "owner_release"
+      ],
+      "status": "prompt-ready-only"
+    },
+    {
+      "id": "W17",
+      "prompt": "W17-operations.md",
+      "title": "反馈与下一周期",
+      "packages": "LP07/LP08；LC12",
+      "startCondition": "问题台账可先建；线上观察须真实发布",
+      "deliverable": "实际反馈、来源队列、最多三项下一批",
+      "mapNodes": [
+        "operate_expand",
+        "b1_gate"
+      ],
+      "status": "prompt-ready-only"
+    },
+    {
+      "id": "W18",
+      "prompt": "W18-independent-auditor.md",
+      "title": "独立审计",
+      "packages": "所有候选的独立审核",
+      "startCondition": "没有参与本批工作＋W00完整冻结提交",
+      "deliverable": "PASS/FAIL/BLOCKED及精确字节绑定",
+      "mapNodes": [
+        "independent_audit"
+      ],
+      "status": "prompt-ready-only"
+    }
+  ]
+}

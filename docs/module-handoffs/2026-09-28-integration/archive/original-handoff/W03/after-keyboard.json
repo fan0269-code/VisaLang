@@ -1,0 +1,154 @@
+[
+  {
+    "width": 375,
+    "path": "/",
+    "tabs": 3,
+    "enterOpen": true,
+    "firstLink": {
+      "tag": "A",
+      "text": "Home",
+      "focusVisible": true,
+      "outline": "solid"
+    },
+    "escapeClosed": true,
+    "focusReturned": true,
+    "reverseReturns": true,
+    "enterClosed": true,
+    "pointerOpen": true,
+    "closesOnExit": true,
+    "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-menu-en-375.png"
+  },
+  {
+    "width": 375,
+    "path": "/zh/",
+    "tabs": 3,
+    "enterOpen": true,
+    "firstLink": {
+      "tag": "A",
+      "text": "首页",
+      "focusVisible": true,
+      "outline": "solid"
+    },
+    "escapeClosed": true,
+    "focusReturned": true,
+    "reverseReturns": true,
+    "enterClosed": true,
+    "pointerOpen": true,
+    "closesOnExit": true,
+    "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-menu-zh-375.png"
+  },
+  {
+    "width": 390,
+    "path": "/",
+    "tabs": 3,
+    "enterOpen": true,
+    "firstLink": {
+      "tag": "A",
+      "text": "Home",
+      "focusVisible": true,
+      "outline": "solid"
+    },
+    "escapeClosed": true,
+    "focusReturned": true,
+    "reverseReturns": true,
+    "enterClosed": true,
+    "pointerOpen": true,
+    "closesOnExit": true,
+    "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-menu-en-390.png"
+  },
+  {
+    "width": 390,
+    "path": "/zh/",
+    "tabs": 3,
+    "enterOpen": true,
+    "firstLink": {
+      "tag": "A",
+      "text": "首页",
+      "focusVisible": true,
+      "outline": "solid"
+    },
+    "escapeClosed": true,
+    "focusReturned": true,
+    "reverseReturns": true,
+    "enterClosed": true,
+    "pointerOpen": true,
+    "closesOnExit": true,
+    "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-menu-zh-390.png"
+  },
+  {
+    "width": 768,
+    "path": "/",
+    "tabs": 3,
+    "enterOpen": true,
+    "firstLink": {
+      "tag": "A",
+      "text": "Home",
+      "focusVisible": true,
+      "outline": "solid"
+    },
+    "escapeClosed": true,
+    "focusReturned": true,
+    "reverseReturns": true,
+    "enterClosed": true,
+    "pointerOpen": true,
+    "closesOnExit": true,
+    "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-menu-en-768.png"
+  },
+  {
+    "width": 768,
+    "path": "/zh/",
+    "tabs": 3,
+    "enterOpen": true,
+    "firstLink": {
+      "tag": "A",
+      "text": "首页",
+      "focusVisible": true,
+      "outline": "solid"
+    },
+    "escapeClosed": true,
+    "focusReturned": true,
+    "reverseReturns": true,
+    "enterClosed": true,
+    "pointerOpen": true,
+    "closesOnExit": true,
+    "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-menu-zh-768.png"
+  },
+  {
+    "width": 1440,
+    "path": "/",
+    "tabs": 5,
+    "enterOpen": true,
+    "firstLink": {
+      "tag": "A",
+      "text": "Family reunion",
+      "focusVisible": true,
+      "outline": "solid"
+    },
+    "escapeClosed": true,
+    "focusReturned": true,
+    "reverseReturns": true,
+    "enterClosed": true,
+    "pointerOpen": true,
+    "closesOnExit": true,
+    "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-menu-en-1440.png"
+  },
+  {
+    "width": 1440,
+    "path": "/zh/",
+    "tabs": 5,
+    "enterOpen": true,
+    "firstLink": {
+      "tag": "A",
+      "text": "家庭团聚",
+      "focusVisible": true,
+      "outline": "solid"
+    },
+    "escapeClosed": true,
+    "focusReturned": true,
+    "reverseReturns": true,
+    "enterClosed": true,
+    "pointerOpen": true,
+    "closesOnExit": true,
+    "screenshot": "docs/module-handoffs/2026-09-24-01/W03/screenshots/after-menu-zh-1440.png"
+  }
+]

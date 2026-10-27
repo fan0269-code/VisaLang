@@ -2,6 +2,7 @@ import { createMarkdownProcessor } from '@astrojs/markdown-remark';
 
 export interface ArticleSections {
   who: string;
+  keyDecisions: string;
   detailed: string;
   detailedHeadings: { text: string; slug: string; depth?: number }[];
   commonMistakes: string;
@@ -9,12 +10,13 @@ export interface ArticleSections {
   officialSources: string;
 }
 
-type SectionKind = 'who' | 'detailed' | 'commonMistakes' | 'nextAction' | 'officialSources';
+type SectionKind = 'who' | 'keyDecisions' | 'detailed' | 'commonMistakes' | 'nextAction' | 'officialSources';
 const processorPromise = createMarkdownProcessor({ syntaxHighlight: false });
 
 function classifyHeading(heading: string): SectionKind {
   const value = heading.trim().toLowerCase();
   if (/^who\b|who this|who needs|who should/.test(value)) return 'who';
+  if (/^key decisions?$|^decision checklist$/.test(value)) return 'keyDecisions';
   if (/common (mistakes|ways)|mistakes|lose money/.test(value)) return 'commonMistakes';
   if (/next action|next step|what to do next|decision tools and next steps/.test(value)) return 'nextAction';
   if (/^official sources?$|^official links?( and practice resources)?$/.test(value)) return 'officialSources';
@@ -22,7 +24,7 @@ function classifyHeading(heading: string): SectionKind {
 }
 
 export async function buildArticleSections(markdown: string, fileURL?: URL): Promise<ArticleSections> {
-  const groups: Record<SectionKind, string[]> = { who: [], detailed: [], commonMistakes: [], nextAction: [], officialSources: [] };
+  const groups: Record<SectionKind, string[]> = { who: [], keyDecisions: [], detailed: [], commonMistakes: [], nextAction: [], officialSources: [] };
   const lines = markdown.split(/\r?\n/);
   let currentHeading = '';
   let currentBody: string[] = [];
@@ -55,12 +57,13 @@ export async function buildArticleSections(markdown: string, fileURL?: URL): Pro
     if (!content) return { code: '', metadata: { headings: [] as { text: string; slug: string; depth?: number }[] } };
     return processor.render(content, { fileURL });
   };
-  const [who, detailed, commonMistakes, nextAction, officialSources] = await Promise.all([
-    renderGroup('who'), renderGroup('detailed'), renderGroup('commonMistakes'), renderGroup('nextAction'), renderGroup('officialSources'),
+  const [who, keyDecisions, detailed, commonMistakes, nextAction, officialSources] = await Promise.all([
+    renderGroup('who'), renderGroup('keyDecisions'), renderGroup('detailed'), renderGroup('commonMistakes'), renderGroup('nextAction'), renderGroup('officialSources'),
   ]);
 
   return {
     who: who.code,
+    keyDecisions: keyDecisions.code,
     detailed: detailed.code,
     detailedHeadings: detailed.metadata.headings,
     commonMistakes: commonMistakes.code,

@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 1,
+  "sourceRoot": "/Users/a1-6/Documents/2.codex/1.visalang.org",
+  "batchId": "2026-09-23-01",
+  "baselineId": "6575f350de1af90c9d439d99573ff3b16c50c17b2de2d234e0a08bd430a232c8",
+  "baselineManifestPath": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-23-01/baseline-manifest.json",
+  "snapshotPath": "/private/tmp/visalang-W00-2026-09-23-01/baseline",
+  "assignmentStatus": "prepared_awaiting_owner_dispatch",
+  "implementationStatus": "not_started",
+  "releaseStatus": "not_deployed",
+  "scope": "W00 preparation and governance only; zero module implementations or handoffs integrated",
+  "ownerInstructionRef": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-23-01/owner-scope.md",
+  "createdAt": "2026-09-23T04:29:15+00:00",
+  "selectedPreparationModules": [
+    "W01",
+    "W02",
+    "W08"
+  ],
+  "executingModules": [],
+  "W00AllowedWritePaths": [
+    "README.md",
+    "docs/CONTENT_MAP.md",
+    "docs/TASK_LOG.md",
+    "docs/master-package-2026-09-08/VisaLang-Master-Plan.md",
+    "docs/master-package-2026-09-08/BACKLOG_STATUS_OVERLAY_2026-09-09.md",
+    "docs/master-package-2026-09-08/EXECUTION_RECORD.md",
+    "docs/planning-map/visalang-overall-build-plan.archify.json",
+    "docs/planning-map/visalang-overall-build-plan.html",
+    "docs/planning-map/visalang-overall-build-plan.visual-check.json",
+    "docs/planning-map/visalang-overall-build-plan.visual-check.html",
+    "docs/planning-map/visalang-overall-build-plan.visual-check.1440x900.dark.png",
+    "docs/planning-map/visalang-overall-build-plan.visual-check.1440x900.light.png",
+    "docs/planning-map/visalang-overall-build-plan.visual-check.2048x1320.dark.png",
+    "docs/planning-map/visalang-overall-build-plan.visual-check.2048x1320.light.png",
+    "docs/planning-map/visual-review.json",
+    "docs/planning-map/history.json",
+    "docs/planning-map/sync.json",
+    "docs/module-handoffs/2026-09-23-01/**"
+  ],
+  "independentAuditReportPath": "docs/planning-map/VISALANG_W00_DISPATCH_INDEPENDENT_AUDIT_2026-09-23.md",
+  "unchangedReviewInputPaths": [
+    "tests/site.test.js"
+  ],
+  "baselineSupplement": "15 necessary ignored old experiment logs included and individually hashed; two optional external nested repos omitted explicitly",
+  "assignments": [
+    {
+      "sourceRoot": "/Users/a1-6/Documents/2.codex/1.visalang.org",
+      "batchId": "2026-09-23-01",
+      "baselineId": "6575f350de1af90c9d439d99573ff3b16c50c17b2de2d234e0a08bd430a232c8",
+      "baselineManifestPath": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-23-01/baseline-manifest.json",
+      "snapshotPath": "/private/tmp/visalang-W00-2026-09-23-01/baseline",
+      "assignmentStatus": "prepared_awaiting_owner_dispatch",
+      "implementationStatus": "not_started",
+      "releaseStatus": "not_deployed",
+      "moduleId": "W01",
+      "planningPackages": [
+        "LP00"
+      ],
+      "workspacePath": "/private/tmp/visalang-W00-2026-09-23-01/W01",
+      "promptPath": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/prompts/2026-09-23-module-build/W01-reader-validation.md",
+      "allowedWritePaths": [
+        "docs/module-handoffs/2026-09-23-01/W01/**"
+      ],
+      "runtimeWritePaths": [
+        "node_modules/**",
+        ".astro/**",
+        "dist/**",
+        ".venv/**",
+        ".runtime/**"
+      ],
+      "runtimeRules": "Independent local generated/cache/runtime paths only; no dependency/lock upgrades, no shared writes, no model downloads; source scope remains explicit. Use private python -m, never copied console scripts with old shebang.",
+      "evidenceDependencies": [
+        {
+          "evidencePath": "snapshot-verification.json",
+          "status": "verified"
+        }
+      ],
+      "limitations": [
+        "Real readers, consent and authorized sensitive-material storage absent; LP00 remains partial without them. No recruitment authorized."
+      ],
+      "environmentRecord": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-23-01/environment-preflight.json"
+    },
+    {
+      "sourceRoot": "/Users/a1-6/Documents/2.codex/1.visalang.org",
+      "batchId": "2026-09-23-01",
+      "baselineId": "6575f350de1af90c9d439d99573ff3b16c50c17b2de2d234e0a08bd430a232c8",
+      "baselineManifestPath": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-23-01/baseline-manifest.json",
+      "snapshotPath": "/private/tmp/visalang-W00-2026-09-23-01/baseline",
+      "assignmentStatus": "prepared_awaiting_owner_dispatch",
+      "implementationStatus": "not_started",
+      "releaseStatus": "not_deployed",
+      "moduleId": "W02",
+      "planningPackages": [
+        "LP01a",
+        "LC02-minimal",
+        "LC03-minimal"
+      ],
+      "workspacePath": "/private/tmp/visalang-W00-2026-09-23-01/W02",
+      "promptPath": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/prompts/2026-09-23-module-build/W02-laya-initial.md",
+      "allowedWritePaths": [
+        "experiments/laya-lp01a/**",
+        "docs/module-handoffs/2026-09-23-01/W02/**"
+      ],
+      "runtimeWritePaths": [
+        "node_modules/**",
+        ".astro/**",
+        "dist/**",
+        ".venv/**",
+        ".runtime/**"
+      ],
+      "runtimeRules": "Independent local generated/cache/runtime paths only; no dependency/lock upgrades, no shared writes, no model downloads; source scope remains explicit. Use private python -m, never copied console scripts with old shebang.",
+      "evidenceDependencies": [
+        {
+          "evidencePath": "snapshot-verification.json",
+          "status": "verified"
+        },
+        {
+          "evidencePath": "environment-preflight.json",
+          "status": "offline-dependency-bytes-verified-inference-not-run"
+        },
+        {
+          "moduleId": "W01",
+          "status": "not_a_prerequisite"
+        }
+      ],
+      "limitations": [
+        "Must predeclare bounded investment before model calls; only initial checks, no optimization/complete evaluation. 120 minutes initial cap, stop and report actual results/gaps when reached. User value unknown."
+      ],
+      "environmentRecord": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-23-01/environment-preflight.json",
+      "initialEffortLimitMinutes": 120,
+      "modelEnvironment": {
+        "LAYA_MODEL": "/private/tmp/visalang-W00-2026-09-23-01/W02/.runtime/model",
+        "LAYA_SUBFOLDER": "multilingual",
+        "HF_HUB_OFFLINE": "1",
+        "TRANSFORMERS_OFFLINE": "1",
+        "HF_HOME": "/private/tmp/visalang-W00-2026-09-23-01/W02/.runtime/hf",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "XDG_CACHE_HOME": "/private/tmp/visalang-W00-2026-09-23-01/W02/.runtime/cache"
+      },
+      "modelPort": 8782
+    },
+    {
+      "sourceRoot": "/Users/a1-6/Documents/2.codex/1.visalang.org",
+      "batchId": "2026-09-23-01",
+      "baselineId": "6575f350de1af90c9d439d99573ff3b16c50c17b2de2d234e0a08bd430a232c8",
+      "baselineManifestPath": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-23-01/baseline-manifest.json",
+      "snapshotPath": "/private/tmp/visalang-W00-2026-09-23-01/baseline",
+      "assignmentStatus": "prepared_awaiting_owner_dispatch",
+      "implementationStatus": "not_started",
+      "releaseStatus": "not_deployed",
+      "moduleId": "W08",
+      "planningPackages": [
+        "LP05a"
+      ],
+      "workspacePath": "/private/tmp/visalang-W00-2026-09-23-01/W08",
+      "promptPath": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/prompts/2026-09-23-module-build/W08-core-decoupling.md",
+      "allowedWritePaths": [
+        "src/data/runtime-features.ts",
+        "astro.config.mjs",
+        "src/layouts/BaseLayout.astro",
+        "src/layouts/GuideLayout.astro",
+        "src/components/tools/PurposeSuggestion.astro",
+        "src/scripts/purpose-suggestion.ts",
+        "src/pages/tools/route-finder.astro",
+        "src/pages/zh/tools/route-finder.astro",
+        "src/pages/privacy-policy.astro",
+        "src/pages/cookie-policy.astro",
+        "deploy/release.py",
+        "deploy/deploy.sh",
+        "deploy/rollback.sh",
+        "deploy/smoke-test.sh",
+        "deploy/nginx-vhost-template.conf",
+        "deploy/laya-purpose-nginx.conf",
+        "deploy/production-evidence.example.json",
+        "deploy/README.md",
+        "deploy/tests/test_release.py",
+        "scripts/launch-check.js",
+        "tests/deploy.test.js",
+        "tests/adsense-risk-exposure.test.js",
+        "tests/scheme-3-release-candidate.test.mjs",
+        "tests/site.test.js",
+        "tests/laya-purpose.test.mjs",
+        "tests/runtime-features.test.mjs",
+        "docs/module-handoffs/2026-09-23-01/W08/**"
+      ],
+      "runtimeWritePaths": [
+        "node_modules/**",
+        ".astro/**",
+        "dist/**",
+        ".venv/**",
+        ".runtime/**"
+      ],
+      "runtimeRules": "Independent local generated/cache/runtime paths only; no dependency/lock upgrades, no shared writes, no model downloads; source scope remains explicit. Use private python -m, never copied console scripts with old shebang.",
+      "evidenceDependencies": [
+        {
+          "evidencePath": "snapshot-verification.json",
+          "status": "verified"
+        },
+        {
+          "evidencePath": "docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md#6",
+          "status": "local-work-independent-of-W01-W02-W10"
+        }
+      ],
+      "limitations": [
+        "No target-host/backup/TLS/live-retained-URL/real rollback authorization or evidence. LP05a stays partial. Git-dependent prepare belongs to W00 after integration; never fabricate .git."
+      ],
+      "environmentRecord": "/Users/a1-6/Documents/2.codex/1.visalang.org/docs/module-handoffs/2026-09-23-01/environment-preflight.json"
+    }
+  ],
+  "integrationPolicy": "Validate baselineId and each base/candidate hash, candidate test binding, write scope/privacy. Merge serially only after actual handoff; segment-level conflict resolution; new baseline and retest when shared interfaces change. No copying entire conflicting files.",
+  "currentIntegrationCount": 0,
+  "otherModules": "not_prepared_not_dispatched",
+  "externalActionsAuthorized": []
+}

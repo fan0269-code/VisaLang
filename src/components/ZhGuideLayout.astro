@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { zhGermanyA1Guides, zhCoreOfficialSources } from '../data/zh-germany-a1';
+import { resolveZhGuideDirectAnswer, zhGermanyA1Guides, type ZhGermanyA1Guide } from '../data/zh-germany-a1';
 import ArticleLayout from '../layouts/ArticleLayout.astro';
 import GuideStatusBadge from './GuideStatusBadge.astro';
 import VerificationAlert from './VerificationAlert.astro';
@@ -8,6 +8,8 @@ import ReportOutdatedInfo from './ReportOutdatedInfo.astro';
 import CopyButton from './CopyButton.astro';
 import PrintButton from './PrintButton.astro';
 import LastCheckedBadge from './LastCheckedBadge.astro';
+import { chinesePillarSlugs, getChineseGuidePublicationPolicy } from '../data/publication-manifest';
+import { translatedPaths } from '../data/site';
 
 export interface Props {
   title: string;
@@ -29,15 +31,37 @@ const {
 const canonicalURL = `https://visalang.org/zh/guides/${slug}/`;
 const guideRecord = zhGermanyA1Guides.find((guide) => guide.slug === slug);
 if (!guideRecord) throw new Error(`Missing controlled Chinese guide record for ${slug}`);
+const publicationPolicyForGuide = (guide: ZhGermanyA1Guide) => getChineseGuidePublicationPolicy({
+  slug: guide.slug,
+  contentStatus: guide.contentStatus,
+  sourceReviewStatus: guide.sourceReviewStatus,
+  noindex: guide.noindex,
+});
+const publicationPolicy = publicationPolicyForGuide(guideRecord);
+const requiredPageSpecificSlots = ['who', 'key-decisions', 'mistakes', 'next-action', 'sources'] as const;
+const missingPageSpecificSlots = requiredPageSpecificSlots.filter((slotName) => !Astro.slots.has(slotName));
+if (publicationPolicy.index && missingPageSpecificSlots.length > 0) {
+  throw new Error(`Indexed Chinese guide ${slug} is missing page-specific sections: ${missingPageSpecificSlots.join(', ')}`);
+}
 const updatedDate = guideRecord.updatedDate;
 const englishHref = englishHrefOverride ?? guideRecord.englishHref;
 const englishURL = new URL(englishHref, 'https://visalang.org').href;
+const hasReciprocalTranslation = translatedPaths[englishHref] === guideRecord.href;
+const alternates = hasReciprocalTranslation
+  ? [{ lang: 'zh-CN', href: canonicalURL }, { lang: 'en', href: englishURL }, { lang: 'x-default', href: englishURL }]
+  : [];
+const renderedDirectAnswer = resolveZhGuideDirectAnswer(guideRecord);
+const summaryAudienceScope = guideRecord.audienceScope.replace(/[。！？]+$/u, '');
 const relatedSlugs = related.length > 0 ? related : guideRecord.supportingGuideSlugs;
 const relatedGuides = relatedSlugs
   .map((relatedSlug) => zhGermanyA1Guides.find((guide) => guide.slug === relatedSlug))
-  .filter(Boolean);
-const previousGuide = zhGermanyA1Guides.find((guide) => guide.nextGuideSlug === slug);
-const nextGuide = zhGermanyA1Guides.find((guide) => guide.slug === guideRecord.nextGuideSlug);
+  .filter((guide) => guide && publicationPolicyForGuide(guide).index);
+const orderedPillars = chinesePillarSlugs
+  .map((pillarSlug) => zhGermanyA1Guides.find((guide) => guide.slug === pillarSlug))
+  .filter((guide): guide is NonNullable<typeof guide> => Boolean(guide) && publicationPolicyForGuide(guide).index);
+const currentPillarIndex = orderedPillars.findIndex((guide) => guide.slug === slug);
+const previousGuide = currentPillarIndex > 0 ? orderedPillars[currentPillarIndex - 1] : undefined;
+const nextGuide = currentPillarIndex >= 0 ? orderedPillars[currentPillarIndex + 1] : undefined;
 const reviewerRoleLabels = {
   editorial: '编辑审查',
   'source-review': '来源审查',
@@ -96,57 +120,49 @@ const jsonLD = {
   canonicalURL={canonicalURL}
   ogType="article"
   lang="zh-CN"
-  alternates={[
-    { lang: 'zh-CN', href: canonicalURL },
-    { lang: 'en', href: englishURL },
-    { lang: 'x-default', href: englishURL },
-  ]}
+  alternates={alternates}
   jsonLD={jsonLD}
+  noindex={!publicationPolicy.index}
+  enableAds={publicationPolicy.ads}
 >
   <main class="guide-page">
-    <nav class="guide-breadcrumb" aria-label="Breadcrumb">
+    <nav class="guide-breadcrumb" aria-label="面包屑导航">
       <a href="/zh/">中文首页</a>
       <span class="sep" aria-hidden="true">/</span>
       <a href="/zh/germany-family-reunion-a1/">德国 A1 家庭团聚</a>
       <span class="sep" aria-hidden="true">/</span>
-      <span class="current">{title}</span>
+      <span class="current" aria-current="page">{title}</span>
     </nav>
     <ArticleLayout articleId="zh-guide-content" headings={tocHeadings} locale="zh-CN">
       <div slot="article-header" class="guide-article__header">
         <p class="eyebrow">德国 A1 / 中文指南</p>
         <div class="guide-scope-line"><GuideStatusBadge status={guideRecord.contentStatus} locale="zh-CN" /><span>国家：德国</span><span>路线：配偶团聚 / 家庭团聚 A1</span></div>
         <h1>{title}</h1>
-        <section class="guide-summary-box" id="direct-answer" aria-label="指南摘要"><h2>直接答案</h2><p class="guide-summary">{description}</p></section>
+        <section class="guide-summary-box" id="direct-answer" aria-label="指南摘要"><h2>直接答案</h2><p class="guide-summary">{renderedDirectAnswer}</p><p class="guide-summary-boundary">范围：{summaryAudienceScope}。来源边界：请以已记录的官方来源和核验日期为准，再确认你的个案。</p></section>
         <dl class="guide-meta" aria-label="文章责任和来源状态"><div><dt>首次发布</dt><dd><time datetime={guideRecord.publishedDate}>{guideRecord.publishedDate}</time></dd></div><div><dt>最近更新</dt><dd><time datetime={updatedDate}>{updatedDate}</time></dd></div><div><dt>来源审查</dt><dd><LastCheckedBadge date={guideRecord.sourceReviewedAt} status={guideRecord.sourceReviewStatus} locale="zh-CN" /></dd></div><div><dt>作者</dt><dd>{guideRecord.author}</dd></div><div><dt>审查角色</dt><dd>{reviewerRoleLabel}</dd></div><div><dt>阅读时间</dt><dd>约 {guideRecord.readingTime} 分钟</dd></div></dl>
         <section class="decision-authority" aria-labelledby="zh-who-decides-title"><h2 id="zh-who-decides-title">谁最终决定？</h2><p><strong>最终决定机关：</strong>{guideRecord.finalDecisionAuthorityType}</p><p><a class="official-source-link" href={guideRecord.primaryOfficialAuthorityUrl}>打开官方主管机关入口</a></p>{guideRecord.sourceReviewStatus === 'reviewed' ? <p>本页已记录独立中文来源复核日期。</p> : <p class="verification-pending"><strong>独立中文来源复核待完成。</strong>当前官方入口用于帮助你执行核验，不表示 VisaLang 已替你确认个案结论。</p>}<p>VisaLang 不判断个案是否适用、是否豁免、证书是否被接受、材料是否充分或申请结果。</p></section>
       </div>
-      <VerificationAlert title="行动前再次核验"><p>政策、考位、费用和证书接受范围可能变化，请以官方最新要求为准。</p></VerificationAlert>
-      <VerificationAlert title="本地执行核验"><p>{guideRecord.localExecutionPrompt}</p></VerificationAlert>
+      <VerificationAlert title="行动前再次核验"><p>政策、考位、费用和证书接受范围可能变化，请以官方最新要求为准。</p><p>{guideRecord.localExecutionPrompt}</p></VerificationAlert>
       <section class="guide-template-box" id="who-this-applies-to">
         <h2>适用对象</h2>
-        <p>适合已经在规划德国配偶团聚或家庭团聚、需要把“是否需要 A1、该考什么、何时报名、材料怎么准备”拆成可核验步骤的中文用户。</p>
-        <p><strong>不适用边界：</strong>它不替代德国使领馆、BAMF、Goethe、telc、当地考点或个案审核人员的决定，也不能据此判断你一定豁免、一定被接受或一定能按时出证。</p>
+        <slot name="who"><p class="verification-pending">本页尚未发布页面专属的适用对象与排除边界。</p></slot>
       </section>
-      <section id="key-decisions"><h2>关键决策</h2><ol><li>先确认负责接收语言证明的机构。</li><li>确认准确的证书、等级、考试版本和材料形式。</li><li>再核验当地报名、证件、费用、出分、退改和时间安排。</li></ol></section>
+      <section id="key-decisions"><h2>关键决策</h2><slot name="key-decisions"><p class="verification-pending">本页尚未发布页面专属的关键决策。</p></slot></section>
       <section id="detailed-explanation"><h2>详细说明</h2><slot /></section>
       <section id="what-to-verify-officially"><h2>需要向官方核验什么</h2><p>先向最终决定机关确认这项证明是否适用于你的路线，再向考试主办方确认准确考试产品，最后向所选官方或授权考点确认本地报名和执行规则。</p></section>
-      <section id="common-mistakes"><h2>常见错误</h2><ul><li>没有确认个案要求就先报名。</li><li>把旧费用、旧考位或他人经验当作当前规则。</li><li>只比较考试品牌，不核对准确证书与材料形式。</li></ul></section>
+      <section id="common-mistakes"><h2>常见错误</h2><slot name="mistakes"><p class="verification-pending">本页尚未发布页面专属的错误、后果与纠正动作。</p></slot></section>
       <section class="guide-template-box" id="next-action">
         <h2>下一步行动</h2>
-        <ol>
-          <li>先把自己的申请地、签证节点和护照姓名拼写记下来。</li>
-          <li>回到本页引用的官方来源，保存与你个案有关的当前页面和查看日期。</li>
-          <li>再从下方“下一步可以看”进入相邻的报名、材料或备考问题。</li>
-        </ol>
+        <slot name="next-action"><p class="verification-pending">本页尚未发布页面专属的下一步核验动作。</p></slot>
       </section>
-      <section class="guide-template-box" id="official-sources"><h2>官方来源</h2><p>提交材料或付款报名前，请核对当前德国使领馆、BAMF、Goethe-Institut、telc 和当地考点页面。</p><ul>{zhCoreOfficialSources.map((source) => <li><a href={source.href}>{source.name}</a></li>)}</ul></section>
+      <section class="guide-template-box" id="official-sources"><h2>官方来源</h2><slot name="sources"><p class="verification-pending">本页尚未发布页面专属的官方来源与支持边界。</p></slot></section>
       <section class="guide-disclaimer" id="disclaimer">
         <h2>合规提醒</h2>
         <p>VisaLang 不提供签证法律意见，不承诺通过考试或签证，不提供泄题、真题答案或任何违规材料。遇到费用、考试日期、豁免条件、证书有效期和接受范围，请以官方最新要求为准。</p>
       </section>
-      <div class="button-row"><CopyButton target="#zh-guide-content" label="复制指南" /><PrintButton label="打印指南" /></div>
+      <div class="button-row"><CopyButton target="#zh-guide-content" label="复制指南" locale="zh-CN" /><PrintButton label="打印指南" /></div>
     </ArticleLayout>
-    <section class="guide-related" aria-labelledby="zh-next-tool-title"><h2 id="zh-next-tool-title">下一步工具（英文）</h2><p>工具页面目前只有英文界面，结果仍会明确要求回到官方来源核验。</p><div class="button-row"><a class="button button--primary" href="/tools/route-finder/">路线查找器（英文）</a><a class="button button--secondary" href="/tools/checklist-generator/">要求核对清单（英文）</a></div></section>
+    <section class="guide-related" aria-labelledby="zh-next-tool-title"><h2 id="zh-next-tool-title">下一步中文工具</h2><p>先用路线查找器确认核验顺序，再用要求核对清单保存已完成与待确认项目；结果都会要求回到对应官方来源。</p><div class="button-row"><a class="button button--primary" href="/zh/tools/route-finder/">路线查找器</a><a class="button button--secondary" href="/zh/tools/checklist-generator/">要求核对清单</a></div></section>
     {(previousGuide || nextGuide) && <nav class="guide-related guide-sequence" aria-label="上一篇和下一篇指南">{previousGuide && <a href={previousGuide.href}><small>上一篇指南</small><strong>{previousGuide.title}</strong></a>}{nextGuide && <a href={nextGuide.href}><small>下一篇指南</small><strong>{nextGuide.title}</strong></a>}</nav>}
     {relatedGuides.length > 0 && (
       <section class="guide-related" aria-labelledby="related-title">

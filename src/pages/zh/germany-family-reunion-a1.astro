@@ -1,19 +1,18 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { zhGermanyA1Guides, zhCoreOfficialSources } from '../../data/zh-germany-a1';
+import { getPrimaryDiscoveryZhGuides } from '../../data/guide-library';
 import RouteProgress from '../../components/RouteProgress.astro';
 
 const canonicalURL = 'https://visalang.org/zh/germany-family-reunion-a1/';
-const updatedDate = zhGermanyA1Guides.reduce((latest, guide) => guide.updatedDate > latest ? guide.updatedDate : latest, '2026-07-09');
+const publishedZhGuides = getPrimaryDiscoveryZhGuides(zhGermanyA1Guides);
+const updatedDate = publishedZhGuides.reduce((latest, guide) => guide.updatedDate > latest ? guide.updatedDate : latest, '2026-09-01');
 const routeSteps = [
   { title: '确认是否需要 A1', status: 'current', preparation: '准备申请地、家庭团聚类型、负责个案的德国使领馆或主管机关，以及需要核验的豁免问题。', guide: { href: '/zh/guides/german-family-reunion-language-requirement/', label: '查看要求指南' } },
-  { title: '确认接受的证明', status: 'next', preparation: '向负责机关核对准确的成人证书、等级、考试版本和材料形式。', guide: { href: '/zh/guides/goethe-a1-germany-family-reunion/', label: '核验可接受证明' } },
   { title: '比较考试选项', status: 'next', preparation: '只比较已经被主管机关确认可用的考试，不把品牌知名度当作接受证明。', guide: { href: '/zh/guides/goethe-a1-vs-telc-a1/', label: 'Goethe 与 telc' } },
   { title: '核验考点与报名', status: 'next', preparation: '从考试方入口核验授权考点，再确认准确考试、姓名、证件、费用、日期、退改和出证流程。', guide: { href: '/zh/guides/goethe-a1-test-centers/', label: '核验官方考点' } },
-  { title: '制定时间线', status: 'next', preparation: '只使用自己持有或负责机关、所选考点当前确认的考试、出分、取证和材料节点。', guide: { href: '/zh/guides/german-a1-exam-booking-timeline/', label: '倒排报名时间线' } },
-  { title: '准备材料', status: 'next', preparation: '把报名、考试当天和签证文件中的语言证明要求分开核对。', guide: { href: '/zh/guides/german-a1-documents-checklist/', label: '材料清单' } },
+  { title: '制定时间线并核对材料', status: 'next', preparation: '只使用官方确认的考试、出分、取证和材料节点，并把报名、考试当天、申请递交三套文件分开。', guide: { href: '/zh/guides/german-a1-exam-booking-timeline/', label: '倒排时间线与材料' } },
   { title: '使用官方资源学习', status: 'next', preparation: '在要求、证明、考点、报名和时间线明确后，再安排听说读写练习。', guide: { href: '/zh/guides/goethe-a1-30-day-study-plan/', label: '备考计划' } },
-  { title: '递交前复核或进入复考分支', status: 'next', preparation: '递交前重新确认接受范围和文件形式；首次未通过时，另看 Goethe A1 复考（英文指南）。', guide: { href: '/guides/goethe-a1-retake-policy/', label: 'Goethe A1 复考（英文指南）' } },
 ] as const;
 const jsonLD = {
   '@context': 'https://schema.org',
@@ -51,6 +50,7 @@ const jsonLD = {
     { lang: 'x-default', href: 'https://visalang.org/germany-family-reunion-a1/' },
   ]}
   jsonLD={jsonLD}
+  enableAds={false}
 >
   <main class="page-shell">
     <article class="guide-article route-hub-page">
@@ -87,7 +87,7 @@ const jsonLD = {
 
       <h2 id="zh-guides">中文核心指南</h2>
       <div class="guide-related-grid">
-        {zhGermanyA1Guides.map((guide) => (
+        {publishedZhGuides.map((guide) => (
           <a class="article-card" href={guide.href}>
             <p class="card-category">德国 A1 中文指南</p>
             <h3>{guide.title}</h3>
@@ -104,15 +104,14 @@ const jsonLD = {
         <li>签证材料清单里对语言证明原件、复印件、翻译件或有效期的要求。</li>
       </ul>
 
-      <h2>按这个顺序推进</h2>
+      <h2>按五步推进</h2>
       <RouteProgress steps={routeSteps} current={0} routeId="zh-germany-family-reunion-a1" locale="zh-CN" />
 
-      <h2>暂时只有英文的补充页面</h2>
+      <h2>配套中文规划工具</h2>
       <ul>
-        <li><a href="/guides/goethe-a1-pre-booking-checklist/">Goethe A1 付款前检查（英文指南）</a>：在付款前复核要求、准确考试、考点和本地条款。</li>
-        <li><a href="/guides/goethe-a1-official-links-practice-resources/">Goethe A1 官方练习资源（英文指南）</a>：确认考试与时间线后再选择官方练习入口。</li>
-        <li><a href="/guides/goethe-a1-retake-policy/">Goethe A1 复考（英文指南）</a>：仅在首次未通过后进入这个条件分支。</li>
-        <li><a href="/tools/timeline-calculator/">时间线规划器（英文工具）</a>：只输入自己持有或官方确认的节点。</li>
+        <li><a href="/zh/tools/checklist-generator/">要求核对清单</a>：记录你已经完成的官方核验与仍未解决的问题。</li>
+        <li><a href="/zh/tools/timeline-calculator/">时间线规划器</a>：只输入自己持有或官方确认的节点。</li>
+        <li><a href="/zh/tools/email-reminders/">提醒计划</a>：提醒自己在付款或递交前重新打开官方来源。</li>
       </ul>
 
       <h2>官方核验入口</h2>

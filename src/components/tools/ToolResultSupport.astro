@@ -2,31 +2,37 @@
 import CopyButton from '../CopyButton.astro';
 import PrintButton from '../PrintButton.astro';
 import ExportButton from '../ExportButton.astro';
-import { toolLinks } from '../../data/route-tools';
+import { commonToolCopy, getToolLinks, type ToolLocale } from '../../data/tool-copy';
 
 export interface Props {
   resultId: string;
   guideHref?: string;
   guideLabel?: string;
+  showActions?: boolean;
+  locale?: ToolLocale;
 }
 
-const { resultId, guideHref = '/guides/', guideLabel = 'Browse route guides' } = Astro.props;
+const { resultId, locale = 'en' } = Astro.props;
+const copy = commonToolCopy[locale];
+const { guideHref = locale === 'zh-CN' ? '/zh/' : '/guides/', guideLabel = copy.browseGuides } = Astro.props;
+const { showActions = true } = Astro.props;
+const toolLinks = getToolLinks(locale);
 ---
 
 <div class="tool-result-support">
   <div class="tool-notice">
-    <strong>Informational guidance only.</strong> This tool organises planning questions; it does not decide visa eligibility, certificate acceptance, exam availability, or an individual application outcome.
+    <strong>{copy.supportLead}</strong> {copy.supportBoundary}
   </div>
   <div class="tool-support-grid">
     <section>
-      <h2>Official check before you act</h2>
-      <p>Confirm the exact requirement, accepted certificate, documents, date, fee, result process, and local centre rules with the authority or official centre that receives your file.</p>
+      <h2>{copy.officialCheckTitle}</h2>
+      <p>{copy.officialCheck}</p>
     </section>
-    <section>
-      <h2>Continue your plan</h2>
+    <section data-tool-continuation>
+      <h2>{copy.continueTitle}</h2>
       <p><a href={guideHref}>{guideLabel}</a></p>
-      <p><a href={toolLinks.checklist}>Open Checklist</a> / <a href={toolLinks.timeline}>Open Timeline</a></p>
+      <p><a href={toolLinks.checklist}>{copy.openChecklist}</a> / <a href={toolLinks.timeline}>{copy.openTimeline}</a></p>
     </section>
   </div>
-  <div class="tool-cta-row"><CopyButton target={`#${resultId}`} /><PrintButton label="Print plan" /><ExportButton target={`#${resultId}`} /></div>
+  {showActions && <div class="tool-cta-row"><CopyButton target={`#${resultId}`} locale={locale} /><PrintButton label={copy.print} locale={locale} /><ExportButton target={`#${resultId}`} locale={locale} /></div>}
 </div>

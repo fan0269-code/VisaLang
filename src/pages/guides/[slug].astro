@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import GuideLayout from '../../layouts/GuideLayout.astro';
 import { formatRouteLabel, inferGuideMeta } from '../../data/guide-taxonomy';
 import { buildArticleSections } from '../../data/article-sections';
+import { getEnglishGuidePublicationPolicy } from '../../data/publication-manifest';
 
 export async function getStaticPaths() {
   const guides = await getCollection('guides');
@@ -19,7 +20,8 @@ const articleSections = await buildArticleSections(guide.body);
 const allGuides = await getCollection('guides');
 const linkedGuides = frontmatter.supportingGuideSlugs
   .map(slug => allGuides.find(g => g.data.slug === slug))
-  .filter((guide): guide is NonNullable<typeof guide> => Boolean(guide));
+  .filter((guide): guide is NonNullable<typeof guide> => Boolean(guide))
+  .filter((candidate) => getEnglishGuidePublicationPolicy({ slug: candidate.data.slug, contentStatus: candidate.data.contentStatus, sourceReviewStatus: candidate.data.sourceReviewStatus, noindex: candidate.data.noindex, adsEligible: candidate.data.adsEligible }).index);
 const isAllowedRelated = (candidate: typeof linkedGuides[number]) => {
   const sameRoute = candidate.data.category === frontmatter.category;
   const sameCountry = inferGuideMeta(candidate.data).country === inferGuideMeta(frontmatter).country;
@@ -28,7 +30,8 @@ const isAllowedRelated = (candidate: typeof linkedGuides[number]) => {
   return frontmatter.comparisonScope === 'cross-country-comparison' && /compar/i.test(frontmatter.primaryIntent ?? '');
 };
 const relatedGuides = linkedGuides.filter(isAllowedRelated).map(g => ({ title: g.data.title, slug: g.data.slug }));
-const routeGuides = allGuides.filter((item) => item.data.category === frontmatter.category);
+const routeGuides = allGuides.filter((item) => item.data.category === frontmatter.category
+  && getEnglishGuidePublicationPolicy({ slug: item.data.slug, contentStatus: item.data.contentStatus, sourceReviewStatus: item.data.sourceReviewStatus, noindex: item.data.noindex, adsEligible: item.data.adsEligible }).index);
 const sortedRouteGuides = [...routeGuides].sort((a, b) => a.data.title.localeCompare(b.data.title));
 const routeIndex = sortedRouteGuides.findIndex((item) => item.data.slug === frontmatter.slug);
 const alphabeticalPrevious = routeIndex > 0 ? sortedRouteGuides[routeIndex - 1] : undefined;
@@ -41,13 +44,19 @@ const nextGuide = nextGuideSource ? { title: nextGuideSource.data.title, slug: n
 
 const guideMeta = inferGuideMeta(frontmatter);
 const routeLabel = formatRouteLabel(frontmatter.route, frontmatter.category);
-const routeHref = frontmatter.category ? `/guides/category/${frontmatter.category}/` : undefined;
+const routeHref = frontmatter.category === 'germany-a1'
+  ? '/germany-family-reunion-a1/'
+  : frontmatter.category === 'germany-b1'
+    ? '/germany-b1-settlement-citizenship/'
+    : undefined;
 ---
 
 <GuideLayout
   title={frontmatter.title}
   seoTitle={frontmatter.seoTitle}
   description={frontmatter.description}
+  directAnswer={frontmatter.directAnswer}
+  claimRefs={frontmatter.claimRefs}
   publishedDate={frontmatter.publishedDate}
   updatedDate={frontmatter.updatedDate}
   slug={frontmatter.slug}
@@ -62,6 +71,8 @@ const routeHref = frontmatter.category ? `/guides/category/${frontmatter.categor
   noindex={frontmatter.noindex}
   enableAds={frontmatter.adsEligible}
   primaryOfficialAuthorityUrl={frontmatter.primaryOfficialAuthorityUrl}
+  routeRequirementAuthorityType={frontmatter.routeRequirementAuthorityType}
+  routeRequirementAuthorityUrl={frontmatter.routeRequirementAuthorityUrl}
   primaryIntent={frontmatter.primaryIntent}
   audienceScope={frontmatter.audienceScope}
   finalDecisionAuthorityType={frontmatter.finalDecisionAuthorityType}

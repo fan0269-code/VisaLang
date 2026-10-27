@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "VL-PMAP-20260923-02-visual-r1",
+  "reviewedAt": "2026-09-23T03:29:36+00:00",
+  "reviewerCapability": "image-capable-agent",
+  "status": "passed",
+  "artifact": {
+    "path": "docs/planning-map/visalang-overall-build-plan.html",
+    "sha256": "4e4b0fc6abcf42e0d6e7966a0c4f57aeb2555314feb6210f149f5f1574c8001c"
+  },
+  "browserEvidence": {
+    "path": "docs/planning-map/visalang-overall-build-plan.visual-check.json",
+    "sha256": "531229c1122724d484426d0866168b99699a1ef0ad74604c7cb5ecebc09f4f8d"
+  },
+  "screenshots": [
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.1440x900.dark.png",
+      "sha256": "307f8e3e95be831f887dbcf3a54bcf56aa94d1456b9c0711e4bce6802ffdb91c",
+      "width": 1440,
+      "height": 900,
+      "theme": "dark"
+    },
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.1440x900.light.png",
+      "sha256": "a4ecf1232bda58b603c0a7cf096c48049ce11a8bc7c003359bf396775f475b2f",
+      "width": 1440,
+      "height": 900,
+      "theme": "light"
+    },
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.2048x1320.dark.png",
+      "sha256": "475d83bd5b3b184070742640797849d45d8f4013b969a1e1e4e0cd1f8a69ce40",
+      "width": 2048,
+      "height": 1320,
+      "theme": "dark"
+    },
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.2048x1320.light.png",
+      "sha256": "42cc0c31d3fa10022a4a8b94ec64e948b94186f01452d2f2b84c5febffc342b8",
+      "width": 2048,
+      "height": 1320,
+      "theme": "light"
+    }
+  ],
+  "findings": [],
+  "correctionRounds": 0,
+  "notes": "Root image-capable agent inspected all four exact screenshots in light/dark at 1440x900 and 2048x1320. Core path, three independent branches, common governance gates, pending implementation boundary and complete wrapped digest are visible. No clipped labels or unrelated-node crossings observed; large-desktop panel/cards remain contained and balanced. Browser receipt separately verifies four viewport sizes. Pre-delivery topology/routing fixes are not a claim of post-delivery visual repair. Tags are not relied on for the default READ view: essential current-state and pending-decoupling limits appear in visible cards."
+}

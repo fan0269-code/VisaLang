@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "VL-PMAP-20260923-05-visual-r1",
+  "reviewedAt": "2026-09-23T04:36:52+00:00",
+  "reviewerCapability": "image-capable-agent",
+  "status": "passed",
+  "artifact": {
+    "path": "docs/planning-map/visalang-overall-build-plan.html",
+    "sha256": "c3a42b66c9ac6f9406b4db4326c5ac4f8a3705f1bf3f238817061b640b624b00"
+  },
+  "browserEvidence": {
+    "path": "docs/planning-map/visalang-overall-build-plan.visual-check.json",
+    "sha256": "9f3d1a5b710e7b71d09acd037efc1bfc5557613a33afa31d19b031c5811ff639"
+  },
+  "screenshots": [
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.1440x900.dark.png",
+      "sha256": "3815c8aa6e8b2d9cceb7d7964a87ba14746e5b412c52756cfee2187f15f7941f",
+      "width": 1440,
+      "height": 900,
+      "theme": "dark"
+    },
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.1440x900.light.png",
+      "sha256": "d18e56e26a904894ba6db549b909ec3db656a2c505046c353e8900403e6def9b",
+      "width": 1440,
+      "height": 900,
+      "theme": "light"
+    },
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.2048x1320.dark.png",
+      "sha256": "fd5c7e9c6a6429238185ba90f736cb8e1cb1ad84d14147e5deec7f7538d5dad6",
+      "width": 2048,
+      "height": 1320,
+      "theme": "dark"
+    },
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.2048x1320.light.png",
+      "sha256": "84eaa2ae6029f891a0ebd7b9e9eea7f717b0f6e0a4cde4bde4921c8a9f52d42b",
+      "width": 2048,
+      "height": 1320,
+      "theme": "light"
+    }
+  ],
+  "findings": [],
+  "correctionRounds": 0,
+  "notes": "Root image-capable agent opened each of the four exact current PNGs (1440x900 and 2048x1320, light and dark) via view_image. All 12 nodes, branches and shared governance gates remain readable and unclipped; status clearly says three isolated copies await dispatch and modules are unimplemented. The sync ID and full wrapped digest are visible. No label masks unrelated edges or viewer controls; both desktop layouts keep the diagram and three status cards contained and balanced. No visual corrections. Automated four-size containment is separate. Initial sandbox Chrome SIGABRT was preserved; the authorized browser-capable retry completed all checks."
+}

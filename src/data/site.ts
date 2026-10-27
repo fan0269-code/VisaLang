@@ -6,12 +6,12 @@ export const site = {
   email: 'hello@visalang.org',
   lastSystemReview: '2026-07-11',
   routes: [
-    { id: 'family-reunion', label: 'Family reunion', zh: '家庭团聚', href: '/germany-family-reunion-a1/', status: 'available' },
-    { id: 'study', label: 'Study', zh: '留学', href: '/tools/route-finder/', status: 'available' },
-    { id: 'work', label: 'Work', zh: '工作', href: '/tools/route-finder/', status: 'available' },
-    { id: 'settlement', label: 'Settlement', zh: '永居', href: '/germany-b1-settlement-citizenship/', status: 'available' },
-    { id: 'citizenship', label: 'Citizenship', zh: '入籍', href: '/germany-b1-settlement-citizenship/', status: 'available' },
-    { id: 'not-sure', label: 'Not sure yet', zh: '还不确定', href: '/tools/route-finder/', status: 'available' },
+    { id: 'family-reunion', label: 'Family reunion', zh: '家庭团聚', href: '/germany-family-reunion-a1/', support: 'configured' },
+    { id: 'study', label: 'Study', zh: '留学', href: '/tools/route-finder/', support: 'verify-only' },
+    { id: 'work', label: 'Work', zh: '工作', href: '/tools/route-finder/', support: 'verify-only' },
+    { id: 'settlement', label: 'Settlement', zh: '永居', href: '/germany-b1-settlement-citizenship/', support: 'guide-only' },
+    { id: 'citizenship', label: 'Citizenship', zh: '入籍', href: '/germany-b1-settlement-citizenship/', support: 'guide-only' },
+    { id: 'not-sure', label: 'Not sure yet', zh: '还不确定', href: '/tools/route-finder/', support: 'verify-only' },
   ],
   tools: [
     { id: 'finder', label: 'Route Finder', zh: '路线查找器', href: '/tools/route-finder/', description: 'Identify the authority and proof questions to verify first.', status: 'available' },
@@ -47,14 +47,15 @@ export const navItems = [
 export const translatedPaths: Record<string, string> = {
   '/': '/zh/',
   '/germany-family-reunion-a1/': '/zh/germany-family-reunion-a1/',
-  '/guides/german-family-reunion-language-requirement/': '/zh/guides/german-family-reunion-language-requirement/',
-  '/guides/goethe-a1-germany-family-reunion/': '/zh/guides/goethe-a1-germany-family-reunion/',
   '/guides/goethe-a1-vs-telc-a1/': '/zh/guides/goethe-a1-vs-telc-a1/',
   '/guides/goethe-a1-test-centers/': '/zh/guides/goethe-a1-test-centers/',
-  '/guides/goethe-a1-booking-mistakes/': '/zh/guides/goethe-a1-booking-mistakes/',
   '/guides/german-a1-exam-booking-timeline/': '/zh/guides/german-a1-exam-booking-timeline/',
-  '/guides/german-a1-documents-checklist/': '/zh/guides/german-a1-documents-checklist/',
   '/guides/goethe-a1-30-day-study-plan/': '/zh/guides/goethe-a1-30-day-study-plan/',
+  '/tools/route-finder/': '/zh/tools/route-finder/',
+  '/tools/checklist-generator/': '/zh/tools/checklist-generator/',
+  '/tools/timeline-calculator/': '/zh/tools/timeline-calculator/',
+  '/tools/exam-comparison/': '/zh/tools/exam-comparison/',
+  '/tools/email-reminders/': '/zh/tools/email-reminders/',
 };
 
 export const productStatuses = {

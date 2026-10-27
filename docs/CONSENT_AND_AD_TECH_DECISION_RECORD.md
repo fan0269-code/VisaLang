@@ -1,5 +1,7 @@
 # VisaLang consent and ad-tech decision record
 
+> Historical decision record. Statements below about tool-local storage or URL-backed tool restoration are superseded by the 2026-09-09 M2-A session-first shared-plan contract in `src/data/plan-state.ts` and `docs/VISALANG_M2A_T10_T14_EXECUTION_EVIDENCE_2026-09-09.md`. The dated advertising decisions remain historical evidence and are not rewritten here.
+
 Audit date: 2026-07-18 (Asia/Shanghai)
 Status: **SOURCE APPROVED — AdSense restoration is implemented locally; account, browser-network, placement, and production verification remain pending.**
 Scope: local source implementation and historical audit record. This record is not legal advice and does not assert GDPR, UK GDPR, CCPA, TCF, or other regulatory compliance.

@@ -1,0 +1,1 @@
+Synthetic canary read denied: EPERM

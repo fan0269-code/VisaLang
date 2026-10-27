@@ -1,0 +1,94 @@
+{
+  "checkedAt": "2026-09-25T11:58:20.034325+08:00",
+  "changedImplementationCount": 8,
+  "allChangedPathsAllowed": true,
+  "readOnlyFiles": [
+    {
+      "path": "src/data/route-tools.ts",
+      "baseSha256": "f2cba2823afd2fa0233c41728a94fd4ffd4d648cac5f5bde861f9160a72b4d39",
+      "candidateSha256": "f2cba2823afd2fa0233c41728a94fd4ffd4d648cac5f5bde861f9160a72b4d39",
+      "unchanged": true
+    },
+    {
+      "path": "src/data/publication-manifest.ts",
+      "baseSha256": "ab721a3b52cb4b02ec9142ab60ec3bbf6f311856ef8bf38787b433aa22a48b47",
+      "candidateSha256": "ab721a3b52cb4b02ec9142ab60ec3bbf6f311856ef8bf38787b433aa22a48b47",
+      "unchanged": true
+    },
+    {
+      "path": "src/data/site.ts",
+      "baseSha256": "d2a68aed44ae73c4445990f2ab1e2fc09114fff37f099b3f755a5629d9a66838",
+      "candidateSha256": "d2a68aed44ae73c4445990f2ab1e2fc09114fff37f099b3f755a5629d9a66838",
+      "unchanged": true
+    },
+    {
+      "path": "package.json",
+      "baseSha256": "e10a21a85a7c9ff26515249e0415b40d7d076f636bc0f6d1d8c8da47faceeee3",
+      "candidateSha256": "e10a21a85a7c9ff26515249e0415b40d7d076f636bc0f6d1d8c8da47faceeee3",
+      "unchanged": true
+    },
+    {
+      "path": "package-lock.json",
+      "baseSha256": "0764538fd216cc29c6fb5ad4a793827c57dc750cf176a540d01ac6cfaef1027c",
+      "candidateSha256": "0764538fd216cc29c6fb5ad4a793827c57dc750cf176a540d01ac6cfaef1027c",
+      "unchanged": true
+    },
+    {
+      "path": "src/components/MobileNavigation.astro",
+      "baseSha256": "0ac6eae9edaa9feebaa7fddcab1d820d026f423f3279a27fcf78f520bf0355ac",
+      "candidateSha256": "0ac6eae9edaa9feebaa7fddcab1d820d026f423f3279a27fcf78f520bf0355ac",
+      "unchanged": true
+    },
+    {
+      "path": "src/components/RouteSelector.astro",
+      "baseSha256": "76c737c291be59503cf5d12178919f5252daeb7218c4f774e6c1e52bf243e050",
+      "candidateSha256": "76c737c291be59503cf5d12178919f5252daeb7218c4f774e6c1e52bf243e050",
+      "unchanged": true
+    }
+  ],
+  "mainRelevantSourceFiles": [
+    {
+      "path": "src/components/GlobalHeader.astro",
+      "mainSha256": "a59c82d83c6ba61eebbf34e2b1281d31bc30a371548e0750515bb7cde63506ee",
+      "expectedBaselineSha256": "a59c82d83c6ba61eebbf34e2b1281d31bc30a371548e0750515bb7cde63506ee"
+    },
+    {
+      "path": "src/components/HomeHero.astro",
+      "mainSha256": "1b00fb1188ac58661bd6fc2e5067d2cb5bf9b6ce75124220bb929eda95334a3a",
+      "expectedBaselineSha256": "1b00fb1188ac58661bd6fc2e5067d2cb5bf9b6ce75124220bb929eda95334a3a"
+    },
+    {
+      "path": "src/pages/index.astro",
+      "mainSha256": "77ddb74fca442380cba2eaa864a63b07a2cbab469f5e3da84a00a03b634fb2a9",
+      "expectedBaselineSha256": "77ddb74fca442380cba2eaa864a63b07a2cbab469f5e3da84a00a03b634fb2a9"
+    },
+    {
+      "path": "src/pages/routes/index.astro",
+      "mainSha256": "c4e7924069d44bf4a544e5f67e4c41fa7d12b725cd82b11519fea7b6bb158b9d",
+      "expectedBaselineSha256": "c4e7924069d44bf4a544e5f67e4c41fa7d12b725cd82b11519fea7b6bb158b9d"
+    },
+    {
+      "path": "src/pages/tools/index.astro",
+      "mainSha256": "2147122e845b8ba2ac3b0ed7b3d511515dc99f7647d668216e6f90a955c83d60",
+      "expectedBaselineSha256": "2147122e845b8ba2ac3b0ed7b3d511515dc99f7647d668216e6f90a955c83d60"
+    },
+    {
+      "path": "src/pages/zh/index.astro",
+      "mainSha256": "18254e699850703a6a052bdf7213b0ad33ba5d18a0f5f60640d129bb770b9b0c",
+      "expectedBaselineSha256": "18254e699850703a6a052bdf7213b0ad33ba5d18a0f5f60640d129bb770b9b0c"
+    },
+    {
+      "path": "src/styles/global.css",
+      "mainSha256": "91ec92d4c37978c675a969bc66c729c1ec53716799f162243d9b25b7a2dbee8a",
+      "expectedBaselineSha256": "91ec92d4c37978c675a969bc66c729c1ec53716799f162243d9b25b7a2dbee8a"
+    },
+    {
+      "path": "tests/task-4-home-routes.test.mjs",
+      "mainSha256": "b6b2c4c318e8739cf4ac84934af81435ee46eae79762e143e765f9b739b0bf79",
+      "expectedBaselineSha256": "b6b2c4c318e8739cf4ac84934af81435ee46eae79762e143e765f9b739b0bf79"
+    }
+  ],
+  "mainWritesPerformed": false,
+  "baselineEntries": 1313,
+  "candidateId": "f895b5901c6cdfadf4eab53ae770e54994d03dd5767e2efdd7979e53ba5501aa"
+}

@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HomeHero from '../components/HomeHero.astro';
+import GuideStatusBadge from '../components/GuideStatusBadge.astro';
+import homeRouteVisual from '../assets/home-route-verification.png';
+import { getCollection } from 'astro:content';
+import { resolveGuideContentStatus } from '../data/source-review';
+import { getEnglishGuidePublicationPolicy } from '../data/publication-manifest';
+import { getPrimaryDiscoveryZhGuides } from '../data/guide-library';
+import { site } from '../data/site';
+import { zhGermanyA1Guides } from '../data/zh-germany-a1';
+
+const guides = await getCollection('guides');
+const publishedGuides = guides
+  .map((guide) => ({ ...guide, status: resolveGuideContentStatus(guide.data) }))
+  .filter((guide) => getEnglishGuidePublicationPolicy({ slug: guide.data.slug, contentStatus: guide.status, sourceReviewStatus: guide.data.sourceReviewStatus, noindex: guide.data.noindex, adsEligible: guide.data.adsEligible }).index);
+const updated = [...publishedGuides]
+  .sort((a, b) => b.data.updatedDate.localeCompare(a.data.updatedDate))
+  .slice(0, 3);
+const totalGuideCount = publishedGuides.length + getPrimaryDiscoveryZhGuides(zhGermanyA1Guides).length;
+const publishedCategoryCount = new Set(publishedGuides.map((guide) => guide.data.category)).size;
+const jsonLD = { '@context': 'https://schema.org', '@type': 'WebSite', name: site.name, url: `${site.url}/`, description: 'Official-source-first language-proof route decisions.' };
+---
+
+<BaseLayout title="German A1 family reunion and B1 language guides" description="Plan German A1 family-reunion language proof and read B1 settlement and citizenship guides. Find official requirements, exam information and planning checklists." canonicalURL="https://visalang.org/" alternates={[{ lang: 'en', href: 'https://visalang.org/' }, { lang: 'zh-CN', href: 'https://visalang.org/zh/' }, { lang: 'x-default', href: 'https://visalang.org/' }]} jsonLD={jsonLD} bodyClass="home-view" enableAds={false} heroPreload={homeRouteVisual}>
+  <main class="site-main">
+    <HomeHero
+      locale="en"
+      eyebrow="Official sources first"
+      title="Plan your German language proof."
+      description="Germany A1 family reunion: check requirements, existing proof and booking steps. The receiving authority decides what it accepts."
+      primary={{ href: '/germany-family-reunion-a1/', label: 'Start the Germany A1 route' }}
+      visual={homeRouteVisual}
+      visualAlt="An open notebook and route map arranged for checking language-proof requirements"
+    >
+      <section class="home-tasks" aria-labelledby="stage-title">
+        <h2 id="stage-title">Or go straight to your task</h2>
+        <ol class="stage-list">
+          <li class="stage-card"><div><h3><a href="/guides/german-family-reunion-language-requirement/">Check the requirement</a></h3><p>Find the instruction for your application location and category.</p></div></li>
+          <li class="stage-card"><div><h3><a href="/guides/goethe-a1-germany-family-reunion/">Already have a certificate?</a></h3><p>Record the exact certificate and date; check acceptance with the receiving authority.</p></div></li>
+          <li class="stage-card"><div><h3><a href="/guides/german-a1-exam-booking-timeline/">Prepare booking and next steps</a></h3><p>Record the selected centre, fee, dates and documents to verify before booking.</p></div></li>
+        </ol>
+      </section>
+    </HomeHero>
+
+    <hr class="rule" />
+
+    <section class="section" aria-labelledby="resources-title">
+      <h2 class="section-title" id="resources-title">What you can use here</h2>
+      <div class="resource-layout">
+        <div class="resource-lead">
+          <h3>Germany A1: a complete preparation workflow</h3>
+          <p>Our main planning route covers Germany A1 family reunion. Separate guides explain B1 language evidence for settlement permits and citizenship.</p>
+          <p>Route Finder organises your starting questions. Its fully configured route currently covers Germany A1 family reunion. The other four registered routes offer official verification starting points, including B1.</p>
+        </div>
+        <div class="resource-list">
+          <a class="resource-link" href="/germany-b1-settlement-citizenship/"><div><h3>B1: settlement and citizenship guides</h3><p>A content topic with authority checks; B1 tools remain verification-only.</p></div><span>Read guides</span></a>
+          <a class="resource-link" href="/tools/route-finder/"><div><h3>Other purposes or not sure yet?</h3><p>Choose manually to find the authority and questions to verify. This does not decide eligibility or accepted proof.</p></div><span>Open Route Finder</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="updated-title">
+      <div class="section-header"><h2 id="updated-title">Recently updated</h2><p>{totalGuideCount} English and Chinese guides across {publishedCategoryCount} developed route categories.</p></div>
+      <div class="latest-layout">
+        {updated[0] && <a class="latest-feature" href={`/guides/${updated[0].data.slug}/`}><GuideStatusBadge status={updated[0].status} /><h3>{updated[0].data.title}</h3><p>{updated[0].data.description}</p><span class="last-checked">Updated {updated[0].data.updatedDate}</span></a>}
+        <div class="latest-list">{updated.slice(1).map((guide) => <a class="latest-item" href={`/guides/${guide.data.slug}/`}><div><h3>{guide.data.title}</h3><p>{guide.data.description}</p></div><span class="last-checked">Updated {guide.data.updatedDate}</span></a>)}</div>
+      </div>
+    </section>
+
+    <section class="section section--tight" aria-labelledby="trust-title">
+      <h2 class="section-title" id="trust-title">Trust comes from clear boundaries</h2>
+      <p class="trust-statement"><strong>Route first. No invented facts.</strong> Identify the receiving organisation, then verify changing requirements with its official source before choosing an exam. When a stable source is missing, use the verification task provided. Governments, institutions, exam owners, and authorised centres remain the final source for requirements, acceptance, fees, dates, and individual outcomes.</p>
+    </section>
+  </main>
+</BaseLayout>

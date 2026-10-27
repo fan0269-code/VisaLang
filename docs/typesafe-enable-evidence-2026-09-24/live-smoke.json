@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-24",
+  "scope": "one owner-authorized synthetic connectivity request",
+  "provider": "TypeSafe AI",
+  "endpoint": "https://api.typesafe.ai/v1/systemone",
+  "modelAlias": "jev-latest",
+  "requestCount": 1,
+  "inputArchived": false,
+  "responseArchived": false,
+  "credentialArchived": false,
+  "result": {
+    "status": "suggestion",
+    "purpose": "university",
+    "requiresConfirmation": true,
+    "inputTokens": 568
+  },
+  "interpretation": "Authentication, API response parsing, fixed-purpose mapping, and the confirmation-required public contract passed. This single synthetic smoke does not measure accuracy, calibration, latency distributions, cost, capacity, or user benefit."
+}

@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-09-23T03:47:50+00:00",
+  "kind": "planning-graph-and-scope-verification",
+  "sourceSha256": "03c2080af6abbaee9acc674bd1c62d04c643cbdc28b429705b53fa229191c57a",
+  "checks": {
+    "twelve_nodes": true,
+    "parallel_initial_packages": true,
+    "reader_only_core_edge": true,
+    "laya_branches_from_initial_window": true,
+    "laya_collects_two_evidence_streams": true,
+    "no_laya_core_prerequisite": true,
+    "no_ads_core_prerequisite": true,
+    "b1_demand_gate_unchanged": true,
+    "full_evaluation_capacity_protocol_unchanged": true,
+    "protected_implementation_unchanged": true,
+    "historical_content_ledger_unchanged": true
+  },
+  "protectedFiles": 271,
+  "limitations": "No model, reader, deployment or production experiment was performed; these checks validate the planning change and unchanged prior implementations."
+}

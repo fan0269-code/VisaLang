@@ -55,7 +55,7 @@ for (const [slug, html] of [[requirementSlug, requirementHtml], [comparisonSlug,
   assert.ok(!html.includes('pagead2.googlesyndication.com'), `${slug} does not load AdSense`);
   assert.ok(!sitemap.includes(`<loc>https://visalang.org/guides/${slug}/</loc>`), `${slug} is absent from the sitemap`);
 }
-assert.ok(requirementHtml.includes(`<small>Next guide</small><strong>${field(comparison, 'title')}</strong>`), 'the generated requirement guide continues to the comparison');
+assert.ok(!requirementHtml.includes('<small>Next guide</small>'), 'the pending requirement guide stays outside generated next-guide navigation');
 assert.ok(!comparisonHtml.includes('<small>Next guide</small>'), 'the generated comparison remains terminal');
 assert.ok(categoryHtml.includes('<meta name="robots" content="noindex,follow">'), 'the Canada category renders noindex');
 assert.ok(!categoryHtml.includes('pagead2.googlesyndication.com'), 'the Canada category remains advertising-free');

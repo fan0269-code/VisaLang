@@ -9,7 +9,7 @@ const { title, href, value, country, route, status = 'verification-pending', upd
 <article class="article-card guide-card">
   <div class="card-footer"><GuideStatusBadge status={status} /><span>{language}</span></div>
   <h3><a href={href}>{title}</a></h3>
-  <p class="card-meta"><strong>Direct answer:</strong> {value}</p>
+  <p class="card-meta"><strong>Guide summary:</strong> {value}</p>
   <ul class="card-tags" aria-label="Guide route"><li>{country}</li><li>{route}</li></ul>
   <div class="card-footer"><span>Updated <time datetime={updatedDate}>{updatedDate}</time></span><LastCheckedBadge date={sourceReviewedAt} status={sourceReviewStatus} /><span>{readingTime} min read</span></div>
 </article>

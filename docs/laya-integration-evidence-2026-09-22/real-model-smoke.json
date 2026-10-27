@@ -1,0 +1,16 @@
+{
+  "date": "2026-09-22",
+  "device": "cpu",
+  "laya_version": "0.3.5",
+  "method": "Real HTTP POST and browser through Astro same-origin Vite proxy",
+  "endpoint": "/api/purpose-suggestion/",
+  "input": "我想去德国读硕士。",
+  "expected": "university",
+  "actual": {
+    "status": "suggestion",
+    "purpose": "university",
+    "requiresConfirmation": true
+  },
+  "correct": true,
+  "note": "One integration smoke case, not an accuracy benchmark. Browser test separately verified no mutation before confirmation."
+}

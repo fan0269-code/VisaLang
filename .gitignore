@@ -24,4 +24,11 @@ dist/
 # astro internals
 .astro/
 .agents/
+.superpowers/
 skills-lock.json
+
+# agent & tool caches (local only, not for deployment)
+.workbuddy/
+.omo/
+.external/
+.claude/

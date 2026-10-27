@@ -1,0 +1,6 @@
+import {chromium} from '/Users/a1-6/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs';import fs from 'node:fs';
+const b=await chromium.launch({channel:'chrome',headless:true});const p=await b.newPage();const rows=[];let logs=[];await p.route('**/*', r=>r.request().url().startsWith('http://127.0.0.1:4321')?r.continue():r.abort());
+p.on('requestfailed',r=>logs.push({kind:'requestfailed',url:r.url(),reason:r.failure()?.errorText}));
+p.on('console',m=>{if(['error','warning'].includes(m.type()))logs.push({kind:m.type(),text:m.text()})});p.on('pageerror',e=>logs.push({kind:'pageerror',text:e.message}));
+for(const prefix of ['', '/zh'])for(const tool of ['route-finder','checklist-generator','timeline-calculator','exam-comparison','email-reminders']){logs=[];const url='http://127.0.0.1:4321'+prefix+'/tools/'+tool+'/';await p.goto(url);await p.locator('form:not([inert])').waitFor();rows.push({url:p.url(),title:await p.title(),meaningfulContent:(await p.locator('main').innerText()).length,frameworkOverlay:await p.locator('astro-error-overlay,vite-error-overlay').count(),logs:[...logs]});}
+fs.writeFileSync(process.argv[2],JSON.stringify(rows,null,2)+'\n');await b.close();

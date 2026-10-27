@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-const updated = '2026-07-17';
+const updated = '2026-09-16';
 ---
 
-<BaseLayout title="Cookie Policy" description="How VisaLang uses advertising consent, URL state, and browser local storage." noindex={true} enableAds={false}>
+<BaseLayout title="Cookie Policy" description="How VisaLang uses advertising consent, session storage, optional local storage, and legacy URL cleanup." noindex={true} enableAds={false}>
   <main class="page-shell">
     <article class="guide-article narrow-page">
         <p class="eyebrow">Legal</p>
@@ -15,18 +15,26 @@ const updated = '2026-07-17';
 
         <h2>Local storage we use</h2>
         <ul>
-          <li><strong>Advertising and consent:</strong> Google AdSense and Google Privacy & messaging may use cookies, local storage, consent signals, or related identifiers on ad-eligible content pages according to your choices and applicable settings. Tool pages and the searchable Guide Library index do not load the AdSense runtime. Non-personalised ads are not described as storage-free.</li>
-          <li><strong>Tool result URLs:</strong> after a tool successfully generates a result, it places only the non-sensitive values needed to restore that result in the page URL. Current tools do not store their form fields in local storage. URLs can remain in browser history or be included when a link is copied.</li>
+          <li><strong>Advertising source boundary:</strong> the current Astro source can emit the Google AdSense loader only for ad-eligible English guide pages. Tool pages and the searchable Guide Library index do not load it. This repository does not verify a deployed AdSense account, served ads, Google Privacy &amp; messaging/CMP message, regional consent path, or partner identifier behavior. Google Analytics, Cloudflare Web Analytics, and custom measurement events are not loaded or sent by the current Astro source.</li>
+          <li><strong>Shared tool plan:</strong> current tools store only schema-approved plan fields in browser <code>sessionStorage</code> by default so fields can move between tools in the same tab. New results are not written to URL query parameters. Reminder dates, optional source URLs, free text and identity-like data are excluded from the shared plan.</li>
+          <li><strong>Optional 30-day device copy:</strong> browser <code>localStorage</code> is used for shared tool fields only after you activate “Save on this device for 30 days.” A saved snapshot is no longer restored after expiry and is removed on a later visit; the site does not run a background timer after you close it.</li>
+          <li><strong>Legacy per-tool local storage:</strong> current tool pages attempt to remove the fixed <code>visalang-tool:...</code> local-storage copies used by older tool versions on the same site origin. “Clear shared plan” repeats that cleanup. One domain cannot read or delete another domain’s storage, and browser site-data settings are the complete removal path for an old origin or when storage access is blocked.</li>
           <li><strong>Route progress:</strong> route pages can store the current route step in browser local storage. This storage also has no site-defined automatic expiry.</li>
           <li><strong>Guide filters:</strong> Guide Library filters also use page URL values so the filtered view can be restored or shared.</li>
         </ul>
+
+        <h2>Measurement contract</h2>
+        <p>The five tool pages expose the local-only contract version <code>t27.v1</code> for auditability. It defines aggregate-safe event names and finite enums but has no collector, cookie, beacon, fetch, XMLHttpRequest, queue, or measurement storage. Tool results and explicit checklist/ICS takeaways remain local browser behavior; a rendered unsupported or official-verification-required state is not a successful completion.</p>
 
         <h2>Third-party social tracking</h2>
         <p>We do not use third-party social-media tracking cookies. Third-party sites you visit from VisaLang, including official sources and advertising destinations, apply their own policies.</p>
 
         <h2>Managing cookies</h2>
         <p>Use the Google consent/privacy control where available to consent, use the configured non-consent path, manage options, or change a previous advertising choice. You can also manage personalised advertising through <a href="https://adssettings.google.com/" rel="nofollow noopener noreferrer">Google Ads Settings</a>.</p>
-        <p>Use “Restart this tool” to remove that tool’s URL values. You can also clear or block local storage in your browser settings; doing so may remove saved route-step progress.</p>
+        <p>“Restart this tool” resets the current form and the plan fields owned by that tool. The shared route remains when Checklist or Reminder is restarted; shared date or exam choices can be cleared by their owning tool. Use “Clear shared plan” to request removal of the tab-session state, optional device copy, and known same-origin legacy per-tool local storage. This does not remove the separately stored route-progress key. You can clear or block site storage in browser settings to remove both systems.</p>
+
+        <h2>Legacy URL query cleanup</h2>
+        <p>If an older tool link contains query values, the current tool validates compatible fixed values, discards unsupported data and removes the URL query from the address bar. Address-bar cleanup does not erase browser history or a request already recorded in historical server, proxy, CDN, analytics, or security logs. VisaLang does not claim that client-side cleanup can delete those logs.</p>
 
         <h2>Third-party embeds</h2>
         <p>VisaLang does not currently load third-party video or resource embeds. Following a link to an external site takes you to that site, where its own privacy and cookie policies apply.</p>

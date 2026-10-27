@@ -1,0 +1,941 @@
+{
+  "schemaVersion": 1,
+  "batchId": "2026-09-24-01",
+  "moduleId": "W08",
+  "baselineId": "cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40",
+  "workspacePath": "/private/tmp/visalang-W00-2026-09-24-01/W08",
+  "implementationStatus": "partial",
+  "testSubjectId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370",
+  "testSubjectManifest": "docs/module-handoffs/2026-09-24-01/W08/test-subject-manifest.json",
+  "changedFiles": [
+    {
+      "path": "astro.config.mjs",
+      "baseSha256": "dab194dc178ec2136a40e760020727a7a6bf485892bd47820d8e8b968ee07246",
+      "candidateSha256": "7f2239ea823add130744164c7a085ce6ebd4b16f967f6e8399d6d71742f78631",
+      "changeKind": "modify"
+    },
+    {
+      "path": "deploy/README.md",
+      "baseSha256": "1ad731327f8b9f0d353d449792e055d93f169f26a8cd1625dd70ca9b8c365090",
+      "candidateSha256": "632c5b44b1f39a7b1b1aebd5795cee1e04997ef27e43ff35430dfb84d0baf941",
+      "changeKind": "modify"
+    },
+    {
+      "path": "deploy/laya-purpose-nginx.conf",
+      "baseSha256": "f0eaa793ae6ce1069e4be49314aa350098737b21d08db752458b7178b6a3fed2",
+      "candidateSha256": "ec0adf86b6ba7260a58151862053307cabaf8bdcee3d5c23bd3c3459f95154e8",
+      "changeKind": "modify"
+    },
+    {
+      "path": "deploy/production-evidence.example.json",
+      "baseSha256": "53a6195b404878c80d24718e4cb97b6ca6108b98016a7afb693b7c085277fdc2",
+      "candidateSha256": "0076657345188e5f5432e54003bf7026e42696d24569692fc638f64fa3320e50",
+      "changeKind": "modify"
+    },
+    {
+      "path": "deploy/release.py",
+      "baseSha256": "0fabd741b881fe357be0643095bce56685e739761b1e6399b6913ce797a7779e",
+      "candidateSha256": "5bd07080438a5e055ba7238e8b539d3e675a583b3844e9b141863879f682835c",
+      "changeKind": "modify"
+    },
+    {
+      "path": "deploy/smoke-test.sh",
+      "baseSha256": "4f7f5dd64f1b4a7468b937e6b17ecfb143cc6e7465390924e0b7c1a59eaefcb2",
+      "candidateSha256": "072fae200e44f2bbd391ba4c96b6c9bde399416f8b715f32b50f378724acecca",
+      "changeKind": "modify"
+    },
+    {
+      "path": "deploy/tests/test_release.py",
+      "baseSha256": "ec5348bf5764706d5b62ebaa0c48aea17239c37eff007c7f65ebbe082c7ff3c2",
+      "candidateSha256": "4eb4c6fc3e88310476edc7c51bbf35d3cc0c74409cf4270a72f760f127a850c6",
+      "changeKind": "modify"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/README.md",
+      "baseSha256": null,
+      "candidateSha256": "687176ed0355a2d38faba40c2070830508d12a2ed228e159004e87ad5da47b99",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/browser-evidence.md",
+      "baseSha256": null,
+      "candidateSha256": "5c7c7bdef2c97404f5fdac2e10ffa2b77f98756a4d5581c6385406c93e083c0d",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/candidate.patch",
+      "baseSha256": null,
+      "candidateSha256": "4d2b6d158d0ce21c8c8a4c101f32bd877053c9913a293a6b2d5df80c5ef49654",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/final-mode-matrix.json",
+      "baseSha256": null,
+      "candidateSha256": "ece7debf66d1cc281b13dcb50d417633930eb6b748c4cc471e87ffbe03648dd8",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/final2-mode-matrix.json",
+      "baseSha256": null,
+      "candidateSha256": "29b61f4e97e65021857624b7079b7b275febc975706082e1fdd4f4eaef47f66d",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/browser-build-core-off.log",
+      "baseSha256": null,
+      "candidateSha256": "c485d4ed22449b91ef5004ff0c0319ff7a448297d9482fcaa18fc7a30f1c16fa",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/build-laya-off.log",
+      "baseSha256": null,
+      "candidateSha256": "c414bcd0ddd5226edefb932f7e4104d74fdba3d45217b70c55e4dc4cfd281483",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/build-laya-on.log",
+      "baseSha256": null,
+      "candidateSha256": "ddb64961437e6dc44efd209877b6ab038ab9c4fad216973a716de933f306db33",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/build-off-off.log",
+      "baseSha256": null,
+      "candidateSha256": "d60d47b5f8723dffaca51262a0c1d1a89caff833e0790ef650b1326d3027b427",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/build-off-on.log",
+      "baseSha256": null,
+      "candidateSha256": "43078cd4cc2d321396e125743be30e1b2aee929ea2921227bd69e4aed0255c3c",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/build-typesafe-off.log",
+      "baseSha256": null,
+      "candidateSha256": "57d8716781bdcd21ca088c81435bffffca948b93261d366443ceb0aac2b1ce09",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/build-typesafe-on.log",
+      "baseSha256": null,
+      "candidateSha256": "302183cdd1e5c6e0614d19478d259d402b4db8dd7590fbcd87bee4d36814aec1",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-adsense-risk-retry.log",
+      "baseSha256": null,
+      "candidateSha256": "9f8a88ea92df97cf786a25cbbf47de4bc3e94a878f25faf43e7a24e746135e16",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-chinese-tool-contract-retry.log",
+      "baseSha256": null,
+      "candidateSha256": "2f7842529849586634249a55eb431f664c267173ec291172f5fe8de53db5edcc",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-deploy-contract-retry.log",
+      "baseSha256": null,
+      "candidateSha256": "2b05110364a967bfb793f12468ce92ed5dbc6ff75120247fb6ece9ee54cdc419",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-deploy-contract.log",
+      "baseSha256": null,
+      "candidateSha256": "18fbcd390809e160dc11359c1b31f25a594a4b20476b6090313bc29daf417738",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-laya-purpose.log",
+      "baseSha256": null,
+      "candidateSha256": "a7bfd1c68e1bbaec3eae39c9de3e4e3cbfefe939f617fd381120c2d39255424e",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-laya-off-build.log",
+      "baseSha256": null,
+      "candidateSha256": "c5d0e5045651deca3af6665654349fc586d00b01403219962a5d13e16cdaae19",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-laya-off-launch-check.log",
+      "baseSha256": null,
+      "candidateSha256": "3aed80ee3cd584ac4c4ddcb2c16077f07d18a987798ad7ddf4339bb9447d0ca3",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-laya-on-build.log",
+      "baseSha256": null,
+      "candidateSha256": "8574f7b3267b31c4f9b10cac39cb691af8a5641fc8a1e9a12b4e883f34a3eae9",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-laya-on-launch-check.log",
+      "baseSha256": null,
+      "candidateSha256": "123b25f87dd272328b9cc27bc54366f26919212bb39051aad7f98273b577c841",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-off-off-build.log",
+      "baseSha256": null,
+      "candidateSha256": "26206fe8cf5733234d1655c42753765cba83a9c30ce915c8484d688b24b2b87e",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-off-off-launch-check.log",
+      "baseSha256": null,
+      "candidateSha256": "d6419fdd2c4db4764548d71fa6a09e79b73374a260083849fd763d4dd1db84b6",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-off-on-build.log",
+      "baseSha256": null,
+      "candidateSha256": "4217fddaa23bab9d83fa2b4b846fbe99fccfce0cf3fc9d3b87e6675e8f6cb5d9",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-off-on-launch-check.log",
+      "baseSha256": null,
+      "candidateSha256": "4d456352d1009a58cf8fc16e6f97526eb62cdb42258395db6e6846b1902a8312",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-typesafe-off-build.log",
+      "baseSha256": null,
+      "candidateSha256": "ad070c513d42fd75b6ef9cce74476038cf8bfb43db71a4e9812d38572211d0db",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-typesafe-off-launch-check.log",
+      "baseSha256": null,
+      "candidateSha256": "b049b18c33063b0100c62bd6b70d1e6977bd2809714204379d7fd0b6431db838",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-typesafe-on-build.log",
+      "baseSha256": null,
+      "candidateSha256": "34dbda43c4ec2c610a9fe86ca7c2b5273ed42d8b31c02fcba6c3a441a846f0fc",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-matrix-typesafe-on-launch-check.log",
+      "baseSha256": null,
+      "candidateSha256": "bd3a615f6252b96c7b8afca37db062ad69db82baf7402a7d010b5c790c54ddc2",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-measurement-privacy-retry.log",
+      "baseSha256": null,
+      "candidateSha256": "e87b4bc5c2eba07e9d61367999896ad58e0b3715e15d2295a58d8e4f57e12a81",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-publication-retry.log",
+      "baseSha256": null,
+      "candidateSha256": "b0a49b456e7938f27f353f63787660a2588a3f5aa79d150d7c1be06153ff9b6c",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-python-deploy.log",
+      "baseSha256": null,
+      "candidateSha256": "e13e0a38d75df71b4a93a768ae630e453a9f29dab45e40877ba03947c343cf47",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-release-candidate-retry.log",
+      "baseSha256": null,
+      "candidateSha256": "07d309a460bd7c3dfc56620f35b3423d22de0281beecbab52922b8b13423727d",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-route-finder-retry.log",
+      "baseSha256": null,
+      "candidateSha256": "ce1b685cb5d834dda17c2799e6bb528f02738ab9a12790ab7dda2206a6957b8c",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-runtime-features.log",
+      "baseSha256": null,
+      "candidateSha256": "14b7eb0b01298d8a211b101a2dee5ab0d87feae053779356a4b5eaa5889b91e7",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final-shell-syntax-retry.log",
+      "baseSha256": null,
+      "candidateSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-adsense-risk.log",
+      "baseSha256": null,
+      "candidateSha256": "9f8a88ea92df97cf786a25cbbf47de4bc3e94a878f25faf43e7a24e746135e16",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-chinese-tool-contract.log",
+      "baseSha256": null,
+      "candidateSha256": "53c8eed68104a572ca3ab5c18a46ff454fc935a9a1b4824d15b0bc2b9b53d004",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-deploy-contract.log",
+      "baseSha256": null,
+      "candidateSha256": "8cdca8db4f730bdc2d49b2a65c5a164ed3c8a6eecf383dd7e7eed10f346f5bb8",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-laya-purpose.log",
+      "baseSha256": null,
+      "candidateSha256": "21918190d204344936767ebb771f1dd39b33b7efe0fbdf51bc94a22a9f168484",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-laya-off-build.log",
+      "baseSha256": null,
+      "candidateSha256": "a50c307e9d684e7c29470a8a3c027bbc6838ea31273a4ac3f457fa2b6444e4fb",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-laya-off-launch.log",
+      "baseSha256": null,
+      "candidateSha256": "3aed80ee3cd584ac4c4ddcb2c16077f07d18a987798ad7ddf4339bb9447d0ca3",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-laya-on-build.log",
+      "baseSha256": null,
+      "candidateSha256": "927fdda36744b2b7d965ad70e629d074368a1948617d66dce5d5ddf32fc0c372",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-laya-on-launch.log",
+      "baseSha256": null,
+      "candidateSha256": "123b25f87dd272328b9cc27bc54366f26919212bb39051aad7f98273b577c841",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-off-off-build.log",
+      "baseSha256": null,
+      "candidateSha256": "4db268da5e91397c61ecaf5a434a1e8922a2670c5185e84fd0af89f2f8543174",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-off-off-launch.log",
+      "baseSha256": null,
+      "candidateSha256": "d6419fdd2c4db4764548d71fa6a09e79b73374a260083849fd763d4dd1db84b6",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-off-on-build.log",
+      "baseSha256": null,
+      "candidateSha256": "cacc9e30ed7f89e479ffd77057c8b5f747faa176f10984a45775ea7eb53865c7",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-off-on-launch.log",
+      "baseSha256": null,
+      "candidateSha256": "4d456352d1009a58cf8fc16e6f97526eb62cdb42258395db6e6846b1902a8312",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-typesafe-off-build.log",
+      "baseSha256": null,
+      "candidateSha256": "512d19d1a80c1ca80eea75d34fcfda4179db5f773459235ecdeb95e5f28a6e8a",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-typesafe-off-launch.log",
+      "baseSha256": null,
+      "candidateSha256": "b049b18c33063b0100c62bd6b70d1e6977bd2809714204379d7fd0b6431db838",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-typesafe-on-build.log",
+      "baseSha256": null,
+      "candidateSha256": "7948d6a8b3c353700d0298bfa118ea509f475f62e998d7ccd57fdd3481e1006e",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-typesafe-on-launch.log",
+      "baseSha256": null,
+      "candidateSha256": "bd3a615f6252b96c7b8afca37db062ad69db82baf7402a7d010b5c790c54ddc2",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-measurement-privacy.log",
+      "baseSha256": null,
+      "candidateSha256": "7171e749c60793112022ed0dcb5431c234aec95705ea63f3ac7a2985a18227dd",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-publication.log",
+      "baseSha256": null,
+      "candidateSha256": "261eef7519d205e5619d174182953f86c2077442b4eb364c9a1601c8e9125e2a",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-python-deploy.log",
+      "baseSha256": null,
+      "candidateSha256": "9a4416a654691ebfdc25bf566db8523403d09a4a28cbd2e25a4f8746c672f571",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-release-candidate.log",
+      "baseSha256": null,
+      "candidateSha256": "883342773ff7a8010356d455cd63f90b8bd6ec80c22caacd9f3acaeb0eaad052",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-route-finder.log",
+      "baseSha256": null,
+      "candidateSha256": "9e511f82fa18dc408096cc2fe53df448cbb06a98b77762f6f0d321777b35ae60",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-runtime-features.log",
+      "baseSha256": null,
+      "candidateSha256": "73a8d2e1e5fb856efc2f7bf6669e124588e081870e024b81472250b7ac3acecb",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-shell-syntax.log",
+      "baseSha256": null,
+      "candidateSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/launch-check-laya-off.log",
+      "baseSha256": null,
+      "candidateSha256": "7a50543636484e971123686964f322744af53c61f57a74b325e5c4d1c10f474c",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/launch-check-laya-on.log",
+      "baseSha256": null,
+      "candidateSha256": "1cbb45a460ab1b7628be08948d46f5ed93b8e6822387de89cd5b4a3bb5769c26",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/launch-check-off-off.log",
+      "baseSha256": null,
+      "candidateSha256": "d6419fdd2c4db4764548d71fa6a09e79b73374a260083849fd763d4dd1db84b6",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/launch-check-off-on.log",
+      "baseSha256": null,
+      "candidateSha256": "acae962e89a8324107227c39dbc1548b1e4ca18b617d595509c0ec22b15806ee",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/launch-check-typesafe-off.log",
+      "baseSha256": null,
+      "candidateSha256": "cda06769e61bb7934d001d8b177afc1da76146bc73031761a0a36bcec7a78c9a",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/launch-check-typesafe-on.log",
+      "baseSha256": null,
+      "candidateSha256": "5be30592854c85c9a386ce5be6f54892339ea43eb20b53119761dc16645dee85",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/mode-matrix.json",
+      "baseSha256": null,
+      "candidateSha256": "bff83bcc7be3e6111cbc7d4f7f48a6c418935a068b39620711ceca2d32a800f8",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-build-laya-off.log",
+      "baseSha256": null,
+      "candidateSha256": "9a521f79ad405fd9ad93916632e52e4b2de43e242b5514031981b1c2b65d89b5",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-build-laya-on.log",
+      "baseSha256": null,
+      "candidateSha256": "3f84d7172812f8687ddf93bfa30c86ad3285cf0d3815013e524c8e88842e9ff6",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-build-off-off.log",
+      "baseSha256": null,
+      "candidateSha256": "5ebd4fdb682f1878bcdcc1420111b4d659fed935c0738b78ff96b9a739d3a80d",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-build-off-on.log",
+      "baseSha256": null,
+      "candidateSha256": "a420058d50c2ea613a48ad7d58d2ddca9de6dce1365f5893feb5b9c6ca22ce46",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-build-typesafe-off.log",
+      "baseSha256": null,
+      "candidateSha256": "67392447d478fe23ef4fe64a8fbe053b41dc84d9f4ebc108d34eca76bb125415",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-build-typesafe-on.log",
+      "baseSha256": null,
+      "candidateSha256": "3b6a6e4497da5de43e65fe0300d1465960340a0ee42a0ae9473960f254200b04",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-launch-check-laya-off.log",
+      "baseSha256": null,
+      "candidateSha256": "3aed80ee3cd584ac4c4ddcb2c16077f07d18a987798ad7ddf4339bb9447d0ca3",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-launch-check-laya-on.log",
+      "baseSha256": null,
+      "candidateSha256": "123b25f87dd272328b9cc27bc54366f26919212bb39051aad7f98273b577c841",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-launch-check-off-off.log",
+      "baseSha256": null,
+      "candidateSha256": "d6419fdd2c4db4764548d71fa6a09e79b73374a260083849fd763d4dd1db84b6",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-launch-check-off-on.log",
+      "baseSha256": null,
+      "candidateSha256": "4d456352d1009a58cf8fc16e6f97526eb62cdb42258395db6e6846b1902a8312",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-launch-check-typesafe-off.log",
+      "baseSha256": null,
+      "candidateSha256": "b049b18c33063b0100c62bd6b70d1e6977bd2809714204379d7fd0b6431db838",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-launch-check-typesafe-on.log",
+      "baseSha256": null,
+      "candidateSha256": "bd3a615f6252b96c7b8afca37db062ad69db82baf7402a7d010b5c790c54ddc2",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/runtime-feature-contract.md",
+      "baseSha256": null,
+      "candidateSha256": "4d4eba4dfe5302d0d3849f4088519c33b95140928ce6433de97d4ecbf2f62139",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/test-subject-manifest.json",
+      "baseSha256": null,
+      "candidateSha256": "f6738844492e593cdd642946a81b7d4e8e51cf769c49f41980cfec04be554276",
+      "changeKind": "add"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/typesafe-official-evidence.md",
+      "baseSha256": null,
+      "candidateSha256": "2d91478e79bf08352f73108fd524537f99d12692764e4f2548ac8f5177c386dc",
+      "changeKind": "add"
+    },
+    {
+      "path": "scripts/launch-check.js",
+      "baseSha256": "ddab2531a47a578f4d4ccd1f3c15b91d37756c9eeb33c25ab0504f855e1c0199",
+      "candidateSha256": "43b6af7de14663774a0232745849f3323f04f8930add74fc1e496700b00631f9",
+      "changeKind": "modify"
+    },
+    {
+      "path": "src/components/tools/PurposeSuggestion.astro",
+      "baseSha256": "8731bea476aec356c8fb14d1b3e39d9813bd30161c030962a824be4a60eb0339",
+      "candidateSha256": "f6b2f439ead582b10ab294140b4380487e94c1c4691b96ef8d688ca0611c3b64",
+      "changeKind": "modify"
+    },
+    {
+      "path": "src/data/runtime-features.ts",
+      "baseSha256": null,
+      "candidateSha256": "b94a0156b8022338186d4846c956eb0093c9e0f2d74ca7af647998e83aec0aa1",
+      "changeKind": "add"
+    },
+    {
+      "path": "src/layouts/BaseLayout.astro",
+      "baseSha256": "33243945c29b7c5f83254721082f8d692f876dcb4278112ad5c24ea38bec71c8",
+      "candidateSha256": "cb7ecbee101b89b40da3419dd691f173484b7237a6e0ae657a1b6e5374c9bc69",
+      "changeKind": "modify"
+    },
+    {
+      "path": "src/pages/cookie-policy.astro",
+      "baseSha256": "89e462875d5cc4867c33711e00cb6dd20ede4e8c534dc655600e863272e380f2",
+      "candidateSha256": "9c946bc2dc7f3132e61fd4f240d2ad93a1f3ccdf2cb749c6ab0a2cff2f3fd999",
+      "changeKind": "modify"
+    },
+    {
+      "path": "src/pages/privacy-policy.astro",
+      "baseSha256": "27b4ef4c54ac58063182ed2c2dfe533fd8b4abcdb631bec99192831a11af1f34",
+      "candidateSha256": "9c872b0564f7d78a8d903e01102f9687103469829b8ac434ceb8bbc1f9547ba8",
+      "changeKind": "modify"
+    },
+    {
+      "path": "src/pages/tools/route-finder.astro",
+      "baseSha256": "43dbdfed7fef56a09fefe0e2779458675403c84fb22a4acb06d34f3558d3d599",
+      "candidateSha256": "84ab46271e4f59208e274b2c88b5eadc32ed5e842c91909db13c05581323b78e",
+      "changeKind": "modify"
+    },
+    {
+      "path": "tests/adsense-risk-exposure.test.js",
+      "baseSha256": "d589c5e0700871cd1f73a5693b364c7339af538a3d9694f0a68f0890b30b2d05",
+      "candidateSha256": "bfe89052b2021f9c202e3aa26553c96ef112c9591bf55b33876c19948bc0b759",
+      "changeKind": "modify"
+    },
+    {
+      "path": "tests/deploy.test.js",
+      "baseSha256": "3295dc85504c5ca023fb6eb4ea4777342152defe561681cae7aa74ba2673c1b7",
+      "candidateSha256": "157da6ac90ac3d21447107f6e2e59af45f3317803e0ca0ce38321bf3aa94b252",
+      "changeKind": "modify"
+    },
+    {
+      "path": "tests/laya-purpose.test.mjs",
+      "baseSha256": "2ca4265f368d3a025be26329e82bb58667cdabc194b01789d167d2684e75f76f",
+      "candidateSha256": "0fd8d6c01f2612f52008691e94ce65a1f6a9941d6ce3b53f2d830cff5032545e",
+      "changeKind": "modify"
+    },
+    {
+      "path": "tests/runtime-features.test.mjs",
+      "baseSha256": null,
+      "candidateSha256": "616266614fcd2ae3df2af91c1ae87fb06a62555ab122948e0e0d4d379c60cb5f",
+      "changeKind": "add"
+    },
+    {
+      "path": "tests/scheme-3-release-candidate.test.mjs",
+      "baseSha256": "ad3adcc801ba7ce43b42f24e75247a232b71def6321ade2276a5414cb0913689",
+      "candidateSha256": "518614b5dfde03347acd7a1c70384edfba011a7700e843651fc6ece2529ed9e2",
+      "changeKind": "modify"
+    },
+    {
+      "path": "tests/site.test.js",
+      "baseSha256": "4bce5115c3995c3d641c6eb1c4b7b961e1990e7795b1b7dec20f6feee9da3a37",
+      "candidateSha256": "398e6ee44226a89b0ad40d9c0db1dff29e5e93464960840a57da2f7abd633ffa",
+      "changeKind": "modify"
+    }
+  ],
+  "tests": [
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s deploy/tests -v",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-python-deploy.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "node tests/runtime-features.test.mjs",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-runtime-features.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "node tests/laya-purpose.test.mjs",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-laya-purpose.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "node tests/deploy.test.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-deploy-contract.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "node tests/m2b-route-finder.test.mjs",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-route-finder.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "node tests/m3-chinese-tool-contract.test.mjs",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-chinese-tool-contract.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "node tests/t27-measurement-privacy.test.mjs",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-measurement-privacy.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "node tests/scheme-3-publication.test.mjs",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-publication.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "node tests/scheme-3-release-candidate.test.mjs",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-release-candidate.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=off VISALANG_ADS_MODE=off npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-off-off-build.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=off VISALANG_ADS_MODE=off node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-off-off-launch.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=off VISALANG_ADS_MODE=on npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-off-on-build.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=off VISALANG_ADS_MODE=on node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-off-on-launch.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=laya VISALANG_ADS_MODE=off npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-laya-off-build.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=laya VISALANG_ADS_MODE=off node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-laya-off-launch.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=laya VISALANG_ADS_MODE=on npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-laya-on-build.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=laya VISALANG_ADS_MODE=on node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-laya-on-launch.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=typesafe VISALANG_ADS_MODE=off npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-typesafe-off-build.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=typesafe VISALANG_ADS_MODE=off node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-typesafe-off-launch.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=typesafe VISALANG_ADS_MODE=on npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-typesafe-on-build.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=typesafe VISALANG_ADS_MODE=on node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-matrix-typesafe-on-launch.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "node tests/adsense-risk-exposure.test.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-adsense-risk.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "bash -n deploy/deploy.sh deploy/rollback.sh deploy/smoke-test.sh",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final2-shell-syntax.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    }
+  ],
+  "earlierAttempts": [
+    {
+      "command": "node tests/deploy.test.js",
+      "exitCode": 1,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/final-deploy-contract.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=off VISALANG_ADS_MODE=off npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/build-off-off.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=off VISALANG_ADS_MODE=off node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/launch-check-off-off.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=off VISALANG_ADS_MODE=off npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-build-off-off.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=off VISALANG_ADS_MODE=off node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-launch-check-off-off.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=off VISALANG_ADS_MODE=on npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/build-off-on.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=off VISALANG_ADS_MODE=on node scripts/launch-check.js",
+      "exitCode": 1,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/launch-check-off-on.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=off VISALANG_ADS_MODE=on npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-build-off-on.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=off VISALANG_ADS_MODE=on node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-launch-check-off-on.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=laya VISALANG_ADS_MODE=off npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/build-laya-off.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=laya VISALANG_ADS_MODE=off node scripts/launch-check.js",
+      "exitCode": 1,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/launch-check-laya-off.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=laya VISALANG_ADS_MODE=off npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-build-laya-off.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=laya VISALANG_ADS_MODE=off node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-launch-check-laya-off.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=laya VISALANG_ADS_MODE=on npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/build-laya-on.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=laya VISALANG_ADS_MODE=on node scripts/launch-check.js",
+      "exitCode": 1,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/launch-check-laya-on.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=laya VISALANG_ADS_MODE=on npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-build-laya-on.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=laya VISALANG_ADS_MODE=on node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-launch-check-laya-on.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=typesafe VISALANG_ADS_MODE=off npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/build-typesafe-off.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=typesafe VISALANG_ADS_MODE=off node scripts/launch-check.js",
+      "exitCode": 1,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/launch-check-typesafe-off.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=typesafe VISALANG_ADS_MODE=off npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-build-typesafe-off.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=typesafe VISALANG_ADS_MODE=off node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-launch-check-typesafe-off.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=typesafe VISALANG_ADS_MODE=on npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/build-typesafe-on.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=typesafe VISALANG_ADS_MODE=on node scripts/launch-check.js",
+      "exitCode": 1,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/launch-check-typesafe-on.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=typesafe VISALANG_ADS_MODE=on npm run build",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-build-typesafe-on.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    },
+    {
+      "command": "VISALANG_PURPOSE_MODE=typesafe VISALANG_ADS_MODE=on node scripts/launch-check.js",
+      "exitCode": 0,
+      "logPath": "docs/module-handoffs/2026-09-24-01/W08/logs/retry1-launch-check-typesafe-on.log",
+      "baselineId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370"
+    }
+  ],
+  "dependencies": [
+    {
+      "moduleId": "existing-purpose-service-contract",
+      "evidencePath": "docs/typesafe-enable-evidence-2026-09-24/candidate-manifest.json",
+      "status": "Existing Python purpose service boundary preserved; no real service, TypeSafe API, account, credential, cost, quota or quality check performed."
+    }
+  ],
+  "sharedFileChanges": [
+    {
+      "path": "src/data/runtime-features.ts",
+      "consumerContract": "docs/module-handoffs/2026-09-24-01/W08/runtime-feature-contract.md",
+      "consumers": "W09 and W16 after W00 serial integration",
+      "interface": "dist/runtime-features.json and release.json.features; selectors VISALANG_PURPOSE_MODE and VISALANG_ADS_MODE; no second configuration source."
+    }
+  ],
+  "limitations": [
+    "Partial LP05a only. Snapshot has no .git, so real branch/HEAD/upstream/dirty identity and release.py prepare identity must be checked by W00 on the serially integrated main tree.",
+    "No target host, backup restoration, TLS/Nginx load, retained production URL checks, DNS, real activate/rollback, account action or production evidence was exercised. nginx executable is unavailable, so nginx -t was not run.",
+    "Browser evidence records local static-server request paths and visible accessibility state. No full HAR/network export or persistent screenshot was captured; local HTTP logs do not prove all browser egress.",
+    "No TypeSafe API request or credential access occurred. Actual price, quota, account processing settings, privacy agreement, production cost/latency/quality and real reader input remain unverified.",
+    "No full npm test, integrated launch-check, planning-map governance, global sync/history/Task Log/Vault update or independent Auditor review occurred in this module window; W00 owns those serial steps."
+  ],
+  "nextActions": [
+    "W00: verify per-file base/candidate hashes against the allocated dirty baseline and serially apply candidate.patch by hunk, preserving pre-existing main-tree changes.",
+    "W00: in the integrated Git tree verify dirty-candidate refusal and real source identity; run prepare/verify for all three purpose modes and relevant ad modes without activation/rollback.",
+    "W00: run the full required test suite and planning-map governance after integration; update global planning map/sync/history, Task Log and the required Obsidian review record.",
+    "W00: submit the frozen integrated scope for separate read-only Auditor review; address P0–P2 and obtain recorded PASS before declaring review complete.",
+    "Keep LP05a partial until actual host, backup, TLS, retained-URL, rollback and all Owner/audit evidence gates are met."
+  ],
+  "handoffSelfHashOmitted": true,
+  "handoffSelfHashNote": "handoff.json cannot contain its own final SHA-256; W00 hashes it on receipt. All other changed source, test, documentation, evidence and log files are listed."
+}

@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "algorithm": "SHA-256 over sorted path + NUL + file bytes + NUL",
+  "testSubjectId": "9f96e62d76b42b3c70d538500d04325056dde19e8952cb2bbf61f5099e422370",
+  "files": [
+    {
+      "path": "astro.config.mjs",
+      "sha256": "7f2239ea823add130744164c7a085ce6ebd4b16f967f6e8399d6d71742f78631"
+    },
+    {
+      "path": "deploy/README.md",
+      "sha256": "632c5b44b1f39a7b1b1aebd5795cee1e04997ef27e43ff35430dfb84d0baf941"
+    },
+    {
+      "path": "deploy/laya-purpose-nginx.conf",
+      "sha256": "ec0adf86b6ba7260a58151862053307cabaf8bdcee3d5c23bd3c3459f95154e8"
+    },
+    {
+      "path": "deploy/production-evidence.example.json",
+      "sha256": "0076657345188e5f5432e54003bf7026e42696d24569692fc638f64fa3320e50"
+    },
+    {
+      "path": "deploy/release.py",
+      "sha256": "5bd07080438a5e055ba7238e8b539d3e675a583b3844e9b141863879f682835c"
+    },
+    {
+      "path": "deploy/smoke-test.sh",
+      "sha256": "072fae200e44f2bbd391ba4c96b6c9bde399416f8b715f32b50f378724acecca"
+    },
+    {
+      "path": "deploy/tests/test_release.py",
+      "sha256": "4eb4c6fc3e88310476edc7c51bbf35d3cc0c74409cf4270a72f760f127a850c6"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/runtime-feature-contract.md",
+      "sha256": "4d4eba4dfe5302d0d3849f4088519c33b95140928ce6433de97d4ecbf2f62139"
+    },
+    {
+      "path": "docs/module-handoffs/2026-09-24-01/W08/typesafe-official-evidence.md",
+      "sha256": "2d91478e79bf08352f73108fd524537f99d12692764e4f2548ac8f5177c386dc"
+    },
+    {
+      "path": "scripts/launch-check.js",
+      "sha256": "43b6af7de14663774a0232745849f3323f04f8930add74fc1e496700b00631f9"
+    },
+    {
+      "path": "src/components/tools/PurposeSuggestion.astro",
+      "sha256": "f6b2f439ead582b10ab294140b4380487e94c1c4691b96ef8d688ca0611c3b64"
+    },
+    {
+      "path": "src/data/runtime-features.ts",
+      "sha256": "b94a0156b8022338186d4846c956eb0093c9e0f2d74ca7af647998e83aec0aa1"
+    },
+    {
+      "path": "src/layouts/BaseLayout.astro",
+      "sha256": "cb7ecbee101b89b40da3419dd691f173484b7237a6e0ae657a1b6e5374c9bc69"
+    },
+    {
+      "path": "src/pages/cookie-policy.astro",
+      "sha256": "9c946bc2dc7f3132e61fd4f240d2ad93a1f3ccdf2cb749c6ab0a2cff2f3fd999"
+    },
+    {
+      "path": "src/pages/privacy-policy.astro",
+      "sha256": "9c872b0564f7d78a8d903e01102f9687103469829b8ac434ceb8bbc1f9547ba8"
+    },
+    {
+      "path": "src/pages/tools/route-finder.astro",
+      "sha256": "84ab46271e4f59208e274b2c88b5eadc32ed5e842c91909db13c05581323b78e"
+    },
+    {
+      "path": "tests/adsense-risk-exposure.test.js",
+      "sha256": "bfe89052b2021f9c202e3aa26553c96ef112c9591bf55b33876c19948bc0b759"
+    },
+    {
+      "path": "tests/deploy.test.js",
+      "sha256": "157da6ac90ac3d21447107f6e2e59af45f3317803e0ca0ce38321bf3aa94b252"
+    },
+    {
+      "path": "tests/laya-purpose.test.mjs",
+      "sha256": "0fd8d6c01f2612f52008691e94ce65a1f6a9941d6ce3b53f2d830cff5032545e"
+    },
+    {
+      "path": "tests/runtime-features.test.mjs",
+      "sha256": "616266614fcd2ae3df2af91c1ae87fb06a62555ab122948e0e0d4d379c60cb5f"
+    },
+    {
+      "path": "tests/scheme-3-release-candidate.test.mjs",
+      "sha256": "518614b5dfde03347acd7a1c70384edfba011a7700e843651fc6ece2529ed9e2"
+    },
+    {
+      "path": "tests/site.test.js",
+      "sha256": "398e6ee44226a89b0ad40d9c0db1dff29e5e93464960840a57da2f7abd633ffa"
+    }
+  ]
+}

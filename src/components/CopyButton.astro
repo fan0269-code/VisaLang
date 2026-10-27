@@ -1,14 +1,41 @@
 ---
-export interface Props { target: string; label?: string; }
-const { target, label = 'Copy result' } = Astro.props;
+import { commonToolCopy, type ToolLocale } from '../data/tool-copy';
+export interface Props { target: string; label?: string; locale?: ToolLocale; }
+const { target, locale = 'en' } = Astro.props;
+const { label = commonToolCopy[locale].copy } = Astro.props;
 ---
-<button class="button button--secondary" type="button" data-copy-target={target}>{label}</button><span class="sr-only" aria-live="polite" data-copy-feedback></span>
+<button class="button button--secondary" type="button" data-copy-target={target} data-copy-locale={locale} disabled>{label}</button><span class="copy-feedback" role="status" aria-live="polite" data-copy-feedback></span>
+<details class="tool-copy-fallback" data-copy-fallback hidden>
+  <summary>{commonToolCopy[locale].copyFallbackTitle}</summary>
+  <p>{commonToolCopy[locale].copyFallbackHelp}</p>
+  <textarea readonly aria-label={commonToolCopy[locale].copyFallbackTitle} data-copy-fallback-text></textarea>
+</details>
 <script>
-  document.querySelectorAll<HTMLButtonElement>('[data-copy-target]').forEach((button) => button.addEventListener('click', async () => {
+  import { commonToolCopy } from '../data/tool-copy';
+  document.querySelectorAll<HTMLButtonElement>('[data-copy-target]').forEach((button) => {
     const source = document.querySelector<HTMLElement>(button.dataset.copyTarget || '');
-    const feedback = button.nextElementSibling;
     if (!source) return;
-    try { await navigator.clipboard.writeText(source.innerText.trim()); if (feedback) feedback.textContent = 'Copied.'; }
-    catch { if (feedback) feedback.textContent = 'Copy unavailable. Select the result text manually.'; }
-  }));
+    const feedback = button.parentElement?.querySelector<HTMLElement>('[data-copy-feedback]');
+    const fallback = button.parentElement?.querySelector<HTMLDetailsElement>('[data-copy-fallback]');
+    const fallbackText = fallback?.querySelector<HTMLTextAreaElement>('[data-copy-fallback-text]');
+    const copy = commonToolCopy[button.dataset.copyLocale === 'zh-CN' ? 'zh-CN' : 'en'];
+    const cleanText = () => {
+      const clone = source.cloneNode(true) as HTMLElement;
+      clone.querySelectorAll('.article-toc, button, nav, script, style, [hidden], [data-copy-feedback], [data-copy-fallback]').forEach((element) => element.remove());
+      return (clone.textContent || '').replace(/\r/g, '').replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim();
+    };
+    button.addEventListener('click', async () => {
+      const text = cleanText();
+      try {
+        await navigator.clipboard.writeText(text);
+        if (fallback) fallback.hidden = true;
+        if (feedback) feedback.textContent = copy.copied;
+      } catch {
+        if (fallbackText) fallbackText.value = text;
+        if (fallback) { fallback.hidden = false; fallback.open = true; }
+        if (feedback) feedback.textContent = copy.copyUnavailable;
+      }
+    });
+    button.disabled = false;
+  });
 </script>

@@ -2,27 +2,23 @@
 import CommercialPageShell from '../components/products/CommercialPageShell.astro';
 import CommercialBoundary from '../components/products/CommercialBoundary.astro';
 import IntentCTA from '../components/products/IntentCTA.astro';
-import { commercialLinks, commercialOffers } from '../data/commercial-offers';
-import ComparisonTable from '../components/ComparisonTable.astro';
+import { commercialLinks } from '../data/commercial-offers';
 ---
 
 <CommercialPageShell
   status="available"
-  eyebrow="Offers and access"
-  title="Choose the level of help you need"
-  description="Compare VisaLang free tools, proposed A1 packs, a proposed informational Route Review, future AI correction, and partner contact options."
-  summary="Start with free, self-serve planning. Paid packs and human review remain marked as coming soon or not currently offered until delivery operations are real."
+  eyebrow="Available help"
+  title="Use VisaLang’s free planning tools"
+  description="See what VisaLang currently provides and what is not available."
+  summary="VisaLang currently provides free, self-serve guides and planning tools. There is no paid checkout or paid review service."
+  updated="2026-09-11"
 >
   <h2>What is available today</h2>
   <p><strong>Free Tools</strong> are available now. They help you organise questions, check a route, compare official-provider details, and plan a timeline. They do not decide a visa, certificate acceptance, exam availability, or individual outcome.</p>
 
-  <h2>Offer comparison</h2>
-  <ComparisonTable caption="VisaLang offer status" columns={['Status', 'Access and price', 'What it is']} rows={commercialOffers.map((offer) => ({ label: offer.name, values: [offer.status, offer.price, offer.summary] }))} />
-  <p>Use the <a href={commercialLinks.tools}>free tools</a> now. For future products, read the status page before using a contact path.</p>
+  <h2>Not available today</h2>
+  <p>A1 download packs, human Route Review, and AI writing correction are not available. VisaLang has no waitlist, update subscription, checkout, payment collection, delivery promise, or review intake for these items. If that changes, this page will state the exact access, price, delivery, support, privacy, and refund terms.</p>
 
-  <h2>Why some prices are not shown</h2>
-  <p>VisaLang does not display a paid price until the price, currency, tax and refund treatment, exact delivery method, support route, and availability are confirmed. No page creates a purchase, reservation, or service acceptance.</p>
-
-  <IntentCTA href={commercialLinks.tools} title="Start with the free route tools" description="Use a free tool to organise your next decision before considering any future paid material or human review." label="Open Route Finder" />
+  <IntentCTA href={commercialLinks.tools} title="Start with the free route tools" description="Use a free tool to organise your next decision and the official questions you still need to confirm." label="Open Route Finder" />
   <CommercialBoundary includeLegalBoundary={true} />
 </CommercialPageShell>

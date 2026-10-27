@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "baseBaselineId": "cd845c55e17fcffa5e2184f6047df6be65f74d3cb393a3f6723fc67b2f784b40",
+  "candidateBaselineId": "3ead7d3d28dfef5ebd1f11b568210376e7b088028002a2c86d9d6c209342525d",
+  "files": [
+    {
+      "path": "src/content/guides/goethe-a1-germany-family-reunion.md",
+      "baseSha256": "3114080078fa622af598b03badbed4ea54e18d95fbce4d68d11cbc05d73f080d",
+      "candidateSha256": "dca262bc80377cfc3d30271a1cef3703bef4a43db38b02d37a44a8d52625db43",
+      "changeKind": "modify"
+    },
+    {
+      "path": "src/data/zh-germany-a1.ts",
+      "baseSha256": "e56b0a667d01a2c1dba05ae938063a673c963a353f03c112c57b0c5f7fe5b0c1",
+      "candidateSha256": "3919fac9851307771027ef8bac19837892a560b251dc573a118e2f9781867dfd",
+      "changeKind": "modify"
+    },
+    {
+      "path": "src/pages/zh/guides/goethe-a1-germany-family-reunion.astro",
+      "baseSha256": "7c50660155c3345417c6f2d121c960edaa53e37089a740b9ede38da71759f3db",
+      "candidateSha256": "912aa80a52ee15fe90b652f352f4ab97feb5bd2b7c0669d82adee292be2a30ae",
+      "changeKind": "modify"
+    },
+    {
+      "path": "src/pages/zh/guides/german-family-reunion-language-requirement.astro",
+      "baseSha256": "8b927feedaa0983e4d4e7c7f159adec639e9eac2eb0120cd304e706941c3dd07",
+      "candidateSha256": "e31bfcda0f2aff814ba192b7924c13c0f5e68198b8cd617d71561070f7a83bcf",
+      "changeKind": "modify"
+    },
+    {
+      "path": "src/layouts/GuideLayout.astro",
+      "baseSha256": "f2a62b080afc164f209b2da4ad44c5c91bce612dedcccdfae34044949877eafb",
+      "candidateSha256": "e481b06bc45fc303c7d7a8a11a3ffdec453de5286dd2408e1b919342aa9eb583",
+      "changeKind": "modify"
+    },
+    {
+      "path": "src/components/ZhGuideLayout.astro",
+      "baseSha256": "f072fb15ab38ecc715ed560b8b6d287f4f76f581c4ae919762ca2b8564ad0cf3",
+      "candidateSha256": "237c56a3df0c7cb9d302582b84e45f6ef45af1198fbc4176cf3979d06c369f67",
+      "changeKind": "modify"
+    },
+    {
+      "path": "src/styles/global.css",
+      "baseSha256": "91ec92d4c37978c675a969bc66c729c1ec53716799f162243d9b25b7a2dbee8a",
+      "candidateSha256": "6f23bcdef022d8a3f39fd3e869e4b7f3e70cf1899b7273f36232dc47a09b6abc",
+      "changeKind": "modify"
+    },
+    {
+      "path": "tests/fan-42-germany-a1-requirement.test.js",
+      "baseSha256": "2a7d040d18997469084e503b7e7b608d160305cb0a31bfaf10d571b22abf14be",
+      "candidateSha256": "c83cc535220ac35c7161ca873b90c77a695f56f0ebc4e53dd76ff0aeae8ca65c",
+      "changeKind": "modify"
+    },
+    {
+      "path": "tests/source-review-render.test.js",
+      "baseSha256": "d99212f74de6210df20223ac2bf2a28dbc6cbc5536d8f461fe96a45fe018ab5c",
+      "candidateSha256": "454cb4151737f6eead68750a0f1c69f99e06e198e8bce709d848c298cd61233e",
+      "changeKind": "modify"
+    },
+    {
+      "path": "tests/scheme-3-chinese-page-sections.test.mjs",
+      "baseSha256": "9411928ef326f8bf5936cc0e9328dd8dce2fd69827d67042a1f5408ab94d2fbe",
+      "candidateSha256": "69eb85bebe2ca19bf1a7a86e82c099860c21d1d5fe562c4374993c9c5100246a",
+      "changeKind": "modify"
+    }
+  ]
+}

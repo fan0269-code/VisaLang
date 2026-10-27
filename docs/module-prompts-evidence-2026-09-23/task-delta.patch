@@ -1,0 +1,1488 @@
+--- a/README.md
++++ b/README.md
+@@ -1,5 +1,11 @@
+ # VisaLang
+ 
++## Current module execution prompts — 2026-09-23
++
++[Module prompt directory](docs/prompts/2026-09-23-module-build/README.md) · [Dispatch plan](docs/superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md). The current plan is split into 17 functional windows plus one serial integration window and one independent audit window. Start by assigning W00; W01 reader preparation, W02 bounded Laya checks and W08 core decoupling can then proceed in isolated copies of the current dirty baseline. Later work retains its original evidence gates. These are reusable instructions, not completed implementation or authorization for every module to run.
++
++Current sync: `VL-PMAP-20260923-04`; review authority: `docs/planning-map/VISALANG_MODULE_PROMPTS_INDEPENDENT_AUDIT_2026-09-23.md`. Existing T/LP/LC execution and publication states remain unchanged. The diagram topology and independent core/Laya/ads release boundaries are preserved.
++
+ VisaLang is a live, official-source-first language-exam navigation site for visa, residency, citizenship, study and work-registration paths. Its strongest public routes are Germany A1 family reunion and Germany B1 settlement/citizenship.
+ 
+ VisaLang is an independent information and verification navigator. It does not decide eligibility, certificate acceptance, visa outcomes or individual legal questions.
+--- a/docs/CONTENT_MAP.md
++++ b/docs/CONTENT_MAP.md
+@@ -1,6 +1,10 @@
+ # VisaLang Content Execution Ledger
+ 
+ <!-- SCHEME-3-CURRENT-START -->
++### 2026-09-23 current module handoff
++
++[Window prompt directory](prompts/2026-09-23-module-build/README.md) maps LC01 to W03, LC04–07 to W04–07, initial LC02/03 preparation to W02 and full assets to conditional W11, LC08 to W13, LC09–11 to W14, and LC12 to W17. W01 supplies real-reader evidence; W15 checks the integrated core journey; W00 handles shared-file integration and mandatory governance. All content assets remain subject to the existing task-specific source and demand gates. No article facts, checked dates, URLs, indexing or ad policies changed in this prompt-only window. Sync `VL-PMAP-20260923-04`; the new independent report is `docs/planning-map/VISALANG_MODULE_PROMPTS_INDEPENDENT_AUDIT_2026-09-23.md`. Prompt-ready does not advance implementation status.
++
+ ## Current Scheme 3 publication map
+ 
+ Updated: 2026-09-22; M3 final serial verification recorded in the M4 execution evidence; current M4 review state is recorded separately below.
+--- a/docs/master-package-2026-09-08/VisaLang-Master-Plan.md
++++ b/docs/master-package-2026-09-08/VisaLang-Master-Plan.md
+@@ -1,5 +1,13 @@
+ # VisaLang 网站总规划与 Codex 执行规范
++
++## 2026-09-23 多窗口模块提示词交付（当前增补）
++
++Owner要求按现有规划和规划图拆分功能模块，提供可分别发到不同窗口的提示词。[调度规划](../superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md)与[提示词目录](../prompts/2026-09-23-module-build/README.md)提供17个功能窗口、W00集成窗口和W18独立审核窗口。W编号是执行分工，不增加产品里程碑。首次可先分配W01读者准备、W02 Laya初验、W08核心解耦；其他模块按原LP/LC证据条件启动。
++
++每个功能窗口在当前dirty工作树的独立冻结副本工作，提交带基准/候选哈希的局部补丁；W00串行合并共享事实和工具契约，统一完成权威记录、图同步和全量验证，W18独立审核。子模块交付不免除维护窗口治理，不得多个窗口并写主目录或共用构建输出。真人、Linux、账户、目标主机等证据仍需真实获得。
+ 
++本轮只交付提示词与文档/图状态同步；没有创建执行任务、运行模型、接触读者、改产品代码或改变LP/LC门槛。原T状态25完成/5进行中/4待开始、LP/LC待实施及not_deployed保持。同步ID为`VL-PMAP-20260923-04`，独立审核以`docs/planning-map/VISALANG_MODULE_PROMPTS_INDEPENDENT_AUDIT_2026-09-23.md`为准；旧报告仅证明原冻结窗口。Vault路径缺失时保持blocked与待同步记录；提交/推送/部署/账户/购买仍不在本轮范围。
++
+ 版本：1.0｜编制日期：2026-09-08｜适用对象：项目负责人、Codex、内容编辑、开发与复核人员。
+ 
+ > 执行方式：按任务依赖逐项实施，阶段完成后提交真实证据。环境已有 Superpowers 时，可使用 executing-plans 或 subagent-driven-development 执行；本文已包含必要工作协议，未安装插件不构成项目依赖。
+--- a/docs/master-package-2026-09-08/BACKLOG_STATUS_OVERLAY_2026-09-09.md
++++ b/docs/master-package-2026-09-08/BACKLOG_STATUS_OVERLAY_2026-09-09.md
+@@ -1,5 +1,13 @@
+ # Master Package backlog execution overlay
+ 
++## 2026-09-23 多窗口模块提示词交付（当前增补）
++
++Owner要求按现有规划和规划图拆分功能模块，提供可分别发到不同窗口的提示词。[调度规划](../superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md)与[提示词目录](../prompts/2026-09-23-module-build/README.md)提供17个功能窗口、W00集成窗口和W18独立审核窗口。W编号是执行分工，不增加产品里程碑。首次可先分配W01读者准备、W02 Laya初验、W08核心解耦；其他模块按原LP/LC证据条件启动。
++
++每个功能窗口在当前dirty工作树的独立冻结副本工作，提交带基准/候选哈希的局部补丁；W00串行合并共享事实和工具契约，统一完成权威记录、图同步和全量验证，W18独立审核。子模块交付不免除维护窗口治理，不得多个窗口并写主目录或共用构建输出。真人、Linux、账户、目标主机等证据仍需真实获得。
++
++本轮只交付提示词与文档/图状态同步；没有创建执行任务、运行模型、接触读者、改产品代码或改变LP/LC门槛。原T状态25完成/5进行中/4待开始、LP/LC待实施及not_deployed保持。同步ID为`VL-PMAP-20260923-04`，独立审核以`docs/planning-map/VISALANG_MODULE_PROMPTS_INDEPENDENT_AUDIT_2026-09-23.md`为准；旧报告仅证明原冻结窗口。Vault路径缺失时保持blocked与待同步记录；提交/推送/部署/账户/购买仍不在本轮范围。
++
+ Checked: 2026-09-23 (Asia/Shanghai); planning refresh only, implementation states unchanged
+ 
+ Release status: `not_deployed`
+--- a/docs/master-package-2026-09-08/EXECUTION_RECORD.md
++++ b/docs/master-package-2026-09-08/EXECUTION_RECORD.md
+@@ -1,5 +1,13 @@
+ # Master Package execution record
+ 
++## 2026-09-23 多窗口模块提示词交付（当前增补）
++
++Owner要求按现有规划和规划图拆分功能模块，提供可分别发到不同窗口的提示词。[调度规划](../superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md)与[提示词目录](../prompts/2026-09-23-module-build/README.md)提供17个功能窗口、W00集成窗口和W18独立审核窗口。W编号是执行分工，不增加产品里程碑。首次可先分配W01读者准备、W02 Laya初验、W08核心解耦；其他模块按原LP/LC证据条件启动。
++
++每个功能窗口在当前dirty工作树的独立冻结副本工作，提交带基准/候选哈希的局部补丁；W00串行合并共享事实和工具契约，统一完成权威记录、图同步和全量验证，W18独立审核。子模块交付不免除维护窗口治理，不得多个窗口并写主目录或共用构建输出。真人、Linux、账户、目标主机等证据仍需真实获得。
++
++本轮只交付提示词与文档/图状态同步；没有创建执行任务、运行模型、接触读者、改产品代码或改变LP/LC门槛。原T状态25完成/5进行中/4待开始、LP/LC待实施及not_deployed保持。同步ID为`VL-PMAP-20260923-04`，独立审核以`docs/planning-map/VISALANG_MODULE_PROMPTS_INDEPENDENT_AUDIT_2026-09-23.md`为准；旧报告仅证明原冻结窗口。Vault路径缺失时保持blocked与待同步记录；提交/推送/部署/账户/购买仍不在本轮范围。
++
+ Checked: 2026-09-23 (Asia/Shanghai); current summary from the September 22 candidate and September 23 parallel early-validation planning revision; the latest section supersedes the earlier same-day sequence.  
+ Execution status: T01–T18, T20–T22, T24–T27 completed locally; T19/T23/T28/T29/T30 in_progress; T31–T34 pending. LP/LC planning packages are pending, not implementation completion.  
+ Release status: `not_deployed`. Earlier dated sections below retain historical findings and limits.
+--- a/docs/TASK_LOG.md
++++ b/docs/TASK_LOG.md
+@@ -3902,3 +3902,9 @@
+ - T状态25完成/5进行中/4待开始及LP/LC pending不变；部署仍待解耦，广告/B1依赖未扩大。
+ - sync `VL-PMAP-20260923-03`，drift approved-deviation；证据 `docs/laya-parallel-planning-evidence-2026-09-23/`，独立结论以 `docs/planning-map/VISALANG_LAYA_PARALLEL_PLANNING_INDEPENDENT_AUDIT_2026-09-23.md` 为准。
+ - Obsidian指定目录/模板缺失，保留待同步review payload；未提交、推送或部署。
++
++## 2026-09-23 — Module-window prompt pack
++
++Owner requested reusable prompts for separate module windows. Added 17 functional prompts, W00 integration and W18 independent-auditor prompts, shared isolation/handoff contract and dispatch index. Current dirty work is preserved; product/src/public/service/deploy/test implementation remains untouched. Current/next module work is prepared only, not executed; original T25/5/4 and pending LP/LC state remain unchanged.
++
++Sync `VL-PMAP-20260923-04`, drift: aligned; status-only map update preserves topology. Exact scope, frozen baseline, Archify/visual/scenario evidence and unsynced Vault payload are in `docs/module-prompts-evidence-2026-09-23/`. New Auditor authority is `docs/planning-map/VISALANG_MODULE_PROMPTS_INDEPENDENT_AUDIT_2026-09-23.md`; no self-approval. Final npm test runs after that report exists. No launch-check required for prompt/document-only changes without altered application bytes. No commit, push, deployment, account action, purchase or model/reader experiment. Configured Vault root/template are absent, so synchronization remains blocked.
+--- a/docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md
++++ b/docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md
+@@ -153,3 +153,9 @@
+ | [Google搜索AI功能指引](https://developers.google.com/search/docs/appearance/ai-features) | 继续以常规可抓取、可索引和有用内容建设为基础 | 必须建设AI专用页面或特殊标记 |
+ 
+ 本轮同步ID为`VL-PMAP-20260923-03`；独立审计目标为`docs/planning-map/VISALANG_LAYA_PARALLEL_PLANNING_INDEPENDENT_AUDIT_2026-09-23.md`，结论以该独立报告及完整同步证据为准，本文不自发PASS。此前Laya与用户价值规划审计只证明各自历史冻结范围。Vault指定路径/模板在本机缺失时保留未同步payload，不把它描述为已写入。当前部署仍为`not_started`，各次发布/账户/支出等Owner决定仍为`pending`；本次规划调整授权已在第1节记录。
++
++## 2026-09-23 多窗口执行交接补充
++
++本规划的LP/LC依赖、验收条件与实施状态保持不变；Owner现要求按规划/规划图拆分功能模块并提供不同窗口的执行提示词。对应[调度规划](2026-09-23-visalang-module-dispatch-plan.md)与[19个窗口提示词](../../prompts/2026-09-23-module-build/README.md)仅定义分工。W00负责冻结当前dirty快照、分配隔离副本、串行集成与完整治理，W18独立审核；17个功能窗口只交付所领模块的候选与真实证据。各提示词中的文件范围不表示要重写全部页面。
++
++本轮未实施产品、执行实验或改变完整质量/容量协议；原所有LP/LC均待实施。新同步ID `VL-PMAP-20260923-04`、审核报告 `docs/planning-map/VISALANG_MODULE_PROMPTS_INDEPENDENT_AUDIT_2026-09-23.md`仅覆盖本提示词维护窗口；前文审计引用与结果保留为各自历史范围。
+--- a/docs/superpowers/plans/2026-09-23-visalang-laya-content-plan.md
++++ b/docs/superpowers/plans/2026-09-23-visalang-laya-content-plan.md
+@@ -101,3 +101,9 @@
+ 前一窗口已把A1读者任务作为主线，拆开核心、Laya、广告发布依赖，并使B1与训练深化按独立需求决定。本轮只将LP01分成可与LP00同时启动的LP01a初验，以及汇总两类证据的LP01b继续/暂停/证据不足决定；LC02/03对应区分最小初验整理与完整上线资产，并同步相关权威文档、规划图和待审核记录。原T状态25完成/5进行中/4待开始不变，所有LP/LC仍为pending、not_deployed。历史事实/核验日期和此前算式/链接修正保持；本轮未运行模型测试、招募真人，也未修改网站功能、事实正文、模型、工具、索引或生产实现。
+ 
+ 本轮独立审计目标：`docs/planning-map/VISALANG_LAYA_PARALLEL_PLANNING_INDEPENDENT_AUDIT_2026-09-23.md`；同步ID：`VL-PMAP-20260923-03`。结论以该独立报告为准，本文不自发PASS。此前Laya与用户价值规划审计仅证明各自历史冻结范围。Vault实际路径不可用时明确blocked；后续发布等Owner决定pending、deployment not_started，本次规划调整授权见总规划第1节。
++
++## 2026-09-23 多窗口执行交接补充
++
++本规划的LP/LC依赖、验收条件与实施状态保持不变；Owner现要求按规划/规划图拆分功能模块并提供不同窗口的执行提示词。对应[调度规划](2026-09-23-visalang-module-dispatch-plan.md)与[19个窗口提示词](../../prompts/2026-09-23-module-build/README.md)仅定义分工。W00负责冻结当前dirty快照、分配隔离副本、串行集成与完整治理，W18独立审核；17个功能窗口只交付所领模块的候选与真实证据。各提示词中的文件范围不表示要重写全部页面。
++
++本轮未实施产品、执行实验或改变完整质量/容量协议；原所有LP/LC均待实施。新同步ID `VL-PMAP-20260923-04`、审核报告 `docs/planning-map/VISALANG_MODULE_PROMPTS_INDEPENDENT_AUDIT_2026-09-23.md`仅覆盖本提示词维护窗口；前文审计引用与结果保留为各自历史范围。
+--- a/docs/prompts/2026-09-23-module-build/COMMON.md
++++ b/docs/prompts/2026-09-23-module-build/COMMON.md
+@@ -0,0 +1,62 @@
++# VisaLang 多窗口执行共同约定
++
++本文件是全部 W 提示词的必读执行契约。W 是窗口编号，不是新增产品里程碑；LP/LC 的定义、门槛与状态仍以两份 2026-09-23 规划及最新 Master 增补为准。当前这批文件只是提示词交付，没有实施各模块。用户将某一提示词发送给窗口时，授权该提示词边界内的本地工作；未发送的提示词不自动启动，前置证据不因提示词存在而满足。
++
++## 1. 权威与工作目录
++
++主项目为 `/Users/a1-6/Documents/2.codex/1.visalang.org`。先读根 AGENTS.md、`docs/master-package-2026-09-08/VisaLang-Master-Plan.md`、状态 overlay、EXECUTION_RECORD，以及 `docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md`、`2026-09-23-visalang-laya-content-plan.md`、`2026-09-23-visalang-module-dispatch-plan.md`。HTML 图是派生视图，JSON 是图的编辑源。冲突先按最新 Owner 与权威链核对，不为使图过关而倒改规划。
++
++W00 是主目录唯一写入与集成者；功能窗口 W01–W17 只能写 W00 在 dispatch.json 指定的候选副本。所有提示词内 src/、tests/、docs/ 路径均相对此副本。W18 是独立只读审核窗口，唯一可写的是 W00 指定的新审核报告。
++
++W00 必须冻结当前工作树全部纳入候选的文件（包括此前未提交文件和本提示词），保存 branch、HEAD、upstream、ahead/behind、staged/dirty/untracked 清单和逐文件 SHA-256。不能只从 HEAD 创建 worktree 并声称继承了当前规划。不得 stash、reset、clean、切换当前分支或改写他人文件。默认从冻结工作树创建各自无 .git 的独立候选目录；按 `git ls-files --cached --others --exclude-standard -z` 获取清单，校验存在的文件，保留删除记录与安全的相对软链接，不跟随链接读写目录外。排除 .git、node_modules、dist、.astro、虚拟环境、缓存和凭据；逐项登记排除理由。保留 AGENTS、全部必要源码/公开资产/配置/锁文件/测试/文档。缺少必要的未跟踪本地输入时先登记缺口，不能捏造完整快照。
++
++W00 在 `docs/module-handoffs/<batchId>/dispatch.json` 分配唯一 batchId、baselineId、每窗口 workspacePath、模块、允许写路径及实际依赖证据。batchId 可取启动日期加序号，以现有记录唯一性为准；baselineId 是排序的路径+NUL+文件字节+NUL 的 SHA-256。候选目录放系统临时目录或已获写权限目录，不嵌套在主项目受监控源码内。副本逐文件哈希与基线一致才可启动。依赖与 Python 环境分别准备，可复制可信本地依赖但不共享可写 node_modules/dist/.astro/.venv；现有锁文件不变，缺依赖如实记录。
++
++没有分配或依赖证据时，只读检查、编写不改变主项目的临时缺口说明；不得自行在主目录施工。文件写权限扩大应先由 W00 更新分配，不能把目录白名单解释为重写目录内所有文件的要求。
++
++## 2. 并行、合并与验收的区别
++
++- LP00 与 LP01a 可同时开始。无真人仅阻塞真人结果与收益判断，不阻塞有限技术初验。
++- LP04/05a/06-core 不等待 Laya 或广告。但 LP04 的真人任务验收、LP05a 的真实目标环境证据不能省略；准备代码完成不等于整个 LP 包通过。
++- W03–W07 以真实任务失败或已确认缺陷为依据，已合格资产直接复用；不要为显示进度重写全文。
++- 共享事实/工具数据可在独立副本内提出最小变更，但必须交付逐文件 base/candidate 哈希与补丁。W00 对照该基线串行合并；主目录已有不同变更时逐段解决、复验或重新分配基线，不用整文件覆盖。发现同一事实版本或契约冲突时先暂停受影响部分。
++- 中文工具有共享英文实现，不能按语言拆成相互独立的代码所有者。共享布局、样式、数据、tests/site.test.js、package 锁文件不能由多个窗口直接写主目录。
++- 每个窗口运行自己的聚焦测试。完整 npm test/launch-check 和正式规划图维护在集成冻结后串行执行；`npm run build` 会清理构建输出，禁止共用构建目录并发。
++- 子模块交接只表示 ready_for_integration、partial 或 blocked，不能宣称维护窗口完成或独立审计 PASS。W00 统一同步 Master/overlay/执行记录/内容地图/README/TASK_LOG、规划图/history/sync、Vault、全量检查与独立审核，才关闭集成维护窗口。这是同一维护窗口的分工，不是免除子模块治理。
++- 副本内的旧 sync 对修改后的源码必然可能失效；记录治理尚待集成，禁止绕过或放宽 tests/planning-map-governance.test.mjs。中央未完成治理，不能以子模块测试通过替代正式交付。
++
++## 3. 产品、事实与授权边界
++
++保持德国 A1 优先、现有中英文、原网址及月服务器预算≤100元（域名除外）。网站为核验导航。只用现有 Astro/静态内容/确定性规则与既有 Python Laya 分支；不增账号、数据库、邮件后端、支付、通用聊天或自动资格判断。不自动扩索引、广告白名单、国家、语种或完整配置路线。
++
++所有实质更新的高风险事实必须真实查阅正确层级的官方来源，记录 URL、检查日、责任机关、段落定位、可支持范围、边界、使用位置。当地考点不能由一般官网代替；无法确认则给具体询问动作。未经重新阅读不得刷新 checkedAt；合成样本、代理测试、点击采用不能冒充真人需求或正确性。
++
++Laya 原始目的文本不进入 URL、广告、遥测或持久计划；只在用户主动请求后建议枚举，确认后才采用；拒识/超时/关闭可手选。原质量/容量协议不变；初验只查有限问题，完整评测与优化须 LP01b 有依据的继续决定。
++
++任何窗口都不得自行 commit、push、部署、回滚真实服务、购买、改变外部账户或联系招募对象。本地只读官方查询与副本内开发/测试可按所领任务执行；真人联系、真实账户、目标主机、日历写入、生产动作必须已有明确的对象及范围授权，缺失时完成其余本地工作并准确保留未验证项。审核通过不等于 Owner 授权。不要重复索取已在会话明确给出的同一范围授权。
++
++## 4. 统一交接格式
++
++在候选副本 `docs/module-handoffs/<batchId>/<WID>/` 输出：`handoff.json`、人可读 `README.md`、仅本模块差异的 `candidate.patch`、新增文件、测试原始日志、必要来源/样本/截图证据。路径通过 W00 分配获得，不任意覆盖别的模块目录。实际受试者身份/联系方式不进入公共仓库；使用去标识 ID 与同意状态引用，敏感原始材料在获准位置保管。
++
++handoff.json 至少包含：
++
++```json
++{
++  "schemaVersion": 1,
++  "batchId": "W00分配的实际ID",
++  "moduleId": "本窗口实际W编号",
++  "baselineId": "分配快照的实际SHA256",
++  "implementationStatus": "ready_for_integration | partial | blocked 三选一",
++  "changedFiles": [{"path":"副本相对路径","baseSha256":"原字节哈希；新增为null","candidateSha256":"候选哈希；删除为null","changeKind":"add | modify | delete 三选一"}],
++  "tests": [{"command":"实际命令","exitCode":0,"logPath":"实际日志路径","baselineId":"测试候选身份"}],
++  "dependencies": [{"moduleId":"实际前置窗口","evidencePath":"可定位结果","status":"真实状态"}],
++  "sharedFileChanges": [],
++  "limitations": [],
++  "nextActions": []
++}
++```
++
++以上是字段说明，落盘时全部替换为真实值；未运行测试使用 exitCode:null 并在 limitations 记录原因，不能复制示例0。测试 baselineId 必须指向带本模块变更的候选清单，另存其逐文件哈希。补丁不能夹带其他窗口或旧 dirty 改动；删除必须明确说明用户价值和影响，默认保留历史证据及网址。依赖状态不通过时不填 ready_for_integration 代替整个 LP/LC 已验收；可对已完成本地部分交 partial。
++
++最终回复：做了什么、变更路径、实际检查结果、未完成证据、共享接口变更及 W00 下一步。不启动别的模块，不因等待前置而编造结果。
+--- a/docs/prompts/2026-09-23-module-build/README.md
++++ b/docs/prompts/2026-09-23-module-build/README.md
+@@ -0,0 +1,31 @@
++# VisaLang 功能模块窗口提示词
++
++这是可复制的执行提示词包，共 **17个功能窗口＋1个集成窗口＋1个独立审核窗口**。W编号只表示分工，不新增或改写LP/LC状态。先把 [W00](W00-integration.md) 整个text代码块发给集成窗口；拿到独立副本分配后，再把各模块完整代码块发到相应窗口。每个提示词都会要求读取 [共同约定](COMMON.md)，无需手动拼接多段。
++
++**建议第一批只开 W00＋W01＋W02＋W08**。W01先准备研究，无真人保持未验证；W02可以直接做有限本地初验；W08先做独立运行/发布适配，本地通过不能代替目标机验证。W03/W04也能启动来源/支持范围核查，但按实际产能分批，不必同时开所有窗口。
++
++先满足 [调度规划](../../superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md) 的条件再派后续模块。没有前置证据时提示词会要求先写缺口，不能自行扩大范围。所有窗口都不得自行提交、推送或部署。
++
++| 窗口提示词 | 规划包 | 启动条件 | 核心交付 |
++|---|---|---|---|
++| [W00 集成调度与治理](W00-integration.md) | 全体共用治理 | Owner选定批次 | 单写者，先分配隔离副本 |
++| [W01 A1真实读者任务](W01-reader-validation.md) | LP00 | 可立即准备；真人结果需实际同意读者 | 脚本、观察记录、最多三项问题 |
++| [W02 Laya有限初验](W02-laya-initial.md) | LP01a；LC02/03最小整理 | 与W01并行，不等真人或手选失败 | 旧回归、新小样本、比较及限制 |
++| [W03 首页与能力入口](W03-entry-scope.md) | LC01 | 可先核查支持范围/已知缺陷 | 三层能力与一致入口 |
++| [W04 主管机关与已有证书](W04-authority-certificate.md) | LC04 | 可先维护来源/已知缺陷 | 机关问询表、证书核验卡、C07判断 |
++| [W05 考试选择与对比](W05-exam-comparison.md) | LC05 | W04对应任务/产品事实＋实际比较缺口 | 准确产品差异与当地待问表 |
++| [W06 报名与预算](W06-booking.md) | LC06 | W05对应任务＋当地来源＋报名缺口 | 付款前记录、分币种预算与恢复 |
++| [W07 材料、时间与行动记录](W07-record-tools.md) | LC07 | W04/W06相关事实＋材料时间保存缺口 | 三类材料、确认/假设、复制与下载 |
++| [W08 核心站独立运行与发布适配](W08-core-decoupling.md) | LP05a | 本地实现可先行；真实主机另需环境与授权 | 统一功能开关、构建/探针/回滚适配 |
++| [W09 广告独立验收](W09-ads.md) | LP05b | 已集成W08配置；真实账户证据另核 | 同意/关闭/加载/体验与账户缺口 |
++| [W10 Laya继续投入判断](W10-laya-decision.md) | LP01b | W01/W02实际证据；缺失可出证据不足 | continue/pause/insufficient_evidence |
++| [W11 Laya完整质量及上线资产](W11-laya-quality.md) | LP02；LC02/03完整资产 | W10 continue；先冻结完整协议再优化 | 独立评测、有限候选、确认回退与文案 |
++| [W12 Laya Linux容量与成本](W12-laya-capacity.md) | LP03 | W10 continue；正式验收用W11固定候选 | 真实Linux资源/24h/预算实证 |
++| [W13 A1一个训练任务](W13-a1-practice.md) | LC08 | 独立学习需求＋复核能力 | 诊断→练习→自查→复测 |
++| [W14 B1有限内容深化](W14-b1-content.md) | LC09–LC11 | B1独立需求/缺口/来源/维护能力 | 先一个任务；LC10/11逐项有条件 |
++| [W15 A1完整任务验收](W15-core-journey.md) | LP04 | W01真实任务＋W03/04＋W05–07必要缺口已集成 | 英中/移动/键盘/恢复/保存与复验 |
++| [W16 分别冻结候选](W16-release-candidates.md) | LP06-core/laya/ads | 每次选择一个目标，按各自门槛 | 候选身份、证据及待授权项 |
++| [W17 反馈与下一周期](W17-operations.md) | LP07/LP08；LC12 | 问题台账可先建；线上观察须真实发布 | 实际反馈、来源队列、最多三项下一批 |
++| [W18 独立审计](W18-independent-auditor.md) | 所有候选的独立审核 | 没有参与本批工作＋W00完整冻结提交 | PASS/FAIL/BLOCKED及精确字节绑定 |
++
++W16每次只处理core/laya/ads其中一个目标，不能重建联合发布门槛。W18必须是从未参与本批规划/实现的审核者。读者、模型、账户、主机、日历证据均按实际获得情况记录；本提示词包没有完成任何上述验证。
+--- a/docs/prompts/2026-09-23-module-build/W00-integration.md
++++ b/docs/prompts/2026-09-23-module-build/W00-integration.md
+@@ -0,0 +1,23 @@
++# W00：调度、隔离副本与集成收口
++
++复制下面整个代码块到对应窗口；先满足启动条件。
++
++```text
++项目主目录：/Users/a1-6/Documents/2.codex/1.visalang.org。
++先读 AGENTS.md、docs/prompts/2026-09-23-module-build/COMMON.md、docs/superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md，以及同目录 2026-09-23-visalang-laya-overall-plan.md、2026-09-23-visalang-laya-content-plan.md；核对最新 Master、overlay、执行记录和规划图。以下是本窗口唯一任务，遵守共同约定，不自行启动别的模块。
++你是 W00 集成窗口，是主目录唯一实施写入者。执行当前 Owner 选中的模块批次；本提示词授权本地分配、集成和验证，不代表其余窗口已被派发，也不授权提交/推送/部署。
++输入：最新 dirty 工作树、规划/提示词、Owner 已选择模块、后续各模块 handoff。输出：冻结基线、dispatch.json、串行集成记录、整体候选与真实治理结果。
++
++[ ] 先冻结 branch/HEAD/upstream/ahead-behind、staged/dirty/untracked 及逐文件字节；保护既有变更。按 COMMON 创建当前完整工作树快照与每窗口隔离候选，分配独立构建/依赖目录。不要直接从 HEAD worktree 开工。校验每副本和源基线相等；把省略、缺失输入、删项记录清楚。
++[ ] 在 docs/module-handoffs/<batchId>/dispatch.json 写实际 batchId/baselineId/各workspacePath/文件范围/证据依赖。优先准备 W01、W02、W08；W03/W04可另批根据产能启动。向用户返回可直接给每窗口的分配路径和对应提示词；只有用户明确要你创建任务时才调用新任务工具。
++[ ] 阶段门禁逐项读取实际 handoff：W01无真人仍partial；W02无需W01通过；W10无真人收益未知时不能继续W11/12；W09消费已集成W08开关；W13/14看独立需求；W16三类候选分别核对；W17的线上观察从真实发布起算。不能把日历进度作为开工证据。
++[ ] 收模块成果先验baselineId及各文件base/candidate哈希、测试对应候选、允许范围和隐私。只集成本批选定范围；partial中哪些本地部分可合并需逐项说明，保持其LP未通过。共享claim/route/tool/开关/布局的冲突逐段对照合并，不能覆盖别人修改；接口改变时重验已受影响模块，不盲拷整文件。
++[ ] 每批集成后运行相关聚焦测试。页面/导航/元数据/部署面对的变更必须 npm run launch-check，并保留实际输出；随后执行完整 npm test。若 suite 包含当前审核报告门禁，先运行可执行部分并明确缺报告，再在独审报告后跑最终完整suite，不能伪造预审通过。
++[ ] 统一维护必要的 Master 当前增补、BACKLOG_STATUS_OVERLAY、EXECUTION_RECORD、CONTENT_MAP、README、TASK_LOG；仅真实完成的验收改变状态，不按窗口交付数改T25/5/4。新实施计划放 docs/superpowers/plans，新提示词放 docs/prompts。证据放本批目录，历史只追加不覆写。
++[ ] 每批作为一个完整维护窗口执行 docs/planning-map/README.md：冻结精确候选manifest和分类；新唯一sync ID/history链；全watchRoots/authority摘要；按变化修改JSON节点/边或状态卡；用Archify九项showcase校验及原子deliver生成HTML；四尺寸浏览器、四张明暗截图逐张图像复核并字节绑定；选择有依据的drift结果。不能手改HTML或关闭治理测试。
++[ ] 按指定模板同步Obsidian；目录或模板缺失时写本地待同步payload，status:review、needs_human_review:true、owner_decision:pending、deployment_status:not_started，如实blocked，不向不存在Vault假写成功。
++[ ] 把完整冻结scope、候选/图/图像/测试/来源及sync字节交W18或完全独立的新Auditor。P0–P2修复后同一Auditor复审；修复影响字节则重做相关冻结及证据。PASS后运行规划治理和最终npm test；不由自己给PASS。
++[ ] 最终给用户实际完成、仍partial/blocked、下一批最多三项与条件。冻结后的任何变更都会使相应审核失效；不得把文档、图或审计通过当真实发布/账户授权。
++
++主目录范围：本批经dispatch明列的候选文件、上述治理文件与实际证据；未列文件保持原样。任何外部操作留在明确授权边界内。无授权时继续本地可完成工作，不为了收口把缺少的真人、主机、账号、日历证据填成功。
++```
+--- a/docs/prompts/2026-09-23-module-build/W01-reader-validation.md
++++ b/docs/prompts/2026-09-23-module-build/W01-reader-validation.md
+@@ -0,0 +1,56 @@
++# W01｜A1 真实读者任务验证
++
++```text
++你负责 VisaLang W01，只实施本文划定的子模块。
++
++主项目：/Users/a1-6/Documents/2.codex/1.visalang.org
++本次任务边界：LP00；准备并在条件具备时执行真实读者任务验证，不修改产品或模型。
++
++开始前依次阅读主项目中的 AGENTS.md，以及以下文件：
++- docs/prompts/2026-09-23-module-build/COMMON.md
++- docs/superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md
++- docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md
++- docs/superpowers/plans/2026-09-23-visalang-laya-content-plan.md
++- docs/master-package-2026-09-08/VisaLang-Master-Plan.md
++- docs/master-package-2026-09-08/BACKLOG_STATUS_OVERLAY_2026-09-09.md
++- docs/master-package-2026-09-08/EXECUTION_RECORD.md
++必要时只读查看 docs/planning-map/visalang-overall-build-plan.archify.json；HTML 是派生视图，不能替代文字权威。
++
++工作目录规则：
++- 先找到 W00 分配的 docs/module-handoffs/<batchId>/dispatch.json，核对本窗口 workspacePath、baselineId、允许路径及依赖证据。只在该独立完整 dirty 快照副本内写入；以下所有相对路径均指副本。
++- 禁止写主项目目录，禁止自行从 HEAD 创建 worktree 代替当前完整工作树。没有分配时，只读分析并在系统临时目录准备缺口说明，报告等待分配。
++- 核对副本逐文件哈希与基线；独立 node_modules、dist、.astro、环境与日志，不与其他窗口共用可写构建目录。
++- 以下列表是模块范围上限，实际可写范围以 W00 分配为准；未分配的共享文件只提交需求。已分配的共享数据可在私有副本做最小修改，交付 base/candidate SHA-256 和补丁，由 W00 串行整合。
++- 不改全局治理记录、规划图、history/sync、索引/广告白名单、重定向、package 锁文件或其他窗口文件。不创建提交，不 push、部署、购买、操作账户、自动联系外部人员或写入真实日历。
++
++启动条件：
++W00 已分配候选与本模块记录路径即可准备；真实会话还须 W00/Owner 提供可参加的目标读者、同意依据和获准的研究材料保存位置。不得自行招募、发送邀请或用代理/合成情境冒充真人。没有真人仍完成脚本和工具准备，但 LP00 及本模块整体交接保持 partial。
++
++具体范围：
++- 只读 src/pages/tools/、src/pages/zh/tools/、现有 A1 指南、src/data/route-tools.ts、src/data/plan-state.ts、src/data/checklist-export.ts 和当前本地候选。
++- 可写 docs/module-handoffs/<batchId>/W01/ 内研究脚本、同意说明草案、去标识观察模板、真实观察和问题汇总。敏感身份、联系方式及原始材料不得进入公共仓库。
++- 不修改 src/、public/、services/、deploy/、tests/ 或其他文档；产品问题交对应模块。
++
++执行步骤：
++[ ] 记录候选身份、目标人群/语言/申请地与实际可用功能；先确认本轮用文章直达、手选、辅助中的哪些版本。
++[ ] 编写三个中性任务脚本：找到有决定权的负责机关；核查一份已有证书下一步需问什么；保存可执行的下一步准备记录。不暗示具体答案。
++[ ] 先做一次明确标注为研究准备的脚本走查，不算真人样本；准备同意、退出、匿名ID、最少必要字段与观察表。
++[ ] 对实际同意参与的5–8名目标读者逐任务记录独立完成/需帮助/失败、误入路径、恢复、耗时与理解反馈。实际样本不足就记录实际人数，不能补造。
++[ ] 首轮即可探索性比较文章直达、手选与现有辅助，无需等手选失败；平衡先后顺序并记录学习效应及辅助实际可用状态。缺模型不阻塞手选任务研究。
++[ ] 汇总最多三个优先问题，严重误导优先，分别标明内容、界面、规则、模型或未知原因，附对应证据和建议模块。
++[ ] 修复后复验需实际进行才记录通过；未做复验列 pending。交给 LP01b 的用户收益结论必须区分已观察、未观察与未知。
++
++检查：
++可在自己的副本运行 node tests/m2b-route-finder.test.mjs、node tests/m2b-checklist-export.test.mjs，必要时 node tests/t28-stale-results.test.mjs，记录退出码和原始日志。这些检查只验证现有工具契约，不能替代真人观察或证明用户收益。没有执行环境时记录未运行，不安装分析采集服务。
++
++模块专有输出：
++task-scripts.md、consent-draft.md、observation-template.csv、actual-observations.csv（仅真实去标识记录；未招募不得写示例成功行）、findings.md。明确实际参与人数、每任务整数分母、辅助/手选顺序、最多三项优先问题、未完成项。小样本仅发现问题，不宣称统计转化提升、市场需求已证明或模型泛化通过。
++
++交接与完成定义：
++- 在副本 docs/module-handoffs/<batchId>/W01/ 按 COMMON.md 输出 handoff.json、README.md、candidate.patch、候选逐文件哈希、新增文件和真实测试/来源/截图等证据。只包含本模块相对分配基线的差异，不能把旧 dirty 改动夹带为自己的结果。
++- handoff.json 必须填真实 batchId/moduleId/baselineId、changedFiles 的 baseSha256/candidateSha256/changeKind、tests 的实际 command/exitCode/logPath/候选 baselineId、dependencies、sharedFileChanges、limitations、nextActions；未运行检查填 null 和原因。
++- 只使用 ready_for_integration、partial、blocked 状态。局部产物可完成而 LP/LC 总包仍未完成；不得自称独立审计 PASS、用户收益已证明或维护窗口已关闭。
++- W00 最终统一同步 Master/overlay/执行记录/内容地图/README/TASK_LOG、规划图/history/sync、Vault，完成 Archify 自动及视觉验证、独立 Auditor 和全量 npm test/必要 launch-check。模块交接不豁免这些治理；副本中旧 sync 失效时注明待整合，不修改或绕过治理测试。
++- 最后简述成果、实际检查、未完成证据、共享变更及 W00 下一步。不启动其他模块。
++```
++
+--- a/docs/prompts/2026-09-23-module-build/W02-laya-initial.md
++++ b/docs/prompts/2026-09-23-module-build/W02-laya-initial.md
+@@ -0,0 +1,43 @@
++# W02｜Laya有限初验（LP01a，LC02/03最小准备）
++
++```text
++你负责VisaLang模块W02：LP01a初步技术/对照验证，只交付可集成的有限实验与证据，不优化生产模型，不替代LP01b决策。
++
++项目主目录：/Users/a1-6/Documents/2.codex/1.visalang.org
++先只读：AGENTS.md；docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md；同目录2026-09-23-visalang-laya-content-plan.md；docs/prompts/2026-09-23-module-build/COMMON.md；docs/superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md。
++
++隔离与启动：
++- 只在W00分配的独立完整dirty快照副本中工作，核对batchId、baselineId、baseline manifest与副本绝对路径；下列路径均相对于该副本。不得修改主目录，也不得自动创建仅基于HEAD的worktree丢失未提交成果。没有分配时，只读分析和临时草案，不能开始产品或实验实现。
++- LP00尚未完成、尚未招募真人或手选尚未证明困难，均不阻塞本模块。初验只需已有候选、冻结基线、预先写明的范围和投入上限；不等待LC02/03完整上线资产。
++- 使用W00确认的现有解释器、离线模型缓存和独占本地端口。先核对版本/权重哈希；缺少运行库或缓存时记录blocked，不自动下载模型、不付费、不更换依赖来制造成功。
++
++输入（只读）：
++- services/laya-purpose/{app.py,questions.json,probe.py,model.lock.json,README.md,test_app.py}。
++- src/components/tools/PurposeSuggestion.astro、src/scripts/purpose-suggestion.ts、src/pages/tools/route-finder.astro；中文页面复用该页面。
++- docs/release-candidate-evidence-2026-09-22/laya-expected.json、laya-actual.json、laya-comparison.md。
++- experiments/laya-purpose/与experiments/laya-purpose-v2/，特别是v2的rules.py、ANNOTATION.md、冻结清单与原始结果；历史实验全部保持原字节。
++
++允许写入：
++- 新建experiments/laya-lp01a/，只用于本次最小说明、回归/新小样本清单、冻结记录、对照运行器、分析脚本和实际结果。
++- docs/module-handoffs/<batchId>/W02/，包括COMMON规定的handoff.json、补丁/新增文件包、哈希清单、运行日志与浏览器证据。
++- 不修改services/、src/、public/、deploy/、历史实验和全局规划/任务日志。发现生产缺陷，在handoff列出位置与复现步骤，由W00安排后续模块。
++
++步骤：
++[ ] 验证副本与baseline一致，记录运行器/模型/问题定义版本、机器、端口、初验投入上限；整理LC02最小确认/改选/无法判断/回退说明及LC03既有6+1类定义，不宣布完整资产完成。
++[ ] 先冻结预期再调用模型。既有20例及已见28/48例仅作回归，分别报告；另建小型新样本并单列来源、语言、类型、编写/接触者和哈希，不能称独立盲测。不得合并分母制造“准确率提升”。
++[ ] 复现旧错误，以相同任务比较手选路径、现有简单规则与当前Laya。手选的技术路径检查不等于真人耗时；没有真人时不编造其成功率。不得针对错误持续改提示词、规则、权重或生产代码；改进建议留给W10决策。
++[ ] 对现有双语交互检查确认前不改表单、改选、含糊/多目的拒识、不可用/超时/busy/旧响应恢复；明确哪些情境使用真实服务，哪些故障由stub注入。模型产生错误标签必须保留。
++[ ] 记录本地冷启动/热请求的实际样本数与耗时范围；明确操作系统、硬件、运行顺序与预热限制，不推导Linux容量或线上质量。
++[ ] 在副本中运行现有契约检查：
++    PYTHONDONTWRITEBYTECODE=1 <已核实Python路径> -m unittest discover -s services/laya-purpose -p 'test_*.py' -v
++    node tests/laya-purpose.test.mjs
++    node tests/m2b-route-finder.test.mjs
++    node tests/t27-measurement-privacy.test.mjs
++    真实服务复现可参考python3 services/laya-purpose/probe.py --port <独占端口> --cases <冻结用例文件> --out <本模块结果文件>，但必须先启动副本中的现有服务；该probe内置“local macOS CPU”说明，在其他系统使用时应在新实验运行器中如实记录环境，不能冒用它作Linux证明。
++[ ] 若需要现有浏览器回归，使用副本专属预览端口与VISALANG_BASE_URL运行node tests/t28-stale-results.test.mjs；按实际环境指定PLAYWRIGHT_MODULE，VISALANG_RESULT_PATH指本模块handoff目录。额外初验场景写在新实验目录；无浏览器/服务则相应项not_tested。
++[ ] 达到预设投入上限就汇总。输出旧/新样本分开结果、错误清单、交互与耗时证据、技术限制、建议交给W10的问题；不声称用户收益、市场需求或生产质量已经通过。
++
++交付：按COMMON填写handoff.json，包括schemaVersion、batchId、moduleId=W02、baselineId、implementationStatus、changedFiles逐文件base/candidate哈希与changeKind、tests实际命令/退出码/logPath/baselineId、dependencies、sharedFileChanges、limitations、nextActions。提交仅本模块相对基线的补丁、新增文件和字节哈希给W00串行集成；不得把历史dirty改动当作本模块成果。
++
++状态仅可ready_for_integration、partial或blocked。真实运行缺失不能记passed；旧错误未改善不等于初验无交付，但必须如实保留。模型优化与完整评测等待W10的LP01b继续决定。W00统一规划图新sync、独立Auditor与最终npm test等收口；本模块不自审为PASS、不自行改治理记录。禁止commit、push、部署、购买、账户变更或联系他人；本地实验授权不扩大为外部行动授权。
++```
+--- a/docs/prompts/2026-09-23-module-build/W03-entry-scope.md
++++ b/docs/prompts/2026-09-23-module-build/W03-entry-scope.md
+@@ -0,0 +1,65 @@
++# W03｜入口与支持范围
++
++```text
++你负责 VisaLang W03，只实施本文划定的子模块。
++
++主项目：/Users/a1-6/Documents/2.codex/1.visalang.org
++本次任务边界：LC01；澄清现有入口能力与任务路径，按确认缺陷做必要修正。
++
++开始前依次阅读主项目中的 AGENTS.md，以及以下文件：
++- docs/prompts/2026-09-23-module-build/COMMON.md
++- docs/superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md
++- docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md
++- docs/superpowers/plans/2026-09-23-visalang-laya-content-plan.md
++- docs/master-package-2026-09-08/VisaLang-Master-Plan.md
++- docs/master-package-2026-09-08/BACKLOG_STATUS_OVERLAY_2026-09-09.md
++- docs/master-package-2026-09-08/EXECUTION_RECORD.md
++必要时只读查看 docs/planning-map/visalang-overall-build-plan.archify.json；HTML 是派生视图，不能替代文字权威。
++
++工作目录规则：
++- 先找到 W00 分配的 docs/module-handoffs/<batchId>/dispatch.json，核对本窗口 workspacePath、baselineId、允许路径及依赖证据。只在该独立完整 dirty 快照副本内写入；以下所有相对路径均指副本。
++- 禁止写主项目目录，禁止自行从 HEAD 创建 worktree 代替当前完整工作树。没有分配时，只读分析并在系统临时目录准备缺口说明，报告等待分配。
++- 核对副本逐文件哈希与基线；独立 node_modules、dist、.astro、环境与日志，不与其他窗口共用可写构建目录。
++- 以下列表是模块范围上限，实际可写范围以 W00 分配为准；未分配的共享文件只提交需求。已分配的共享数据可在私有副本做最小修改，交付 base/candidate SHA-256 和补丁，由 W00 串行整合。
++- 不改全局治理记录、规划图、history/sync、索引/广告白名单、重定向、package 锁文件或其他窗口文件。不创建提交，不 push、部署、购买、操作账户、自动联系外部人员或写入真实日历。
++
++启动条件：
++有 W00 分配即可与 LP00、LP01a 并行进行能力盘点与已知缺陷维护。不要等待 Laya 完整评测；没有确认缺陷的合格入口记录检查通过，不为显示进度重写。
++
++具体可写范围：
++- src/pages/index.astro
++- src/pages/zh/index.astro
++- src/pages/routes/index.astro
++- src/pages/tools/index.astro
++- src/components/HomeHero.astro、src/components/RouteSelector.astro（仅被分配且入口修复需要）
++- tests/task-4-home-routes.test.mjs、tests/scheme-3-route-hubs.test.js、tests/m3-chinese-journey.test.mjs、tests/m3-discovery-trust.test.mjs（仅新增/修正受影响的任务断言）
++- docs/module-handoffs/<batchId>/W03/
++只读 routeRegistry（src/data/route-tools.ts）、src/data/publication-manifest.ts、src/data/site.ts 与现有指南状态。确需共享数据/布局变更时先确认 W00 已分配，再按共同约定提交小补丁；不升级 configured 范围。
++
++执行步骤：
++[ ] 对照当前 routeRegistry，列出现有入口承诺和实际能力；记录每一处真实差异。
++[ ] 建立三层能力表：德国 A1 完整准备流程、B1 信息专题、其他目的官方核验；避免目录出现考试名就暗示完整工具支持。
++[ ] 修复首页、中文首页、Routes、Tools 的必要入口与文案，使文章直达、手选和已有证书阶段入口可找到；不强制所有人重走全流程。
++[ ] 根据该候选实际配置标识 Laya；未启用版本不宣传自然语言能力。模型可识别不等于对应路线支持完整输出。
++[ ] 英中能力范围保持一致，但语言不能推断申请地；原网址、索引/广告范围和中文页面数量保持。
++[ ] 在自己的构建中检查桌面与移动、键盘进入和返回；记录目标路径、可理解的能力边界与截图。真实读者理解反馈来自 W01，未取得就保留未知。
++
++检查命令（副本内）：
++npm run build
++node tests/task-4-home-routes.test.mjs
++node tests/scheme-3-route-hubs.test.js
++node tests/m3-chinese-journey.test.mjs
++node tests/m3-discovery-trust.test.mjs
++只运行与实际变更有关的聚焦检查，记录正确候选构建；不得删除/弱化失败断言来掩盖支持范围变化。最终全量检查由 W00 集成执行。
++
++模块专有输出：
++capability-matrix.md、entry-gap-list.md、实际修复差异、浏览器与键盘记录。区分已修复、原本合格无需改动、需真人验证和超出范围；不能把界面检查写成 LP00 已完成。
++
++交接与完成定义：
++- 在副本 docs/module-handoffs/<batchId>/W03/ 按 COMMON.md 输出 handoff.json、README.md、candidate.patch、候选逐文件哈希、新增文件和真实测试/来源/截图等证据。只包含本模块相对分配基线的差异，不能把旧 dirty 改动夹带为自己的结果。
++- handoff.json 必须填真实 batchId/moduleId/baselineId、changedFiles 的 baseSha256/candidateSha256/changeKind、tests 的实际 command/exitCode/logPath/候选 baselineId、dependencies、sharedFileChanges、limitations、nextActions；未运行检查填 null 和原因。
++- 只使用 ready_for_integration、partial、blocked 状态。局部产物可完成而 LP/LC 总包仍未完成；不得自称独立审计 PASS、用户收益已证明或维护窗口已关闭。
++- W00 最终统一同步 Master/overlay/执行记录/内容地图/README/TASK_LOG、规划图/history/sync、Vault，完成 Archify 自动及视觉验证、独立 Auditor 和全量 npm test/必要 launch-check。模块交接不豁免这些治理；副本中旧 sync 失效时注明待整合，不修改或绕过治理测试。
++- 最后简述成果、实际检查、未完成证据、共享变更及 W00 下一步。不启动其他模块。
++```
++
+--- a/docs/prompts/2026-09-23-module-build/W04-authority-certificate.md
++++ b/docs/prompts/2026-09-23-module-build/W04-authority-certificate.md
+@@ -0,0 +1,67 @@
++# W04｜主管机关与已有证书核验
++
++```text
++你负责 VisaLang W04，只实施本文划定的子模块。
++
++主项目：/Users/a1-6/Documents/2.codex/1.visalang.org
++本次任务边界：LC04；按权威来源修复负责机关与已有证书任务缺口，保留 C07 的发布边界。
++
++开始前依次阅读主项目中的 AGENTS.md，以及以下文件：
++- docs/prompts/2026-09-23-module-build/COMMON.md
++- docs/superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md
++- docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md
++- docs/superpowers/plans/2026-09-23-visalang-laya-content-plan.md
++- docs/master-package-2026-09-08/VisaLang-Master-Plan.md
++- docs/master-package-2026-09-08/BACKLOG_STATUS_OVERLAY_2026-09-09.md
++- docs/master-package-2026-09-08/EXECUTION_RECORD.md
++必要时只读查看 docs/planning-map/visalang-overall-build-plan.archify.json；HTML 是派生视图，不能替代文字权威。
++
++工作目录规则：
++- 先找到 W00 分配的 docs/module-handoffs/<batchId>/dispatch.json，核对本窗口 workspacePath、baselineId、允许路径及依赖证据。只在该独立完整 dirty 快照副本内写入；以下所有相对路径均指副本。
++- 禁止写主项目目录，禁止自行从 HEAD 创建 worktree 代替当前完整工作树。没有分配时，只读分析并在系统临时目录准备缺口说明，报告等待分配。
++- 核对副本逐文件哈希与基线；独立 node_modules、dist、.astro、环境与日志，不与其他窗口共用可写构建目录。
++- 以下列表是模块范围上限，实际可写范围以 W00 分配为准；未分配的共享文件只提交需求。已分配的共享数据可在私有副本做最小修改，交付 base/candidate SHA-256 和补丁，由 W00 串行整合。
++- 不改全局治理记录、规划图、history/sync、索引/广告白名单、重定向、package 锁文件或其他窗口文件。不创建提交，不 push、部署、购买、操作账户、自动联系外部人员或写入真实日历。
++
++启动条件：
++可先维护确认错误和真实来源缺口，与 W01 并行；LP00 观察用于排序。新增事实必须实际查阅有权机关/官方考试来源，不能沿用旧日期假装本次查过。
++
++具体可写范围：
++- src/content/guides/german-family-reunion-language-requirement.md
++- src/content/guides/goethe-a1-germany-family-reunion.md
++- src/pages/zh/guides/german-family-reunion-language-requirement.astro
++- src/pages/zh/guides/goethe-a1-germany-family-reunion.astro
++- 仅 W00 分配时：src/data/claim-registry.ts、src/data/zh-germany-a1.ts、src/data/zh-guide-task-reconciliation.ts、src/data/route-tools.ts、src/data/tool-copy.ts 中本任务相关记录
++- tests/fan-42-germany-a1-requirement.test.js、tests/claim-registry.test.mjs、tests/task-5-source-ledger.test.mjs、tests/m2b-route-finder.test.mjs、tests/scheme-3-chinese-fail-closed.test.mjs
++- docs/module-handoffs/<batchId>/W04/
++共享文件不整份覆盖；逐条 claim/version/consumer 变更写入 sharedFileChanges。Finder 模板或状态存储的额外改造须先交 W00 分配，不顺带重构。
++
++执行步骤：
++[ ] 列现有主管机关层级、适用地区、证书产品/日期/文书形式与读者下一步；标记缺口而非先重写全文。
++[ ] 建立来源台账：URL、实际核验日、负责机关、段落定位、允许支持内容、边界、引用位置。国家概览不能证明地方或个案接受结果。
++[ ] 交付主管机关提问表及已有证书核验卡：读者提供证书信息、询问具体机关、保存回答与日期；无法确认时写具体核验动作。
++[ ] 证书是否可用由有权机关核验，模型不判定有效性、豁免或接受。维护 unknown/needs_authority_confirmation 的具体出口。
++[ ] 检查 C07 当前 contentStatus: verification-pending 与 sourceReviewStatus: reviewed 的不同含义；给出有证据的缺口/状态建议。本模块不自动提升发现、索引或广告状态，保持 noindex/ad-free。
++[ ] 英文 C01 为一般说明、中文 C01 为中国申请地特定范围，不能为了双语对齐扩大事实范围或自动建立不等价 hreflang。
++[ ] 检查正文、双语事实引用与 Finder 相应分支的一致性；保留必需 front matter、原网址与来源版本保护。
++
++检查命令（副本内）：
++npm run build
++node tests/fan-42-germany-a1-requirement.test.js
++node tests/claim-registry.test.mjs
++node tests/task-5-source-ledger.test.mjs
++node tests/m2b-route-finder.test.mjs
++node tests/scheme-3-chinese-fail-closed.test.mjs
++实际改到双语/工具才扩大相关检查；对修改页面做桌面/移动与键盘检查，记录具体证据，不把自动检查代替来源复核或真人任务复验。
++
++模块专有输出：
++authority-source-ledger.md、certificate-check-card.md、C07-gap-and-status-recommendation.md；说明每个已核验/仍未知字段、责任机关和相关版本。遇到来源不可确认时完成可确认部分并标 partial，不能编造通过结论。
++
++交接与完成定义：
++- 在副本 docs/module-handoffs/<batchId>/W04/ 按 COMMON.md 输出 handoff.json、README.md、candidate.patch、候选逐文件哈希、新增文件和真实测试/来源/截图等证据。只包含本模块相对分配基线的差异，不能把旧 dirty 改动夹带为自己的结果。
++- handoff.json 必须填真实 batchId/moduleId/baselineId、changedFiles 的 baseSha256/candidateSha256/changeKind、tests 的实际 command/exitCode/logPath/候选 baselineId、dependencies、sharedFileChanges、limitations、nextActions；未运行检查填 null 和原因。
++- 只使用 ready_for_integration、partial、blocked 状态。局部产物可完成而 LP/LC 总包仍未完成；不得自称独立审计 PASS、用户收益已证明或维护窗口已关闭。
++- W00 最终统一同步 Master/overlay/执行记录/内容地图/README/TASK_LOG、规划图/history/sync、Vault，完成 Archify 自动及视觉验证、独立 Auditor 和全量 npm test/必要 launch-check。模块交接不豁免这些治理；副本中旧 sync 失效时注明待整合，不修改或绕过治理测试。
++- 最后简述成果、实际检查、未完成证据、共享变更及 W00 下一步。不启动其他模块。
++```
++
+--- a/docs/prompts/2026-09-23-module-build/W05-exam-comparison.md
++++ b/docs/prompts/2026-09-23-module-build/W05-exam-comparison.md
+@@ -0,0 +1,66 @@
++# W05｜A1 考试选择与比较
++
++```text
++你负责 VisaLang W05，只实施本文划定的子模块。
++
++主项目：/Users/a1-6/Documents/2.codex/1.visalang.org
++本次任务边界：LC05；完善两个准确成人 A1 产品的任务比较，不扩考试品牌或路线支持。
++
++开始前依次阅读主项目中的 AGENTS.md，以及以下文件：
++- docs/prompts/2026-09-23-module-build/COMMON.md
++- docs/superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md
++- docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md
++- docs/superpowers/plans/2026-09-23-visalang-laya-content-plan.md
++- docs/master-package-2026-09-08/VisaLang-Master-Plan.md
++- docs/master-package-2026-09-08/BACKLOG_STATUS_OVERLAY_2026-09-09.md
++- docs/master-package-2026-09-08/EXECUTION_RECORD.md
++必要时只读查看 docs/planning-map/visalang-overall-build-plan.archify.json；HTML 是派生视图，不能替代文字权威。
++
++工作目录规则：
++- 先找到 W00 分配的 docs/module-handoffs/<batchId>/dispatch.json，核对本窗口 workspacePath、baselineId、允许路径及依赖证据。只在该独立完整 dirty 快照副本内写入；以下所有相对路径均指副本。
++- 禁止写主项目目录，禁止自行从 HEAD 创建 worktree 代替当前完整工作树。没有分配时，只读分析并在系统临时目录准备缺口说明，报告等待分配。
++- 核对副本逐文件哈希与基线；独立 node_modules、dist、.astro、环境与日志，不与其他窗口共用可写构建目录。
++- 以下列表是模块范围上限，实际可写范围以 W00 分配为准；未分配的共享文件只提交需求。已分配的共享数据可在私有副本做最小修改，交付 base/candidate SHA-256 和补丁，由 W00 串行整合。
++- 不改全局治理记录、规划图、history/sync、索引/广告白名单、重定向、package 锁文件或其他窗口文件。不创建提交，不 push、部署、购买、操作账户、自动联系外部人员或写入真实日历。
++
++启动条件：
++W01 的实际任务失败或现有检查已确认比较缺口；须有 LC04 对应任务与版本化产品事实。缺少前置时可盘点，不进入无依据重写；已有资产合格可交检查结果，无需正文变更。
++
++具体可写范围：
++- src/content/guides/goethe-a1-vs-telc-a1.md
++- src/pages/zh/guides/goethe-a1-vs-telc-a1.astro
++- src/pages/tools/exam-comparison.astro
++- src/pages/zh/tools/exam-comparison.astro（仅 locale 包装确有问题时，不重复实现）
++- src/components/ExamProductComparisonTable.astro（仅任务所需）
++- W00 分配的共享记录：src/data/claim-registry.ts、src/data/route-tools.ts、src/data/tool-copy.ts、src/data/zh-germany-a1.ts、src/data/zh-guide-task-reconciliation.ts
++- tests/m2a-exam-products.test.mjs、tests/m2b-exam-comparison.test.mjs、tests/m4-b1-comparison.test.mjs、tests/m3-chinese-tool-contract.test.mjs
++- docs/module-handoffs/<batchId>/W05/
++
++执行步骤：
++[ ] 将实际比较缺口与 LC04 权威核验任务及产品版本关联，复用已合格产品事实和表格。
++[ ] 实际核验准确成人 A1 产品及相关格式信息；逐列保留各自来源，不以品牌名代替具体产品。
++[ ] 交付产品差异卡与当地待问表；先确认受理范围再比较。当地费用、考期、交付或接受未知时仍明确未知，不用笼统说明冒充核实。
++[ ] 保持事实/版本过期、缺失、冲突的保护；不让旧产品引用继续生成确定性输出。
++[ ] 保持 EN/ZH 同一比较实现和等价事实；共享数据改动给 W00 精确基准/候选哈希补丁。
++[ ] 检查原有 B1 比较与不支持路线保护未受回归影响，B1 不得获得 A1 checklist 支持。
++[ ] 在自己的构建验证选择、更换产品、未知/不支持、返回及手机窄表格和键盘体验。
++
++检查命令（副本内）：
++npm run build
++node tests/m2a-exam-products.test.mjs
++node tests/m2b-exam-comparison.test.mjs
++node tests/m4-b1-comparison.test.mjs
++node tests/m3-chinese-tool-contract.test.mjs
++只据真实行为调整测试，不以放宽产品范围解决失败。完整发布/索引验证留给 W00。
++
++模块专有输出：
++comparison-gap-and-products.md、product-source-ledger.md、local-questions.md、相关实际截图/检查。来源验证通过与个案受理未知分开，不执行报名付款、不承诺考试通过。
++
++交接与完成定义：
++- 在副本 docs/module-handoffs/<batchId>/W05/ 按 COMMON.md 输出 handoff.json、README.md、candidate.patch、候选逐文件哈希、新增文件和真实测试/来源/截图等证据。只包含本模块相对分配基线的差异，不能把旧 dirty 改动夹带为自己的结果。
++- handoff.json 必须填真实 batchId/moduleId/baselineId、changedFiles 的 baseSha256/candidateSha256/changeKind、tests 的实际 command/exitCode/logPath/候选 baselineId、dependencies、sharedFileChanges、limitations、nextActions；未运行检查填 null 和原因。
++- 只使用 ready_for_integration、partial、blocked 状态。局部产物可完成而 LP/LC 总包仍未完成；不得自称独立审计 PASS、用户收益已证明或维护窗口已关闭。
++- W00 最终统一同步 Master/overlay/执行记录/内容地图/README/TASK_LOG、规划图/history/sync、Vault，完成 Archify 自动及视觉验证、独立 Auditor 和全量 npm test/必要 launch-check。模块交接不豁免这些治理；副本中旧 sync 失效时注明待整合，不修改或绕过治理测试。
++- 最后简述成果、实际检查、未完成证据、共享变更及 W00 下一步。不启动其他模块。
++```
++
+--- a/docs/prompts/2026-09-23-module-build/W06-booking.md
++++ b/docs/prompts/2026-09-23-module-build/W06-booking.md
+@@ -0,0 +1,68 @@
++# W06｜报名、考点与预算
++
++```text
++你负责 VisaLang W06，只实施本文划定的子模块。
++
++主项目：/Users/a1-6/Documents/2.codex/1.visalang.org
++本次任务边界：LC06；修复实际报名与预算缺口，建立付款前记录和失败恢复。
++
++开始前依次阅读主项目中的 AGENTS.md，以及以下文件：
++- docs/prompts/2026-09-23-module-build/COMMON.md
++- docs/superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md
++- docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md
++- docs/superpowers/plans/2026-09-23-visalang-laya-content-plan.md
++- docs/master-package-2026-09-08/VisaLang-Master-Plan.md
++- docs/master-package-2026-09-08/BACKLOG_STATUS_OVERLAY_2026-09-09.md
++- docs/master-package-2026-09-08/EXECUTION_RECORD.md
++必要时只读查看 docs/planning-map/visalang-overall-build-plan.archify.json；HTML 是派生视图，不能替代文字权威。
++
++工作目录规则：
++- 先找到 W00 分配的 docs/module-handoffs/<batchId>/dispatch.json，核对本窗口 workspacePath、baselineId、允许路径及依赖证据。只在该独立完整 dirty 快照副本内写入；以下所有相对路径均指副本。
++- 禁止写主项目目录，禁止自行从 HEAD 创建 worktree 代替当前完整工作树。没有分配时，只读分析并在系统临时目录准备缺口说明，报告等待分配。
++- 核对副本逐文件哈希与基线；独立 node_modules、dist、.astro、环境与日志，不与其他窗口共用可写构建目录。
++- 以下列表是模块范围上限，实际可写范围以 W00 分配为准；未分配的共享文件只提交需求。已分配的共享数据可在私有副本做最小修改，交付 base/candidate SHA-256 和补丁，由 W00 串行整合。
++- 不改全局治理记录、规划图、history/sync、索引/广告白名单、重定向、package 锁文件或其他窗口文件。不创建提交，不 push、部署、购买、操作账户、自动联系外部人员或写入真实日历。
++
++启动条件：
++W01 或现有检查已发现报名缺口；对应 LC05 任务和具体当地来源可用。没有缺口则核对合格资产并记录无变更。不能默认中文读者在北京，不能把一个考点条件推广到全部地区。
++
++具体可写范围：
++- src/content/guides/goethe-a1-test-centers.md
++- src/content/guides/goethe-a1-fees-by-country.md
++- src/content/guides/goethe-a1-pre-booking-checklist.md
++- src/content/guides/goethe-a1-booking-mistakes.md
++- src/pages/zh/guides/goethe-a1-test-centers.astro
++- src/pages/zh/guides/goethe-a1-booking-mistakes.astro
++- src/components/LocalExamFeeTable.astro（仅任务所需）
++- W00 分配的共享记录：src/data/claim-registry.ts、src/data/zh-germany-a1.ts、src/data/zh-guide-task-reconciliation.ts
++- tests/m2a-local-fees-centres.test.mjs、tests/m2a-staged-checklist-content.test.mjs、tests/task-5-source-ledger.test.mjs、tests/retained-routes.test.mjs
++- docs/module-handoffs/<batchId>/W06/
++
++执行步骤：
++[ ] 对每处缺口确定读者地区、准确产品与考点，保持已有有用资产和原网址。
++[ ] 实际阅读官方主办方及选定官方/授权考点材料，记录核验日、定位和范围。当地报价、取消/改期、证件与交付规则只由对应当地证据支持。
++[ ] 制作付款前产品/姓名/考点/报价/取消规则记录，分开已确认值和待问值，标明报价币种与适用时间。不进行自动汇率换算或捏造全球统一价格。
++[ ] 将报名、考日、递交三类材料分开，避免付款前清单被读者当完整移民材料表。
++[ ] 提供报名错误恢复顺序：保存状态证据→联系正确考点/支付渠道→确认结果；不得承诺付款成功、可退款、补位或资格已获确认。
++[ ] 来源不可取得或已过期时保留明确待核验动作，不仅刷新日期。
++[ ] 检查中英文下一步、手机表格/键盘与相关旧URL；保留支持页 noindex、无广告等既有发布边界。
++
++检查命令（副本内）：
++npm run build
++node tests/m2a-local-fees-centres.test.mjs
++node tests/m2a-staged-checklist-content.test.mjs
++node tests/task-5-source-ledger.test.mjs
++node tests/retained-routes.test.mjs
++按真正修改范围运行，记录本构建与截图；不因测试记着旧费用而未读来源便改数字。
++
++模块专有输出：
++booking-gap-list.md、centre-source-ledger.md、prepayment-record.md、recovery-order.md；列地区/考点/币种/核验日与所有未知条件。任何账户、预订、付款、联系考点均不在本提示词授权内。
++
++交接与完成定义：
++- 在副本 docs/module-handoffs/<batchId>/W06/ 按 COMMON.md 输出 handoff.json、README.md、candidate.patch、候选逐文件哈希、新增文件和真实测试/来源/截图等证据。只包含本模块相对分配基线的差异，不能把旧 dirty 改动夹带为自己的结果。
++- handoff.json 必须填真实 batchId/moduleId/baselineId、changedFiles 的 baseSha256/candidateSha256/changeKind、tests 的实际 command/exitCode/logPath/候选 baselineId、dependencies、sharedFileChanges、limitations、nextActions；未运行检查填 null 和原因。
++- 只使用 ready_for_integration、partial、blocked 状态。局部产物可完成而 LP/LC 总包仍未完成；不得自称独立审计 PASS、用户收益已证明或维护窗口已关闭。
++- W00 最终统一同步 Master/overlay/执行记录/内容地图/README/TASK_LOG、规划图/history/sync、Vault，完成 Archify 自动及视觉验证、独立 Auditor 和全量 npm test/必要 launch-check。模块交接不豁免这些治理；副本中旧 sync 失效时注明待整合，不修改或绕过治理测试。
++- 最后简述成果、实际检查、未完成证据、共享变更及 W00 下一步。不启动其他模块。
++```
++
+--- a/docs/prompts/2026-09-23-module-build/W07-record-tools.md
++++ b/docs/prompts/2026-09-23-module-build/W07-record-tools.md
+@@ -0,0 +1,73 @@
++# W07｜材料、时间与保存记录
++
++```text
++你负责 VisaLang W07，只实施本文划定的子模块。
++
++主项目：/Users/a1-6/Documents/2.codex/1.visalang.org
++本次任务边界：LC07；修复材料、时间、保存和下载的具体任务缺口，不新增邮件服务或跨设备账户。
++
++开始前依次阅读主项目中的 AGENTS.md，以及以下文件：
++- docs/prompts/2026-09-23-module-build/COMMON.md
++- docs/superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md
++- docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md
++- docs/superpowers/plans/2026-09-23-visalang-laya-content-plan.md
++- docs/master-package-2026-09-08/VisaLang-Master-Plan.md
++- docs/master-package-2026-09-08/BACKLOG_STATUS_OVERLAY_2026-09-09.md
++- docs/master-package-2026-09-08/EXECUTION_RECORD.md
++必要时只读查看 docs/planning-map/visalang-overall-build-plan.archify.json；HTML 是派生视图，不能替代文字权威。
++
++工作目录规则：
++- 先找到 W00 分配的 docs/module-handoffs/<batchId>/dispatch.json，核对本窗口 workspacePath、baselineId、允许路径及依赖证据。只在该独立完整 dirty 快照副本内写入；以下所有相对路径均指副本。
++- 禁止写主项目目录，禁止自行从 HEAD 创建 worktree 代替当前完整工作树。没有分配时，只读分析并在系统临时目录准备缺口说明，报告等待分配。
++- 核对副本逐文件哈希与基线；独立 node_modules、dist、.astro、环境与日志，不与其他窗口共用可写构建目录。
++- 以下列表是模块范围上限，实际可写范围以 W00 分配为准；未分配的共享文件只提交需求。已分配的共享数据可在私有副本做最小修改，交付 base/candidate SHA-256 和补丁，由 W00 串行整合。
++- 不改全局治理记录、规划图、history/sync、索引/广告白名单、重定向、package 锁文件或其他窗口文件。不创建提交，不 push、部署、购买、操作账户、自动联系外部人员或写入真实日历。
++
++启动条件：
++W01 或现有检查发现相关缺口，LC04/LC06对应任务和既有日期契约可用。未取得前置证据先盘点；已合格资产复用，不自动重做三个工具。
++
++具体可写范围：
++- src/content/guides/german-a1-documents-checklist.md
++- src/content/guides/german-a1-exam-booking-timeline.md
++- src/pages/zh/guides/german-a1-documents-checklist.astro
++- src/pages/zh/guides/german-a1-exam-booking-timeline.astro
++- src/pages/tools/checklist-generator.astro、src/pages/tools/timeline-calculator.astro、src/pages/tools/email-reminders.astro
++- 对应 src/pages/zh/tools/checklist-generator.astro、timeline-calculator.astro、email-reminders.astro（仅 locale 包装必要修改）
++- src/data/checklist-export.ts、src/data/reminder-ics.ts
++- W00 分配的共享记录：src/data/plan-state.ts、src/data/route-tools.ts、src/data/tool-copy.ts、src/data/zh-germany-a1.ts、src/data/zh-guide-task-reconciliation.ts
++- tests/m2a-timeline-contract.test.mjs、tests/m2a-plan-state.test.mjs、tests/m2a-plan-state-integration.test.mjs、tests/m2b-checklist-export.test.mjs、tests/m2b-timeline-result.test.mjs、tests/m2b-reminder-ics.test.mjs、tests/t28-stale-results.test.mjs、tests/m3-chinese-tool-contract.test.mjs
++- docs/module-handoffs/<batchId>/W07/
++
++执行步骤：
++[ ] 先列实际任务失败、受影响语言、状态与可重复步骤，确认修改最小范围。
++[ ] 形成报名/考日/递交三类材料表及完成证据，保留负责机关、来源与边界；不将清单当官方受理结论。
++[ ] 时间记录区分用户已确认值、编辑建议缓冲和未知假设；不从 Laya 文本自动提取日期，不捏造考试/出分/受理时间。
++[ ] 修复可复制/打印/下载的下一步记录，保留事实版本及对应核验动作。保存动作不代表实际报名或申请已完成。
++[ ] 验证跨工具状态、清空/恢复/过期、无效日期、更换路线/考试后的旧结果保护；原始目的自由文本不能进入 URL、持久计划或遥测。
++[ ] EN/ZH 工具共用原实现，保持每设备保留期与隐私选择契约；不新建数据库、账号、邮件发送或跨设备同步。
++[ ] ICS 下载与实际日历导入分开记录。没有具体获准的一次性日历目的地，不写真实日历；可完成文件验证，导入未测必须保留 T19 部分状态，不宣称导入通过。
++[ ] 浏览器验证移动/键盘、打印及下载文件内容，记录候选版本和每个已完成/未完成场景。
++
++检查命令（副本内）：
++npm run build
++node tests/m2a-timeline-contract.test.mjs
++node tests/m2a-plan-state.test.mjs
++node tests/m2a-plan-state-integration.test.mjs
++node tests/m2b-checklist-export.test.mjs
++node tests/m2b-timeline-result.test.mjs
++node tests/m2b-reminder-ics.test.mjs
++node tests/t28-stale-results.test.mjs
++node tests/m3-chinese-tool-contract.test.mjs
++只依据实际涉及的契约选择聚焦检查，保留原始日志；在记录中明确下载测试不覆盖外部日历导入。
++
++模块专有输出：
++record-tool-gap-list.md、materials-and-assumptions.md、state-and-export-checks.md、calendar-import-status.md、真实TXT/ICS/PDF与截图证据。包含对 LC04/06 版本的依赖以及所有共享数据接口变化。
++
++交接与完成定义：
++- 在副本 docs/module-handoffs/<batchId>/W07/ 按 COMMON.md 输出 handoff.json、README.md、candidate.patch、候选逐文件哈希、新增文件和真实测试/来源/截图等证据。只包含本模块相对分配基线的差异，不能把旧 dirty 改动夹带为自己的结果。
++- handoff.json 必须填真实 batchId/moduleId/baselineId、changedFiles 的 baseSha256/candidateSha256/changeKind、tests 的实际 command/exitCode/logPath/候选 baselineId、dependencies、sharedFileChanges、limitations、nextActions；未运行检查填 null 和原因。
++- 只使用 ready_for_integration、partial、blocked 状态。局部产物可完成而 LP/LC 总包仍未完成；不得自称独立审计 PASS、用户收益已证明或维护窗口已关闭。
++- W00 最终统一同步 Master/overlay/执行记录/内容地图/README/TASK_LOG、规划图/history/sync、Vault，完成 Archify 自动及视觉验证、独立 Auditor 和全量 npm test/必要 launch-check。模块交接不豁免这些治理；副本中旧 sync 失效时注明待整合，不修改或绕过治理测试。
++- 最后简述成果、实际检查、未完成证据、共享变更及 W00 下一步。不启动其他模块。
++```
++
+--- a/docs/prompts/2026-09-23-module-build/W08-core-decoupling.md
++++ b/docs/prompts/2026-09-23-module-build/W08-core-decoupling.md
+@@ -0,0 +1,49 @@
++# W08｜核心站点与Laya、广告解耦（LP05a）
++
++```text
++你负责VisaLang模块W08：实现核心站点可在Laya与广告关闭时构建、验证、打包和回滚的本地能力，交付独立核心候选的工程前置；不部署、不伪造目标主机验收。
++
++项目主目录：/Users/a1-6/Documents/2.codex/1.visalang.org
++先只读：AGENTS.md；docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md；同目录2026-09-23-visalang-laya-content-plan.md；docs/prompts/2026-09-23-module-build/COMMON.md；docs/superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md。
++
++工作环境与依赖：
++- 只能编辑W00分配的完整dirty快照副本，核对batchId/baselineId/manifest与副本绝对路径。下列scope均为副本相对路径；禁止直接改主目录、用worktree@HEAD丢失未提交成果、共享dist/.astro或覆盖其他窗口成果。未分配时仅只读分析与临时草案。
++- 本地解耦实现可立即开展，不等待LP00、W02/LP01a、W10/LP01b或模型质量通过。LP00未完成只意味着真人收益/对应验收证据仍缺，不把它改写成已完成。
++- 当前deploy/release.py强制adsRequired/layaRequired=true，prepare要求镜像与模型，activate/rollback操作真实主机；这些不是可直接启用的分支开关。当前dirty状态必须保留，禁止伪造clean commit或将candidateOnly改false绕过门禁。
++- COMMON副本默认无.git；现有prepare还需git ls-files/status/rev-parse。副本以聚焦单元测试和结构核对验证，真实Git身份的prepare验证交W00在主目录对串行集成后的候选执行并绑定；缺此证据保持partial。不得伪造.git/提交，或为副本便利新增绕过生产身份校验的协议。
++
++允许写入：
++- 拟建src/data/runtime-features.ts统一组件开关契约；先读src/data/publication-manifest.ts与src/data/site.ts，若已有等效配置则复用，不能复制广告白名单成为第二事实源。
++- astro.config.mjs；src/layouts/BaseLayout.astro、GuideLayout.astro；src/components/tools/PurposeSuggestion.astro；src/scripts/purpose-suggestion.ts；src/pages/tools/route-finder.astro、src/pages/zh/tools/route-finder.astro；src/pages/privacy-policy.astro、cookie-policy.astro。只改组件关闭/启用、 truthful文案与相关加载，保留内容事实/URL/索引政策。
++- deploy/release.py、deploy.sh、rollback.sh、smoke-test.sh、nginx-vhost-template.conf、laya-purpose-nginx.conf、production-evidence.example.json、README.md；deploy/tests/test_release.py。
++- scripts/launch-check.js；tests/deploy.test.js、adsense-risk-exposure.test.js、scheme-3-release-candidate.test.mjs、site.test.js、laya-purpose.test.mjs；可新增tests/runtime-features.test.mjs。保留不相关断言与安全约束。
++- docs/module-handoffs/<batchId>/W08/。全局计划/图/sync/TASK_LOG由W00串行处理；不编辑public/ads.txt、来源事实或模型/依赖锁。
++
++步骤：
++[ ] 记录基线源码/测试和现有缺陷，先冻结组件开关契约及测试矩阵：核心全关、仅Laya、仅广告、两者开启，以及旧联合候选兼容/拒绝策略。交付接口供W09/W16消费，不提前假设下游已有相同字段。
++[ ] 核心全关时：无Laya UI初始化/请求/代理必需项、无需Python模型/镜像/cache；无AdSense或广告技术网络加载。验证关闭后的双语手选、确定性规则、保存/恢复仍可用。只隐藏按钮/广告槽不算关闭；白名单仍表示资格，不等于本次必须启用。
++[ ] 用统一配置贯穿Astro构建、页面文案、发布清单、prepare/verify、evidence门槛、Nginx生成、探针、start/restore和回滚。模型关闭的候选不能仍强制提供镜像/权重；模型启用时继续要求精确镜像digest与锁定权重。广告关闭的证据标不适用并附实际关闭验证，不能伪装adsConsent=pass。
++[ ] 保留源文件/构建字节绑定、篡改拒绝、dirty candidate禁止激活、Owner操作与回滚基线绑定等门禁。验证模式转换及失败恢复：off→on、on→off、单组件变化不会误改另一组件；失败时恢复真实前态，恢复失败必须报错。
++[ ] 修正既有检查的模式盲区：scripts/launch-check.js及release-candidate/adsense-risk/site测试当前硬要求14页广告；改为关闭模式0页、启用模式仅现有14篇允许页，不削弱索引与安全页面无广告规则。deploy/smoke-test.sh还错误要求首页有AdSense，而首页策略是无广告；应按实际模式核验正确白名单文章，首页/工具/指南库保持无广告。
++[ ] 在独立副本串行运行相应模式的构建与检查，不并行操作同一dist/.astro：
++    PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s deploy/tests -v
++    node tests/deploy.test.js
++    node tests/laya-purpose.test.mjs
++    node tests/m2b-route-finder.test.mjs
++    node tests/m3-chinese-tool-contract.test.mjs
++    node tests/t27-measurement-privacy.test.mjs
++    node tests/scheme-3-publication.test.mjs
++    node tests/runtime-features.test.mjs（仅在本模块确实新增后）
++    npm run build（按新冻结的模式接口逐项运行；正式全量launch-check由W00集成后执行）
++    node tests/scheme-3-release-candidate.test.mjs
++    node tests/adsense-risk-exposure.test.js（此脚本也会build，必须单独串行）
++    bash -n deploy/deploy.sh deploy/rollback.sh deploy/smoke-test.sh
++    记录实际命令、配置、退出码、日志；不能删测试或用always-pass绕开14页等旧断言。
++[ ] 浏览器用副本专属端口验证EN/ZH手选完成、off状态零相关网络请求、可访问性与恢复。模型故障注入明确为stub；真实服务、真实主机或TLS未测均not_tested。若运行Nginx配置测试，使用明确的隔离临时配置，不能读取并重载生产配置。
++[ ] 只做本地候选与事务单测/隔离演练，不执行deploy.sh、rollback.sh、release.py activate/rollback、server-init.sh、harden.sh或真实DNS/TLS/账户变更。模型/广告的真实启用验收仍留给独立模块和授权窗口。
++[ ] 输出配置接口说明、组件矩阵、失败恢复证据、未来主机演练清单；实际主机、备份、TLS、17旧URL或真实回滚证据缺失时，模块implementationStatus保持partial，不宣称LP05a全部通过。
++
++交付：docs/module-handoffs/<batchId>/W08/中的handoff.json使用COMMON字段，moduleId=W08；附逐文件base/candidate哈希、changeKind、patch/新增文件、测试日志与baselineId、sharedFileChanges及接口契约。W09必须消费W00串行集成后的本契约和新baseline，不能在旧副本直接覆盖共享文件。
++
++状态仅ready_for_integration、partial、blocked；局部实现就绪与完整LP05a证据分开。W00统一集成、规划图新sync、独立Auditor及最终npm test等收口，本模块不自评正式完成。禁止commit、push、部署、购买、账户变更或联系他人。保留所有既有dirty改动，外部缺口如实报告，不能降低验收来声称成功。
++```
+--- a/docs/prompts/2026-09-23-module-build/W09-ads.md
++++ b/docs/prompts/2026-09-23-module-build/W09-ads.md
+@@ -0,0 +1,44 @@
++# W09｜广告独立候选与体验验证（LP05b）
++
++```text
++你负责VisaLang模块W09：在核心解耦契约上准备广告独立候选、同意/加载验证与缺口记录。广告未就绪不阻塞核心，不实际启用生产广告或修改外部账户。
++
++项目主目录：/Users/a1-6/Documents/2.codex/1.visalang.org
++先只读：AGENTS.md；docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md；同目录2026-09-23-visalang-laya-content-plan.md；docs/prompts/2026-09-23-module-build/COMMON.md；docs/superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md。
++
++隔离与前置：
++- 在W00分配的独立完整dirty快照副本中编辑，下列路径均相对副本。核对batchId/baselineId/manifest；禁止直接改主目录、自动worktree@HEAD或共享dist/.astro。无W00分配只读分析与临时草案。
++- 必须读取W00已集成的W08组件开关契约及新baseline；不得消费未集成旧快照或另发明一套开关。若W08未提供可用契约，可只读梳理账号/证据缺口，不开始冲突实现。
++- 账号、CMP/Privacy & messaging与地区行为必须来自有权人员提供的真实证据或已获准只读检查。没有授权不登录、配置、提交或联系平台。现有publisher字符串与ads.txt不证明账号批准、归属、同意或已出广告。
++
++输入：
++- src/layouts/BaseLayout.astro、GuideLayout.astro；src/data/publication-manifest.ts、site.ts及W08实际交付的运行配置。
++- public/ads.txt、public/_headers；src/pages/privacy-policy.astro、cookie-policy.astro；docs/CONSENT_AND_AD_TECH_DECISION_RECORD.md与相关既有证据，只读核对其日期/适用范围。
++- W08模式矩阵、deploy/production-evidence.example.json、scripts/launch-check.js与广告相关测试。
++
++允许写入：
++- W08交付的src/data/runtime-features.ts（或其实际等效配置文件，只能沿用一个契约）；src/layouts/BaseLayout.astro；src/pages/privacy-policy.astro、cookie-policy.astro。
++- public/ads.txt仅在真实归属与精确seller行证据齐全时允许必要修正；public/_headers默认只读，若需新安全策略须交W00另定范围，不能为广告泛化放宽安全配置。
++- tests/adsense-risk-exposure.test.js、scheme-3-release-candidate.test.mjs、site.test.js、t27-measurement-privacy.test.mjs；scripts/launch-check.js；可新增tests/ad-consent.test.mjs。
++- docs/module-handoffs/<batchId>/W09/，含账号/同意证据索引、官方文档核验边界、浏览器场景与实际结果。全局决策/规划/图/任务日志由W00更新。
++- 不扩广告白名单、不改索引政策、不增加Analytics或访客文字采集、不修改模型或部署事务。
++
++步骤：
++[ ] 按实际W08契约建立关闭、拒绝/撤回、允许及失败回退的测试矩阵；先登记哪些状态能本地模拟，哪些必须真实账户/CMP或区域环境。法律/地区结论须用当前官方资料核实；无法确认写具体缺口，不自行认证合规。
++[ ] 实现或完善已获准的本地广告接入边界，默认关闭；启用仍受W08独立候选门禁。广告资格继续来自publication-manifest，最多现有14篇英文支柱；首页、工具、指南库、中文、支持页及费用页保持无广告，不复制维护另一份白名单。
++[ ] 核对实际CMP方案所需的同意、拒绝、撤回、刷新、错误与地域分支；只实现有明确合同/证据支持的行为。伪造弹窗或stub不能替代真实CMP，脚本出现也不能证明合法同意或广告账户正常。
++[ ] 用隔离浏览器配置、测试页面与专属端口记录请求、存储、脚本状态和移动端布局；测量实际样本的加载/布局变化，未测设备/地区明确not_tested。不得点击广告、制造曝光或通过生产广告反复测试获利；优先使用获准测试模式与拦截验证，标清真实性边界。
++[ ] 在副本中串行验证：
++    node tests/scheme-3-publication.test.mjs
++    node tests/t27-measurement-privacy.test.mjs
++    node tests/ad-consent.test.mjs（仅在本模块确实新增后）
++    npm run build（使用W08实际冻结的模式参数；正式全量launch-check由W00集成后执行）
++    node tests/scheme-3-release-candidate.test.mjs
++    node tests/adsense-risk-exposure.test.js（本身重建，避免与其他构建并行）
++    额外浏览器场景/日志放handoff；广告on/off均验证允许范围与核心流程，不能通过删断言掩盖错误。
++[ ] 输出源代码候选、各状态实际结果、真实账户/CMP证据索引、仍缺的地区/生产验证与回滚要求。缺真实账户/同意/网络证据时只可partial或blocked，不写adsConsent=pass、已批准、已启用或已盈利。
++
++交付：docs/module-handoffs/<batchId>/W09/；按COMMON写handoff.json，moduleId=W09，包含逐文件base/candidate哈希、patch/新增文件及哈希、实际测试命令/退出码/logPath/baselineId、W08依赖、共享文件差异、limitations和nextActions。仅向W00交模块增量，由其串行合并，不能覆盖W08或原dirty成果。
++
++状态仅ready_for_integration、partial、blocked，不宣称正式完成。真实证据不足不阻塞核心全关候选。W00统一规划图新sync、独立Auditor和最终npm test等收口；本模块不自审PASS。禁止commit、push、部署、购买、账户修改、联系他人；本地开发授权不构成广告启用或外部行动授权。
++```
+--- a/docs/prompts/2026-09-23-module-build/W10-laya-decision.md
++++ b/docs/prompts/2026-09-23-module-build/W10-laya-decision.md
+@@ -0,0 +1,16 @@
++# W10：Laya 后续投入决策（LP01b）
++
++复制下面整个代码块到对应窗口；先满足启动条件。
++
++```text
++项目主目录：/Users/a1-6/Documents/2.codex/1.visalang.org。
++先读 AGENTS.md、docs/prompts/2026-09-23-module-build/COMMON.md、docs/superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md，以及同目录 2026-09-23-visalang-laya-overall-plan.md、2026-09-23-visalang-laya-content-plan.md；核对最新 Master、overlay、执行记录和规划图。以下是本窗口唯一任务，遵守共同约定，不自行启动别的模块。
++你是 W10，只做LP01b证据决策，不训练、调参或部署模型。只能在W00分配副本的 docs/module-handoffs/<batchId>/W10/ 写分析；无分配只读。
++启动：已有W01与W02的当前实际记录，允许其明确缺失；缺失不会阻止出“证据不足”报告，但不能得到继续大投入的结论。
++[ ] 锁定W01实际受试者同意/去标识任务结果、W02模型/规则/手选初验身份与原始结果；分清旧回归、新小样本、真人和本机技术数据。
++[ ] 按任务比较独立完成、帮助、失败原因、改选/恢复负担与耗时；不同样本不混合成一个准确率，样本小不宣称统计提升。
++[ ] 输出 decision.md + decision.json：decision为continue/pause/insufficient_evidence，证据路径与哈希、收益解释/不确定性、候选范围、投入上限、停止条件。缺真人或无法判断收益时选insufficient_evidence；手选顺畅且辅助无解释增益或负担增大时可pause。不能先定继续再改评判理由。
++[ ] 只有continue才为W11/12明确有限候选与范围；完整6+1定义、独立标注/split、评分/校准规范必须先冻结再优化。继承全站规划第5节全部阈值，不以初验门槛替代。W11负责形成可审完整协议与LC02/03资产，W12正式验收须使用W11固定候选。
++[ ] 按COMMON交接证据和决策。自查每条判断均有可定位记录、核心发布不依赖本决策、无外部授权暗示。不需要写镜像式单元测试；证据交叉核对是本模块检查，真正模型质量仍待W11。
++缺少真人时照样完成可审的“证据不足”决策，但LP01b继续条件未满足；不得把分析完成写成Laya收益已证实。
++```
+--- a/docs/prompts/2026-09-23-module-build/W11-laya-quality.md
++++ b/docs/prompts/2026-09-23-module-build/W11-laya-quality.md
+@@ -0,0 +1,40 @@
++# W11｜Laya完整质量评测与有限修正（LP02）
++
++```text
++你负责VisaLang模块W11：在LP01b明确继续后完成Laya完整质量评测、有限修正及LC02/03完整上线资产，保留手选、确定性规则和用户确认边界。
++
++项目主目录：/Users/a1-6/Documents/2.codex/1.visalang.org
++先只读：AGENTS.md；docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md；同目录2026-09-23-visalang-laya-content-plan.md；docs/prompts/2026-09-23-module-build/COMMON.md；docs/superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md。
++
++隔离与硬前置：
++- 只在W00分配的独立完整dirty快照副本中编辑，下列路径均相对副本。核对batchId、baselineId和baseline manifest；不得写主目录，不得用worktree@HEAD替代未提交快照，不共用dist/.astro。无分配时只读分析和临时草案。
++- 必须先获得中央已接收的W10/LP01b“继续”记录，绑定LP00真人证据与W02技术证据。本窗口先形成并冻结完整标注/split/评分协议，再进入数据评测或优化；不要求W10先制作本窗口负责的完整包，避免循环依赖。暂停、证据不足或没有真人时不得启动本模块的大投入，返回blocked并说明缺口；不能把模型可运行当作继续授权。
++- 读取中央当前LC02/03定义、W02结果、services/laya-purpose/model.lock.json及锁定依赖。若W08已集成，必须以其新基线为准；不要从过期快照覆盖功能开关。
++
++允许写入：
++- services/laya-purpose/app.py、questions.json、test_app.py、probe.py、README.md。
++- 新建experiments/laya-lp02/用于开发/评测协议、候选冻结、评分代码及按角色授权可见的数据和结果；历史experiments/laya-purpose*保持原字节。
++- src/scripts/purpose-suggestion.ts、src/components/tools/PurposeSuggestion.astro、src/pages/privacy-policy.astro、tests/laya-purpose.test.mjs：补齐LC02输入示例、采用前核对、改选、含糊/多目的、不可用继续及文字处理说明，并对应真实UI状态；列为共享文件交W00集成，不修改资格规则或组件开关契约。
++- docs/module-handoffs/<batchId>/W11/。
++- 模型权重、model.lock.json、requirements.in/lock/txt与Dockerfile默认只读。若证据表明必须换模型/依赖，先交变更提案与影响，不在本模块偷偷升级；改为W00重新分配明确范围后再实施。
++
++步骤：
++[ ] 验证W10决定、候选版本与数据角色隔离。开发者不能读取保留集答案再声称盲测；由独立标注/评测角色管理封存答案与报告，记录实际身份/角色，不把AI标注写成真人。
++[ ] 将全站规划第5节转为实际完整标注/split/评分协议，独立核对并冻结哈希后，按协议准备开发集至少120条、独立保留集240条（EN/ZH各120；合计180明确＋60需澄清）、困难集120条。两名独立标注者先盲标后裁决；同源句/翻译/近似改写同split。旧20/28/48例与W02已见样本只作回归，不充新保留集。
++[ ] 有限比较当前Laya、规则对照与最多两个候选混合方案；只在开发集修正标签/拒识/共享token预算等证实缺陷。不生成签证答案，不自动填国家、判豁免、决定证书接受或暗改确定性route rules。
++[ ] 对实际锁定库验证完整输入/指令/选项token构造和裁剪保护，不能用300字符或单一输出token计数替代。confidence未经校准不当正确概率；需要阈值则另有冻结校准集。
++[ ] 补齐LC02全部双语交互/隐私文案与LC03定义、排除项、反例、澄清句、内容入口和支持层级；每项绑定实际UI/数据契约及语料版本。W02的最小整理仅作输入，不能直接声称完整资产通过；模型识别范围不扩大现有configured路线。
++[ ] 冻结代码、问题定义、权重与依赖哈希后，交独立评测角色一次评测；已揭晓并用于修正的保留集降为回归，下一候选需新独立保留集。保留失败原始证据，不反复改期望答案。
++[ ] 逐项报告分子/分母、95%置信区间、语言分组、宏F1、混淆矩阵、错误与覆盖率：240条准确率总体及每语言≥90%；具体建议精确率总体≥95%、每目的≥90%；180明确覆盖≥85%；60需澄清召回≥95%；困难集错误强分类≤2%；关键安全回归零失败。无建议的类别不算通过，不能靠全部拒识过关。
++[ ] 运行副本内现有契约测试：
++    PYTHONDONTWRITEBYTECODE=1 <已核实Python路径> -m unittest discover -s services/laya-purpose -p 'test_*.py' -v
++    node tests/laya-purpose.test.mjs
++    node tests/m2b-route-finder.test.mjs
++    node tests/t27-measurement-privacy.test.mjs
++    额外有意义的评分/裁剪/拒识测试写入允许路径。若改前端，用专属预览端口实测双语确认前零填表、改选、超时、busy、服务关闭与旧响应回退；已有node tests/t28-stale-results.test.mjs可作手选结果恢复回归，不能替代模型场景。
++[ ] 输出固定候选身份、完整评测报告、逐项门槛表、残余风险、最终协议/契约差异及W12可复现输入。质量未过时如实标partial，不转交“已达标候选”；环境或封存协议缺失则blocked。
++
++handoff目录：docs/module-handoffs/<batchId>/W11/。按COMMON写handoff.json，moduleId=W11；逐文件baseSha256/candidateSha256、changeKind、实际命令/退出码/日志与baselineId、依赖证据、sharedFileChanges、limitations/nextActions齐备。只交模块增量补丁/新增文件及哈希，由W00串行集成；保留未提交基线。
++
++状态仅ready_for_integration、partial、blocked，不宣称模块正式完成或生产可上线。W00统一新sync、规划图、独立Auditor和最终npm test等验证；评测通过不代替独审、Linux容量或Owner启用授权。禁止commit、push、部署、购买、账户操作、联系他人，不自动下载模型或上传访客文本；需真实标注者/数据缺失时记录缺口，不伪造身份或研究。
++```
+--- a/docs/prompts/2026-09-23-module-build/W12-laya-capacity.md
++++ b/docs/prompts/2026-09-23-module-build/W12-laya-capacity.md
+@@ -0,0 +1,43 @@
++# W12｜Laya真实Linux容量与费用验证（LP03）
++
++```text
++你负责VisaLang模块W12：对W11固定候选在真实可用的Linux测试环境验证镜像、运行容量、稳定性与成本边界。Mac推理、依赖解析、单元测试和健康接口200都不能代替这些证据。
++
++项目主目录：/Users/a1-6/Documents/2.codex/1.visalang.org
++先只读：AGENTS.md；docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md；同目录2026-09-23-visalang-laya-content-plan.md；docs/prompts/2026-09-23-module-build/COMMON.md；docs/superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md。
++
++隔离与硬前置：
++- 只编辑W00分配的独立完整dirty快照副本，下列路径均相对副本；核对batchId/baselineId/manifest。禁止直接改主目录、自动worktree@HEAD、共享dist/.astro。无分配只读分析与临时草案。
++- 必须有W10/LP01b“继续”决定、W11已固定且完整质量达标的候选身份，以及W00确认可运行测试的真实Linux环境。明确CPU架构、内核、物理/虚拟机、内存、cgroup限额、磁盘、镜像基底和负载来源。Mac或Mac上的Linux虚拟环境仅能证明所测环境，不能冒充目标Linux主机。
++- 没有真实Linux环境/测试权限、冻结镜像基底、离线权重或固定候选时，先完成只读缺口清单与运行方案，状态blocked；不得购买服务器、修改生产主机或自行绕过授权。
++
++输入（默认只读）：
++- W11候选manifest、质量报告、服务代码/问题定义/模型与依赖字节哈希。
++- services/laya-purpose/{Dockerfile,app.py,questions.json,model.lock.json,requirements.in,requirements.lock,requirements.txt,README.md,probe.py,test_app.py}。
++- W08集成后的发布模式/资源契约与deploy/{release.py,laya-purpose-nginx.conf,README.md}。现有3GB容器、2CPU参数只是旧配置，不是已经通过的容量结论。
++
++允许写入：
++- 新建experiments/laya-lp03/保存Linux专用测量运行器、场景定义、原始采样、分析报告与复现说明。
++- services/laya-purpose/Dockerfile、probe.py、README.md：仅修正必要的可复现构建/探针环境标识问题；不得顺带升级依赖、换模型、调标签或改变分类算法。任何代码/镜像变化重新冻结，并明确是否需W11重验，旧质量报告不能无条件绑定新候选。
++- docs/module-handoffs/<batchId>/W12/。deploy资源参数、全局计划/图/sync/TASK_LOG由W00据结论串行集成，不直接修改；权重/锁文件默认只读。
++
++步骤：
++[ ] 验证W11源代码与权重哈希及W10决定，登记目标环境与可运行范围、负载计划、采样间隔、运行时长和停止条件。不存在的硬件/镜像不能用示例标识填表。
++[ ] 按services/laya-purpose/Dockerfile构建实际Linux amd64镜像。现有可复用命令形态：
++    docker build --platform linux/amd64 --build-arg PYTHON_IMAGE=<已核实Python3.13基础镜像@sha256:digest> services/laya-purpose
++    只使用已获准测试环境与锁定输入，记录基础/最终镜像身份、包清单、构建日志、架构与权重哈希。示例digest不能使用；依赖lock存在不等于build成功；不自动发布/推送镜像到registry。若最终只有本地image ID，明确其边界，生产需要的registry digest仍为缺口。
++[ ] 权重按model.lock.json校验、保持multilingual子目录并只读挂载。使用离线模式、单worker、明确资源限制和本机回环端口；不得运行时下载模型，不暴露探针/指标到公网。启动命令在实验目录记录，不调用真实deploy.sh/release.py activate。
++[ ] 分别测冷启动峰值、热请求、长输入、并发拒绝、断线后仍在运行的推理、重启、真实推理探针和静态站并行访问；/healthz仅说明loaded，需实际调用/api/purpose-suggestion/。检查原始输入没有进入服务/代理日志。
++[ ] 记录宿主机及cgroup峰值、OOM/重启、CPU、请求分子分母、p95/p99和时间序列。标准不降低：热请求端到端p95≤2秒、p99≤5秒；24小时无OOM及持续内存增长；站点/代理/服务一起运行时峰值≤物理内存75%；前端12秒回退另测。没有完成24小时观察就写实际持续时长与not_tested，不能用少量快速请求推断全天稳定。
++[ ] 将资源测量与独立成本表绑定：每月≤人民币100元（域名除外）按当前官方续费价格、税、IPv4、备份与必要流量核算，区分已有费用/试用/首年价。不购买，不许以估算填已确认费用；费用或硬件不可得则标未知。
++[ ] 不达标保留原始失败；给出瓶颈与有限下一步建议。任何加载方式、精度、量化、模型或依赖变更都不能直接沿用质量结论，交W00/W11重新明确范围并复验，不在容量模块偷偷优化。
++[ ] 运行现有契约回归并保存实际环境日志：
++    PYTHONDONTWRITEBYTECODE=1 <候选使用的Python路径> -m unittest discover -s services/laya-purpose -p 'test_*.py' -v
++    node tests/laya-purpose.test.mjs
++    新Linux运行器按其真实CLI执行并记录命令、退出码、硬件/候选身份与开始结束时间。现有probe.py结果内写死local macOS CPU；不得原样把该报告当Linux证据，应在本模块运行器中如实记录或对允许的probe作审查修正。
++[ ] 输出精确候选/镜像/机器身份、原始采样、质量未变/需重验说明、各门槛结果与费用表，供W00/W16绑定。Docker单测/模拟故障不冒充生产真实回滚，Linux测试环境通过不代表生产已部署。
++
++交付：docs/module-handoffs/<batchId>/W12/；按COMMON写handoff.json，moduleId=W12，包含逐文件base/candidate哈希与changeKind、补丁/新增文件及哈希、tests实际命令/退出码/logPath/baselineId、W10/W11/W08证据依赖、sharedFileChanges、limitations、nextActions。由W00串行集成，禁止覆盖其后续新基线。
++
++状态仅ready_for_integration、partial、blocked；缺目标环境或质量前置即blocked，观察/容量/成本未齐为partial，不宣称正式完成或允许启用。W00统一规划图新sync、独立Auditor及最终npm test等验证。禁止commit、push、部署、购买、生产主机/账户变更或联系他人；本地测试许可不扩大为外部行动授权。
++```
+--- a/docs/prompts/2026-09-23-module-build/W13-a1-practice.md
++++ b/docs/prompts/2026-09-23-module-build/W13-a1-practice.md
+@@ -0,0 +1,67 @@
++# W13｜条件式 A1 学习训练
++
++```text
++你负责 VisaLang W13，只实施本文划定的子模块。
++
++主项目：/Users/a1-6/Documents/2.codex/1.visalang.org
++本次任务边界：LC08；由独立学习问题选择一个训练任务，不按周数自动扩展内容。
++
++开始前依次阅读主项目中的 AGENTS.md，以及以下文件：
++- docs/prompts/2026-09-23-module-build/COMMON.md
++- docs/superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md
++- docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md
++- docs/superpowers/plans/2026-09-23-visalang-laya-content-plan.md
++- docs/master-package-2026-09-08/VisaLang-Master-Plan.md
++- docs/master-package-2026-09-08/BACKLOG_STATUS_OVERLAY_2026-09-09.md
++- docs/master-package-2026-09-08/EXECUTION_RECORD.md
++必要时只读查看 docs/planning-map/visalang-overall-build-plan.archify.json；HTML 是派生视图，不能替代文字权威。
++
++工作目录规则：
++- 先找到 W00 分配的 docs/module-handoffs/<batchId>/dispatch.json，核对本窗口 workspacePath、baselineId、允许路径及依赖证据。只在该独立完整 dirty 快照副本内写入；以下所有相对路径均指副本。
++- 禁止写主项目目录，禁止自行从 HEAD 创建 worktree 代替当前完整工作树。没有分配时，只读分析并在系统临时目录准备缺口说明，报告等待分配。
++- 核对副本逐文件哈希与基线；独立 node_modules、dist、.astro、环境与日志，不与其他窗口共用可写构建目录。
++- 以下列表是模块范围上限，实际可写范围以 W00 分配为准；未分配的共享文件只提交需求。已分配的共享数据可在私有副本做最小修改，交付 base/candidate SHA-256 和补丁，由 W00 串行整合。
++- 不改全局治理记录、规划图、history/sync、索引/广告白名单、重定向、package 锁文件或其他窗口文件。不创建提交，不 push、部署、购买、操作账户、自动联系外部人员或写入真实日历。
++
++启动条件：
++必须有可定位的实际学习问题/需求证据、现有资产无法解决的缺口，以及可承担本次复核的语言能力与人员/代理真实身份。W00 分配需记录这些证据和投入上限。条件不满足时只盘点现有资产、列缺口和所需证据，交 partial；A1准备闭环完成或时间推进不自动证明学习训练需求。
++
++具体可写范围（只选本轮任务对应文件，不默认全改）：
++- src/content/guides/goethe-a1-30-day-study-plan.md
++- src/content/guides/goethe-a1-study-plan-working-adults.md
++- src/content/guides/goethe-a1-listening-practice.md
++- src/content/guides/goethe-a1-speaking-topics.md
++- src/content/guides/goethe-a1-writing-practice.md
++- src/pages/zh/guides/goethe-a1-30-day-study-plan.astro
++- W00 分配的必要中文共享记录：src/data/zh-germany-a1.ts、src/data/zh-guide-task-reconciliation.ts
++- tests/germany-a1-cluster.test.js、tests/retained-routes.test.mjs、tests/scheme-3-english-content-quality.test.mjs、tests/scheme-3-chinese-page-sections.test.mjs；若新行为确需独立断言，由 W00 分配新测试路径后增加
++- docs/module-handoffs/<batchId>/W13/
++
++执行步骤：
++[ ] 写清需求来源、实际弱项、已有资产、为何需修改、投入上限与停止条件；优先复用训练材料。
++[ ] 本轮只选择一个任务，做诊断→一组训练→自查→复测的闭环；给明确完成标准和证据，不以文章长度衡量交付。
++[ ] 在职学习任务才增加真实可填的时间预算、漏学/补学调整；不承诺30天达到通过水平。
++[ ] 使用原创或获准使用的材料；考试格式/评分描述需官方一手依据，编辑练习明确不是官方试题。不复制受版权保护试题或伪造官方评分。
++[ ] 记录语言复核的实际人员/代理身份、范围与限制，AI复核不冒充真人教师审核；不能证明听力、发音等能力时明确不能评估。
++[ ] 仅维护现有中文对应页面，不自动翻译所有英文支持页。现有 noindex/ad-free 支持页不提升发布状态。
++[ ] 验证练习可实际填写、复制/打印、自查/复测，移动和键盘可用；不让训练变成保存A1准备记录的前置。
++
++检查命令（副本内，按实际修改选择）：
++npm run build
++node tests/germany-a1-cluster.test.js
++node tests/retained-routes.test.mjs
++node tests/scheme-3-english-content-quality.test.mjs
++node tests/scheme-3-chinese-page-sections.test.mjs
++tests/m4-study-assets.test.mjs 可以只读借鉴任务契约，但它验证B1，不能充当新增A1训练已验证证据。必要的新行为测试应覆盖读者产物，不能镜像实现。
++
++模块专有输出：
++learning-demand-and-scope.md、one-task-practice.md、language-review.md、实际可填产物及浏览器/打印证据。没有真实需求或复核能力就提交条件缺口，不扩展自动评分、语音服务、付费包或新训练平台。
++
++交接与完成定义：
++- 在副本 docs/module-handoffs/<batchId>/W13/ 按 COMMON.md 输出 handoff.json、README.md、candidate.patch、候选逐文件哈希、新增文件和真实测试/来源/截图等证据。只包含本模块相对分配基线的差异，不能把旧 dirty 改动夹带为自己的结果。
++- handoff.json 必须填真实 batchId/moduleId/baselineId、changedFiles 的 baseSha256/candidateSha256/changeKind、tests 的实际 command/exitCode/logPath/候选 baselineId、dependencies、sharedFileChanges、limitations、nextActions；未运行检查填 null 和原因。
++- 只使用 ready_for_integration、partial、blocked 状态。局部产物可完成而 LP/LC 总包仍未完成；不得自称独立审计 PASS、用户收益已证明或维护窗口已关闭。
++- W00 最终统一同步 Master/overlay/执行记录/内容地图/README/TASK_LOG、规划图/history/sync、Vault，完成 Archify 自动及视觉验证、独立 Auditor 和全量 npm test/必要 launch-check。模块交接不豁免这些治理；副本中旧 sync 失效时注明待整合，不修改或绕过治理测试。
++- 最后简述成果、实际检查、未完成证据、共享变更及 W00 下一步。不启动其他模块。
++```
++
+--- a/docs/prompts/2026-09-23-module-build/W14-b1-content.md
++++ b/docs/prompts/2026-09-23-module-build/W14-b1-content.md
+@@ -0,0 +1,87 @@
++# W14｜条件式 B1 内容深化
++
++```text
++你负责 VisaLang W14，只实施本文划定的子模块。
++
++主项目：/Users/a1-6/Documents/2.codex/1.visalang.org
++本次任务边界：LC09–LC11；既有纠错与来源维护持续，深化按 B1 独立需求逐层启动，每批最多一个任务。
++
++开始前依次阅读主项目中的 AGENTS.md，以及以下文件：
++- docs/prompts/2026-09-23-module-build/COMMON.md
++- docs/superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md
++- docs/superpowers/plans/2026-09-23-visalang-laya-overall-plan.md
++- docs/superpowers/plans/2026-09-23-visalang-laya-content-plan.md
++- docs/master-package-2026-09-08/VisaLang-Master-Plan.md
++- docs/master-package-2026-09-08/BACKLOG_STATUS_OVERLAY_2026-09-09.md
++- docs/master-package-2026-09-08/EXECUTION_RECORD.md
++必要时只读查看 docs/planning-map/visalang-overall-build-plan.archify.json；HTML 是派生视图，不能替代文字权威。
++
++工作目录规则：
++- 先找到 W00 分配的 docs/module-handoffs/<batchId>/dispatch.json，核对本窗口 workspacePath、baselineId、允许路径及依赖证据。只在该独立完整 dirty 快照副本内写入；以下所有相对路径均指副本。
++- 禁止写主项目目录，禁止自行从 HEAD 创建 worktree 代替当前完整工作树。没有分配时，只读分析并在系统临时目录准备缺口说明，报告等待分配。
++- 核对副本逐文件哈希与基线；独立 node_modules、dist、.astro、环境与日志，不与其他窗口共用可写构建目录。
++- 以下列表是模块范围上限，实际可写范围以 W00 分配为准；未分配的共享文件只提交需求。已分配的共享数据可在私有副本做最小修改，交付 base/candidate SHA-256 和补丁，由 W00 串行整合。
++- 不改全局治理记录、规划图、history/sync、索引/广告白名单、重定向、package 锁文件或其他窗口文件。不创建提交，不 push、部署、购买、操作账户、自动联系外部人员或写入真实日历。
++
++启动条件：
++既有明确错误与到期来源可先维护；新增/深化必须有 B1 自身可追溯问题或搜索线索、现有缺口、完整来源与维护预算/角色。A1完成、模型识别B1、到了某周都不是触发证据。LC10须LC09选定任务确需比较/准备资产；LC11另须对应产品事实、实际学习问题和语言复核能力。前置不满足只交盘点/缺口记录，不能一次全开三包。
++
++具体可写范围（仅 W00 分配的本批任务）：
++LC09：
++- src/pages/germany-b1-settlement-citizenship.astro
++- src/components/B1RoutePaths.astro
++- src/data/b1-route-claims.ts、src/data/b1-route-paths.ts
++- src/content/guides/goethe-b1-germany-settlement-work.md
++- src/content/guides/germany-b1-citizenship-language-proof.md
++- src/content/guides/germany-b1-leben-in-deutschland-and-language-proof.md
++LC10：
++- src/data/b1-exam-products.ts
++- src/content/guides/goethe-b1-vs-telc-b1.md
++- src/content/guides/goethe-b1-fees-and-booking.md
++- src/content/guides/germany-b1-settlement-citizenship-timeline.md
++- src/content/guides/germany-b1-settlement-citizenship-checklist.md
++LC11：
++- src/content/guides/goethe-b1-study-plan.md
++- src/content/guides/goethe-b1-writing-assessment.md
++- src/content/guides/goethe-b1-speaking-topics.md
++- src/content/guides/goethe-b1-mock-exam-routine.md
++必要共享文件只能由 W00 明确分配后最小改动：
++- src/data/claim-registry.ts、src/data/route-tools.ts、src/data/tool-copy.ts
++- src/pages/tools/exam-comparison.astro、src/pages/zh/tools/exam-comparison.astro、src/components/ExamProductComparisonTable.astro
++测试：
++- tests/m4-b1-routes.test.mjs、tests/fan-43-germany-b1-recheck.test.js、tests/germany-b1-cluster.test.js
++- tests/m4-b1-comparison.test.mjs、tests/m2b-exam-comparison.test.mjs
++- tests/m4-study-assets.test.mjs、tests/retained-routes.test.mjs
++记录：docs/module-handoffs/<batchId>/W14/
++
++执行步骤：
++[ ] 按LC09/10/11分别登记实际启动证据、维护或深化性质、缺口、投入上限与停止条件，选一个任务。
++[ ] 来源维护实际读取正确层级官方资料，记录URL/核验日/定位/责任机关/支持边界/使用位置，不把旧M4核验日刷新为本次实测。
++[ ] 若做LC09：保持四分支及未知分支，语言证明、知识要求、其他条件分开；交付有权机关问询记录，不从“B1”一词推永居或入籍程序。
++[ ] 若做LC10：仅补选定任务所需准确产品差异、本地报价/退改/文书交付工作表或材料版本；未知当地/个案条件保留核验，不把B1导入A1清单。
++[ ] 若做LC11：从真实弱项选一组初稿→修改理由→迁移练习→自查→复测；记录语言复核身份与限制，不扩成自动作文评分或假装官方评判。
++[ ] B1继续verify-only，不创建B1完整Finder/Checklist规则、中文B1 hub、新国家或新路由；共享双语比较实现不能被复制或破坏。
++[ ] 保留合格既有资产、原网址及支持页noindex/ad-free政策，做对应移动/键盘/工作表填写/打印检查。
++
++检查命令（副本内先构建，再仅运行所选层及跨模块回归）：
++npm run build
++node tests/m4-b1-routes.test.mjs
++node tests/fan-43-germany-b1-recheck.test.js
++node tests/germany-b1-cluster.test.js
++node tests/m4-b1-comparison.test.mjs
++node tests/m2b-exam-comparison.test.mjs
++node tests/m4-study-assets.test.mjs
++node tests/retained-routes.test.mjs
++未触及的层无需重复全跑；真实来源变化引起测试旧日期断言需按证据更新，不能移除边界保护。全量集成验证由W00承担。
++
++模块专有输出：
++b1-demand-and-gates.md、selected-task-and-sources.md、所选任务可填资产、actual-review.md；分别写LC09/10/11的实际状态，未知需求不是“没有需求”，不能用本模块一项通过宣称B1全套完成。
++
++交接与完成定义：
++- 在副本 docs/module-handoffs/<batchId>/W14/ 按 COMMON.md 输出 handoff.json、README.md、candidate.patch、候选逐文件哈希、新增文件和真实测试/来源/截图等证据。只包含本模块相对分配基线的差异，不能把旧 dirty 改动夹带为自己的结果。
++- handoff.json 必须填真实 batchId/moduleId/baselineId、changedFiles 的 baseSha256/candidateSha256/changeKind、tests 的实际 command/exitCode/logPath/候选 baselineId、dependencies、sharedFileChanges、limitations、nextActions；未运行检查填 null 和原因。
++- 只使用 ready_for_integration、partial、blocked 状态。局部产物可完成而 LP/LC 总包仍未完成；不得自称独立审计 PASS、用户收益已证明或维护窗口已关闭。
++- W00 最终统一同步 Master/overlay/执行记录/内容地图/README/TASK_LOG、规划图/history/sync、Vault，完成 Archify 自动及视觉验证、独立 Auditor 和全量 npm test/必要 launch-check。模块交接不豁免这些治理；副本中旧 sync 失效时注明待整合，不修改或绕过治理测试。
++- 最后简述成果、实际检查、未完成证据、共享变更及 W00 下一步。不启动其他模块。
++```
++
+--- a/docs/prompts/2026-09-23-module-build/W15-core-journey.md
++++ b/docs/prompts/2026-09-23-module-build/W15-core-journey.md
+@@ -0,0 +1,16 @@
++# W15：A1 核心闭环验收（LP04）
++
++复制下面整个代码块到对应窗口；先满足启动条件。
++
++```text
++项目主目录：/Users/a1-6/Documents/2.codex/1.visalang.org。
++先读 AGENTS.md、docs/prompts/2026-09-23-module-build/COMMON.md、docs/superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md，以及同目录 2026-09-23-visalang-laya-overall-plan.md、2026-09-23-visalang-laya-content-plan.md；核对最新 Master、overlay、执行记录和规划图。以下是本窗口唯一任务，遵守共同约定，不自行启动别的模块。
++你是 W15，验收已集成的A1任务链；不是重写各模块。使用W00专门分配的最新集成候选副本，消费W01实际任务证据、W03/W04，以及W05–07命中的必要缺口交接。
++可写：docs/module-handoffs/<batchId>/W15/ 的任务矩阵/缺陷/实际截图与日志；可新增 tests/lp04-core-journey.test.mjs 针对真实发现的回归，注册tests/site.test.js的变更交W00。产品修复先交原模块，若W00显式转派精确路径才在副本修；不顺带改Laya/广告。
++[ ] 列三任务×EN/ZH×实际支持状态，关联真人“独立完成/需帮助/失败”；缺真人时完成技术准备但LP04保持partial。
++[ ] 在实际页面检查文章直达/手选入口、主管机关、已有证书、未知/不支持、修改前值后旧结果失效、错误恢复、复制/保存；移动尺寸、桌面、键盘焦点与缩放均记录实际浏览器证据。
++[ ] 检查关闭/失败Laya仍能完成手选、无建议自动采用；B1 verify-only不能生成A1完整清单。广告是否就绪不影响本模块门槛。
++[ ] 运行 node tests/m2b-route-finder.test.mjs、node tests/t28-stale-results.test.mjs、node tests/m2b-checklist-export.test.mjs、node tests/m3-chinese-journey.test.mjs；需dist的测试先在本副本npm run build。新增回归绑定确切触发，禁止写只断言实现文本的空转测试。
++[ ] 将严重误导先修复并对同类实际任务复验；最多三项主要问题交W00，不把未验证缺陷以平均分抵消。保存/ICS下载/外部导入分开，未授权真实日历导入仍标未测。
++[ ] 输出lp04-acceptance.md，逐项通过/失败/未测，绑定候选哈希、实际页面/任务和证据。按COMMON交接；真实读者或相关复验未完成保持partial，不能仅凭自动测试给LP04全通过。
++```
+--- a/docs/prompts/2026-09-23-module-build/W16-release-candidates.md
++++ b/docs/prompts/2026-09-23-module-build/W16-release-candidates.md
+@@ -0,0 +1,17 @@
++# W16：分别冻结发布候选（LP06）
++
++复制下面整个代码块到对应窗口；先满足启动条件。
++
++```text
++项目主目录：/Users/a1-6/Documents/2.codex/1.visalang.org。
++先读 AGENTS.md、docs/prompts/2026-09-23-module-build/COMMON.md、docs/superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md，以及同目录 2026-09-23-visalang-laya-overall-plan.md、2026-09-23-visalang-laya-content-plan.md；核对最新 Master、overlay、执行记录和规划图。以下是本窗口唯一任务，遵守共同约定，不自行启动别的模块。
++你是 W16，只准备候选清单与验收证据，不执行发布。W00必须在dispatch中选择core、laya或ads一个目标；未选择先只读梳理三个目标的缺口，不默认联合发布。
++只写所分配副本 docs/module-handoffs/<batchId>/W16/；读取已集成源码、构建/配置身份、前置交接和独审报告。修复返回对应模块，禁止伪造缺少的提交或环境信息。
++[ ] core目标：核对W15/LP04与W08/LP05a全条件、17旧URL/目标主机/TLS/备份与回滚实证、关闭模型与广告的实际构建行为。不要求W02/W10/W11/W12/W09完成。
++[ ] laya目标：核对W10 continue、W11完整质量与LC02/03资产、W12目标Linux容量、W08解耦、已验收core候选；联查同源API/隐私/确认/回退、共存与单独停用回滚。未全部具备就列缺口，不要求广告已启用。
++[ ] ads目标：核对W09真实账户/同意/加载/体验证据与已验收core版本；不要求Laya。不能把账户文案或配置样例作为账户已批准的证据。
++[ ] 每次生成独立candidate.json：组件清单、target、实际branch/HEAD及dirty候选摘要、构建和配置哈希、来源前置、检查记录、回滚计划/已演练范围、未完成项、授权状态。未提交时用HEAD+dirty manifest绑定，绝不造result commit。
++[ ] 将本次完整scope交W00治理冻结和W18独审。报告未生成时只能review_pending；PASS也只表示质量验收。已满足除审核外条件时交ready_for_integration，否则partial/blocked并列出证据差额。
++[ ] 输出下一次外部操作所需具体范围供Owner决定；本任务不commit/push/部署/购买/账户操作，也不把授权pending当成已经上线。实际发布后才将真实时间/版本交W17。
++验证：逐项重算artifact/manifest哈希和依赖报告身份；消费W00当前npm test/launch-check结果而不是旧日志；过期证据必须重验。不要为三个分支再造联合必经门槛。
++```
+--- a/docs/prompts/2026-09-23-module-build/W17-operations.md
++++ b/docs/prompts/2026-09-23-module-build/W17-operations.md
+@@ -0,0 +1,15 @@
++# W17：运营反馈与下一周期（LP07/LP08/LC12）
++
++复制下面整个代码块到对应窗口；先满足启动条件。
++
++```text
++项目主目录：/Users/a1-6/Documents/2.codex/1.visalang.org。
++先读 AGENTS.md、docs/prompts/2026-09-23-module-build/COMMON.md、docs/superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md，以及同目录 2026-09-23-visalang-laya-overall-plan.md、2026-09-23-visalang-laya-content-plan.md；核对最新 Master、overlay、执行记录和规划图。以下是本窗口唯一任务，遵守共同约定，不自行启动别的模块。
++你是 W17，负责观察证据和下一批取舍。仅写分配副本 docs/module-handoffs/<batchId>/W17/；只读 measurement-contract.ts、source-review.ts、routes/guides/exams入口与实际发布/运行记录。不得自行上线埋点、开监控自动化或改外部账户。
++[ ] LC12问题表与来源到期表可立即准备：责任来源、实际最后核验日、变化线索、维护人/产能、未解决任务及关联模块。未重新读来源不得刷新核验日期。
++[ ] LP07仅在对应核心/Laya/广告增量有真实发布版本和时间后，分别记录24小时、第7天及后续4周实际可得数据；尚未发布时仅输出本地观察准备，并标线上结果not_available。不要为了等待未来数据保持工具睡眠或预填结果；需要后续监控由用户另行决定。
++[ ] 只使用获准读取的GSC/服务/纠错记录；当前T27只是契约而无发送器，不能推算真实完成率。指标记录分母、时间窗、采集能力、版本、缺失原因，个人目的描述不入广告/日志。
++[ ] LP08每两周复盘、每月选择维护/试一个任务/暂缓，输出最多三项下一批候选和证据。A1学习、B1、其他国家分别需要自身需求、缺口、来源和维护能力；无数据不等于无需求，也不自动扩内容。
++[ ] 既有53英文/中文资产和17恢复URL按证据维护；恢复索引需要另立范围与明确授权，不能由本模块自动放开。产品修复分派对应窗口，来源事实更新交内容窗口。
++[ ] 输出feedback-register.csv、source-review-queue.csv、next-cycle.md和COMMON handoff，真实记录观察已完成/未到期/缺权限。可用 node tests/t27-measurement-privacy.test.mjs 核对现有采集边界，但不能把该测试当真实运营数据。
++```
+--- a/docs/prompts/2026-09-23-module-build/W18-independent-auditor.md
++++ b/docs/prompts/2026-09-23-module-build/W18-independent-auditor.md
+@@ -0,0 +1,17 @@
++# W18：独立审核窗口
++
++复制下面整个代码块到对应窗口；先满足启动条件。
++
++```text
++项目主目录：/Users/a1-6/Documents/2.codex/1.visalang.org。
++先读 AGENTS.md、docs/prompts/2026-09-23-module-build/COMMON.md、docs/superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md，以及同目录 2026-09-23-visalang-laya-overall-plan.md、2026-09-23-visalang-laya-content-plan.md；核对最新 Master、overlay、执行记录和规划图。以下是本窗口唯一任务，遵守共同约定，不自行启动别的模块。
++你是 VisaLang Independent Auditor，先完整阅读 docs/VISALANG_INDEPENDENT_AUDITOR_AGENT.md。必须没有参与本批规划、研究、实现或修复；若你曾参与本批，请说明失去独立性并让W00分配全新审核者，不自我审核。
++本窗口只读。唯一写入是W00明确分配的新独立报告路径；不改内容、代码、测试、manifest、sync或外部系统。
++[ ] 等待W00实际冻结提交：baseline、完整分类scope/patch/manifest、来源台账、真实测试、规划JSON/HTML/history/sync、四尺寸浏览器与独立图像复核、截图哈希、drift、发布/索引/广告/Vault边界。未齐出BLOCKED，不能补造。
++[ ] 对照各W任务与LP/LC逐项审核；确认旧dirty成果未丢、共享数据正确合并、模块版本/测试/候选哈希一致；图为派生视图，scope精确等于sync.scope.changedPaths。
++[ ] 检查关键场景：无真人不阻塞LP01a但LP00/LP04未假完成；Laya失败不阻塞core自己的合格候选；广告未就绪只阻塞广告；B1无需求不自动深化；本地主机/下载结果不能代替真实Linux/部署/日历导入证据。
++[ ] 对内容按官方责任层级核实所有新增或实质更新高风险事实；日期、地区、产品、受理边界不能混用。对代码检查确认/回退/状态、关闭功能后的网络和探针行为、版本/回滚与测试真实性。
++[ ] 实际打开四张明暗截图逐张检查，核对浏览器/HTML/截图SHA、当前sync历史链；完整sync字节哈希写报告。自动检测不替代视觉判断。
++[ ] 用规范required report shape记录精确scope、P0/P1/P2路径/证据/修复与PASS/FAIL/BLOCKED；无遗留问题才PASS findings:[]。修复后由你审相同范围的更新冻结版；不要复用过期报告。
++[ ] 审核结论与Owner部署授权明确分离；PASS不能替代购买、账户、提交、推送或上线。记录Vault真实状态。报告后由W00运行最终治理及npm test，若前置测试依赖报告，注明该事实且不预先宣称最终suite通过。
++```
+--- a/docs/prompts/2026-09-23-module-build/modules.json
++++ b/docs/prompts/2026-09-23-module-build/modules.json
+@@ -0,0 +1,242 @@
++{
++  "schemaVersion": 1,
++  "kind": "execution-prompt-index-not-task-status",
++  "baselinePlanningSync": "VL-PMAP-20260923-03",
++  "deliverySync": "VL-PMAP-20260923-04",
++  "modules": [
++    {
++      "id": "W00",
++      "prompt": "W00-integration.md",
++      "title": "集成调度与治理",
++      "packages": "全体共用治理",
++      "startCondition": "Owner选定批次",
++      "deliverable": "单写者，先分配隔离副本",
++      "mapNodes": [
++        "authority_map_sync",
++        "drift_gate",
++        "automated_evidence"
++      ],
++      "status": "prompt-ready-only"
++    },
++    {
++      "id": "W01",
++      "prompt": "W01-reader-validation.md",
++      "title": "A1真实读者任务",
++      "packages": "LP00",
++      "startCondition": "可立即准备；真人结果需实际同意读者",
++      "deliverable": "脚本、观察记录、最多三项问题",
++      "mapNodes": [
++        "reader_validation"
++      ],
++      "status": "prompt-ready-only"
++    },
++    {
++      "id": "W02",
++      "prompt": "W02-laya-initial.md",
++      "title": "Laya有限初验",
++      "packages": "LP01a；LC02/03最小整理",
++      "startCondition": "与W01并行，不等真人或手选失败",
++      "deliverable": "旧回归、新小样本、比较及限制",
++      "mapNodes": [
++        "reader_validation"
++      ],
++      "status": "prompt-ready-only"
++    },
++    {
++      "id": "W03",
++      "prompt": "W03-entry-scope.md",
++      "title": "首页与能力入口",
++      "packages": "LC01",
++      "startCondition": "可先核查支持范围/已知缺陷",
++      "deliverable": "三层能力与一致入口",
++      "mapNodes": [
++        "a1_core"
++      ],
++      "status": "prompt-ready-only"
++    },
++    {
++      "id": "W04",
++      "prompt": "W04-authority-certificate.md",
++      "title": "主管机关与已有证书",
++      "packages": "LC04",
++      "startCondition": "可先维护来源/已知缺陷",
++      "deliverable": "机关问询表、证书核验卡、C07判断",
++      "mapNodes": [
++        "a1_core"
++      ],
++      "status": "prompt-ready-only"
++    },
++    {
++      "id": "W05",
++      "prompt": "W05-exam-comparison.md",
++      "title": "考试选择与对比",
++      "packages": "LC05",
++      "startCondition": "W04对应任务/产品事实＋实际比较缺口",
++      "deliverable": "准确产品差异与当地待问表",
++      "mapNodes": [
++        "a1_core"
++      ],
++      "status": "prompt-ready-only"
++    },
++    {
++      "id": "W06",
++      "prompt": "W06-booking.md",
++      "title": "报名与预算",
++      "packages": "LC06",
++      "startCondition": "W05对应任务＋当地来源＋报名缺口",
++      "deliverable": "付款前记录、分币种预算与恢复",
++      "mapNodes": [
++        "a1_core"
++      ],
++      "status": "prompt-ready-only"
++    },
++    {
++      "id": "W07",
++      "prompt": "W07-record-tools.md",
++      "title": "材料、时间与行动记录",
++      "packages": "LC07",
++      "startCondition": "W04/W06相关事实＋材料时间保存缺口",
++      "deliverable": "三类材料、确认/假设、复制与下载",
++      "mapNodes": [
++        "a1_core"
++      ],
++      "status": "prompt-ready-only"
++    },
++    {
++      "id": "W08",
++      "prompt": "W08-core-decoupling.md",
++      "title": "核心站独立运行与发布适配",
++      "packages": "LP05a",
++      "startCondition": "本地实现可先行；真实主机另需环境与授权",
++      "deliverable": "统一功能开关、构建/探针/回滚适配",
++      "mapNodes": [
++        "core_candidate"
++      ],
++      "status": "prompt-ready-only"
++    },
++    {
++      "id": "W09",
++      "prompt": "W09-ads.md",
++      "title": "广告独立验收",
++      "packages": "LP05b",
++      "startCondition": "已集成W08配置；真实账户证据另核",
++      "deliverable": "同意/关闭/加载/体验与账户缺口",
++      "mapNodes": [
++        "ads_gate"
++      ],
++      "status": "prompt-ready-only"
++    },
++    {
++      "id": "W10",
++      "prompt": "W10-laya-decision.md",
++      "title": "Laya继续投入判断",
++      "packages": "LP01b",
++      "startCondition": "W01/W02实际证据；缺失可出证据不足",
++      "deliverable": "continue/pause/insufficient_evidence",
++      "mapNodes": [
++        "laya_gate"
++      ],
++      "status": "prompt-ready-only"
++    },
++    {
++      "id": "W11",
++      "prompt": "W11-laya-quality.md",
++      "title": "Laya完整质量及上线资产",
++      "packages": "LP02；LC02/03完整资产",
++      "startCondition": "W10 continue；先冻结完整协议再优化",
++      "deliverable": "独立评测、有限候选、确认回退与文案",
++      "mapNodes": [
++        "laya_gate"
++      ],
++      "status": "prompt-ready-only"
++    },
++    {
++      "id": "W12",
++      "prompt": "W12-laya-capacity.md",
++      "title": "Laya Linux容量与成本",
++      "packages": "LP03",
++      "startCondition": "W10 continue；正式验收用W11固定候选",
++      "deliverable": "真实Linux资源/24h/预算实证",
++      "mapNodes": [
++        "laya_gate"
++      ],
++      "status": "prompt-ready-only"
++    },
++    {
++      "id": "W13",
++      "prompt": "W13-a1-practice.md",
++      "title": "A1一个训练任务",
++      "packages": "LC08",
++      "startCondition": "独立学习需求＋复核能力",
++      "deliverable": "诊断→练习→自查→复测",
++      "mapNodes": [
++        "operate_expand"
++      ],
++      "status": "prompt-ready-only"
++    },
++    {
++      "id": "W14",
++      "prompt": "W14-b1-content.md",
++      "title": "B1有限内容深化",
++      "packages": "LC09–LC11",
++      "startCondition": "B1独立需求/缺口/来源/维护能力",
++      "deliverable": "先一个任务；LC10/11逐项有条件",
++      "mapNodes": [
++        "b1_gate"
++      ],
++      "status": "prompt-ready-only"
++    },
++    {
++      "id": "W15",
++      "prompt": "W15-core-journey.md",
++      "title": "A1完整任务验收",
++      "packages": "LP04",
++      "startCondition": "W01真实任务＋W03/04＋W05–07必要缺口已集成",
++      "deliverable": "英中/移动/键盘/恢复/保存与复验",
++      "mapNodes": [
++        "a1_core"
++      ],
++      "status": "prompt-ready-only"
++    },
++    {
++      "id": "W16",
++      "prompt": "W16-release-candidates.md",
++      "title": "分别冻结候选",
++      "packages": "LP06-core/laya/ads",
++      "startCondition": "每次选择一个目标，按各自门槛",
++      "deliverable": "候选身份、证据及待授权项",
++      "mapNodes": [
++        "core_candidate",
++        "ads_gate",
++        "laya_gate",
++        "owner_release"
++      ],
++      "status": "prompt-ready-only"
++    },
++    {
++      "id": "W17",
++      "prompt": "W17-operations.md",
++      "title": "反馈与下一周期",
++      "packages": "LP07/LP08；LC12",
++      "startCondition": "问题台账可先建；线上观察须真实发布",
++      "deliverable": "实际反馈、来源队列、最多三项下一批",
++      "mapNodes": [
++        "operate_expand",
++        "b1_gate"
++      ],
++      "status": "prompt-ready-only"
++    },
++    {
++      "id": "W18",
++      "prompt": "W18-independent-auditor.md",
++      "title": "独立审计",
++      "packages": "所有候选的独立审核",
++      "startCondition": "没有参与本批工作＋W00完整冻结提交",
++      "deliverable": "PASS/FAIL/BLOCKED及精确字节绑定",
++      "mapNodes": [
++        "independent_audit"
++      ],
++      "status": "prompt-ready-only"
++    }
++  ]
++}
+--- a/docs/superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md
++++ b/docs/superpowers/plans/2026-09-23-visalang-module-dispatch-plan.md
+@@ -0,0 +1,77 @@
++# VisaLang 多窗口模块建设 Implementation Plan
++
++> **For agentic workers:** 执行方式已由Owner指定为不同窗口分工。窗口内可按需使用 superpowers:subagent-driven-development 或 superpowers:executing-plans 逐项执行，不自动创建用户任务。按复选步骤工作；本轮只交付提示词，不启动功能建设。
++
++**Goal:** 将已批准的A1读者任务与Laya初验并行规划，转换成可独立派发、可验证、可串行集成的功能模块提示词。
++
++**Architecture:** 17个功能窗口在W00分配的当前工作树独立快照中工作，交付带基准与候选哈希的补丁/证据；W00在主目录串行集成并完成治理，W18独立审核。窗口划分不改变现有产品架构或LP/LC门槛。
++
++**Tech Stack:** 当前Astro/TypeScript静态站、Markdown内容、Node断言、既有Python Laya服务、Archify规划图。
++
++**Spec:** [全站规划](2026-09-23-visalang-laya-overall-plan.md)；[内容规划](2026-09-23-visalang-laya-content-plan.md)；[提示词入口](../../prompts/2026-09-23-module-build/README.md)。Owner当前要求“按照规划、规划图，切分每个功能模块，写提示词，分别给不同窗口完成子模块建设”。本轮授权为提示词/规划同步；未来发到窗口的具体任务才按其边界执行。
++
++## Global Constraints
++
++- 德国A1优先；现有EN/ZH、原网址、月服务器预算≤100元（域名除外）；不自动扩大索引、14页EN广告白名单或已配置路线。
++- LP00与LP01a并行；LP01b汇总真实读者和初验后才决定更大投入；核心不等待模型/广告；LP04自己的真人与LP05a目标环境条件保留。
++- 全站规划第5节质量/容量完整协议不变；B1与学习深化独立需求驱动；旧任务25完成/5进行中/4待开始不因提示词交付改变。
++- 不自动commit/push/部署/购买/账户变更/招募联系。用户已有明确授权不重复索取；未授权外部动作保留待办。
++- 共同规则和交接字段完整定义在 [COMMON.md](../../prompts/2026-09-23-module-build/COMMON.md)，每个窗口必须读取；主目录唯一写入者W00，审核者独立只读。
++
++## Review Focus
++
++- 当前dirty成果遗漏：W00从工作树冻结而非HEAD，逐文件校验副本；验收snapshot与基线哈希一致。
++- 共享事实/中英文工具互相覆盖：W00串行合并base/candidate补丁，W03–07及W11交接口差异；对冲突涉及任务重跑契约。
++- 初验被当生产或真人证据：W02分开旧/新样本，W10真人缺失必须证据不足，W11/12继承完整门槛。
++- 关闭模型/广告仅隐藏UI：W08实际检查构建、请求、健康探针与回滚，W09/16消费同一版本契约，不造第二套开关。
++- 文档/代码通过误记为业务完成：W01/15保留真人缺口、W12保留Linux缺口、W16分支验收、W17只用真实上线时间和可得数据。
++
++## 文件与窗口契约
++
++本计划只创建docs/prompts中的可重复执行指令，不修改产品API或数据类型。未来模块允许文件是最小候选范围，不是全量改写要求。W08若需新开关模块，先冻结接口由W00分配给依赖者；其他窗口不能预设尚未实现的API。现有共享route/tool/claim事实应复用，契约变化要列影响并复验。
++
++| 窗口 | 规划包 | 对应图节点 | 输入/启动 | 输出 |
++|---|---|---|---|---|
++| [W00 集成调度与治理](../../prompts/2026-09-23-module-build/W00-integration.md) | 全体共用治理 | authority_map_sync, drift_gate, automated_evidence | Owner选定批次 | 单写者，先分配隔离副本 |
++| [W01 A1真实读者任务](../../prompts/2026-09-23-module-build/W01-reader-validation.md) | LP00 | reader_validation | 可立即准备；真人结果需实际同意读者 | 脚本、观察记录、最多三项问题 |
++| [W02 Laya有限初验](../../prompts/2026-09-23-module-build/W02-laya-initial.md) | LP01a；LC02/03最小整理 | reader_validation | 与W01并行，不等真人或手选失败 | 旧回归、新小样本、比较及限制 |
++| [W03 首页与能力入口](../../prompts/2026-09-23-module-build/W03-entry-scope.md) | LC01 | a1_core | 可先核查支持范围/已知缺陷 | 三层能力与一致入口 |
++| [W04 主管机关与已有证书](../../prompts/2026-09-23-module-build/W04-authority-certificate.md) | LC04 | a1_core | 可先维护来源/已知缺陷 | 机关问询表、证书核验卡、C07判断 |
++| [W05 考试选择与对比](../../prompts/2026-09-23-module-build/W05-exam-comparison.md) | LC05 | a1_core | W04对应任务/产品事实＋实际比较缺口 | 准确产品差异与当地待问表 |
++| [W06 报名与预算](../../prompts/2026-09-23-module-build/W06-booking.md) | LC06 | a1_core | W05对应任务＋当地来源＋报名缺口 | 付款前记录、分币种预算与恢复 |
++| [W07 材料、时间与行动记录](../../prompts/2026-09-23-module-build/W07-record-tools.md) | LC07 | a1_core | W04/W06相关事实＋材料时间保存缺口 | 三类材料、确认/假设、复制与下载 |
++| [W08 核心站独立运行与发布适配](../../prompts/2026-09-23-module-build/W08-core-decoupling.md) | LP05a | core_candidate | 本地实现可先行；真实主机另需环境与授权 | 统一功能开关、构建/探针/回滚适配 |
++| [W09 广告独立验收](../../prompts/2026-09-23-module-build/W09-ads.md) | LP05b | ads_gate | 已集成W08配置；真实账户证据另核 | 同意/关闭/加载/体验与账户缺口 |
++| [W10 Laya继续投入判断](../../prompts/2026-09-23-module-build/W10-laya-decision.md) | LP01b | laya_gate | W01/W02实际证据；缺失可出证据不足 | continue/pause/insufficient_evidence |
++| [W11 Laya完整质量及上线资产](../../prompts/2026-09-23-module-build/W11-laya-quality.md) | LP02；LC02/03完整资产 | laya_gate | W10 continue；先冻结完整协议再优化 | 独立评测、有限候选、确认回退与文案 |
++| [W12 Laya Linux容量与成本](../../prompts/2026-09-23-module-build/W12-laya-capacity.md) | LP03 | laya_gate | W10 continue；正式验收用W11固定候选 | 真实Linux资源/24h/预算实证 |
++| [W13 A1一个训练任务](../../prompts/2026-09-23-module-build/W13-a1-practice.md) | LC08 | operate_expand | 独立学习需求＋复核能力 | 诊断→练习→自查→复测 |
++| [W14 B1有限内容深化](../../prompts/2026-09-23-module-build/W14-b1-content.md) | LC09–LC11 | b1_gate | B1独立需求/缺口/来源/维护能力 | 先一个任务；LC10/11逐项有条件 |
++| [W15 A1完整任务验收](../../prompts/2026-09-23-module-build/W15-core-journey.md) | LP04 | a1_core | W01真实任务＋W03/04＋W05–07必要缺口已集成 | 英中/移动/键盘/恢复/保存与复验 |
++| [W16 分别冻结候选](../../prompts/2026-09-23-module-build/W16-release-candidates.md) | LP06-core/laya/ads | core_candidate, ads_gate, laya_gate, owner_release | 每次选择一个目标，按各自门槛 | 候选身份、证据及待授权项 |
++| [W17 反馈与下一周期](../../prompts/2026-09-23-module-build/W17-operations.md) | LP07/LP08；LC12 | operate_expand, b1_gate | 问题台账可先建；线上观察须真实发布 | 实际反馈、来源队列、最多三项下一批 |
++| [W18 独立审计](../../prompts/2026-09-23-module-build/W18-independent-auditor.md) | 所有候选的独立审核 | independent_audit | 没有参与本批工作＋W00完整冻结提交 | PASS/FAIL/BLOCKED及精确字节绑定 |
++
++## 派发顺序
++
++- [ ] W00先冻结当前工作树、创建独立候选与dispatch.json，提供每窗口可读的分配记录。
++- [ ] 第一批W01、W02、W08并行；研究准备、有限技术初验、核心独立运行适配可以各自推进。W03/04可按产能加入或接续。
++- [ ] W05/06/07只处理W01或现有检查确实发现的缺口，依赖的是对应任务事实，不要求相邻模块每个页面都重做。既有合格资产可作为已核对输入，由W00登记证据。
++- [ ] W10在两类当前证据可定位后给继续/暂停/证据不足；仅继续才启动W11完整规范/优化，W12正式容量验收用W11固定候选。W09待W08统一关闭/启用契约集成后开展。
++- [ ] W15验收核心闭环；W16按core、laya、ads各自前置分别准备候选，不要求三者同批就绪。每个候选都经过W00治理和W18独审，外部启用另有授权。
++- [ ] W13/14在各自需求/来源/复核能力具备后选一个任务深化，既有纠错维护继续。W17问题台账可先行；线上观测从各增量实际发布时间分别计算。
++
++## 一个集成维护窗口如何完成
++
++模块提交可审局部成果并不关闭维护窗口。W00完成范围核对、共享文件合并、当前权威与状态记录、唯一规划图sync/history/全部hash、Archify9项与四尺寸/四图视觉、Vault真实记录、独立审核及最终npm test。页面/导航/元数据/部署面对变化还必须launch-check。若缺真人或真实环境，只能交付明确范围的本地成果，LP整体仍partial/pending，不能为了收口改验收定义。
++
++全部19个提示词采用同一交接协议，含依赖、允许路径、具体步骤、测试/证据、不能自动通过的条件。不把治理节点拆成相互修改同一sync的窗口。W18审核范围严格等于当批冻结manifest；任何修复改变字节都需相应证据和复审。
++
++## 本轮提示词交付验收
++
++- [ ] 全部LP/LC可映射到W窗口，19个文件均可单独复制且指向共同规则；所有引用路径实际存在或明确标为拟建。
++- [ ] 没有跳过LP00真人、LP01b证据、LP05a实际解耦或独立发布/审核的条件。
++- [ ] 本轮仅文档与图状态更新，保持12主节点及全部箭头/必经路径；原实施状态不变。
++- [ ] 新sync `VL-PMAP-20260923-04`，独立报告 `docs/planning-map/VISALANG_MODULE_PROMPTS_INDEPENDENT_AUDIT_2026-09-23.md` 是本轮审核权威；脚本与视觉结果按实际证据记录。
++
++Obsidian目录/模板如仍缺失，保留本地待同步记录并明确blocked。本轮不创建或运行上述子模块，不把prompt-ready计为LP/LC完成。
+--- a/docs/planning-map/visalang-overall-build-plan.archify.json
++++ b/docs/planning-map/visalang-overall-build-plan.archify.json
+@@ -290,9 +290,9 @@
+       "title": "当前真实状态",
+       "items": [
+         "25 完成／5 进行中／4 待开始",
+-        "新 LP／LC 均待实施；产品代码未改",
+-        "同步：VL-PMAP-20260923-03",
+-        "指纹：5bd46c77 fb8b3648 be1e2604 6170a6d2 a3b1d20c 4fa4413b 34af90d2 56c1dbf6"
++        "分窗提示词已备；LP／LC 均待实施",
++        "同步：VL-PMAP-20260923-04",
++        "指纹：66b2a2a1 a7b56fce 2483d2e7 e2ddc49c c8e0de37 badb75d9 84127064 a7afc0bb"
+       ]
+     },
+     {
+@@ -312,7 +312,7 @@
+         "当前联合脚本尚未完成部署解耦",
+         "各次发布均需独立审核＋Owner 授权",
+         "原网址、预算、索引与广告范围保留",
+-        "本轮只修订规划；not_deployed"
++        "独立副本工作；串行集成与治理"
+       ]
+     }
+   ]

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "VL-PMAP-20260923-04-visual-r1",
+  "reviewedAt": "2026-09-23T04:10:42+00:00",
+  "reviewerCapability": "image-capable-agent",
+  "status": "passed",
+  "artifact": {
+    "path": "docs/planning-map/visalang-overall-build-plan.html",
+    "sha256": "2b5f1f9b0b960160121fb8edd4008700fa60d46f836756068d2566990394fdc7"
+  },
+  "browserEvidence": {
+    "path": "docs/planning-map/visalang-overall-build-plan.visual-check.json",
+    "sha256": "366407a630ee8fd67a5f9aa1c9f40f1a9519688d27fbab92696f7e0c5ff7a6ee"
+  },
+  "screenshots": [
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.1440x900.dark.png",
+      "sha256": "d45892f048a5d4f97da3fb692afa01f04b02d713ac758fc82db52bd7f19f0999",
+      "width": 1440,
+      "height": 900,
+      "theme": "dark"
+    },
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.1440x900.light.png",
+      "sha256": "ea46d41af17bdfa8de3671251bffa0f68a9de1513bbc0925578452fe2002a3d2",
+      "width": 1440,
+      "height": 900,
+      "theme": "light"
+    },
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.2048x1320.dark.png",
+      "sha256": "0859f40ba37f5bae40fbfefbd73112cb9674af1d68c0f5eac1ab6d675d3cdf23",
+      "width": 2048,
+      "height": 1320,
+      "theme": "dark"
+    },
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.2048x1320.light.png",
+      "sha256": "bdf986c7f9c461d0686927e9331539a34c8c3e2782192c58cd4409b03ab4db18",
+      "width": 2048,
+      "height": 1320,
+      "theme": "light"
+    }
+  ],
+  "findings": [],
+  "correctionRounds": 0,
+  "notes": "Root image-capable agent independently opened each of the four current 1440x900 and 2048x1320 light/dark PNGs. Same 12-node topology and semantic edges remain legible; no clipped labels, unrelated crossings or obscuring controls. New prompt-ready/pending status, serial-integration note, unique sync ID and full wrapped digest are visible. The large desktop composition is balanced and all required content remains contained. Automated four-viewport containment is separately bound to the canonical browser receipt. No corrections after delivery."
+}

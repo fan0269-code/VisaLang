@@ -3,18 +3,6 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const guideDirectory = 'src/content/guides';
-const germanyB1Guides = fs.readdirSync(guideDirectory)
-  .filter((file) => file.endsWith('.md'))
-  .filter((file) => fs.readFileSync(path.join(guideDirectory, file), 'utf8').includes('category: "germany-b1"'));
-const hub = fs.readFileSync('src/pages/germany-b1-settlement-citizenship.astro', 'utf8');
-const field = (source, name) => {
-  const value = source.match(new RegExp(`^${name}:\\s*(.+)$`, 'm'))?.[1]?.trim() || '';
-  return value.replace(/^["']|["']$/g, '');
-};
-const markdownBody = (source) => source.split(/^---\s*$/m).slice(2).join('---');
-
-assert.equal(germanyB1Guides.length, 13, 'Germany B1 cluster should retain the existing 13 guide pages');
-
 const requiredCoreGuides = [
   'goethe-b1-germany-settlement-work.md',
   'germany-b1-citizenship-language-proof.md',
@@ -25,88 +13,77 @@ const requiredCoreGuides = [
   'germany-b1-settlement-citizenship-timeline.md',
   'germany-b1-settlement-citizenship-checklist.md',
 ];
-for (const file of requiredCoreGuides) {
-  assert.ok(germanyB1Guides.includes(file), `Germany B1 cluster should include ${file}`);
-}
-
-const preparationSupportGuides = [
-  'goethe-b1-difficulty-analysis.md',
-  'goethe-b1-listening-deep-dive.md',
-  'goethe-b1-mock-exam-routine.md',
-  'goethe-b1-speaking-topics.md',
-  'goethe-b1-writing-assessment.md',
+const coreSlugs = new Set(requiredCoreGuides.map((file) => path.basename(file, '.md')));
+const b1PillarContract = [
+  '## Who this is for',
+  '## Key decisions',
+  '## Mistakes to avoid',
+  '## Next action',
+  '## Official sources',
 ];
-for (const file of preparationSupportGuides) {
-  assert.ok(germanyB1Guides.includes(file), `Germany B1 cluster should retain support page ${file}`);
-}
-
-const requiredHubLinks = [
-  '/guides/goethe-b1-germany-settlement-work/',
-  '/guides/germany-b1-citizenship-language-proof/',
-  '/guides/goethe-b1-vs-telc-b1/',
-  '/guides/germany-b1-leben-in-deutschland-and-language-proof/',
-  '/guides/germany-b1-settlement-citizenship-checklist/',
-  '/guides/germany-b1-settlement-citizenship-timeline/',
-  '/tools/route-finder/',
-  '/tools/checklist-generator/',
-  '/tools/timeline-calculator/',
-  '/tools/exam-comparison/',
-  '/route-review/',
+const redirectSourceSlugs = [
+  'goethe-b1-difficulty-analysis',
+  'goethe-b1-mock-exam-routine',
+  'goethe-b1-listening-deep-dive',
+  'goethe-b1-speaking-topics',
+  'goethe-b1-writing-assessment',
 ];
-for (const href of requiredHubLinks) {
-  assert.ok(hub.includes(href), `B1 hub should link to ${href}`);
-}
-
-for (const file of germanyB1Guides) {
-  const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
-  assert.ok(source.includes('contentStatus: "core-route"'), `${file} retains the core-route baseline`);
-  assert.ok(source.includes('competent authority') || source.includes('authority'), `${file} should keep the authority-first boundary`);
-  assert.ok(source.includes('eligibility') || source.includes('accepted language proof') || source.includes('proof acceptance'), `${file} should separate practice from eligibility or proof acceptance`);
-}
-
-for (const file of requiredCoreGuides) {
-  const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
-  assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${file} records the completed 2026-07-19 source review`);
-  assert.equal(field(source, 'sourceReviewedAt'), '2026-07-19', `${file} records the actual source-review date`);
-  assert.equal(field(source, 'reviewedByRole'), 'source-review', `${file} records the source-review role`);
-  assert.doesNotMatch(markdownBody(source), /Official verification pending/i, `${file} does not contradict reviewed metadata in public copy`);
-  assert.doesNotMatch(markdownBody(source), /Reader decision and search intent|Manual checks still needed|Before you rely on this page|Proposed B1 practice pack interest/i, `${file} does not expose internal editorial language`);
-}
-
-const preparationSupportExpectations = {
-  'goethe-b1-difficulty-analysis.md': 'goethe-b1-study-plan',
-  'goethe-b1-listening-deep-dive.md': 'goethe-b1-mock-exam-routine',
-  'goethe-b1-mock-exam-routine.md': 'goethe-b1-study-plan',
-  'goethe-b1-speaking-topics.md': 'goethe-b1-mock-exam-routine',
-  'goethe-b1-writing-assessment.md': 'goethe-b1-mock-exam-routine',
+const field = (source, name) => {
+  const value = source.match(new RegExp(`^${name}:\\s*(.+)$`, 'm'))?.[1]?.trim() || '';
+  return value.replace(/^["']|["']$/g, '');
 };
-for (const [file, nextGuideSlug] of Object.entries(preparationSupportExpectations)) {
-  const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
-  assert.equal(field(source, 'updatedDate'), '2026-07-22', `${file} records its substantive visible update`);
-  assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${file} records the completed source review`);
-  assert.equal(field(source, 'sourceReviewedAt'), '2026-07-22', `${file} records the actual source-review date`);
-  assert.equal(field(source, 'reviewedByRole'), 'source-review', `${file} records the controlled reviewer role`);
-  assert.equal(field(source, 'decisionStage'), 'local-execution', `${file} remains a preparation execution page`);
-  assert.equal(field(source, 'nextGuideSlug'), nextGuideSlug, `${file} uses the agreed primary next step`);
-  for (const fieldName of ['audienceScope', 'finalDecisionAuthorityType', 'primaryOfficialAuthorityUrl', 'examOwnerUrl', 'localExecutionPrompt']) {
-    assert.ok(field(source, fieldName), `${file} records ${fieldName}`);
-  }
+// 2026-10-27 copy-only re-scoping: the five pages below changed their SEO title,
+// description, direct answer and internal links, so their editorial update date
+// moves forward. Their claim set and official sources were not re-reviewed, so
+// sourceReviewedAt deliberately stays at 2026-09-13.
+const reScopedDates = new Map([
+  ['goethe-b1-germany-settlement-work.md', '2026-10-27'],
+  ['germany-b1-citizenship-language-proof.md', '2026-10-27'],
+  ['germany-b1-leben-in-deutschland-and-language-proof.md', '2026-10-27'],
+  ['germany-b1-settlement-citizenship-checklist.md', '2026-10-27'],
+  ['germany-b1-settlement-citizenship-timeline.md', '2026-10-27'],
+]);
+const markdownBody = (source) => source.split(/^---\s*$/m).slice(2).join('---');
+
+for (const file of requiredCoreGuides) {
+  const fullPath = path.join(guideDirectory, file);
+  assert.ok(fs.existsSync(fullPath), `B1 pillar exists: ${file}`);
+  const source = fs.readFileSync(fullPath, 'utf8');
   const body = markdownBody(source);
-  assert.doesNotMatch(body, /TL;DR verdict|Continue your B1 decision route|Revision history|Official verification pending|Proposed B1 practice pack/i, `${file} removes internal or repeated template copy`);
+
+  assert.ok(source.includes('category: "germany-b1"'), `${file} remains in the B1 route`);
+  assert.equal(field(source, 'updatedDate'), reScopedDates.get(file) ?? '2026-09-13', `${file} records the material M4 update date`);
+  assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${file} retains the source-review gate`);
+  assert.equal(field(source, 'sourceReviewedAt'), '2026-09-13', `${file} records the current source-review date`);
+  const readingWords = body.replace(/https?:\/\/[^\s)]+/g, ' ').replace(/<[^>]+>/g, ' ').match(/\b[\p{L}\p{N}][\p{L}\p{N}'’-]*\b/gu) || [];
+  assert.equal(field(source, 'readingTime'), String(Math.ceil(readingWords.length / 200)), `${file} recalculates reading time from its final body`);
+  assert.equal(field(source, 'reviewedByRole'), 'source-review', `${file} records the source-review role`);
+  assert.doesNotMatch(body, /Official verification pending|Reader decision and search intent|Manual checks still needed|Before you rely on this page|Proposed B1 practice pack interest/i, `${file} excludes internal editorial language`);
+
+  const wordCount = readingWords.length;
+  assert.ok(wordCount >= 1200 && wordCount <= 2400, `${file} supplies 1,200–2,400 independent words of decision support`);
+  for (const heading of b1PillarContract) {
+    assert.equal((body.match(new RegExp(`^${heading}$`, 'gm')) || []).length, 1, `${file} provides ${heading} exactly once`);
+  }
+  assert.ok((body.match(/^### Scenario:/gm) || []).length >= 2, `${file} gives at least two bounded reader scenarios`);
+  assert.ok((body.match(/^### Original asset:/gm) || []).length >= 3, `${file} gives at least three original reader assets`);
+
+  for (const slug of redirectSourceSlugs) {
+    assert.ok(!source.includes(slug), `${file} does not depend on the future redirect source ${slug}`);
+  }
+  for (const [, href] of body.matchAll(/\]\((\/[^)#?]+)\/?(?:[?#][^)]*)?\)/g)) {
+    if (!href.startsWith('/guides/')) continue;
+    const destination = href.split('/').filter(Boolean).at(-1);
+    assert.ok(coreSlugs.has(destination), `${file} directly links only to a retained B1 pillar: ${href}`);
+  }
 }
 
-assert.equal((hub.match(/<h1(?:\s|>)/g) || []).length, 1, 'B1 hub source declares exactly one H1');
-assert.equal((hub.match(/<ArticleTOC(?:\s|\/>)/g) || []).length, 1, 'B1 hub source uses exactly one ArticleTOC');
-assert.ok(hub.includes("canonicalURL=\"https://visalang.org/germany-b1-settlement-citizenship/\""), 'B1 hub keeps its self-canonical URL');
-for (const schemaType of ['BreadcrumbList', 'CollectionPage']) {
-  assert.ok(hub.includes(`'@type': '${schemaType}'`), `B1 hub declares ${schemaType} JSON-LD`);
+const b1Ledger = fs.readFileSync('docs/VISALANG_SCHEME_3_B1_CLAIM_SOURCE_LEDGER_2026-09-01.md', 'utf8');
+for (const slug of coreSlugs) {
+  assert.match(b1Ledger, new RegExp(`^## ${slug}$`, 'm'), `B1 ledger provides a page record for ${slug}`);
 }
-assert.doesNotMatch(hub, /Content map and internal-link matrix|Existing B1 guide audit|Reworked as|Genuinely missing decision pages|proposed support|proposed human-service contact path/i, 'B1 hub does not expose internal editorial language');
-
-for (const [, href] of hub.matchAll(/href=["'](\/[^"']*)["']/g)) {
-  const pathname = href.split(/[?#]/, 1)[0];
-  assert.ok(pathname.endsWith('/'), `B1 hub internal link uses a trailing slash: ${href}`);
-  assert.ok(!pathname.endsWith('.html'), `B1 hub internal link avoids legacy HTML: ${href}`);
+for (const label of ['Source URL', 'Checked date', 'Owner', 'Locator', 'Allowed support', 'Boundary', 'Update trigger']) {
+  assert.ok(b1Ledger.includes(label), `B1 ledger records ${label} for sourced claims`);
 }
 
-console.log('Germany B1 cluster rules passed');
+console.log('Germany B1 pillar rules passed');

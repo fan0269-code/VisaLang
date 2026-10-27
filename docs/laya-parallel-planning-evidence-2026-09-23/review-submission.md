@@ -1,0 +1,9 @@
+# Independent audit submission — parallel early validation, sync 03
+
+Review only this planning revision using `docs/VISALANG_INDEPENDENT_AUDITOR_AGENT.md`. You must not have planned/researched/implemented this submitted scope. Root and strategy_challenge authored it. Exact scope is candidate-manifest.json and must equal sync.scope.changedPaths. Bind complete sync bytes; write only `docs/planning-map/VISALANG_LAYA_PARALLEL_PLANNING_INDEPENDENT_AUDIT_2026-09-23.md`.
+
+Read acceptance.md for Owner authorization, scope and actual verification boundaries; baseline.json/status for the dirty checkout; before/ for exact previous bytes and reports; task-delta.patch for this window. Inspect all four exact screenshots and hashes independently. Recalculate all source/artifact/history/sync/manifest bindings. Current original task states, source dates, implementation files and historical records must be preserved.
+
+Key decisions to audit: LP01a can run without LP00 completion/recruitment/manual-selection failure; LP01b, not initial checks, requires the two evidence streams before larger investment; early minimal LC02/03 materials cannot depend on complete conditional LC assets; old samples/new samples/human evidence are separated; no initial result substitutes for full quality/capacity gates; the combined initial node and outgoing core label cannot make core depend on Laya. Ads/B1 and pending actual deployment decoupling remain unchanged.
+
+All LP/LC remain pending, no test/recruitment result is invented. Vault path/template absence leaves an unsynced review payload. Pre-audit governance should fail only at the missing new report. Root runs final npm test after the independent report is present; do not run concurrently. A PASS approves this frozen planning scope only, not deployment or future experiments.

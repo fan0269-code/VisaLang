@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "baselineId": "b7a9fddd658d95279e05127f32e2ec2cddec7fa8e90c2e254f55df89ff1942b5",
+  "sourceVerifiedUnchangedAtCapture": true,
+  "copies": [
+    {
+      "workspace": "baseline",
+      "workspacePath": "/private/tmp/visalang-W00-2026-09-25-01/baseline",
+      "matchedFiles": 1362,
+      "bytes": 67543677,
+      "aggregateSha256": "b7a9fddd658d95279e05127f32e2ec2cddec7fa8e90c2e254f55df89ff1942b5",
+      "verificationPath": "docs/module-handoffs/2026-09-25-01/baseline-byte-verification.json"
+    },
+    {
+      "workspace": "W07",
+      "workspacePath": "/private/tmp/visalang-W00-2026-09-25-01/W07",
+      "matchedFiles": 1362,
+      "bytes": 67543677,
+      "aggregateSha256": "b7a9fddd658d95279e05127f32e2ec2cddec7fa8e90c2e254f55df89ff1942b5",
+      "verificationPath": "docs/module-handoffs/2026-09-25-01/W07-byte-verification.json"
+    }
+  ],
+  "deletedPaths": [],
+  "excludedCredentialsRead": false,
+  "hardLinksOrSharedWritableDependencies": false,
+  "nodeModulesCopy": "copied with symlinks preserved; independent writable candidate copy"
+}

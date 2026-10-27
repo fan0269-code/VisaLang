@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "VL-PMAP-20260924-01-visual-r1",
+  "reviewedAt": "2026-09-24T05:20:04+00:00",
+  "reviewerCapability": "image-capable-agent",
+  "status": "passed",
+  "artifact": {
+    "path": "docs/planning-map/visalang-overall-build-plan.html",
+    "sha256": "7e0d322e8899dc6267c427335f3d63f55e0adf465b72c6c1b933c1c71b029938"
+  },
+  "browserEvidence": {
+    "path": "docs/planning-map/visalang-overall-build-plan.visual-check.json",
+    "sha256": "4e073c15addcd46d2ab7fd55f720de8d99b3d20f6a7b8dad9bfc40f2c63b593e"
+  },
+  "screenshots": [
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.1440x900.dark.png",
+      "sha256": "9697bc9eae27ec8543e67a1ae37556d08224476ddd03f36ed434f3acbc12dc50",
+      "width": 1440,
+      "height": 900,
+      "theme": "dark"
+    },
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.1440x900.light.png",
+      "sha256": "341c9865346d0cf301c363c3eba7f9ceba30a994200f21262680167958bc0019",
+      "width": 1440,
+      "height": 900,
+      "theme": "light"
+    },
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.2048x1320.dark.png",
+      "sha256": "8fefaae54fee4f2727081b106236e483c207868434b9a4048148aa158e75cdce",
+      "width": 2048,
+      "height": 1320,
+      "theme": "dark"
+    },
+    {
+      "path": "docs/planning-map/visalang-overall-build-plan.visual-check.2048x1320.light.png",
+      "sha256": "c3cc2d71627bca26de6e1e0559eab6b8735fa6b5b3b4682365c8eb605e347b5f",
+      "width": 2048,
+      "height": 1320,
+      "theme": "light"
+    }
+  ],
+  "findings": [],
+  "correctionRounds": 0,
+  "notes": "Root inspected all four exact generated PNGs using view_image: 1440x900 and 2048x1320, light and dark. Status states TypeSafe standards/proposal, not integrated. Sync ID and full wrapped digest visible; all nodes, labels, connectors, three cards and controls contained without clipping or collisions. Topology unchanged. Automated four-size containment is distinct from this image-capable review. Initial sandbox Chrome SIGABRT preserved; browser-capable retry passed."
+}

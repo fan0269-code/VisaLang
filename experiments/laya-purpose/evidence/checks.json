@@ -1,0 +1,29 @@
+{
+  "npm_test": {
+    "exit": 0,
+    "log": "npm-test.log"
+  },
+  "planning_governance": {
+    "exit": 0,
+    "log": "planning-governance.log"
+  },
+  "experiment_verify": {
+    "exit": 0,
+    "log": "verification.log"
+  },
+  "interactive": {
+    "exit": 0,
+    "one_ready": true,
+    "two_invalid_inputs_rejected": true,
+    "two_subsequent_inputs_correct": true
+  },
+  "evaluation": {
+    "exit": 0,
+    "rows": 28
+  },
+  "diff_check": {
+    "exit": 0
+  },
+  "build": "not_run: no site or deployment-facing changes",
+  "launch_check": "not_run: no route, navigation, metadata or deployment-facing changes"
+}

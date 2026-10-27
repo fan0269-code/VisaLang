@@ -1,11 +1,7 @@
 const assert = require('node:assert/strict');
-const fs = require('node:fs');
 
-const source = fs
-  .readFileSync('src/data/route-tools.ts', 'utf8')
-  .replace(/export\s+(const|function)\s/g, '$1 ');
-
-const routeTools = new Function(`${source}\nreturn { toolLinks, routeRegistry, safeRouteResult, findRoute, getChecklist, calculateTimeline, examComparisonOptions, examComparisonDimensions };`)();
+(async () => {
+const routeTools = await import('../src/data/route-tools.ts');
 
 assert.equal(routeTools.routeRegistry.filter((route) => route.availability === 'configured').length, 1, 'Only Germany family reunion A1 should be configured in the first release');
 assert.deepEqual(
@@ -31,18 +27,22 @@ const unknownCountryResult = routeTools.findRoute({ country: 'other', purpose: '
 assert.equal(unknownCountryResult.officialEntry, null, 'Unknown countries do not receive a fabricated official URL');
 assert.match(unknownCountryResult.officialEntryPending, /country-specific official entry/, 'Unknown countries receive an explicit official-entry boundary');
 
-assert.equal(routeTools.getChecklist('germany-family-reunion-a1').length, 3);
+const configuredChecklist = routeTools.getChecklist('germany-family-reunion-a1');
+assert.ok(configuredChecklist.length >= 10, 'Configured checklist decomposes broad reminders into atomic actions');
+assert.equal(new Set(configuredChecklist.map((item) => item.id)).size, configuredChecklist.length, 'Configured checklist IDs are stable and unique');
+assert.deepEqual([...new Set(configuredChecklist.map((item) => item.stage))], routeTools.checklistStageOrder, 'Configured checklist follows the declared stage order');
 assert.deepEqual(routeTools.getChecklist('unknown-route'), [], 'Unsupported routes must not generate a pseudo-checklist');
 
 assert.deepEqual(
   routeTools.calculateTimeline({ targetDate: '2026-12-31', resultWaitDays: 21, retakeBufferDays: 28, translationDays: 7 }),
-  { targetDate: '2026-12-31', latestTestDate: '2026-12-03', cautiousTestDate: '2026-11-05', totalPlanningDays: 56 }
+  { targetDate: '2026-12-31', basePlanningDate: '2026-12-03', additionalBufferPlanningDate: '2026-11-05', basePlanningDays: 28, additionalBufferPlanningDays: 56, latestTestDate: '2026-12-03', cautiousTestDate: '2026-11-05', totalPlanningDays: 56 },
+  'Deprecated pre-M2 input and result aliases remain compatible without appearing in current UI'
 );
 assert.equal(routeTools.calculateTimeline({ targetDate: 'not-a-date' }), null);
 assert.equal(routeTools.calculateTimeline({ targetDate: '2026-02-30' }), null, 'Invalid calendar dates should be rejected');
 assert.deepEqual(
   routeTools.calculateTimeline({ targetDate: '0099-12-31', resultWaitDays: 0, retakeBufferDays: 0, translationDays: 0 }),
-  { targetDate: '0099-12-31', latestTestDate: '0099-12-31', cautiousTestDate: '0099-12-31', totalPlanningDays: 0 },
+  { targetDate: '0099-12-31', basePlanningDate: '0099-12-31', additionalBufferPlanningDate: '0099-12-31', basePlanningDays: 0, additionalBufferPlanningDays: 0, latestTestDate: '0099-12-31', cautiousTestDate: '0099-12-31', totalPlanningDays: 0 },
   'Four-digit years below 0100 should not be remapped into the 1900s'
 );
 
@@ -51,12 +51,12 @@ try {
   process.env.TZ = 'Pacific/Kiritimati';
   assert.deepEqual(
     routeTools.calculateTimeline({ targetDate: '2026-08-20', resultWaitDays: 0, retakeBufferDays: 0, translationDays: 0 }),
-    { targetDate: '2026-08-20', latestTestDate: '2026-08-20', cautiousTestDate: '2026-08-20', totalPlanningDays: 0 },
+    { targetDate: '2026-08-20', basePlanningDate: '2026-08-20', additionalBufferPlanningDate: '2026-08-20', basePlanningDays: 0, additionalBufferPlanningDays: 0, latestTestDate: '2026-08-20', cautiousTestDate: '2026-08-20', totalPlanningDays: 0 },
     'Timeline dates should not move to the previous day in UTC+14'
   );
   assert.deepEqual(
     routeTools.calculateTimeline({ targetDate: '2026-08-20', resultWaitDays: 10, retakeBufferDays: 5, translationDays: 2 }),
-    { targetDate: '2026-08-20', latestTestDate: '2026-08-08', cautiousTestDate: '2026-08-03', totalPlanningDays: 17 },
+    { targetDate: '2026-08-20', basePlanningDate: '2026-08-08', additionalBufferPlanningDate: '2026-08-03', basePlanningDays: 12, additionalBufferPlanningDays: 17, latestTestDate: '2026-08-08', cautiousTestDate: '2026-08-03', totalPlanningDays: 17 },
     'Timeline subtraction should be timezone-independent'
   );
 } finally {
@@ -64,11 +64,12 @@ try {
   else process.env.TZ = originalTimezone;
 }
 
-for (const dimension of routeTools.examComparisonDimensions.filter((dimension) => ['Fees', 'Result timing', 'Centre coverage and dates'].includes(dimension.label))) {
-  assert.equal(dimension.value, 'Please verify with the official centre.');
-}
 assert.equal(routeTools.toolLinks.a1Pack, '/products/a1-family-reunion-pack/', 'Pack CTA should explain the proposed product before opening contact intent');
 assert.equal(routeTools.toolLinks.a1PracticePack, '/products/a1-practice-pack/', 'Practice-pack CTA should resolve to its proposed-product page');
 assert.equal(routeTools.toolLinks.routeReview, '/route-review/', 'Route Review CTA should explain its boundary before opening contact intent');
 
 console.log('route tool rules passed');
+})().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});

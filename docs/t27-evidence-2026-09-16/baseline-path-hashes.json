@@ -1,0 +1,27 @@
+{
+  "capturedAt": "2026-09-16T09:51:12+08:00",
+  "baselineBranch": "codex/scheme-3-one-week-content",
+  "baselineHead": "4cb57e8744c752fed1881281e69e7b24cc7281c4",
+  "paths": {
+    "src/components/tools/ToolShell.astro": {
+      "sha256": "785035e8a89cfd86efa9b15537563de90fcc594d6949133a7e77b7d7b3d6e53f",
+      "bytes": 2196
+    },
+    "src/pages/privacy-policy.astro": {
+      "sha256": "ef2df60a1af165d6067f8f2a471b6520735add144f511b5277d79a042868aae2",
+      "bytes": 7647
+    },
+    "src/pages/cookie-policy.astro": {
+      "sha256": "6d27d13fda69a131b1d6b2a829826ad12122471335aa09dd71d133db54502b28",
+      "bytes": 4821
+    },
+    "src/pages/terms.astro": {
+      "sha256": "33800ed82546f170242f76cb4599641bd3b926c8346d71304aa9cf0cd7b0758a",
+      "bytes": 3433
+    },
+    "tests/site.test.js": {
+      "sha256": "1acee8528bbca5e5bd6163fb392c7afb12ba700d2143be5f53d7a714605c92b1",
+      "bytes": 39756
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "agent": "visalang-independent-auditor",
+  "reviewer_independent": true,
+  "review_date": "2026-10-06",
+  "baseline": {
+    "branch": "codex/scheme-3-one-week-content",
+    "head": "4cb57e8744c752fed1881281e69e7b24cc7281c4",
+    "upstream": "origin/codex/scheme-3-one-week-content",
+    "ahead": 0,
+    "behind": 0,
+    "preexisting_work": "Unrelated dirty and untracked changes preserved.",
+    "fee_review_manifest_sha256": "b4f28f4dd03b295f48303fac4652af4213c67963b485b9414809fa87664cd3dc",
+    "pre_edit_hashes": {
+      "src/data/claim-registry.ts": "20470769f472a85fded1e634d335f375a3963d8501225882d36e08a98202b4b0",
+      "tests/claim-registry.test.mjs": "d123930896c5d791ceb5d4147e84f8bbb5b4683dfd4273bab52126e396e554ec",
+      "tests/m2a-local-fees-centres.test.mjs": "ebc4ee0a9e975fda961a073421600843dbee413b33246204b2defe13adf7e4bd"
+    },
+    "tests_site_pre_edit_sha256": "4bce5115c3995c3d641c6eb1c4b7b961e1990e7795b1b7dec20f6feee9da3a37",
+    "tests_site_current_sha256": "961917e4ccaa75228df71b886e7fbc3de9fdd334fd91f07a08ba8024179d0982"
+  },
+  "scope": [
+    "src/pages/tools/index.astro",
+    "tests/site.test.js",
+    "src/data/claim-registry.ts",
+    "tests/claim-registry.test.mjs",
+    "tests/m2a-local-fees-centres.test.mjs",
+    "docs/audits/2026-10-06-local-full-site-audit/AUDIT_REPORT.md (factual and verification summary)"
+  ],
+  "agent_review_status": "blocked",
+  "overall_verdict": "BLOCKED",
+  "scoped_code_review": "clean; no scoped P0/P1/P2 findings",
+  "findings": [],
+  "source_check": {
+    "checked_at": "2026-10-06",
+    "sources": [
+      {
+        "url": "https://www.goethe.de/ins/de/en/prf/pre.html",
+        "supports": "Germany adult A1 EUR 155, 20% course-participant discount, six-month definition; the published EUR 124 value is exact arithmetic.",
+        "boundary": "Germany price page only; excludes tax; no partner checkout, availability, seat, individual eligibility, or immigration acceptance."
+      },
+      {
+        "url": "https://www.goethe.de/ins/cn/zh/spr/prf/anm.html",
+        "supports": "Beijing adult A1 CNY 1,400 / 1,500 and the page-defined current-learner evidence boundary.",
+        "boundary": "Goethe-Institut Beijing only; no individual eligibility, another China location, availability, registration success, final charge, or immigration acceptance."
+      }
+    ]
+  },
+  "verification": {
+    "npm_test": "Submitter-reported: preceding product and fee assertions passed; final command failed with exit 1 at planning-map byte binding because stored tests/site.test.js SHA 4bce5115... differs from current SHA 961917e4.... Not rerun by Auditor.",
+    "launch_check": "Submitter-reported isolated result: 57 PASS / 0 FAIL / 0 BLOCKED. Not rerun by Auditor."
+  },
+  "blockers": [
+    "The existing sync is VL-PMAP-20261005-02 with unresolved drift and does not contain this window's fee paths in changedPaths or the watched-scope digest.",
+    "No exact current-window classified scope manifest or generated Archify delivery.",
+    "No current-window automated browser receipt/screenshots or image-capable perceptual review."
+  ],
+  "candidate_scope_digest": null,
+  "candidate_scope_digest_note": "No current-window planning-map manifest exists to freeze the submitted paths.",
+  "diagram_source_sha256": "1bbe4f4686af3b6ceaf1488b921dee1b4643ed22c3dcbf52fe9dc771b7c9085c",
+  "diagram_artifact_sha256": "da9dc5811eb9f0a35de2cb8cc7d9ecf123c068cae3fe737627ee558772d2f177",
+  "sync_receipt_sha256": "0e2191b14c712e260441436267432a520943b3f3c6f49de542a376066b9fd688",
+  "planning_drift_status": "unresolved",
+  "owner_authorization": "pending",
+  "deployment_status": "not_started"
+}

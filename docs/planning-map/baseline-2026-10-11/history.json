@@ -1,0 +1,307 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "sequence": 1,
+      "syncId": "VL-PMAP-20260910-01",
+      "checkedAt": "2026-09-10T09:03:59+08:00",
+      "previousRecordSha256": null,
+      "watchedScopeDigest": "b7766e40c50a8cd9bf693bed4bfbdb0fc7d9e41fd4944098d5877e58a6f551b1",
+      "diagramSourceSha256": "06b9d62a28abe917dd2e62533618c4ea9f7985902d97ab819eda57689737ab00",
+      "diagramArtifactSha256": "8ee8a1f89881d8e014e449a5100ae43a1c8cec94e6d5e4568869bd09274b19c8",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 2,
+      "syncId": "VL-PMAP-20260911-01",
+      "checkedAt": "2026-09-11T10:23:06+08:00",
+      "previousRecordSha256": "852f70a643e0b367d04c5eae7e7cbd38d804584eda6c945c86bb2861629d772b",
+      "watchedScopeDigest": "0ad860a344ff0cf317158edf7ae64606e66904e43c4456a6a1dc2fa9d16722b3",
+      "diagramSourceSha256": "57d5e8038faa8c670214c2a691f84d6d059a12c4a111d1c63962a9a63f7d9212",
+      "diagramArtifactSha256": "3f49e9812e873d7ffb03db9656d6c00eaa80f841b69516d1f6ae764be8a47cf4",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 3,
+      "syncId": "VL-PMAP-20260911-02",
+      "checkedAt": "2026-09-11T14:28:23+08:00",
+      "previousRecordSha256": "3f513bf1b5bf8aadb5ec11f9dda0d7b55336850194b93a3f7904d5bfe3423242",
+      "watchedScopeDigest": "ece900719e41e3f3a3c8116c683e69cf819dfd583fbe4a3ef85769809417cc96",
+      "diagramSourceSha256": "d21e8fcb516dc9a463eeb63453aa0aedeaf8018f9285d19db999b017353acdb0",
+      "diagramArtifactSha256": "9ad35c334a792d9e194fb5202aaf9df88f6f5ea5b14778dd7a8cb7398c5cb300",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 4,
+      "syncId": "VL-PMAP-20260911-03",
+      "checkedAt": "2026-09-11T14:39:01+08:00",
+      "previousRecordSha256": "ad3e1302bdc884b367a2c0a3653d98fec4c121396c5bad1796212b25ce6cda82",
+      "watchedScopeDigest": "46f8f2b7a0ccf821a67d377e217c01be079f92e8e59bab676a559a0595281e83",
+      "diagramSourceSha256": "82f249258a9a33a2ce63fbba05c3683d884fb9611df86fdf47d7f3f17b77fac6",
+      "diagramArtifactSha256": "c457c67447f51849aa8e3766629eafb8915e83562593c1f678c5a2f88112125c",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 5,
+      "syncId": "VL-PMAP-20260911-04",
+      "checkedAt": "2026-09-11T16:26:00+08:00",
+      "previousRecordSha256": "cd31b91ec9f06fc1769203bc9525d2335134367d389f69cbdfa6e9488f947347",
+      "watchedScopeDigest": "41214bb8c93b2ac5dd5789501ae2fc4d546e1dac39d62601828306e3f1faaed1",
+      "diagramSourceSha256": "06de6e0320731c91f2604282c559075b9a89c47f6bfa5e5a58d0ce4ef76c038d",
+      "diagramArtifactSha256": "50bb252fbc49598063ddd9d0aaa2f6b96e318ca15fbda4986466260fbafaf038",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 6,
+      "syncId": "VL-PMAP-20260911-05",
+      "checkedAt": "2026-09-11T17:24:04+08:00",
+      "previousRecordSha256": "d1f3baa39c71cf7dc0774b50a5105f1ccf74edfbc747404f1d2cc27c49b5205f",
+      "watchedScopeDigest": "5ea440fd47a1ab02f3e552e7e5ce25dd279229ef32337514fe1593e2b2cdf5e9",
+      "diagramSourceSha256": "f3b9ab9dbca036d81a588e6c7702b0002468dea39dda887717a6cf29633105c4",
+      "diagramArtifactSha256": "e0c76b0b60079bd5aac74bd498d8c7b87d861a118f14bd8062cbd83394a3e249",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 7,
+      "syncId": "VL-PMAP-20260911-06",
+      "checkedAt": "2026-09-11T18:19:10+08:00",
+      "previousRecordSha256": "0c798aaee487bb7ed4dbde210fb8f91e15d33758763d95479a65213e76023548",
+      "watchedScopeDigest": "2c5c76689fbae0ae2a56044fccf0dbb7fa985a51c5743a785e5073be5589c656",
+      "diagramSourceSha256": "07dfe10c7fd0d83d79e8b388b7b0d36f322a1b03147bbe1cf5a3faad53dd7cf5",
+      "diagramArtifactSha256": "e667258bd67290b07a56b25acc978168e19946ef9a371b4a94cafe68346e189b",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 8,
+      "syncId": "VL-PMAP-20260911-07",
+      "checkedAt": "2026-09-11T18:36:55+08:00",
+      "previousRecordSha256": "4ada5a923414d26f35faa8d5ad10f38c53a8762b1fe51cc4ef82d32742fca32a",
+      "watchedScopeDigest": "65c712c944fa0ce8f120286e28e95db146ab3a93956502a2b93f13ed31071cb1",
+      "diagramSourceSha256": "77815243715be17dbc7c702f2e7d0e5fc0172fb277a9c2d83893b6b9264864c6",
+      "diagramArtifactSha256": "d34939ab7244a0e9bf18a47a1589994588f8f0b9cdf71113025b3637a5dac0db",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 9,
+      "syncId": "VL-PMAP-20260913-01",
+      "checkedAt": "2026-09-13T18:36:15+08:00",
+      "previousRecordSha256": "425eba1a7c1e38727489b8d9b75d138e97e13c9320d5eb547840e67d8092987e",
+      "watchedScopeDigest": "192971e53828179e88075e992e3ee7324a78afb7dda248c0c25c45d4f6be197d",
+      "diagramSourceSha256": "a79057bd48e632e38dd9be715b747b0954460ad476eed672d4755f441eb76a72",
+      "diagramArtifactSha256": "c8175bd379b592eff9103dc63a46320572b27957c0243916051b7ac7c9ad9500",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 10,
+      "syncId": "VL-PMAP-20260913-02",
+      "checkedAt": "2026-09-13T18:42:05+08:00",
+      "previousRecordSha256": "64f9f88fb836f03fc8cff9e4364370a771eb1d9e16eced47ff625a66c03b6de5",
+      "watchedScopeDigest": "192971e53828179e88075e992e3ee7324a78afb7dda248c0c25c45d4f6be197d",
+      "diagramSourceSha256": "2bd4c2b1381f7e8b1925ffa93337ddf551618b985c9cb4d33512a9bec1062ea7",
+      "diagramArtifactSha256": "f783eab1432b5189b83486852f8b681f6bd979a5309cbbff807705be3e129352",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 11,
+      "syncId": "VL-PMAP-20260916-01",
+      "checkedAt": "2026-09-16T10:08:00+08:00",
+      "previousRecordSha256": "6a2dba53dd9f6265e55ce54c569ad0642d738afd9502a8f1a417b8d928d3b170",
+      "watchedScopeDigest": "c4876a08107b8febff43a22ca1cea69328dde48d063dcbe4100502e2122bbf3e",
+      "diagramSourceSha256": "e1ad5e2a56f15cf2efc7fe34fa6ae7379b36e0b822eeec32e9687c6040e2ef06",
+      "diagramArtifactSha256": "4a334ccbbe4fc9243c50629541a7511d36e73b0ec1a215f875fbff91150ee143",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 12,
+      "syncId": "VL-PMAP-20260920-01",
+      "checkedAt": "2026-09-20T04:03:50+00:00",
+      "previousRecordSha256": "37bad28b4ca2033b1c1dbbe263e0a9f0245698adb070303fa1a26949f454e9ae",
+      "watchedScopeDigest": "dcb483899d2b17aa0b36ca484acfc080c4ff11c124324e1043b1eed953326308",
+      "diagramSourceSha256": "5fa46b6633a8965215c0aca90b81a1f34c689eac717cbea8d6759d589543cfbc",
+      "diagramArtifactSha256": "da52236ee4d4b2baad5a0371261d541bed9f3d480105d9291b97a4c0d9ab6585",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 13,
+      "syncId": "VL-PMAP-20260920-02",
+      "checkedAt": "2026-09-20T04:24:15+00:00",
+      "previousRecordSha256": "1a9d3096a907d7683544180aa73c7cb22c6bcaf4e01da8ac7823345862566068",
+      "watchedScopeDigest": "78e6686b3040423fc83a93b5d1cddbca7093a80cb1b1f1a9ffb868aa86fa4901",
+      "diagramSourceSha256": "3a34ede0a54dd5c244e330b813586f247f251a5dea4a55b8b83b2a225777805a",
+      "diagramArtifactSha256": "cf50ed59bb79c62c03c58994e96d261847e37ed5194c10b7b61beff6718b806b",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 14,
+      "syncId": "VL-PMAP-20260922-01",
+      "checkedAt": "2026-09-22T14:03:59+00:00",
+      "previousRecordSha256": "c6bec898a3e71461f89f20bb4c131680dcd747f341566f7663c0fc1a7576a481",
+      "watchedScopeDigest": "6b261a669de0a2ca56447e718effcdc2cde644be90e1f3f49daa64107c97cb91",
+      "diagramSourceSha256": "33d0672ce32e3c5a50381a2f3309ce6335fb8ed41b629b843c69301b4569cc8d",
+      "diagramArtifactSha256": "b3ed54ca09c89d27ef1e8140b76dc9fd0114d4c978d401064cad1a0926551ed9",
+      "driftStatus": "approved-deviation"
+    },
+    {
+      "sequence": 15,
+      "syncId": "VL-PMAP-20260922-02",
+      "checkedAt": "2026-09-22T15:27:23+00:00",
+      "previousRecordSha256": "b3bb2e77e9de727d5700b08456ae164513284cd684d1c7afbc5e4383bf51c76c",
+      "watchedScopeDigest": "4c075afd782bfdc30a00e725ee108a212d10670b4621edcffb21fd39b19f7256",
+      "diagramSourceSha256": "903237d8d675f3a0022c4e0f7d49c583124b8fd48feeec794601e5fc29eabd58",
+      "diagramArtifactSha256": "eb203496659b4498bbd3aff214db834eece6ee486028662ecd5ec1a9c89af20c",
+      "driftStatus": "approved-deviation"
+    },
+    {
+      "sequence": 16,
+      "syncId": "VL-PMAP-20260923-01",
+      "checkedAt": "2026-09-23T02:28:38+00:00",
+      "previousRecordSha256": "4f237b2b793409d24b2638f43ffe0eac4e7302a688636d871930354925995bb1",
+      "watchedScopeDigest": "955cffb77a007a595069f6f665315241c0e78f7310613222da15069af7b7d3ce",
+      "diagramSourceSha256": "c9d65f92b2509f0527208fe97a0355a74961a1c50fc2b7ee19a75947b756a094",
+      "diagramArtifactSha256": "15c9046267104dcae53e47c0016c8249e0f016156b4ffcf3a54a680822e7349a",
+      "driftStatus": "approved-deviation"
+    },
+    {
+      "sequence": 17,
+      "syncId": "VL-PMAP-20260923-02",
+      "checkedAt": "2026-09-23T03:29:36+00:00",
+      "previousRecordSha256": "4af3a4dc6d04786e50e9b53280afeb418284670f25b33aa20aab61ade198777f",
+      "watchedScopeDigest": "554b58dd75d44759e7c238563a34e3cffd2c5da9db9803c322329db976d70a14",
+      "diagramSourceSha256": "cd660907b0467fd2091b731abd857bb6dffafbd881f7a1d265add116dbcbdbe3",
+      "diagramArtifactSha256": "4e4b0fc6abcf42e0d6e7966a0c4f57aeb2555314feb6210f149f5f1574c8001c",
+      "driftStatus": "approved-deviation"
+    },
+    {
+      "sequence": 18,
+      "syncId": "VL-PMAP-20260923-03",
+      "checkedAt": "2026-09-23T03:47:50+00:00",
+      "previousRecordSha256": "f5addbecfc889d51eb23509ae83dc5851547b0a3f31f866ce975b38e00a275af",
+      "watchedScopeDigest": "5bd46c77fb8b3648be1e26046170a6d2a3b1d20c4fa4413b34af90d256c1dbf6",
+      "diagramSourceSha256": "03c2080af6abbaee9acc674bd1c62d04c643cbdc28b429705b53fa229191c57a",
+      "diagramArtifactSha256": "f8ea3ae223ee76c9ddba529eb6714e1eae35305d0a1c190db3c0bc866cc47e1d",
+      "driftStatus": "approved-deviation"
+    },
+    {
+      "sequence": 19,
+      "syncId": "VL-PMAP-20260923-04",
+      "checkedAt": "2026-09-23T04:10:42+00:00",
+      "previousRecordSha256": "2e5d46db66a0698113b4a6bb178dead1e559ec805f767be22944a73e7afb0a4e",
+      "watchedScopeDigest": "66b2a2a1a7b56fce2483d2e7e2ddc49cc8e0de37badb75d984127064a7afc0bb",
+      "diagramSourceSha256": "557583f0d6ab94a6cd95e3a18ac46d92113a5e43a981da95a9982977accb1907",
+      "diagramArtifactSha256": "2b5f1f9b0b960160121fb8edd4008700fa60d46f836756068d2566990394fdc7",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 20,
+      "syncId": "VL-PMAP-20260923-05",
+      "checkedAt": "2026-09-23T04:36:52+00:00",
+      "previousRecordSha256": "9b3272c62e0f68d27f4fcd85bf9c6e2fc0815add4662389eeba5ce621f3ce5e2",
+      "watchedScopeDigest": "527ad0ec41468923b4b3cfb2cca4827e1d06d64ed9b7f84395a2cc4b202ba7a3",
+      "driftStatus": "aligned",
+      "diagramSourceSha256": "c501d074fef5ed9c7dcdb34b5e99513af92668fb157a7757141e4a026f351dfd",
+      "diagramArtifactSha256": "c3a42b66c9ac6f9406b4db4326c5ac4f8a3705f1bf3f238817061b640b624b00"
+    },
+    {
+      "sequence": 21,
+      "syncId": "VL-PMAP-20260924-01",
+      "checkedAt": "2026-09-24T05:20:04+00:00",
+      "previousRecordSha256": "08bfb1f5c80bdf09d1eb38abf916db3356dc68b153e82886878862f61a8d6a28",
+      "watchedScopeDigest": "3158bf95975a88b2658d79389b9bf7ff30a32eda10eb699674fd2319256545d9",
+      "diagramSourceSha256": "82a16fa52b36cf3be78d169ca547cc484d4b484da7761132cab74b5cf818ff4d",
+      "diagramArtifactSha256": "7e0d322e8899dc6267c427335f3d63f55e0adf465b72c6c1b933c1c71b029938",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 22,
+      "syncId": "VL-PMAP-20260924-02",
+      "checkedAt": "2026-09-24T08:17:34+00:00",
+      "previousRecordSha256": "2c1b5554aa38c610e9e9a40ad9e05106ee02263a1ea6636382b78d43718c1e26",
+      "watchedScopeDigest": "c1fe2f6f83936988458af56df1506df6be458582019703902097090137accfc6",
+      "diagramSourceSha256": "841227dfad366d6d0f46153277af1967c870e05da8237b6ab56ada87da7a5530",
+      "diagramArtifactSha256": "ee51e6773e040c41cf993e4b530e40dedf1d45790a31d229e99fdd67545beed2",
+      "driftStatus": "approved-deviation"
+    },
+    {
+      "sequence": 23,
+      "syncId": "VL-PMAP-20260924-03",
+      "checkedAt": "2026-09-24T17:04:37+08:00",
+      "previousRecordSha256": "1c4cb5d48696ffe04a7bb26ef713318f5d9b4964f83cfe274aa4e5e971cd7bae",
+      "watchedScopeDigest": "4d4be291ffa864f103ef3f0cd1f0d235309655f634360e154d084c96900d23fe",
+      "diagramSourceSha256": "c126ecd567b625dabc5ba22ee46f8645754b682c46d205a3cfe9bcaab3458938",
+      "diagramArtifactSha256": "b5f81fc77b59c2f6fe2cac755045ff02807ba69c540fdbef0f6efdfc3ce49dc9",
+      "driftStatus": "approved-deviation"
+    },
+    {
+      "sequence": 24,
+      "syncId": "VL-PMAP-20260924-04",
+      "checkedAt": "2026-09-24T17:17:02+08:00",
+      "previousRecordSha256": "4719dfa431b8d68dc56984b38e56d8e0d9dbf8ee476b7eaafa7546fcb8b6d2ce",
+      "watchedScopeDigest": "e8334f114f0e8141dc89e7f3a79a42c1c2eae73c835faede884f0b4e28f3414c",
+      "diagramSourceSha256": "068b84dd423d8dfb9b44155878785f13c2b77e4eaaf151df8836f53b32ca5ef3",
+      "diagramArtifactSha256": "5c33864f36f973547bdda1c4ceca96636c3e24e2d3e522f40245049d68bf526b",
+      "driftStatus": "approved-deviation"
+    },
+    {
+      "sequence": 25,
+      "syncId": "VL-PMAP-20260924-05",
+      "checkedAt": "2026-09-24T17:32:26+08:00",
+      "previousRecordSha256": "e00946e893b5ff34be7e4ab2b4861993ae2ee5543e3e6b432284748f1f13694d",
+      "watchedScopeDigest": "520563bc20c921a617d86ca1d3aa38f98adb78e60b541ca978465b6aab44f8f6",
+      "diagramSourceSha256": "8a7df76144852bd940b4e5938f18d8e0ad6e74bd24759eae66645540d657050d",
+      "diagramArtifactSha256": "71d97a0ca59d5e244a650d1f425b75d673a57da8f256753e6856a55636af5f43",
+      "driftStatus": "approved-deviation"
+    },
+    {
+      "sequence": 26,
+      "syncId": "VL-PMAP-20260924-06",
+      "checkedAt": "2026-09-24T18:06:52+08:00",
+      "previousRecordSha256": "50b541f788360875fa1015d0dfe67c95d403ef682d18162cf2a6ec29f41f2f05",
+      "watchedScopeDigest": "6ef0c8a1e5148dff682084dda15f2d97548bd36e5240ebed468ee276a29a1585",
+      "diagramSourceSha256": "233b9132862c3713abcfceb65284d9c33d83f29a4d2bc2db4bee63673c31d161",
+      "diagramArtifactSha256": "596dda265c1f4e233bf82dce0f2b5b41e27afae3373eec9d006046f5c07c4a82",
+      "driftStatus": "aligned"
+    },
+    {
+      "sequence": 27,
+      "syncId": "VL-PMAP-20260924-07",
+      "checkedAt": "2026-09-24T11:29:58+00:00",
+      "previousRecordSha256": "9147940fe4fafe23eeed19c3f85c6884e5e98140b1f12cb07f25c24432793b75",
+      "watchedScopeDigest": "452542aaef53c2b78a56427263548382553b78b0625c6c4866c22317595ccc1b",
+      "authorityDigest": "2c0525155bf69acb6d1b3203307d740ed0227663c23419d1ce90508b7e8d0188",
+      "diagramSourceSha256": "b4d8c3a48cbe09c3180848f677fff1e94dbd145b70ea8f7d4ad2c77a28d1fbe1",
+      "diagramArtifactSha256": "702a0dfa4672aab45aca03440d8471e64022574972a7618e16ed82aa82f3e650",
+      "driftStatus": "aligned",
+      "summary": "P00 current dirty TypeSafe tree re-frozen; W03/W04/W08 allocated only; no modules dispatched, implemented or integrated; original task/LP/LC gates preserved."
+    },
+    {
+      "sequence": 28,
+      "syncId": "VL-PMAP-20260928-01",
+      "checkedAt": "2026-09-28T09:12:38+00:00",
+      "previousRecordSha256": "f7e201ae432428f65037fc9c46c0376a453fd2c0d7767225c8923629d8e6d039",
+      "watchedScopeDigest": "6bb008672bb7e9818c0bb639cb68f91c8ced04b652fb1f3cf7b1113b573db0a9",
+      "driftStatus": "aligned",
+      "diagramSourceSha256": "fbc5a18214a3099ff05d99b15c53243e1e97b363aac0675923bd7134163fa29e",
+      "diagramArtifactSha256": "0b76a005ccc51b6be3ed396141d5079a00af5688c14afc3b6035dba4d19f5636"
+    },
+    {
+      "sequence": 29,
+      "syncId": "VL-PMAP-20261005-01",
+      "checkedAt": "2026-10-05T12:22:02+08:00",
+      "previousRecordSha256": "f91fa8f77934cbcde47860c5dd35bfbbe4923f4a1fe2f696b6c5bc3d77782a2c",
+      "watchedScopeDigest": "a5b74ed67462121fe68a9716c5053ccfbecb9b9b773ed0a465a03d1310e1c4f8",
+      "driftStatus": "unresolved",
+      "diagramSourceSha256": "88646b036cc92f493df2804eb1308d0c3ee03769d3c57524b6d9565662464d2f",
+      "diagramArtifactSha256": "2fe8395086dbc882c2816ca0796f55105adffa3650b9855073e8353185fc0487"
+    },
+    {
+      "sequence": 30,
+      "syncId": "VL-PMAP-20261005-02",
+      "checkedAt": "2026-10-05T12:35:32+08:00",
+      "previousRecordSha256": "118b673e85f21613a5a95166be0082c09296ed38329b1c80a115459230d650f1",
+      "watchedScopeDigest": "37028eca751686c7ca42c4f8abfc146f3e2dac5759a4d87916f0831164ba0f49",
+      "driftStatus": "unresolved",
+      "diagramSourceSha256": "1bbe4f4686af3b6ceaf1488b921dee1b4643ed22c3dcbf52fe9dc771b7c9085c",
+      "diagramArtifactSha256": "da9dc5811eb9f0a35de2cb8cc7d9ecf123c068cae3fe737627ee558772d2f177"
+    }
+  ]
+}

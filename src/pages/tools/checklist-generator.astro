@@ -2,89 +2,262 @@
 import ToolLayout from '../../layouts/ToolLayout.astro';
 import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
 import { routeRegistry } from '../../data/route-tools';
+import { getRouteLabel, getToolCopy, type ToolLocale } from '../../data/tool-copy';
+
+export interface Props { locale?: ToolLocale; }
+const { locale = 'en' } = Astro.props;
+const copy = getToolCopy('checklist', locale);
+const isZh = locale === 'zh-CN';
 ---
 
-<ToolLayout eyebrow="Organise evidence" title="Requirement Checklist" description="Create a working checklist with clear priority, completion status, and the next official check. It is not an authority document list." current="checklist">
+<ToolLayout eyebrow={copy.eyebrow} title={copy.title} description={copy.description} current="checklist" locale={locale}>
     <div class="tool-workspace">
-      <form id="checklist-form" class="tool-form" novalidate>
-        <div class="tool-form-heading"><h2>Choose a route</h2><p>Only Germany family reunion A1 has a configured route checklist. Other selections remain a safe verification checklist.</p></div>
-        <label class="tool-field-single">Route<select name="route" required><option value="">Select your route</option>{routeRegistry.map((route) => <option value={route.id}>{route.shortTitle}{route.availability === 'configured' ? ' — configured' : ' — verify first'}</option>)}</select></label>
+      <form id="checklist-form" class="tool-form" novalidate inert>
+        <div class="tool-form-heading"><h2>{copy.formTitle}</h2><p>{copy.formIntro}</p></div>
+        <label class="tool-field-single">{copy.fields.route}<select name="route" required><option value="">{copy.text.selectRoute}</option>{routeRegistry.map((route) => <option value={route.id}>{getRouteLabel(route.id, route.shortTitle, locale)} — {route.availability === 'configured' ? copy.text.configured : copy.text.verifyFirst}</option>)}</select></label>
         <div class="tool-error-summary" id="checklist-error" data-error-summary role="alert" tabindex="-1" hidden></div>
-        <button class="primary-action" type="submit">Build my checklist</button>
+        <button class="primary-action" type="submit">{copy.submitLabel}</button>
       </form>
 
       <section id="checklist-result" class="tool-result" hidden aria-live="polite" tabindex="-1">
         <div id="checklist-summary"></div>
-        <ToolResultSupport resultId="checklist-summary" />
+        <ToolResultSupport resultId="checklist-summary" showActions={false} locale={locale} />
+        <div class="tool-cta-row" data-checklist-actions hidden>
+          <button class="button button--secondary" type="button" data-checklist-copy disabled>{copy.text.copy}</button>
+          <button class="button button--secondary" type="button" data-checklist-print disabled>{copy.text.print}</button>
+          <button class="button button--secondary" type="button" data-checklist-export disabled>{copy.text.export}</button>
+        </div>
+        <p class="tool-action-feedback" role="status" aria-live="polite" data-checklist-feedback></p>
+        <section class="tool-copy-fallback" data-checklist-copy-fallback hidden aria-labelledby="checklist-copy-fallback-title">
+          <h2 id="checklist-copy-fallback-title">{copy.text.fallbackTitle}</h2>
+          <p>{copy.text.fallbackText}</p>
+          <textarea readonly rows="14" aria-label={copy.text.fallbackAria}></textarea>
+        </section>
       </section>
     </div>
+
+    {isZh && <section class="tool-guidance" data-tool-guidance aria-labelledby="checklist-guidance-title">
+      <h2 id="checklist-guidance-title">{copy.guidanceTitle}</h2>
+      <p>确认接收机关和准确路线后，可用此清单记录已完成的核验任务与仍待官方答复的问题。它不是主管机关材料清单、考点报名清单，也不证明申请材料完整。</p>
+      <h3>示例：德国家庭团聚 A1</h3>
+      <p>另行保存负责使领馆名称与网址、说明核验日期，以及正在考虑的准确考试产品。不要输入护照号、申请号、付款信息、文件扫描件或私人通信。</p>
+      <h3>何时重建清单</h3>
+      <p>接收机关、路线说明、个人情况、考试产品或考点发生变化时，请重新打开来源、记录当前核验日期，并替换已经失效的任务。勾选完成仅表示你做过核验，不代表机关接受或申请成功。</p>
+      <h3>下一项官方核验</h3>
+      <p>逐项对照负责使领馆当前申请说明。<a href="https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682" target="_blank" rel="noreferrer">德国联邦外交部语言要求说明</a>只是方向性来源；身份证件、报名、付款、取消及考试日要求应另向所选官方或授权考点确认。</p>
+    </section>}
+    {!isZh && <section class="tool-guidance" data-tool-guidance aria-labelledby="checklist-guidance-title">
+      <h2 id="checklist-guidance-title">When to use the Requirement Checklist</h2>
+      <p>Use this checklist after you have identified the receiving authority and the exact route you are researching. It helps you record which verification tasks you completed and which official questions remain open. It is not the authority's document list, an exam-centre booking list, or proof that an application file is complete. Do not use it for a route marked “verify first” except as a prompt to find the responsible organisation.</p>
+
+      <h3>Example input: Germany family reunion A1</h3>
+      <dl data-tool-example-input>
+        <dt>Selected route</dt><dd>Germany family reunion A1 — configured.</dd>
+        <dt>Separate record kept by the user</dt><dd>Name and URL of the competent German mission, the date its instructions were checked, and the exact exam product under consideration.</dd>
+        <dt>Information deliberately excluded</dt><dd>Passport numbers, application numbers, payment details, document scans, and private correspondence.</dd>
+      </dl>
+
+      <h3>What the generated checklist means</h3>
+      <div data-tool-example-output>
+        <p>The result is a working sequence of research and preparation tasks. Marking an item complete means only that you performed your own check and retained the evidence. It does not confirm that the mission accepts the certificate, that every required document is present, that a centre has a seat, or that an application will succeed.</p>
+      </div>
+
+      <h3>Stop and rebuild the checklist</h3>
+      <p>Stop if the receiving authority changes, the official route instructions have a newer revision, the applicant's circumstances no longer match the selected route, or the chosen exam product or centre changes. Do not act on an old completed box: reopen the source, record the current check date, and replace any task whose evidence is no longer current.</p>
+
+      <h3>Official follow-up after the checklist</h3>
+      <p>Compare the working list line by line with the competent mission's current application instructions. The <a href="https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682" target="_blank" rel="noreferrer">Federal Foreign Office language-skills FAQ</a> is an orientation source, not an individual document decision. Ask the selected official exam centre separately for its current identity, booking, payment, cancellation, and test-day requirements. The mission owns the visa-document question; the centre owns only its examination transaction.</p>
+    </section>}
 </ToolLayout>
 
 <script>
-  import { getChecklist, routeRegistry, safeRouteResult } from '../../data/route-tools';
+  import { serializeChecklist, syncChecklistTakeawayUi } from '../../data/checklist-export';
+  import { buildChecklist, getLocalCalendarDate, routeRegistry, safeRouteResult } from '../../data/route-tools';
+  import { checklistStageLabels, getApplicationRegionLabel, getCertificateLabel, getRouteLabel, getToolCopy } from '../../data/tool-copy';
+  import { applicationRegionOptions } from '../../data/plan-state';
+  import { setupSharedPlan } from '../../scripts/plan-state';
   import { setupToolForm } from '../../scripts/tool-form';
 
   const form = document.querySelector<HTMLFormElement>('#checklist-form');
   const resultPanel = document.querySelector<HTMLElement>('#checklist-result');
   const summary = document.querySelector<HTMLElement>('#checklist-summary');
+  const actions = document.querySelector<HTMLElement>('[data-checklist-actions]');
+  const actionControls = [...document.querySelectorAll<HTMLButtonElement>('[data-checklist-actions] button')];
+  const feedback = document.querySelector<HTMLElement>('[data-checklist-feedback]');
+  const fallback = document.querySelector<HTMLElement>('[data-checklist-copy-fallback]');
+  const fallbackText = fallback?.querySelector<HTMLTextAreaElement>('textarea');
+  let serializedChecklist = '';
+  const locale = document.documentElement.lang === 'zh-CN' ? 'zh-CN' : 'en';
+  const isZh = locale === 'zh-CN';
+  const copy = getToolCopy('checklist', locale);
 
-  const controller = form ? setupToolForm(form, { persistedNames: ['route'] }) : undefined;
+  const plan = setupSharedPlan({ toolId: 'checklist', form });
+  const syncTakeaway = (available: boolean) => {
+    serializedChecklist = syncChecklistTakeawayUi({
+      container: actions,
+      controls: actionControls,
+      feedback,
+      fallback,
+      fallbackText,
+    }, available, serializedChecklist);
+  };
+  const resetTakeaway = () => syncTakeaway(false);
+  const controller = form ? setupToolForm(form, { locale, onRestart: () => { resetTakeaway(); plan.restartCurrentTool(); } }) : undefined;
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
     if (!controller?.validate()) return;
     const routeId = String(new FormData(form).get('route') || '');
-    controller.persist();
+    plan.persist({ routeId });
     if (!summary || !resultPanel) return;
     const route = routeRegistry.find((item) => item.id === routeId);
-    const items = getChecklist(routeId);
+    const checklist = buildChecklist({ routeId }, { locale });
     summary.replaceChildren();
+    syncTakeaway(false);
     const heading = document.createElement('h2');
-    heading.textContent = items.length ? `${route?.shortTitle || 'Route'} checklist` : 'Checklist coming soon';
+    const routeLabel = getRouteLabel(routeId, route?.shortTitle || 'Route', locale);
+    heading.textContent = checklist.status === 'guidance_available' ? (isZh ? `${routeLabel} 核对清单` : `${routeLabel} checklist`) : (isZh ? '此路线清单尚未配置' : 'Checklist coming soon');
     summary.append(heading);
     const intro = document.createElement('p');
     intro.textContent = route?.availability === 'configured'
-      ? 'Mark each item when you have completed your own official check.'
-      : 'This route is not configured. VisaLang will not generate a checklist that could look like an official or complete result.';
+      ? (isZh ? '完成你自己的官方核验后，再勾选对应项目。' : 'Mark each item when you have completed your own official check.')
+      : (isZh ? '此路线尚未配置。VisaLang 不会生成可能被误解为官方或完整结果的清单。' : 'This route is not configured. VisaLang will not generate a checklist that could look like an official or complete result.');
     summary.append(intro);
-    if (!items.length) {
+    if (checklist.status !== 'guidance_available') {
       const next = document.createElement('p');
-      next.textContent = 'Identify the organisation receiving your proof and use its current instructions before choosing an exam.';
+      next.textContent = isZh ? '选择考试前，先确认接收证明的机构并使用其当前说明。' : 'Identify the organisation receiving your proof and use its current instructions before choosing an exam.';
       const official = document.createElement('p');
-      const officialLink = document.createElement('a'); officialLink.href = safeRouteResult.officialEntry.href; officialLink.textContent = safeRouteResult.officialEntry.label;
-      official.append('Official starting point: ', officialLink);
-      const questions = document.createElement('ul'); safeRouteResult.questions.forEach((question: string) => { const item = document.createElement('li'); item.textContent = question; questions.append(item); });
+      const officialLink = document.createElement('a'); officialLink.href = safeRouteResult.officialEntry.href; officialLink.textContent = isZh ? '德国联邦外交部签证服务入口' : safeRouteResult.officialEntry.label;
+      official.append(isZh ? '官方起点：' : 'Official starting point: ', officialLink);
+      const questions = document.createElement('ul'); safeRouteResult.questions.forEach((question: string, index: number) => { const item = document.createElement('li'); item.textContent = isZh ? ['确认哪个机关或机构接收你的申请。', '询问该机关要求哪种准确语言证明。', '再向考试主办方和所选考点分别核验产品与当地交易。'][index] || '向负责机关核验后再行动。' : question; questions.append(item); });
       summary.append(next, official, questions);
       resultPanel.hidden = false;
       controller.markResult();
       resultPanel.focus();
       return;
     }
-    const list = document.createElement('ol');
-    list.className = 'tool-checklist';
-    items.forEach((entry: { priority: string; item: string }, index: number) => {
-      const item = document.createElement('li');
-      const label = document.createElement('label');
-      const checkbox = document.createElement('input');
-      checkbox.type = 'checkbox';
-      checkbox.name = `check-${index}`;
-      const text = document.createElement('span');
-      text.textContent = `${entry.priority}: ${entry.item}`;
-      label.append(checkbox, text);
-      item.append(label);
-      list.append(item);
+    const stageLabels = checklistStageLabels[locale];
+    const checklistContainer = document.createElement('div');
+    checklistContainer.className = 'tool-checklist-groups';
+    checklist.groups.forEach((group) => {
+      const section = document.createElement('section');
+      const stageHeading = document.createElement('h3');
+      stageHeading.textContent = stageLabels[group.stage];
+      const list = document.createElement('ol');
+      list.className = 'tool-checklist';
+      group.items.forEach((entry) => {
+        const item = document.createElement('li');
+        const label = document.createElement('label');
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.name = `checklist:${entry.id}`;
+        checkbox.dataset.checklistId = entry.id;
+        const text = document.createElement('span');
+        const action = document.createElement('strong');
+        action.textContent = entry.action;
+        const itemStatus = document.createElement('small');
+        itemStatus.dataset.checklistStatus = entry.id;
+        itemStatus.textContent = isZh ? '状态：未完成' : 'Status: incomplete';
+        const completionCriterion = document.createElement('small');
+        completionCriterion.textContent = `${isZh ? '完成标准' : 'Done when'}: ${entry.doneWhen}`;
+        const owner = document.createElement('small');
+        owner.textContent = `${isZh ? '负责方' : 'Owner'}: ${entry.owner}`;
+        text.append(action, itemStatus, completionCriterion, owner);
+        label.append(checkbox, text);
+        const sources = document.createElement('ul');
+        sources.className = 'tool-checklist-sources';
+        entry.sourceRefs.forEach((sourceRef) => {
+          const sourceItem = document.createElement('li');
+          const sourceLink = document.createElement('a');
+          sourceLink.href = sourceRef.url;
+          sourceLink.target = '_blank';
+          sourceLink.rel = 'noreferrer';
+          sourceLink.textContent = sourceRef.owner;
+          sourceItem.append(sourceLink, isZh ? ` — 核验日期 ${sourceRef.sourceCheckedAt}；${sourceRef.boundary}` : ` — checked ${sourceRef.sourceCheckedAt}; ${sourceRef.boundary}`);
+          sources.append(sourceItem);
+        });
+        item.append(label, sources);
+        list.append(item);
+      });
+      section.append(stageHeading, list);
+      checklistContainer.append(section);
     });
+    const boundary = document.createElement('p');
+    boundary.textContent = checklist.boundary;
+    const generatedDate = getLocalCalendarDate();
+    const generated = document.createElement('p');
+    generated.textContent = `${isZh ? '生成日期' : 'Generated'}: ${generatedDate}`;
+    const scope = document.createElement('p');
+    scope.textContent = `${isZh ? '适用范围' : 'Scope'}: ${checklist.boundary}`;
     const completion = document.createElement('p');
     completion.className = 'tool-completion-status';
     const updateCompletion = () => {
-      const completed = list.querySelectorAll<HTMLInputElement>('input:checked').length;
-      completion.textContent = `Completion status: ${completed} of ${items.length} marked complete.`;
+      const checkboxes = [...checklistContainer.querySelectorAll<HTMLInputElement>('input[data-checklist-id]')];
+      const completed = checkboxes.filter((checkbox) => checkbox.checked).length;
+      const total = checkboxes.length;
+      completion.textContent = isZh ? `完成进度：已完成 ${completed}/${total} 项。` : `Completion status: ${completed} of ${total} marked complete.`;
+      checkboxes.forEach((checkbox) => {
+        const status = checklistContainer.querySelector<HTMLElement>(`[data-checklist-status="${CSS.escape(checkbox.dataset.checklistId || '')}"]`);
+        if (status) status.textContent = checkbox.checked ? (isZh ? '状态：已完成' : 'Status: complete') : (isZh ? '状态：未完成' : 'Status: incomplete');
+      });
+      const checklistState = Object.fromEntries(checkboxes.map((checkbox) => [checkbox.dataset.checklistId || '', checkbox.checked]));
+      const regionRecord = applicationRegionOptions.find((option) => option.id === plan.state.applicationRegionId);
+      const applicationRegion = regionRecord ? getApplicationRegionLabel(regionRecord.id, regionRecord.label, locale) : null;
+      const certificateStatus = {
+        none: 'No certificate yet',
+        a1: 'Existing A1 certificate — acceptance still requires authority confirmation',
+        other: 'Another existing certificate — acceptance still requires authority confirmation',
+      }[plan.state.answers.certificate || ''] || null;
+      const localizedCertificateStatus = certificateStatus
+        ? getCertificateLabel(plan.state.answers.certificate || '', certificateStatus, locale)
+        : null;
+      serializedChecklist = serializeChecklist({
+        routeTitle: routeLabel,
+        generatedDate,
+        applicationRegion,
+        certificateStatus: localizedCertificateStatus,
+        checklist,
+        checklistState,
+      }, { locale });
+      if (fallbackText) fallbackText.value = serializedChecklist;
     };
-    list.addEventListener('change', updateCompletion);
+    checklistContainer.addEventListener('change', () => {
+      updateCompletion();
+      plan.persistChecklist(checklistContainer, routeId);
+    });
+    plan.restoreChecklist(checklistContainer);
     updateCompletion();
-    summary.append(list, completion);
+    summary.append(generated, scope, checklistContainer, completion, boundary);
+    syncTakeaway(true);
     resultPanel.hidden = false;
     controller.markResult();
     resultPanel.focus();
   });
-  if (controller?.restored) form?.requestSubmit();
+  document.querySelector<HTMLButtonElement>('[data-checklist-copy]')?.addEventListener('click', async () => {
+    if (!serializedChecklist) return;
+    try {
+      if (!navigator.clipboard?.writeText) throw new Error('Clipboard API unavailable');
+      await navigator.clipboard.writeText(serializedChecklist);
+      if (feedback) feedback.textContent = isZh ? '清单已复制。' : 'Checklist copied.';
+      if (fallback) fallback.hidden = true;
+    } catch {
+      if (fallback) fallback.hidden = false;
+      if (fallbackText) {
+        fallbackText.value = serializedChecklist;
+        fallbackText.focus();
+        fallbackText.select();
+      }
+      if (feedback) feedback.textContent = isZh ? '自动复制被阻止。请选择并复制下方完整清单文字。' : 'Automatic copy was blocked. Select and copy the complete checklist text shown below.';
+    }
+  });
+  document.querySelector<HTMLButtonElement>('[data-checklist-export]')?.addEventListener('click', () => {
+    if (!serializedChecklist) return;
+    const blob = new Blob([serializedChecklist], { type: 'text/plain;charset=utf-8' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'visalang-checklist.txt';
+    link.click();
+    URL.revokeObjectURL(link.href);
+  });
+  document.querySelector<HTMLButtonElement>('[data-checklist-print]')?.addEventListener('click', () => window.print());
+  controller?.activate();
 </script>

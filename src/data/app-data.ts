@@ -1,3 +1,5 @@
+import { examProducts } from './claim-registry.ts';
+
 export const brand = {
   name: 'VisaLang',
   domain: 'visalang.org',
@@ -23,9 +25,12 @@ export interface Exam {
   lastUpdated: string;
   category: string;
   country: string;
+  support: 'configured' | 'reference-only';
+  productId?: string;
+  scope: string;
 }
 
-export const exams: Exam[] = [
+const directoryExamRecords = [
   { name: 'Goethe-Zertifikat A1', officialSource: 'https://www.goethe.de/en/spr/prf.html', lastUpdated: '2026-06-30', category: 'Language Visa', country: 'Germany' },
   { name: 'Goethe-Zertifikat B1', officialSource: 'https://www.goethe.de/en/spr/prf.html', lastUpdated: '2026-06-30', category: 'Language Visa', country: 'Germany' },
   { name: 'TestDaF', officialSource: 'https://www.testdaf.de/', lastUpdated: '2026-06-30', category: 'Language Visa', country: 'Germany' },
@@ -58,6 +63,29 @@ export const exams: Exam[] = [
   { name: 'NMLS SAFE MLO', officialSource: 'https://mortgage.nationwidelicensingsystem.org/', lastUpdated: '2026-06-30', category: 'State License', country: 'United States' },
   { name: 'USMLE Step 1', officialSource: 'https://www.usmle.org/', lastUpdated: '2026-06-30', category: 'Medicine', country: 'United States' },
 ];
+
+const replacedDirectoryNames = new Set(['Goethe-Zertifikat A1', 'telc Deutsch A1', 'Goethe-Zertifikat B1', 'telc Deutsch B1']);
+
+export const configuredExams: Exam[] = examProducts.map((product) => ({
+  name: product.name,
+  officialSource: product.officialUrl,
+  lastUpdated: product.sourceCheckedAt,
+  category: `German ${product.level} language exam`,
+  country: 'Germany',
+  support: 'configured',
+  productId: product.id,
+  scope: product.scope,
+}));
+
+export const referenceExams: Exam[] = directoryExamRecords
+  .filter((exam) => !replacedDirectoryNames.has(exam.name))
+  .map((exam) => ({
+    ...exam,
+    support: 'reference-only',
+    scope: 'Official directory starting point only. VisaLang does not currently provide a configured comparison or route decision for this entry.',
+  }));
+
+export const exams: Exam[] = [...configuredExams, ...referenceExams];
 
 export const pageSections = [
   'Exam Overview', 'Eligibility', 'Fees', 'Dates', 'Test Format',
@@ -119,14 +147,10 @@ export function recommendExamPath(input: ExamPathInput): ExamPathResult {
 }
 
 export const guideCatalog = [
-  { slug: 'goethe-a1-germany-family-reunion', title: 'Goethe A1 for Germany family reunion', category: 'germany-a1' },
-  { slug: 'goethe-a1-fees-by-country', title: 'Goethe A1 fees by country', category: 'germany-a1' },
-  { slug: 'goethe-a1-speaking-topics', title: 'Goethe A1 speaking topics', category: 'germany-a1' },
-  { slug: 'goethe-a1-vs-telc-a1', title: 'Goethe A1 vs telc A1', category: 'germany-a1' },
-  { slug: 'goethe-a1-30-day-study-plan', title: '30-day Goethe A1 study plan', category: 'germany-a1' },
-  { slug: 'goethe-a1-test-centers', title: 'Goethe A1 test centers', category: 'germany-a1' },
-  { slug: 'goethe-a1-retake-policy', title: 'Goethe A1 retake policy', category: 'germany-a1' },
-  { slug: 'german-a1-documents-checklist', title: 'German A1 documents checklist', category: 'germany-a1' },
   { slug: 'german-family-reunion-language-requirement', title: 'German family reunion language requirement', category: 'germany-a1' },
-  { slug: 'goethe-a1-official-links-practice-resources', title: 'Goethe A1 official links and practice resources', category: 'germany-a1' },
+  { slug: 'goethe-a1-vs-telc-a1', title: 'Goethe A1 vs telc A1', category: 'germany-a1' },
+  { slug: 'goethe-a1-test-centers', title: 'Goethe A1 test centers', category: 'germany-a1' },
+  { slug: 'german-a1-exam-booking-timeline', title: 'German A1 exam booking timeline', category: 'germany-a1' },
+  { slug: 'german-a1-documents-checklist', title: 'German A1 documents checklist', category: 'germany-a1' },
+  { slug: 'goethe-a1-30-day-study-plan', title: '30-day Goethe A1 study plan', category: 'germany-a1' },
 ];

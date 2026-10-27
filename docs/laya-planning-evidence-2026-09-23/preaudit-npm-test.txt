@@ -1,0 +1,525 @@
+
+> test
+> node tests/site.test.js
+
+commercial page rules passed
+AdSense risk-exposure rules passed
+Germany A1 seven-pillar source and content rules passed
+FAN-42 Germany A1 requirement review contract passed
+FAN-73 guide trust and interaction contract passed
+FAN-75 CSS cascade assertions passed.
+Germany B1 pillar rules passed
+Germany TestDaF cluster rules passed
+P0 five-country source status and route rules passed
+Finland window B consolidation rules passed
+Italy window B remediation rules passed
+Canada window B remediation rules passed
+Netherlands window B remediation rules passed
+FAN-34 telc first-slice contract passed
+FAN-37 telc format and preparation contract passed
+FAN-38 telc fees and test centres contract passed
+FAN-39 telc work and nursing contract passed
+FAN-43 Germany B1 source recheck contract passed
+guide sources, related links, compliance, app data, legacy handoff, and deployment checks passed
+source-review rendered HTML states passed
+test_approval_is_bound_to_operation_baseline_and_evidence_bytes (test_release.BundleTests.test_approval_is_bound_to_operation_baseline_and_evidence_bytes) ... ok
+test_bundle_symlinks_are_rejected (test_release.BundleTests.test_bundle_symlinks_are_rejected) ... ok
+test_byte_and_file_set_tampering_is_rejected (test_release.BundleTests.test_byte_and_file_set_tampering_is_rejected) ... ok
+test_dirty_candidate_cannot_be_activated (test_release.BundleTests.test_dirty_candidate_cannot_be_activated) ... ok
+test_mutable_image_tag_and_missing_approval_are_rejected (test_release.BundleTests.test_mutable_image_tag_and_missing_approval_are_rejected) ... ok
+test_retained_path_redirects_are_not_successful_smoke_checks (test_release.HostSmokeTests.test_retained_path_redirects_are_not_successful_smoke_checks) ... ok
+test_release_manager_exists (test_release.ReleaseTests.test_release_manager_exists) ... ok
+test_success_records_only_after_real_probe_reload_and_smoke (test_release.ReleaseTests.test_success_records_only_after_real_probe_reload_and_smoke) ... ok
+test_switch_rolls_back_config_service_and_pointer_on_failure (test_release.ReleaseTests.test_switch_rolls_back_config_service_and_pointer_on_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.039s
+
+OK
+deployment configuration rules passed
+FAN-254 dependency audit contract passed
+FAN-270 SEO metadata rules passed
+FAN-273 404 recovery contract passed
+Laya purpose contract tests passed
+(node:58930) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/scripts/purpose-suggestion.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+route tool rules passed
+(node:58931) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/route-tools.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+article section key-decision contract passed
+(node:58932) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/article-sections.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+scheme 3 publication manifest rules passed
+(node:58933) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/publication-manifest.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+scheme 3 Chinese fail-closed wiring passed
+(node:58934) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/publication-manifest.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+scheme 3 English content depth, uniqueness, and source-ledger rules passed
+(node:58935) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/publication-manifest.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Scheme 3 Chinese pillar depth contracts passed
+scheme 3 Chinese page-specific section slots passed
+Scheme 3 tool content contracts passed
+scheme 3 route-hub publication paths passed
+scheme 3 publication observations and T23 authorization gates passed
+17 retained historical routes pass source/publication checks
+(node:59129) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/publication-manifest.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+TAP version 13
+# Subtest: T23 records every pre-existing Scheme-3 redirect without granting migration authority
+ok 1 - T23 records every pre-existing Scheme-3 redirect without granting migration authority
+  ---
+  duration_ms: 186.8915
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 192.709666
+Scheme 3 content-map snapshot passed.
+(node:59351) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/publication-manifest.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Scheme 3 planning authority contract passed.
+scheme 3 generated-state observations and authorization gates passed
+(node:59360) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/publication-manifest.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+claim registry contracts passed
+(node:59538) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/claim-registry.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+URL/support inventory contract passed
+(node:59539) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/publication-manifest.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> prebuild
+> npm run clean:astro && npm run clean:dist
+
+
+> clean:astro
+> rm -rf .astro node_modules/.astro
+
+
+> clean:dist
+> rm -rf dist
+
+
+> build
+> astro build
+
+10:25:34 [content] Syncing content
+10:25:34 [content] Synced content
+10:25:34 [types] Generated 265ms
+10:25:34 [build] output: "static"
+10:25:34 [build] mode: "static"
+10:25:34 [build] directory: /Users/a1-6/Documents/2.codex/1.visalang.org/dist/
+10:25:34 [build] Collecting build info...
+10:25:34 [build] ✓ Completed in 288ms.
+10:25:34 [build] Building static entrypoints...
+10:25:34 [vite] ✓ built in 139ms
+10:25:34 [vite] ✓ built in 23ms
+10:25:34 [build] Rearranging server assets...
+
+ generating static routes 
+10:25:34   ├─ /404.html (+5ms) 
+10:25:34   ├─ /about/index.html (+3ms) 
+10:25:34   ├─ /affiliate-disclosure/index.html (+1ms) 
+10:25:34   ├─ /contact/index.html (+1ms) 
+10:25:34   ├─ /cookie-policy/index.html (+1ms) 
+10:25:34   ├─ /editorial-policy/index.html (+1ms) 
+10:25:34   ├─ /exams/index.html (+2ms) 
+10:25:34   ├─ /germany-b1-settlement-citizenship/index.html (+2ms) 
+10:25:34   ├─ /germany-family-reunion-a1/index.html (+4ms) 
+10:25:34   ├─ /guides/category/germany-a1/index.html (+3ms) 
+10:25:34   ├─ /guides/category/germany-b1/index.html (+1ms) 
+10:25:34   ├─ /guides/category/germany-testdaf/index.html (+2ms) 
+10:25:34   ├─ /guides/category/germany-telc/index.html (+1ms) 
+10:25:34   ├─ /guides/category/uk/index.html (+1ms) 
+10:25:34   ├─ /guides/category/canada/index.html (+1ms) 
+10:25:34   ├─ /guides/category/italy/index.html (+1ms) 
+10:25:34   ├─ /guides/category/spain/index.html (+1ms) 
+10:25:34   ├─ /guides/category/france/index.html (+1ms) 
+10:25:34   ├─ /guides/category/finland/index.html (+1ms) 
+10:25:34   ├─ /guides/category/netherlands/index.html (+1ms) 
+10:25:34   ├─ /guides/category/portugal/index.html (+1ms) 
+10:25:34   ├─ /guides/cils-b1-cittadinanza-for-italian-citizenship/index.html (+27ms) 
+10:25:34   ├─ /guides/cils-vs-celi-vs-plida-for-italian-citizenship/index.html (+13ms) 
+10:25:34   ├─ /guides/dele-a2-ccse-spanish-citizenship/index.html (+6ms) 
+10:25:34   ├─ /guides/dele-levels-spanish-citizenship/index.html (+5ms) 
+10:25:34   ├─ /guides/delf-b1-b2-french-work-study/index.html (+4ms) 
+10:25:34   ├─ /guides/dutch-inburgering-a2-b1-for-integration-and-citizenship/index.html (+11ms) 
+10:25:34   ├─ /guides/german-a1-documents-checklist/index.html (+14ms) 
+10:25:34   ├─ /guides/german-a1-exam-booking-timeline/index.html (+16ms) 
+10:25:34   ├─ /guides/german-a1-family-reunion-faq/index.html (+5ms) 
+10:25:34   ├─ /guides/german-family-reunion-language-requirement/index.html (+12ms) 
+10:25:34   ├─ /guides/germany-b1-citizenship-language-proof/index.html (+14ms) 
+10:25:35   ├─ /guides/germany-b1-leben-in-deutschland-and-language-proof/index.html (+13ms) 
+10:25:35   ├─ /guides/germany-b1-settlement-citizenship-checklist/index.html (+18ms) 
+10:25:35   ├─ /guides/germany-b1-settlement-citizenship-timeline/index.html (+14ms) 
+10:25:35   ├─ /guides/goethe-a1-30-day-study-plan/index.html (+10ms) 
+10:25:35   ├─ /guides/goethe-a1-booking-mistakes/index.html (+4ms) 
+10:25:35   ├─ /guides/goethe-a1-fees-by-country/index.html (+21ms) 
+10:25:35   ├─ /guides/goethe-a1-germany-family-reunion/index.html (+7ms) 
+10:25:35   ├─ /guides/goethe-a1-listening-practice/index.html (+4ms) 
+10:25:35   ├─ /guides/goethe-a1-official-links-practice-resources/index.html (+5ms) 
+10:25:35   ├─ /guides/goethe-a1-pre-booking-checklist/index.html (+4ms) 
+10:25:35   ├─ /guides/goethe-a1-retake-policy/index.html (+4ms) 
+10:25:35   ├─ /guides/goethe-a1-speaking-topics/index.html (+4ms) 
+10:25:35   ├─ /guides/goethe-a1-study-plan-working-adults/index.html (+4ms) 
+10:25:35   ├─ /guides/goethe-a1-test-centers/index.html (+13ms) 
+10:25:35   ├─ /guides/goethe-a1-vs-telc-a1/index.html (+13ms) 
+10:25:35   ├─ /guides/goethe-a1-writing-practice/index.html (+4ms) 
+10:25:35   ├─ /guides/goethe-b1-difficulty-analysis/index.html (+4ms) 
+10:25:35   ├─ /guides/goethe-b1-fees-and-booking/index.html (+13ms) 
+10:25:35   ├─ /guides/goethe-b1-germany-settlement-work/index.html (+14ms) 
+10:25:35   ├─ /guides/goethe-b1-listening-deep-dive/index.html (+4ms) 
+10:25:35   ├─ /guides/goethe-b1-mock-exam-routine/index.html (+4ms) 
+10:25:35   ├─ /guides/goethe-b1-speaking-topics/index.html (+3ms) 
+10:25:35   ├─ /guides/goethe-b1-study-plan/index.html (+18ms) 
+10:25:35   ├─ /guides/goethe-b1-vs-telc-b1/index.html (+12ms) 
+10:25:35   ├─ /guides/goethe-b1-writing-assessment/index.html (+4ms) 
+10:25:35   ├─ /guides/ielts-ukvi-uk-visa/index.html (+5ms) 
+10:25:35   ├─ /guides/languagecert-selt-uk-visa/index.html (+5ms) 
+10:25:35   ├─ /guides/portuguese-ciple-a2-for-citizenship-and-residence/index.html (+6ms) 
+10:25:35   ├─ /guides/portuguese-language-for-golden-visa-and-citizenship/index.html (+8ms) 
+10:25:35   ├─ /guides/staatsexamen-nt2-for-work-and-higher-education/index.html (+5ms) 
+10:25:35   ├─ /guides/tcf-canada-vs-tef/index.html (+10ms) 
+10:25:35   ├─ /guides/tcf-irn-french-residence/index.html (+5ms) 
+10:25:35   ├─ /guides/tef-canada-immigration/index.html (+7ms) 
+10:25:35   ├─ /guides/telc-b1-b2-exam-format-and-preparation/index.html (+12ms) 
+10:25:35   ├─ /guides/telc-b1-b2-fees-and-test-centers/index.html (+11ms) 
+10:25:35   ├─ /guides/telc-b1-b2-germany-work-nursing/index.html (+12ms) 
+10:25:35   ├─ /guides/telc-vs-goethe-for-german-visa/index.html (+11ms) 
+10:25:35   ├─ /guides/testdaf-germany-university-admissions/index.html (+6ms) 
+10:25:35   ├─ /guides/testdaf-levels-and-scoring/index.html (+5ms) 
+10:25:35   ├─ /guides/testdaf-preparation-and-practice/index.html (+5ms) 
+10:25:35   ├─ /guides/testdaf-vs-goethe-dsh/index.html (+6ms) 
+10:25:35   ├─ /guides/yki-finnish-citizenship/index.html (+7ms) 
+10:25:35   ├─ /guides/index.html (+3ms) 
+10:25:35   ├─ /partners/index.html (+1ms) 
+10:25:35   ├─ /pricing/index.html (+1ms) 
+10:25:35   ├─ /privacy-policy/index.html (+1ms) 
+10:25:35   ├─ /products/a1-family-reunion-pack/index.html (+1ms) 
+10:25:35   ├─ /products/a1-practice-pack/index.html (+1ms) 
+10:25:35   ├─ /route-review/index.html (+1ms) 
+10:25:35   ├─ /routes/index.html (+1ms) 
+10:25:35   ├─ /terms/index.html (+1ms) 
+10:25:35   ├─ /tools/checklist-generator/index.html (+2ms) 
+10:25:35   ├─ /tools/email-reminders/index.html (+1ms) 
+10:25:35   ├─ /tools/exam-comparison/index.html (+1ms) 
+10:25:35   ├─ /tools/route-finder/index.html (+1ms) 
+10:25:35   ├─ /tools/timeline-calculator/index.html (+1ms) 
+10:25:35   ├─ /tools/index.html (+1ms) 
+10:25:35   ├─ /zh/germany-family-reunion-a1/index.html (+1ms) 
+10:25:35   ├─ /zh/guides/german-a1-documents-checklist/index.html (+2ms) 
+10:25:35   ├─ /zh/guides/german-a1-exam-booking-timeline/index.html (+1ms) 
+10:25:35   ├─ /zh/guides/german-family-reunion-language-requirement/index.html (+1ms) 
+10:25:35   ├─ /zh/guides/goethe-a1-30-day-study-plan/index.html (+1ms) 
+10:25:35   ├─ /zh/guides/goethe-a1-booking-mistakes/index.html (+1ms) 
+10:25:35   ├─ /zh/guides/goethe-a1-germany-family-reunion/index.html (+1ms) 
+10:25:35   ├─ /zh/guides/goethe-a1-test-centers/index.html (+1ms) 
+10:25:35   ├─ /zh/guides/goethe-a1-vs-telc-a1/index.html (+2ms) 
+10:25:35   ├─ /zh/tools/checklist-generator/index.html (+1ms) 
+10:25:35   ├─ /zh/tools/email-reminders/index.html (+1ms) 
+10:25:35   ├─ /zh/tools/exam-comparison/index.html (+1ms) 
+10:25:35   ├─ /zh/tools/route-finder/index.html (+1ms) 
+10:25:35   ├─ /zh/tools/timeline-calculator/index.html (+1ms) 
+10:25:35   ├─ /zh/index.html (+4ms) 
+10:25:35   ├─ /index.html (+2ms) 
+10:25:35 ✓ Completed in 612ms.
+
+ generating optimized images 
+10:25:35   ▶ /_astro/home-route-verification.CnUZAwNY_1deNFs.avif (before: 2106kB, after: 21kB) (+128ms) (1/10)
+10:25:35   ▶ /_astro/home-route-verification.CnUZAwNY_OWXxP.avif (before: 2106kB, after: 44kB) (+203ms) (2/10)
+10:25:36   ▶ /_astro/home-route-verification.CnUZAwNY_ZfIAj1.avif (before: 2106kB, after: 75kB) (+308ms) (3/10)
+10:25:36   ▶ /_astro/home-route-verification.CnUZAwNY_Z2agoDR.webp (before: 2106kB, after: 15kB) (+32ms) (4/10)
+10:25:36   ▶ /_astro/home-route-verification.CnUZAwNY_2wDT2r.webp (before: 2106kB, after: 28kB) (+42ms) (5/10)
+10:25:36   ▶ /_astro/home-route-verification.CnUZAwNY_1qWkaA.webp (before: 2106kB, after: 46kB) (+57ms) (6/10)
+10:25:36   ▶ /_astro/home-route-verification.CnUZAwNY_1DwF8M.png (before: 2106kB, after: 69kB) (+73ms) (7/10)
+10:25:36   ▶ /_astro/home-route-verification.CnUZAwNY_1gfP1a.png (before: 2106kB, after: 150kB) (+110ms) (8/10)
+10:25:36   ▶ /_astro/home-route-verification.CnUZAwNY_ayg9j.png (before: 2106kB, after: 268kB) (+164ms) (9/10)
+10:25:36   ▶ /_astro/home-route-verification.CnUZAwNY_RpIye.png (before: 2106kB, after: 590kB) (+299ms) (10/10)
+10:25:36 ✓ Completed in 1.42s.
+
+10:25:36 [build] ✓ Completed in 2.21s.
+10:25:36 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+10:25:36 [build] 105 page(s) built in 2.52s
+10:25:36 [build] Complete!
+
+> postbuild
+> node scripts/enrich-sitemap-lastmod.js
+
+Task 2 P0 rendered authority boundaries passed
+Task 4 home and route support-state contract passed
+Task 4 guide render and claim-boundary contracts passed
+(node:59705) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/publication-manifest.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Task 5 high-risk source-ledger and rendered C01 source contracts passed
+(node:60236) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/claim-registry.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+M2-A exam product and comparison contracts passed
+(node:60406) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/claim-registry.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+M2-A staged checklist and merged-content contracts passed
+(node:60410) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/route-tools.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+M2-A local fee, centre route and publication contracts passed
+(node:60411) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/claim-registry.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+M2-A calendar-day timeline contract passed
+(node:60412) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/route-tools.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+M2-A versioned shared plan-state contract passed
+(node:60413) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/plan-state.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+M2-A shared plan-state integration contracts passed
+(node:60414) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/scripts/plan-state.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+M2-B T15 Route Finder state contracts passed
+(node:60415) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/claim-registry.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+M2-B T16 checklist export and state contracts passed
+(node:60416) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/route-tools.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+M2-B T17 Exam Comparison result contracts passed
+(node:60591) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/claim-registry.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+M2-B T18 Timeline result-state contracts passed
+(node:60592) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/route-tools.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+M2-B T19 RFC 5545 reminder contracts passed
+(node:60593) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/reminder-ics.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+M3 T20 Chinese tool presentation contract passed
+(node:60594) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/tool-copy.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+TAP version 13
+# Subtest: Chinese Route Finder localizes every purpose selector and preserves other-family recovery semantics
+ok 1 - Chinese Route Finder localizes every purpose selector and preserves other-family recovery semantics
+  ---
+  duration_ms: 0.558334
+  type: 'test'
+  ...
+# Subtest: Chinese guide CopyButton compiles zh-CN wiring and announces both Clipboard outcomes in Chinese
+ok 2 - Chinese guide CopyButton compiles zh-CN wiring and announces both Clipboard outcomes in Chinese
+  ---
+  duration_ms: 8.715459
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 14.016625
+M3 T20 Chinese journey and eight-task reconciliation passed
+(node:60596) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/site.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+M3 T21 discovery, exam-priority, and trust contracts passed
+(node:60597) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/guide-taxonomy.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:60598) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/publication-manifest.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+TAP version 13
+# Subtest: the full repository runner invokes every focused M3 contract
+ok 1 - the full repository runner invokes every focused M3 contract
+  ---
+  duration_ms: 0.453458
+  type: 'test'
+  ...
+# Subtest: generated routes have one self-canonical, one language, one robots policy, and no indexable query variant
+ok 2 - generated routes have one self-canonical, one language, one robots policy, and no indexable query variant
+  ---
+  duration_ms: 0.319917
+  type: 'test'
+  ...
+# Subtest: five Chinese tools and representative guide, directory, and trust routes render the declared source policy
+ok 3 - five Chinese tools and representative guide, directory, and trust routes render the declared source policy
+  ---
+  duration_ms: 0.492208
+  type: 'test'
+  ...
+# Subtest: generated hreflang is reciprocal and limited to the exact true-equivalence registry
+ok 4 - generated hreflang is reciprocal and limited to the exact true-equivalence registry
+  ---
+  duration_ms: 6.090375
+  type: 'test'
+  ...
+# Subtest: unresolved redirect-candidate sources remain locally absent without being classified as authorized retirements
+ok 5 - unresolved redirect-candidate sources remain locally absent without being classified as authorized retirements
+  ---
+  duration_ms: 0.325625
+  type: 'test'
+  ...
+# Subtest: robots source, generated robots, sitemap index, and launch SEO assertions describe one generated contract
+ok 6 - robots source, generated robots, sitemap index, and launch SEO assertions describe one generated contract
+  ---
+  duration_ms: 72.361666
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 84.695375
+(node:60600) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/publication-manifest.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+TAP version 13
+# Subtest: T23 records every pre-existing Scheme-3 redirect without granting migration authority
+ok 1 - T23 records every pre-existing Scheme-3 redirect without granting migration authority
+  ---
+  duration_ms: 190.845583
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 195.49475
+(node:60829) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/b1-route-paths.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+T24 independent B1 route outputs, evidence categories, checklists and unknown fallback passed
+T25 B1 sourced comparison, localized output, fail-closed lifecycle and directory contracts passed
+(node:60830) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/claim-registry.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+M4 T26 original study worksheet and revision-example contracts passed
+(node:60831) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/article-sections.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+T27 measurement contract and privacy consistency tests passed.
+(node:60832) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/measurement-contract.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+17 retained historical routes pass source/publication checks
+(node:60834) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/a1-6/Documents/2.codex/1.visalang.org/src/data/publication-manifest.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/a1-6/Documents/2.codex/1.visalang.org/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+site UI, route, guide, tool, SEO, accessibility, and migration checks passed
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: candidate byte binding is current: docs/planning-map/visalang-overall-build-plan.archify.json
++ actual - expected
+
++ '903237d8d675f3a0022c4e0f7d49c583124b8fd48feeec794601e5fc29eabd58'
+- 'c9d65f92b2509f0527208fe97a0355a74961a1c50fc2b7ee19a75947b756a094'
+
+    at validateCandidateByteBindings (file:///Users/a1-6/Documents/2.codex/1.visalang.org/tests/planning-map-governance.test.mjs:234:12)
+    at file:///Users/a1-6/Documents/2.codex/1.visalang.org/tests/planning-map-governance.test.mjs:243:32
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:681:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: '903237d8d675f3a0022c4e0f7d49c583124b8fd48feeec794601e5fc29eabd58',
+  expected: 'c9d65f92b2509f0527208fe97a0355a74961a1c50fc2b7ee19a75947b756a094',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v22.23.2
+node:child_process:955
+    throw err;
+    ^
+
+Error: Command failed: /Users/a1-6/.local/share/pi-node/node-v22.23.2-darwin-arm64/bin/node tests/planning-map-governance.test.mjs
+    at genericNodeError (node:internal/errors:983:15)
+    at wrappedFn (node:internal/errors:537:14)
+    at checkExecSyncError (node:child_process:916:11)
+    at execFileSync (node:child_process:952:15)
+    at Object.<anonymous> (/Users/a1-6/Documents/2.codex/1.visalang.org/tests/site.test.js:448:1)
+    at Module._compile (node:internal/modules/cjs/loader:1781:14)
+    at Object..js (node:internal/modules/cjs/loader:1913:10)
+    at Module.load (node:internal/modules/cjs/loader:1505:32)
+    at Function._load (node:internal/modules/cjs/loader:1309:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:254:19) {
+  status: 1,
+  signal: null,
+  output: [ null, null, null ],
+  pid: 60836,
+  stdout: null,
+  stderr: null
+}
+
+Node.js v22.23.2
