@@ -30,3 +30,12 @@ Help a reader identify the page task. Do not stuff keywords.
 - `noindex` stays on commercial placeholders and on guides that are not in primary discovery.
 - Do not add a thin page to win a query. Deepen an existing Germany A1 or B1 page instead.
 - Do not write that the site is ready for an advertising program. Metadata is not approval.
+- Do not invent search volume, keyword difficulty, rankings, fees, dates, or acceptance lists.
+
+## Germany A1 and B1
+
+The first decision page is `/guides/german-family-reunion-language-requirement/`. Its direct answer asks whether the file needs A1 and sends the reader to the competent mission.
+
+From there, link Goethe A1 proof, Goethe vs telc, the family-reunion FAQ, and the documents checklist. Keep settlement and citizenship on `/germany-b1-settlement-citizenship/` and its B1 guides. One cross-link is enough to say the routes differ.
+
+Guide search titles use `seoTitle` and stay within 49 characters before ` | VisaLang`. The meta description is the Direct answer box, so write that sentence as the quotable answer and keep it within 170 characters. Do not add a second keyword list in the H1.

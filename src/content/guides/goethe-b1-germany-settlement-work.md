@@ -1,11 +1,11 @@
 ---
 title: "Germany settlement permit and B1: verify the route before choosing proof"
 seoTitle: "Germany settlement permit B1 proof"
-description: "Check a Germany settlement-permit language-proof question without treating B1 as approval or overlooking the route's other requirements."
+description: "Ask your foreigners authority which settlement route applies before comparing Goethe, telc, or DTZ. B1 is not a permit decision."
 category: "germany-b1"
 slug: "goethe-b1-germany-settlement-work"
 publishedDate: "2026-06-30"
-updatedDate: "2026-10-21"
+updatedDate: "2026-11-07"
 sourceReviewedAt: "2026-10-21"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"

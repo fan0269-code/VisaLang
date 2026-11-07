@@ -78,6 +78,12 @@ Do these only after the origin returns HTTP 200 and the owner asks:
 | Content updates | `.cursor/skills/content-update/SKILL.md` | Authority order, no invented fees or dates, Chinese labelling, update log |
 | SEO / AEO | `.cursor/skills/seo-aeo/SKILL.md` | Title, description, heading level, internal links, hreflang, no stuffing |
 
+## SEO / AEO brief follow-up
+
+The 2026-11-07 SEO/AEO brief is the keyword source for this pass. It does not supply search volumes or live rankings, and visalang.org was still HTTP 521, so those were not added.
+
+The top-pick page is `/guides/german-family-reunion-language-requirement/`. Its search title is the question “Do you need German A1 for family reunion?” and the direct answer leaves the decision with the competent mission. Downstream links go to Goethe A1 proof, the Goethe/telc comparison, the FAQ, and the documents checklist. The A1 and B1 hub titles, the Leben in Deutschland answer, and the settlement and citizenship descriptions were tightened the same way. `sourceReviewedAt` on the requirement guide stays 2026-10-21.
+
 ## Verification results
 
 - `npm test` passed, including the new `tests/site-audit-2026-11-07.test.js` assertions.

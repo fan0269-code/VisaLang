@@ -1,10 +1,11 @@
 ---
-title: "German family reunion language requirement guide"
-description: "Check the relevant family-reunion route, the sponsor's residence category, and the responsible mission's current language-proof instructions before applying."
+title: "Do you need German A1 for family reunion?"
+seoTitle: "Do you need German A1 for family reunion?"
+description: "Whether your file needs German A1 is decided by the competent German mission. Open its current family-reunion instruction before you book."
 category: "germany-a1"
 slug: "german-family-reunion-language-requirement"
 publishedDate: "2026-06-30"
-updatedDate: "2026-10-21"
+updatedDate: "2026-11-07"
 sourceReviewedAt: "2026-10-21"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
@@ -106,7 +107,7 @@ Fill only what an official page or written reply supports. Leave blanks where un
 
 ## Next action
 
-Save the current mission instruction for your route, then ask the mission or responsible authority to clarify any unresolved language-proof question before payment, booking, or submission. When the accepted proof wording is clear, continue to [Goethe A1 for Germany family reunion](/guides/goethe-a1-germany-family-reunion/).
+Save the current mission instruction for your route, then ask the mission or responsible authority to clarify any unresolved language-proof question before payment, booking, or submission. When the accepted proof wording is clear, continue to [Goethe A1 for Germany family reunion](/guides/goethe-a1-germany-family-reunion/). Compare only products the mission named in [Goethe A1 vs telc A1](/guides/goethe-a1-vs-telc-a1/), use the [family-reunion FAQ](/guides/german-a1-family-reunion-faq/) for the next question, and keep exam-day papers separate from the visa file with the [documents checklist](/guides/german-a1-documents-checklist/).
 
 ## Official sources
 

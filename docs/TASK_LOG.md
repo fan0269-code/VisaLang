@@ -2,6 +2,13 @@
 
 Updated: 2026-11-07
 
+## SEO / AEO answer pass — 2026-11-07
+
+- Scope: titles, direct answers, and internal links for the Germany A1 requirement page, the A1 and B1 hubs, the Goethe/telc A1 comparison, Leben in Deutschland, the family-reunion FAQ, and the settlement and citizenship language pages. No new country pages, fees, dates, volumes, or rankings. `sourceReviewedAt` on the requirement guide stays 2026-10-21.
+- Top pick: `/guides/german-family-reunion-language-requirement/`.
+- Advertising runtime stays off. Live visalang.org was still HTTP 521, so online rank checks were not claimed.
+- Evidence: `docs/SITE_AUDIT_2026-11-07.md` SEO / AEO section. Independent review remains a separate gate.
+
 ## Site audit and Germany A1/B1 discovery pass — 2026-11-07
 
 - Scope: in-repo audit, three Cursor skills, and P1 fixes for route labelling, Germany A1/B1 internal links, search titles and descriptions, Chinese guide navigation, header collapse at 1024px, and dark-mode primary-button contrast. Branched from PR #6 (`34a67c0`). No new country pages, no fee or date claims, no AdSense application, and no hosting change.
