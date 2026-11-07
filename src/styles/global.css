@@ -471,7 +471,7 @@ p, li { line-height: 1.7; }
 .global-footer__disclaimer,
 .global-footer nav a { color: var(--od-copy); }
 .global-footer nav a:hover { color: var(--od-primary); }
-.global-footer__disclaimer { border-top-color: var(--od-line); }
+.global-footer__disclaimer { border-top-color: var(--od-line); color: var(--od-ink); font-size: 0.9375rem; line-height: 1.65; max-width: 72ch; }
 
 .home-view .site-main { padding-top: 0; }
 

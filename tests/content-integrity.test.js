@@ -45,10 +45,15 @@ const depthRemediatedA1Slugs = new Set([
   'goethe-a1-vs-telc-a1',
   'german-a1-documents-checklist',
 ]);
+const sourceRecheckedOn20261107 = new Set([
+  'german-a1-exam-booking-timeline',
+]);
 for (const slug of auditedGermanyA1Slugs) {
   const source = bySlug.get(slug)?.source || '';
   assert.equal(field(source, 'contentStatus'), 'complete-route', `${slug} keeps content maturity independent from source review`);
-  const expectedReviewDate = depthRemediatedA1Slugs.has(slug)
+  const expectedReviewDate = sourceRecheckedOn20261107.has(slug)
+    ? '2026-11-07'
+    : depthRemediatedA1Slugs.has(slug)
     ? '2026-10-21'
     : newlyReviewedLocalSourceSlugs.has(slug) ? '2026-07-19' : '2026-07-18';
   assert.equal(field(source, 'updatedDate'), expectedReviewDate, `${slug} records the substantive visible update`);

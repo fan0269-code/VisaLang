@@ -156,7 +156,7 @@ for (const path of ['/index.html', '/germany-family-reunion-a1.html', '/guides/y
 }
 assert.ok(smoke.includes('rel="canonical" href="https://visalang.org/"'), 'smoke test verifies the production canonical');
 assert.ok(smoke.includes('https://www.visalang.org'), 'smoke test checks www canonicalisation');
-assert.ok(smoke.includes('pagead2.googlesyndication.com'), 'smoke test verifies the active AdSense runtime on eligible content');
+assert.ok(smoke.includes('pagead2.googlesyndication.com'), 'smoke test rejects an AdSense runtime while the owner advertising gate is off');
 assert.ok(smoke.includes('/tools/route-finder/'), 'smoke test verifies the tool route remains advertising-free');
 assert.ok(smoke.includes('google.com, pub-3018617123550799, DIRECT, f08c47fec0942fa0'), 'smoke test verifies the production ads.txt seller line');
 assert.ok(smoke.includes('content-security-policy'), 'smoke test verifies the approved CSP removal');

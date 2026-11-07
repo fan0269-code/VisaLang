@@ -5,8 +5,8 @@ description: "Common questions about German A1 language proof for family reunion
 category: "germany-a1"
 slug: "german-a1-family-reunion-faq"
 publishedDate: "2026-07-02"
-updatedDate: "2026-07-22"
-sourceReviewedAt: "2026-07-22"
+updatedDate: "2026-11-07"
+sourceReviewedAt: "2026-11-07"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "complete-route"
@@ -16,7 +16,7 @@ nextGuideSlug: "goethe-a1-vs-telc-a1"
 comparisonScope: "same-route"
 audienceScope: "Spouses using a German family-reunification visa FAQ to identify which current authority or exam-owner question to check next."
 finalDecisionAuthorityType: "Competent German mission abroad and the responsible foreigners authority"
-primaryOfficialAuthorityUrl: "https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11"
+primaryOfficialAuthorityUrl: "https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682"
 examOwnerUrl: "https://www.goethe.de/en/spr/prf.html"
 localExecutionPrompt: "Match each FAQ answer to the competent German mission's current instruction; after acceptance is confirmed, verify the chosen provider and authorised centre before booking."
 author: "VisaLang Editorial team"
@@ -27,6 +27,14 @@ route: "germany-a1"
 supportingGuideSlugs: ["german-family-reunion-language-requirement", "german-a1-documents-checklist"]
 ---
 Use this FAQ to find the right next page, not to replace the German mission, BAMF, Goethe, telc, or a local test centre. Family reunion requirements and local exam procedures can change.
+
+## What the current official texts support
+
+Checked on 2026-11-07:
+
+- The Federal Foreign Office FAQ on spouse language skills still says that foreign spouses have to prove at least a basic knowledge of German. It points to the Federal Office for Migration and Refugees for detail and to the German mission in the relevant country for further information. It does not decide your file.
+- Residence Act section 30 still includes a condition that the spouse can communicate in German at least in a simple way, and it also lists situations in which that language condition does not apply. Open the current statute and ask the competent mission which situation, if any, applies. This FAQ does not apply an exception.
+- Certificate names, fees, seats, result timing, and local identification rules are not copied here. Open the BAMF leaflet and the exam owner, then the selected centre.
 
 ## Do I need A1 for family reunion?
 
@@ -76,6 +84,8 @@ For a compact route map, return to the [Germany A1 family reunion hub](/germany-
 
 ## Official sources
 
-- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
+- [Federal Foreign Office: spouse language-skills FAQ](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682)
+- [Residence Act, section 30](https://www.gesetze-im-internet.de/aufenthg_2004/__30.html)
 - [Federal Foreign Office: Visas for Germany](https://www.auswaertiges-amt.de/en/visa-service/215870-215870)
 - [BAMF spousal-reunification language-proof leaflet (PDF)](https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11)
+- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)

@@ -302,7 +302,10 @@ const guideDiscoveryFailures = guidePages.filter(({ route, html }) => {
   const discoveryFailure = primaryDiscoveryEligible
     ? hasNoindex || !inSitemap
     : !hasNoindex || inSitemap;
-  const advertisingFailure = advertisingEligible ? !hasAds : hasAds;
+  const advertisingRuntimeEnabled = /advertisingRuntimeEnabled:\s*true/.test(read('src/data/site.ts'));
+  const advertisingFailure = advertisingRuntimeEnabled
+    ? (advertisingEligible ? !hasAds : hasAds)
+    : hasAds;
   return discoveryFailure || advertisingFailure;
 }).map(({ route }) => route);
 const guideTaxonomySource = read('src/data/guide-taxonomy.ts');

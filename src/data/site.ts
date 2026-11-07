@@ -4,6 +4,9 @@ export const site = {
   name: 'VisaLang',
   url: 'https://visalang.org',
   email: 'hello@visalang.org',
+  // Owner gate. Page-level enableAds only marks a future eligible surface.
+  // Leave false until the owner authorises a live advertising runtime.
+  advertisingRuntimeEnabled: false,
   lastSystemReview: '2026-07-11',
   routes: [
     { id: 'family-reunion', label: 'Family reunion', zh: '家庭团聚', href: '/germany-family-reunion-a1/', status: 'available' },

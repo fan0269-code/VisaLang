@@ -103,14 +103,20 @@ assert.equal((src.base.match(/pagead2\.googlesyndication\.com/g) || []).length, 
 assert.ok(src.base.includes(adsenseLoader), 'BaseLayout loads the configured AdSense publisher script');
 assert.match(
   src.base,
-  /\{\s*enableAds\s*&&\s*<script\s+async\s+src="https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-3018617123550799"\s+crossorigin="anonymous"><\/script>\s*\}/,
-  'BaseLayout conditionally renders the approved AdSense loader through enableAds',
+  /const loadAdvertisingRuntime = enableAds && site\.advertisingRuntimeEnabled;/,
+  'BaseLayout requires the owner runtime gate before loading AdSense',
+);
+assert.match(
+  src.base,
+  /\{\s*loadAdvertisingRuntime\s*&&\s*<script\s+async\s+src="https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-3018617123550799"\s+crossorigin="anonymous"><\/script>\s*\}/,
+  'BaseLayout keeps the publisher script behind the owner runtime gate',
 );
 assert.ok(!src.base.includes('static.cloudflareinsights.com'), 'shared layout does not load Cloudflare Web Analytics');
 assert.ok(src.tool.includes('enableAds={false}'), 'ToolLayout disables advertising for URL-backed tools');
 assert.ok(src.tools.includes('enableAds={false}'), 'tools index disables advertising');
 assert.ok(src.guides.includes('enableAds={false}'), 'searchable guide library index disables advertising');
-assert.ok(src.home.includes('enableAds={true}'), 'homepage explicitly opts into the AdSense loader');
+assert.ok(src.home.includes('enableAds={true}'), 'homepage keeps a future eligibility opt-in');
+assert.ok(src.siteData.includes('advertisingRuntimeEnabled: false'), 'owner advertising runtime stays off');
 assert.ok(src.guide.includes('isGuidePrimaryDiscoveryEligible') && src.guide.includes('enableAds={advertisingEligible}') && src.guide.includes('noindex={!primaryDiscoveryEligible}'), 'guide advertising and indexing use the shared fail-closed gate');
 assert.ok(src.notFound.includes('enableAds={false}'), '404 page explicitly disables advertising');
 assert.ok(src.guideCategory.includes('noindex={!indexEligible}') && src.guideCategory.includes('enableAds={false}'), 'guide categories are indexed only when they contain discovery-eligible guides and remain ad-free');
@@ -119,16 +125,20 @@ assert.ok(src.launchCheck.includes('explicitlyNoindexCategorySlugs') && src.laun
 assert.ok(
   src.launchCheck.includes('const advertisingEligible = primaryDiscoveryEligible && !explicitlyAdsIneligible')
     && src.launchCheck.includes('const discoveryFailure = primaryDiscoveryEligible')
-    && src.launchCheck.includes('const advertisingFailure = advertisingEligible ? !hasAds : hasAds'),
-  'launch check keeps guide discovery eligibility separate from the explicit advertising veto',
+    && src.launchCheck.includes('const advertisingRuntimeEnabled = /advertisingRuntimeEnabled:\\s*true/.test(read(\'src/data/site.ts\'))')
+    && src.launchCheck.includes('const advertisingFailure = advertisingRuntimeEnabled'),
+  'launch check keeps discovery eligibility separate from the owner advertising runtime gate',
 );
 assert.ok(src.sourceReview.includes('isGuidePrimaryDiscoveryEligible'), 'one shared helper controls primary-discovery eligibility');
-assert.equal(src.adsTxt, 'google.com, pub-3018617123550799, DIRECT, f08c47fec0942fa0\n', 'ads.txt declares the approved direct Google seller');
+const adsTxt = '# Prepared seller declaration only. This file is not proof that AdSense has approved visalang.org or that ads are being served.\ngoogle.com, pub-3018617123550799, DIRECT, f08c47fec0942fa0\n';
+assert.equal(src.adsTxt, adsTxt, 'ads.txt keeps the seller line and states that it is not live approval');
 assert.ok(src.privacy.includes('How VisaLang handles visitor data, advertising choices, URL state, local storage, and server logs.'), 'privacy policy description covers advertising choices');
-for (const text of ['VisaLang uses Google AdSense on ad-eligible content pages', 'Google Privacy & messaging', 'Google Ads Settings', 'places only the non-sensitive values needed to restore that result in the page URL']) {
+for (const text of ['does not currently load an advertising runtime', 'not proof that AdSense has approved this site', 'Google Ads Settings', 'places only the non-sensitive values needed to restore that result in the page URL']) {
   assert.ok(src.privacy.includes(text), `privacy policy includes ${text}`);
 }
-for (const text of ['Google AdSense and Google Privacy & messaging', 'Current tools do not store their form fields in local storage.', 'Route progress:', 'current route step in browser local storage']) {
+assert.ok(!src.privacy.includes('VisaLang uses Google AdSense on ad-eligible content pages'), 'privacy policy does not claim ads are active');
+assert.ok(!src.privacy.includes('Auto ads is configured'), 'privacy policy does not claim Auto ads are configured');
+for (const text of ['No advertising runtime is loaded while the owner gate is off', 'Current tools do not store their form fields in local storage.', 'Route progress:', 'current route step in browser local storage']) {
   assert.ok(src.cookies.includes(text), `cookie policy includes ${text}`);
 }
 assert.ok(!src.headers.includes('Content-Security-Policy:'), 'headers leaves CSP to Google-managed advertising requirements');
@@ -138,9 +148,11 @@ for (const header of ['X-Content-Type-Options:', 'X-Frame-Options:', 'Referrer-P
 
 for (const page of [
   'dist/index.html',
+  'dist/germany-family-reunion-a1/index.html',
+  'dist/germany-b1-settlement-citizenship/index.html',
   'dist/guides/german-family-reunion-language-requirement/index.html',
 ]) {
-  assert.ok(read(page).includes(adsenseLoader), `ad-eligible generated page loads AdSense: ${page}`);
+  assert.ok(!read(page).includes('pagead2.googlesyndication.com'), `owner gate keeps AdSense off: ${page}`);
 }
 for (const page of [
   'dist/tools/index.html',
@@ -163,7 +175,7 @@ assert.doesNotMatch(read('dist/guides/german-family-reunion-language-requirement
 const qualityGatedGuideIndex = read('dist/guides/index.html');
 assert.ok(qualityGatedGuideIndex.includes('Goethe A1 test centers: verify an official exam centre'), 'guide library retains a reviewed complete guide');
 assert.ok(!qualityGatedGuideIndex.includes('CILS B1 Cittadinanza for Italian Citizenship'), 'guide library withholds a pending guide');
-assert.equal(read('dist/ads.txt'), 'google.com, pub-3018617123550799, DIRECT, f08c47fec0942fa0\n', 'generated ads.txt retains the approved direct Google seller');
+assert.equal(read('dist/ads.txt'), adsTxt, 'generated ads.txt keeps the seller line and the not-live-approval note');
 
 for (const token of ['--page-max', '--reading-max', '--text-2xl', '--space-8', '--radius', '--shadow-md', '--primary', '--risk', '--success', '--focus', '--disabled']) {
   assert.ok(src.css.includes(token), `design system should define ${token}`);

@@ -68,10 +68,21 @@ const depthRemediatedB1Core = new Set([
   'goethe-b1-germany-settlement-work.md',
   'germany-b1-citizenship-language-proof.md',
 ]);
+const recheckedB1On20261107 = new Set([
+  'germany-b1-leben-in-deutschland-and-language-proof.md',
+  'goethe-b1-vs-telc-b1.md',
+  'germany-b1-settlement-citizenship-timeline.md',
+  'germany-b1-settlement-citizenship-checklist.md',
+]);
 for (const file of requiredCoreGuides) {
   const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
   assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${file} records the completed source review`);
-  assert.equal(field(source, 'sourceReviewedAt'), depthRemediatedB1Core.has(file) ? '2026-10-21' : '2026-07-19', `${file} records the actual source-review date`);
+  const expectedReviewDate = depthRemediatedB1Core.has(file)
+    ? '2026-10-21'
+    : recheckedB1On20261107.has(file)
+      ? '2026-11-07'
+      : '2026-07-19';
+  assert.equal(field(source, 'sourceReviewedAt'), expectedReviewDate, `${file} records the actual source-review date`);
   assert.equal(field(source, 'reviewedByRole'), 'source-review', `${file} records the source-review role`);
   assert.doesNotMatch(markdownBody(source), /Official verification pending/i, `${file} does not contradict reviewed metadata in public copy`);
   assert.doesNotMatch(markdownBody(source), /Reader decision and search intent|Manual checks still needed|Before you rely on this page|Proposed B1 practice pack interest/i, `${file} does not expose internal editorial language`);

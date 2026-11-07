@@ -5,8 +5,8 @@ description: "Understand the separate roles of B1 language evidence and Leben in
 category: "germany-b1"
 slug: "germany-b1-leben-in-deutschland-and-language-proof"
 publishedDate: "2026-07-11"
-updatedDate: "2026-07-19"
-sourceReviewedAt: "2026-07-19"
+updatedDate: "2026-11-07"
+sourceReviewedAt: "2026-11-07"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "core-route"
@@ -35,9 +35,12 @@ Do not treat a B1 language result as civic-knowledge proof. Do not treat a Leben
 
 ## What the official sources support
 
-- DTZ assesses German language skills from A2 to B1 in the integration-course context.
-- Leben in Deutschland is a separate civic-knowledge test.
-- Under the cited conditions, a Leben in Deutschland result may be used to demonstrate the civic-knowledge requirement for naturalisation.
+Checked on 2026-11-07:
+
+- Integration Course Ordinance section 17(1) describes two separate final tests: the scaled Deutsch-Test für Zuwanderer for listening, reading, writing, and speaking at A2 to B1, and the scaled Leben in Deutschland test.
+- Section 17(5) says the scaled Leben in Deutschland test can also demonstrate the knowledge required by Nationality Act section 10(1) sentence 1 no. 7, under the naturalisation-test ordinance. That is a civic-knowledge route. It does not turn a B1 language result into civic-knowledge proof.
+- The federal naturalisation portal says the usual civic-knowledge proof is the naturalisation test and that the Life in Germany test is also considered proof. It describes school or university certificates in Germany as sufficient in the cases that page sets out. The competent nationality authority still decides the file.
+- The same portal publishes fee, question-format, and processing-time figures. Read those figures there. This page does not repeat them.
 
 These points do not make Leben in Deutschland and the naturalisation test interchangeable for every purpose, and they do not prove that the integration-course certificate completes a settlement or citizenship file.
 
@@ -61,6 +64,6 @@ After the authority confirms the evidence categories, continue to the [DTZ, Goet
 ## Official sources
 
 - [German Government: how the naturalisation process works](https://www.einbuergerung.de/ablauf.php?l=en)
-- [Integration Course Ordinance, Section 17](https://www.gesetze-im-internet.de/intv/__17.html)
+- [Integration Course Ordinance, section 17](https://www.gesetze-im-internet.de/intv/__17.html)
 - [BAMF: the final examination and certificate](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse/Abschlusspruefung/abschlusspruefung-node.html)
 - [Nationality Act, Section 10](https://www.gesetze-im-internet.de/stag/__10.html)
