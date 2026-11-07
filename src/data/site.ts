@@ -7,14 +7,14 @@ export const site = {
   // Owner gate. Page-level enableAds only marks a future eligible surface.
   // Leave false until the owner authorises a live advertising runtime.
   advertisingRuntimeEnabled: false,
-  lastSystemReview: '2026-07-11',
+  lastSystemReview: '2026-11-07',
   routes: [
-    { id: 'family-reunion', label: 'Family reunion', zh: '家庭团聚', href: '/germany-family-reunion-a1/', status: 'available' },
-    { id: 'study', label: 'Study', zh: '留学', href: '/tools/route-finder/', status: 'available' },
-    { id: 'work', label: 'Work', zh: '工作', href: '/tools/route-finder/', status: 'available' },
-    { id: 'settlement', label: 'Settlement', zh: '永居', href: '/germany-b1-settlement-citizenship/', status: 'available' },
-    { id: 'citizenship', label: 'Citizenship', zh: '入籍', href: '/germany-b1-settlement-citizenship/', status: 'available' },
-    { id: 'not-sure', label: 'Not sure yet', zh: '还不确定', href: '/tools/route-finder/', status: 'available' },
+    { id: 'family-reunion', label: 'Family reunion', zh: '家庭团聚', href: '/germany-family-reunion-a1/', coverage: 'guide-hub' },
+    { id: 'study', label: 'Study', zh: '留学', href: '/tools/route-finder/', coverage: 'verification' },
+    { id: 'work', label: 'Work', zh: '工作', href: '/tools/route-finder/', coverage: 'verification' },
+    { id: 'settlement', label: 'Settlement', zh: '永居', href: '/germany-b1-settlement-citizenship/', coverage: 'guide-hub' },
+    { id: 'citizenship', label: 'Citizenship', zh: '入籍', href: '/germany-b1-settlement-citizenship/', coverage: 'guide-hub' },
+    { id: 'not-sure', label: 'Not sure yet', zh: '还不确定', href: '/tools/route-finder/', coverage: 'verification' },
   ],
   tools: [
     { id: 'finder', label: 'Route Finder', zh: '路线查找器', href: '/tools/route-finder/', description: 'Identify the authority and proof questions to verify first.', status: 'available' },

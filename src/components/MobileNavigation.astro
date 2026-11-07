@@ -12,7 +12,12 @@ const localHref = (href: string) => isZh && href === '/' ? '/zh/' : href;
 <details class="mobile-navigation">
   <summary>{labels.menu}</summary>
   <nav aria-label={isZh ? '移动端导航' : 'Mobile navigation'}>
-    {navItems.map((item) => { const href = localHref(item.href); return <a href={href} aria-current={navigationCurrent(currentPath, item.key, href)}>{labels[item.key]}{isZh && item.key !== 'home' ? '（英文）' : ''}</a>; })}
+    {navItems.map((item) => {
+      const linkHref = isZh && item.key === 'guides' ? '/guides/?language=zh' : localHref(item.href);
+      const href = linkHref.split('?')[0];
+      const label = isZh && item.key === 'guides' ? '中文指南' : `${labels[item.key]}${isZh && item.key !== 'home' ? '（英文）' : ''}`;
+      return <a href={linkHref} aria-current={navigationCurrent(currentPath, item.key, href)}>{label}</a>;
+    })}
     <div class="mobile-navigation__routes">
       {site.routes.map((route) => { const href = isZh && route.id === 'family-reunion' ? '/zh/germany-family-reunion-a1/' : route.href; return <a href={href} aria-current={navigationCurrent(currentPath, 'route-item', href)}>{isZh ? `${route.zh}${route.id === 'family-reunion' ? '' : '（英文）'}` : route.label}</a>; })}
     </div>

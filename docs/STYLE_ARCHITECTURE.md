@@ -48,8 +48,8 @@ Do not introduce a second root theme block or component-prefixed aliases that re
 | Width | Intent |
 | --- | --- |
 | Base / 1440 | Full desktop navigation, two-column compositions where already approved, normal content measure |
-| 1024px | Collapse wide page compositions and reduce desktop-only density |
-| 768px | Switch to mobile navigation, single-column article/tool/library layouts, inline TOC |
+| 1024px | Collapse the primary header into the menu button so bilingual labels fit, and reduce desktop-only density |
+| 768px | Single-column article, tool, library, and route-selector layouts; inline TOC |
 | 375px | Small-phone spacing, stacked controls and locally scrollable tables |
 
 Only `max-width: 1024px`, `max-width: 768px`, and `max-width: 375px` may be added for viewport layout. `1440px` is the base reference, not an extra override. Preference and print media queries are separate accessibility/output concerns.

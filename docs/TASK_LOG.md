@@ -2,6 +2,14 @@
 
 Updated: 2026-11-07
 
+## Site audit and Germany A1/B1 discovery pass — 2026-11-07
+
+- Scope: in-repo audit, three Cursor skills, and P1 fixes for route labelling, Germany A1/B1 internal links, search titles and descriptions, Chinese guide navigation, header collapse at 1024px, and dark-mode primary-button contrast. Branched from PR #6 (`34a67c0`). No new country pages, no fee or date claims, no AdSense application, and no hosting change.
+- Live check: `https://visalang.org` and `https://www.visalang.org` returned HTTP 521 from Cloudflare during this pass. That origin failure is unchanged.
+- Advertising: `advertisingRuntimeEnabled` stays false. Page-level `enableAds` flags were not turned into a live loader.
+- Evidence: `docs/SITE_AUDIT_2026-11-07.md`.
+- Boundary: independent Auditor review and owner authorization remain separate. Production HTTP 521 is an owner hosting issue.
+
 ## AdSense-readiness source recheck — 2026-11-07
 
 - Scope: six Germany A1/B1 guides, trust-page disclosure, footer disclaimer readability, and the owner advertising runtime gate. No new country pages, no AdSense application, and no deployment.

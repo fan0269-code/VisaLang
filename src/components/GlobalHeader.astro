@@ -10,7 +10,12 @@ const translations = translatedPaths;
 const reverseTranslations = Object.fromEntries(Object.entries(translatedPaths).map(([en, zh]) => [zh, en]));
 const switchHref = isZh ? reverseTranslations[Astro.url.pathname] || '/' : translations[Astro.url.pathname] || '/zh/';
 const localHref = (href: string) => isZh && href === '/' ? '/zh/' : href;
-const navLabel = (key: keyof typeof labels) => `${labels[key]}${isZh && key !== 'home' ? '（英文）' : ''}`;
+const itemHref = (href: string, key: string) => isZh && key === 'guides' ? '/guides/?language=zh' : localHref(href);
+const navLabel = (key: keyof typeof labels) => {
+  if (isZh && key === 'guides') return '中文指南';
+  if (isZh && key !== 'home') return `${labels[key]}（英文）`;
+  return labels[key];
+};
 const currentPath = Astro.url.pathname;
 ---
 
@@ -22,13 +27,14 @@ const currentPath = Astro.url.pathname;
     </a>
     <nav class="global-header__nav" aria-label={isZh ? '主导航' : 'Primary navigation'}>
       {navItems.map((item) => {
-        const href = localHref(item.href);
+        const linkHref = itemHref(item.href, item.key);
+        const href = linkHref.split('?')[0];
         const current = navigationCurrent(currentPath, item.key, href);
         const active = Boolean(current);
         if (item.key === 'routes') {
           return (
             <div class="nav-menu">
-              <a class:list={['nav-menu__link', { active }]} href={href} aria-current={current}>{navLabel('routes')}</a>
+              <a class:list={['nav-menu__link', { active }]} href={linkHref} aria-current={current}>{navLabel('routes')}</a>
               <details class="nav-menu__disclosure">
                 <summary aria-label={isZh ? '打开路线菜单' : 'Open Routes menu'}></summary>
                 <div class="nav-menu__panel">
@@ -41,7 +47,7 @@ const currentPath = Astro.url.pathname;
         if (item.key === 'about') {
           return (
             <div class="nav-menu">
-              <a class:list={['nav-menu__link', { active }]} href={href} aria-current={current}>{navLabel('about')}</a>
+              <a class:list={['nav-menu__link', { active }]} href={linkHref} aria-current={current}>{navLabel('about')}</a>
               <details class="nav-menu__disclosure">
                 <summary aria-label={isZh ? '打开关于菜单' : 'Open About menu'}></summary>
                 <div class="nav-menu__panel">
@@ -53,7 +59,7 @@ const currentPath = Astro.url.pathname;
             </div>
           );
         }
-        return <a class:list={[{ active }]} href={href} aria-current={current}>{navLabel(item.key)}</a>;
+        return <a class:list={[{ active }]} href={linkHref} aria-current={current}>{navLabel(item.key)}</a>;
       })}
     </nav>
     <a class="language-switch" href={switchHref} hreflang={isZh ? 'en' : 'zh-CN'}>{isZh ? 'English' : '中文'}</a>

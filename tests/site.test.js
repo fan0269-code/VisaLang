@@ -26,6 +26,7 @@ require('./deploy.test.js');
 require('./fan-254-dependency-audit.test.js');
 require('./fan-270-seo.test.js');
 require('./fan-273-404-recovery.test.js');
+require('./site-audit-2026-11-07.test.js');
 
 const read = (file) => fs.readFileSync(file, 'utf8');
 const exists = (file) => fs.existsSync(file);

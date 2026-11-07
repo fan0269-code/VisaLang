@@ -2,5 +2,20 @@
 import { site } from '../data/site';
 export interface Props { locale?: 'en' | 'zh-CN'; }
 const { locale = 'en' } = Astro.props;
+const zh = locale === 'zh-CN';
+const hrefFor = (route: (typeof site.routes)[number]) => zh && route.id === 'family-reunion' ? '/zh/germany-family-reunion-a1/' : route.href;
+const labelFor = (route: (typeof site.routes)[number]) => {
+  if (!zh) return route.label;
+  return route.id === 'family-reunion' ? route.zh : `${route.zh}（英文）`;
+};
+const noteFor = (route: (typeof site.routes)[number]) => {
+  if (route.coverage === 'guide-hub') {
+    if (!zh) return 'Guide hub';
+    return route.id === 'family-reunion' ? '中文指南枢纽' : '英文指南枢纽';
+  }
+  return zh ? '先做官方核验' : 'Official check first';
+};
 ---
-<div class="route-selector">{site.routes.map((route) => <a href={locale === 'zh-CN' && route.id === 'family-reunion' ? '/zh/germany-family-reunion-a1/' : route.href}><span>{locale === 'zh-CN' ? `${route.zh}${route.id === 'family-reunion' ? '' : '（英文）'}` : route.label}</span><small>{route.status === 'available' ? (locale === 'zh-CN' ? '可用路线' : 'Route available') : (locale === 'zh-CN' ? '指南入口' : 'Guide entry')}</small></a>)}</div>
+<div class="route-selector">
+  {site.routes.map((route) => <a href={hrefFor(route)}><span>{labelFor(route)}</span><small>{noteFor(route)}</small></a>)}
+</div>
