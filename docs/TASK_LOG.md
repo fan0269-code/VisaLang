@@ -2,6 +2,15 @@
 
 Updated: 2026-11-08
 
+## Germany A1/B1 P0 content rewrite — 2026-11-08
+
+- Scope: rewrite eight existing pages only. No new country page, no Chinese mirror expansion, no AdSense enablement. Standard used: `docs/ADSENSE_CONTENT_STANDARDS_AND_REMEDIATION_SPEC.md` (low-value content rules). Advertising runtime stays false.
+- Pages: `/guides/german-family-reunion-language-requirement/`, `/germany-family-reunion-a1/`, `/guides/goethe-a1-vs-telc-a1/`, `/guides/german-a1-family-reunion-faq/`, `/guides/goethe-b1-germany-settlement-work/`, `/guides/germany-b1-citizenship-language-proof/`, `/guides/germany-b1-leben-in-deutschland-and-language-proof/`, `/germany-b1-settlement-citizenship/`.
+- Sources opened on 2026-11-08: BAMF spousal-reunification PDFs (EN and DE); BAMF settlement, final-examination, certificate, naturalisation, and online-test-centre pages; BAMF-NAvI; Federal Foreign Office visa service, spouse-language FAQ, and German-spouse FAQ; Embassy Dhaka and Embassy Yaoundé pages as examples; telc Start Deutsch 1, telc Deutsch A1 für Zuwanderer, and telc Deutsch B1; ÖSD Zertifikat A1 (ZA1); einbuergerung.de home and procedure page.
+- Needs-verify: Goethe A1 and B1 product pages (HTTP 403); ÖSD “Grundstufe Deutsch 1” versus current ZA1 naming; no stable telc DTZ product page; mission-specific certificate lists and certificate age; local authority acceptance of B1 formats. `gesetze-im-internet.de` timed out in this environment, so statute subsections are cited only where a BAMF page that was opened names them, and readers are told to re-open the statute.
+- Trust pages: footer already uses `/privacy-policy/`. About, cookies, terms, editorial policy, and affiliate disclosure resolve. `/disclaimer/` remains absent and is not linked from the footer. `public/robots.txt` already points at `sitemap-index.xml`.
+- Boundary: independent Auditor review and owner authorisation remain separate. This entry does not approve deployment or an advertising application.
+
 ## Vercel hosting cutover — 2026-11-08
 
 - Scope: make the Astro static build first-class on Vercel. `vercel.json` sets install `npm ci`, build `npm run build`, output `dist`, Node `22.x`, trailing slashes, the 301s from `public/_redirects`, the headers from `public/_headers`, and a `www` to apex 301. Production `site` stays `https://visalang.org`.

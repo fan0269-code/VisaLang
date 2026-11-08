@@ -5,87 +5,94 @@ description: "Short answers on whether A1 may apply, exemptions, and certificate
 category: "germany-a1"
 slug: "german-a1-family-reunion-faq"
 publishedDate: "2026-07-02"
-updatedDate: "2026-11-07"
-sourceReviewedAt: "2026-11-07"
+updatedDate: "2026-11-08"
+sourceReviewedAt: "2026-11-08"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "complete-route"
-primaryIntent: "German A1 family reunion FAQ: language proof questions decision support"
+primaryIntent: "Answer common Germany family-reunion language-proof questions and point each one back to the mission"
 decisionStage: "requirement"
 nextGuideSlug: "goethe-a1-vs-telc-a1"
 comparisonScope: "same-route"
-audienceScope: "Spouses using a German family-reunification visa FAQ to identify which current authority or exam-owner question to check next."
+audienceScope: "Readers who need a short answer on Germany family-reunion language proof and a link to the page that carries the decision tree."
 finalDecisionAuthorityType: "Competent German mission abroad and the responsible foreigners authority"
 primaryOfficialAuthorityUrl: "https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682"
-examOwnerUrl: "https://www.goethe.de/en/spr/prf.html"
-localExecutionPrompt: "Match each FAQ answer to the competent German mission's current instruction; after acceptance is confirmed, verify the chosen provider and authorised centre before booking."
+examOwnerUrl: "https://www.telc.net/sprachpruefungen/zertifikatspruefung/deutsch/start-deutsch-1-/-telc-deutsch-a1/"
+localExecutionPrompt: "Match each answer to the competent German mission's current instruction; after acceptance is confirmed, verify the chosen provider and authorised centre before booking."
 author: "VisaLang Editorial team"
-readingTime: "8"
+readingTime: "11"
 featured: false
 eyebrow: "Germany family reunion"
 route: "germany-a1"
 supportingGuideSlugs: ["german-family-reunion-language-requirement", "german-a1-documents-checklist"]
 ---
-Use this FAQ to find the right next page, not to replace the German mission, BAMF, Goethe, telc, or a local test centre. Family reunion requirements and local exam procedures can change.
 
-## What the current official texts support
+## Who these answers are for
 
-Checked on 2026-11-07:
+These answers are for people comparing Germany family-reunion language proof before they book. Each first sentence is meant to be quotable. None of them is a decision for your file. The decision tree lives on [Do you need German A1 for family reunion?](/guides/german-family-reunion-language-requirement/). The route map lives on the [Germany A1 hub](/germany-family-reunion-a1/).
 
-- The Federal Foreign Office FAQ on spouse language skills still says that foreign spouses have to prove at least a basic knowledge of German. It points to the Federal Office for Migration and Refugees for detail and to the German mission in the relevant country for further information. It does not decide your file.
-- Residence Act section 30 still includes a condition that the spouse can communicate in German at least in a simple way, and it also lists situations in which that language condition does not apply. Open the current statute and ask the competent mission which situation, if any, applies. This FAQ does not apply an exception.
-- Certificate names, fees, seats, result timing, and local identification rules are not copied here. Open the BAMF leaflet and the exam owner, then the selected centre.
+Checked on 2026-11-08 against the Federal Foreign Office spouse-language FAQ, the BAMF spousal-reunification leaflet (English PDF, imprint revised 03/2023), the telc Start Deutsch 1 page, and the current ÖSD Zertifikat A1 (ZA1) page. Goethe-Institut product pages were not readable (**needs-verify**).
 
-## Do I need A1 for family reunion?
+## Do I need German A1 for family reunion?
 
-Some family reunion applicants may need to show basic German, while others may have a different route or an exception. The responsible German mission or authority decides the requirement for your individual application.
-
-Start with [German family reunion language requirement](/guides/german-family-reunion-language-requirement/) before comparing exams or looking for dates.
+For many spouse applications from abroad, German authorities describe basic German at CEFR A1 before entry, but whether your file needs a certificate is decided by the competent mission. The Federal Foreign Office FAQ states a general basic-knowledge rule and sends you to BAMF and to the mission. The BAMF leaflet describes A1 and also says exceptions exist that the leaflet does not fully list. Continue with the [requirement guide](/guides/german-family-reunion-language-requirement/) before you look for a date.
 
 ## Can I rely on an exemption someone else used?
 
-No. An exemption discussion online is not a decision for your file. Ask the responsible authority whether an exception applies, what evidence it needs, and where the current rule is published.
+No. An exemption in another person’s file is not a decision in yours. The BAMF leaflet tells readers to ask the responsible visa office or foreigners authority because not every exception is shown. Ask that office which situation, if any, applies, and which evidence it wants. Do not self-apply a nationality list or a sponsor’s residence title from a copied summary.
 
-## Is Goethe A1 the only possible certificate?
+## Which A1 certificates does the BAMF leaflet name?
 
-Do not assume one provider is automatically accepted everywhere. Confirm the exact certificate with the authority handling your case, then compare the available official providers in [Goethe A1 vs telc A1](/guides/goethe-a1-vs-telc-a1/).
+The leaflet names “Start Deutsch 1” of the Goethe-Institut, “Start Deutsch 1” of telc GmbH, ÖSD “Grundstufe Deutsch 1”, and TestDaF, and it says the mission alone decides recognition. telc’s reachable page for the named telc product is titled “Start Deutsch 1 / telc Deutsch A1”. A different telc page, “telc Deutsch A1 für Zuwanderer”, is not the title in that leaflet sentence. The ÖSD site now titles its A1 exam “ÖSD Zertifikat A1 (ZA1)”; whether that is the leaflet’s “Grundstufe Deutsch 1” for your mission is **needs-verify**. Compare names only after the mission’s wording is clear, in [Goethe A1 vs telc A1](/guides/goethe-a1-vs-telc-a1/).
 
-## Can a higher German certificate solve the problem?
+## Does an interview replace the certificate?
 
-Do not infer this from the level name alone. Ask the responsible authority which proof it accepts for your exact route and save the answer or official page with your application record.
+The BAMF leaflet says that if the personal interview shows you undoubtedly have the required basic German, no separate certificate is needed. That sentence does not tell you how your mission runs the interview, or that every mission skips certificates. Open your mission’s page and ask. Embassy pages differ; Dhaka and Yaoundé are examples, not your list unless you apply there.
 
-## When should I book the exam?
+## Does the certificate have to be less than a year old?
 
-Only after you know that A1 applies, which certificate is accepted, and whether a local official centre has a workable date and process. The exam date alone is not a complete visa timeline.
+The BAMF leaflet opened on 2026-11-08 does not state a nationwide maximum age for the certificate. Treat age, “must be recent”, and similar rules as **needs-verify** on the mission page that will receive your file. Do not copy a limit from another country or from a forum.
 
-Use [Goethe A1 test centers](/guides/goethe-a1-test-centers/), [Goethe A1 fees](/guides/goethe-a1-fees-by-country/), and the [German A1 booking timeline](/guides/german-a1-exam-booking-timeline/) before payment.
+## Where do exam-day papers end and visa papers begin?
 
-## How long do results and certificates take?
+They are different stacks. The centre controls booking and test-day identification for the exam you book; the mission controls the visa file. Keep them apart with the [documents checklist](/guides/german-a1-documents-checklist/). This FAQ does not state a fee, a result turnaround, or a seat count. Ask the selected centre and record only what it confirms. The [booking timeline](/guides/german-a1-exam-booking-timeline/) is for dates you already hold.
 
-This is a local test-centre question. Ask the centre how it issues results and certificates for the exact exam you intend to take, then keep enough time for your route without assuming a fixed turnaround.
+## What should I open next?
 
-## What should I bring to the exam or visa appointment?
+If you still do not know whether A1 applies, use the [requirement guide](/guides/german-family-reunion-language-requirement/). If the mission has named a product, use [Goethe A1 vs telc A1](/guides/goethe-a1-vs-telc-a1/). If you are already checking a centre, use [test centers](/guides/goethe-a1-test-centers/). Settlement and citizenship are a different route: [Germany B1 hub](/germany-b1-settlement-citizenship/).
 
-Those are separate checklists. Follow the centre's current booking and test-day instructions for the exam, and the responsible mission's current checklist for the visa file.
+## Take this note to the mission
 
-Use [German A1 documents checklist](/guides/german-a1-documents-checklist/) to keep the stages separate.
+Copy one row per question. The point of the FAQ is to leave with official blanks filled, not with a brand chosen.
 
-## Can I prepare without a course?
+| Question | Answer from an official page (quote) | URL | Date |
+| --- | --- | --- | --- |
+| Is language proof required for my category? |  |  |  |
+| Is an exception even possibly relevant, and who assesses it? |  |  |  |
+| Which certificate titles are named? |  |  |  |
+| Does the mission describe an interview in place of a certificate? |  |  |  |
+| Does the mission state a certificate age? |  |  |  |
+| What is still blank, so I must not pay yet? |  |  |  |
 
-You can choose self-study, a course, or a mix. What matters is that your plan covers the relevant skills, uses official material to understand the format, and gives you time to repair weak areas.
+If the certificate row is blank, stay on the [requirement guide](/guides/german-family-reunion-language-requirement/). If it quotes a product name, move to [Goethe A1 vs telc A1](/guides/goethe-a1-vs-telc-a1/) and check that the owner page uses the same name. Keep exam-day identification on the centre’s current instruction; the [documents checklist](/guides/german-a1-documents-checklist/) separates that stack from the visa stack.
 
-Start with the [30-day Goethe A1 study plan](/guides/goethe-a1-30-day-study-plan/) or the [working-adult study plan](/guides/goethe-a1-study-plan-working-adults/). Neither plan promises a pass or fixes a suitable exam date.
+The leaflet’s exception text is a reason to ask the visa office or foreigners authority, not a reason to skip that check. A forum post that names Goethe, telc, or ÖSD is a clue that people ask the question. It is not the acceptance list.
 
-## Where should I start now?
+## Common mistakes
 
-If you do not know whether A1 applies, read the requirement guide. If your route is confirmed, compare certificates. If you chose a provider, verify a centre and the booking terms. If you already have an exam date, use the study and document pages.
+- Treating this FAQ as the mission’s checklist.
+- Reading the Federal Foreign Office “yes” as “no exceptions”, or as “I am exempt”.
+- Booking Goethe because the leaflet names it, without opening your mission’s list. Goethe product details are **needs-verify**.
+- Equating two telc A1 titles, or equating ÖSD ZA1 with “Grundstufe Deutsch 1”, without asking.
 
-For a compact route map, return to the [Germany A1 family reunion hub](/germany-family-reunion-a1/).
+## Next action
+
+Write down the mission, the route, and the certificate words it uses. Then follow the [requirement guide](/guides/german-family-reunion-language-requirement/) until those three fields are filled from an official page. Do not pay for an exam on a blank row.
 
 ## Official sources
 
 - [Federal Foreign Office: spouse language-skills FAQ](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682)
-- [Residence Act, section 30](https://www.gesetze-im-internet.de/aufenthg_2004/__30.html)
-- [Federal Foreign Office: Visas for Germany](https://www.auswaertiges-amt.de/en/visa-service/215870-215870)
-- [BAMF spousal-reunification language-proof leaflet (PDF)](https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11)
-- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
+- [BAMF leaflet, English PDF](https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11)
+- [telc Start Deutsch 1 / telc Deutsch A1](https://www.telc.net/sprachpruefungen/zertifikatspruefung/deutsch/start-deutsch-1-/-telc-deutsch-a1/)
+- [ÖSD Zertifikat A1 (ZA1)](https://osd.at/portfolio-item/osd-zertifikat-a1-za1/) — name match with the leaflet is **needs-verify**
+- [Embassy Dhaka family-reunion FAQ](https://dhaka.diplo.de/bd-en/service/2689526-2689526) — example mission page

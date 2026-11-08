@@ -52,15 +52,23 @@ const aeoCopyOn20261107 = new Set([
   'german-family-reunion-language-requirement',
   'goethe-a1-vs-telc-a1',
 ]);
+const p0RewrittenOn20261108 = new Set([
+  'german-family-reunion-language-requirement',
+  'goethe-a1-vs-telc-a1',
+]);
 for (const slug of auditedGermanyA1Slugs) {
   const source = bySlug.get(slug)?.source || '';
   assert.equal(field(source, 'contentStatus'), 'complete-route', `${slug} keeps content maturity independent from source review`);
-  const expectedReviewDate = sourceRecheckedOn20261107.has(slug)
+  const expectedReviewDate = p0RewrittenOn20261108.has(slug)
+    ? '2026-11-08'
+    : sourceRecheckedOn20261107.has(slug)
     ? '2026-11-07'
     : depthRemediatedA1Slugs.has(slug)
     ? '2026-10-21'
     : newlyReviewedLocalSourceSlugs.has(slug) ? '2026-07-19' : '2026-07-18';
-  const expectedUpdateDate = aeoCopyOn20261107.has(slug) ? '2026-11-07' : expectedReviewDate;
+  const expectedUpdateDate = p0RewrittenOn20261108.has(slug)
+    ? '2026-11-08'
+    : aeoCopyOn20261107.has(slug) ? '2026-11-07' : expectedReviewDate;
   assert.equal(field(source, 'updatedDate'), expectedUpdateDate, `${slug} records the substantive visible update`);
   for (const fieldName of ['audienceScope', 'finalDecisionAuthorityType', 'primaryOfficialAuthorityUrl', 'examOwnerUrl', 'localExecutionPrompt']) {
     assert.ok(field(source, fieldName), `${slug} records ${fieldName}`);

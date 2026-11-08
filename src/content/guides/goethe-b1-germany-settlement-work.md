@@ -1,12 +1,12 @@
 ---
 title: "Germany settlement permit and B1: verify the route before choosing proof"
-seoTitle: "Germany settlement permit B1 proof"
+seoTitle: "Settlement permit: verify the route"
 description: "Ask your foreigners authority which settlement route applies before comparing Goethe, telc, or DTZ. B1 is not a permit decision."
 category: "germany-b1"
 slug: "goethe-b1-germany-settlement-work"
 publishedDate: "2026-06-30"
-updatedDate: "2026-11-07"
-sourceReviewedAt: "2026-10-21"
+updatedDate: "2026-11-08"
+sourceReviewedAt: "2026-11-08"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "core-route"
@@ -16,87 +16,108 @@ nextGuideSlug: "goethe-b1-vs-telc-b1"
 comparisonScope: "same-route"
 audienceScope: "Readers checking whether language proof is relevant to a German settlement-permit route after identifying the governing provision and competent local authority."
 finalDecisionAuthorityType: "Competent local foreigners authority applying the reader's route-specific residence provision"
-primaryOfficialAuthorityUrl: "https://www.gesetze-im-internet.de/aufenthg_2004/__9.html"
-examOwnerUrl: "https://www.goethe.de/ins/de/en/prf/prf/gzb1.html"
+primaryOfficialAuthorityUrl: "https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Migrathek/Niederlassen/niederlassen-node.html"
+examOwnerUrl: "https://www.telc.net/sprachpruefungen/deutsch/zertifikat-deutsch-telc-deutsch-b1/"
 localExecutionPrompt: "Identify the exact settlement route and ask the competent local foreigners authority which language proof and document format it currently accepts before choosing an exam."
 author: "VisaLang Editorial team"
-readingTime: "11"
+readingTime: "13"
 featured: true
 eyebrow: "Germany B1 · settlement permit"
 route: "germany-b1"
 supportingGuideSlugs: ["germany-b1-settlement-citizenship-checklist", "germany-b1-settlement-citizenship-timeline"]
 ---
 
-## Start with the legal route, not the exam brand
+## Who this page is for
 
-Germany has more than one settlement-permit route. Section 9 of the Residence Act is one route and lists language knowledge among several separate conditions. Other routes may rely on different provisions or exceptions. A mention of B1 in a general guide does not establish which provision applies to you, whether you qualify, or which certificate your authority will accept.
+Use this page if you are already in Germany and the question is a settlement permit (Niederlassungserlaubnis) or another permanent-residence route, and someone has told you to “just take B1”. Naturalisation is a different file. Use [citizenship language proof](/guides/germany-b1-citizenship-language-proof/) for that question, and the [B1 hub](/germany-b1-settlement-citizenship/) to keep the two routes apart. Family reunion from abroad is the [A1 hub](/germany-family-reunion-a1/).
 
-First identify the provision or application category shown by your competent local foreigners authority. Keep its current instruction, the URL or written reply, and the date checked.
+This page does not decide eligibility. Language knowledge is one condition among others. A booked exam is not a permit.
 
-## Decision tree: procedure before product
+## Legal route before the exam brand
 
-1. **Locate the competent local foreigners authority** for your place of residence (for example via the BAMF-NAvI authority locator, then the authority’s own pages).
-2. **Ask which settlement route / statutory provision** your file is being assessed under—do not assume Section 9 by default.
-3. **List every condition the authority names** for that route (language is only one item).
-4. **Ask which language proof and document format** are currently accepted for that route.
-5. **Only then** compare DTZ, Goethe B1, telc B1, or other named products in the [comparison guide](/guides/goethe-b1-vs-telc-b1/).
-6. **If the authority answer is incomplete**, keep the exam booking closed and send a written follow-up rather than guessing from another city’s practice.
+BAMF’s page *In Deutschland niederlassen* (opened 2026-11-08, page date 01.03.2024) describes more than one permanent-residence path, and it does not use one German-language label for all of them.
 
-## Keep three decisions separate
+On that page, checked on 2026-11-08:
 
-1. **Route and eligibility:** the competent authority identifies the applicable route and assesses the complete file.
-2. **Language-proof acceptance:** the same authority confirms the exact level, certificate, modules or document format it will accept for that route.
-3. **Exam execution:** the exam owner and selected official or authorised centre control the product, booking, identification, fee, cancellation, result and certificate process.
+- The **Daueraufenthalt-EU** description ties “ausreichende Kenntnisse der deutschen Sprache” to CEFR **B1**, and separately requires basic knowledge of the legal and social order and of living conditions in Germany.
+- The general **Niederlassungserlaubnis** description likewise ties “ausreichende Sprachkenntnisse” to **B1**, again beside a separate basic-knowledge condition.
+- The paragraph for people granted asylum, refugee protection, or resettlement uses **A2** (“hinreichende Sprachkenntnisse”) for the language condition it states.
+- The **EU Blue Card** paragraph uses “einfache Kenntnisse” in one sentence and “ausreichende Kenntnisse” in another. Those are not the same words.
+- A shorter path on the same page refers to commanding German at **C1**.
+- Other paragraphs, including some skilled-worker and family paragraphs, say “ausreichende Kenntnisse der deutschen Sprache” **without** printing a CEFR letter in that sentence.
 
-Goethe, telc or an integration-course provider can explain an exam product. They cannot decide a settlement-permit application.
+So “B1” is a label BAMF attaches to some routes on that page. It is not a label you can assign to yourself. The competent local foreigners authority applies the provision. Find that office through [BAMF-NAvI](https://bamf-navi.bamf.de/de/Themen/Behoerden/) (opened 2026-11-08), then use the authority’s own page.
+
+Residence Act section 9 is the settlement-permit statute readers are often sent to. This page does not quote that statute line by line (**needs-verify**: re-open [AufenthG §9](https://www.gesetze-im-internet.de/aufenthg_2004/__9.html) yourself). BAMF’s certificate page, opened 2026-11-08, cites section 9 (2) sentence 1 no. 7 of the Residence Act when it discusses language evidence for a settlement permit. Do not treat that citation as proof that section 9 is your route.
+
+## Decision tree
+
+1. **Name the competent foreigners authority** for your place of residence. Save the BAMF-NAvI result and the authority’s own URL.
+2. **Ask which route or provision** it is using. Do not default to section 9, Blue Card, or a refugee provision because a headline matches your situation.
+3. **Write down every condition it names.** Language is one line. Livelihood, contributions, housing, and the other lines stay on the authority’s list.
+4. **Ask for the language wording** (B1, A2, einfache Kenntnisse, ausreichend, C1, or something else) and the **document form** it accepts.
+5. **Ask whether basic legal and social knowledge is a separate item** on that route. Do not assume a language certificate covers it. The [Leben in Deutschland page](/guides/germany-b1-leben-in-deutschland-and-language-proof/) is about that split.
+6. **Only then** compare DTZ, Goethe B1, and telc B1 in the [comparison guide](/guides/goethe-b1-vs-telc-b1/). If the authority has not named a format, leave the booking closed.
+
+## Language is one checklist item
+
+BAMF’s page on language certificates (opened 2026-11-08) says the integration-course language exam is the scaled Deutsch-Test für Zuwanderer (DTZ), which measures A2 and B1. It says an alternative standardised B1-or-higher exam from an independent test institute can also be relevant to issuing an integration-course certificate. That sentence is about the integration-course certificate. It is not a statement that every foreigners authority accepts every B1 brand for every settlement route.
+
+telc’s reachable page “Zertifikat Deutsch / telc Deutsch B1” (opened 2026-11-08) is the exam owner’s page for that B1 product. The Goethe-Zertifikat B1 page returned HTTP 403 (**needs-verify**). This page does not describe Goethe modules, fees, or seats.
+
+Which of DTZ, telc Deutsch B1, Goethe-Zertifikat B1, or another document your authority accepts is a local question (**needs-verify**). Ask, and quote the reply.
 
 ## Responsibility split
 
-| Topic | Decider | What to save | Forbidden shortcut |
+| Topic | Who decides | What to save | Do not assume |
 | --- | --- | --- | --- |
-| Applicable settlement provision | Local foreigners authority | Provision name, portal page, date | “Section 9 for everyone” |
-| Full eligibility (livelihood, housing, etc.) | Same authority | Full checklist for the route | Treating B1 as the whole file |
-| Accepted language proof | Same authority | Exact wording + format | Provider marketing as acceptance |
-| Exam booking / ID / fee / result | Exam owner + centre | Centre confirmation | Copying another centre’s fee |
-| Citizenship vs settlement | Different procedures / often different authorities | Separate folders | One B1 rule for both goals |
+| Which settlement route applies | Local foreigners authority | Provision name, page, date | “Section 9 for everyone” or “everyone needs B1” |
+| The rest of eligibility | Same authority | Its full checklist | A B1 result closes livelihood, housing, or contributions |
+| Accepted language document | Same authority | Exact wording and format | An exam-owner page is an acceptance decision |
+| Exam date, fee, ID, result | Exam owner and centre | The centre’s own confirmation | Another city’s fee or a forum turnaround |
+| Naturalisation | Nationality authority, separate file | A second folder | One B1 rule covers citizenship |
 
-## What to save before comparing exams
+## Common mistakes
 
-- The route name and statutory provision shown by the authority.
-- The authority's exact wording about language knowledge and accepted proof.
-- Any stated document-format, original, copy or verification requirement.
-- The source or written reply and the date you checked it.
-- Unanswered questions marked for confirmation rather than filled with assumptions.
+- Booking Goethe B1 because a neighbour used it for a different permit.
+- Reading only the B1 sentences on the BAMF settlement page and skipping the A2, Blue Card, and C1 sentences.
+- Treating DTZ, telc B1, and Goethe B1 as the same product. They are different. The authority chooses the format.
+- Copying a Goethe fee or module list while the Goethe page is unreadable.
+- Mixing this folder with naturalisation civic-knowledge evidence. Citizenship stays on its [own page](/guides/germany-b1-citizenship-language-proof/).
 
-Do not transfer an answer from citizenship, work, study or another residence route into this file.
+## What to send the authority before you book
 
-## Scenario pitfalls
+Write a short question, not a request for a legal opinion from VisaLang. Attach only what you already hold:
 
-- Treating Section 9 as the rule for every settlement route.
-- Treating a B1 result as proof that livelihood, pension, housing or other conditions are satisfied.
-- Booking a convenient exam before the authority confirms the accepted proof.
-- Using an exam provider's product description as an acceptance decision.
-- Mixing settlement-permit language proof with naturalisation civic-knowledge evidence without an authority instruction that links them.
+- The route name you think applies, marked as a question.
+- The language words you found on the BAMF settlement page, marked as “not yet confirmed for my file”.
+- A request for the document name and form the authority accepts for that route.
+- A request to say whether legal and social knowledge is a separate item.
 
-## Settlement language-proof record template
+Do not attach a Goethe or telc fee table. Do not ask the exam centre to answer the route question.
 
-| Field | Entry | Source | Date checked |
+## Settlement language record
+
+| Field | Entry | Source | Date |
 | --- | --- | --- | --- |
-| Competent foreigners authority |  |  |  |
-| Route / provision named |  |  |  |
-| Non-language conditions still open |  |  |  |
-| Language proof required? |  |  |  |
-| Accepted proof wording (quote) |  |  |  |
-| Document format |  |  |  |
-| Candidate exam products (names only) |  |  |  |
-| Stop rule before booking |  |  |  |
+| Foreigners authority |  |  |  |
+| Route or provision named |  |  |  |
+| Language wording (quote) |  |  |  |
+| Separate civic-knowledge wording, if any |  |  |  |
+| Accepted document name |  |  |  |
+| Other conditions still open |  |  |  |
+| Stop rule before exam payment |  |  |  |
 
 ## Next action
 
-After the authority identifies acceptable proof, continue to the [DTZ, Goethe B1 and telc B1 comparison](/guides/goethe-b1-vs-telc-b1/). Use the [settlement and citizenship checklist](/guides/germany-b1-settlement-citizenship-checklist/) or [timeline](/guides/germany-b1-settlement-citizenship-timeline/) only to organise confirmed information. Return to the [B1 hub](/germany-b1-settlement-citizenship/) for the reading order.
+After the authority identifies acceptable proof, continue to the [DTZ, Goethe B1 and telc B1 comparison](/guides/goethe-b1-vs-telc-b1/). Use the [checklist](/guides/germany-b1-settlement-citizenship-checklist/) and the [timeline](/guides/germany-b1-settlement-citizenship-timeline/) only to organise facts you already confirmed. Return to the [B1 hub](/germany-b1-settlement-citizenship/) for the reading order.
 
 ## Official sources
 
-- [Residence Act, Section 9: settlement permit](https://www.gesetze-im-internet.de/aufenthg_2004/__9.html)
-- [BAMF-NAvI: locate the competent foreigners authority](https://bamf-navi.bamf.de/en/Themen/Behoerden/?typ=ABH)
-- [Goethe-Institut: Goethe-Zertifikat B1](https://www.goethe.de/ins/de/en/prf/prf/gzb1.html)
+- [BAMF: In Deutschland niederlassen](https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Migrathek/Niederlassen/niederlassen-node.html) — route descriptions and differing language labels. Opened 2026-11-08.
+- [BAMF-NAvI: authorities](https://bamf-navi.bamf.de/de/Themen/Behoerden/) — locator. Not a decision.
+- [BAMF: Sprachnachweise und Zertifikate](https://www.bamf.de/DE/Themen/Integration/AkteureEhrenamtlicheInteressierte/SprachnachweiseZertifikate/sprachnachweise_zertifikate-node.html) — DTZ and the section 9 language citation. Opened 2026-11-08.
+- [telc Deutsch B1 / Zertifikat Deutsch](https://www.telc.net/sprachpruefungen/deutsch/zertifikat-deutsch-telc-deutsch-b1/) — product title. Not acceptance.
+- [Residence Act §9](https://www.gesetze-im-internet.de/aufenthg_2004/__9.html) — statute. **Needs-verify**: re-open it before you rely on a subsection. This page uses BAMF’s citation, not a line-by-line statute transcription.
+
+Goethe-Zertifikat B1 product page: **needs-verify** (HTTP 403). Not linked.
