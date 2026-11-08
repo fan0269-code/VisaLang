@@ -5,7 +5,6 @@ import { getCollection } from 'astro:content';
 import { zhGermanyA1Guides } from '../../data/zh-germany-a1';
 import RouteSelector from '../../components/RouteSelector.astro';
 import GuideStatusBadge from '../../components/GuideStatusBadge.astro';
-import homeRouteVisual from '../../assets/home-route-verification.png';
 import { isGuidePrimaryDiscoveryEligible, resolveGuideContentStatus } from '../../data/source-review';
 
 const guides = await getCollection('guides');
@@ -38,7 +37,6 @@ const jsonLD = {
   ]}
   jsonLD={jsonLD}
   bodyClass="home-view"
-  heroPreload={homeRouteVisual}
 >
   <main class="site-main">
     <HomeHero
@@ -48,8 +46,6 @@ const jsonLD = {
       description="中文深度在德国配偶团聚 A1。定居与入籍 B1 目前是英文指南。先确认接收材料的机构，再回到当前官方说明。"
       primary={{ href: '/tools/route-finder/', label: '使用路线查找器（英文）' }}
       secondary={{ href: '#zh-guides', label: '浏览中文指南' }}
-      visual={homeRouteVisual}
-      visualAlt="用于核验语言证明要求的笔记本与路线图"
       featuredRoute={{
         label: '最完整的中文路线',
         title: '德国配偶团聚 / 家庭团聚 A1',

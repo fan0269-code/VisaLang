@@ -1,7 +1,4 @@
 ---
-import { Picture } from 'astro:assets';
-import type { ImageMetadata } from 'astro';
-
 export interface Props {
   locale: 'en' | 'zh-CN';
   eyebrow: string;
@@ -9,8 +6,6 @@ export interface Props {
   description: string;
   primary: { href: string; label: string };
   secondary?: { href: string; label: string };
-  visual: ImageMetadata;
-  visualAlt: string;
   featuredRoute: {
     label: string;
     title: string;
@@ -20,8 +15,29 @@ export interface Props {
   };
 }
 
-const { locale, eyebrow, title, description, primary, secondary, visual, visualAlt, featuredRoute } = Astro.props;
+const { locale, eyebrow, title, description, primary, secondary, featuredRoute } = Astro.props;
 const routeTitleId = `featured-route-${locale}`;
+const slipTitleId = `verify-slip-${locale}`;
+const zh = locale === 'zh-CN';
+const slip = zh
+  ? {
+      title: '报考前的三个问题',
+      note: '这是核验顺序，不是签证、录取或入籍结论',
+      rows: [
+        ['接收机构', '写上负责收这份材料的机关、学校或雇主'],
+        ['证书名称', '打开该机构现在的官方说明，核对它写的证书名称'],
+        ['考点状态', '付款前向官方或授权考点确认日期、费用和证件'],
+      ],
+    }
+  : {
+      title: 'Three questions before booking',
+      note: 'A check order, not a visa, admission, or citizenship decision',
+      rows: [
+        ['Receiving organisation', 'Name the authority, institution, or employer that receives the file'],
+        ['Certificate name', 'Open the current instruction from that organisation and match its wording'],
+        ['Centre status', 'Confirm dates, fees, and ID rules with the official or authorised centre before payment'],
+      ],
+    };
 ---
 
 <header class="home-hero">
@@ -35,16 +51,25 @@ const routeTitleId = `featured-route-${locale}`;
     </div>
   </div>
   <div class="home-hero__visual">
-    <Picture
-      src={visual}
-      formats={['avif', 'webp']}
-      widths={[480, 720, 960]}
-      sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1200px) 42vw, 500px"
-      alt={visualAlt}
-      loading="eager"
-      fetchpriority="high"
-      quality={82}
-    />
+    <aside class="verify-slip" aria-labelledby={slipTitleId}>
+      <p class="verify-slip__title" id={slipTitleId}>{slip.title}</p>
+      <ol class="verify-slip__list">
+        {slip.rows.map(([label, check], index) => (
+          <li>
+            <span class="verify-slip__index">{String(index + 1).padStart(2, '0')}</span>
+            <div>
+              <p class="verify-slip__label">{label}</p>
+              <p class="verify-slip__check">{check}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <div class="verify-slip__route" aria-hidden="true">
+        <span class="verify-slip__line"></span>
+        <span class="verify-slip__end"></span>
+      </div>
+      <p class="verify-slip__note">{slip.note}</p>
+    </aside>
   </div>
 </header>
 
