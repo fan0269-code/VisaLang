@@ -5,8 +5,8 @@ description: "Whether your file needs German A1 is decided by the competent Germ
 category: "germany-a1"
 slug: "german-family-reunion-language-requirement"
 publishedDate: "2026-06-30"
-updatedDate: "2026-11-07"
-sourceReviewedAt: "2026-10-21"
+updatedDate: "2026-11-08"
+sourceReviewedAt: "2026-11-08"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "complete-route"
@@ -17,105 +17,121 @@ comparisonScope: "same-route"
 audienceScope: "People preparing a Germany spouse or family-reunion application who must identify the responsible route and mission before choosing language proof."
 finalDecisionAuthorityType: "Responsible German mission or competent immigration authority"
 primaryOfficialAuthorityUrl: "https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682"
-examOwnerUrl: "https://www.goethe.de/en/spr/prf.html"
+examOwnerUrl: "https://www.telc.net/sprachpruefungen/zertifikatspruefung/deutsch/start-deutsch-1-/-telc-deutsch-a1/"
 localExecutionPrompt: "Open the current family-reunion instructions for your application location; confirm whether proof is required, the exact accepted certificate and document form, and any case-specific exception before booking."
 author: "VisaLang Editorial team"
-readingTime: "12"
+readingTime: "14"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
 supportingGuideSlugs: ["goethe-a1-vs-telc-a1", "german-a1-documents-checklist"]
 ---
 
-## What this page settles first
+## Who this page is for
 
-Before you compare Goethe, telc, or any A1 seat, identify **which family-reunion route** you are on, **which German mission or authority** handles the file, and **what that source currently says** about language proof for your category. This page organises that verification workflow. It cannot decide whether an exemption applies or which certificate your file will accept.
+Use this page if you are preparing a spouse or family-reunion file for Germany and the open question is whether to book a German A1 exam. It is the first decision page on the [Germany A1 family-reunion hub](/germany-family-reunion-a1/). It is not a settlement-permit or citizenship page. Those routes use the [Germany B1 hub](/germany-b1-settlement-citizenship/).
+
+This page does not decide whether your file needs a certificate, which certificate counts, or whether an exception applies.
 
 ## Decision tree: do you book an A1 exam yet?
 
-Use this sequence in order. Stop when a step fails; do not skip ahead to booking.
+Use this sequence in order. Stop when a step is unresolved. Do not skip ahead to a seat.
 
 1. **Who are you joining?** A German national, an EU/EEA/Swiss citizen, or a third-country national living in Germany?
-2. **What residence category does the sponsor hold (if not a German national)?** Record the category name from an official document or authority reply—not from a forum summary.
-3. **Which German mission or foreigners authority is competent for your application location and route?** Open that office’s current family-reunion instruction page or appointment checklist.
-4. **Does that instruction currently require German language proof for your relationship and age category?** If the page is silent or ambiguous, ask the mission in writing before paying for an exam.
-5. **If proof is required, which exact certificate name, level, and document form does the instruction name?** Save the wording, URL, and date checked.
-6. **Only then** move to accepted-proof and exam-product pages. Booking before step 5 is the most common expensive order error on this route.
+2. **What residence category does the person in Germany hold, if they are not a German national?** Record the category from an official document or an authority reply.
+3. **Which German mission is competent for your application location?** For a non-EU applicant joining a German spouse, the Federal Foreign Office says to apply through the competent German mission abroad; that mission forwards the application to the foreigners authority. Use that handoff only for the matching route. Open that mission’s current family-reunion page.
+4. **Does that page currently require German language proof for your relationship and age category?** If it is silent, ask the mission in writing before you pay for an exam.
+5. **If proof is required, which exact certificate name, level, and document form does the instruction name?** Save the wording, the URL, and the date.
+6. **Only then** open [Goethe A1 for Germany family reunion](/guides/goethe-a1-germany-family-reunion/) and [Goethe A1 vs telc A1](/guides/goethe-a1-vs-telc-a1/). Booking before step 5 is the expensive order error on this route.
 
-If any step is unresolved, keep the exam decision open. A seat date is not a substitute for an authority answer.
+If any step is unresolved, keep the exam decision open. A seat date is not an authority answer.
 
-## Responsibility split (who decides what)
+## What the opened sources support
 
-| Question | Who finally decides | What VisaLang can help with | What you still confirm |
+Checked on 2026-11-08. These points are orientation. They are not a decision for your file.
+
+The Federal Foreign Office FAQ on spouse language skills answers “yes” to a general question: foreign spouses have to prove at least a basic knowledge of German, and it points readers to the Federal Office for Migration and Refugees (BAMF) and to the German mission in the relevant country. That FAQ does not list certificates and does not apply an exception to an individual file.
+
+The BAMF leaflet *Proof of knowledge of basic German for spousal reunification from abroad* (English PDF, imprint last revised 03/2023) says spouses who want to join a spouse in Germany, move together, or come in order to marry must, in the situations the leaflet describes, prove at least a basic command of German before arrival. It describes that basic command as CEFR level A1: familiar everyday expressions, very simple sentences, introducing yourself, and writing simple details on official forms. It says proof is usually given when you apply for the family-reunification visa at the responsible embassy or consulate general.
+
+The same leaflet says a language certificate should be based on a standardised ALTE test, and that this is **currently** true of these certificates:
+
+- “Start Deutsch 1” of the Goethe-Institut
+- “Start Deutsch 1” of telc GmbH
+- “Grundstufe Deutsch 1” of the Austrian Language Diploma (ÖSD)
+- “TestDaF” of the TestDaF Institute
+
+It then states the boundary that this page repeats: the German diplomatic mission where you apply **alone decides** whether your language proof is recognised. It also says that if, during the personal interview, it is clear you undoubtedly have the required basic command, no separate certificate is needed. How a mission runs that interview check is a mission question. This page does not turn it into a nationwide waiver.
+
+The leaflet lists exception situations and says **not all possible exceptions are shown**. It tells readers to contact the responsible visa office or foreigners authority. Do not treat a summary, including this one, as proof that you are exempt. Recognition of a certificate stays with the mission. An exception question goes to the visa office or the foreigners authority, as the leaflet says.
+
+## Route and sponsor category
+
+Label the route before you compare exams.
+
+- **Joining a German spouse, as a non-EU applicant.** The Federal Foreign Office FAQ says you apply at the competent German mission abroad; that mission forwards the application to the foreigners authority where you intend to live, and it can issue the visa only after that authority agrees. The foreigners authority in Germany later issues the residence permit. Document details stay on the competent mission’s page.
+- **Other family-reunion routes.** The BAMF leaflet is written for spousal reunification from abroad and cites Residence Act provisions and exceptions in a footnote. A child, parent, or different sponsor status can follow a different instruction. One mission page opened on 2026-11-08 (Embassy Dhaka) discusses child and parent files separately from spouse certificates. That page is an **example**, not a rule for every mission.
+- **Sponsor’s residence title.** The leaflet describes situations in which proof is not normally required, including some sponsor nationalities and some residence titles. The mission or foreigners authority decides whether any of those situations is yours.
+
+Save the route label from the official page. Do not copy it from a forum thread because the relationship description sounds similar.
+
+## Mission instruction checklist
+
+Open the mission page for **your** application country before you compare brands. The Federal Foreign Office visa-service page is a central entrance. It is not a worldwide certificate list. Each mission publishes its own family-reunion instruction.
+
+On the mission page, record:
+
+- Whether language proof is required for your relationship and age category.
+- The exact certificate names it lists, if any.
+- Whether it mentions an interview assessment, a document age, originals, copies, or translations.
+- Any exception it tells you to raise with the visa section, and the evidence it asks for.
+- The date you opened the page.
+
+Two mission pages opened on 2026-11-08 show why the local page matters. The Embassy in Dhaka describes its own certificate practice for family reunion. The Embassy in Yaoundé publishes its own note on spouse language skills and exemptions. Neither page is a substitute for the mission that will take your application. Certificate age, “interview instead of a certificate”, and accepted product lists are **needs-verify** items that differ by mission. Do not copy one mission’s list into another file.
+
+## Reader verification record
+
+Copy this into private notes. Leave a blank where the official page does not answer.
+
+| Field | Your entry | Source URL or message | Date checked |
 | --- | --- | --- | --- |
-| Whether language proof is required for your file | Responsible German mission or competent immigration authority | The verification order and record template | Current checklist / written reply for your location and category |
-| Whether an exception or exemption applies | Same mission or authority | Which questions to ask; when to pause | Individual assessment—never assumed from another case |
-| Exact certificate / document form accepted | Same mission or authority | How to read product names without guessing | Named product, originals/copies/translations if required |
-| Exam product format, booking, fee, ID, result | Exam owner + selected authorised centre | How to separate centre rules from visa rules | Local centre’s current terms before payment |
-| Visa or residence outcome | Mission / foreigners authority | Not applicable—out of scope | Full file beyond language proof |
-
-## Route category checklist (BAMF orientation, not your decision)
-
-BAMF explains that family-reunion conditions can differ when you join a German national, an EU citizen, or a third-country national. Use that orientation only to label your route, then return to the mission that will process the application.
-
-For spouses joining third-country nationals, BAMF describes simple everyday German as a general rule. The applicable route can have different rules, including routes involving skilled workers. This overview is **not** a complete exception list and does **not** decide whether an exception applies to your file.
-
-After labelling the route:
-
-- Check the sponsor’s **current** residence category and the relationship category used in the application.
-- Do not assume that a rule from a different family-reunion route applies because the relationship description sounds similar.
-- Do not treat a national FAQ as a replacement for the mission’s current document list.
-
-## Scenario pitfalls (common order and assumption errors)
-
-### “My friend used Goethe A1, so I will too”
-
-Another applicant’s certificate does not establish your requirement or acceptance. Ask the mission handling **your** file.
-
-### “I will book first and check the mission later”
-
-If the mission does not require proof, or requires a different product or form, you may waste fees and timeline. Confirm requirement and accepted proof first.
-
-### “The Federal Foreign Office FAQ is enough”
-
-The Federal Foreign Office FAQ directs applicants to BAMF information and the responsible German mission. It does not replace the mission’s current route-specific document instructions or decide an individual exception.
-
-### “Joining a German spouse uses the same list as every family-reunion case”
-
-For a non-EU applicant joining a German spouse, the Federal Foreign Office says to apply through the competent German mission abroad; that mission forwards the application to the foreigners authority and points applicants to the competent mission for the current document list. Use that workflow only for the matching route, not as a rule for every family-reunion category.
-
-### Conflict between two official pages or replies
-
-Pause. Save both links or messages with dates. Ask the responsible source **which instruction applies to your file** before booking or submitting. Do not average the answers or pick the cheaper exam.
-
-## Reader verification record (copy into your notes)
-
-Fill only what an official page or written reply supports. Leave blanks where unknown.
-
-| Field | Your entry | Source URL or message ID | Date checked (YYYY-MM-DD) |
-| --- | --- | --- | --- |
-| Application location / mission name |  |  |  |
-| Route label (join German / EU / third-country national) |  |  |  |
-| Sponsor residence category (if applicable) |  |  |  |
-| Relationship / age category used in the file |  |  |  |
+| Mission name and application location |  |  |  |
+| Route (German / EU / third-country sponsor) |  |  |  |
+| Sponsor residence category, if applicable |  |  |  |
+| Relationship and age category |  |  |  |
 | Language proof required? (yes / no / unclear) |  |  |  |
-| Exact accepted certificate wording (quote) |  |  |  |
-| Document form (original / copy / translation / other) |  |  |  |
-| Open exception question (if any) |  |  |  |
-| Next official question to ask |  |  |  |
+| Exact certificate wording (quote) |  |  |  |
+| Document form (original, copy, translation) |  |  |  |
+| Exception question still open |  |  |  |
 | Stop rule: do not book until… |  |  |  |
+
+## Common mistakes
+
+- Booking because a friend used Goethe A1. Another certificate does not establish your requirement.
+- Treating the Federal Foreign Office FAQ’s general “yes” as a decision that no exception can apply, or as a decision that you personally are exempt.
+- Copying a certificate list from a different country’s mission page.
+- Treating “Start Deutsch 1”, a different telc A1 product, and the current ÖSD name as the same label. Match the words your mission uses. See [Goethe A1 vs telc A1](/guides/goethe-a1-vs-telc-a1/).
+- Assuming a certificate’s age, fee, or result date. Those are not in the BAMF leaflet. Ask the mission and the selected centre.
+- Using a Goethe product page you have not opened. On 2026-11-08 the Goethe-Institut examination pages did not load (**needs-verify**). The leaflet names “Start Deutsch 1” of the Goethe-Institut. It does not supply modules, fees, or seats, and this page does not invent them.
 
 ## Next action
 
-Save the current mission instruction for your route, then ask the mission or responsible authority to clarify any unresolved language-proof question before payment, booking, or submission. When the accepted proof wording is clear, continue to [Goethe A1 for Germany family reunion](/guides/goethe-a1-germany-family-reunion/). Compare only products the mission named in [Goethe A1 vs telc A1](/guides/goethe-a1-vs-telc-a1/), use the [family-reunion FAQ](/guides/german-a1-family-reunion-faq/) for the next question, and keep exam-day papers separate from the visa file with the [documents checklist](/guides/german-a1-documents-checklist/).
+Save the current mission instruction for your route, then ask the mission or responsible authority to clarify any unresolved language-proof question before payment, booking, or submission. If that question is still open, [Route Finder](/tools/route-finder/) only helps you frame it. It does not decide an exemption or a certificate. When the accepted proof wording is clear, continue to [Goethe A1 for Germany family reunion](/guides/goethe-a1-germany-family-reunion/). Compare only products the mission named in [Goethe A1 vs telc A1](/guides/goethe-a1-vs-telc-a1/), use the [family-reunion FAQ](/guides/german-a1-family-reunion-faq/) for the next question, and keep exam-day papers separate from the visa file with the [documents checklist](/guides/german-a1-documents-checklist/).
 
 ## Official sources
 
-- [BAMF family reunification](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html)
-- [BAMF family reunification for third-country nationals](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/NachzugZuDrittstaatlern/nachzug-zu-drittstaatlern-node.html)
-- [German Federal Foreign Office: proof of German language skills FAQ](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682)
-- [German Federal Foreign Office: joining a German spouse](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/04-dtehepartner-606680)
-- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
+Opened on 2026-11-08 unless noted.
+
+- [Federal Foreign Office: spouse language-skills FAQ](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682) — general basic-knowledge statement; points to BAMF and the mission. Does not decide your file.
+- [Federal Foreign Office: joining a German spouse](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/04-dtehepartner-606680) — mission forwards that route’s visa application to the foreigners authority. Not a certificate list.
+- [Federal Foreign Office: visa service](https://www.auswaertiges-amt.de/en/visa-service) — central entrance, not a worldwide acceptance list.
+- [BAMF leaflet (English PDF): basic German for spousal reunification](https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11) — A1 description, named certificates, mission recognition, incomplete exception list. Imprint revised 03/2023.
+- [BAMF leaflet (German PDF)](https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug.pdf?__blob=publicationFile&v=18) — same topic in German.
+- [telc: Start Deutsch 1 / telc Deutsch A1](https://www.telc.net/sprachpruefungen/zertifikatspruefung/deutsch/start-deutsch-1-/-telc-deutsch-a1/) — reachable exam-owner page for the telc product the leaflet names. Not proof the mission accepts it for you.
+- [Embassy Dhaka family-reunion FAQ](https://dhaka.diplo.de/bd-en/service/2689526-2689526) — **example** of a mission page. Not your mission unless you apply there.
+- [Embassy Yaoundé: spouse language skills](https://jaunde.diplo.de/cm-en/service/05-visaeinreise/german-language-skills-for-spouse-reunion-2445808) — **example** only.
+
+Goethe-Institut product pages: **needs-verify**. Not linked, because they were not readable on 2026-11-08.
 
 ## A1 route FAQ
 
@@ -126,15 +142,3 @@ No. It separates the questions you need to ask; the responsible German mission o
 ### What if local instructions conflict?
 
 Pause, save the official links or written replies, and ask the responsible source which instruction applies before booking or submitting documents.
-
-## A1 decision tools and next steps
-
-These planning aids organise questions; they do not decide an exemption, certificate acceptance, fees, result timing, or your individual case.
-
-- Return to the [Germany A1 family reunion hub](/germany-family-reunion-a1/) to see the full decision order.
-- Start with [Route Finder](/tools/route-finder/) if the requirement or exemption question is still open.
-- Turn your official checks into a working list with the [Checklist Generator](/tools/checklist-generator/).
-- Enter only locally confirmed buffers in the [Timeline Calculator](/tools/timeline-calculator/).
-- Compare the questions—not provider rankings—in [Exam Comparison](/tools/exam-comparison/).
-- The [A1 Family Reunion Pack](/contact/?interest=a1-family-reunion-pack) is a proposed planning pack; requesting access only opens a contact-intent path.
-- [Route Review](/contact/?interest=route-review) is proposed informational support, not legal, visa, or acceptance advice.

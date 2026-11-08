@@ -1,12 +1,12 @@
 ---
-title: "Goethe A1 vs telc A1: choose a family reunion exam"
+title: "Goethe A1 vs telc A1: acceptance before the brand"
 seoTitle: "Goethe or telc A1: acceptance first"
 description: "Compare Goethe A1 and telc A1 only after your mission names acceptable proof. This page does not rank brands or state fees."
 category: "germany-a1"
 slug: "goethe-a1-vs-telc-a1"
 publishedDate: "2026-06-30"
-updatedDate: "2026-11-07"
-sourceReviewedAt: "2026-10-21"
+updatedDate: "2026-11-08"
+sourceReviewedAt: "2026-11-08"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "complete-route"
@@ -16,127 +16,102 @@ nextGuideSlug: "goethe-a1-test-centers"
 comparisonScope: "same-route"
 audienceScope: "Germany family-reunion applicants whose responsible authority has confirmed that A1 proof may be required and who are comparing an exact Goethe or telc product."
 finalDecisionAuthorityType: "Responsible German mission or competent immigration authority"
-primaryOfficialAuthorityUrl: "https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682"
-examOwnerUrl: "https://www.goethe.de/en/spr/prf.html"
+primaryOfficialAuthorityUrl: "https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11"
+examOwnerUrl: "https://www.telc.net/sprachpruefungen/zertifikatspruefung/deutsch/start-deutsch-1-/-telc-deutsch-a1/"
 localExecutionPrompt: "Ask the responsible authority which exact proof is accepted, then obtain the selected official or authorised centre's exact product, date, fee, registration, ID, result, certificate, cancellation, and rescheduling terms."
 author: "VisaLang Editorial team"
-readingTime: "12"
+readingTime: "13"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
 supportingGuideSlugs: ["goethe-a1-fees-by-country", "goethe-a1-booking-mistakes"]
 ---
 
-## The first comparison is acceptance
+## Who should use this comparison
 
-Do not begin with a brand, a nearby classroom, or a lower price. Ask the German mission or authority responsible for your case which certificate it currently accepts for the family reunion route.
+Use this page only after the [language-requirement guide](/guides/german-family-reunion-language-requirement/) shows that your mission or authority is asking for German language proof. If that answer is still open, do not compare brands.
 
-If the answer is unclear, request the relevant official page or written clarification. This guide cannot declare that either certificate will be accepted in every country or case.
+This page equalises questions about adult A1 products that the BAMF spousal-reunification leaflet names. It does not rank Goethe against telc, and it does not state a fee, a seat count, or a visa outcome.
 
-## Decision tree: Goethe, telc, or neither yet?
+## Acceptance first
 
-1. **Authority acceptance first.** If the mission has not named acceptable proof, return to the [requirement guide](/guides/german-family-reunion-language-requirement/)—do not compare providers yet.
-2. **Exact adult product.** For Goethe, identify **Goethe-Zertifikat A1: Start Deutsch 1**. For telc, identify the exact local A1 product named by the authority and the centre (telc offers more than one German A1 product).
-3. **Official centre path.** Confirm you can book that exact product through an official Goethe route or an authorised telc examination centre—not only a course school that advertises “A1”.
-4. **Local terms equalisation.** Obtain each candidate centre’s current date, fee, registration, ID, result, certificate, cancellation, and rescheduling terms **before** ranking options.
-5. **Choose the option that clears all four checks** for your case. If neither product matches the authority wording, do not force a booking—ask the mission again.
+The BAMF leaflet (English PDF, opened 2026-11-08, imprint revised 03/2023) says the certificate should be based on a standardised ALTE test and that this is currently true of “Start Deutsch 1” of the Goethe-Institut, “Start Deutsch 1” of telc GmbH, “Grundstufe Deutsch 1” of ÖSD, and “TestDaF”. The next sentence is the decision rule: the German diplomatic mission where you apply alone decides whether your proof is recognised.
 
-## Comparison table (planning dimensions, not a ranking)
+Start here:
 
-| Dimension | What to verify | Goethe path (example checks) | telc path (example checks) | Who decides |
-| --- | --- | --- | --- | --- |
-| Acceptance | Exact certificate named for your route | Match Start Deutsch 1 / Goethe-Zertifikat A1 to mission wording | Match the exact telc A1 product name to mission wording | Mission / authority |
-| Product identity | Adult exam vs course / youth / practice | Official Goethe examinations page | Official telc product page for the named exam | Exam owner |
-| Centre authorisation | Official or authorised delivery | Goethe centre / examination partner list | telc examination-centre finder for that product | Exam owner + centre |
-| Local execution | Date, fee, ID, cancel, result, certificate | Selected centre confirmation | Selected centre confirmation | Selected centre |
-| Visa-file fit | Original / copy / translation / timing | Mission checklist | Mission checklist | Mission / authority |
+1. Quote the certificate words on **your** mission’s current family-reunion page.
+2. Match those words to an exact product name below.
+3. If the mission is silent, ask it. Do not fill the gap with a brand that a different embassy listed.
+4. Only then compare centre, date, and local terms.
 
-This table equalises questions. It does **not** say which brand is “safer” or cheaper for you.
+A lower price or a classroom near your home is not acceptance.
 
-## Follow the decision sequence
+## Exact adult product names
 
-1. **Authority acceptance:** confirm the exact certificate with the responsible German mission or authority. A provider comparison cannot substitute for that instruction.
-2. **Exact adult product:** for Goethe, use **Goethe-Zertifikat A1: Start Deutsch 1**; for telc, identify the exact local A1 product named by the authority and the centre.
-3. **Official centre:** use the Goethe examination route or the [telc examination-centre finder](https://www.telc.net/en/language-examinations/find-a-telc-examination-centre/) to reach an official centre for that exact product.
-4. **Local terms:** obtain the selected centre's current date, fee, registration, ID, result, certificate, cancellation, and rescheduling terms before paying.
+Checked on 2026-11-08.
 
-The best option is the one that clears all four checks for your case. A famous provider or a cheaper first price is not enough by itself.
-
-## Responsibility split
-
-| Role | Responsibility | Boundary |
+| Name you may see | What the opened source supports | What it does not support |
 | --- | --- | --- |
-| German mission / immigration authority | Accepted proof for the visa or residence file | Not responsible for your classroom preference |
-| Exam owner (Goethe or telc) | Product definition and authorised delivery network | Cannot approve your visa |
-| Selected centre | Local seat, fee, ID, cancellation, result, certificate process | Cannot rewrite the mission checklist |
-| You (planner) | Record sources, dates, and stop rules; avoid paying on gaps | Not an authority |
+| Goethe-Institut “Start Deutsch 1” | The BAMF leaflet lists this name as a current ALTE certificate for the spousal proof it describes. | The Goethe product page was HTTP 403 here. Modules, duration, fees, and seats are **needs-verify**. Do not invent them. |
+| telc “Start Deutsch 1” / “telc Deutsch A1” | telc’s reachable product page is titled “Start Deutsch 1 / telc Deutsch A1” and describes it as CEFR A1 proof. The leaflet names “Start Deutsch 1” of telc GmbH. | The page title is not a mission acceptance letter. Fees and seats stay with the centre. |
+| “telc Deutsch A1 für Zuwanderer” | telc publishes this as a **separate** product page, also at CEFR A1. | The BAMF leaflet’s named telc certificate is “Start Deutsch 1”, not this title. Do not treat the two as the default spouse-visa certificate. |
+| ÖSD “Grundstufe Deutsch 1” | The BAMF leaflet uses this name. | The ÖSD page opened on 2026-11-08 is titled “ÖSD Zertifikat A1 (ZA1)”. That page does not say it is the same product as “Grundstufe Deutsch 1”. Whether a mission treats ZA1 as the leaflet’s ÖSD certificate is **needs-verify**. |
+| TestDaF | The leaflet lists “TestDaF” of the TestDaF Institute among the current certificates. | This page does not describe the TestDaF exam. Confirm the exact document with the mission. |
 
-## Scenario pitfalls
+The ÖSD ZA1 page says that exam is for learners from age 14 and has a written module (reading, listening, writing) and an oral module (speaking). That is a product description from ÖSD. It is not a statement that your mission accepts ZA1.
 
-### Assuming two “A1” labels are interchangeable
+## Decision tree
 
-Product names differ. An A1 course, youth exam, practice product, or centre advertisement is not automatically the exam proof you need.
+1. **Authority wording.** If the mission has not named acceptable proof, return to the [requirement guide](/guides/german-family-reunion-language-requirement/).
+2. **Exact product.** Write the full name, not “A1”. Reject a course, a youth exam, or a practice test unless the mission’s words include it.
+3. **Separate telc products.** If the centre offers “telc Deutsch A1 für Zuwanderer”, ask the mission whether that title matches its list before you treat it as “Start Deutsch 1”.
+4. **ÖSD name check.** If you are considering ÖSD, show the mission both the leaflet’s “Grundstufe Deutsch 1” and the current “ÖSD Zertifikat A1 (ZA1)” name and ask which document it wants.
+5. **Goethe needs-verify.** If the mission names Goethe “Start Deutsch 1”, book only through a channel the exam owner or the mission identifies. Do not copy module or fee details from memory while the Goethe page is unreadable.
+6. **Centre terms.** For each candidate, obtain the selected centre’s current date, fee, registration, identification, result, certificate, cancellation, and rescheduling terms. [How to check Goethe A1 fees](/guides/goethe-a1-fees-by-country/) does not publish a price. Record the centre’s own figure.
+7. **Choose only a pair that clears acceptance and local terms.** If neither product matches the mission’s words, do not force a booking.
 
-### Ranking by price before equalising certificate delivery
+## What each owner page establishes
 
-A lower exam fee can still fail if the certificate arrives after the mission’s document deadline. Equalise result and certificate processes first.
+- **BAMF leaflet:** which certificate names it currently associates with ALTE-standard proof for the spousal situation it describes, plus the mission’s recognition power.
+- **telc Start Deutsch 1 page:** that telc offers a product under that title at CEFR A1. It does not issue your visa.
+- **telc Deutsch A1 für Zuwanderer page:** that a second A1 title exists. Use it only if the mission’s wording reaches it.
+- **ÖSD ZA1 page:** the current public product name and the two-module structure described there. Not a visa acceptance list.
+- **Goethe-Institut:** named by BAMF. Product-page details remain **needs-verify** until you can open the official Goethe page yourself.
 
-### Inferring acceptance from another applicant
+## Local terms to verify
 
-Keep the official source and the date you checked it in your record. Another person’s outcome is not evidence for your file.
-
-### Committing to a visa appointment before you know the result process
-
-Do not lock an appointment plan on an assumed result date. Ask the centre what it currently confirms.
-
-## Side-by-side record template
-
-Duplicate one row per candidate product/centre pair.
-
-| Check | Candidate A | Candidate B | Source + date |
+| Check | Candidate A | Candidate B | Source and date |
 | --- | --- | --- | --- |
-| Authority acceptance wording match |  |  |  |
-| Exact product name |  |  |  |
-| Centre authorisation confirmed |  |  |  |
-| Exam date / registration deadline |  |  |  |
-| Fee scope (what is included) |  |  |  |
-| ID rule (ask centre) |  |  |  |
-| Result publication process |  |  |  |
-| Certificate issue/delivery process |  |  |  |
-| Cancellation / reschedule terms |  |  |  |
-| Still unclear (stop before pay) |  |  |  |
+| Mission’s certificate wording |  |  |  |
+| Exact product name on the owner page |  |  |  |
+| Centre authorisation for that product |  |  |  |
+| Date and registration deadline the centre confirmed |  |  |  |
+| Fee, as stated by the centre (do not copy it here) |  |  |  |
+| Identification the centre currently requires |  |  |  |
+| Result and certificate process the centre confirms |  |  |  |
+| Cancellation terms |  |  |  |
+| Still unclear — stop before payment |  |  |  |
 
-## Avoid false shortcuts
+## Common mistakes
 
-Do not infer acceptance from another applicant, assume two A1 labels are interchangeable, or commit to a visa appointment before you know the result and certificate process. Keep the official source and the date you checked it in your record.
+- Ranking by price before the mission has named the certificate.
+- Treating every “A1” label as “Start Deutsch 1”.
+- Assuming ZA1 and “Grundstufe Deutsch 1” are interchangeable without asking the mission.
+- Booking “telc Deutsch A1 für Zuwanderer” because it also says A1.
+- Inventing Goethe modules or a Goethe fee while the product page is closed.
+- Locking a visa appointment to a result date the centre has not confirmed. Use the [booking timeline](/guides/german-a1-exam-booking-timeline/) only for dates you already hold.
+- Using another applicant’s certificate as evidence. Mission pages differ. Dhaka’s certificate note is an example of a local practice, not a global Goethe-only rule.
 
 ## Next action
 
-Use [Goethe A1 test centers](/guides/goethe-a1-test-centers/) to verify an official local centre and its terms, then use [Goethe A1 booking mistakes](/guides/goethe-a1-booking-mistakes/) and [German A1 documents checklist](/guides/german-a1-documents-checklist/) before paying. Record the centre's current fee from its own page. [How to check Goethe A1 fees](/guides/goethe-a1-fees-by-country/) does not publish a price.
+When the product name matches the mission’s words, use [Goethe A1 test centers](/guides/goethe-a1-test-centers/) to verify an official local centre and its terms, then use [Goethe A1 booking mistakes](/guides/goethe-a1-booking-mistakes/) and the [documents checklist](/guides/german-a1-documents-checklist/) before paying. If the acceptance question is still open, return to the [requirement guide](/guides/german-family-reunion-language-requirement/) or the [family-reunion FAQ](/guides/german-a1-family-reunion-faq/). The [Germany A1 hub](/germany-family-reunion-a1/) keeps the full order.
 
 ## Official sources
 
-- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [telc: find an examination centre](https://www.telc.net/en/language-examinations/find-a-telc-examination-centre/)
+- [BAMF leaflet (English PDF)](https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11) — certificate names and the mission’s recognition sentence. Opened 2026-11-08.
+- [telc Start Deutsch 1 / telc Deutsch A1](https://www.telc.net/sprachpruefungen/zertifikatspruefung/deutsch/start-deutsch-1-/-telc-deutsch-a1/) — product title. Opened 2026-11-08.
+- [telc Deutsch A1 für Zuwanderer](https://www.telc.net/sprachpruefungen/zertifikatspruefung/deutsch/telc-deutsch-a1-fuer-zuwanderer/) — a different A1 product. Opened 2026-11-08.
+- [ÖSD Zertifikat A1 (ZA1)](https://osd.at/portfolio-item/osd-zertifikat-a1-za1/) — current ÖSD name. Equivalence with “Grundstufe Deutsch 1” is **needs-verify**.
+- [Federal Foreign Office spouse language FAQ](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682) — points to BAMF and the mission. Not a brand ranking.
 
-## A1 route FAQ
-
-### Can this page decide which certificate is accepted?
-
-No. It separates the questions you need to ask; the official centre and the German mission or authority decide their current document instructions.
-
-### What if local instructions conflict?
-
-Pause, save the official links or written replies, and ask the responsible source which instruction applies before booking or submitting documents.
-
-## A1 decision tools and next steps
-
-These planning aids organise questions; they do not decide an exemption, certificate acceptance, fees, result timing, or your individual case.
-
-- Return to the [Germany A1 family reunion hub](/germany-family-reunion-a1/) to see the full decision order.
-- Start with [Route Finder](/tools/route-finder/) if the requirement or exemption question is still open.
-- Turn your official checks into a working list with the [Checklist Generator](/tools/checklist-generator/).
-- Enter only locally confirmed buffers in the [Timeline Calculator](/tools/timeline-calculator/).
-- Compare the questions—not provider rankings—in [Exam Comparison](/tools/exam-comparison/).
-- The [A1 Family Reunion Pack](/contact/?interest=a1-family-reunion-pack) is a proposed planning pack; requesting access only opens a contact-intent path.
-- [Route Review](/contact/?interest=route-review) is proposed informational support, not legal, visa, or acceptance advice.
+Goethe-Zertifikat A1 product page: **needs-verify** (HTTP 403 on 2026-11-08). Not linked.

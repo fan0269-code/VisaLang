@@ -106,12 +106,16 @@ const sourceReviewedOnJuly22 = new Set([
 ]);
 
 const sourceRecheckedOn20261107 = new Set([
-  'german-a1-family-reunion-faq.md',
   'german-a1-exam-booking-timeline.md',
 ]);
 const aeoCopyOn20261107 = new Set([
   'german-family-reunion-language-requirement.md',
   'goethe-a1-vs-telc-a1.md',
+]);
+const p0RewrittenOn20261108 = new Set([
+  'german-family-reunion-language-requirement.md',
+  'goethe-a1-vs-telc-a1.md',
+  'german-a1-family-reunion-faq.md',
 ]);
 const depthRemediatedOn20261021 = new Set([
   'german-family-reunion-language-requirement.md',
@@ -123,7 +127,9 @@ const depthRemediatedOn20261021 = new Set([
 for (const file of germanyA1Guides) {
   const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
   assert.ok(source.includes('contentStatus: "complete-route"'), `${file} retains the complete-route baseline`);
-  const expectedUpdateDate = sourceRecheckedOn20261107.has(file) || aeoCopyOn20261107.has(file)
+  const expectedUpdateDate = p0RewrittenOn20261108.has(file)
+    ? '2026-11-08'
+    : sourceRecheckedOn20261107.has(file) || aeoCopyOn20261107.has(file)
     ? '2026-11-07'
     : depthRemediatedOn20261021.has(file)
     ? '2026-10-21'
@@ -157,7 +163,7 @@ for (const [file, expected] of Object.entries(supportGuideExpectations)) {
   const expectedReviewDate = file === 'goethe-a1-germany-family-reunion.md'
     ? '2026-10-21'
     : file === 'german-a1-family-reunion-faq.md'
-      ? '2026-11-07'
+      ? '2026-11-08'
       : '2026-07-22';
   assert.equal(field(source, 'sourceReviewedAt'), expectedReviewDate, `${file} records the actual source-review date`);
   assert.equal(field(source, 'reviewedByRole'), 'source-review', `${file} records the controlled reviewer role`);
@@ -175,7 +181,12 @@ for (const [file, expected] of Object.entries(supportGuideExpectations)) {
 const supportGuideBodies = Object.keys(supportGuideExpectations)
   .map((file) => fs.readFileSync(path.join(guideDirectory, file), 'utf8').split(/^---\s*$/m).slice(2).join('---'))
   .join('\n');
-assert.doesNotMatch(supportGuideBodies, /ehegattennachzug-en\.html|telc\.net/, 'reviewed support pages expose only first-party sources opened in this review');
+const supportBodiesWithoutP0Faq = Object.keys(supportGuideExpectations)
+  .filter((file) => file !== 'german-a1-family-reunion-faq.md')
+  .map((file) => fs.readFileSync(path.join(guideDirectory, file), 'utf8').split(/^---\s*$/m).slice(2).join('---'))
+  .join('\n');
+assert.doesNotMatch(supportBodiesWithoutP0Faq, /ehegattennachzug-en\.html|telc\.net/, 'older support pages keep the sources opened for their own review');
+assert.match(fs.readFileSync(path.join(guideDirectory, 'german-a1-family-reunion-faq.md'), 'utf8'), /telc\.net\/sprachpruefungen\/zertifikatspruefung\/deutsch\/start-deutsch-1/, 'the family-reunion FAQ cites the telc Start Deutsch 1 page opened on 2026-11-08');
 assert.doesNotMatch(supportGuideBodies, /valid passport or national ID card|original ID/i, 'reviewed support pages do not generalize centre-specific ID rules');
 assert.match(supportGuideBodies, /exact identification (?:document )?(?:required by|the test centre currently requires)/i, 'reviewed support pages direct readers to the selected centre for ID rules');
 

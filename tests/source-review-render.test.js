@@ -131,7 +131,7 @@ try {
     const expectedSupportReviewDate = slug === 'goethe-a1-germany-family-reunion'
       ? '2026-10-21'
       : slug === 'german-a1-family-reunion-faq'
-        ? '2026-11-07'
+        ? '2026-11-08'
         : '2026-07-22';
     assert.ok(html.includes(`Official sources last checked: <time datetime="${expectedSupportReviewDate}">${expectedSupportReviewDate}</time>`), `${slug} renders the current source-review date`);
     assert.ok(html.includes('<dt>Reviewed by role</dt><dd>Source review</dd>'), `${slug} renders the source-review role`);
@@ -287,17 +287,23 @@ try {
     'germany-b1-citizenship-language-proof',
   ]);
   const recheckedB1On20261107 = new Set([
-    'germany-b1-leben-in-deutschland-and-language-proof',
     'goethe-b1-vs-telc-b1',
     'germany-b1-settlement-citizenship-timeline',
     'germany-b1-settlement-citizenship-checklist',
+  ]);
+  const p0RewrittenB1On20261108 = new Set([
+    'goethe-b1-germany-settlement-work',
+    'germany-b1-citizenship-language-proof',
+    'germany-b1-leben-in-deutschland-and-language-proof',
   ]);
   for (const slug of germanyB1CoreSlugs) {
     const source = germanyB1GuideSources.find((guide) => frontmatterField(guide.source, 'slug') === slug)?.source || '';
     const html = fs.readFileSync(path.join('dist/guides', slug, 'index.html'), 'utf8');
     const sourceReviewedAt = frontmatterField(source, 'sourceReviewedAt');
     const updatedDate = frontmatterField(source, 'updatedDate');
-    const expectedReviewDate = depthRemediatedB1CoreSlugs.has(slug)
+    const expectedReviewDate = p0RewrittenB1On20261108.has(slug)
+      ? '2026-11-08'
+      : depthRemediatedB1CoreSlugs.has(slug)
       ? '2026-10-21'
       : recheckedB1On20261107.has(slug)
         ? '2026-11-07'
