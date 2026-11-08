@@ -2,6 +2,12 @@
 
 Updated: 2026-11-08
 
+## Paper surfaces and document slip — 2026-11-08
+
+- Scope: light-mode surfaces move from the blue-gray ramp to paper (`#f7f4ee` page, `#fffcf7` sheet, `#efe9df` secondary, `#1f1b16` ink, `#5e554a` secondary text). Hairlines are ink at 8% and 5%. `#1959d9` stays on primary buttons and text links. Dark graphite values are unchanged.
+- Homepage slip: square corners, a 1px hairline, a 2px seal-red top edge, and no shadow. The route line and its end dot remain the color inside the sheet.
+- Advertising runtime stays false. No new route, fee, date, or eligibility claim. Independent Auditor review and deployment remain separate.
+
 ## Homepage UI polish — 2026-11-08
 
 - Scope: quiet the existing editorial system. Spacing on the 4px grid, interface weight 500 with 600 only on the wordmark, sentence-case eyebrows, graphite dark surfaces, no card-lift motion, and no blue button glow. Guide status badges are quiet text; verification-pending keeps the warning fill.

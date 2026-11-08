@@ -1,15 +1,15 @@
 /* Canonical VisaLang production stylesheet. See docs/STYLE_ARCHITECTURE.md. */
 :root {
   color-scheme: light dark;
-  --od-bg: #f4f6fb;
-  --od-surface: #ffffff;
-  --od-surface-alt: #edf2fa;
-  --od-surface-strong: #dce5f3;
-  --od-ink: #12202a;
-  --od-copy: #4a5a6b;
-  --od-muted: #637286;
-  --od-line: #d4ddea;
-  --od-line-soft: #e2e9f4;
+  --od-bg: #f7f4ee;
+  --od-surface: #fffcf7;
+  --od-surface-alt: #efe9df;
+  --od-surface-strong: #e4dccf;
+  --od-ink: #1f1b16;
+  --od-copy: #5e554a;
+  --od-muted: #7b7266;
+  --od-line: rgb(31 27 22 / 8%);
+  --od-line-soft: rgb(31 27 22 / 5%);
   --od-primary: #1959d9;
   --od-primary-hover: #1046b7;
   --od-seal: #8b1a2b;
@@ -44,10 +44,10 @@
   --text: var(--od-ink);
   --text-muted: var(--od-copy);
   --border: var(--od-line);
-  --border-strong: #a6b7cd;
+  --border-strong: #b7b1a6;
   --primary: var(--od-primary);
   --primary-hover: var(--od-primary-hover);
-  --primary-soft: #eaf1ff;
+  --primary-soft: #efe9df;
   --secondary: var(--od-teal);
   --secondary-soft: var(--od-teal-soft);
   --ink: #10233c;
@@ -64,8 +64,8 @@
   --radius-sm: 8px;
   --radius: 12px;
   --radius-lg: 16px;
-  --shadow-sm: 0 1px 2px rgba(16, 35, 60, .06);
-  --shadow-md: 0 6px 18px rgba(16, 35, 60, .10);
+  --shadow-sm: 0 1px 2px rgb(31 27 22 / 6%);
+  --shadow-md: 0 6px 18px rgb(31 27 22 / 10%);
   --disabled: #879496;
   --z-header: 20;
   --z-menu: 30;
@@ -535,9 +535,10 @@ p, li { line-height: 1.7; }
   gap: 20px;
   padding: 24px;
   border: 1px solid var(--od-line);
-  border-radius: var(--radius-lg);
+  border-top: 2px solid var(--od-seal);
+  border-radius: 0;
   background: var(--od-surface);
-  box-shadow: 0 8px 24px rgba(16, 35, 60, .06);
+  box-shadow: none;
 }
 
 .verify-slip__title {
@@ -613,9 +614,6 @@ p, li { line-height: 1.7; }
   background: var(--od-seal);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .verify-slip { box-shadow: none; }
-}
 
 .home-route-spotlight {
   display: grid;
