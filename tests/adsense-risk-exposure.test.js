@@ -82,7 +82,7 @@ for (const file of [
   'dist/index.html',
   'dist/guides/german-family-reunion-language-requirement/index.html',
 ]) {
-  assert.ok(read(file).includes(adsenseHost), `ad-eligible control route should keep AdSense: ${file}`);
+  assert.ok(!read(file).includes(adsenseHost), `owner gate keeps AdSense off on a formerly eligible route: ${file}`);
 }
 
 const germanyCategoryHtml = read('dist/guides/category/germany-a1/index.html');

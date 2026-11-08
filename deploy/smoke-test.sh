@@ -34,7 +34,10 @@ check_redirect "$WWW_URL/" "https://visalang.org/"
 
 homepage="$(curl -fsS "$BASE_URL/")"
 printf '%s' "$homepage" | grep -Fq 'rel="canonical" href="https://visalang.org/"' || { echo "✗ Homepage canonical is not visalang.org"; exit 1; }
-printf '%s' "$homepage" | grep -Fq 'pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3018617123550799' || { echo "✗ Homepage does not contain the approved AdSense loader"; exit 1; }
+if printf '%s' "$homepage" | grep -Fq 'pagead2.googlesyndication.com'; then
+  echo "✗ Homepage must not load the AdSense runtime while the owner advertising gate is off"
+  exit 1
+fi
 
 tool_page="$(curl -fsS "$BASE_URL/tools/route-finder/")"
 if printf '%s' "$tool_page" | grep -Fq 'pagead2.googlesyndication.com'; then

@@ -128,7 +128,11 @@ try {
     const renderedNext = html.match(/<a href="([^"]+)"><small>Next guide<\/small>/)?.[1] || '';
     assert.equal((html.match(/<h1(?:\s|>)/g) || []).length, 1, `${slug} renders exactly one H1`);
     assert.ok(html.includes('aria-label="Disclaimer"'), `${slug} renders the planning disclaimer`);
-    const expectedSupportReviewDate = slug === 'goethe-a1-germany-family-reunion' ? '2026-10-21' : '2026-07-22';
+    const expectedSupportReviewDate = slug === 'goethe-a1-germany-family-reunion'
+      ? '2026-10-21'
+      : slug === 'german-a1-family-reunion-faq'
+        ? '2026-11-07'
+        : '2026-07-22';
     assert.ok(html.includes(`Official sources last checked: <time datetime="${expectedSupportReviewDate}">${expectedSupportReviewDate}</time>`), `${slug} renders the current source-review date`);
     assert.ok(html.includes('<dt>Reviewed by role</dt><dd>Source review</dd>'), `${slug} renders the source-review role`);
     assert.ok(!html.includes('Official verification pending'), `${slug} does not render a conflicting pending state`);
@@ -282,12 +286,22 @@ try {
     'goethe-b1-germany-settlement-work',
     'germany-b1-citizenship-language-proof',
   ]);
+  const recheckedB1On20261107 = new Set([
+    'germany-b1-leben-in-deutschland-and-language-proof',
+    'goethe-b1-vs-telc-b1',
+    'germany-b1-settlement-citizenship-timeline',
+    'germany-b1-settlement-citizenship-checklist',
+  ]);
   for (const slug of germanyB1CoreSlugs) {
     const source = germanyB1GuideSources.find((guide) => frontmatterField(guide.source, 'slug') === slug)?.source || '';
     const html = fs.readFileSync(path.join('dist/guides', slug, 'index.html'), 'utf8');
     const sourceReviewedAt = frontmatterField(source, 'sourceReviewedAt');
     const updatedDate = frontmatterField(source, 'updatedDate');
-    const expectedReviewDate = depthRemediatedB1CoreSlugs.has(slug) ? '2026-10-21' : '2026-07-19';
+    const expectedReviewDate = depthRemediatedB1CoreSlugs.has(slug)
+      ? '2026-10-21'
+      : recheckedB1On20261107.has(slug)
+        ? '2026-11-07'
+        : '2026-07-19';
     assert.ok(html.includes(`"dateModified":"${updatedDate}"`), `${slug} Article dateModified comes from updatedDate`);
     assert.equal(frontmatterField(source, 'sourceReviewStatus'), 'reviewed', `${slug} keeps the completed source review`);
     assert.equal(sourceReviewedAt, expectedReviewDate, `${slug} keeps the actual source-review date`);

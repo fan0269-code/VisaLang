@@ -1,6 +1,16 @@
 # VisaLang Task Log
 
-Updated: 2026-10-23
+Updated: 2026-11-07
+
+## AdSense-readiness source recheck — 2026-11-07
+
+- Scope: six Germany A1/B1 guides, trust-page disclosure, footer disclaimer readability, and the owner advertising runtime gate. No new country pages, no AdSense application, and no deployment.
+- Sources opened on 2026-11-07: Federal Foreign Office spouse-language FAQ; Residence Act sections 9 and 30; Nationality Act section 10; Integration Course Ordinance section 17; einbuergerung.de naturalisation process; telc Deutsch B1. Goethe-Zertifikat B1 HTML could not be read (403/500), so the module rule was withdrawn. BAMF and BAMF-NAvI returned HTTP 400 from this environment and were not treated as re-read.
+- Advertising: `advertisingRuntimeEnabled` stays false, so the existing publisher script does not render. Privacy and cookie pages match that off state. `ads.txt` keeps the seller line and says it is not live approval.
+- Evidence: `docs/ADSENSE_READINESS_SOURCE_RECHECK_2026-11-07.md`.
+- Boundary: independent Auditor review and owner authorization remain separate. Production HTTP 521 is an owner hosting issue and was not changed here.
+
+## Dependency security remediation — 2026-10-23
 
 ## Dependency security remediation — 2026-10-23
 

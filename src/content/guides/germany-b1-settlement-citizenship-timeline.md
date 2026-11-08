@@ -5,8 +5,8 @@ description: "Build a Germany B1 evidence timeline from authority- and centre-co
 category: "germany-b1"
 slug: "germany-b1-settlement-citizenship-timeline"
 publishedDate: "2026-07-11"
-updatedDate: "2026-07-19"
-sourceReviewedAt: "2026-07-19"
+updatedDate: "2026-11-07"
+sourceReviewedAt: "2026-11-07"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "core-route"
@@ -32,6 +32,12 @@ supportingGuideSlugs: ["goethe-b1-germany-settlement-work", "germany-b1-citizens
 The first anchor is the competent authority's current application instruction, appointment or deadline. The second is the selected official or authorised centre's current exam and result process. If either is missing, mark it unresolved instead of inserting a default date.
 
 This timeline does not calculate residence periods, eligibility or processing time.
+
+## Statute boundaries rechecked on 2026-11-07
+
+Residence Act section 9 and Nationality Act section 10 still contain residence-duration, language, and civic-knowledge conditions, plus exceptions and other routes. Those texts do not give this page a processing time, an exam-result turnaround, or a personal eligibility result. The federal naturalisation portal also describes the procedure and publishes its own timing and fee figures. Read those figures on the portal if you need them, and ask the competent authority which figure applies to your file.
+
+If the BAMF-NAvI foreigners-authority locator does not open, use the contact route published by your town, district, or foreigners authority. The federal naturalisation portal tells readers to ask the town, district, or foreigners authority which nationality authority is competent.
 
 ## Build the sequence from evidence
 
@@ -60,6 +66,8 @@ When the dated evidence record is ready, finish with the [submission-review chec
 
 ## Official sources
 
+- [Residence Act, section 9](https://www.gesetze-im-internet.de/aufenthg_2004/__9.html)
+- [Nationality Act, section 10](https://www.gesetze-im-internet.de/stag/__10.html)
 - [BAMF-NAvI: locate a competent foreigners authority](https://bamf-navi.bamf.de/en/Themen/Behoerden/?typ=ABH)
 - [German Government: how the naturalisation process works](https://www.einbuergerung.de/ablauf.php?l=en)
 - [Goethe-Institut: testing locations](https://www.goethe.de/ins/de/en/prf/ort.html)

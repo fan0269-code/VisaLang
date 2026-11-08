@@ -9,7 +9,10 @@ const review = read('docs/GERMANY_B1_TIMELINE_SOURCE_RECHECK_2026-08-15.md');
 
 assert.match(guide, /^slug: "germany-b1-settlement-citizenship-timeline"$/m, 'FAN-43 keeps FAN-35\'s selected page identity');
 assert.match(guide, /^publishedDate: "2026-07-11"$/m, 'FAN-43 preserves required publishedDate');
-assert.match(guide, /^updatedDate: "2026-07-19"$/m, 'FAN-43 does not manufacture a public update date for a no-change review');
+assert.match(guide, /^updatedDate: "2026-11-07"$/m, 'the 2026-11-07 statute recheck records a real public update date');
+assert.match(guide, /^sourceReviewedAt: "2026-11-07"$/m, 'the 2026-11-07 statute recheck records the source-review date');
+assert.match(guide, /This timeline does not calculate residence periods, eligibility or processing time/, 'the page still refuses residence, eligibility, and processing calculations');
+assert.match(guide, /do not give this page a processing time/, 'the recheck does not copy a processing-time number');
 assert.match(guide, /^readingTime: "5"$/m, 'FAN-43 preserves required readingTime');
 assert.match(guide, /^sourceReviewStatus: "reviewed"$/m, 'FAN-43 retains the reviewed discovery gate');
 assert.match(guide, /^finalDecisionAuthorityType: "Competent local foreigners or nationality authority/m, 'FAN-43 names both route decision authorities and the centre boundary');

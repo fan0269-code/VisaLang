@@ -5,8 +5,8 @@ description: "Use a non-legal Germany B1 checklist to recheck authority instruct
 category: "germany-b1"
 slug: "germany-b1-settlement-citizenship-checklist"
 publishedDate: "2026-07-11"
-updatedDate: "2026-07-19"
-sourceReviewedAt: "2026-07-19"
+updatedDate: "2026-11-07"
+sourceReviewedAt: "2026-11-07"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "core-route"
@@ -56,6 +56,12 @@ For each item, record `confirmed`, `not applicable according to the authority`, 
 - Merging language evidence and civic-knowledge evidence.
 - Reusing an old form or another authority's checklist.
 - Submitting before resolving a mismatch in document format or procedure.
+
+## What was rechecked on 2026-11-07
+
+- Residence Act section 9 still lists sufficient German and basic knowledge of the legal and social order as separate settlement-permit conditions, and it also contains exceptions and other routes. This checklist does not turn those conditions into a personal eligibility result or a residence-duration calculation.
+- Nationality Act section 10 still lists sufficient German and knowledge of the legal and social order as separate naturalisation conditions. Subsection 4 states that CEFR level B1 is one way the language condition is met, with further statutory exceptions. Subsection 5 states that the civic-knowledge condition is as a rule shown by a successful naturalisation test.
+- The federal naturalisation portal lists example B1 documents and says the naturalisation test is the usual civic-knowledge proof, while the Life in Germany test is also considered proof. That portal also publishes fee, format, and processing-time figures. Read those figures on the portal. This checklist does not repeat them.
 
 ## Next action
 
