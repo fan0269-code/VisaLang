@@ -206,6 +206,8 @@ assert.ok(src.zhHome.includes('publishedCategoryCount') && !src.zhHome.includes(
 assert.ok(src.zhHome.includes('<GuideStatusBadge status={zhUpdated[0].contentStatus} locale="zh-CN"'), 'Chinese homepage localizes its guide status badge');
 assert.ok(!src.home.includes('heroPreload') && !src.zhHome.includes('heroPreload') && !src.home.includes('home-route-verification') && !src.zhHome.includes('home-route-verification'), 'both homepages render the shared verification slip without the retired desk photograph');
 assert.ok(src.css.includes('--od-seal') && src.css.includes('--od-bg: #141415') && !src.css.includes('translateY(-2px)') && !src.css.includes('text-transform: uppercase'), 'UI polish keeps one seal accent, graphite dark surfaces, quiet type, and no card lift');
+assert.ok(src.css.includes('--od-bg: #f7f4ee') && src.css.includes('--od-surface: #fffcf7') && src.css.includes('--od-ink: #1f1b16') && src.css.includes('--od-copy: #5e554a'), 'light surfaces use the paper ramp');
+assert.ok(src.css.includes('border-top: 2px solid var(--od-seal)') && src.css.includes('border-radius: 0') && !src.css.includes('box-shadow: 0 8px 24px'), 'verification slip is a square document with a seal edge');
 assert.ok(src.home.includes('latest-layout') && src.zhHome.includes('latest-layout'), 'both homepages use the one-feature plus compact-list update layout');
 assert.equal((src.home.match(/type="radio"/g) || []).length, 0, 'homepage does not inline radio-based decision controls');
 assert.ok(!src.home.includes('<fieldset class="choice-group">') && !src.home.includes('<legend>Purpose</legend>') && !src.home.includes('<legend>Status</legend>'), 'homepage does not duplicate Route Finder controls');

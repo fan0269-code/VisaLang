@@ -14,7 +14,7 @@ The existing exam-learning compatibility block remains active inside `global.css
 - No font files or runtime font requests are used. The stack prefers Apple, Windows and common CJK system faces before generic fallbacks.
 - `global.css` remains the only production stylesheet. The former inactive `open-design.css` migration reference has been removed.
 - Primary actions use `--primary` and `--primary-hover`. Warning colour is reserved for verification-pending and other warning states.
-- Dark surfaces use the graphite ramp (`#141415` page). The accent stays `#1959d9` in light mode and `#78a6ff` in dark mode. A seal red (`--od-seal`) marks only the route line and the first check. No page-glow washes.
+- Light surfaces use the paper ramp (`#f7f4ee` page, `#fffcf7` sheet, `#1f1b16` ink). Dark surfaces use the graphite ramp (`#141415` page). The accent stays `#1959d9` in light mode and `#78a6ff` in dark mode. A seal red (`--od-seal`) marks the verification slip’s top edge, the route line’s end, and the first check. No page-glow washes.
 - Guide status text stays quiet. Verification-pending badges keep the warning treatment. Product availability states keep their own status colors.
 - Viewport layout continues to use only 1024px, 768px and 375px. Article TOC behaviour switches at 768px.
 - English and Chinese homepages share `HomeHero.astro`, an in-page verification slip, a dedicated `.home-route-spotlight`, a numbered editorial stage list and compact trust prose.
