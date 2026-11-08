@@ -1,5 +1,6 @@
 ---
 import MobileNavigation from './MobileNavigation.astro';
+import LogoMark from './LogoMark.astro';
 import { navItems, site, translatedPaths, ui } from '../data/site';
 import { navigationCurrent } from '../lib/navigation-current';
 
@@ -22,7 +23,7 @@ const currentPath = Astro.url.pathname;
 <header class="global-header" data-global-header>
   <div class="global-header__inner">
     <a class="global-header__brand" href={isZh ? '/zh/' : '/'} aria-label={`${site.name} ${labels.home}`}>
-      <img class="global-header__mark" src="/brand/logo-mark.svg" alt="" width="28" height="28" aria-hidden="true">
+      <LogoMark class="global-header__mark" />
       Visa<span>Lang</span>
     </a>
     <nav class="global-header__nav" aria-label={isZh ? '主导航' : 'Primary navigation'}>

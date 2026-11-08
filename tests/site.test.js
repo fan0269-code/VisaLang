@@ -216,6 +216,9 @@ assert.ok(!src.home.includes('button--accent'), 'homepage does not use warning a
 assert.ok(src.home.includes('publishedGuides.length'), 'homepage guide count follows the primary-discovery scope');
 assert.ok(src.home.includes('publishedCategoryCount'), 'homepage category count follows the primary-discovery scope');
 assert.ok(src.css.includes('--font-display: var(--font-sans)') && src.css.includes('background: var(--od-surface);\n  color: var(--od-copy);'), 'shared typography and footer stay in the page theme');
+assert.ok(!src.css.includes('radial-gradient') && !src.css.includes('linear-gradient'), 'shared chrome does not use hue washes or surface gradients');
+assert.ok(!src.css.includes('text-transform: uppercase'), 'interface labels stay in sentence case');
+assert.ok(src.home.includes("label: 'Developed route'") && src.zhHome.includes("label: '中文主路线'"), 'homepage route label names the developed path without a ranking');
 assert.ok(src.about.includes('publishedEnglishGuides') && src.about.includes('Current discovery scope') && src.about.includes('not an independent guarantee of page quality or AdSense approval'), 'About explains the conservative discovery boundary');
 assert.ok(!src.siteData.includes("href: '/guides/testdaf-germany-university-admissions/'") && !src.siteData.includes("href: '/guides/telc-b1-b2-germany-work-nursing/'"), 'primary route navigation does not promote withheld guides');
 

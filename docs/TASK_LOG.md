@@ -2,6 +2,14 @@
 
 Updated: 2026-11-08
 
+## Quiet chrome pass — 2026-11-08
+
+- Scope: shared layout and components only. Home, Germany route hubs, guide template, and trust pages pick up the same tokens. No guide prose, fees, dates, or visa outcomes were rewritten. Advertising runtime stays off.
+- Direction: calm, exact, paper-quiet. The world is a consular desk. The signature is the existing route-and-stamp mark, repeated as a hairline through the homepage stage list and route progress, with the current step as the ink stamp.
+- What changed: sentence-case labels, type weights 500 and 600, ink wordmark, muted kickers, flat surfaces, no color wash or tool-card gradient, no hover slide, softer hero shadow, and 4px spacing on the shared controls that were off the grid.
+- Credit: unslop by Damir Sokolovsky, https://github.com/heydamir/unslop, CC BY 4.0.
+- Boundary: independent Auditor review and owner authorization remain separate. Nothing was deployed.
+
 ## Germany A1/B1 P0 content rewrite — 2026-11-08
 
 - Scope: rewrite eight existing pages only. No new country page, no Chinese mirror expansion, no AdSense enablement. Standard used: `docs/ADSENSE_CONTENT_STANDARDS_AND_REMEDIATION_SPEC.md` (low-value content rules). Advertising runtime stays false.

@@ -1,5 +1,6 @@
 ---
 import { site, ui } from '../data/site';
+import LogoMark from './LogoMark.astro';
 const isZh = Astro.url.pathname.startsWith('/zh');
 const labels = ui[isZh ? 'zh-CN' : 'en'];
 ---
@@ -8,7 +9,7 @@ const labels = ui[isZh ? 'zh-CN' : 'en'];
   <div class="global-footer__grid">
     <section>
       <a class="global-footer__brand" href={isZh ? '/zh/' : '/'}>
-        <img class="global-footer__mark" src="/brand/logo-mark.svg" alt="" width="28" height="28" aria-hidden="true">
+        <LogoMark class="global-footer__mark" />
         Visa<span>Lang</span>
       </a>
       <p>{isZh ? '帮助你确认语言证明路线，并在行动前回到官方来源核验。' : 'Plan a language-proof route, then verify it with the authority or institution receiving your file.'}</p>

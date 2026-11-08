@@ -14,7 +14,8 @@ The existing exam-learning compatibility block remains active inside `global.css
 - No font files or runtime font requests are used. The stack prefers Apple, Windows and common CJK system faces before generic fallbacks.
 - `global.css` remains the only production stylesheet. The former inactive `open-design.css` migration reference has been removed.
 - Primary actions use `--primary` and `--primary-hover`. Warning colour is reserved for verification-pending and other warning states.
-- The active page glow is limited to low-opacity primary blue; warm yellow and decorative teal glows are not used.
+- Page background is a flat neutral. There is no radial wash, hue gradient, or colored button glow. Accent blue is limited to the primary action, text links, and the current route-step stamp. The homepage stage list and route progress share one route line.
+- Interface labels stay in sentence case. Headings use weight 500, the wordmark uses 600, and body copy stays on the system sans stack. No runtime font is requested.
 - Starter overview badges use the primary blue treatment; verification-pending badges retain the warning treatment. Teal is reserved for verified or successful states.
 - Viewport layout continues to use only 1024px, 768px and 375px. Article TOC behaviour switches at 768px.
 - English and Chinese homepages share `HomeHero.astro`, a responsive Astro `Picture`, a dedicated `.home-route-spotlight`, a numbered editorial stage list and compact trust prose.
