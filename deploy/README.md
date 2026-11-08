@@ -1,5 +1,7 @@
 # VisaLang Nginx deployment
 
+> **Deprecated.** Vercel is the production host. Follow [deploy/VERCEL.md](./VERCEL.md). The scripts here are the historical Nginx origin. `deploy.sh`, `rollback.sh`, `server-init.sh`, and `harden.sh` exit before changing a server unless `VISALANG_LEGACY_NGINX_DEPLOY=authorized`. That override is not the Vercel cutover. `smoke-test.sh` stays runnable because it only sends public HTTP requests.
+
 Canonical production origin: `https://visalang.org`.
 
 These files prepare a deployment workflow; their presence does not prove DNS, TLS, Nginx, public redirects, production smoke checks, or rollback have been verified. Production commands require a separately authorised production window.
@@ -45,6 +47,8 @@ If no previously verified release ID or required AdSense/CMP account evidence ex
 
 ## Install the Nginx configuration
 
+Do not install this configuration for the Vercel cutover. It belongs only to an emergency window on the old origin.
+
 An authorised server operator installs:
 
 ```bash
@@ -58,10 +62,12 @@ Do not reload Nginx unless the production window explicitly authorises the chang
 
 ## Deploy
 
-After authorisation:
+This command is historical. Without `VISALANG_LEGACY_NGINX_DEPLOY=authorized` it exits and does not change the server. Publish through `deploy/VERCEL.md`.
+
+Emergency use on the old origin, after a separate authorisation:
 
 ```bash
-bash deploy/deploy.sh
+VISALANG_LEGACY_NGINX_DEPLOY=authorized bash deploy/deploy.sh
 ```
 
 The script refuses a dirty server source tree, fast-forwards `origin/main`, runs `npm ci`, `npm test`, and `npm run launch-check`, creates an immutable commit-addressed release, validates candidate output and Nginx, then switches `current` atomically.

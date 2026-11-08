@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
-# 服务器初始化脚本 - 在腾讯云 CVM 上首次运行
-# 用法：ssh 到服务器后，粘贴整个文件内容到终端执行
-# 前提：需要 root 权限（sudo -i 或直接 root 登录）
+# DEPRECATED historical Nginx origin bootstrap. Production hosting is Vercel: deploy/VERCEL.md.
+# 旧的服务器初始化脚本。默认拒绝执行，避免再把流量指回已停机的源站。
 
 set -euo pipefail
+
+if [ "${VISALANG_LEGACY_NGINX_DEPLOY:-}" != "authorized" ]; then
+  echo "✗ DEPRECATED: Nginx origin bootstrap is disabled. Read deploy/VERCEL.md."
+  echo "✗ No server change was made. Emergency override: VISALANG_LEGACY_NGINX_DEPLOY=authorized"
+  exit 1
+fi
 
 echo "==> 检测系统"
 . /etc/os-release

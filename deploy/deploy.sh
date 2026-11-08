@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
+# DEPRECATED historical Nginx publisher. Production hosting is Vercel: deploy/VERCEL.md.
 set -euo pipefail
+
+if [ "${VISALANG_LEGACY_NGINX_DEPLOY:-}" != "authorized" ]; then
+  echo "✗ DEPRECATED: Nginx origin publish is disabled. Read deploy/VERCEL.md."
+  echo "✗ No server change was made. Emergency override: VISALANG_LEGACY_NGINX_DEPLOY=authorized"
+  exit 1
+fi
 
 DOMAIN="visalang.org"
 SITE_DIR="/var/www/$DOMAIN"

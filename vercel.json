@@ -1,0 +1,83 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "astro",
+  "installCommand": "npm ci",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "cleanUrls": false,
+  "trailingSlash": true,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
+        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains" }
+      ]
+    },
+    {
+      "source": "/_astro/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.html",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/sitemap-index.xml",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/sitemap-0.xml",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600" }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400" }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.visalang.org" }],
+      "destination": "https://visalang.org/$1",
+      "statusCode": 301
+    },
+    { "source": "/index.html", "destination": "/", "statusCode": 301 },
+    { "source": "/germany-family-reunion-a1.html", "destination": "/germany-family-reunion-a1/", "statusCode": 301 },
+    { "source": "/do-i-need-german-a1.html", "destination": "/tools/route-finder/", "statusCode": 301 },
+    { "source": "/about.html", "destination": "/about/", "statusCode": 301 },
+    { "source": "/contact.html", "destination": "/contact/", "statusCode": 301 },
+    { "source": "/privacy-policy.html", "destination": "/privacy-policy/", "statusCode": 301 },
+    { "source": "/terms.html", "destination": "/terms/", "statusCode": 301 },
+    { "source": "/cookie-policy.html", "destination": "/cookie-policy/", "statusCode": 301 },
+    { "source": "/editorial-policy.html", "destination": "/editorial-policy/", "statusCode": 301 },
+    { "source": "/affiliate-disclosure.html", "destination": "/affiliate-disclosure/", "statusCode": 301 },
+    { "source": "/zh/index.html", "destination": "/zh/", "statusCode": 301 },
+    { "source": "/zh/germany-family-reunion-a1.html", "destination": "/zh/germany-family-reunion-a1/", "statusCode": 301 },
+    { "source": "/guides/dutch-inburgering-a2-b1-for-integration-and-citize/", "destination": "/guides/dutch-inburgering-a2-b1-for-integration-and-citizenship/", "statusCode": 301 },
+    { "source": "/guides/portuguese-language-for-golden-visa-and-citizenshi/", "destination": "/guides/portuguese-language-for-golden-visa-and-citizenship/", "statusCode": 301 },
+    { "source": "/guides/yki-vs-other-finland-options/", "destination": "/guides/yki-finnish-citizenship/", "statusCode": 301 },
+    { "source": "/guides/yki-vs-other-finland-options.html", "destination": "/guides/yki-finnish-citizenship/", "statusCode": 301 },
+    { "source": "/guides/:slug.html", "destination": "/guides/:slug/", "statusCode": 301 },
+    { "source": "/zh/guides/:slug.html", "destination": "/zh/guides/:slug/", "statusCode": 301 }
+  ]
+}

@@ -1,6 +1,6 @@
 # VisaLang
 
-> **部署说明**：生产只发布 `npm run build` 生成的 `dist/`（见 `deploy/deploy.sh`）。仓库根目录的双栈遗留 HTML/JS/CSS 与误导性根 `robots.txt`/`sitemap.xml` **已删除**；旧 `.html` URL 由 `deploy/legacy-redirects.conf` 与 `public/_redirects` 做 301。权威 robots/sitemap 在 `public/` → `dist/`。
+> **部署说明**：生产托管是 Vercel，步骤见 `deploy/VERCEL.md`。规范域名仍是 `https://visalang.org`（`www` 301 到 apex）。`npm run build` 生成 `dist/`。`deploy/deploy.sh` 等 Nginx 脚本已弃用，默认拒绝执行。旧 `.html` URL 由 `vercel.json`、`public/_redirects` 与历史 `deploy/legacy-redirects.conf` 保留。权威 robots/sitemap 在 `public/` → `dist/`。
 
 VisaLang is a live, official-source-first language-exam navigation site for visa, residency, citizenship, study and work-registration paths. Its strongest public routes are Germany A1 family reunion and Germany B1 settlement/citizenship.
 
@@ -15,7 +15,15 @@ VisaLang is an independent information and verification navigator. It does not d
 - `@astrojs/sitemap`, structured data, canonical/hreflang and fail-closed discovery/advertising gates
 - Node assertion suites and a production-oriented launch check
 
-Pre-Astro dual-stack root HTML/CSS/JS files have been removed. Do not reintroduce them; old `.html` URLs are handled by `deploy/legacy-redirects.conf` and `public/_redirects` (301). Publish only the Astro `dist/` output.
+Pre-Astro dual-stack root HTML/CSS/JS files have been removed. Do not reintroduce them; old `.html` URLs are handled by `vercel.json`, `deploy/legacy-redirects.conf`, and `public/_redirects` (301). Publish only the Astro `dist/` output.
+
+## Production hosting
+
+Vercel serves the static build. The production URL stays `https://visalang.org`, and `www.visalang.org` redirects to that apex. Connect the GitHub repository using the install, build, output, and Node 22.x settings in `deploy/VERCEL.md`. A `*.vercel.app` hostname is only a preview. Do not put it in `astro.config.mjs`.
+
+`deploy/deploy.sh`, `deploy/rollback.sh`, `deploy/server-init.sh`, and `deploy/harden.sh` are the historical Nginx origin. They exit unless `VISALANG_LEGACY_NGINX_DEPLOY=authorized`. There is no GitHub Actions SSH deploy to disable.
+
+`advertisingRuntimeEnabled` stays `false`. This hosting change does not submit AdSense.
 
 ## Local Development
 

@@ -1,6 +1,13 @@
 # VisaLang Task Log
 
-Updated: 2026-11-07
+Updated: 2026-11-08
+
+## Vercel hosting cutover — 2026-11-08
+
+- Scope: make the Astro static build first-class on Vercel. `vercel.json` sets install `npm ci`, build `npm run build`, output `dist`, Node `22.x`, trailing slashes, the 301s from `public/_redirects`, the headers from `public/_headers`, and a `www` to apex 301. Production `site` stays `https://visalang.org`.
+- Historical Nginx scripts remain in `deploy/` and are marked deprecated. `deploy.sh`, `rollback.sh`, `server-init.sh`, and `harden.sh` exit unless `VISALANG_LEGACY_NGINX_DEPLOY=authorized`. No GitHub Actions workflow was present to disable.
+- Advertising: `advertisingRuntimeEnabled` stays false. No AdSense application is part of this change. No token or key was added.
+- Boundary: DNS, the Vercel project, and the old origin were not changed from this branch. Cutover steps are in `deploy/VERCEL.md`. Independent Auditor review and the live DNS change remain separate.
 
 ## SEO / AEO answer pass — 2026-11-07
 

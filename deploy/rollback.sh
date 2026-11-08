@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
+# DEPRECATED historical Nginx rollback. Production rollback is a Vercel deployment rollback. See deploy/VERCEL.md.
 set -euo pipefail
+
+if [ "${VISALANG_LEGACY_NGINX_DEPLOY:-}" != "authorized" ]; then
+  echo "✗ DEPRECATED: Nginx origin rollback is disabled. Read deploy/VERCEL.md."
+  echo "✗ No server change was made. Emergency override: VISALANG_LEGACY_NGINX_DEPLOY=authorized"
+  exit 1
+fi
 
 DOMAIN="visalang.org"
 SITE_DIR="/var/www/$DOMAIN"
