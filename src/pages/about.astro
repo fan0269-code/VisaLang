@@ -16,11 +16,11 @@ const statusCounts = publishedEnglishGuides.reduce<Record<string, number>>((coun
   counts[status] = (counts[status] ?? 0) + 1;
   return counts;
 }, {});
-const updated = '2026-10-21';
+const updated = '2026-11-07';
 const jsonLD = { '@context': 'https://schema.org', '@type': 'AboutPage', name: 'About VisaLang' };
 ---
 
-<BaseLayout title="About" description="About VisaLang — your independent language-exam navigation site." jsonLD={jsonLD}>
+<BaseLayout title="About the Germany route scope" description="How VisaLang deepens Germany A1 family reunion and B1 settlement checks without deciding a visa, residence, or exam outcome." jsonLD={jsonLD}>
   <main class="page-shell">
     <article class="guide-article narrow-page">
         <p class="eyebrow">About</p>
@@ -47,7 +47,8 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'AboutPage', name: '
         </ul>
 
         <h2>Why we started with Germany A1</h2>
-        <p>Germany A1 family reunion is where a reader can lose time or money by making a decision in the wrong order: a requirement may not apply in every case; a certificate must match the receiving authority; and an exam date is only useful if the centre, ID, result, and document timeline work together. We built this route first as a practical decision sequence, then use the same official-first method for other routes.</p>
+        <p>Germany A1 family reunion is where a reader can lose time or money by making a decision in the wrong order: a requirement may not apply in every case; a certificate must match the receiving authority; and an exam date is only useful if the centre, ID, result, and document timeline work together. We built this route first as a practical decision sequence.</p>
+        <p>Germany B1 settlement and citizenship is the second developed English guide hub. It is a different procedure from family reunion: language proof and civic-knowledge evidence stay separate, and the hub does not decide the file. Chinese pages cover the A1 path; the B1 hub remains English and is labelled as such.</p>
 
         <h2>How we choose what to deepen</h2>
         <p>We prioritize pages where a reader must choose between routes, verify an official requirement, protect a deadline, or avoid an expensive booking mistake. A route overview may remain a starter guide until we can support it with the same depth and source discipline as Germany A1.</p>
@@ -82,7 +83,7 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'AboutPage', name: '
         <h2>Important verification boundary</h2>
         <p>VisaLang provides independent, informational guidance only. We are not official and do not provide legal or immigration advice. Before booking or filing, verify your exact requirement with the local German mission or competent authority, and—where relevant—the school, employer, professional body, exam owner, or authorised test centre.</p>
         <p class="compliance-line">VisaLang is an independent publication. We are not a government authority, exam owner, immigration lawyer, or visa agency.</p>
-        <p class="last-updated">Last updated: {updated}</p>
+        <p class="last-updated">Last updated: {updated}. This date records the route-scope note above. It is not a new statutory re-read.</p>
     </article>
   </main>
 </BaseLayout>

@@ -1,11 +1,11 @@
 ---
 title: "Goethe A1 vs telc A1: choose a family reunion exam"
-seoTitle: "Goethe A1 vs telc A1 for family reunion"
-description: "How to compare Goethe A1 and telc A1 for Germany family reunion without assuming which certificate, centre, fee, or timeline applies to you."
+seoTitle: "Goethe or telc A1: acceptance first"
+description: "Compare Goethe A1 and telc A1 only after your mission names acceptable proof. This page does not rank brands or state fees."
 category: "germany-a1"
 slug: "goethe-a1-vs-telc-a1"
 publishedDate: "2026-06-30"
-updatedDate: "2026-10-21"
+updatedDate: "2026-11-07"
 sourceReviewedAt: "2026-10-21"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
@@ -112,7 +112,7 @@ Do not infer acceptance from another applicant, assume two A1 labels are interch
 
 ## Next action
 
-Use [Goethe A1 test centers](/guides/goethe-a1-test-centers/) to verify an official local centre and its terms, then use [Goethe A1 booking mistakes](/guides/goethe-a1-booking-mistakes/) and [German A1 documents checklist](/guides/german-a1-documents-checklist/) before paying.
+Use [Goethe A1 test centers](/guides/goethe-a1-test-centers/) to verify an official local centre and its terms, then use [Goethe A1 booking mistakes](/guides/goethe-a1-booking-mistakes/) and [German A1 documents checklist](/guides/german-a1-documents-checklist/) before paying. Record the centre's current fee from its own page. [How to check Goethe A1 fees](/guides/goethe-a1-fees-by-country/) does not publish a price.
 
 ## Official sources
 

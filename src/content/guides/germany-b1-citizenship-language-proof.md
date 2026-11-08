@@ -1,11 +1,11 @@
 ---
 title: "Germany B1 for citizenship: separate language proof from the full file"
 seoTitle: "German citizenship B1 language proof"
-description: "Check the B1 language-evidence step for German naturalisation while keeping civic knowledge, other conditions and local procedure separate."
+description: "Naturalisation treats language and civic knowledge as separate evidence. A B1 result is not a grant of citizenship."
 category: "germany-b1"
 slug: "germany-b1-citizenship-language-proof"
 publishedDate: "2026-07-11"
-updatedDate: "2026-10-21"
+updatedDate: "2026-11-07"
 sourceReviewedAt: "2026-10-21"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"

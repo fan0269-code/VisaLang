@@ -36,12 +36,12 @@ const filters = [
   { name: 'status', label: 'Content status', options: [{ value: 'complete-route', label: 'Route structure complete' }, { value: 'core-route', label: 'Core route structure' }] },
 ];
 const totalGuideCount = guides.length + zhGuides.length;
-const jsonLD = { '@context': 'https://schema.org', '@graph': [{ '@type': 'CollectionPage', name: 'VisaLang task guide library', url: 'https://visalang.org/guides/', mainEntity: { '@id': 'https://visalang.org/guides/#items' } }, { '@type': 'ItemList', '@id': 'https://visalang.org/guides/#items', numberOfItems: totalGuideCount, itemListElement: [...guides.map((guide, index) => ({ '@type': 'ListItem', position: index + 1, name: guide.data.title, url: `https://visalang.org/guides/${guide.data.slug}/` })), ...zhGuides.map((guide, index) => ({ '@type': 'ListItem', position: guides.length + index + 1, name: guide.title, url: `https://visalang.org${guide.href}` }))] }] };
+const jsonLD = { '@context': 'https://schema.org', '@graph': [{ '@type': 'CollectionPage', name: 'VisaLang Germany-first guide library', url: 'https://visalang.org/guides/', mainEntity: { '@id': 'https://visalang.org/guides/#items' } }, { '@type': 'ItemList', '@id': 'https://visalang.org/guides/#items', numberOfItems: totalGuideCount, itemListElement: [...guides.map((guide, index) => ({ '@type': 'ListItem', position: index + 1, name: guide.data.title, url: `https://visalang.org/guides/${guide.data.slug}/` })), ...zhGuides.map((guide, index) => ({ '@type': 'ListItem', position: guides.length + index + 1, name: guide.title, url: `https://visalang.org${guide.href}` }))] }] };
 ---
 
-<BaseLayout title="Task guide library" description="Filter language-proof guides by purpose, country, route, exam, level, language, and content status." canonicalURL="https://visalang.org/guides/" jsonLD={jsonLD} enableAds={false}>
+<BaseLayout title="Germany-first guide library" description="Filter source-reviewed guides. Germany A1 family reunion and Germany B1 settlement or citizenship are the developed routes." canonicalURL="https://visalang.org/guides/" jsonLD={jsonLD} enableAds={false}>
   <main class="site-main od-guide-library">
-    <PageHero compact eyebrow="Task library" title="Find the guide for your next decision." description="This primary library contains source-reviewed complete and core route guides. Draft and verification-pending pages stay outside primary discovery until a page-specific editorial review closes their recorded gaps." />
+    <PageHero compact eyebrow="Task library" title="Find the guide for your next decision." description="This primary library contains source-reviewed complete and core route guides. Germany A1 family reunion and Germany B1 settlement or citizenship are the developed routes. Draft and verification-pending pages stay outside primary discovery until a page-specific editorial review closes their recorded gaps." />
     <section class="library-panel" aria-label="Guide filters">
       <SearchInput />
       <FilterBar filters={filters} />
