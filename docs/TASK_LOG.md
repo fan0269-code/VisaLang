@@ -2,6 +2,12 @@
 
 Updated: 2026-11-08
 
+## Homepage UI polish — 2026-11-08
+
+- Scope: quiet the existing editorial system. Spacing on the 4px grid, interface weight 500 with 600 only on the wordmark, sentence-case eyebrows, graphite dark surfaces, no card-lift motion, and no blue button glow. Guide status badges are quiet text; verification-pending keeps the warning fill.
+- Homepage: English and Chinese heroes share an in-page verification slip (receiving organisation, certificate name, centre status) instead of the desk photograph. The slip states a check order and does not decide a visa, admission, or citizenship outcome. `--od-seal` appears on the route line and the first stage number.
+- Advertising runtime stays false. No new route, fee, date, or eligibility claim. Independent Auditor review and deployment remain separate.
+
 ## Germany A1/B1 P0 content rewrite — 2026-11-08
 
 - Scope: rewrite eight existing pages only. No new country page, no Chinese mirror expansion, no AdSense enablement. Standard used: `docs/ADSENSE_CONTENT_STANDARDS_AND_REMEDIATION_SPEC.md` (low-value content rules). Advertising runtime stays false.

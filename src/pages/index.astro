@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HomeHero from '../components/HomeHero.astro';
 import RouteSelector from '../components/RouteSelector.astro';
 import GuideStatusBadge from '../components/GuideStatusBadge.astro';
-import homeRouteVisual from '../assets/home-route-verification.png';
 import { getCollection } from 'astro:content';
 import { isGuidePrimaryDiscoveryEligible, resolveGuideContentStatus } from '../data/source-review';
 import { site } from '../data/site';
@@ -21,7 +20,7 @@ const publishedCategoryCount = new Set(publishedGuides.map((guide) => guide.data
 const jsonLD = { '@context': 'https://schema.org', '@type': 'WebSite', name: site.name, url: `${site.url}/`, description: 'Official-source checks for Germany A1 family reunion and Germany B1 settlement or citizenship.' };
 ---
 
-<BaseLayout title="Germany A1 and B1 language proof" description="Check Germany family-reunion A1 and settlement or citizenship B1 proof, then confirm the current official instruction before booking." canonicalURL="https://visalang.org/" alternates={[{ lang: 'en', href: 'https://visalang.org/' }, { lang: 'zh-CN', href: 'https://visalang.org/zh/' }, { lang: 'x-default', href: 'https://visalang.org/' }]} jsonLD={jsonLD} bodyClass="home-view" enableAds={true} heroPreload={homeRouteVisual}>
+<BaseLayout title="Germany A1 and B1 language proof" description="Check Germany family-reunion A1 and settlement or citizenship B1 proof, then confirm the current official instruction before booking." canonicalURL="https://visalang.org/" alternates={[{ lang: 'en', href: 'https://visalang.org/' }, { lang: 'zh-CN', href: 'https://visalang.org/zh/' }, { lang: 'x-default', href: 'https://visalang.org/' }]} jsonLD={jsonLD} bodyClass="home-view" enableAds={true}>
   <main class="site-main">
     <HomeHero
       locale="en"
@@ -30,8 +29,6 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'WebSite', name: sit
       description="Germany A1 family reunion and Germany B1 settlement or citizenship are the developed paths. Identify the receiving organisation, then return to its current instruction."
       primary={{ href: '/tools/route-finder/', label: 'Use Route Finder' }}
       secondary={{ href: '/guides/', label: 'Browse guides' }}
-      visual={homeRouteVisual}
-      visualAlt="An open notebook and route map arranged for checking language-proof requirements"
       featuredRoute={{
         label: 'Best-developed route',
         title: 'Germany A1 family reunion',

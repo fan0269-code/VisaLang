@@ -14,11 +14,11 @@ The existing exam-learning compatibility block remains active inside `global.css
 - No font files or runtime font requests are used. The stack prefers Apple, Windows and common CJK system faces before generic fallbacks.
 - `global.css` remains the only production stylesheet. The former inactive `open-design.css` migration reference has been removed.
 - Primary actions use `--primary` and `--primary-hover`. Warning colour is reserved for verification-pending and other warning states.
-- The active page glow is limited to low-opacity primary blue; warm yellow and decorative teal glows are not used.
-- Starter overview badges use the primary blue treatment; verification-pending badges retain the warning treatment. Teal is reserved for verified or successful states.
+- Dark surfaces use the graphite ramp (`#141415` page). The accent stays `#1959d9` in light mode and `#78a6ff` in dark mode. A seal red (`--od-seal`) marks only the route line and the first check. No page-glow washes.
+- Guide status text stays quiet. Verification-pending badges keep the warning treatment. Product availability states keep their own status colors.
 - Viewport layout continues to use only 1024px, 768px and 375px. Article TOC behaviour switches at 768px.
-- English and Chinese homepages share `HomeHero.astro`, a responsive Astro `Picture`, a dedicated `.home-route-spotlight`, a numbered editorial stage list and compact trust prose.
-- The homepage image source lives under `src/assets/`; Astro generates AVIF and WebP widths while the original source remains outside `public/`.
+- English and Chinese homepages share `HomeHero.astro`, an in-page verification slip, a dedicated `.home-route-spotlight`, a numbered editorial stage list and compact trust prose.
+- The retired desk photograph remains in `src/assets/` and is not rendered.
 - Proven-zero active selectors for the old Route Console, signal cards, result actions and earlier journey/atlas/practice hero surfaces were removed. The inactive archived override file was removed after consolidation.
 
 ## Pre-consolidation mapping

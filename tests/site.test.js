@@ -196,16 +196,16 @@ assert.ok(src.css.includes('overflow-x: auto'), 'wide tables and tool navigation
 
 assert.ok(src.home.includes('Verify language proof first.'), 'homepage has the concise route-planning task');
 assert.ok(src.home.includes('<HomeHero') && src.zhHome.includes('<HomeHero'), 'English and Chinese homepages share the HomeHero composition');
-assert.ok(src.homeHero.includes("import { Picture } from 'astro:assets'") && src.homeHero.includes("formats={['avif', 'webp']}") && src.homeHero.includes('fetchpriority="high"'), 'HomeHero uses responsive high-priority Astro image output');
-assert.ok(src.base.includes('rel="preload"') && src.base.includes('imagesrcset={heroPreloadSrcset}') && src.base.includes('type="image/avif"'), 'BaseLayout preloads the responsive AVIF candidate selected for the home hero');
-assert.ok(exists('src/assets/home-route-verification.png'), 'homepage visual source is a local managed asset');
+assert.ok(src.homeHero.includes('verify-slip') && src.homeHero.includes('A check order, not a visa, admission, or citizenship decision') && src.homeHero.includes('这是核验顺序，不是签证、录取或入籍结论'), 'HomeHero shows a bilingual verification slip instead of a stock photograph');
+assert.ok(!src.homeHero.includes('astro:assets') && !src.base.includes('heroPreload'), 'the homepage no longer preloads a decorative hero photograph');
 assert.ok(src.homeHero.includes('home-route-spotlight') && !src.home.includes('route-entry') && !src.home.includes('route-console'), 'featured route uses a dedicated editorial strip instead of the old card or console');
 assert.ok(src.home.includes("label: 'Use Route Finder'") && src.home.includes("label: 'Browse guides'"), 'homepage has consistent primary and secondary action labels');
 assert.ok(src.home.includes('<RouteSelector'), 'homepage uses the shared purpose selector');
 assert.ok(src.zhHome.includes('<RouteSelector locale="zh-CN"') && src.zhHome.includes('bodyClass="home-view"'), 'Chinese homepage shares the route selector and home design scope');
 assert.ok(src.zhHome.includes('publishedCategoryCount') && !src.zhHome.includes('guideCategories.length'), 'Chinese homepage reports only dynamically published route categories');
 assert.ok(src.zhHome.includes('<GuideStatusBadge status={zhUpdated[0].contentStatus} locale="zh-CN"'), 'Chinese homepage localizes its guide status badge');
-assert.ok(src.home.includes('heroPreload={homeRouteVisual}') && src.zhHome.includes('heroPreload={homeRouteVisual}'), 'both homepages preload the same managed hero asset used by HomeHero');
+assert.ok(!src.home.includes('heroPreload') && !src.zhHome.includes('heroPreload') && !src.home.includes('home-route-verification') && !src.zhHome.includes('home-route-verification'), 'both homepages render the shared verification slip without the retired desk photograph');
+assert.ok(src.css.includes('--od-seal') && src.css.includes('--od-bg: #141415') && !src.css.includes('translateY(-2px)') && !src.css.includes('text-transform: uppercase'), 'UI polish keeps one seal accent, graphite dark surfaces, quiet type, and no card lift');
 assert.ok(src.home.includes('latest-layout') && src.zhHome.includes('latest-layout'), 'both homepages use the one-feature plus compact-list update layout');
 assert.equal((src.home.match(/type="radio"/g) || []).length, 0, 'homepage does not inline radio-based decision controls');
 assert.ok(!src.home.includes('<fieldset class="choice-group">') && !src.home.includes('<legend>Purpose</legend>') && !src.home.includes('<legend>Status</legend>'), 'homepage does not duplicate Route Finder controls');
