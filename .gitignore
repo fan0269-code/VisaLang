@@ -23,5 +23,8 @@ dist/
 
 # astro internals
 .astro/
+
+# local Vercel project link
+.vercel/
 .agents/
 skills-lock.json

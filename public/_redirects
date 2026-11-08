@@ -1,3 +1,5 @@
+# Vercel applies these 301s from vercel.json. This file stays for the launch check and non-Vercel adapters.
+# The /* 404 line is not a Vercel redirect; dist/404.html is the unknown-path page.
 /index.html / 301
 /germany-family-reunion-a1.html /germany-family-reunion-a1/ 301
 /do-i-need-german-a1.html /tools/route-finder/ 301

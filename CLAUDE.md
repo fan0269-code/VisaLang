@@ -33,7 +33,7 @@ node tests/germany-testdaf-cluster.test.js
 
 There are currently no package scripts for linting, formatting, or standalone type-checking. Do not document or invoke nonexistent `npm run lint` or `npm run typecheck` commands.
 
-`bash deploy/deploy.sh` is a server deployment workflow: it installs locked dependencies, builds, and publishes `dist/` to Nginx. It is not the default local development command.
+Production hosting is Vercel. See `deploy/VERCEL.md`. `bash deploy/deploy.sh` is a deprecated Nginx origin publisher and exits unless `VISALANG_LEGACY_NGINX_DEPLOY=authorized`. It is not the default local development command.
 
 ## Architecture
 

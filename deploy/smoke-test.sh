@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Read-only public check. It does not SSH, install a release, or reload Nginx.
+# After DNS points at Vercel, run it against https://visalang.org.
 set -euo pipefail
 
 BASE_URL="${BASE_URL:-https://visalang.org}"

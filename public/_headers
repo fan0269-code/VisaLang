@@ -1,6 +1,6 @@
-# Cloudflare Pages / Netlify compatible headers.
-# Applied to every static file in the site.
-# Truth source is Astro dist/ (src/ → npm run build). Do not cache
+# Cloudflare Pages / Netlify style headers.
+# Vercel does not read this file. vercel.json carries the same headers.
+# Truth source for the built site is Astro dist/ (src/ → npm run build).
 # Do not reintroduce immutable caching for retired dual-stack root JS/CSS.
 /*
   X-Content-Type-Options: nosniff

@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
-# 服务器安全加固脚本（第二步，server-init.sh 之后跑）
-# 前置：已配好 SSH 公钥
+# DEPRECATED historical origin hardening. Production hosting is Vercel: deploy/VERCEL.md.
+# 旧的源站加固脚本。默认拒绝执行。
 
 set -euo pipefail
+
+if [ "${VISALANG_LEGACY_NGINX_DEPLOY:-}" != "authorized" ]; then
+  echo "✗ DEPRECATED: Nginx origin hardening is disabled. Read deploy/VERCEL.md."
+  echo "✗ No server change was made. Emergency override: VISALANG_LEGACY_NGINX_DEPLOY=authorized"
+  exit 1
+fi
 
 if [ "$EUID" -ne 0 ]; then
   echo "请用 root 跑：sudo bash $0"

@@ -22,7 +22,7 @@ npm run preview      # Serve the generated site locally
 npm run launch-check # Rebuild, then validate routes, metadata, links, and schemas
 ```
 
-Run `npm test` for focused code/content work and `npm run launch-check` before handing off route, navigation, metadata, or deployment-facing changes. This repository has no lint or typecheck scripts.
+Run `npm test` for focused code/content work and `npm run launch-check` before handing off route, navigation, metadata, or deployment-facing changes. This repository has no lint or typecheck scripts. Production hosting is Vercel (`deploy/VERCEL.md`). The Nginx scripts under `deploy/` are historical and refuse to run unless `VISALANG_LEGACY_NGINX_DEPLOY=authorized`.
 
 ## Coding Style & Naming Conventions
 
