@@ -1,134 +1,148 @@
 ---
 title: "German A1 documents checklist: booking, test day, visa"
 seoTitle: "German A1 documents checklist"
-description: "A three-stage German A1 checklist for exam booking, test day, and A1 certificate checks in a family reunion visa file."
+description: "Separate German A1 exam-day papers from the visa file. Tick only what your centre or your own mission currently asks for."
 category: "germany-a1"
 slug: "german-a1-documents-checklist"
 publishedDate: "2026-06-30"
-updatedDate: "2026-10-21"
-sourceReviewedAt: "2026-10-21"
+updatedDate: "2026-11-10"
+sourceReviewedAt: "2026-11-10"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "complete-route"
-primaryIntent: "Separate booking, test-day, and visa-submission document checks for a Germany A1 route"
+primaryIntent: "Separate exam-day materials from the visa-file materials for a Germany A1 route"
 decisionStage: "submission-review"
 nextGuideSlug: "goethe-a1-official-links-practice-resources"
 comparisonScope: "same-route"
 audienceScope: "Germany family-reunion applicants separating local exam documents from the language proof and document form required for their visa file."
 finalDecisionAuthorityType: "Responsible German mission for visa documents and selected test centre for booking and test-day documents"
 primaryOfficialAuthorityUrl: "https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682"
-examOwnerUrl: "https://www.goethe.de/en/spr/prf.html"
-localExecutionPrompt: "Check the selected centre's current booking and test-day document list, then check the responsible German mission's current visa-file instructions for the certificate, originals, copies, translations, and any additional documents."
+examOwnerUrl: "https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/"
+localExecutionPrompt: "Tick an exam-day item only after the selected centre’s current instruction names it. Tick a visa-file item only after your own mission’s current page or written reply names it. Leave every other item unresolved."
 author: "VisaLang Editorial team"
-readingTime: "11"
+readingTime: "10"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
 supportingGuideSlugs: ["goethe-a1-booking-mistakes", "goethe-a1-test-centers"]
 ---
 
-## Keep three document moments separate
+## Who this page is for
 
-Exam booking, test day, and a family reunion visa file are different stages. A document that helps you register is not automatically sufficient for the examination, and a course completion record is not the same as an official language certificate.
+Use this page when you are gathering papers for a German A1 exam and a family-reunion visa file and you need the two stacks kept apart. Exam-day materials are whatever the selected centre tells you to bring. Visa materials are whatever **your** German mission tells you to file. This page does not decide a visa outcome, and it is not a nationwide document list.
 
-The selected local test centre controls its current booking and test-day document instructions. The responsible German mission controls the current visa-file checklist, including any original, copy, translation, or additional-document instruction. This page is a planning aid, not a legal opinion or a decision on what your case requires.
+If you are still unsure the file needs A1, stop and use the [language-requirement guide](/guides/german-family-reunion-language-requirement/) and the [family-reunion FAQ](/guides/german-a1-family-reunion-faq/). Settlement and citizenship papers belong on the [Germany B1 hub](/germany-b1-settlement-citizenship/).
 
-## Decision tree: which checklist applies now?
+## Decision tree: which stack are you holding?
 
-1. **Still unsure whether A1 applies?** Use the [requirement guide](/guides/german-family-reunion-language-requirement/) before building a visa document stack.
-2. **About to pay for a seat?** Use the **Before booking** list and the centre’s current registration instructions.
-3. **Exam within a few days?** Use the **Before test day** list and the centre’s latest message—rules can change after you booked.
-4. **Building the visa file?** Use the **Before the visa appointment** list and the mission’s current checklist—not the centre’s exam-day list alone.
-5. **Conflict between centre and mission instructions?** Pause; save both; ask the source that owns that stage (centre for exam-day; mission for the visa file).
+1. **Requirement still open.** Do not build a visa stack. Open the [requirement guide](/guides/german-family-reunion-language-requirement/).
+2. **About to pay.** Use the exam-day list below only for items the centre’s current registration page names. The fee is one of those items. telc does not publish a national fee, and Goethe fees follow the local schedule. Write the centre’s own figure in your notes. Do not copy it into this public page.
+3. **Exam week.** Re-read the centre’s latest message. The ID it accepts is the centre’s decision, announced with the decision to let you sit. A rule from another centre stays off your list.
+4. **Visa file.** Open the family-reunion page of the mission that will take **your** application. Embassy pages for Dhaka, Yaoundé, Singapore, and Bern are samples of the kind of page to open. They are not your list unless you apply at that mission.
+5. **The two lists disagree.** Save both. The centre answers the exam-day question. The mission answers the visa-file question.
 
-## Responsibility split
+## Exam-day materials
 
-| Stage | Who decides the document list | Typical artefacts (examples only) | Do not treat as interchangeable |
-| --- | --- | --- | --- |
-| Booking / registration | Selected official or authorised centre | Legal name match, accepted ID type for registration, payment confirmation, cancellation policy | Mission visa checklist |
-| Test day | Same centre | Exact identification document the test centre currently requires, booking confirmation, arrival / prohibited-item rules | Another city’s centre rules |
-| Visa / residence file | Responsible German mission / competent authority | Certificate form named for your route, originals/copies/translations, other family-reunion documents | Course completion as “the certificate” |
-| Exam product definition | Exam owner | Official product name and result/certificate process overview | Local centre fee as acceptance proof |
+Tick an item only after the centre’s current instruction names it. An unticked box means **unresolved**, not “optional everywhere”.
 
-## Stage checklists
+<ul class="tool-checklist">
+  <li><label><input type="checkbox" /> The exact product name matches the certificate wording your mission used. “Start Deutsch 1” and “telc Deutsch A1 für Zuwanderer” are different telc titles.</label></li>
+  <li><label><input type="checkbox" /> The name on the booking matches the official photo ID you will carry, in the spelling the centre asked for.</label></li>
+  <li><label><input type="checkbox" /> The centre has told you which official, valid photo ID it accepts. Goethe’s Exam Guidelines say the centre decides the type and tells you with the participation decision. telc’s regulations require a valid official photo ID before the exam starts. This page does not name a single worldwide ID.</label></li>
+  <li><label><input type="checkbox" /> You have the booking confirmation the centre told you to show at the door.</label></li>
+  <li><label><input type="checkbox" /> You have re-read the centre’s latest note on arrival time, the room, and items that must be left outside.</label></li>
+  <li><label><input type="checkbox" /> For a telc sitting, you know whether the written and oral parts are the same day. If they are different days, telc’s FAQ says the gap may not exceed 7 days. That is a scheduling rule, not a visa deadline.</label></li>
+  <li><label><input type="checkbox" /> You have not put a course-attendance letter in the exam-day envelope as if it were the ID or the booking.</label></li>
+</ul>
 
-### Before booking
+Goethe-Zertifikat A1: Start Deutsch 1 is a non-modular exam under the 1 September 2025 Exam Guidelines: one overall certificate for all four parts. telc’s English A1 page says that exam cannot be taken as a partial examination. A printout of one skill is not the certificate either owner describes.
 
-Confirm your legal name exactly as shown on the identity document you will use, the accepted passport or ID type, a working email and phone number, payment method, and the booking confirmation process. The centre's current booking instructions decide which documents or records it needs for registration.
+## Visa-file materials
 
-Match the correct exam to your plan, then save the confirmation email and the centre's cancellation or rescheduling policy. Ask the centre before paying if the name in your booking will not match your passport.
+Tick these only against **your** mission’s current family-reunion instruction. Do not tick them because a sample embassy, a forum, or this page listed the idea.
 
-### Before test day
+<ul class="tool-checklist">
+  <li><label><input type="checkbox" /> You have saved your mission’s current family-reunion page, the URL, and the date you opened it.</label></li>
+  <li><label><input type="checkbox" /> The page, or a written reply, says whether your relationship and age category needs German language proof.</label></li>
+  <li><label><input type="checkbox" /> You have quoted the certificate names the mission itself uses. The BAMF leaflet’s current ALTE-style names are orientation. The mission decides recognition.</label></li>
+  <li><label><input type="checkbox" /> You know whether that mission asked for the original certificate, a copy, a translation, or some other form. If it did not say, the form is unresolved.</label></li>
+  <li><label><input type="checkbox" /> The certificate you hold is the named exam certificate, not a classroom attendance letter. Treat an attendance letter as the visa proof only if the mission’s words include it.</label></li>
+  <li><label><input type="checkbox" /> You have asked the mission about any exception in writing, instead of applying one to yourself. The Federal Foreign Office FAQ does not decide an exception.</label></li>
+  <li><label><input type="checkbox" /> You have not applied a “certificate must be less than one year old” rule. The Foreign Office FAQ opened on 2026-11-10 does not state that rule. If a mission page states an age rule, it is that mission’s rule. Write it down only from that page.</label></li>
+  <li><label><input type="checkbox" /> For a telc certificate, you remember that the regulations say the certificate prints no validity period. Whether an older certificate still counts is decided by the institution that asks for it. For Goethe, authenticity can be checked at the verify page. Authenticity is not acceptance.</label></li>
+</ul>
 
-Check the centre's message again. You may need the exact identification document the test centre currently requires, your booking confirmation, and any centre-specific instruction. Confirm arrival time, location, and what items are allowed or prohibited.
+The rest of a family-reunion file — identity, civil status, the sponsor’s residence, insurance, housing, forms — stays on the mission’s own checklist. This page does not publish that list, because it is not the same at every mission.
 
-Do not assume a photocopy will replace an original when the centre asks for the original, or that a rule at another centre applies to yours. The local centre controls its own check-in instructions.
+## Sample mission pages are samples
 
-### Before the visa appointment
+These four pages were reachable on 2026-11-10. Each one is an example of a mission publishing its own family-reunion instruction. Open them only to see the kind of page you need. Then open the mission that covers the place where **you** apply.
 
-Keep the original certificate and a clear copy together. Check the certificate name against the applicant's identity details, and note its examination date and issuing institution.
+- [Embassy Dhaka: family reunion](https://dhaka.diplo.de/bd-en/service/2689526-2689526) — sample.
+- [Embassy Yaoundé: spouse language skills](https://jaunde.diplo.de/cm-en/service/05-visaeinreise/german-language-skills-for-spouse-reunion-2445808) — sample.
+- [Embassy Singapore: family reunion](https://singapur.diplo.de/sg-de/service/05-visaeinreise/2437396-2437396) — sample.
+- [Embassy Bern: joining a spouse](https://bern.diplo.de/ch-de/service/visa/national-visa/family-reunion/spouse-2641052) — sample.
 
-Before submitting anything, check whether the responsible German mission accepts that certificate for your specific family reunion case and whether its current checklist asks for originals, copies, translations, or additional documents. Requirements can differ by location and individual circumstances.
+The [Federal Foreign Office visa service](https://www.auswaertiges-amt.de/en/visa-service) is a central entrance. It is not a worldwide document list. The spouse-language FAQ confirms the basic-knowledge question and points to BAMF and the mission. It does not list accepted certificates.
 
-## Comparison: exam-day stack vs visa-file stack
+## Private tick record
 
-| Item | Exam-day relevance | Visa-file relevance |
-| --- | --- | --- |
-| Booking confirmation | Often required for check-in | Usually not a substitute for the certificate |
-| Passport / ID | Follow the centre’s current ID rule | Follow the mission’s identity document rules for the application |
-| Official A1 certificate | Not usually needed on exam day | Often the language-proof artefact if proof is required |
-| Course attendance letter | Rarely replaces the exam certificate | Do not treat as the named examination certificate unless the mission says so |
-| Translation / copy | Centre may not need it | Mission checklist may require it—confirm locally |
+| Paper | Stack (exam day or visa file) | Source URL or message | Date checked | Ticked only because that source named it |
+| --- | --- | --- | --- | --- |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
 
-## Scenario pitfalls
+Keep passport images and certificate scans out of unverified chats. Ask the centre or the mission through the contact route that office publishes.
 
-- A booking name that does not match the passport.
-- Taking only a copy when the centre expects the original identification it currently requires.
-- Missing a centre email about check-in or permitted items.
-- Treating a course completion document as an official exam certificate.
-- Assuming every German mission accepts the same proof in the same way.
-- Sending passport images or certificate scans to an unverified agent or group chat for a “quick check”.
+## FAQ
 
-## Private document record template
+### Is a course-attendance letter the visa certificate?
 
-Keep the official booking email, centre instructions, certificate details, and official mission checklist together in a private folder. Record where each requirement came from and when you checked it.
+Only if your mission says that document is the proof it wants. The usual A1 artefact in the BAMF leaflet is a named examination certificate. A course letter and that certificate are different papers. Put the course letter in the visa stack only after the mission’s words include it.
 
-| Artefact | Stage (booking / test day / visa) | Source | Date checked | Status (have / pending / N/A) | Notes |
-| --- | --- | --- | --- | --- | --- |
-|  |  |  |  |  |  |
-|  |  |  |  |  |  |
-|  |  |  |  |  |  |
+### Can I copy the document list from Dhaka, Yaoundé, Singapore, or Bern?
 
-Do not send passport images, certificate scans, or booking codes to an unverified agent or group chat just to ask a general question. Ask the official centre or mission through its published contact route when a document rule is unclear.
+No. Those pages are samples of mission instructions. The list that matters is the current page of the mission that will receive your application. This guide does not turn the samples into a national visa-document list.
+
+### Does a telc or Goethe certificate expire on a date printed on it?
+
+telc’s regulations say the certificate does not state a validity period, and that the institution asking for the certificate decides whether an older one still serves that purpose. Goethe’s verify page checks whether a Goethe certificate is authentic. Neither source is your mission’s acceptance decision, and neither source creates a nationwide one-year rule.
+
+### Which ID do I carry on exam day?
+
+The ID named in the centre’s current instruction. Goethe’s Exam Guidelines leave the type of official photo ID to the centre. telc asks for a valid official photo ID before the exam. Until the centre tells you, the ID line stays unresolved.
+
+## Common mistakes
+
+- Using the centre’s exam-day list as the visa-file list.
+- Using one embassy’s family-reunion page as the list for a different country.
+- Ticking “passport” because a blog said so, before the centre names the ID.
+- Treating “telc Deutsch A1 für Zuwanderer” as the leaflet’s “Start Deutsch 1”.
+- Treating a Goethe product page that did not open as if you had read the certificate rules. Those HTML pages are **needs-verify**. Use the Exam Guidelines PDF and the centre’s own message.
+- Sending identity documents to an unverified account for a “quick check”.
 
 ## Next action
 
-Read [German family reunion language requirement](/guides/german-family-reunion-language-requirement/) before deciding which proof you need. Then use [Goethe A1 test centers](/guides/goethe-a1-test-centers/) to confirm local rules and [Goethe A1 booking mistakes](/guides/goethe-a1-booking-mistakes/) for a final booking check.
+Finish the [requirement guide](/guides/german-family-reunion-language-requirement/) and the [family-reunion FAQ](/guides/german-a1-family-reunion-faq/) before you treat any box above as decided. Match the product name in [Goethe A1 vs telc A1](/guides/goethe-a1-vs-telc-a1/), then keep confirmed dates in the [booking timeline](/guides/german-a1-exam-booking-timeline/). The route’s later practice-links page does not replace the mission checklist. The [Germany A1 hub](/germany-family-reunion-a1/) shows the order. This checklist does not decide the visa.
 
 ## Official sources
 
-- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [BAMF family reunification](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html)
-- [German Federal Foreign Office: proof of German language skills FAQ](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682) — use the responsible mission's current checklist for the visa file.
+Opened or rechecked on 2026-11-10.
 
-## A1 route FAQ
+- [Federal Foreign Office: spouse language-skills FAQ](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682) — basic German; points to BAMF and the mission. No certificate list and no one-year rule.
+- [Federal Foreign Office: visa service](https://www.auswaertiges-amt.de/en/visa-service) — central entrance, not a document list.
+- [Residence Act §30](https://www.gesetze-im-internet.de/aufenthg_2004/__30.html) — simple-German condition and statutory exceptions for one spouse route. No document inventory.
+- [BAMF leaflet (English PDF)](https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11) — named certificates and the mission’s recognition sentence.
+- [BAMF leaflet (German PDF)](https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug.pdf?__blob=publicationFile&v=18) — the same leaflet in German.
+- [BAMF: family reunification](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Familie/familie-node.html) — route orientation only.
+- [telc: Start Deutsch 1 / telc Deutsch A1 (English)](https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/) — the verified English product page. Not a partial exam. Not a mission acceptance letter.
+- [telc: a different A1 product](https://www.telc.net/sprachpruefungen/zertifikatspruefung/deutsch/telc-deutsch-a1-fuer-zuwanderer/) — “telc Deutsch A1 für Zuwanderer”. Do not treat it as the default spouse certificate.
+- [telc exam regulations (PDF, from 15 April 2025)](https://www.telc.net/fileadmin/user_upload/pdfs/AGB_Pruefungsordnung/9994-P00-150010.pdf) — official photo ID; certificate prints no validity period; the requesting institution decides whether an older certificate still counts.
+- [Goethe-Institut Exam Guidelines (PDF, 1 September 2025)](https://www.goethe.de/pro/relaunch/prf/de/Pruefungsordnung.pdf) — §9 photo ID chosen by the centre; §14 paper or digital certificate depending on the centre; A1 Start Deutsch 1 is non-modular.
+- [Goethe-Institut: A1 administration rules (PDF, 1 September 2025)](https://www.goethe.de/pro/relaunch/prf/de/Durchfuehrungsbestimmungen_A1_Start_Deutsch_1.pdf) — on-the-day conduct. Not a visa list and not a fee table.
+- [Goethe certificate check](https://www.goethe.de/verify) — authenticity only. Not acceptance and not a booking page.
 
-### Can this page confirm the documents for my case?
+Sample mission pages, not a national list: [Dhaka](https://dhaka.diplo.de/bd-en/service/2689526-2689526), [Yaoundé](https://jaunde.diplo.de/cm-en/service/05-visaeinreise/german-language-skills-for-spouse-reunion-2445808), [Singapore](https://singapur.diplo.de/sg-de/service/05-visaeinreise/2437396-2437396), [Bern](https://bern.diplo.de/ch-de/service/visa/national-visa/family-reunion/spouse-2641052).
 
-No. It separates the questions you need to ask; the official centre and the German mission or authority decide their current document instructions.
-
-### What if local instructions conflict?
-
-Pause, save the official links or written replies, and ask the responsible source which instruction applies before booking or submitting documents.
-
-## A1 decision tools and next steps
-
-These planning aids organise questions; they do not decide an exemption, certificate acceptance, fees, result timing, or your individual case.
-
-- Return to the [Germany A1 family reunion hub](/germany-family-reunion-a1/) to see the full decision order.
-- Start with [Route Finder](/tools/route-finder/) if the requirement or exemption question is still open.
-- Turn your official checks into a working list with the [Checklist Generator](/tools/checklist-generator/).
-- Enter only locally confirmed buffers in the [Timeline Calculator](/tools/timeline-calculator/).
-- Compare the questions—not provider rankings—in [Exam Comparison](/tools/exam-comparison/).
-- The [A1 Family Reunion Pack](/contact/?interest=a1-family-reunion-pack) is a proposed planning pack; requesting access only opens a contact-intent path.
-- [Route Review](/contact/?interest=route-review) is proposed informational support, not legal, visa, or acceptance advice.
+Goethe product and overview HTML, not opened on 2026-11-10, remain **needs-verify**: [overview](https://www.goethe.de/en/spr/prf.html), [A1 product page](https://www.goethe.de/ins/de/de/prf/prf/gzsd1.html).

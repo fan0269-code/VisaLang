@@ -69,6 +69,8 @@ const depthRemediatedB1Core = new Set([
   'germany-b1-citizenship-language-proof.md',
 ]);
 const recheckedB1On20261107 = new Set([
+]);
+const p1RewrittenB1On20261110 = new Set([
   'goethe-b1-vs-telc-b1.md',
   'germany-b1-settlement-citizenship-timeline.md',
   'germany-b1-settlement-citizenship-checklist.md',
@@ -81,7 +83,9 @@ const p0RewrittenB1On20261108 = new Set([
 for (const file of requiredCoreGuides) {
   const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
   assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${file} records the completed source review`);
-  const expectedReviewDate = p0RewrittenB1On20261108.has(file)
+  const expectedReviewDate = p1RewrittenB1On20261110.has(file)
+    ? '2026-11-10'
+    : p0RewrittenB1On20261108.has(file)
     ? '2026-11-08'
     : depthRemediatedB1Core.has(file)
     ? '2026-10-21'

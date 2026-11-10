@@ -106,7 +106,10 @@ const sourceReviewedOnJuly22 = new Set([
 ]);
 
 const sourceRecheckedOn20261107 = new Set([
+]);
+const p1RewrittenOn20261110 = new Set([
   'german-a1-exam-booking-timeline.md',
+  'german-a1-documents-checklist.md',
 ]);
 const aeoCopyOn20261107 = new Set([
   'german-family-reunion-language-requirement.md',
@@ -121,13 +124,14 @@ const depthRemediatedOn20261021 = new Set([
   'german-family-reunion-language-requirement.md',
   'goethe-a1-germany-family-reunion.md',
   'goethe-a1-vs-telc-a1.md',
-  'german-a1-documents-checklist.md',
 ]);
 
 for (const file of germanyA1Guides) {
   const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
   assert.ok(source.includes('contentStatus: "complete-route"'), `${file} retains the complete-route baseline`);
-  const expectedUpdateDate = p0RewrittenOn20261108.has(file)
+  const expectedUpdateDate = p1RewrittenOn20261110.has(file)
+    ? '2026-11-10'
+    : p0RewrittenOn20261108.has(file)
     ? '2026-11-08'
     : sourceRecheckedOn20261107.has(file) || aeoCopyOn20261107.has(file)
     ? '2026-11-07'
