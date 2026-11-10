@@ -287,6 +287,8 @@ try {
     'germany-b1-citizenship-language-proof',
   ]);
   const recheckedB1On20261107 = new Set([
+  ]);
+  const p1RewrittenB1On20261110 = new Set([
     'goethe-b1-vs-telc-b1',
     'germany-b1-settlement-citizenship-timeline',
     'germany-b1-settlement-citizenship-checklist',
@@ -301,7 +303,9 @@ try {
     const html = fs.readFileSync(path.join('dist/guides', slug, 'index.html'), 'utf8');
     const sourceReviewedAt = frontmatterField(source, 'sourceReviewedAt');
     const updatedDate = frontmatterField(source, 'updatedDate');
-    const expectedReviewDate = p0RewrittenB1On20261108.has(slug)
+    const expectedReviewDate = p1RewrittenB1On20261110.has(slug)
+      ? '2026-11-10'
+      : p0RewrittenB1On20261108.has(slug)
       ? '2026-11-08'
       : depthRemediatedB1CoreSlugs.has(slug)
       ? '2026-10-21'
