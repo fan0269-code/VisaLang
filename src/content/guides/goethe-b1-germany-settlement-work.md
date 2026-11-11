@@ -5,8 +5,8 @@ description: "Ask your foreigners authority which settlement route applies befor
 category: "germany-b1"
 slug: "goethe-b1-germany-settlement-work"
 publishedDate: "2026-06-30"
-updatedDate: "2026-11-08"
-sourceReviewedAt: "2026-11-08"
+updatedDate: "2026-11-11"
+sourceReviewedAt: "2026-11-11"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "core-route"
@@ -35,9 +35,9 @@ This page does not decide eligibility. Language knowledge is one condition among
 
 ## Legal route before the exam brand
 
-BAMF’s page *In Deutschland niederlassen* (opened 2026-11-08, page date 01.03.2024) describes more than one permanent-residence path, and it does not use one German-language label for all of them.
+BAMF’s page *In Deutschland niederlassen* (German and English, opened 2026-11-11; the English page date is still 01/03/2024) describes more than one permanent-residence path, and it does not use one German-language label for all of them.
 
-On that page, checked on 2026-11-08:
+On those pages, checked on 2026-11-11:
 
 - The **Daueraufenthalt-EU** description ties “ausreichende Kenntnisse der deutschen Sprache” to CEFR **B1**, and separately requires basic knowledge of the legal and social order and of living conditions in Germany.
 - The general **Niederlassungserlaubnis** description likewise ties “ausreichende Sprachkenntnisse” to **B1**, again beside a separate basic-knowledge condition.
@@ -46,9 +46,9 @@ On that page, checked on 2026-11-08:
 - A shorter path on the same page refers to commanding German at **C1**.
 - Other paragraphs, including some skilled-worker and family paragraphs, say “ausreichende Kenntnisse der deutschen Sprache” **without** printing a CEFR letter in that sentence.
 
-So “B1” is a label BAMF attaches to some routes on that page. It is not a label you can assign to yourself. The competent local foreigners authority applies the provision. Find that office through [BAMF-NAvI](https://bamf-navi.bamf.de/de/Themen/Behoerden/) (opened 2026-11-08), then use the authority’s own page.
+So “B1” is a label BAMF attaches to some routes on that page. It is not a label you can assign to yourself. The competent local foreigners authority applies the provision. Find that office through [BAMF-NAvI](https://bamf-navi.bamf.de/en/Themen/Behoerden/?typ=ABH) (English authorities view, opened 2026-11-11), then use the authority’s own page. NAvI is a locator. It is not a national list of accepted B1 formats.
 
-Residence Act section 9 is the settlement-permit statute readers are often sent to. This page does not quote that statute line by line (**needs-verify**: re-open [AufenthG §9](https://www.gesetze-im-internet.de/aufenthg_2004/__9.html) yourself). BAMF’s certificate page, opened 2026-11-08, cites section 9 (2) sentence 1 no. 7 of the Residence Act when it discusses language evidence for a settlement permit. Do not treat that citation as proof that section 9 is your route.
+Residence Act section 9 was opened on 2026-11-11. In the general settlement-permit case that section describes, sufficient German (no. 7) and basic knowledge of the legal and social order (no. 8) are separate conditions, alongside residence, livelihood, and the other conditions in that subsection. The statute treats a successfully completed integration course as one way those two conditions are shown, and it also describes cases where one or both can be set aside. That is not proof that section 9 is your route, and it is not proof that every foreigners authority accepts every B1 brand. Ask the authority which provision it is using.
 
 ## Decision tree
 
@@ -61,9 +61,9 @@ Residence Act section 9 is the settlement-permit statute readers are often sent 
 
 ## Language is one checklist item
 
-BAMF’s page on language certificates (opened 2026-11-08) says the integration-course language exam is the scaled Deutsch-Test für Zuwanderer (DTZ), which measures A2 and B1. It says an alternative standardised B1-or-higher exam from an independent test institute can also be relevant to issuing an integration-course certificate. That sentence is about the integration-course certificate. It is not a statement that every foreigners authority accepts every B1 brand for every settlement route.
+BAMF’s language-certificate page, opened on 2026-11-11, says the integration-course language course ends with the scaled Deutsch-Test für Zuwanderer (DTZ), which measures A2 and B1. It also says another standardised B1-or-higher exam from an independent test institute can be relevant to issuing an integration-course certificate. That sentence is about the integration-course certificate. It is not a statement that every foreigners authority accepts every B1 brand for every settlement route.
 
-telc’s reachable page “Zertifikat Deutsch / telc Deutsch B1” (opened 2026-11-08) is the exam owner’s page for that B1 product. The Goethe-Zertifikat B1 page returned HTTP 403 (**needs-verify**). This page does not describe Goethe modules, fees, or seats.
+telc’s reachable page “Zertifikat Deutsch / telc Deutsch B1” (English and German, opened 2026-11-11) is the exam owner’s page for that B1 product. It is not an acceptance decision. The Goethe-Zertifikat B1 product HTML returned HTTP 403 (**needs-verify**). The B1 administration rules (1 September 2025) describe four modules that may be taken separately. That is exam structure. It is not a statement that your foreigners authority accepts one module, an overall certificate, or either. This page states no Goethe fee and no seat count.
 
 Which of DTZ, telc Deutsch B1, Goethe-Zertifikat B1, or another document your authority accepts is a local question (**needs-verify**). Ask, and quote the reply.
 
@@ -114,10 +114,11 @@ After the authority identifies acceptable proof, continue to the [DTZ, Goethe B1
 
 ## Official sources
 
-- [BAMF: In Deutschland niederlassen](https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Migrathek/Niederlassen/niederlassen-node.html) — route descriptions and differing language labels. Opened 2026-11-08.
-- [BAMF-NAvI: authorities](https://bamf-navi.bamf.de/de/Themen/Behoerden/) — locator. Not a decision.
-- [BAMF: Sprachnachweise und Zertifikate](https://www.bamf.de/DE/Themen/Integration/AkteureEhrenamtlicheInteressierte/SprachnachweiseZertifikate/sprachnachweise_zertifikate-node.html) — DTZ and the section 9 language citation. Opened 2026-11-08.
-- [telc Deutsch B1 / Zertifikat Deutsch](https://www.telc.net/sprachpruefungen/deutsch/zertifikat-deutsch-telc-deutsch-b1/) — product title. Not acceptance.
-- [Residence Act §9](https://www.gesetze-im-internet.de/aufenthg_2004/__9.html) — statute. **Needs-verify**: re-open it before you rely on a subsection. This page uses BAMF’s citation, not a line-by-line statute transcription.
+- [BAMF: In Deutschland niederlassen](https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Migrathek/Niederlassen/niederlassen-node.html) and [Settling in Germany](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Migrathek/Niederlassen/niederlassen-node.html) — route descriptions and differing language labels. English page date 01/03/2024. Opened 2026-11-11.
+- [BAMF-NAvI: authorities](https://bamf-navi.bamf.de/en/Themen/Behoerden/?typ=ABH) — locator. Not a decision and not an acceptance table.
+- [BAMF: Sprachnachweise und Zertifikate](https://www.bamf.de/DE/Themen/Integration/AkteureEhrenamtlicheInteressierte/SprachnachweiseZertifikate/sprachnachweise_zertifikate-node.html) — DTZ and the integration-course certificate. Not every settlement route.
+- [telc Deutsch B1 / Zertifikat Deutsch](https://www.telc.net/en/language-examinations/certificate-exams/german/certificate-german-telc-german-b1/) — product title. Not acceptance.
+- [Residence Act §9](https://www.gesetze-im-internet.de/aufenthg_2004/__9.html) — no. 7 language and no. 8 basic legal and social knowledge are separate in the general case. Not proof that this section is your route.
+- [Goethe-Institut: B1 administration rules (PDF, 1 September 2025)](https://www.goethe.de/pro/relaunch/prf/de/Durchfuehrungsbestimmungen_B1.pdf) — four modules that may be taken separately. Not acceptance.
 
-Goethe-Zertifikat B1 product page: **needs-verify** (HTTP 403). Not linked.
+Goethe-Zertifikat B1 product HTML: **needs-verify** (HTTP 403 on 2026-11-11). Not linked.

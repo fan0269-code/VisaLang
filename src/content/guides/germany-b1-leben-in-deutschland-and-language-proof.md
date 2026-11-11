@@ -5,8 +5,8 @@ description: "A B1 or DTZ result does not prove civic knowledge, and Leben in De
 category: "germany-b1"
 slug: "germany-b1-leben-in-deutschland-and-language-proof"
 publishedDate: "2026-07-11"
-updatedDate: "2026-11-08"
-sourceReviewedAt: "2026-11-08"
+updatedDate: "2026-11-11"
+sourceReviewedAt: "2026-11-11"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "core-route"
@@ -35,15 +35,19 @@ For the citizenship language slot, use [German citizenship B1 language proof](/g
 
 ## Two tests, two questions
 
-BAMF’s integration-course final-examination page (opened 2026-11-08) says the final test has two parts: the language test **Deutsch-Test für Zuwanderer (DTZ)** and the test **Leben in Deutschland**.
+BAMF’s integration-course final-examination page (German and English, opened 2026-11-11) says the final test has two parts: the language test **Deutsch-Test für Zuwanderer (DTZ)** and the test **Leben in Deutschland**. The English page still contains an older residence sentence (“usually eight years”, and seven years with the integration-course certificate). Do not copy it. Nationality Act section 10 (1), opened the same day, states five years of lawful ordinary residence, and former subsections 3 and 3a are repealed. BAMF’s naturalisation page dated 30 June 2025 is the newer residence description. This page does not calculate either period.
 
 **DTZ is language.** To receive the integration-course certificate, BAMF says you must first show an overall **B1** result on the DTZ. The same page says the DTZ certificate can show overall **B1 or A2**. A result below A2 is a score notice, not that certificate. BAMF describes a written part and an oral part. Those format details belong to the DTZ. They are not a visa processing time, and this page does not add one.
 
 **Leben in Deutschland is civic knowledge.** BAMF says every candidate receives a questionnaire of 33 questions, with four answer choices, and 60 minutes. The orientation-course test is passed when at least **15 of 33** answers are correct. For knowledge under Nationality Act section 10 (1) sentence 1 no. 7, the same BAMF page says the naturalisation-test ordinance requires at least **17 of 33**. Passing the orientation course at 15 is not the same threshold as the naturalisation-knowledge figure the page states. Do not treat the two numbers as interchangeable.
 
-BAMF’s certificate page (opened 2026-11-08) says the same sequence in institutional language: the language course ends with the scaled DTZ (A2 and B1), and since 2013 Leben in Deutschland is the final test of the orientation course. It says BAMF generally issues the integration-course certificate when both a successful DTZ and Leben in Deutschland are shown, and it cites Integration Course Ordinance section 17 (4) for that certificate. A telc page that only mentions DTZ in teaching materials is not a DTZ product page. A guessed telc DTZ URL was not a public product page (**needs-verify** / no stable telc DTZ product URL). Describe DTZ from the BAMF page, not from a missing telc URL.
+Integration Course Ordinance section 17, opened on 2026-11-11, says the course ends with the scaled DTZ (skills from A2 to B1) and the scaled Leben in Deutschland test. Successful participation, in the sense that section describes, means B1 on the language test and the orientation-course pass mark on Leben in Deutschland. Section 17 (4) is the integration-course certificate BAMF issues when that participation was successful. Section 17 (5) says Leben in Deutschland can also be used, under the naturalisation-test ordinance, for the knowledge in Nationality Act section 10 (1) sentence 1 no. 7. A language result and that knowledge item remain different questions.
 
-Integration Course Ordinance section 17 is linked below for you to open (**needs-verify**). The score split above is taken from the BAMF examination page, not from a line-by-line statute transcription.
+Integration Course Test Ordinance section 10, opened the same day, states the figures the BAMF examination page uses: at least 15 of 33 correct answers to pass the orientation course, and 17 of 33 for the naturalisation-test certificate in the case that subsection describes. Passing at 15 is not the 17-of-33 knowledge figure. One sitting does not close both columns.
+
+Section 17 (2) also allows another standardised B1 proof to stand in for the DTZ when BAMF has recognised that proof and the other conditions in that subsection are met, including that the proof is not older than one year at registration with the course provider. That one-year sentence is about registering for the integration course. It is not a nationwide rule for how old a visa, settlement, or citizenship certificate may be. Ask the office that will receive your file.
+
+A guessed telc DTZ product URL was still HTTP 404 on 2026-11-11. There is no stable telc DTZ product page to cite. Describe DTZ from BAMF and from the ordinances, not from that missing URL. The question-catalogue PDF was reachable on 2026-11-11. It is practice material for Leben in Deutschland and the naturalisation test. Practice is not a filed result and not a B1 certificate.
 
 ## What a pass does not swap
 
@@ -55,15 +59,16 @@ Integration Course Ordinance section 17 is linked below for you to open (**needs
 | Naturalisation test, or Leben in Deutschland used as the knowledge proof your authority accepts | Legal and social order, if the authority accepts that document | B1 or DTZ language |
 | Goethe-Zertifikat B1 or telc Deutsch B1 | Only if the receiving authority named that product for the **language** line | Leben in Deutschland; a settlement or citizenship grant |
 
-The federal naturalisation portal (opened 2026-11-08) agrees with the split: it lists B1 language documents and, separately, the naturalisation test, with Leben in Deutschland also counting as knowledge proof in the way that page describes. It says the list is a selection and that the nationality authority specifies the file. School or university certificates can matter on that page for either topic in the cases it describes. Ask which column a certificate belongs in. Do not file one certificate in both columns unless the authority says so.
+The federal naturalisation portal (English procedure page, opened 2026-11-11) agrees with the split: it lists B1 language documents and, separately, the naturalisation test, with Leben in Deutschland also counting as knowledge proof in the way that page describes. It says the list is a selection and that the nationality authority specifies the file. School or university certificates can matter on that page for either topic in the cases it describes. Ask which column a certificate belongs in. Do not file one certificate in both columns unless the authority says so.
 
 ## Common mix-ups
 
 - **“The B1 test” used for both.** DTZ can result in B1 or A2. Leben in Deutschland is a questionnaire about law, society, and living conditions. Goethe B1 and telc Deutsch B1 are separate certificate products. Calling all of them “the B1 test” hides which evidence you still lack.
-- **“Einbürgerungstest and Leben in Deutschland are the same slot as language.”** Both tests use the question catalogue BAMF describes for preparation. They are knowledge tests. The online test centre (opened 2026-11-08) offers practice for Leben in Deutschland and the naturalisation test. Practice is not a language certificate and not a filed result.
+- **“Einbürgerungstest and Leben in Deutschland are the same slot as language.”** Both tests use the question catalogue BAMF describes for preparation. They are knowledge tests. The online test centre (opened 2026-11-11) offers practice for Leben in Deutschland and the naturalisation test. Practice is not a language certificate and not a filed result.
 - **“15 correct is enough for naturalisation knowledge.”** BAMF’s examination page states 15 of 33 for the orientation-course pass and 17 of 33 for the naturalisation-knowledge proof it cites. Your authority confirms which figure and which document it wants.
 - **“The integration-course certificate finishes the residence or citizenship file.”** BAMF describes when it issues that certificate. The foreigners authority or the nationality authority still decides the application. Settlement routes do not all use the same language label; see the [settlement page](/guides/goethe-b1-germany-settlement-work/).
 - **“One exam covers both columns.”** Nothing opened for this page says a single sitting replaces both language and civic knowledge for every route.
+- **“Seven years, or eight.”** Those sentences are still on the English final-examination page. They are not the current residence rule. Use section 10 and the 30 June 2025 naturalisation page, then ask the nationality authority.
 
 ## What to ask locally
 
@@ -90,7 +95,7 @@ Write the answers in two columns. Leave residence history, livelihood, identity,
 
 - Putting a DTZ certificate in the Leben in Deutschland envelope.
 - Putting a 15/33 orientation result into a file the authority assesses under the 17/33 figure.
-- Using an exam-information page’s old description of naturalisation years as if this page had checked those years. It has not. Open the authority and the statute.
+- Using the English final-examination page’s seven-year or eight-year sentences as the current residence period. Section 10 (1) states five years, and former subsections 3 and 3a are repealed.
 - Treating a federal explanation as the local document instruction.
 
 ## Next action
@@ -99,11 +104,12 @@ After the authority confirms the two categories, continue to the [DTZ, Goethe B1
 
 ## Official sources
 
-- [BAMF: integration-course final examination](https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse/Abschlusspruefung/abschlusspruefung-node.html) — DTZ versus Leben in Deutschland; 15/33 and 17/33 as stated there. Opened 2026-11-08.
-- [BAMF: Sprachnachweise und Zertifikate](https://www.bamf.de/DE/Themen/Integration/AkteureEhrenamtlicheInteressierte/SprachnachweiseZertifikate/sprachnachweise_zertifikate-node.html) — DTZ, LiD, and the integration-course certificate. Opened 2026-11-08.
-- [BAMF online test centre](https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/OnlineTestcenter/online-testcenter-node.html) — practice for Leben in Deutschland and the naturalisation test. Opened 2026-11-08.
-- [einbuergerung.de: procedure](https://www.einbuergerung.de/ablauf.php) — language and legal-order evidence listed separately. Opened 2026-11-08.
-- [Integration Course Ordinance §17](https://www.gesetze-im-internet.de/intv/__17.html) — **needs-verify**: re-open before relying on a subsection. BAMF cites section 17 (4) for the integration-course certificate.
-- [Nationality Act §10](https://www.gesetze-im-internet.de/stag/__10.html) — **needs-verify**: re-open before relying on a subsection. BAMF’s examination page cites section 10 (1) sentence 1 no. 7 for the 17-of-33 knowledge proof.
+- [BAMF: integration-course final examination (German)](https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse/Abschlusspruefung/abschlusspruefung-node.html) and [English](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse/Abschlusspruefung/abschlusspruefung-node.html) — DTZ versus Leben in Deutschland. Do not copy the English page’s seven-year or eight-year residence sentences. Opened 2026-11-11.
+- [BAMF online test centre](https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/OnlineTestcenter/online-testcenter-node.html) — practice for Leben in Deutschland and the naturalisation test. Opened 2026-11-11.
+- [Question catalogue (PDF)](https://www.bamf.de/SharedDocs/Anlagen/DE/Integration/Einbuergerung/gesamtfragenkatalog-lebenindeutschland.pdf?__blob=publicationFile&) — reachable practice catalogue. Not a filed result. Opened 2026-11-11.
+- [einbuergerung.de: procedure (English)](https://www.einbuergerung.de/ablauf.php?l=en) — language and legal-order evidence listed separately. Fee and duration figures are not copied here.
+- [Integration Course Ordinance §17](https://www.gesetze-im-internet.de/intv/__17.html) — DTZ and Leben in Deutschland; the integration-course certificate; the one-year condition is for course registration, not a visa rule.
+- [Integration Course Test Ordinance §10](https://www.gesetze-im-internet.de/inttestv/__10.html) — 15 of 33 for the orientation course; 17 of 33 for the naturalisation-test certificate in the case that section describes.
+- [Nationality Act §10](https://www.gesetze-im-internet.de/stag/__10.html) — five years; subsections 3 and 3a repealed; no. 6 language and no. 7 knowledge are separate.
 
-No separate telc DTZ product page was available. DTZ is described from BAMF.
+No separate telc DTZ product page was available (the guessed path returned 404). DTZ is described from BAMF and the ordinances.

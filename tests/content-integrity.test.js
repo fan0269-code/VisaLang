@@ -54,6 +54,10 @@ const aeoCopyOn20261107 = new Set([
   'german-family-reunion-language-requirement',
   'goethe-a1-vs-telc-a1',
 ]);
+const p0RefreshedOn20261111 = new Set([
+  'german-family-reunion-language-requirement',
+  'goethe-a1-vs-telc-a1',
+]);
 const p0RewrittenOn20261108 = new Set([
   'german-family-reunion-language-requirement',
   'goethe-a1-vs-telc-a1',
@@ -61,7 +65,9 @@ const p0RewrittenOn20261108 = new Set([
 for (const slug of auditedGermanyA1Slugs) {
   const source = bySlug.get(slug)?.source || '';
   assert.equal(field(source, 'contentStatus'), 'complete-route', `${slug} keeps content maturity independent from source review`);
-  const expectedReviewDate = p1RewrittenOn20261110.has(slug)
+  const expectedReviewDate = p0RefreshedOn20261111.has(slug)
+    ? '2026-11-11'
+    : p1RewrittenOn20261110.has(slug)
     ? '2026-11-10'
     : p0RewrittenOn20261108.has(slug)
     ? '2026-11-08'
@@ -70,7 +76,9 @@ for (const slug of auditedGermanyA1Slugs) {
     : depthRemediatedA1Slugs.has(slug)
     ? '2026-10-21'
     : newlyReviewedLocalSourceSlugs.has(slug) ? '2026-07-19' : '2026-07-18';
-  const expectedUpdateDate = p1RewrittenOn20261110.has(slug)
+  const expectedUpdateDate = p0RefreshedOn20261111.has(slug)
+    ? '2026-11-11'
+    : p1RewrittenOn20261110.has(slug)
     ? '2026-11-10'
     : p0RewrittenOn20261108.has(slug)
     ? '2026-11-08'

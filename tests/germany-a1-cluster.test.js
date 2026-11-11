@@ -115,6 +115,12 @@ const aeoCopyOn20261107 = new Set([
   'german-family-reunion-language-requirement.md',
   'goethe-a1-vs-telc-a1.md',
 ]);
+const p0RefreshedOn20261111 = new Set([
+  'german-family-reunion-language-requirement.md',
+  'goethe-a1-germany-family-reunion.md',
+  'goethe-a1-vs-telc-a1.md',
+  'german-a1-family-reunion-faq.md',
+]);
 const p0RewrittenOn20261108 = new Set([
   'german-family-reunion-language-requirement.md',
   'goethe-a1-vs-telc-a1.md',
@@ -129,7 +135,9 @@ const depthRemediatedOn20261021 = new Set([
 for (const file of germanyA1Guides) {
   const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
   assert.ok(source.includes('contentStatus: "complete-route"'), `${file} retains the complete-route baseline`);
-  const expectedUpdateDate = p1RewrittenOn20261110.has(file)
+  const expectedUpdateDate = p0RefreshedOn20261111.has(file)
+    ? '2026-11-11'
+    : p1RewrittenOn20261110.has(file)
     ? '2026-11-10'
     : p0RewrittenOn20261108.has(file)
     ? '2026-11-08'
@@ -164,11 +172,9 @@ for (const [file, expected] of Object.entries(supportGuideExpectations)) {
   const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
   const body = source.split(/^---\s*$/m).slice(2).join('---');
   assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${file} records the completed source review`);
-  const expectedReviewDate = file === 'goethe-a1-germany-family-reunion.md'
-    ? '2026-10-21'
-    : file === 'german-a1-family-reunion-faq.md'
-      ? '2026-11-08'
-      : '2026-07-22';
+  const expectedReviewDate = file === 'goethe-a1-germany-family-reunion.md' || file === 'german-a1-family-reunion-faq.md'
+    ? '2026-11-11'
+    : '2026-07-22';
   assert.equal(field(source, 'sourceReviewedAt'), expectedReviewDate, `${file} records the actual source-review date`);
   assert.equal(field(source, 'reviewedByRole'), 'source-review', `${file} records the controlled reviewer role`);
   assert.equal(field(source, 'decisionStage'), expected.stage, `${file} uses the agreed decision stage`);
@@ -186,11 +192,17 @@ const supportGuideBodies = Object.keys(supportGuideExpectations)
   .map((file) => fs.readFileSync(path.join(guideDirectory, file), 'utf8').split(/^---\s*$/m).slice(2).join('---'))
   .join('\n');
 const supportBodiesWithoutP0Faq = Object.keys(supportGuideExpectations)
-  .filter((file) => file !== 'german-a1-family-reunion-faq.md')
+  .filter((file) => file !== 'german-a1-family-reunion-faq.md' && file !== 'goethe-a1-germany-family-reunion.md')
   .map((file) => fs.readFileSync(path.join(guideDirectory, file), 'utf8').split(/^---\s*$/m).slice(2).join('---'))
   .join('\n');
 assert.doesNotMatch(supportBodiesWithoutP0Faq, /ehegattennachzug-en\.html|telc\.net/, 'older support pages keep the sources opened for their own review');
-assert.match(fs.readFileSync(path.join(guideDirectory, 'german-a1-family-reunion-faq.md'), 'utf8'), /telc\.net\/sprachpruefungen\/zertifikatspruefung\/deutsch\/start-deutsch-1/, 'the family-reunion FAQ cites the telc Start Deutsch 1 page opened on 2026-11-08');
+const faqSource = fs.readFileSync(path.join(guideDirectory, 'german-a1-family-reunion-faq.md'), 'utf8');
+assert.match(faqSource, /telc\.net\/sprachpruefungen\/zertifikatspruefung\/deutsch\/start-deutsch-1/, 'the family-reunion FAQ cites the telc Start Deutsch 1 German page');
+assert.match(faqSource, /start-german1-telc-german-a1/, 'the family-reunion FAQ cites the correct telc English A1 path');
+assert.doesNotMatch(faqSource, /href="[^"]*start-deutsch-1-telc-deutsch-a1/, 'the family-reunion FAQ does not link the guessed telc English path');
+const goetheProduct = fs.readFileSync(path.join(guideDirectory, 'goethe-a1-germany-family-reunion.md'), 'utf8');
+assert.match(goetheProduct, /start-german1-telc-german-a1/, 'the Goethe product path cites the correct telc English page');
+assert.doesNotMatch(goetheProduct, /href="[^"]*start-deutsch-1-telc-deutsch-a1/, 'the Goethe product path does not link the guessed telc English path');
 assert.doesNotMatch(supportGuideBodies, /valid passport or national ID card|original ID/i, 'reviewed support pages do not generalize centre-specific ID rules');
 assert.match(supportGuideBodies, /exact identification (?:document )?(?:required by|the test centre currently requires)/i, 'reviewed support pages direct readers to the selected centre for ID rules');
 
@@ -210,9 +222,11 @@ assert.ok(zhHub.indexOf('/zh/guides/goethe-a1-test-centers/') < zhHub.indexOf('/
 assert.ok(zhHub.indexOf('/zh/guides/german-a1-exam-booking-timeline/') < zhHub.indexOf('/zh/guides/goethe-a1-30-day-study-plan/'), 'Chinese hub places the study plan after the booking timeline');
 assert.match(zhHub, /goethe-a1-retake-policy[^\n]*英文指南|英文指南[^\n]*goethe-a1-retake-policy/, 'Chinese hub labels the retake branch as an English guide');
 assert.equal((zhData.match(/sourceReviewStatus: 'reviewed'/g) || []).length, 8, 'all eight Chinese Germany A1 records expose the completed independent review');
-assert.equal((zhData.match(/sourceReviewedAt: '2026-07-19'/g) || []).length, 8, 'all eight Chinese records expose the real review date');
+assert.equal((zhData.match(/sourceReviewedAt: '2026-11-11'/g) || []).length, 5, 'the five aligned Chinese records use the 2026-11-11 source check');
+assert.equal((zhData.match(/sourceReviewedAt: '2026-07-19'/g) || []).length, 3, 'the three thin Chinese records keep their earlier review date');
 assert.equal((zhData.match(/reviewedByRole: 'translation-review'/g) || []).length, 8, 'all eight Chinese records expose the source and translation review role');
-assert.equal((zhData.match(/updatedDate: '2026-07-19'/g) || []).length, 8, 'all eight Chinese records expose the substantive review update date');
+assert.equal((zhData.match(/updatedDate: '2026-11-11'/g) || []).length, 5, 'the five aligned Chinese records record the 2026-11-11 update');
+assert.equal((zhData.match(/updatedDate: '2026-07-19'/g) || []).length, 3, 'the three thin Chinese records keep their earlier update date');
 assert.doesNotMatch(zhGuideSources, /读者问题与搜索意图|官方来源核验表|发布前人工核验清单|哪个更稳|更稳通常/, 'public Chinese guides exclude internal editorial language and unsupported stability framing');
 
 for (const href of hubNextStepLinks) {

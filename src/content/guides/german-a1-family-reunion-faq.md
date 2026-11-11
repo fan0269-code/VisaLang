@@ -5,8 +5,8 @@ description: "Short answers on whether A1 may apply, exemptions, and certificate
 category: "germany-a1"
 slug: "german-a1-family-reunion-faq"
 publishedDate: "2026-07-02"
-updatedDate: "2026-11-08"
-sourceReviewedAt: "2026-11-08"
+updatedDate: "2026-11-11"
+sourceReviewedAt: "2026-11-11"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "complete-route"
@@ -31,7 +31,7 @@ supportingGuideSlugs: ["german-family-reunion-language-requirement", "german-a1-
 
 These answers are for people comparing Germany family-reunion language proof before they book. Each first sentence is meant to be quotable. None of them is a decision for your file. The decision tree lives on [Do you need German A1 for family reunion?](/guides/german-family-reunion-language-requirement/). The route map lives on the [Germany A1 hub](/germany-family-reunion-a1/).
 
-Checked on 2026-11-08 against the Federal Foreign Office spouse-language FAQ, the BAMF spousal-reunification leaflet (English PDF, imprint revised 03/2023), the telc Start Deutsch 1 page, and the current ÖSD Zertifikat A1 (ZA1) page. Goethe-Institut product pages were not readable (**needs-verify**).
+This page does not decide your file. Checked on 2026-11-11 against the Federal Foreign Office spouse-language FAQ, the BAMF spousal-reunification leaflet (English PDF, imprint revised 03/2023), the telc Start Deutsch 1 pages (German, and the English page at the path below), and the current ÖSD Zertifikat A1 (ZA1) page. Goethe-Institut product HTML was not readable (**needs-verify**).
 
 ## Do I need German A1 for family reunion?
 
@@ -51,7 +51,7 @@ The BAMF leaflet says that if the personal interview shows you undoubtedly have 
 
 ## Does the certificate have to be less than a year old?
 
-The BAMF leaflet opened on 2026-11-08 does not state a nationwide maximum age for the certificate. Treat age, “must be recent”, and similar rules as **needs-verify** on the mission page that will receive your file. Do not copy a limit from another country or from a forum.
+The BAMF leaflet opened on 2026-11-11 does not state a nationwide maximum age for the certificate. The central Foreign Office FAQ still states no “within one year” rule. Treat age, “must be recent”, and similar rules as **needs-verify** on the mission page that will receive your file. Do not copy a limit from another country or from a forum.
 
 ## Where do exam-day papers end and visa papers begin?
 
@@ -93,6 +93,7 @@ Write down the mission, the route, and the certificate words it uses. Then follo
 
 - [Federal Foreign Office: spouse language-skills FAQ](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682)
 - [BAMF leaflet, English PDF](https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11)
-- [telc Start Deutsch 1 / telc Deutsch A1](https://www.telc.net/sprachpruefungen/zertifikatspruefung/deutsch/start-deutsch-1-/-telc-deutsch-a1/)
+- [telc Start Deutsch 1 / telc Deutsch A1 (German)](https://www.telc.net/sprachpruefungen/zertifikatspruefung/deutsch/start-deutsch-1-/-telc-deutsch-a1/)
+- [telc Start German 1 / telc German A1 (English)](https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/) — use this English path. A guessed `start-deutsch-1-telc-deutsch-a1` path is not it.
 - [ÖSD Zertifikat A1 (ZA1)](https://osd.at/portfolio-item/osd-zertifikat-a1-za1/) — name match with the leaflet is **needs-verify**
-- [Embassy Dhaka family-reunion FAQ](https://dhaka.diplo.de/bd-en/service/2689526-2689526) — example mission page
+- [Embassy Dhaka family-reunion FAQ](https://dhaka.diplo.de/bd-en/service/2689526-2689526), [Yaoundé](https://jaunde.diplo.de/cm-en/service/05-visaeinreise/german-language-skills-for-spouse-reunion-2445808), [Singapore](https://singapur.diplo.de/sg-de/service/05-visaeinreise/2437396-2437396), and [Bern](https://bern.diplo.de/ch-de/service/visa/national-visa/family-reunion/spouse-2641052) — example mission pages, not a national list
