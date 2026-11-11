@@ -75,6 +75,11 @@ const p1RewrittenB1On20261110 = new Set([
   'germany-b1-settlement-citizenship-timeline.md',
   'germany-b1-settlement-citizenship-checklist.md',
 ]);
+const p0RefreshedB1On20261111 = new Set([
+  'goethe-b1-germany-settlement-work.md',
+  'germany-b1-citizenship-language-proof.md',
+  'germany-b1-leben-in-deutschland-and-language-proof.md',
+]);
 const p0RewrittenB1On20261108 = new Set([
   'goethe-b1-germany-settlement-work.md',
   'germany-b1-citizenship-language-proof.md',
@@ -83,7 +88,9 @@ const p0RewrittenB1On20261108 = new Set([
 for (const file of requiredCoreGuides) {
   const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
   assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${file} records the completed source review`);
-  const expectedReviewDate = p1RewrittenB1On20261110.has(file)
+  const expectedReviewDate = p0RefreshedB1On20261111.has(file)
+    ? '2026-11-11'
+    : p1RewrittenB1On20261110.has(file)
     ? '2026-11-10'
     : p0RewrittenB1On20261108.has(file)
     ? '2026-11-08'

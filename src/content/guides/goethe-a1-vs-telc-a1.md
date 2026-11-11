@@ -5,8 +5,8 @@ description: "Compare Goethe A1 and telc A1 only after your mission names accept
 category: "germany-a1"
 slug: "goethe-a1-vs-telc-a1"
 publishedDate: "2026-06-30"
-updatedDate: "2026-11-08"
-sourceReviewedAt: "2026-11-08"
+updatedDate: "2026-11-11"
+sourceReviewedAt: "2026-11-11"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "complete-route"
@@ -35,7 +35,7 @@ This page equalises questions about adult A1 products that the BAMF spousal-reun
 
 ## Acceptance first
 
-The BAMF leaflet (English PDF, opened 2026-11-08, imprint revised 03/2023) says the certificate should be based on a standardised ALTE test and that this is currently true of “Start Deutsch 1” of the Goethe-Institut, “Start Deutsch 1” of telc GmbH, “Grundstufe Deutsch 1” of ÖSD, and “TestDaF”. The next sentence is the decision rule: the German diplomatic mission where you apply alone decides whether your proof is recognised.
+The BAMF leaflet (English PDF, opened 2026-11-11, imprint revised 03/2023) says the certificate should be based on a standardised ALTE test and that this is currently true of “Start Deutsch 1” of the Goethe-Institut, “Start Deutsch 1” of telc GmbH, “Grundstufe Deutsch 1” of ÖSD, and “TestDaF”. The next sentence is the decision rule: the German diplomatic mission where you apply alone decides whether your proof is recognised.
 
 Start here:
 
@@ -48,14 +48,14 @@ A lower price or a classroom near your home is not acceptance.
 
 ## Exact adult product names
 
-Checked on 2026-11-08.
+Checked on 2026-11-11.
 
 | Name you may see | What the opened source supports | What it does not support |
 | --- | --- | --- |
-| Goethe-Institut “Start Deutsch 1” | The BAMF leaflet lists this name as a current ALTE certificate for the spousal proof it describes. | The Goethe product page was HTTP 403 here. Modules, duration, fees, and seats are **needs-verify**. Do not invent them. |
-| telc “Start Deutsch 1” / “telc Deutsch A1” | telc’s reachable product page is titled “Start Deutsch 1 / telc Deutsch A1” and describes it as CEFR A1 proof. The leaflet names “Start Deutsch 1” of telc GmbH. | The page title is not a mission acceptance letter. Fees and seats stay with the centre. |
+| Goethe-Institut “Start Deutsch 1” | The BAMF leaflet lists this name as a current ALTE certificate for the spousal proof it describes. The exam guidelines opened on 2026-11-11 list Goethe-Zertifikat A1: Start Deutsch 1 as a non-modular exam with one certificate for all four parts. | The Goethe product HTML was still HTTP 403. Fees and seats stay **needs-verify** with the centre. The guidelines are not an acceptance letter. |
+| telc “Start Deutsch 1” / “telc Deutsch A1” | telc’s German page and the English page [Start German 1 / telc German A1](https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/) use that title and describe CEFR A1 proof. The English page says the exam cannot be taken as a partial examination. The leaflet names “Start Deutsch 1” of telc GmbH. | The page title is not a mission acceptance letter. Fees and seats stay with the centre. An older guessed English path is a 404 and is not this product. |
 | “telc Deutsch A1 für Zuwanderer” | telc publishes this as a **separate** product page, also at CEFR A1. | The BAMF leaflet’s named telc certificate is “Start Deutsch 1”, not this title. Do not treat the two as the default spouse-visa certificate. |
-| ÖSD “Grundstufe Deutsch 1” | The BAMF leaflet uses this name. | The ÖSD page opened on 2026-11-08 is titled “ÖSD Zertifikat A1 (ZA1)”. That page does not say it is the same product as “Grundstufe Deutsch 1”. Whether a mission treats ZA1 as the leaflet’s ÖSD certificate is **needs-verify**. |
+| ÖSD “Grundstufe Deutsch 1” | The BAMF leaflet uses this name. | The ÖSD page opened on 2026-11-11 is titled “ÖSD Zertifikat A1 (ZA1)”. That page does not say it is the same product as “Grundstufe Deutsch 1”. Whether a mission treats ZA1 as the leaflet’s ÖSD certificate is **needs-verify**. |
 | TestDaF | The leaflet lists “TestDaF” of the TestDaF Institute among the current certificates. | This page does not describe the TestDaF exam. Confirm the exact document with the mission. |
 
 The ÖSD ZA1 page says that exam is for learners from age 14 and has a written module (reading, listening, writing) and an oral module (speaking). That is a product description from ÖSD. It is not a statement that your mission accepts ZA1.
@@ -66,7 +66,7 @@ The ÖSD ZA1 page says that exam is for learners from age 14 and has a written m
 2. **Exact product.** Write the full name, not “A1”. Reject a course, a youth exam, or a practice test unless the mission’s words include it.
 3. **Separate telc products.** If the centre offers “telc Deutsch A1 für Zuwanderer”, ask the mission whether that title matches its list before you treat it as “Start Deutsch 1”.
 4. **ÖSD name check.** If you are considering ÖSD, show the mission both the leaflet’s “Grundstufe Deutsch 1” and the current “ÖSD Zertifikat A1 (ZA1)” name and ask which document it wants.
-5. **Goethe needs-verify.** If the mission names Goethe “Start Deutsch 1”, book only through a channel the exam owner or the mission identifies. Do not copy module or fee details from memory while the Goethe page is unreadable.
+5. **Goethe HTML stays needs-verify.** If the mission names Goethe “Start Deutsch 1”, use the exam guidelines for the non-modular structure and book only through a channel the exam owner or the mission identifies. Do not copy a fee from memory. The product HTML was still unreadable on 2026-11-11.
 6. **Centre terms.** For each candidate, obtain the selected centre’s current date, fee, registration, identification, result, certificate, cancellation, and rescheduling terms. [How to check Goethe A1 fees](/guides/goethe-a1-fees-by-country/) does not publish a price. Record the centre’s own figure.
 7. **Choose only a pair that clears acceptance and local terms.** If neither product matches the mission’s words, do not force a booking.
 
@@ -76,7 +76,7 @@ The ÖSD ZA1 page says that exam is for learners from age 14 and has a written m
 - **telc Start Deutsch 1 page:** that telc offers a product under that title at CEFR A1. It does not issue your visa.
 - **telc Deutsch A1 für Zuwanderer page:** that a second A1 title exists. Use it only if the mission’s wording reaches it.
 - **ÖSD ZA1 page:** the current public product name and the two-module structure described there. Not a visa acceptance list.
-- **Goethe-Institut:** named by BAMF. Product-page details remain **needs-verify** until you can open the official Goethe page yourself.
+- **Goethe-Institut:** named by BAMF. The exam guidelines support the non-modular certificate. Product HTML remains **needs-verify**.
 
 ## Local terms to verify
 
@@ -108,10 +108,12 @@ When the product name matches the mission’s words, use [Goethe A1 test centers
 
 ## Official sources
 
-- [BAMF leaflet (English PDF)](https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11) — certificate names and the mission’s recognition sentence. Opened 2026-11-08.
-- [telc Start Deutsch 1 / telc Deutsch A1](https://www.telc.net/sprachpruefungen/zertifikatspruefung/deutsch/start-deutsch-1-/-telc-deutsch-a1/) — product title. Opened 2026-11-08.
-- [telc Deutsch A1 für Zuwanderer](https://www.telc.net/sprachpruefungen/zertifikatspruefung/deutsch/telc-deutsch-a1-fuer-zuwanderer/) — a different A1 product. Opened 2026-11-08.
+- [BAMF leaflet (English PDF)](https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11) — certificate names and the mission’s recognition sentence. Opened 2026-11-11.
+- [telc Start Deutsch 1 / telc Deutsch A1 (German)](https://www.telc.net/sprachpruefungen/zertifikatspruefung/deutsch/start-deutsch-1-/-telc-deutsch-a1/) — product title. Opened 2026-11-11.
+- [telc Start German 1 / telc German A1 (English)](https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/) — the English page that opened. Not a partial exam. The guessed path `start-deutsch-1-telc-deutsch-a1` is a 404 and is not linked.
+- [telc Deutsch A1 für Zuwanderer](https://www.telc.net/sprachpruefungen/zertifikatspruefung/deutsch/telc-deutsch-a1-fuer-zuwanderer/) — a different A1 product. Opened 2026-11-11.
 - [ÖSD Zertifikat A1 (ZA1)](https://osd.at/portfolio-item/osd-zertifikat-a1-za1/) — current ÖSD name. Equivalence with “Grundstufe Deutsch 1” is **needs-verify**.
+- [Goethe-Institut Exam Guidelines (PDF, 1 September 2025)](https://www.goethe.de/pro/relaunch/prf/de/Pruefungsordnung.pdf) — A1 Start Deutsch 1 is non-modular. Not an acceptance list.
 - [Federal Foreign Office spouse language FAQ](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682) — points to BAMF and the mission. Not a brand ranking.
 
-Goethe-Zertifikat A1 product page: **needs-verify** (HTTP 403 on 2026-11-08). Not linked.
+Goethe-Zertifikat A1 product HTML: **needs-verify** (HTTP 403 on 2026-11-11). Not linked.

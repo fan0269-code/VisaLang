@@ -1,6 +1,13 @@
 # VisaLang Task Log
 
-Updated: 2026-11-08
+Updated: 2026-11-11
+
+## Germany A1/B1 source refresh — 2026-11-11
+
+- Scope: rewrite `/guides/goethe-a1-germany-family-reunion/`; refresh the Germany A1 hub, the Germany B1 hub, and six P0 guides; narrow the B1 hub and the citizenship-language page; align seven existing Chinese mirrors. No new country page, no new Chinese B1, FAQ, or Leben in Deutschland page, and no change to the five P1 English pages. Advertising runtime stays false. This entry does not say the site may apply for an advertising programme.
+- Sources opened on 2026-11-11 include the BAMF spousal-reunification PDFs, the Federal Foreign Office spouse-language FAQ, Residence Act sections 9 and 30, Nationality Act section 10, Integration Course Ordinance section 17, Integration Course Test Ordinance section 10, the BAMF settlement, naturalisation, and final-examination pages, BAMF-NAvI, telc Start German 1 at the English path `start-german1-telc-german-a1`, telc Deutsch B1, ÖSD ZA1, the Goethe exam guidelines and A1/B1 administration PDFs, and sample mission pages for Dhaka, Yaoundé, Singapore, and Bern.
+- Needs-verify: Goethe product, overview, and centre HTML (HTTP 403); whether a mission treats ÖSD ZA1 as the leaflet’s “Grundstufe Deutsch 1”; no stable telc DTZ product page; mission-specific certificate age and interview practice; local acceptance of B1 or DTZ formats; fees, seats, certificate-issue days, and processing times.
+- Boundary: do not copy the seven-year or eight-year residence sentences on the English final-examination page. Section 10 (1) states five years, and former subsections 3 and 3a are repealed. The BAMF naturalisation page is dated 30 June 2025. Independent review, owner authorisation, and deployment remain separate.
 
 ## Paper surfaces and document slip — 2026-11-08
 

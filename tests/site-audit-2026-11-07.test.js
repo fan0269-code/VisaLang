@@ -47,7 +47,7 @@ assert.ok(home.includes('href="/guides/german-family-reunion-language-requiremen
 const requirement = read('src/content/guides/german-family-reunion-language-requirement.md');
 assert.ok(requirement.includes('seoTitle: "Do you need German A1 for family reunion?"'), 'the top-pick guide uses the question as its search title');
 assert.ok(requirement.includes('Whether your file needs German A1 is decided by the competent German mission.'), 'the top-pick direct answer stays with the mission');
-assert.ok(requirement.includes('sourceReviewedAt: "2026-11-08"'), 'the requirement guide records the 2026-11-08 source check');
+assert.ok(requirement.includes('sourceReviewedAt: "2026-11-11"'), 'the requirement guide records the 2026-11-11 source check');
 assert.ok(requirement.includes('/guides/goethe-a1-vs-telc-a1/') && requirement.includes('/guides/german-a1-family-reunion-faq/') && requirement.includes('/guides/german-a1-documents-checklist/'), 'the top-pick guide links the next A1 checks');
 assert.ok(read('src/pages/germany-family-reunion-a1.astro').includes('title="Germany A1 family reunion: verify proof"'), 'the A1 hub search title names the verification task');
 assert.ok(read('src/pages/zh/index.astro').includes('href="/zh/guides/german-family-reunion-language-requirement/"'), 'the Chinese homepage links the Chinese A1 requirement page');

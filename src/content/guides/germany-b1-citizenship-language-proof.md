@@ -5,8 +5,8 @@ description: "Naturalisation treats language and civic knowledge as separate evi
 category: "germany-b1"
 slug: "germany-b1-citizenship-language-proof"
 publishedDate: "2026-07-11"
-updatedDate: "2026-11-08"
-sourceReviewedAt: "2026-11-08"
+updatedDate: "2026-11-11"
+sourceReviewedAt: "2026-11-11"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "core-route"
@@ -35,7 +35,7 @@ Settlement-permit language proof is a different procedure. Keep it on [Germany s
 
 ## What the opened sources support
 
-Checked on 2026-11-08.
+Checked on 2026-11-11. The legal route comes before any exam brand.
 
 The federal portal *So läuft eine Einbürgerung ab* (`einbuergerung.de/ablauf.php`) lists **Deutschkenntnisse (Niveau B1)** and **Kenntnisse der deutschen Rechts- und Gesellschaftsordnung** as separate evidence headings.
 
@@ -43,19 +43,23 @@ Under language, that page gives examples: a BAMF certificate of successful langu
 
 Under legal and social order, the same page says you generally show this with a passed naturalisation test (Einbürgerungstest). It also says the test “Leben in Deutschland” counts, including when taken in the integration course, and that certain German school or higher-education certificates are enough in the cases that page describes. A B1 language result is not that item. Read the detail on [Leben in Deutschland and language proof](/guides/germany-b1-leben-in-deutschland-and-language-proof/).
 
-BAMF’s certificate page (opened 2026-11-08) cites Nationality Act section 10 (1) sentence 1 no. 6 when it discusses language evidence for naturalisation, and it discusses the naturalisation test separately as knowledge of the legal and social order. BAMF’s naturalisation topic page tells readers to get forms from the competent naturalisation authority and to ask the foreigners authority, youth migration service, adult migration advice, or the city or district administration which office that is. It does not replace that office’s list.
+Nationality Act section 10 was opened on 2026-11-11. Subsection 1 requires five years of lawful ordinary residence, plus the other conditions in that subsection. Former subsections 3 and 3a are repealed. Do not plan from the older “usually eight years, or seven with an integration-course certificate” sentences that are still on BAMF’s English final-examination page. That page’s JSON-LD date is still 2019-12-10. The current anchors are section 10 and BAMF’s naturalisation page dated 30 June 2025.
 
-Nationality Act section 10 is the statute. This page does not quote it line by line (**needs-verify**). Open [StAG §10](https://www.gesetze-im-internet.de/stag/__10.html) yourself. Do not treat a federal overview as the local document list.
+On that naturalisation page, naturalisation is described after five years of habitual residence, and after three years where the special integration that page describes is shown — its example is particularly good academic or professional performance together with very good German. Only the nationality authority can say whether that sentence is yours. This page does not copy the portal’s fee or any processing-time figure. The federal procedure page is linked for the order of steps, not for a duration.
+
+Section 10 keeps two different conditions: no. 6, sufficient German, and no. 7, knowledge of the legal and social order. A B1 language result does not automatically meet no. 7. Subsection 4 says the language condition is met by a B1 exam, and it also describes other cases, including age-appropriate speech for a child under 16 and a narrower oral standard in the hardship and older-recruitment cases that subsection names. Subsection 5 says knowledge of the legal and social order is, as a rule, shown by a passed naturalisation test. Subsection 6 sets both conditions aside in the illness, disability, and age cases it names. The nationality authority applies those sentences. This page does not.
+
+BAMF’s naturalisation topic page tells readers to get forms from the competent naturalisation authority and to ask the foreigners authority, youth migration service, adult migration advice, or the city or district administration which office that is. [BAMF-NAvI](https://bamf-navi.bamf.de/en/Themen/Behoerden/?typ=ABH) helps you find an office. It is not a national list of accepted certificate formats. There is no single national B1 or DTZ format list on the pages opened for this guide.
 
 ## Decision tree
 
 1. **Find the nationality authority** for your place of residence. BAMF says the foreigners authority or the city or district administration can tell you which office it is. Save that office’s current page.
-2. **Ask which naturalisation route** it is applying. Do not assume the general section 10 path without its confirmation.
+2. **Ask which naturalisation route** it is applying, including whether it is using the five-year path or the special-integration path described on the 30 June 2025 naturalisation page. Do not assume either without its confirmation.
 3. **Make two lists:** language documents, and civic-knowledge documents. Add a third list for every other item the authority names.
 4. **Quote the accepted language documents.** The federal examples are a selection, not a promise that Goethe, telc, DTZ, or a school certificate will be enough in your file.
 5. **Quote the civic-knowledge documents separately.** Einbürgerungstest and Leben in Deutschland are knowledge tests. They are not B1.
 6. **Ask about exceptions only as open questions.** Do not apply one to yourself.
-7. **Compare exam products only after** the authority has named language documents that include an exam. Use [DTZ, Goethe B1 and telc B1](/guides/goethe-b1-vs-telc-b1/). Goethe-Zertifikat B1’s product page was HTTP 403 (**needs-verify**). telc’s “Zertifikat Deutsch / telc Deutsch B1” page was readable and is only the product title, not acceptance.
+7. **Compare exam products only after** the authority has named language documents that include an exam. Use [DTZ, Goethe B1 and telc B1](/guides/goethe-b1-vs-telc-b1/). Goethe-Zertifikat B1’s product HTML was HTTP 403 (**needs-verify**). The B1 administration rules describe four modules that may be taken separately; that structure is not acceptance. telc’s “Zertifikat Deutsch / telc Deutsch B1” page was readable and is only the product title, not acceptance.
 
 Which B1 or DTZ format a given city accepts is **needs-verify**. There is no single national acceptance list on the pages opened for this guide.
 
@@ -75,7 +79,8 @@ Save the URL or the written reply and the date. Another applicant’s certificat
 - Filing a language certificate in the civic-knowledge slot, or a Leben in Deutschland result in the language slot.
 - Treating the federal portal’s example list as complete.
 - Booking Goethe B1 because it was accepted for a settlement permit. That procedure has its own authority. See the [settlement page](/guides/goethe-b1-germany-settlement-work/).
-- Copying a Goethe fee or module description while the product page is unreadable.
+- Copying a Goethe fee while the product HTML is unreadable, or treating a module pass as the knowledge test.
+- Copying seven-year or eight-year residence wording from the English final-examination page.
 
 ## Naturalisation language record
 
@@ -95,11 +100,12 @@ When the authority has named the language documents, use the [exam comparison](/
 
 ## Official sources
 
-- [einbuergerung.de: how naturalisation proceeds](https://www.einbuergerung.de/ablauf.php) — separate language and legal-order headings; example documents; authority still specifies the file. Opened 2026-11-08.
-- [einbuergerung.de home](https://www.einbuergerung.de/) — entrance to the federal naturalisation pages. Opened 2026-11-08.
-- [BAMF: Einbürgerung](https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html) — where to ask which authority is competent. Opened 2026-11-08. Fee figures on that page are not copied here.
-- [BAMF: Sprachnachweise und Zertifikate](https://www.bamf.de/DE/Themen/Integration/AkteureEhrenamtlicheInteressierte/SprachnachweiseZertifikate/sprachnachweise_zertifikate-node.html) — cites StAG §10 (1) sentence 1 no. 6 for language. Opened 2026-11-08.
-- [Nationality Act §10](https://www.gesetze-im-internet.de/stag/__10.html) — **needs-verify**: re-open before relying on a subsection.
-- [telc Deutsch B1](https://www.telc.net/sprachpruefungen/deutsch/zertifikat-deutsch-telc-deutsch-b1/) — product page, not a grant of citizenship.
+- [Nationality Act §10](https://www.gesetze-im-internet.de/stag/__10.html) — five years in subsection 1; subsections 3 and 3a repealed; no. 6 language and no. 7 knowledge are separate; subsection 4 is the B1 route with further cases; subsection 5 is the naturalisation test as a rule. Opened 2026-11-11.
+- [BAMF: Naturalisation in Germany](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html) — page date 30/06/2025; five years, and three years where that page’s special integration is shown; language and the naturalisation test are separate. Fees on the page are not copied here.
+- [BAMF: Einbürgerung](https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html) — where to ask which authority is competent. Opened 2026-11-11.
+- [einbuergerung.de: how naturalisation proceeds (English)](https://www.einbuergerung.de/ablauf.php?l=en) — step order only. Fee and duration figures on that page are not copied here.
+- [BAMF-NAvI: authorities](https://bamf-navi.bamf.de/en/Themen/Behoerden/?typ=ABH) — locator, not a document-format list.
+- [telc Deutsch B1](https://www.telc.net/en/language-examinations/certificate-exams/german/certificate-german-telc-german-b1/) — product page, not a grant of citizenship.
+- [Goethe-Institut: B1 administration rules (PDF, 1 September 2025)](https://www.goethe.de/pro/relaunch/prf/de/Durchfuehrungsbestimmungen_B1.pdf) — four modules. Not acceptance.
 
-Goethe-Zertifikat B1: **needs-verify** (HTTP 403). Not linked.
+Goethe-Zertifikat B1 product HTML: **needs-verify** (HTTP 403 on 2026-11-11). Not linked. Do not use BAMF’s English final-examination page for the residence period.

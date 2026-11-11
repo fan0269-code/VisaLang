@@ -128,11 +128,9 @@ try {
     const renderedNext = html.match(/<a href="([^"]+)"><small>Next guide<\/small>/)?.[1] || '';
     assert.equal((html.match(/<h1(?:\s|>)/g) || []).length, 1, `${slug} renders exactly one H1`);
     assert.ok(html.includes('aria-label="Disclaimer"'), `${slug} renders the planning disclaimer`);
-    const expectedSupportReviewDate = slug === 'goethe-a1-germany-family-reunion'
-      ? '2026-10-21'
-      : slug === 'german-a1-family-reunion-faq'
-        ? '2026-11-08'
-        : '2026-07-22';
+    const expectedSupportReviewDate = slug === 'goethe-a1-germany-family-reunion' || slug === 'german-a1-family-reunion-faq'
+      ? '2026-11-11'
+      : '2026-07-22';
     assert.ok(html.includes(`Official sources last checked: <time datetime="${expectedSupportReviewDate}">${expectedSupportReviewDate}</time>`), `${slug} renders the current source-review date`);
     assert.ok(html.includes('<dt>Reviewed by role</dt><dd>Source review</dd>'), `${slug} renders the source-review role`);
     assert.ok(!html.includes('Official verification pending'), `${slug} does not render a conflicting pending state`);
@@ -293,6 +291,11 @@ try {
     'germany-b1-settlement-citizenship-timeline',
     'germany-b1-settlement-citizenship-checklist',
   ]);
+  const p0RefreshedB1On20261111 = new Set([
+    'goethe-b1-germany-settlement-work',
+    'germany-b1-citizenship-language-proof',
+    'germany-b1-leben-in-deutschland-and-language-proof',
+  ]);
   const p0RewrittenB1On20261108 = new Set([
     'goethe-b1-germany-settlement-work',
     'germany-b1-citizenship-language-proof',
@@ -303,7 +306,9 @@ try {
     const html = fs.readFileSync(path.join('dist/guides', slug, 'index.html'), 'utf8');
     const sourceReviewedAt = frontmatterField(source, 'sourceReviewedAt');
     const updatedDate = frontmatterField(source, 'updatedDate');
-    const expectedReviewDate = p1RewrittenB1On20261110.has(slug)
+    const expectedReviewDate = p0RefreshedB1On20261111.has(slug)
+      ? '2026-11-11'
+      : p1RewrittenB1On20261110.has(slug)
       ? '2026-11-10'
       : p0RewrittenB1On20261108.has(slug)
       ? '2026-11-08'

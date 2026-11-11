@@ -5,8 +5,8 @@ description: "Whether your file needs German A1 is decided by the competent Germ
 category: "germany-a1"
 slug: "german-family-reunion-language-requirement"
 publishedDate: "2026-06-30"
-updatedDate: "2026-11-08"
-sourceReviewedAt: "2026-11-08"
+updatedDate: "2026-11-11"
+sourceReviewedAt: "2026-11-11"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "complete-route"
@@ -48,7 +48,7 @@ If any step is unresolved, keep the exam decision open. A seat date is not an au
 
 ## What the opened sources support
 
-Checked on 2026-11-08. These points are orientation. They are not a decision for your file.
+Checked on 2026-11-11. These points are orientation. They are not a decision for your file.
 
 The Federal Foreign Office FAQ on spouse language skills answers “yes” to a general question: foreign spouses have to prove at least a basic knowledge of German, and it points readers to the Federal Office for Migration and Refugees (BAMF) and to the German mission in the relevant country. That FAQ does not list certificates and does not apply an exception to an individual file.
 
@@ -65,12 +65,14 @@ It then states the boundary that this page repeats: the German diplomatic missio
 
 The leaflet lists exception situations and says **not all possible exceptions are shown**. It tells readers to contact the responsible visa office or foreigners authority. Do not treat a summary, including this one, as proof that you are exempt. Recognition of a certificate stays with the mission. An exception question goes to the visa office or the foreigners authority, as the leaflet says.
 
+Residence Act section 30, opened on 2026-11-11, is the spouse-reunification statute the leaflet’s footnote points toward. For the route that section describes, it includes a simple-German condition and a list of cases in which that condition does not apply. It states no processing time, no fee, and no certificate age. Whether any listed case is yours is a question for the mission or the foreigners authority, not a conclusion this page can reach.
+
 ## Route and sponsor category
 
 Label the route before you compare exams.
 
 - **Joining a German spouse, as a non-EU applicant.** The Federal Foreign Office FAQ says you apply at the competent German mission abroad; that mission forwards the application to the foreigners authority where you intend to live, and it can issue the visa only after that authority agrees. The foreigners authority in Germany later issues the residence permit. Document details stay on the competent mission’s page.
-- **Other family-reunion routes.** The BAMF leaflet is written for spousal reunification from abroad and cites Residence Act provisions and exceptions in a footnote. A child, parent, or different sponsor status can follow a different instruction. One mission page opened on 2026-11-08 (Embassy Dhaka) discusses child and parent files separately from spouse certificates. That page is an **example**, not a rule for every mission.
+- **Other family-reunion routes.** The BAMF leaflet is written for spousal reunification from abroad and cites Residence Act provisions and exceptions in a footnote. A child, parent, or different sponsor status can follow a different instruction. One mission page opened on 2026-11-11 (Embassy Dhaka) discusses child and parent files separately from spouse certificates. That page is an **example**, not a rule for every mission.
 - **Sponsor’s residence title.** The leaflet describes situations in which proof is not normally required, including some sponsor nationalities and some residence titles. The mission or foreigners authority decides whether any of those situations is yours.
 
 Save the route label from the official page. Do not copy it from a forum thread because the relationship description sounds similar.
@@ -87,7 +89,7 @@ On the mission page, record:
 - Any exception it tells you to raise with the visa section, and the evidence it asks for.
 - The date you opened the page.
 
-Two mission pages opened on 2026-11-08 show why the local page matters. The Embassy in Dhaka describes its own certificate practice for family reunion. The Embassy in Yaoundé publishes its own note on spouse language skills and exemptions. Neither page is a substitute for the mission that will take your application. Certificate age, “interview instead of a certificate”, and accepted product lists are **needs-verify** items that differ by mission. Do not copy one mission’s list into another file.
+Mission pages opened on 2026-11-11 show why the local page matters. The Embassy in Dhaka describes its own certificate practice for family reunion. The Embassy in Yaoundé publishes its own note on spouse language skills and exemptions. Singapore’s family-reunion page and Bern’s page on joining a spouse are further samples of local instructions. None of them is a substitute for the mission that will take your application. Certificate age, “interview instead of a certificate”, and accepted product lists are **needs-verify** items that differ by mission. The central Foreign Office FAQ still states no nationwide “within one year” rule. Do not copy one mission’s list into another file.
 
 ## Reader verification record
 
@@ -112,7 +114,7 @@ Copy this into private notes. Leave a blank where the official page does not ans
 - Copying a certificate list from a different country’s mission page.
 - Treating “Start Deutsch 1”, a different telc A1 product, and the current ÖSD name as the same label. Match the words your mission uses. See [Goethe A1 vs telc A1](/guides/goethe-a1-vs-telc-a1/).
 - Assuming a certificate’s age, fee, or result date. Those are not in the BAMF leaflet. Ask the mission and the selected centre.
-- Using a Goethe product page you have not opened. On 2026-11-08 the Goethe-Institut examination pages did not load (**needs-verify**). The leaflet names “Start Deutsch 1” of the Goethe-Institut. It does not supply modules, fees, or seats, and this page does not invent them.
+- Using a Goethe product page you have not opened. On 2026-11-11 the Goethe-Institut examination HTML pages still did not load (**needs-verify**). The leaflet names “Start Deutsch 1” of the Goethe-Institut. Exam conduct sits in the Goethe regulation PDFs, which are not an acceptance list. This page does not invent fees or seats.
 
 ## Next action
 
@@ -120,18 +122,19 @@ Save the current mission instruction for your route, then ask the mission or res
 
 ## Official sources
 
-Opened on 2026-11-08 unless noted.
+Opened on 2026-11-11 unless noted.
 
 - [Federal Foreign Office: spouse language-skills FAQ](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682) — general basic-knowledge statement; points to BAMF and the mission. Does not decide your file.
 - [Federal Foreign Office: joining a German spouse](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/04-dtehepartner-606680) — mission forwards that route’s visa application to the foreigners authority. Not a certificate list.
 - [Federal Foreign Office: visa service](https://www.auswaertiges-amt.de/en/visa-service) — central entrance, not a worldwide acceptance list.
 - [BAMF leaflet (English PDF): basic German for spousal reunification](https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11) — A1 description, named certificates, mission recognition, incomplete exception list. Imprint revised 03/2023.
 - [BAMF leaflet (German PDF)](https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug.pdf?__blob=publicationFile&v=18) — same topic in German.
-- [telc: Start Deutsch 1 / telc Deutsch A1](https://www.telc.net/sprachpruefungen/zertifikatspruefung/deutsch/start-deutsch-1-/-telc-deutsch-a1/) — reachable exam-owner page for the telc product the leaflet names. Not proof the mission accepts it for you.
-- [Embassy Dhaka family-reunion FAQ](https://dhaka.diplo.de/bd-en/service/2689526-2689526) — **example** of a mission page. Not your mission unless you apply there.
-- [Embassy Yaoundé: spouse language skills](https://jaunde.diplo.de/cm-en/service/05-visaeinreise/german-language-skills-for-spouse-reunion-2445808) — **example** only.
+- [Residence Act §30](https://www.gesetze-im-internet.de/aufenthg_2004/__30.html) — simple-German condition and statutory exceptions for the spouse route that section describes. No days and no certificate age.
+- [telc: Start Deutsch 1 / telc Deutsch A1 (German)](https://www.telc.net/sprachpruefungen/zertifikatspruefung/deutsch/start-deutsch-1-/-telc-deutsch-a1/) — reachable exam-owner page for the telc product the leaflet names. Not proof the mission accepts it for you.
+- [telc: Start German 1 / telc German A1 (English)](https://www.telc.net/en/language-examinations/certificate-exams/german/start-german1-telc-german-a1/) — the same product. Not the older guessed English path.
+- [Embassy Dhaka family-reunion FAQ](https://dhaka.diplo.de/bd-en/service/2689526-2689526), [Embassy Yaoundé](https://jaunde.diplo.de/cm-en/service/05-visaeinreise/german-language-skills-for-spouse-reunion-2445808), [Singapore](https://singapur.diplo.de/sg-de/service/05-visaeinreise/2437396-2437396), and [Bern](https://bern.diplo.de/ch-de/service/visa/national-visa/family-reunion/spouse-2641052) — **examples** of mission pages. Not your mission unless you apply there.
 
-Goethe-Institut product pages: **needs-verify**. Not linked, because they were not readable on 2026-11-08.
+Goethe-Institut product HTML: **needs-verify**. Not linked, because it was not readable on 2026-11-11. The exam guidelines PDF is a process source, not a substitute acceptance list: [Prüfungsordnung (1 September 2025)](https://www.goethe.de/pro/relaunch/prf/de/Pruefungsordnung.pdf).
 
 ## A1 route FAQ
 
