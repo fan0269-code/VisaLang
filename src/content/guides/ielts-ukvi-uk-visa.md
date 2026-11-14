@@ -4,12 +4,12 @@ description: "Route-first IELTS UKVI guide for checking UK visa or citizenship S
 category: "uk"
 slug: "ielts-ukvi-uk-visa"
 publishedDate: "2026-07-01"
-updatedDate: "2026-07-29"
+updatedDate: "2026-11-14"
 contentStatus: "verification-pending"
 decisionStage: "requirement"
 nextGuideSlug: "languagecert-selt-uk-visa"
 comparisonScope: "same-route"
-sourceReviewedAt: "2026-07-21"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 primaryIntent: "UK route-first requirement check for IELTS UKVI and SELT evidence"
@@ -50,11 +50,11 @@ Use this checklist before booking:
 - Check the IELTS exam product page for identity rules, booking terms, cancellation rules, and local execution details.
 - Keep the authority requirement and the IELTS booking record together so you can recheck both before submission.
 
-## Why this page does not replace the LanguageCert page
+## Why a provider page does not replace the Home Office record
 
-This IELTS page answers the requirement-stage question: what must the UK route accept before you choose a test. The LanguageCert page answers a later provider-choice and SELT product verification question: whether a LanguageCert product still matches the Home Office list and the product information you are about to book.
+The GOV.UK SELT guidance is the requirement record. This page checks IELTS products. The LanguageCert page checks LanguageCert products. Neither page is a required first step before the other, and neither replaces the Home Office source.
 
-If the route requirement is still unclear, do not use a provider page instead of the Home Office source. If the route requirement is already clear and you are comparing approved providers, continue to the LanguageCert guide and check both providers against the same official requirement.
+If the route requirement is still unclear, do not use a provider page instead of the Home Office source. If the route requirement is already clear and you are comparing approved providers, check each named product against that same official requirement.
 
 ## Common mistakes
 
@@ -66,7 +66,7 @@ If the route requirement is still unclear, do not use a provider page instead of
 
 ## Next action
 
-Open the current Home Office or GOV.UK route requirement first. If the requirement points to an approved SELT and you want to compare another provider, continue to the LanguageCert SELT guide as a provider-choice check rather than as a replacement for this requirement check.
+Open the current Home Office or GOV.UK route requirement first. If the requirement points to an approved SELT and you want to compare another provider, use the LanguageCert page as a second product check, not as a later stage that only exists after IELTS.
 
 ## Official sources
 

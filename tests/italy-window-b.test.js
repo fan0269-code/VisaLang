@@ -16,8 +16,8 @@ const comparison = read(`src/content/guides/${comparisonSlug}.md`);
 for (const [slug, source] of [[requirementSlug, requirement], [comparisonSlug, comparison]]) {
   assert.equal(field(source, 'contentStatus'), 'verification-pending', `${slug} remains verification-pending`);
   assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${slug} keeps the controlled source-review state`);
-  assert.equal(field(source, 'sourceReviewedAt'), '2026-07-30', `${slug} records the current official-source check`);
-  assert.equal(field(source, 'updatedDate'), '2026-07-30', `${slug} records the current editorial update`);
+  assert.equal(field(source, 'sourceReviewedAt'), '2026-11-14', `${slug} records the Interior and product snapshots that were read`);
+  assert.equal(field(source, 'updatedDate'), '2026-11-14', `${slug} records the 2026-11-14 editorial narrowing`);
   assert.equal(field(source, 'reviewedByRole'), 'source-review', `${slug} records the controlled reviewer role`);
   assert.equal(field(source, 'noindex'), 'true', `${slug} explicitly remains outside indexing`);
   assert.equal(field(source, 'adsEligible'), 'false', `${slug} explicitly remains advertising-free`);

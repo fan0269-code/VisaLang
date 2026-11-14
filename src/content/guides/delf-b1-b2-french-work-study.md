@@ -4,8 +4,8 @@ description: "Use the reviewed Sorbonne Faculty of Arts and Humanities admission
 category: "france"
 slug: "delf-b1-b2-french-work-study"
 publishedDate: "2026-07-01"
-updatedDate: "2026-07-19"
-sourceReviewedAt: "2026-07-19"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "verification-pending"
@@ -35,7 +35,7 @@ France Éducation international identifies DELF B1 and B2 as independent diploma
 
 ## Keep other routes outside this page
 
-The reviewed French government worker page does not set DELF B1 or B2 as a universal employment credential. A named employer decides its language requirement, while a regulated profession uses its own competent authority. Do not transfer the Sorbonne faculty example to work or professional registration.
+The faculty page that was read states B2 for the licence applications it describes and C1 for the master’s applications it describes. An exchange paragraph on the same page is a different wording and is not reused here. A worker-information page that does not name DELF is not proof that every job or residence route has no language condition. A named employer decides its own requirement, and a regulated profession uses its own authority. Do not transfer the faculty example to work or professional registration.
 
 ## Questions for the exact faculty and programme
 

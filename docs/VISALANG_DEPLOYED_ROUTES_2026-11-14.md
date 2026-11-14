@@ -48,6 +48,14 @@ Both use `CommercialPageShell`, which sets `noindex` and `enableAds={false}`.
 - `https://www.visalang.org/` was **301** to `https://visalang.org/`.
 - `https://visalang.org/disclaimer/` and `https://visalang.org/privacy/` were **404**. Neither page was created. `/privacy-policy/` returned 200.
 
+## Production snapshot 11:07, kept separate from this pull request
+
+A later public snapshot on 2026-11-14, 11:07 Asia/Shanghai, fetched 101 VisaLang HTML URLs. All 101 returned 200. 44 were `noindex`. The original 75 HTML body hashes were unchanged, so that snapshot is not acceptance of this pull request. The 26 URLs that were not in the earlier 75 are the 15 non-German guides, 2 product pages, 8 non-German category pages, and `/404.html`. The 12 category pages were all fetched. Germany A1 and B1 were indexable. The other 10 categories, including Spain and France, rendered `noindex,follow` and an empty item list. Spain and France did that without a taxonomy `noindex` flag on the production pages. This pull request now sets that flag so a later primary-discovery guide cannot unlock those categories. That flag is not a claim that production was leaking, and it is not deployed.
+
+`/404.html` returned 200 with `noindex,follow`. That is the error document opened directly. It is not evidence that every unknown path is a soft 404, and this pull request does not add a new global routing rule.
+
+The snapshot closed the previously unnamed 15+2 set and the category links it could follow. It does not prove that every unlinked route on main was found. The four English URLs this pull request redirects were still 200 on production.
+
 ## Build set after this branch
 
 This branch’s `dist/` contains **97 HTML routes**: 36 static Astro pages, 49 guide pages, and **12 category pages**. `artifacts/visalang-deployed-routes.json` lists every built URL in `builtRoutes`, with the robots meta from this build. Redirects are listed separately in `redirects`. A redirect is not one of the 97 HTML files. Astro’s preview server does not apply `vercel.json`; `scripts/preview-with-redirects.mjs` does.

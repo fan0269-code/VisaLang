@@ -144,6 +144,29 @@ Recorded in `artifacts/runtime-browser/report.json` and `artifacts/runtime-brows
 | `/affiliate-disclosure/` | H1 “Affiliate Disclosure”, last updated 2026-11-07, `noindex` | No new commercial relationship |
 | `/contact/` | H1 “Contact VisaLang”. The page says it cannot assess an individual outcome | No form was submitted and no mailbox test was claimed |
 
+## Production coverage supplement, 11:07
+
+The supplemental audit is a production snapshot. It does not accept this pull request. Original body hashes for the first 75 HTML URLs were unchanged. The snapshot found 101 HTML responses, all 200, with 44 `noindex`. The added 26 are the 15 non-German guides, 2 product pages, 8 non-German categories, and `/404.html`. Known linked closure in that snapshot does not prove every unlinked main route was found. `/404.html` returning 200 is the error document, not a reason to invent a sitewide soft-404 fix.
+
+Narrow repository edits after that snapshot, still not deployed:
+
+| URL | Change | Source limit |
+| --- | --- | --- |
+| `/guides/staatsexamen-nt2-for-work-and-higher-education/` | NT2-II is one UvA test option, with CNaVT STRT, CNaVT EDUP, and ITNA B2. Diploma exemptions stay on a separate list | UvA page lines 39–48 of the 2026-11-14 extract. Deadlines not copied |
+| `/guides/portuguese-language-for-golden-visa-and-citizenship/` and `/guides/portuguese-ciple-a2-for-citizenship-and-residence/` | Main entry is the nationality overview. The older guide URL ended on an error page, so it is not a profile selector. No residence-year or Golden Visa rule was added | Overview extract lines 128–142. Guide fetch final URL contained an error parameter |
+| `/guides/tcf-irn-french-residence/` | B2 oral and written is attributed to Service-Public F11926, verified 1 January 2026. The Ministry URL was not re-read. The page does not say current FEI materials contradict each other | F11926 and one TCF IRN product page. Ministry fetch was 403 |
+| `/guides/delf-b1-b2-french-work-study/` | Faculty B2/C1 stays inside the page that was read. A worker page that does not name DELF is not proof that no job has a language condition | Sorbonne and DELF extracts |
+| `/guides/yki-finnish-citizenship/` | Pairing list removed. Sign-language route stays conditional. OPH’s four subtests do not prove a Migri pairing | Overview note. Combination URL was not readable |
+| `/guides/cils-b1-cittadinanza-for-italian-citizenship/` and the comparison | Interior B1 and exemptions stay inside that page. The Foreign Ministry URL is a challenge page, not a current admitted-body list | Interior extract. MFA extract was a challenge page |
+| `/guides/dutch-inburgering-a2-b1-for-integration-and-citizenship/` | The existing IND links render as the source list. Inburgeren URLs were not re-read | IND extracts. Inburgeren fetches failed |
+| `/guides/ielts-ukvi-uk-visa/` and `/guides/languagecert-selt-uk-visa/` | GOV.UK is the requirement record. IELTS is not a required first step. The 6 July 2025 LanguageCert replacement is not a new booking of the old 4-skills test | GOV.UK SELT extract lines 175–189 |
+| `/guides/dele-levels-spanish-citizenship/` | Procedure sequence points back to the requirement page. SIELE stays unverified for citizenship | No new level list |
+| `/products/a1-family-reunion-pack/` and `/products/a1-practice-pack/` | Future-availability CTA removed. Pages stay unavailable and noindex | No subscription, email, or payment was added |
+| `/guides/category/spain/` and `/guides/category/france/` | Taxonomy `noindex: true` so isolation does not depend on an empty guide set | Production already rendered noindex. This is a guard, not a report of a current leak |
+| `/guides/category/portugal/` and France label | Descriptions no longer present Golden Visa, work, and nationality as one route | No new guides |
+
+Canada pages were left as they were: three Express Entry programmes, two products, and no reprinted conversion table. `/404.html` was not given a new routing rule.
+
 ## What this file does not claim
 
-Production still serves the previous deployment until a separately authorised deploy. CI and these unit tests do not prove a visa fact. The 15 research guides and 2 product pages were enumerated, not rewritten.
+Production still serves the previous deployment until a separately authorised deploy. The 11:07 snapshot is that previous deployment. CI and these unit tests do not prove a visa fact. This file does not mark the work passed.

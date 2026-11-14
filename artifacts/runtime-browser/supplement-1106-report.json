@@ -1,0 +1,141 @@
+{
+  "generatedAt": "2026-11-14T03:24:20.964Z",
+  "origin": "http://127.0.0.1:4173",
+  "note": "Local preview of this branch after the isolated-page patch. Does not replace artifacts/runtime-browser/report.json and is not a production observation.",
+  "adRequestCount": 0,
+  "postCount": 0,
+  "records": [
+    {
+      "route": "/guides/staatsexamen-nt2-for-work-and-higher-education/",
+      "http": 200,
+      "dom": {
+        "h1": "Staatsexamen NT2-II for UvA Dutch-taught bachelor admissions",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "hasNeedle": true,
+        "emptySource": false,
+        "getUpdates": false
+      }
+    },
+    {
+      "route": "/guides/portuguese-language-for-golden-visa-and-citizenship/",
+      "http": 200,
+      "dom": {
+        "h1": "Portuguese Nationality Language Proof After a Residence Route",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "hasNeedle": true,
+        "emptySource": false,
+        "getUpdates": false
+      }
+    },
+    {
+      "route": "/guides/tcf-irn-french-residence/",
+      "http": 200,
+      "dom": {
+        "h1": "TCF IRN for French nationality procedures: verify the procedure",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "hasNeedle": true,
+        "emptySource": false,
+        "getUpdates": false
+      }
+    },
+    {
+      "route": "/guides/yki-finnish-citizenship/",
+      "http": 200,
+      "dom": {
+        "h1": "Finnish Citizenship Language Proof: YKI and Other Evidence",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "hasNeedle": true,
+        "emptySource": false,
+        "getUpdates": false
+      }
+    },
+    {
+      "route": "/guides/dutch-inburgering-a2-b1-for-integration-and-citizenship/",
+      "http": 200,
+      "dom": {
+        "h1": "Dutch Inburgering: Check the Procedure and Personal Route First",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "hasNeedle": true,
+        "emptySource": false,
+        "getUpdates": false
+      }
+    },
+    {
+      "route": "/guides/cils-vs-celi-vs-plida-for-italian-citizenship/",
+      "http": 200,
+      "dom": {
+        "h1": "CILS vs CELI vs PLIDA After an Italian Citizenship Requirement Check",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "hasNeedle": true,
+        "emptySource": false,
+        "getUpdates": false
+      }
+    },
+    {
+      "route": "/products/a1-practice-pack/",
+      "http": 200,
+      "dom": {
+        "h1": "A1 Practice Pack",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "hasNeedle": true,
+        "emptySource": false,
+        "getUpdates": false
+      }
+    },
+    {
+      "route": "/products/a1-family-reunion-pack/",
+      "http": 200,
+      "dom": {
+        "h1": "A1 Family Reunion Pack",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "hasNeedle": true,
+        "emptySource": false,
+        "getUpdates": false
+      }
+    },
+    {
+      "route": "/guides/category/spain/",
+      "http": 200,
+      "dom": {
+        "h1": "Spain guides",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "hasNeedle": true,
+        "emptySource": false,
+        "getUpdates": false
+      }
+    },
+    {
+      "route": "/guides/category/france/",
+      "http": 200,
+      "dom": {
+        "h1": "France guides",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "hasNeedle": true,
+        "emptySource": false,
+        "getUpdates": false
+      }
+    },
+    {
+      "route": "/404.html",
+      "http": 200,
+      "dom": {
+        "h1": "This page has moved off route.",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "hasNeedle": true,
+        "emptySource": false,
+        "getUpdates": false
+      }
+    }
+  ]
+}

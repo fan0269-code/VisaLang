@@ -4,13 +4,13 @@ description: "A Migri-first check of YKI and other listed language evidence befo
 category: "finland"
 slug: "yki-finnish-citizenship"
 publishedDate: "2026-07-01"
-updatedDate: "2026-07-29"
+updatedDate: "2026-11-14"
 contentStatus: "verification-pending"
 noindex: true
 adsEligible: false
 decisionStage: "requirement"
 comparisonScope: "same-route"
-sourceReviewedAt: "2026-07-29"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 primaryIntent: "Migri-first Finnish citizenship language-proof and YKI decision check"
@@ -44,7 +44,7 @@ Use this record before choosing a test:
 | Citizenship procedure | The current Migri citizenship page that applies to the application you are considering |
 | Candidate evidence | The exact certificate, completed qualification, education record or sign-language evidence you may use |
 | Migri condition | The official wording that appears to cover that evidence, including any document-specific condition |
-| YKI check | If YKI remains relevant, the language, level and accepted oral-plus-written subtest combination shown by Migri |
+| YKI check | If YKI remains relevant, open Migri's combination page yourself. That page was not re-read on 2026-11-14, so this guide does not name a pairing |
 | Unresolved point | Any exception, old certificate, partial qualification or document-format question that the page does not settle |
 | Product record | Only after YKI remains relevant: the current OPH product page and the registration record you intend to use |
 
@@ -52,7 +52,7 @@ This is a verification record, not an eligibility decision. It also does not est
 
 ## Compare the current evidence paths
 
-Migri's language-skills page currently groups several ways to demonstrate language skills. They include YKI, the Civil Service Language Proficiency Certificate, specified Finnish basic or upper-secondary education records, specified vocational qualifications, certain Finnish higher-education studies or maturity tests, and a defined sign-language certificate route.
+A 2026-11-14 reading of the Migri language-skills overview groups several ways to demonstrate language skills. They include YKI at level 3 or higher in Finnish or Swedish, the Civil Service Language Proficiency Certificate, specified Finnish basic or upper-secondary education records, specified vocational qualifications that must be fully completed, certain Finnish higher-education studies or maturity tests, and a sign-language certificate route. The sign-language route is conditional on the hearing or speech condition stated on that page. It is not an open alternative for every applicant.
 
 Those labels are not interchangeable. For example, a course attendance certificate is not automatically the same as a completed qualification, and a partial qualification is not automatically the same as the full qualification described by Migri. Match your document to the detailed official condition rather than relying on a school, course or certificate title.
 
@@ -60,15 +60,9 @@ If your record appears to match a non-YKI path, save the relevant Migri wording 
 
 ## Check the YKI combination with Migri
 
-Migri currently describes the citizenship YKI route as at least grade 3 in one oral subtest and one written subtest. Its current accepted-combination page shows these pairings:
+The Migri page that would show accepted YKI subtest pairings, and any rule about combining two certificates, was not readable on 2026-11-14. This page does not list those pairings and does not say two certificates can be combined.
 
-- speaking plus writing;
-- listening comprehension plus writing; or
-- reading comprehension plus speaking.
-
-Migri also states that two separate certificates may together form an accepted combination, subject to the conditions on its current page. Save the current Migri page before relying on a combination, especially for older certificates or separate sittings.
-
-OPH explains that YKI has four separately assessed subtests: listening comprehension, speaking, reading comprehension and writing. OPH controls the test product and registration process; Migri controls whether the evidence meets the citizenship language requirement. Recheck both records rather than asking a test centre to decide the citizenship question.
+OPH explains that YKI has four separately assessed subtests. That product fact does not prove which pairing Migri accepts. OPH controls the test product and registration process; Migri controls whether the evidence meets the citizenship language requirement.
 
 ## Before registering for YKI
 
@@ -85,7 +79,7 @@ Do not copy a fee, session, seat-availability statement or result timetable from
 
 - Treating YKI as the only or default citizenship evidence path.
 - Assuming any Finnish course, diploma or education history matches Migri's detailed document conditions.
-- Checking an overall YKI label but not the oral-plus-written subtest combination.
+- Choosing a subtest pairing from this page after the Migri combination page was not re-read.
 - Asking OPH or a test centre to decide citizenship evidence acceptance.
 - Treating a language certificate as proof that every other citizenship condition is satisfied.
 - Relying on a copied date, fee, centre or seat statement instead of the current registration record.
@@ -94,7 +88,7 @@ Do not copy a fee, session, seat-availability statement or result timetable from
 
 Open Migri's language-skills page and create the evidence-path record above. Mark the candidate document as **matched to current wording**, **needs Migri clarification**, or **not matched**.
 
-If YKI remains the selected path, open Migri's YKI combination page and OPH's current YKI page in separate tabs. Save what each authority controls before registering. If the evidence path remains unclear, stop before payment and ask Migri about the exact document or certificate.
+If YKI remains the selected path, open Migri's YKI combination page yourself and OPH's current YKI page in separate tabs. This guide did not re-read the combination page, so it cannot name the pairing. If the evidence path remains unclear, stop before payment and ask Migri about the exact document or certificate.
 
 ## Official sources
 

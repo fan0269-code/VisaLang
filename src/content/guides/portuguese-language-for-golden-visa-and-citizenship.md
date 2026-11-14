@@ -4,12 +4,12 @@ description: "A nationality-profile requirement check for former or current Port
 category: "portugal"
 slug: "portuguese-language-for-golden-visa-and-citizenship"
 publishedDate: "2026-07-01"
-updatedDate: "2026-07-29"
+updatedDate: "2026-11-14"
 contentStatus: "verification-pending"
 decisionStage: "requirement"
 nextGuideSlug: "portuguese-ciple-a2-for-citizenship-and-residence"
 comparisonScope: "same-route"
-sourceReviewedAt: "2026-07-29"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 primaryIntent: "Nationality-profile requirement check after a Portuguese residence route"
@@ -17,7 +17,7 @@ audienceScope: "Readers selecting a Portuguese nationality procedure after resid
 finalDecisionAuthorityType: "Portuguese nationality authority"
 primaryOfficialAuthorityUrl: "https://justica.gov.pt/Registos/Nacionalidade/Nacionalidade-portuguesa"
 examOwnerUrl: "https://caple.letras.ulisboa.pt/exame/2/ciple"
-localExecutionPrompt: "Select your exact nationality profile on Justiça.gov.pt, save its current document list, and confirm accepted language evidence before using CAPLE to choose a CIPLE session."
+localExecutionPrompt: "Open the nationality overview that was read. The older guide URL did not return the guide, so the specific profile and document list stay unresolved until the authority shows them."
 author: "VisaLang Editorial team"
 readingTime: "7"
 featured: false
@@ -70,12 +70,12 @@ The [CIPLE product-verification page](/guides/portuguese-ciple-a2-for-citizenshi
 
 ## Next action
 
-Open the Justiça nationality guide, select the profile that matches your situation and save its current document list. Mark every language-evidence question as **confirmed by the authority**, **unresolved**, or **not shown for this profile**.
+Open the [Portuguese nationality overview](https://justica.gov.pt/Registos/Nacionalidade/Nacionalidade-portuguesa). It says the request and the documents vary with the person's situation. The older guide URL did not return that guide on 2026-11-14; it ended on an error page, so this page cannot tell you to select a profile there. Mark every language-evidence question as **confirmed by the authority**, **unresolved**, or **not shown on the overview**.
 
 Only move to the CIPLE product-verification page when your authority record shows why CIPLE is a candidate. If it does not, stop before booking and ask the responsible nationality channel for the missing decision.
 
 ## Official sources
 
 - [Portuguese Justice portal — Portuguese nationality](https://justica.gov.pt/Registos/Nacionalidade/Nacionalidade-portuguesa)
-- [Portuguese Justice guide — How to obtain Portuguese nationality](https://justica.gov.pt/Guias/como-obter-nacionalidade-portuguesa)
+- [Older Justiça guide URL — 2026-11-14 fetch ended on an error page, not a profile selector](https://justica.gov.pt/Guias/como-obter-nacionalidade-portuguesa)
 - [CAPLE — CIPLE](https://caple.letras.ulisboa.pt/exame/2/ciple)

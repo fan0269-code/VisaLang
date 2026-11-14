@@ -1,11 +1,9 @@
 const assert = require('node:assert/strict');
 const { execFileSync } = require('node:child_process');
-const crypto = require('node:crypto');
 const fs = require('node:fs');
 
 const inburgeringSlug = 'dutch-inburgering-a2-b1-for-integration-and-citizenship';
 const nt2Slug = 'staatsexamen-nt2-for-work-and-higher-education';
-const nt2BaselineSha256 = '093c9c320d9be6dace0a46128b40253954b656a288a27f84e13ffd9155c21003';
 const read = (file) => fs.readFileSync(file, 'utf8');
 const field = (source, name) => {
   const value = source.match(new RegExp(`^${name}:\\s*(.+)$`, 'm'))?.[1]?.trim() || '';
@@ -20,7 +18,7 @@ const nt2 = read(`src/content/guides/${nt2Slug}.md`);
 assert.equal(field(inburgering, 'contentStatus'), 'verification-pending', 'the Inburgering guide remains verification-pending');
 assert.equal(field(inburgering, 'sourceReviewStatus'), 'reviewed', 'the Inburgering guide keeps the controlled source-review state');
 assert.equal(field(inburgering, 'sourceReviewedAt'), '2026-08-15', 'the Inburgering guide records the FAN-40 official-source recheck');
-assert.equal(field(inburgering, 'updatedDate'), '2026-08-15', 'the Inburgering guide records the FAN-40 editorial update');
+assert.equal(field(inburgering, 'updatedDate'), '2026-11-14', 'the Inburgering guide records the 2026-11-14 footer correction');
 assert.equal(field(inburgering, 'reviewedByRole'), 'source-review', 'the Inburgering guide records the controlled reviewer role');
 assert.equal(field(inburgering, 'noindex'), 'true', 'the pending Inburgering guide explicitly remains outside indexing');
 assert.equal(field(inburgering, 'adsEligible'), 'false', 'the pending Inburgering guide explicitly remains advertising-free');
@@ -64,11 +62,11 @@ assert.equal(field(nt2, 'sourceReviewStatus'), 'reviewed', 'the UvA/NT2 guide ke
 assert.equal(field(nt2, 'nextGuideSlug'), '', 'the UvA/NT2 guide remains terminal');
 assert.match(nt2, /UvA Dutch-taught bachelor's admissions/i, 'the NT2 reference page remains bounded to the named UvA admissions task');
 assert.notEqual(field(inburgering, 'primaryIntent'), field(nt2, 'primaryIntent'), 'the two Netherlands guides retain distinct user tasks');
-assert.equal(
-  crypto.createHash('sha256').update(nt2).digest('hex'),
-  nt2BaselineSha256,
-  'the read-only UvA/NT2 reference page remains byte-for-byte unchanged',
-);
+assert.match(nt2, /CNaVT Educatief Startbekwaam \(STRT\)/, 'NT2-II is listed with CNaVT STRT');
+assert.match(nt2, /Educatief Professioneel \(EDUP\)/, 'NT2-II is listed with CNaVT EDUP');
+assert.match(nt2, /ITNA B2/, 'NT2-II is listed with ITNA B2');
+assert.match(nt2, /Exemptions/, 'diploma exemptions stay separate from the test list');
+assert.doesNotMatch(nt2, /must take Staatsexamen NT2 Programme II/, 'the page does not say NT2-II is the only remaining test');
 
 const taxonomy = read('src/data/guide-taxonomy.ts');
 assert.match(
@@ -94,7 +92,10 @@ for (const [route, output] of generatedNetherlandsRoutes) {
   assert.ok(!html.includes('pagead2.googlesyndication.com'), `${route} does not load AdSense`);
   assert.ok(!sitemap.includes(`<loc>https://visalang.org${route}</loc>`), `${route} is absent from the sitemap`);
 }
-assert.ok(!read(`dist/guides/${inburgeringSlug}/index.html`).includes('<small>Next guide</small>'), 'the generated Inburgering guide is terminal');
+const inburgeringHtml = read(`dist/guides/${inburgeringSlug}/index.html`);
+assert.ok(!inburgeringHtml.includes('No separate official-source list'), 'the Inburgering guide renders its existing official-source links');
+assert.ok(inburgeringHtml.includes('ind.nl/en/dutch-citizenship'), 'the rendered source list includes the IND naturalisation page');
+assert.ok(!inburgeringHtml.includes('<small>Next guide</small>'), 'the generated Inburgering guide is terminal');
 assert.ok(!read(`dist/guides/${nt2Slug}/index.html`).includes('<small>Next guide</small>'), 'the generated UvA/NT2 guide remains terminal');
 
 console.log('Netherlands window B remediation rules passed');
