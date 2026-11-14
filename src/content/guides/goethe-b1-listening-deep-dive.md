@@ -31,11 +31,19 @@ Use it when the [B1 study plan](/guides/goethe-b1-study-plan/) self-check says a
 
 ## Original dialogue and the miss
 
-Two speakers, which you record: one asks whether Thursday at 18:00 still works; the other says Friday at 18:00 is better because Thursday is a parents’ evening. The question you write: “Which day did they keep?”
+Record these two original turns.
 
-If you answer Thursday, the feedback is that “still works” was the rejected day and “better” marked the change. If you answer 18:00 only, the feedback is that the time did not decide the day. Replay once for the day word only.
+A: „Passt Donnerstag um 18 Uhr noch?“
 
-This dialogue is original. It does not claim to match part 1, 2, 3, or 4 of an unread sample.
+B: „Freitag um 18 Uhr ist besser. Donnerstag ist der Elternabend.“
+
+Question: Welchen Tag behalten sie?
+
+Answer: Freitag.
+
+If you answer Donnerstag, the miss is that „noch“ was the day being checked and „besser“ marked the change. If you answer only 18 Uhr, the miss is that the time did not decide the day. Replay once for the day word only.
+
+This dialogue is original. It is not an exam item, not an official score, and not a claim that the drill improves a result. It does not match part 1, 2, 3, or 4 of an unread sample.
 
 ## Common mistakes
 

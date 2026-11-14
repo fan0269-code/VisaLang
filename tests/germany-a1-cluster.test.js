@@ -209,4 +209,12 @@ for (const href of hubNextStepLinks) {
   assert.ok(hub.includes(href), `Germany A1 hub should link to ${href}`);
 }
 
+const a1Listening = fs.readFileSync(path.join(guideDirectory, 'goethe-a1-listening-practice.md'), 'utf8');
+assert.match(a1Listening, /Der Termin ist am 3\. Mai um 14\.30 Uhr/, 'A1 listening drill uses an original German sentence');
+assert.match(a1Listening, /Uhrzeit 14\.30/, 'A1 listening drill states the time answer');
+const a1Writing = fs.readFileSync(path.join(guideDirectory, 'goethe-a1-writing-practice.md'), 'utf8');
+assert.match(a1Writing, /Meldebescheinigung/, 'A1 writing revision names the document the prompt asked for');
+assert.match(a1Writing, /Ich heiße Lea Hoffmann/, 'A1 writing revision includes the name field');
+assert.doesNotMatch(a1Writing, /Ich bitte um einen Termin/, 'A1 writing revision does not replace the document task with an appointment');
+
 console.log('Germany A1 cluster rules passed');

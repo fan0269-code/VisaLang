@@ -129,4 +129,14 @@ for (const [, href] of hub.matchAll(/href=["'](\/[^"']*)["']/g)) {
   assert.ok(!pathname.endsWith('.html'), `B1 hub internal link avoids legacy HTML: ${href}`);
 }
 
+const studyPlan = fs.readFileSync(path.join(guideDirectory, 'goethe-b1-study-plan.md'), 'utf8');
+assert.match(studyPlan, /break of at least 15 minutes/, 'B1 study plan records the section 2 break');
+assert.match(studyPlan, /165 minutes is net testing time/, 'B1 study plan treats 165 minutes as net testing time');
+assert.doesNotMatch(studyPlan, /165 minutes with no breaks/, 'B1 study plan does not describe 165 minutes as an unbroken sitting');
+const listening = fs.readFileSync(path.join(guideDirectory, 'goethe-b1-listening-deep-dive.md'), 'utf8');
+assert.match(listening, /Passt Donnerstag um 18 Uhr noch/, 'B1 listening drill has an original German prompt');
+assert.match(listening, /Answer: Freitag/, 'B1 listening drill states the day that was kept');
+const citizenship = fs.readFileSync(path.join(guideDirectory, 'germany-b1-citizenship-language-proof.md'), 'utf8');
+assert.match(citizenship, /AufenthG\) section 9 is a different procedure from naturalisation/, 'citizenship page separates settlement section 9 from naturalisation');
+
 console.log('Germany B1 cluster rules passed');

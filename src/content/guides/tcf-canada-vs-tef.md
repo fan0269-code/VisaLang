@@ -4,7 +4,7 @@ description: "Compare TEF Canada and TCF Canada as test products only after conf
 category: "canada"
 slug: "tcf-canada-vs-tef"
 publishedDate: "2026-07-01"
-updatedDate: "2026-07-30"
+updatedDate: "2026-11-14"
 contentStatus: "verification-pending"
 decisionStage: "choice"
 comparisonScope: "same-route"
@@ -88,7 +88,7 @@ If only one product can be verified for the centre and timing you can use, recor
 
 Return to the requirement page if the IRCC programme record is incomplete. Otherwise, complete one comparison record for TEF Canada and one for TCF Canada, then remove any option whose exact product or official centre cannot be verified.
 
-Before paying, send Express Entry acceptance, conversion or result-validity questions to IRCC and local execution questions to the selected official centre. This comparison is terminal; it does not create another content step.
+Before paying, send Express Entry acceptance, conversion or result-validity questions to IRCC and local execution questions to the selected official centre.
 
 ## Official sources
 

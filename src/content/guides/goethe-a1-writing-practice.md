@@ -32,11 +32,11 @@ Use it when a form or a short message is the gap on the [study plan](/guides/goe
 
 ## Original form, then the correction
 
-Prompt you write: name, city, a date, and one sentence asking for a document. First draft, with an error left in on purpose: “Ich wohne Berlin. Bitte Termin.”
+Prompt: write your name, your city, a date, and one sentence asking for a document, the Meldebescheinigung. First draft, with errors left in on purpose: „Ich wohne Berlin. Bitte Termin.“
 
-Revision: “Ich wohne in Berlin. Ich bitte um einen Termin am 3. Mai.”
+Revision: „Ich heiße Lea Hoffmann. Ich wohne in Berlin. Ich bitte um die Meldebescheinigung am 3. Mai.“
 
-Reason: the first draft missed the preposition and did not say which document or which day. That reason is yours to check. It is not an official mark. The rules say writing is graded at the centre by two graders against the criteria in the exam booklet. This page does not reproduce those criteria and does not estimate a score.
+The revision matches the prompt: name Lea Hoffmann, city Berlin, date 3. Mai, document Meldebescheinigung. The first draft had none of those four fields, and it asked for an appointment instead of the document. That reason is yours to check. It is not an official mark. The rules say writing is graded at the centre by two graders against the criteria in the exam booklet. This page does not reproduce those criteria and does not estimate a score. The name is fictional.
 
 ## Common mistakes
 

@@ -31,7 +31,7 @@ Use this after a settlement or citizenship file has a language question and Goet
 
 ## Module boundary
 
-The rules say the exam for adults and young learners has four modules that can be taken separately or together: reading (parts 1–5), listening (parts 1–4), writing (parts 1–3), and speaking (parts 1–3). If all four are taken on one date, the written modules generally come first and last about 165 minutes with no breaks: reading 65, listening about 40, writing 60. Speaking is generally in pairs for about 15 minutes, or about 10 minutes alone, after 15 minutes of preparation. Each module is scored out of 100. A module is passed at 60 points. Ratings in section 6.2 run from very good (100–90) down to fail (59–0). Do not average modules into an admissions result, and do not treat a module pass as acceptance by a foreigners authority or a nationality authority.
+The rules say the exam for adults and young learners has four modules that can be taken separately or together: reading (parts 1–5), listening (parts 1–4), writing (parts 1–3), and speaking (parts 1–3). If all four are taken on one date, the written modules generally come first. Section 1.4 states about 165 minutes of written testing time with no breaks inside that total: reading 65, listening about 40, writing 60. That 165 minutes is net testing time. Section 2 says that when the three written modules are offered in one session, a break of at least 15 minutes must be provided between each of them. Speaking is generally in pairs for about 15 minutes, or about 10 minutes alone, after 15 minutes of preparation. The source-review date on this page covers those B1 administration-rule sentences, Stand 1 September 2025. It does not cover unread adult sample papers. Each module is scored out of 100. A module is passed at 60 points. Ratings in section 6.2 run from very good (100–90) down to fail (59–0). Do not average modules into an admissions result, and do not treat a module pass as acceptance by a foreigners authority or a nationality authority.
 
 ## Self-check before the eight weeks
 
@@ -66,4 +66,4 @@ Confirm the route on the [settlement](/guides/goethe-b1-germany-settlement-work/
 
 ## Official sources
 
-- [B1 administration rules (PDF)](https://www.goethe.de/pro/relaunch/prf/de/Durchfuehrungsbestimmungen_B1.pdf) — Stand 1 September 2025, sections 1 and 6.
+- [B1 administration rules (PDF)](https://www.goethe.de/pro/relaunch/prf/de/Durchfuehrungsbestimmungen_B1.pdf) — Stand 1 September 2025, sections 1.4, 2, and 6. Section 2’s 15-minute written-module break was read from the 2026-11-14 text extract, lines 207–208.

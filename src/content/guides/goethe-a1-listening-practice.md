@@ -32,15 +32,17 @@ Use it after the [study plan](/guides/goethe-a1-30-day-study-plan/) shows that l
 
 ## Original number-and-time drill
 
-Say, or play a recording you make: “The appointment is at 14:30 on 3 May.” The task is to write the time and the date in two labelled boxes. 
+Say, or play a recording you make, of this original sentence: „Der Termin ist am 3. Mai um 14.30 Uhr.“ Write the time in the box labelled Uhrzeit and the date in the box labelled Datum.
 
-Feedback, which you write yourself:
+Answer: Uhrzeit 14.30; Datum 3. Mai.
 
-- If 14:30 landed in the date box, the miss is a label swap, not “bad German”.
-- If 3 became 13, the miss is the teens. Repeat only 13/30/3.
-- If you translated the whole sentence before writing, the miss is delay. Next time write the digits while the sentence is still playing.
+Feedback:
 
-This prompt is original. It is not an exam item and it has not been trialled as a teaching method.
+- If 14.30 landed in the date box, the miss is a label swap.
+- If 3 became 13, the miss is the teens. Repeat only 13, 30, and 3.
+- If you translated the whole sentence before writing the digits, the miss is delay. Next time write the digits while the sentence is still playing.
+
+This sentence is original. It is not an exam item, not an official score, and not a claim that the drill improves a result.
 
 ## Common mistakes
 
