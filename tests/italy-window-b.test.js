@@ -16,7 +16,7 @@ const comparison = read(`src/content/guides/${comparisonSlug}.md`);
 for (const [slug, source] of [[requirementSlug, requirement], [comparisonSlug, comparison]]) {
   assert.equal(field(source, 'contentStatus'), 'verification-pending', `${slug} remains verification-pending`);
   assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${slug} keeps the controlled source-review state`);
-  assert.equal(field(source, 'sourceReviewedAt'), '2026-11-14', `${slug} records the Interior and product snapshots that were read`);
+  assert.equal(field(source, 'sourceReviewedAt'), '2026-07-30', `${slug} keeps the earlier source-review date`);
   assert.equal(field(source, 'updatedDate'), '2026-11-14', `${slug} records the 2026-11-14 editorial narrowing`);
   assert.equal(field(source, 'reviewedByRole'), 'source-review', `${slug} records the controlled reviewer role`);
   assert.equal(field(source, 'noindex'), 'true', `${slug} explicitly remains outside indexing`);
@@ -30,6 +30,7 @@ for (const [slug, source] of [[requirementSlug, requirement], [comparisonSlug, c
 
 assert.equal(field(requirement, 'decisionStage'), 'requirement', 'the Italy route starts with the citizenship requirement');
 assert.equal(field(requirement, 'nextGuideSlug'), comparisonSlug, 'the requirement guide continues to the certificate comparison');
+assert.doesNotMatch(requirement, /current authority pages also describe other certification bodies/i, 'the requirement guide does not treat the unread Foreign Ministry page as a current certification list');
 assert.match(requirement, /citizenship-basis requirement check/i, 'the requirement guide states its distinct task');
 assert.match(requirement, /CILS B1 Cittadinanza.*product|product.*CILS B1 Cittadinanza/is, 'the requirement guide separates the CILS product from the authority decision');
 

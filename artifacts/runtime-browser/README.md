@@ -1,3 +1,11 @@
+# Local browser runs, kept separate
+
+`report.json`, the PNG files in this directory, and `desktop.har`, `mobile.har`, and `no-js.har` are one run. `generatedAt` is `2026-11-14T03:10:39.460Z`. That tree was head `830ca4143ada7abf8b9909bb997e70085895b7cf`. Those 36 observations are not a later head and not production.
+
+`supplement-1106-report.json` is an 11-URL JSON from `2026-11-14T03:24:20Z` with no screenshots and no HAR. It is not the 36-observation run.
+
+A later rerun, if present under `supplement-rerun/`, has its own `generatedAt`. It does not replace the 36 observations.
+
 # Local browser run, 2026-11-14
 
 Origin: `http://127.0.0.1:4173`, serving this branch’s `dist/` with the exact redirects from `vercel.json`. This is not production and not an advertising approval.

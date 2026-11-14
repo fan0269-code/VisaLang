@@ -18,7 +18,8 @@ assert.ok(!fs.existsSync(retiredPath), 'the duplicate Finland comparison source 
 const primary = read(primaryPath);
 assert.equal(field(primary, 'contentStatus'), 'verification-pending', 'the consolidated guide remains verification-pending');
 assert.equal(field(primary, 'sourceReviewStatus'), 'reviewed', 'the controlled source-review state is preserved');
-assert.equal(field(primary, 'sourceReviewedAt'), '2026-11-14', 'the guide records the overview and OPH check; the combination page was not re-read');
+assert.equal(field(primary, 'sourceReviewedAt'), '2026-07-29', 'the guide keeps the earlier source-review date');
+assert.equal(field(primary, 'updatedDate'), '2026-11-14', 'the 2026-11-14 change is the edit date');
 assert.equal(field(primary, 'nextGuideSlug'), '', 'the consolidated Finland guide is terminal');
 assert.equal(field(primary, 'noindex'), 'true', 'the still-pending Finland guide declares noindex');
 assert.equal(field(primary, 'adsEligible'), 'false', 'the still-pending Finland guide is not advertising-eligible');

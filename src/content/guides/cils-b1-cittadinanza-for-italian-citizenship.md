@@ -9,7 +9,7 @@ contentStatus: "verification-pending"
 decisionStage: "requirement"
 nextGuideSlug: "cils-vs-celi-vs-plida-for-italian-citizenship"
 comparisonScope: "same-route"
-sourceReviewedAt: "2026-11-14"
+sourceReviewedAt: "2026-07-30"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 noindex: true
@@ -34,7 +34,7 @@ This page answers the question that comes before exam selection: **what current 
 
 The Ministry of the Interior application page opened on 2026-11-14 identifies Italian-language evidence at no lower than CEFR B1 and records exemptions inside the online procedure it describes. That page does not decide every descent, marriage, or residence file. The Foreign Ministry URL returned a challenge page on the same day, so it is not current evidence of a consular evidence list. The Italian Interior Ministry page is one starting point. The competent Prefettura or responsible consulate remains the final authority for the instruction applied to an individual file.
 
-Do not begin by assuming that CILS is mandatory. The current authority pages also describe other certification bodies, qualifying study evidence and exemptions. Record which provision the competent authority says applies before paying for any exam.
+Do not begin by assuming that CILS is mandatory. The Interior application page that was opened names Italian-language evidence at B1 and the exemptions written on that page. It does not name CILS, CELI, or PLIDA. The Foreign Ministry URL was a challenge page and was not read as a list of certification bodies. Record which provision the competent office says applies before paying for any exam.
 
 ## Build an authority record
 

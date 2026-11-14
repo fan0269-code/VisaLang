@@ -273,6 +273,15 @@ for (const slug of ['spain', 'france']) {
 }
 const categoryIndexEligible = (guideCount, noindexFlag) => guideCount > 0 && noindexFlag !== true;
 assert.equal(categoryIndexEligible(2, true), false, 'a Spain or France category with future primary-discovery guides stays noindex');
+const routeInventory = JSON.parse(fs.readFileSync('artifacts/visalang-deployed-routes.json', 'utf8'));
+for (const slug of ['spain', 'france']) {
+  const row = routeInventory.categoryRoutes.find((item) => item.path === `/guides/category/${slug}/`);
+  assert.equal(row.taxonomyNoindexFlag, true, `${slug} inventory flag matches the current taxonomy`);
+  assert.equal(row.inventoryCodeReading.taxonomyNoindexFlag, false, `${slug} keeps the earlier code reading instead of rewriting it`);
+  assert.equal(row.liveProduction.capturedAt, '2026-11-14T03:08:14.605877+00:00', `${slug} production snapshot time is unchanged`);
+  assert.equal(row.liveProduction.robotsMeta, 'noindex,follow', `${slug} production robots snapshot is unchanged`);
+}
+assert.match(routeInventory.note, /not proof that every unlinked main route was found|Not exhausted|unknown/i, 'the route inventory does not claim unknown routes are exhausted');
 assert.equal(categoryIndexEligible(0, false), false, 'an empty category without the flag is also noindex today; that is not the Spain/France guard');
 const highRiskEntries = entries.filter(({ source }) => highRiskCategories.has(field(source, 'category')));
 assert.equal(highRiskEntries.length, 15, 'the high-risk collection reflects the consolidated Finland guide');
@@ -311,7 +320,8 @@ const finlandGuide = bySlug.get('yki-finnish-citizenship')?.source || '';
 const finlandBody = bodyOnly(finlandGuide);
 assert.equal(field(finlandGuide, 'contentStatus'), 'verification-pending', 'the consolidated Finland guide remains pending');
 assert.equal(field(finlandGuide, 'sourceReviewStatus'), 'reviewed', 'the Finland source review status remains controlled');
-assert.equal(field(finlandGuide, 'sourceReviewedAt'), '2026-11-14', 'the Finland guide records the overview and OPH check, not the unread combination page');
+assert.equal(field(finlandGuide, 'sourceReviewedAt'), '2026-07-29', 'the Finland source-review date stays the earlier check; 2026-11-14 is the edit');
+assert.equal(field(finlandGuide, 'updatedDate'), '2026-11-14', 'the Finland edit date is separate from the source-review date');
 assert.equal(field(finlandGuide, 'nextGuideSlug'), '', 'the consolidated Finland guide is terminal');
 assert.ok(!bySlug.has('yki-vs-other-finland-options'), 'the duplicate Finland comparison entry is removed');
 assert.match(finlandBody, /Migri.*(?:final authority|decides)|final authority.*Migri/is, 'the Finland guide keeps Migri as final authority');
@@ -331,8 +341,10 @@ assert.equal(field(ukRequirement, 'contentStatus'), 'verification-pending', 'IEL
 assert.equal(field(ukChoice, 'contentStatus'), 'verification-pending', 'LanguageCert SELT remains pending after window B-1 content work');
 assert.equal(field(ukRequirement, 'sourceReviewStatus'), 'reviewed', 'IELTS UKVI source review status is not downgraded or promoted');
 assert.equal(field(ukChoice, 'sourceReviewStatus'), 'reviewed', 'LanguageCert SELT source review status is not downgraded or promoted');
-assert.equal(field(ukRequirement, 'sourceReviewedAt'), '2026-11-14', 'IELTS UKVI records the GOV.UK SELT snapshot that was read');
-assert.equal(field(ukChoice, 'sourceReviewedAt'), '2026-11-14', 'LanguageCert SELT records the GOV.UK SELT snapshot that was read');
+assert.equal(field(ukRequirement, 'sourceReviewedAt'), '2026-07-21', 'IELTS UKVI keeps the earlier source-review date');
+assert.equal(field(ukRequirement, 'updatedDate'), '2026-11-14', 'IELTS UKVI records the 2026-11-14 edit separately');
+assert.equal(field(ukChoice, 'sourceReviewedAt'), '2026-07-21', 'LanguageCert SELT keeps the earlier source-review date');
+assert.equal(field(ukChoice, 'updatedDate'), '2026-11-14', 'LanguageCert SELT records the 2026-11-14 edit separately');
 assert.notEqual(field(ukRequirement, 'primaryIntent'), field(ukChoice, 'primaryIntent'), 'UK pages record distinct primary intents');
 assert.notEqual(field(ukRequirement, 'audienceScope'), field(ukChoice, 'audienceScope'), 'UK pages record distinct audience scopes');
 assert.notEqual(field(ukRequirement, 'localExecutionPrompt'), field(ukChoice, 'localExecutionPrompt'), 'UK pages record distinct local execution prompts');
@@ -401,7 +413,8 @@ const newlyReviewedDecisionAuthorityPages = {
 for (const [slug, { authority, scope, eyebrow }] of Object.entries(newlyReviewedDecisionAuthorityPages)) {
   const source = bySlug.get(slug)?.source || '';
   assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${slug} records the completed page-specific source review`);
-  assert.equal(field(source, 'sourceReviewedAt'), '2026-11-14', `${slug} records the 2026-11-14 snapshot for the claim that remains`);
+  assert.equal(field(source, 'sourceReviewedAt'), '2026-07-19', `${slug} keeps the earlier source-review date`);
+  assert.equal(field(source, 'updatedDate'), '2026-11-14', `${slug} records the 2026-11-14 edit separately`);
   assert.equal(field(source, 'reviewedByRole'), 'source-review', `${slug} records the controlled reviewer role`);
   assert.equal(field(source, 'contentStatus'), 'verification-pending', `${slug} remains pending for reader-specific acceptance and execution`);
   assert.match(field(source, 'primaryOfficialAuthorityUrl'), authority, `${slug} records a named final-decision authority or receiving institution`);

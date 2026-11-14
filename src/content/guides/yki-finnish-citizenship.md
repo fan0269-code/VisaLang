@@ -10,7 +10,7 @@ noindex: true
 adsEligible: false
 decisionStage: "requirement"
 comparisonScope: "same-route"
-sourceReviewedAt: "2026-11-14"
+sourceReviewedAt: "2026-07-29"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 primaryIntent: "Migri-first Finnish citizenship language-proof and YKI decision check"

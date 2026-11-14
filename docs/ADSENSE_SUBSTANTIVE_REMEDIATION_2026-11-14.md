@@ -165,7 +165,32 @@ Narrow repository edits after that snapshot, still not deployed:
 | `/guides/category/spain/` and `/guides/category/france/` | Taxonomy `noindex: true` so isolation does not depend on an empty guide set | Production already rendered noindex. This is a guard, not a report of a current leak |
 | `/guides/category/portugal/` and France label | Descriptions no longer present Golden Visa, work, and nationality as one route | No new guides |
 
-Canada pages were left as they were: three Express Entry programmes, two products, and no reprinted conversion table. `/404.html` was not given a new routing rule.
+Canada pages were left as they were. The IRCC language-test extract (`sources/7186d7bf300cfa1b.txt` lines 82–90 and the Federal Skilled Worker, Federal Skilled Trades, and Canadian Experience Class headings) lists TEF Canada and TCF Canada inside Express Entry and keeps a dated TEF notice for tests taken from 11 December 2023 to 6 May 2024. The pages already say raw scores are not interchangeable, do not reprint a conversion table, and send a historical-score notice back to IRCC instead of applying it to every candidate. That is why they were not rewritten.
+
+The DELE A2 page was changed only where the 2026-11-14 Cervantes fetch did not support the old sentence. `sources/720aa8faa985e4f9.txt` lines 65–79 name the residence-nationality route and a dispensation request. `sources/ac0635b8a55e2ab5.txt` is a DELE/CCSE maintenance notice about dates, not a nationality acceptance rule. The page no longer says that fetch described DELE A2 or higher as the accepted nationality test. `sourceReviewedAt` stays 2026-07-19.
+
+`/404.html` was not given a new routing rule.
+
+## Source-review date and edit date
+
+`sourceReviewedAt` is the earlier check of the page. `updatedDate` 2026-11-14 is the edit. A sentence that names a 2026-11-14 extract does not move the header date.
+
+| Page | Earlier sourceReviewedAt | Edit updatedDate | Extract actually opened for the edit | Not opened |
+| --- | --- | --- | --- | --- |
+| `staatsexamen-nt2-for-work-and-higher-education` | 2026-07-19 | 2026-11-14 | UvA Dutch-language requirements, lines 39–48 | NT2 product pages were not re-opened for this edit |
+| `portuguese-language-for-golden-visa-and-citizenship` | 2026-07-29 | 2026-11-14 | Nacionalidade overview, lines 128–142 | Older guide URL ended on an error page |
+| `portuguese-ciple-a2-for-citizenship-and-residence` | 2026-07-29 | 2026-11-14 | Same overview limit | CIPLE product page was not re-opened for this edit |
+| `tcf-irn-french-residence` | 2026-07-19 | 2026-11-14 | Service-Public F11926; one TCF IRN product page | Ministry URL was not readable |
+| `delf-b1-b2-french-work-study` | 2026-07-19 | 2026-11-14 | Boundary used to narrow the worker-page sentence | Sorbonne and DELF pages were not re-opened for this edit |
+| `yki-finnish-citizenship` | 2026-07-29 | 2026-11-14 | Migri overview note | Combination page was not readable; OPH page was not re-opened |
+| `cils-b1-cittadinanza-for-italian-citizenship` | 2026-07-30 | 2026-11-14 | Interior application page, lines 32–40 | Foreign Ministry URL was a challenge page; CILS product page was not re-opened |
+| `cils-vs-celi-vs-plida-for-italian-citizenship` | 2026-07-30 | 2026-11-14 | Same Interior limit and the challenge-page result | CELI and PLIDA pages were not re-opened |
+| `ielts-ukvi-uk-visa` | 2026-07-21 | 2026-11-14 | GOV.UK SELT page, lines 175–189 | IELTS product page was not re-opened |
+| `languagecert-selt-uk-visa` | 2026-07-21 | 2026-11-14 | Same GOV.UK lines | LanguageCert product page was not re-opened |
+| `dele-a2-ccse-spanish-citizenship` | 2026-07-19 | 2026-11-14 | Ministry residence page, lines 65–79; Cervantes fetch was a maintenance notice | Not used as a new acceptance rule |
+| `dele-levels-spanish-citizenship` | 2026-07-19 | 2026-11-14 | No new source; the procedure paragraph points at the requirement page | Cervantes nationality wording was not freshly established |
+| `dutch-inburgering-a2-b1-for-integration-and-citizenship` | 2026-08-15 | 2026-11-14 | IND pages were opened again | Two Inburgeren URLs were not re-read |
+| `tef-canada-immigration` and `tcf-canada-vs-tef` | 2026-07-30 | 2026-07-30 | No edit. IRCC extract lines 82–90 and the three programme headings already match the page | Conversion tables were not copied |
 
 ## What this file does not claim
 

@@ -2,7 +2,7 @@
   "generated": "2026-11-14",
   "capturedAt": "2026-11-14T03:08:14.605877+00:00",
   "baseCommit": "cd4fa98e634954f28d292025fa1f3a325f96068f",
-  "note": "liveProduction is current visalang.org, not this pull request. renderedRobotsThisBuild is this branch dist. A 200 production response is not a corrected page.",
+  "note": "Three separate layers: liveProduction is the preserved public snapshot; thisHead and taxonomyNoindexFlag follow the current source and dist; neither layer exhausts unknown unlinked routes. A 200 production response is not a corrected page.",
   "counts": {
     "builtHtmlRoutes": 97,
     "guideMarkdown": 49,
@@ -1021,7 +1021,7 @@
       "path": "/guides/category/germany-a1/",
       "taxonomyNoindexFlag": false,
       "renderedRobotsThisBuild": "index,follow,max-image-preview:large",
-      "noindexReason": "taxonomy object has no noindex flag; the built page is indexable because primary-discovery guides exist",
+      "noindexReason": "this head has no taxonomy noindex flag; the built page is indexable because primary-discovery guides exist",
       "liveProduction": {
         "url": "https://visalang.org/guides/category/germany-a1/",
         "capturedAt": "2026-11-14T03:08:14.605877+00:00",
@@ -1040,6 +1040,18 @@
           "X-Vercel-Cache": "MISS",
           "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
         }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": false,
+        "renderedRobotsThisBuild": "index,follow,max-image-preview:large",
+        "noindexReason": "taxonomy object has no noindex flag; the built page is indexable because primary-discovery guides exist"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": false,
+        "renderedRobotsThisBuild": "index,follow,max-image-preview:large",
+        "noindexReason": "this head has no taxonomy noindex flag; the built page is indexable because primary-discovery guides exist"
       }
     },
     {
@@ -1047,7 +1059,7 @@
       "path": "/guides/category/germany-b1/",
       "taxonomyNoindexFlag": false,
       "renderedRobotsThisBuild": "index,follow,max-image-preview:large",
-      "noindexReason": "taxonomy object has no noindex flag; the built page is indexable because primary-discovery guides exist",
+      "noindexReason": "this head has no taxonomy noindex flag; the built page is indexable because primary-discovery guides exist",
       "liveProduction": {
         "url": "https://visalang.org/guides/category/germany-b1/",
         "capturedAt": "2026-11-14T03:08:14.605877+00:00",
@@ -1066,6 +1078,18 @@
           "X-Vercel-Cache": "MISS",
           "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
         }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": false,
+        "renderedRobotsThisBuild": "index,follow,max-image-preview:large",
+        "noindexReason": "taxonomy object has no noindex flag; the built page is indexable because primary-discovery guides exist"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": false,
+        "renderedRobotsThisBuild": "index,follow,max-image-preview:large",
+        "noindexReason": "this head has no taxonomy noindex flag; the built page is indexable because primary-discovery guides exist"
       }
     },
     {
@@ -1073,7 +1097,7 @@
       "path": "/guides/category/germany-telc/",
       "taxonomyNoindexFlag": false,
       "renderedRobotsThisBuild": "noindex,follow",
-      "noindexReason": "taxonomy object has no noindex flag; the category page sets noindex because its primary-discovery guide count is 0",
+      "noindexReason": "this head has no taxonomy noindex flag; the built page is noindex because the primary-discovery guide count is 0",
       "liveProduction": {
         "url": "https://visalang.org/guides/category/germany-telc/",
         "capturedAt": "2026-11-14T03:08:14.605877+00:00",
@@ -1092,6 +1116,18 @@
           "X-Vercel-Cache": "MISS",
           "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
         }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": false,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "taxonomy object has no noindex flag; the category page sets noindex because its primary-discovery guide count is 0"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": false,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "this head has no taxonomy noindex flag; the built page is noindex because the primary-discovery guide count is 0"
       }
     },
     {
@@ -1099,7 +1135,7 @@
       "path": "/guides/category/germany-testdaf/",
       "taxonomyNoindexFlag": false,
       "renderedRobotsThisBuild": "noindex,follow",
-      "noindexReason": "taxonomy object has no noindex flag; the category page sets noindex because its primary-discovery guide count is 0",
+      "noindexReason": "this head has no taxonomy noindex flag; the built page is noindex because the primary-discovery guide count is 0",
       "liveProduction": {
         "url": "https://visalang.org/guides/category/germany-testdaf/",
         "capturedAt": "2026-11-14T03:08:14.605877+00:00",
@@ -1118,6 +1154,18 @@
           "X-Vercel-Cache": "MISS",
           "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
         }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": false,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "taxonomy object has no noindex flag; the category page sets noindex because its primary-discovery guide count is 0"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": false,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "this head has no taxonomy noindex flag; the built page is noindex because the primary-discovery guide count is 0"
       }
     },
     {
@@ -1125,7 +1173,7 @@
       "path": "/guides/category/uk/",
       "taxonomyNoindexFlag": true,
       "renderedRobotsThisBuild": "noindex,follow",
-      "noindexReason": "taxonomy object sets noindex: true; the built page renders noindex,follow",
+      "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow",
       "liveProduction": {
         "url": "https://visalang.org/guides/category/uk/",
         "capturedAt": "2026-11-14T03:08:14.605877+00:00",
@@ -1144,6 +1192,18 @@
           "X-Vercel-Cache": "MISS",
           "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
         }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "taxonomy object sets noindex: true; the built page renders noindex,follow"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow"
       }
     },
     {
@@ -1151,7 +1211,7 @@
       "path": "/guides/category/canada/",
       "taxonomyNoindexFlag": true,
       "renderedRobotsThisBuild": "noindex,follow",
-      "noindexReason": "taxonomy object sets noindex: true; the built page renders noindex,follow",
+      "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow",
       "liveProduction": {
         "url": "https://visalang.org/guides/category/canada/",
         "capturedAt": "2026-11-14T03:08:14.605877+00:00",
@@ -1170,6 +1230,18 @@
           "X-Vercel-Cache": "MISS",
           "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
         }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "taxonomy object sets noindex: true; the built page renders noindex,follow"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow"
       }
     },
     {
@@ -1177,7 +1249,7 @@
       "path": "/guides/category/italy/",
       "taxonomyNoindexFlag": true,
       "renderedRobotsThisBuild": "noindex,follow",
-      "noindexReason": "taxonomy object sets noindex: true; the built page renders noindex,follow",
+      "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow",
       "liveProduction": {
         "url": "https://visalang.org/guides/category/italy/",
         "capturedAt": "2026-11-14T03:08:14.605877+00:00",
@@ -1196,14 +1268,26 @@
           "X-Vercel-Cache": "MISS",
           "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
         }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "taxonomy object sets noindex: true; the built page renders noindex,follow"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow"
       }
     },
     {
       "url": "https://visalang.org/guides/category/spain/",
       "path": "/guides/category/spain/",
-      "taxonomyNoindexFlag": false,
+      "taxonomyNoindexFlag": true,
       "renderedRobotsThisBuild": "noindex,follow",
-      "noindexReason": "taxonomy object has no noindex flag; the category page sets noindex because its primary-discovery guide count is 0",
+      "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow",
       "liveProduction": {
         "url": "https://visalang.org/guides/category/spain/",
         "capturedAt": "2026-11-14T03:08:14.605877+00:00",
@@ -1222,14 +1306,26 @@
           "X-Vercel-Cache": "MISS",
           "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
         }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": false,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "taxonomy object has no noindex flag; the category page sets noindex because its primary-discovery guide count is 0"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow"
       }
     },
     {
       "url": "https://visalang.org/guides/category/france/",
       "path": "/guides/category/france/",
-      "taxonomyNoindexFlag": false,
+      "taxonomyNoindexFlag": true,
       "renderedRobotsThisBuild": "noindex,follow",
-      "noindexReason": "taxonomy object has no noindex flag; the category page sets noindex because its primary-discovery guide count is 0",
+      "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow",
       "liveProduction": {
         "url": "https://visalang.org/guides/category/france/",
         "capturedAt": "2026-11-14T03:08:14.605877+00:00",
@@ -1248,6 +1344,18 @@
           "X-Vercel-Cache": "MISS",
           "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
         }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": false,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "taxonomy object has no noindex flag; the category page sets noindex because its primary-discovery guide count is 0"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow"
       }
     },
     {
@@ -1255,7 +1363,7 @@
       "path": "/guides/category/finland/",
       "taxonomyNoindexFlag": true,
       "renderedRobotsThisBuild": "noindex,follow",
-      "noindexReason": "taxonomy object sets noindex: true; the built page renders noindex,follow",
+      "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow",
       "liveProduction": {
         "url": "https://visalang.org/guides/category/finland/",
         "capturedAt": "2026-11-14T03:08:14.605877+00:00",
@@ -1274,6 +1382,18 @@
           "X-Vercel-Cache": "MISS",
           "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
         }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "taxonomy object sets noindex: true; the built page renders noindex,follow"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow"
       }
     },
     {
@@ -1281,7 +1401,7 @@
       "path": "/guides/category/netherlands/",
       "taxonomyNoindexFlag": true,
       "renderedRobotsThisBuild": "noindex,follow",
-      "noindexReason": "taxonomy object sets noindex: true; the built page renders noindex,follow",
+      "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow",
       "liveProduction": {
         "url": "https://visalang.org/guides/category/netherlands/",
         "capturedAt": "2026-11-14T03:08:14.605877+00:00",
@@ -1300,6 +1420,18 @@
           "X-Vercel-Cache": "MISS",
           "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
         }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "taxonomy object sets noindex: true; the built page renders noindex,follow"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow"
       }
     },
     {
@@ -1307,7 +1439,7 @@
       "path": "/guides/category/portugal/",
       "taxonomyNoindexFlag": true,
       "renderedRobotsThisBuild": "noindex,follow",
-      "noindexReason": "taxonomy object sets noindex: true; the built page renders noindex,follow",
+      "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow",
       "liveProduction": {
         "url": "https://visalang.org/guides/category/portugal/",
         "capturedAt": "2026-11-14T03:08:14.605877+00:00",
@@ -1326,7 +1458,31 @@
           "X-Vercel-Cache": "MISS",
           "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
         }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "taxonomy object sets noindex: true; the built page renders noindex,follow"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow"
       }
     }
-  ]
+  ],
+  "layers": {
+    "productionSnapshot": {
+      "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+      "note": "Public HTTPS capture of visalang.org. Not this head, not a rebuilt dist, and not proof that every unlinked main route was found."
+    },
+    "thisHeadBuild": {
+      "rebuiltAt": "2026-11-14T03:35:07.530742+00:00",
+      "builtHtmlRoutes": 97,
+      "note": "Robots and taxonomy flags in thisHead and taxonomyNoindexFlag are read from the current source and dist. They are not the 11:07 production snapshot."
+    },
+    "unknownOrphans": "Not exhausted. A closed set of linked HTML URLs does not prove that every unlinked main route is absent."
+  }
 }

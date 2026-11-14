@@ -8,7 +8,7 @@ updatedDate: "2026-11-14"
 contentStatus: "verification-pending"
 decisionStage: "choice"
 comparisonScope: "same-route"
-sourceReviewedAt: "2026-11-14"
+sourceReviewedAt: "2026-07-30"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 noindex: true

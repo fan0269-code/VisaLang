@@ -135,7 +135,7 @@ try {
 
   const highRiskReviewedHtml = fs.readFileSync('dist/guides/ielts-ukvi-uk-visa/index.html', 'utf8');
   const highRiskReviewedSource = fs.readFileSync('src/content/guides/ielts-ukvi-uk-visa.md', 'utf8');
-  assert.ok(highRiskReviewedHtml.includes('Official sources last checked: <time datetime="2026-11-14">2026-11-14</time>'), 'reviewed high-risk metadata renders the GOV.UK snapshot date');
+  assert.ok(highRiskReviewedHtml.includes('Official sources last checked: <time datetime="2026-07-21">2026-07-21</time>'), 'reviewed high-risk metadata still shows the earlier source-review date');
   assert.ok(highRiskReviewedHtml.includes('Verification pending'), 'reviewed sources do not promote incomplete high-risk content');
   assert.ok(!highRiskReviewedHtml.includes('Route structure complete') && !highRiskReviewedHtml.includes('Core route structure'), 'verification-pending remains consistent across the article header');
   assert.ok(highRiskReviewedHtml.includes(`"dateModified":"${frontmatterField(highRiskReviewedSource, 'updatedDate')}"`), 'Article JSON-LD keeps the editorial updatedDate');
@@ -183,7 +183,7 @@ try {
   ]) {
     assert.ok(html.includes('Verification pending'), `${slug} remains visibly pending after Portugal window B-2 content work`);
     assert.ok(!html.includes('Route structure complete') && !html.includes('Core route structure'), `${slug} does not render mature status while contentStatus is pending`);
-    assert.ok(html.includes('2026-11-14'), `${slug} renders the nationality-overview source check`);
+    assert.ok(html.includes('2026-07-29'), `${slug} still shows the earlier source-review date`);
   }
   assert.ok(portugalRequirementHtml.includes('nationality-profile requirement check'), 'Portugal requirement render states its requirement-check task');
   assert.ok(portugalRequirementHtml.includes('<small>Next guide</small><strong>CIPLE A2 Product Check for Portuguese Nationality</strong>'), 'Portugal requirement render continues to the CIPLE product-verification page');
@@ -192,7 +192,7 @@ try {
 
   const finlandHtml = fs.readFileSync('dist/guides/yki-finnish-citizenship/index.html', 'utf8');
   assert.ok(finlandHtml.includes('Verification pending'), 'the consolidated Finland guide remains visibly pending');
-  assert.ok(finlandHtml.includes('Official sources last checked: <time datetime="2026-11-14">2026-11-14</time>'), 'the Finland guide renders the overview check, not the unread combination page');
+  assert.ok(finlandHtml.includes('Official sources last checked: <time datetime="2026-07-29">2026-07-29</time>'), 'the Finland guide still shows the earlier source-review date');
   assert.ok(finlandHtml.includes('Migri') && finlandHtml.includes('final authority'), 'the Finland render keeps the decision authority visible');
   assert.ok(finlandHtml.includes('evidence-path record'), 'the Finland render includes the merged evidence comparison workflow');
   assert.ok(!finlandHtml.includes('<small>Next guide</small>'), 'the consolidated Finland guide is terminal');
@@ -231,7 +231,7 @@ try {
   ];
   for (const { slug, authority, nextAction } of newlyReviewedP0Pages) {
     const html = fs.readFileSync(`dist/guides/${slug}/index.html`, 'utf8');
-    assert.ok(html.includes('Official sources last checked: <time datetime="2026-11-14">2026-11-14</time>'), `${slug} renders the 2026-11-14 snapshot date`);
+    assert.ok(html.includes('Official sources last checked: <time datetime="2026-07-19">2026-07-19</time>'), `${slug} still shows the earlier source-review date`);
     assert.ok(html.includes('Verification pending'), `${slug} remains visibly pending after page-specific source review`);
     assert.ok(html.includes(authority), `${slug} renders the named decision authority or receiving institution`);
     assert.ok(html.includes(nextAction), `${slug} renders its page-specific authority-first next action`);

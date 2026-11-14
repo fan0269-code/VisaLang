@@ -8,10 +8,10 @@ const routePairs = {
   portugal: ['portuguese-language-for-golden-visa-and-citizenship', 'portuguese-ciple-a2-for-citizenship-and-residence'],
 };
 const sourceReviewedAtByCountry = {
-  uk: '2026-11-14',
+  uk: '2026-07-21',
   canada: '2026-07-30',
-  italy: '2026-11-14',
-  portugal: '2026-11-14',
+  italy: '2026-07-30',
+  portugal: '2026-07-29',
 };
 
 const read = (slug) => fs.readFileSync(`src/content/guides/${slug}.md`, 'utf8');
@@ -39,7 +39,7 @@ for (const [country, [requirementSlug, choiceSlug]] of Object.entries(routePairs
 const finland = read('yki-finnish-citizenship');
 assert.equal(field(finland, 'contentStatus'), 'verification-pending', 'the consolidated Finland guide remains verification-pending');
 assert.equal(field(finland, 'sourceReviewStatus'), 'reviewed', 'the Finland guide records the controlled source review');
-assert.equal(field(finland, 'sourceReviewedAt'), '2026-11-14', 'the Finland guide records the overview and OPH check, not the unread combination page');
+assert.equal(field(finland, 'sourceReviewedAt'), '2026-07-29', 'the Finland guide keeps the earlier source-review date');
 assert.equal(field(finland, 'reviewedByRole'), 'source-review', 'the Finland guide keeps the controlled reviewer role');
 assert.equal(field(finland, 'decisionStage'), 'requirement', 'the Finland guide starts with the evidence requirement');
 assert.equal(field(finland, 'nextGuideSlug'), '', 'the consolidated Finland guide is terminal');
