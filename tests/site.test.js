@@ -3,6 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 require('./route-tools.test.js');
+require('./adsense-runtime-boundary.test.js');
 require('./commercial-pages.test.js');
 require('./adsense-risk-exposure.test.js');
 require('./germany-a1-cluster.test.js');
@@ -82,8 +83,8 @@ for (const component of requiredComponents) {
 for (const route of ['Home', 'Routes', 'Exams', 'Tools', 'Guides', 'About']) {
   assert.match(src.siteData, new RegExp(route.toLowerCase()), `navigation data should include ${route}`);
 }
-assert.ok(src.header.includes("href=\"/pricing/\""), 'Pricing remains available under the About menu');
-assert.ok(src.header.includes("href=\"/partners/\""), 'Partners remains available under the About menu');
+assert.ok(!src.header.includes("href=\"/pricing/\""), 'Pricing is not in the primary About menu');
+assert.ok(!src.header.includes("href=\"/partners/\""), 'Partners is not in the primary About menu');
 assert.ok(!src.header.includes('header-route-cta'), 'header does not duplicate the homepage Route Finder CTA');
 assert.ok(src.footer.includes('href="/pricing/"') && src.footer.includes('href="/partners/"'), 'Pricing and Partners remain available in the footer');
 assert.ok(src.header.includes('nav-menu__panel'), 'Routes and About use dropdown panels');
@@ -377,7 +378,7 @@ assert.ok(exists('src/content/guides/portuguese-language-for-golden-visa-and-cit
 assert.ok(!exists('src/content/guides/yki-vs-other-finland-options.md'), 'the duplicate Finland guide source is retired');
 
 const contentFiles = fs.readdirSync('src/content/guides').filter((file) => file.endsWith('.md'));
-assert.equal(contentFiles.length, 53, 'guide collection reflects the Finland consolidation');
+assert.equal(contentFiles.length, 49, 'guide collection reflects the Finland consolidation and the four 2026-11-14 merges');
 for (const file of contentFiles) {
   const source = read(path.join('src/content/guides', file));
   for (const field of ['title', 'description', 'category', 'slug', 'publishedDate', 'updatedDate', 'contentStatus', 'readingTime']) {

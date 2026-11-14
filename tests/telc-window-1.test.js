@@ -51,8 +51,8 @@ console.log('FAN-34 telc first-slice contract passed');
 const formatSlug = 'telc-b1-b2-exam-format-and-preparation';
 const formatSource = fs.readFileSync(`src/content/guides/${formatSlug}.md`, 'utf8');
 
-assert.equal(frontmatterField(formatSource, 'updatedDate'), '2026-08-14', 'the format guide records its substantive editorial update');
-assert.equal(frontmatterField(formatSource, 'sourceReviewedAt'), '2026-08-14', 'the format guide records the exact-product source check');
+assert.equal(frontmatterField(formatSource, 'updatedDate'), '2026-11-14', 'the format guide records its substantive editorial update');
+assert.equal(frontmatterField(formatSource, 'sourceReviewedAt'), '2026-11-14', 'the format guide records the exact-product source check');
 assert.equal(frontmatterField(formatSource, 'sourceReviewStatus'), 'reviewed', 'the format guide closes its bounded source gap');
 assert.equal(frontmatterField(formatSource, 'reviewedByRole'), 'source-review', 'the format guide records the controlled review role');
 assert.equal(frontmatterField(formatSource, 'contentStatus'), 'starter-overview', 'the format slice does not promote content maturity');
@@ -66,15 +66,15 @@ assert.match(frontmatterField(formatSource, 'localExecutionPrompt'), /selected.*
 
 assert.match(formatSource, /product record/i, 'the guide gives readers an exact-product record');
 assert.match(formatSource, /diagnostic record/i, 'the guide gives readers a reusable practice diagnostic');
-assert.match(formatSource, /both the written and oral (?:parts|examinations).*60%/is, 'the guide explains the exact-product pass rule');
-assert.match(formatSource, /general estimate.*not.*guarantee|not a guaranteed delivery date/is, 'the guide bounds the published result estimate');
+assert.match(formatSource, /does not repeat the old written\/oral point split/i, 'unpacked mock point totals are not repeated as current');
+assert.match(formatSource, /no result-timing sentence/i, 'the opened FAQ is not cited as a current result-week estimate');
 assert.match(formatSource, /profession-specific|nursing|medical|school/i, 'the guide excludes materially different variants');
 assert.match(formatSource, /selected telc examination centre/i, 'the guide names the local execution owner');
 assert.doesNotMatch(formatSource, /real exam questions|copied test items|exam dumps/i, 'the guide does not make unsupported leaked-material claims');
 assert.doesNotMatch(formatSource, /(?:€|EUR|\$)\s?\d+|(?:result|certificate|pass|acceptance) is guaranteed|guarantees? (?:a |the )?(?:result|certificate|pass|acceptance)|universally accepted|same day or within a short window/i, 'the guide avoids fixed local facts and positive guarantees');
 
 const formatHtml = fs.readFileSync(`dist/guides/${formatSlug}/index.html`, 'utf8');
-assert.match(formatHtml, /Official sources last checked: <time datetime="2026-08-14">2026-08-14<\/time>/, 'the generated format guide renders its bounded source-review date');
+assert.match(formatHtml, /Official sources last checked: <time datetime="2026-11-14">2026-11-14<\/time>/, 'the generated format guide renders its bounded source-review date');
 assert.doesNotMatch(formatHtml, /Official verification pending/, 'the reviewed format guide does not render a conflicting pending state');
 assert.match(formatHtml, />Starter overview<\//, 'the format guide remains visibly outside mature states');
 

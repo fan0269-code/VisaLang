@@ -1,11 +1,11 @@
 ---
 title: "30-day Goethe A1 study plan for family reunion"
-description: "A focused 30-day Goethe A1 study plan for family reunion applicants, covering four skills, daily practice, official materials, and risk checks."
+description: "An adjustable Goethe A1 plan: 30-day and eight-week views mapped to the 2025 administration rules, with original drills and no pass promise."
 category: "germany-a1"
 slug: "goethe-a1-30-day-study-plan"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-22"
-sourceReviewedAt: "2026-07-22"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "complete-route"
@@ -18,68 +18,65 @@ primaryOfficialAuthorityUrl: "https://www.goethe.de/en/spr/prf/ueb/pa1.html"
 examOwnerUrl: "https://www.goethe.de/en/spr/prf.html"
 localExecutionPrompt: "Use current Goethe A1 adult training to calibrate the plan and confirm the selected centre's date, ID and test-day instructions before relying on the final-week schedule."
 author: "VisaLang Editorial team"
-readingTime: "9"
+readingTime: "12"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
 supportingGuideSlugs: ["goethe-a1-speaking-topics", "goethe-a1-listening-practice"]
 ---
+## Who this plan is for
 
-## Use this plan only after the route check
+Use this after the mission has named a certificate and you have a centre or a decision to wait. It is one adjustable plan for Goethe-Zertifikat A1: Start Deutsch 1, including a 30-day view and an eight-week view for shorter weekday blocks. It does not promise that either length is enough. Adult sample HTML was not reopened. The format facts below come from the A1 administration rules, Stand 1 September 2025, not from a live sample paper.
 
-This is a preparation plan, not a promise that 30 days is enough. Confirm that A1 applies to your case, the certificate is accepted, and the exam date is realistic before building your calendar around it.
+## Map the four parts before you schedule days
 
-Goethe describes its adult A1 exam as listening, reading, writing, and speaking. The plan therefore keeps all four skills in view instead of letting one familiar skill take over the month.
+| Part in the rules | What the rules say you face | Original drill this plan uses |
+| --- | --- | --- |
+| Listening, parts 1–3, about 20 minutes | Short texts; answers are marked and later transferred | Hear a time and a date. Write both. If you swap them, the feedback is the swapped pair, not a score. |
+| Reading, parts 1–3, 25 minutes | Short texts and tasks on the paper | Match one notice to one purpose you wrote yourself. |
+| Writing, parts 1 and 2, 20 minutes | Part 2 is written on the answer sheet | Fill a four-line form, then a two-sentence message. Check that every prompt word appears. |
+| Speaking, parts 1–3, 15 minutes, at most four people, no preparation | Keywords and storyline cards | Introduce yourself, spell one name, make one request, ask one clarification. |
 
-## Your minimum daily block
+The written exam is 65 minutes with no breaks and generally comes before the oral exam. If the parts are on different days, the rules say the missing part is within 14 days. That is not a study deadline. The exam is passed at 60 or more of 100 points only when every section is taken. Section 7 says a resit is of the whole exam. Do not plan module-by-module repair as if this exam were modular.
 
-Set aside 35 to 60 minutes on most days. Use one short listening task, one reading or vocabulary task, one small writing task, and one spoken response. Keep one notebook or note file for repeated errors.
+## Thirty-day view
 
-If you only have 20 minutes, do listening plus speaking one day and reading plus writing the next. Consistency is more useful than a single long session followed by several missed days.
+Days 1–7: personal data only. Alphabet, numbers, name, city, phone, time, date. Record one error each day and the correction in your own words.
 
-## Days 1 to 7: make personal information reliable
+Days 8–15: one listening transfer and one short form. The feedback line is “which digit moved”, not “I feel ready”.
 
-Work on the alphabet, numbers, greetings, name, address, country, city, phone number, time, and dates. Practise spelling these details aloud and filling them into a simple form.
+Days 16–23: one reading match and one spoken request. Record 60 seconds. Note where the partner would not have understood the request.
 
-By day 7, you should be able to introduce yourself briefly, answer basic personal questions, and notice which numbers or sounds still cause hesitation.
+Days 24–30: one timed pass across all four parts using only original prompts. If personal data is still unreliable, do not book from this calendar. Extend.
 
-## Days 8 to 14: handle everyday exchanges
+## Eight-week view for short weekday blocks
 
-Use familiar areas such as family, work, shopping, food, appointments, travel, and housing. Read short notices, write simple form entries or messages, and practise asking for or giving basic information.
+This view replaces the retired working-adult plan. It assumes four blocks of 25–40 minutes and one weekend review. It is still not a promise.
 
-Keep answers short. The target is a usable exchange, not a memorised paragraph. Add the [speaking routine](/guides/goethe-a1-speaking-topics/) on at least four days this week.
+Weeks 1–2: the same personal-data drills as days 1–7, split so a weekday block is one skill only.
 
-## Days 15 to 21: connect skill practice to format
+Weeks 3–4: listening numbers and one form. Weekend review rewrites the errors. Do not open a second course.
 
-Use official practice material to understand the current task style. Work in short timed blocks: listen once without pausing, read a notice or message for its main point, complete a simple written task, then answer a spoken prompt aloud.
+Weeks 5–6: reading plus a two-sentence message, then a spoken request. Use the [listening](/guides/goethe-a1-listening-practice/), [speaking](/guides/goethe-a1-speaking-topics/), and [writing](/guides/goethe-a1-writing-practice/) pages for the single drill, not for another full calendar.
 
-At the end of each session, write down one error you can repair tomorrow. Do not chase a new resource whenever a task feels difficult.
+Weeks 7–8: repeat the two drills that still fail. Check the centre’s test-day ID instruction only after the pre-booking rows are filled.
 
-## Days 22 to 30: repair and rehearse
+Extend when personal data is still wrong, when you cannot finish a 20-minute listening block, or when the centre date is unknown. More time is a scheduling choice. It is not a measured pass rate.
 
-Choose the two weakest areas from your notes. Spend the first part of the week repairing them, then combine all four skills in calm timed practice.
+## Practice boundary
 
-Use the final days to rehearse practical details too: your arrival plan, the exact identification required by the centre, booking confirmation, and a simple speaking warm-up. Check current local instructions rather than copying another candidate's test-day routine.
+Use official material you download yourself to see instructions. The drills on this page are original. They are not exam items, not a leaked paper, and not a claim that this routine has been shown to raise scores.
 
-## When this plan is not enough
+## Common mistakes
 
-Extend the plan when basic details are still difficult to understand, spell, or say; when timed work repeatedly breaks down; or when you have not yet used official practice material. More time is a planning choice, not a personal failure.
-
-If you are rebuilding after an unsuccessful result, use the [Goethe A1 retake guide](/guides/goethe-a1-retake-policy/) to choose the next date only after reviewing the score report and local policy.
-
-## Weekly review checklist
-
-- Can you answer simple personal questions without a long script?
-- Can you understand short everyday information at the practice level you are using?
-- Can you complete a simple form or short message carefully?
-- Can you ask for and respond to basic information aloud?
-- Is your next official action clear: study, book, confirm documents, or wait for a better date?
+- Treating 30 days or eight weeks as the official preparation length.
+- Copying a real task wording into the drill.
+- Booking because the calendar ended.
 
 ## Next action
 
-Use [Goethe A1 speaking topics](/guides/goethe-a1-speaking-topics/) and [Goethe A1 listening practice](/guides/goethe-a1-listening-practice/) for targeted daily work. Before booking, return to the [Germany A1 family reunion hub](/germany-family-reunion-a1/) and verify the current local requirements.
+If the route is still open, return to the [requirement guide](/guides/german-family-reunion-language-requirement/). If you are ready to pay, use the [pre-booking checklist](/guides/goethe-a1-pre-booking-checklist/).
 
 ## Official sources
 
-- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [Official Goethe A1 exam training](https://www.goethe.de/en/spr/prf/ueb/pa1.html)
+- [A1 administration rules (PDF)](https://www.goethe.de/pro/relaunch/prf/de/Durchfuehrungsbestimmungen_A1_Start_Deutsch_1.pdf) — Stand 1 September 2025, sections 1, 2, 6, and 7.

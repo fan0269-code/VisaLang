@@ -1,11 +1,11 @@
 ---
 title: "Goethe B1 listening deep dive"
-description: "A focused Goethe-Zertifikat B1 listening routine using the current official module description, adult training audio, error review, and timed practice."
+description: "A Goethe B1 listening correction for a changed day and time, tied to the 2025 module rules and not to an unread sample."
 category: "germany-b1"
 slug: "goethe-b1-listening-deep-dive"
 publishedDate: "2026-07-04"
-updatedDate: "2026-07-22"
-sourceReviewedAt: "2026-07-22"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "core-route"
@@ -19,88 +19,33 @@ primaryOfficialAuthorityUrl: "https://www.goethe.de/ins/de/en/prf/prf/gzb1.html"
 examOwnerUrl: "https://www.goethe.de/ins/de/en/prf/prf/gzb1.html"
 localExecutionPrompt: "Use current Goethe B1 adult listening training and confirm any centre-specific format, date, ID and test-day instruction with the authorised local centre."
 author: "VisaLang Editorial team"
-readingTime: "7"
+readingTime: "6"
 featured: false
 eyebrow: "Germany B1+"
 route: "germany-b1"
-supportingGuideSlugs: ["goethe-b1-difficulty-analysis", "goethe-b1-study-plan"]
+supportingGuideSlugs: ["goethe-b1-study-plan", "goethe-b1-writing-assessment"]
 ---
+## Who this page is for
 
-## Direct practice answer
+Use it when the [B1 study plan](/guides/goethe-b1-study-plan/) self-check says a number, date, or attitude was missed. The competent authority decides proof acceptance. This drill is not an eligibility result. The B1 rules, Stand 1 September 2025, describe a listening module with parts 1–4, about 40 minutes. They do not, in the pages read here, publish the current adult sample. Any “question type” labels below are editorial, not official task names.
 
-Use the current official Goethe B1 adult material to learn the format. The detail, intent and paraphrase drills below are VisaLang practice methods, not an official taxonomy or a prediction of live questions.
+## Original dialogue and the miss
 
-Your goal is to predict what kind of detail matters before the audio starts, then check the answer against the whole meaning, not one familiar word.
+Two speakers, which you record: one asks whether Thursday at 18:00 still works; the other says Friday at 18:00 is better because Thursday is a parents’ evening. The question you write: “Which day did they keep?”
 
-## Who this is for
+If you answer Thursday, the feedback is that “still works” was the rejected day and “better” marked the change. If you answer 18:00 only, the feedback is that the time did not decide the day. Replay once for the day word only.
 
-### Best for
+This dialogue is original. It does not claim to match part 1, 2, 3, or 4 of an unread sample.
 
-- Learners who can understand slow German but lose points in timed listening.
-- Candidates preparing for Goethe B1 with official practice materials.
-- Students who often miss numbers, dates, places, and speaker attitude.
+## Common mistakes
 
-### Skip if
-
-- You have not yet reviewed the official Goethe B1 format.
-- You want copied real audio or leaked questions.
-- You need a full beginner listening course from zero.
-
-## Listening module quick-reference
-
-Before each task, scan the questions and mark the type of information you need:
-
-- Number, price, time, or date.
-- Place or direction.
-- Speaker opinion or mood.
-- Agreement, disagreement, or final decision.
-- Reason, problem, or next action.
-
-This reduces panic because you are listening for a purpose.
-
-## VisaLang practice categories
-
-The following categories are editorial ways to organise error review after using official material. They are not a list of guaranteed item types.
-
-| Item type | Main risk | Practice focus |
-| --- | --- | --- |
-| Short announcements | Missing one number or time. | Drill numbers, times, dates, and public-service vocabulary. |
-| Dialogues | Following the wrong speaker. | Mark who says what and listen for final decisions. |
-| Interviews | Choosing a keyword trap. | Listen for paraphrase and speaker attitude. |
-| Longer messages | Losing the thread. | Write one-word notes after each idea. |
-
-## Four common practice traps
-
-- Keyword trap: the word appears, but the meaning points elsewhere.
-- Correction trap: the speaker first says one thing, then changes it.
-- Number trap: similar prices, times, or dates appear close together.
-- Opinion trap: the speaker sounds positive about one detail but negative overall.
-
-## Section-by-section strategy
-
-Use the reading time to predict answers. During the audio, do not translate every sentence. Listen for the information category you marked.
-
-After the task, review wrong answers by asking which phrase created the trap. This is more useful than replaying the whole file without analysis.
-
-## Self-drill routine
-
-Week 1: numbers, times, prices, dates, and short announcements.
-
-Week 2: two-person dialogues and final-decision questions.
-
-Week 3: longer audio with paraphrase and opinion questions.
-
-Week 4: timed official-format practice, then error-log repair.
-
-## Goethe B1 vs telc B1 listening
-
-Do not assume one listening test is easier from anecdotes. Compare official sample materials, local availability, and accepted proof. If both are accepted for your route, choose the format you can practise consistently with official materials.
-
-## Official sources
-
-- [Goethe-Zertifikat B1 further information](https://www.goethe.de/ins/de/en/prf/prf/gzb1/inf.html)
-- [Official Goethe B1 exam training](https://www.goethe.de/en/spr/prf/ueb/pb1.html)
+- Listing official-sounding task types that the opened rules do not name.
+- Treating 40 minutes as a result-release clock.
 
 ## Next action
 
-After focused listening drills, run one bounded session with the [Goethe B1 mock-exam routine](/guides/goethe-b1-mock-exam-routine/). Keep proof acceptance and local booking questions with the receiving authority and authorised centre.
+Write the miss in the study-plan self-check and do not open a second weekly plan.
+
+## Official sources
+
+- [B1 administration rules (PDF)](https://www.goethe.de/pro/relaunch/prf/de/Durchfuehrungsbestimmungen_B1.pdf) — Stand 1 September 2025. Adult sample papers were not reopened, so no point on a current sample is claimed.

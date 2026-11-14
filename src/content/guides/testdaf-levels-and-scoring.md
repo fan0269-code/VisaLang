@@ -4,8 +4,8 @@ description: "Understand how TestDaF reports TDN results and how to verify wheth
 category: "germany-testdaf"
 slug: "testdaf-levels-and-scoring"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-23"
-sourceReviewedAt: "2026-07-23"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "starter-overview"
@@ -74,6 +74,6 @@ Keep the programme requirement and the score explanation separate:
 - [TestDaF: digital scoring](https://www.testdaf.de/de/teilnehmende/der-digitale-testdaf/auswertung-des-digitalen-testdaf/)
 - [TestDaF: paper-based scoring](https://www.testdaf.de/de/teilnehmende/der-papierbasierte-testdaf/auswertung-des-papierbasierten-testdaf/)
 - [uni-assist: Language certificates](https://www.uni-assist.de/en/how-to-apply/assemble-your-documents/language-certificates/)
-- [DAAD: Requirements overview](https://www.daad.de/en/studying-in-germany/requirements/overview/)
+- DAAD requirements overview — not reopened on 2026-11-14. No new claim.
 
-Last updated: 2026-07-23. Source review completed for the TestDaF scoring statements above; the target programme's current use of a result still requires a programme-specific check.
+Scope note, 2026-11-14: the digital 0–20 bands, the 0–80 total, and the separate paper-based page were read in the audit snapshots. That is not a completed programme review. The template still says official verification pending because this page has no single programme authority URL. The page stays out of primary discovery. Do not average the components into an admissions score, and do not apply the digital bands to a paper result.

@@ -1,12 +1,12 @@
 ---
 title: "Goethe A1 writing practice: short forms and messages"
 seoTitle: "Goethe A1 writing practice"
-description: "Build a safe Goethe A1 writing-practice routine for short forms and messages, then verify the current local format with official materials."
+description: "An original Goethe A1 form-and-message drill, with one wrong draft, a revision, and the reason. Not an official score."
 category: "germany-a1"
 slug: "goethe-a1-writing-practice"
 publishedDate: "2026-07-11"
-updatedDate: "2026-07-22"
-sourceReviewedAt: "2026-07-22"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "complete-route"
@@ -24,36 +24,29 @@ readingTime: "6"
 featured: false
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-supportingGuideSlugs: ["goethe-a1-speaking-topics", "goethe-a1-official-links-practice-resources"]
+supportingGuideSlugs: ["goethe-a1-speaking-topics", "goethe-a1-listening-practice"]
 ---
+## Who this drill is for
 
-## Scope of this guide
+Use it when a form or a short message is the gap on the [study plan](/guides/goethe-a1-30-day-study-plan/). The A1 rules give writing parts 1 and 2, 20 minutes, and say part 2 is written on the answer sheet. A local centre instruction about ID or seating is not a change to that format. If a centre paper and the administration rules disagree about the task, ask the exam owner which paper is current. Do not treat the centre’s house rule as a new exam format.
 
-Use this page when you have already confirmed that an A1 exam route is relevant and need a repeatable way to practise short written communication. It is not a prediction of your local exam tasks, a substitute for official materials, or proof that a certificate will be accepted.
+## Original form, then the correction
 
-## Practise abilities, not predicted prompts
+Prompt you write: name, city, a date, and one sentence asking for a document. First draft, with an error left in on purpose: “Ich wohne Berlin. Bitte Termin.”
 
-Build short practice around everyday purposes: entering personal details carefully, asking for simple information, confirming an appointment, or writing a brief message. Practise clear spelling, the details requested, and a simple greeting and closing where the task calls for them.
+Revision: “Ich wohne in Berlin. Ich bitte um einen Termin am 3. Mai.”
 
-Do not memorise a single paragraph and reuse it everywhere. Change the name, time, place, reason, and requested action so that you are practising how to respond rather than copying a script.
+Reason: the first draft missed the preposition and did not say which document or which day. That reason is yours to check. It is not an official mark. The rules say writing is graded at the centre by two graders against the criteria in the exam booklet. This page does not reproduce those criteria and does not estimate a score.
 
-## A short writing routine
+## Common mistakes
 
-1. Choose one official sample or an original practice prompt.
-2. Underline the information you must include before writing.
-3. Write a short first version without a translation app.
-4. Check names, numbers, dates, and whether every requested detail appears.
-5. Rewrite one sentence more clearly, then keep an error note for the next session.
-
-## Verify the current format officially
-
-Use current official sample material to understand the format you are preparing for. If your local centre provides a different instruction, that instruction takes priority. Do not buy copied answers, leaked tasks, or services that promise a score or pass.
+- “If the centre says something different, follow the centre” applied to the exam’s task shape.
+- Buying copied answers.
 
 ## Next action
 
-Pair this routine with [Goethe A1 speaking topics](/guides/goethe-a1-speaking-topics/) and the [30-day study plan](/guides/goethe-a1-30-day-study-plan/). Before payment, return to the [Germany A1 family reunion hub](/germany-family-reunion-a1/) to confirm the route, centre, and timing questions still fit your plan.
+Write one new four-field form. Tick only the fields the prompt asked for.
 
 ## Official sources
 
-- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [Official Goethe A1 exam training](https://www.goethe.de/en/spr/prf/ueb/pa1.html)
+- [A1 administration rules (PDF)](https://www.goethe.de/pro/relaunch/prf/de/Durchfuehrungsbestimmungen_A1_Start_Deutsch_1.pdf) — Stand 1 September 2025. Adult sample HTML was not reopened.

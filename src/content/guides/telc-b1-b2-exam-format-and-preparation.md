@@ -4,8 +4,8 @@ description: "Use the current official telc B1 or B2 format, mock examination, s
 category: "germany-telc"
 slug: "telc-b1-b2-exam-format-and-preparation"
 publishedDate: "2026-06-30"
-updatedDate: "2026-08-14"
-sourceReviewedAt: "2026-08-14"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "starter-overview"
@@ -62,11 +62,9 @@ The live telc product page controls the current product description. The selecte
 
 ## Scoring and results
 
-The official B1 and B2 mock examinations reviewed for this guide use the same top-level weighting: the written examination accounts for 75% of the available points and the oral examination for 25%.
+The 2026-11-14 source set did not include an unpacked telc mock, so this page does not repeat the old written/oral point split or the old point totals as currently verified. Download the mock from the product page you are using and read the scoring section in that file. Do not fill the gap from memory.
 
-For both exact products, candidates must reach at least 60% in both the written and oral examinations; in other words, both the written and oral examinations require 60% of their available points. The reviewed official mocks state this as at least 135 written points and 45 oral points. Do not judge readiness from one combined practice total: record the written and oral outcomes separately.
-
-telc determines the official examination result. Its current FAQ gives a general estimate of 4–6 weeks, depending on examination volume and processing work. This is not a guaranteed delivery date for your result or certificate. Ask the selected telc examination centre how it will communicate the result and hand over the certificate for your exact sitting, then leave contingency before any external deadline.
+The telc FAQ opened for this correction has no result-timing sentence of the kind previously repeated on this page. It says the centre sets the date and the fee, that some centres do not offer every product, and that parts held on different days must not be more than seven days apart. The fourteen-day sentence on that FAQ is the centre’s registration with telc before the examination, not a nationwide candidate booking deadline and not a result date. Ask the selected centre how it will hand over the result.
 
 A telc pass rule does not decide whether a visa office, immigration authority, university, employer or professional regulator will accept the certificate. Confirm that separate question with the body receiving the proof.
 

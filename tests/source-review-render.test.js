@@ -34,12 +34,8 @@ const supportReviewRoutes = {
   'goethe-a1-listening-practice': 'goethe-a1-speaking-topics',
   'goethe-a1-speaking-topics': 'goethe-a1-30-day-study-plan',
   'goethe-a1-writing-practice': 'goethe-a1-30-day-study-plan',
-  'goethe-a1-study-plan-working-adults': 'goethe-a1-30-day-study-plan',
-  'goethe-a1-official-links-practice-resources': 'goethe-a1-30-day-study-plan',
   'goethe-a1-30-day-study-plan': '',
-  'goethe-a1-booking-mistakes': 'german-a1-documents-checklist',
   'goethe-a1-pre-booking-checklist': 'german-a1-exam-booking-timeline',
-  'goethe-b1-difficulty-analysis': 'goethe-b1-study-plan',
   'goethe-b1-listening-deep-dive': 'goethe-b1-mock-exam-routine',
   'goethe-b1-mock-exam-routine': 'goethe-b1-study-plan',
   'goethe-b1-speaking-topics': 'goethe-b1-mock-exam-routine',
@@ -128,9 +124,7 @@ try {
     const renderedNext = html.match(/<a href="([^"]+)"><small>Next guide<\/small>/)?.[1] || '';
     assert.equal((html.match(/<h1(?:\s|>)/g) || []).length, 1, `${slug} renders exactly one H1`);
     assert.ok(html.includes('aria-label="Disclaimer"'), `${slug} renders the planning disclaimer`);
-    const expectedSupportReviewDate = slug === 'goethe-a1-germany-family-reunion' || slug === 'german-a1-family-reunion-faq'
-      ? '2026-11-11'
-      : '2026-07-22';
+    const expectedSupportReviewDate = '2026-11-14';
     assert.ok(html.includes(`Official sources last checked: <time datetime="${expectedSupportReviewDate}">${expectedSupportReviewDate}</time>`), `${slug} renders the current source-review date`);
     assert.ok(html.includes('<dt>Reviewed by role</dt><dd>Source review</dd>'), `${slug} renders the source-review role`);
     assert.ok(!html.includes('Official verification pending'), `${slug} does not render a conflicting pending state`);
@@ -259,11 +253,11 @@ try {
   }
 
   const chineseReviewedHtml = fs.readFileSync('dist/zh/guides/goethe-a1-test-centers/index.html', 'utf8');
-  assert.ok(chineseReviewedHtml.includes('官方来源核验日期: <time datetime="2026-07-19">2026-07-19</time>'), 'Chinese review renders its controlled independent review date');
+  assert.ok(chineseReviewedHtml.includes('官方来源核验日期: <time datetime="2026-11-14">2026-11-14</time>'), 'Chinese review renders its controlled independent review date');
   assert.ok(chineseReviewedHtml.includes('来源与翻译审查'), 'Chinese review renders the controlled source and translation role');
   assert.ok(!chineseReviewedHtml.includes('独立中文来源复核待完成'), 'reviewed Chinese content no longer renders the pending boundary');
 
-  assert.equal(germanyB1GuideSources.length, 13, 'render checks cover all 13 Germany B1 guides');
+  assert.equal(germanyB1GuideSources.length, 12, 'render checks cover the 12 Germany B1 guides');
   for (const { file, source } of germanyB1GuideSources) {
     const slug = frontmatterField(source, 'slug');
     const html = fs.readFileSync(path.join('dist/guides', slug, 'index.html'), 'utf8');
@@ -306,17 +300,7 @@ try {
     const html = fs.readFileSync(path.join('dist/guides', slug, 'index.html'), 'utf8');
     const sourceReviewedAt = frontmatterField(source, 'sourceReviewedAt');
     const updatedDate = frontmatterField(source, 'updatedDate');
-    const expectedReviewDate = p0RefreshedB1On20261111.has(slug)
-      ? '2026-11-11'
-      : p1RewrittenB1On20261110.has(slug)
-      ? '2026-11-10'
-      : p0RewrittenB1On20261108.has(slug)
-      ? '2026-11-08'
-      : depthRemediatedB1CoreSlugs.has(slug)
-      ? '2026-10-21'
-      : recheckedB1On20261107.has(slug)
-        ? '2026-11-07'
-        : '2026-07-19';
+    const expectedReviewDate = '2026-11-14';
     assert.ok(html.includes(`"dateModified":"${updatedDate}"`), `${slug} Article dateModified comes from updatedDate`);
     assert.equal(frontmatterField(source, 'sourceReviewStatus'), 'reviewed', `${slug} keeps the completed source review`);
     assert.equal(sourceReviewedAt, expectedReviewDate, `${slug} keeps the actual source-review date`);
@@ -371,7 +355,7 @@ const englishGuides = fs.readdirSync(guideDirectory)
       noindex: frontmatterField(source, 'noindex') === 'true',
     };
   });
-assert.equal(englishGuides.length, 53, 'source collection reflects the Finland consolidation');
+assert.equal(englishGuides.length, 49, 'source collection reflects the Finland consolidation and the four 2026-11-14 merges');
 for (const { slug, contentStatus, sourceReviewStatus, noindex } of englishGuides) {
   const canonical = `https://visalang.org/guides/${slug}/`;
   const escapedCanonical = canonical.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');

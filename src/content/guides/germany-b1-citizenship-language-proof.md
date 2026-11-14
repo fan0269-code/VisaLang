@@ -5,8 +5,8 @@ description: "Naturalisation treats language and civic knowledge as separate evi
 category: "germany-b1"
 slug: "germany-b1-citizenship-language-proof"
 publishedDate: "2026-07-11"
-updatedDate: "2026-11-11"
-sourceReviewedAt: "2026-11-11"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "core-route"
@@ -43,9 +43,9 @@ Under language, that page gives examples: a BAMF certificate of successful langu
 
 Under legal and social order, the same page says you generally show this with a passed naturalisation test (Einbürgerungstest). It also says the test “Leben in Deutschland” counts, including when taken in the integration course, and that certain German school or higher-education certificates are enough in the cases that page describes. A B1 language result is not that item. Read the detail on [Leben in Deutschland and language proof](/guides/germany-b1-leben-in-deutschland-and-language-proof/).
 
-Nationality Act section 10 was opened on 2026-11-11. Subsection 1 requires five years of lawful ordinary residence, plus the other conditions in that subsection. Former subsections 3 and 3a are repealed. Do not plan from the older “usually eight years, or seven with an integration-course certificate” sentences that are still on BAMF’s English final-examination page. That page’s JSON-LD date is still 2019-12-10. The current anchors are section 10 and BAMF’s naturalisation page dated 30 June 2025.
+Current Nationality Act section 10 (1), read from the 2026-11-14 gesetze-im-internet snapshot, states five years of lawful ordinary residence for that claim. Language (no. 6) is separate from knowledge of the legal and social order (no. 7). Subsections (3) and (3a) are marked weggefallen on that current text. BGBl. 2025 I No. 256 Article 1 deletes subsection 3. Article 6 (1) brings the Act into force the day after promulgation, except Article 5. Do not attribute subsection 3a’s current status to that announcement, and do not read this correction as abolishing every three-year path in other provisions. BAMF’s German naturalisation overview dated 9 November 2026 lists five years, B1, and the naturalisation test. BAMF’s English page dated 30 June 2025 still describes special integration after three years. That English sentence is a historical conflict. Do not offer it as a choice. Other routes, including Residence Act section 9 and discretionary naturalisation, remain questions for the competent authority. This page does not copy fees or processing times.
 
-On that naturalisation page, naturalisation is described after five years of habitual residence, and after three years where the special integration that page describes is shown — its example is particularly good academic or professional performance together with very good German. Only the nationality authority can say whether that sentence is yours. This page does not copy the portal’s fee or any processing-time figure. The federal procedure page is linked for the order of steps, not for a duration.
+The federal procedure page is linked for the order of steps, not for a duration. The English final-examination page still contains older “usually eight years, or seven with an integration-course certificate” sentences. Do not copy those either.
 
 Section 10 keeps two different conditions: no. 6, sufficient German, and no. 7, knowledge of the legal and social order. A B1 language result does not automatically meet no. 7. Subsection 4 says the language condition is met by a B1 exam, and it also describes other cases, including age-appropriate speech for a child under 16 and a narrower oral standard in the hardship and older-recruitment cases that subsection names. Subsection 5 says knowledge of the legal and social order is, as a rule, shown by a passed naturalisation test. Subsection 6 sets both conditions aside in the illness, disability, and age cases it names. The nationality authority applies those sentences. This page does not.
 
@@ -54,7 +54,7 @@ BAMF’s naturalisation topic page tells readers to get forms from the competent
 ## Decision tree
 
 1. **Find the nationality authority** for your place of residence. BAMF says the foreigners authority or the city or district administration can tell you which office it is. Save that office’s current page.
-2. **Ask which naturalisation route** it is applying, including whether it is using the five-year path or the special-integration path described on the 30 June 2025 naturalisation page. Do not assume either without its confirmation.
+2. **Ask which naturalisation provision** it is applying. For section 10, the current statute states five years and marks subsections (3) and (3a) weggefallen. Do not ask it to apply the special-integration sentence on the English page dated 30 June 2025. Other provisions, if the authority names them, are a separate file.
 3. **Make two lists:** language documents, and civic-knowledge documents. Add a third list for every other item the authority names.
 4. **Quote the accepted language documents.** The federal examples are a selection, not a promise that Goethe, telc, DTZ, or a school certificate will be enough in your file.
 5. **Quote the civic-knowledge documents separately.** Einbürgerungstest and Leben in Deutschland are knowledge tests. They are not B1.
@@ -101,7 +101,10 @@ When the authority has named the language documents, use the [exam comparison](/
 ## Official sources
 
 - [Nationality Act §10](https://www.gesetze-im-internet.de/stag/__10.html) — five years in subsection 1; subsections 3 and 3a repealed; no. 6 language and no. 7 knowledge are separate; subsection 4 is the B1 route with further cases; subsection 5 is the naturalisation test as a rule. Opened 2026-11-11.
-- [BAMF: Naturalisation in Germany](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html) — page date 30/06/2025; five years, and three years where that page’s special integration is shown; language and the naturalisation test are separate. Fees on the page are not copied here.
+- [Nationality Act section 10](https://www.gesetze-im-internet.de/stag/__10.html) — current text: five years in (1); (3) and (3a) weggefallen; no. 6 and no. 7 are separate.
+- [BGBl. 2025 I No. 256](https://www.recht.bund.de/bgbl/1/2025/256/regelungstext.pdf?__blob=publicationFile) — Article 1 deletes subsection 3 only.
+- [BAMF Einbürgerung, German](https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html) — Datum 09.11.2026. Five years, B1, naturalisation test.
+- [BAMF naturalisation, English](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html) — Date 30/06/2025. Historical conflict. Do not choose the three-year sentence.
 - [BAMF: Einbürgerung](https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html) — where to ask which authority is competent. Opened 2026-11-11.
 - [einbuergerung.de: how naturalisation proceeds (English)](https://www.einbuergerung.de/ablauf.php?l=en) — step order only. Fee and duration figures on that page are not copied here.
 - [BAMF-NAvI: authorities](https://bamf-navi.bamf.de/en/Themen/Behoerden/?typ=ABH) — locator, not a document-format list.

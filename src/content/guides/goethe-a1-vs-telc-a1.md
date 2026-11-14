@@ -5,8 +5,8 @@ description: "Compare Goethe A1 and telc A1 only after your mission names accept
 category: "germany-a1"
 slug: "goethe-a1-vs-telc-a1"
 publishedDate: "2026-06-30"
-updatedDate: "2026-11-11"
-sourceReviewedAt: "2026-11-11"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "complete-route"
@@ -24,7 +24,7 @@ readingTime: "13"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-supportingGuideSlugs: ["goethe-a1-fees-by-country", "goethe-a1-booking-mistakes"]
+supportingGuideSlugs: ["goethe-a1-fees-by-country", "goethe-a1-pre-booking-checklist"]
 ---
 
 ## Who should use this comparison
@@ -104,7 +104,24 @@ The ÖSD ZA1 page says that exam is for learners from age 14 and has a written m
 
 ## Next action
 
-When the product name matches the mission’s words, use [Goethe A1 test centers](/guides/goethe-a1-test-centers/) to verify an official local centre and its terms, then use [Goethe A1 booking mistakes](/guides/goethe-a1-booking-mistakes/) and the [documents checklist](/guides/german-a1-documents-checklist/) before paying. If the acceptance question is still open, return to the [requirement guide](/guides/german-family-reunion-language-requirement/) or the [family-reunion FAQ](/guides/german-a1-family-reunion-faq/). The [Germany A1 hub](/germany-family-reunion-a1/) keeps the full order.
+When the product name matches the mission’s words, use [Goethe A1 test centers](/guides/goethe-a1-test-centers/) to verify an official local centre and its terms, then use [Goethe A1 pre-booking checklist](/guides/goethe-a1-pre-booking-checklist/) and the [documents checklist](/guides/german-a1-documents-checklist/) before paying. If the acceptance question is still open, return to the [requirement guide](/guides/german-family-reunion-language-requirement/) or the [family-reunion FAQ](/guides/german-a1-family-reunion-faq/). The [Germany A1 hub](/germany-family-reunion-a1/) keeps the full order.
+
+## What the opened exam rules actually separate
+
+These rows are format facts from sources opened for this correction. They are not a ranking, a speed claim, or a statement that either certificate will be accepted.
+
+| Question | Goethe-Zertifikat A1: Start Deutsch 1 | Start German 1 / telc German A1 |
+| --- | --- | --- |
+| Source read | A1 administration rules, Stand 1 September 2025, sections 1–2 and 6–7 | telc English product page, structure table |
+| Shape | Written group exam and oral group exam. Not offered as separate modules. | Written and oral parts. The product page says it cannot be taken as a partial examination. |
+| Listening | Parts 1–3, about 20 minutes | 3 parts, about 20 minutes |
+| Reading and writing | Reading parts 1–3, 25 minutes; writing parts 1 and 2, 20 minutes. Written total 65 minutes with no breaks. | Reading and writing listed as 3 and 2 parts in a 45-minute block |
+| Speaking | Parts 1–3. Group of at most four. 15 minutes. No preparation time. | 3 parts, about 15 minutes, usually four candidates, no preparation time |
+| Pass line in the Goethe rules | At least 60 of 100 points, with all sections taken. 75 points are in the written exam and 25 in the oral exam. | Not copied from an unpacked mock. Use the mock you download from telc. |
+| What neither row decides | Whether your mission accepts the certificate, the fee, or the next seat | The same limit |
+
+Adult Goethe sample HTML was not reopened. Do not treat this table as a verified current sample paper. ÖSD’s current name “Zertifikat A1 (ZA1)” is not automatically the BAMF leaflet’s “Grundstufe Deutsch 1”.
+
 
 ## Official sources
 

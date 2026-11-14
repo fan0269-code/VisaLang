@@ -5,8 +5,8 @@ description: "Whether your file needs German A1 is decided by the competent Germ
 category: "germany-a1"
 slug: "german-family-reunion-language-requirement"
 publishedDate: "2026-06-30"
-updatedDate: "2026-11-11"
-sourceReviewedAt: "2026-11-11"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "complete-route"
@@ -89,7 +89,7 @@ On the mission page, record:
 - Any exception it tells you to raise with the visa section, and the evidence it asks for.
 - The date you opened the page.
 
-Mission pages opened on 2026-11-11 show why the local page matters. The Embassy in Dhaka describes its own certificate practice for family reunion. The Embassy in Yaoundé publishes its own note on spouse language skills and exemptions. Singapore’s family-reunion page and Bern’s page on joining a spouse are further samples of local instructions. None of them is a substitute for the mission that will take your application. Certificate age, “interview instead of a certificate”, and accepted product lists are **needs-verify** items that differ by mission. The central Foreign Office FAQ still states no nationwide “within one year” rule. Do not copy one mission’s list into another file.
+Mission pages opened on 2026-11-11 show why the local page matters. The Embassy in Dhaka describes its own certificate practice for family reunion. The Embassy in Yaoundé publishes its own note on spouse language skills and exemptions. Singapore’s family-reunion page and Bern’s page on joining a spouse are further samples of local instructions. None of them is a substitute for the mission that will take your application. “Interview instead of a certificate” and accepted product lists are mission-specific. The Federal Foreign Office certificate FAQ, Welche Sprachzertifikate werden im Visumsverfahren akzeptiert, read from the 2026-11-14 snapshot, says that as a rule (in der Regel) the exam date should not be more than one year old. If individual modules were repeated, the date of the oldest passed module applies. That “as a rule” guidance is not a statute that the certificate expires automatically, and the mission that receives the file can still give a case instruction. The shorter spouse-language FAQ does not state an age rule. Its silence does not cancel the certificate FAQ. The BAMF spousal leaflet (imprint 03/2023) also does not state a nationwide maximum age. Do not turn either silence into “the Foreign Office has no one-year guidance,” and do not turn the certificate FAQ into a hard nationwide expiry. Do not copy one mission’s list into another file. The phrase “central Foreign Office FAQ” on this page means the spouse-language FAQ when age is not the topic, and the certificate FAQ when age is the topic. Residence Act section 30 is the foreign-spouse provision. It does not by itself cover a German-citizen sponsor, EU free movement, or a child or parent route.
 
 ## Reader verification record
 

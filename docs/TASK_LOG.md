@@ -1,6 +1,11 @@
 # VisaLang Task Log
 
-Updated: 2026-11-11
+Updated: 2026-11-14
+
+## AdSense substantive correction — 2026-11-14
+
+- Scope: repository only. Not deployed. Section 10 no longer offers the old special-integration three-year route. BGBl. 2025 I No. 256 deletes subsection 3 only. Subsection 3a is weggefallen on the current statute and is not attributed to that announcement. Residence Act section 18c is left as a different skilled-worker clock. Certificate age follows the Foreign Office certificate FAQ (`in der Regel`, oldest passed module) and is not a nationwide expiry. The spouse FAQ’s silence is not used to deny that guidance. Goethe-Institut Beijing registration HTML was not opened, so price and category claims from it were removed. Four English URLs redirect in one hop after their distinct checks moved. Advertising runtime stays false. The 15 non-German research guides and 2 product pages stay noindex and were not expanded. Inventory: `artifacts/visalang-deployed-routes.json` and `docs/VISALANG_DEPLOYED_ROUTES_2026-11-14.md`. Page-level evidence: `docs/ADSENSE_SUBSTANTIVE_REMEDIATION_2026-11-14.md`.
+- Sources read from the 2026-11-14 audit snapshots, not re-fetched live by this change: StAG §10, BGBl. 2025 I No. 256 (txt lines 15–21 and 77–80), BAMF German naturalisation overview dated 9 November 2026, BAMF English naturalisation page dated 30 June 2025 as conflict only, Foreign Office certificate FAQ, spouse-language FAQ, Goethe A1 and B1 administration rules and Exam Guidelines (Stand 1 September 2025), AufenthG §§9, 18c and 30, telc FAQ and B1/B2 product tables, TestDaF structure and scoring extracts. Make it in Germany was a challenge page and was not used as a current source. DAAD timed out and was not given a new claim. Adult Goethe samples and telc mock ZIPs were not opened.
 
 ## Germany A1/B1 source refresh — 2026-11-11
 

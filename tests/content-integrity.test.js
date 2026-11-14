@@ -65,24 +65,8 @@ const p0RewrittenOn20261108 = new Set([
 for (const slug of auditedGermanyA1Slugs) {
   const source = bySlug.get(slug)?.source || '';
   assert.equal(field(source, 'contentStatus'), 'complete-route', `${slug} keeps content maturity independent from source review`);
-  const expectedReviewDate = p0RefreshedOn20261111.has(slug)
-    ? '2026-11-11'
-    : p1RewrittenOn20261110.has(slug)
-    ? '2026-11-10'
-    : p0RewrittenOn20261108.has(slug)
-    ? '2026-11-08'
-    : sourceRecheckedOn20261107.has(slug)
-    ? '2026-11-07'
-    : depthRemediatedA1Slugs.has(slug)
-    ? '2026-10-21'
-    : newlyReviewedLocalSourceSlugs.has(slug) ? '2026-07-19' : '2026-07-18';
-  const expectedUpdateDate = p0RefreshedOn20261111.has(slug)
-    ? '2026-11-11'
-    : p1RewrittenOn20261110.has(slug)
-    ? '2026-11-10'
-    : p0RewrittenOn20261108.has(slug)
-    ? '2026-11-08'
-    : aeoCopyOn20261107.has(slug) ? '2026-11-07' : expectedReviewDate;
+  const expectedReviewDate = '2026-11-14';
+  const expectedUpdateDate = '2026-11-14';
   assert.equal(field(source, 'updatedDate'), expectedUpdateDate, `${slug} records the substantive visible update`);
   for (const fieldName of ['audienceScope', 'finalDecisionAuthorityType', 'primaryOfficialAuthorityUrl', 'examOwnerUrl', 'localExecutionPrompt']) {
     assert.ok(field(source, fieldName), `${slug} records ${fieldName}`);
@@ -103,7 +87,6 @@ const germanyA1MainRoute = [
   'goethe-a1-pre-booking-checklist',
   'german-a1-exam-booking-timeline',
   'german-a1-documents-checklist',
-  'goethe-a1-official-links-practice-resources',
   'goethe-a1-30-day-study-plan',
 ];
 for (let index = 0; index < germanyA1MainRoute.length - 1; index += 1) {
@@ -174,7 +157,7 @@ for (const [slug, expected] of Object.entries(germanyB1CoreRoute)) {
 }
 
 const germanyB1Entries = entries.filter(({ source }) => field(source, 'category') === 'germany-b1');
-assert.equal(germanyB1Entries.length, 13, 'Germany B1 route graph retains exactly 13 guides');
+assert.equal(germanyB1Entries.length, 12, 'Germany B1 route graph retains 12 guides after the difficulty-page merge');
 for (const { file, source } of germanyB1Entries) {
   const slug = field(source, 'slug');
   const nextGuideSlug = field(source, 'nextGuideSlug');
@@ -210,12 +193,8 @@ const supportReviewRouteExpectations = {
   'goethe-a1-listening-practice': ['germany-a1', 'local-execution', 'goethe-a1-speaking-topics'],
   'goethe-a1-speaking-topics': ['germany-a1', 'local-execution', 'goethe-a1-30-day-study-plan'],
   'goethe-a1-writing-practice': ['germany-a1', 'local-execution', 'goethe-a1-30-day-study-plan'],
-  'goethe-a1-study-plan-working-adults': ['germany-a1', 'local-execution', 'goethe-a1-30-day-study-plan'],
-  'goethe-a1-official-links-practice-resources': ['germany-a1', 'local-execution', 'goethe-a1-30-day-study-plan'],
   'goethe-a1-30-day-study-plan': ['germany-a1', 'local-execution', ''],
-  'goethe-a1-booking-mistakes': ['germany-a1', 'local-execution', 'german-a1-documents-checklist'],
   'goethe-a1-pre-booking-checklist': ['germany-a1', 'local-execution', 'german-a1-exam-booking-timeline'],
-  'goethe-b1-difficulty-analysis': ['germany-b1', 'local-execution', 'goethe-b1-study-plan'],
   'goethe-b1-listening-deep-dive': ['germany-b1', 'local-execution', 'goethe-b1-mock-exam-routine'],
   'goethe-b1-mock-exam-routine': ['germany-b1', 'local-execution', 'goethe-b1-study-plan'],
   'goethe-b1-speaking-topics': ['germany-b1', 'local-execution', 'goethe-b1-mock-exam-routine'],

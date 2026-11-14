@@ -4,8 +4,8 @@ description: "Use telc's current centre finder, exact-product records and writte
 category: "germany-telc"
 slug: "telc-b1-b2-fees-and-test-centers"
 publishedDate: "2026-06-30"
-updatedDate: "2026-08-14"
-sourceReviewedAt: "2026-08-14"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "starter-overview"
@@ -104,7 +104,7 @@ Recheck the chosen offer immediately before payment. A quote is evidence for tha
 
 ## Separate central rules from local and regional terms
 
-telc's current central regulations govern matters such as registration with a licensed examination centre, examination conduct and which retake arrangements may exist for particular products. The selected centre controls its candidate-facing registration prerequisites, fee and other contractual conditions.
+The telc rules PDF opened for this correction is the file at `10000311_9994-P00-150011`. It is not silently mixed with an older 9994-only edition. In the sections read, the centre is the contract and fee party for the products those rules cover. The FAQ, not that PDF alone, says the centre sets dates and prices, some centres do not offer every product, parts on different days are not more than 7 days apart, and the 14-day figure is the centre registering the exam with telc. None of those sentences is a candidate’s result date or a nationwide booking deadline. The centre finder was not searched, so no named seat is listed here.
 
 For cancellation, transfer, refund, absence, payment disputes and local consumer terms, read the selected centre's current policy for the country or region in which you book. Do not apply a German centre's terms to another country, one franchise location's terms to another branch, or a past sitting's terms to a new booking. If a local policy appears to conflict with current telc examination rules, pause payment and ask both the centre and telc which rule applies to the exact sitting.
 
