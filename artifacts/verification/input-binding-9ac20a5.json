@@ -1,0 +1,51 @@
+{
+  "inputCommit": "9ac20a563b99e508c18da1d139ee421dd5ef5e94",
+  "inputTree": "f2a93627c8e710ff0540f951f8c211672ea27157",
+  "note": "These blob hashes are the content commit. Browser observations and this manifest are a later commit and are not build inputs. The 36-observation report and the 21-URL rerun are earlier runs and are not this commit coverage.",
+  "sourceBlobs": {
+    "src/content/guides/goethe-b1-study-plan.md": "0e23a21344852e72e6dd3c3e140d51e5d33442f1",
+    "src/content/guides/goethe-a1-listening-practice.md": "f804612c096a0e98f51d943f4584ae4b4e236981",
+    "src/content/guides/goethe-a1-writing-practice.md": "ef89e9d1155b659fa9f71d39a7c91e8898d5183a",
+    "src/content/guides/goethe-b1-listening-deep-dive.md": "ace31b3c036ba78b4c68d5a4000d2b8546c7be88",
+    "src/content/guides/tef-canada-immigration.md": "abc8dcdf476676345aaea874cfebfde67b451d6f",
+    "src/content/guides/tcf-canada-vs-tef.md": "623caab89485067d1d3b250054bd1e31691369ec",
+    "src/content/guides/germany-b1-citizenship-language-proof.md": "730d0bb4dba60af588b13adca0073e6a7cf5780b",
+    "src/pages/germany-b1-settlement-citizenship.astro": "2e97aabb0627424656b6f60b4dbaf00f873dbf45",
+    "docs/SOURCE_CLAIM_READ_LOG_2026-11-14.md": "e63a920f67436aca4f3afcfb4e41cb269b6efe90"
+  },
+  "builtHtml": {
+    "dist/guides/goethe-b1-study-plan/index.html": {
+      "sha256": "2dee9c08e34fcb6af23b0a58f1e0a8cd3fda564f033fa6ddc7a642277acf7f8a",
+      "needles": {
+        "break of at least 15 minutes": true,
+        "165 minutes is net testing time": true
+      }
+    },
+    "dist/guides/goethe-a1-listening-practice/index.html": {
+      "sha256": "07ef43573478fde5f4b7392da205351ab61f0137a644ff8e30d3d3f5f9c8e688",
+      "needles": {
+        "Der Termin ist am 3. Mai um 14.30 Uhr": true
+      }
+    },
+    "dist/guides/goethe-a1-writing-practice/index.html": {
+      "sha256": "f4e74df763e96dde887d9aeaba3de79385a2321f3a3769d11ec92ea6dfa401d9",
+      "needles": {
+        "Meldebescheinigung": true,
+        "Lea Hoffmann": true
+      }
+    },
+    "dist/guides/goethe-b1-listening-deep-dive/index.html": {
+      "sha256": "c8215d409abed2dd54e659ae5c7caf4b16786b2c2e6ac4674e2afe4ebfcceb70",
+      "needles": {
+        "Passt Donnerstag um 18 Uhr noch": true,
+        "Freitag": true
+      }
+    },
+    "dist/germany-b1-settlement-citizenship/index.html": {
+      "sha256": "99ae30267b286866dee49b2d838d81b05dc62d3f4e790c11e02b724c3e919395",
+      "needles": {
+        "does not itself delete subsection 3a": true
+      }
+    }
+  }
+}
