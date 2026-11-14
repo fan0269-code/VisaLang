@@ -50,4 +50,14 @@ Both use `CommercialPageShell`, which sets `noindex` and `enableAds={false}`.
 
 ## Build set after this branch
 
-Guide markdown count is 49 after four English pages were merged and redirected. The 15 research guides and 8 held German telc/TestDaF guides remain in the collection and outside primary discovery. Category pages for the non-German slugs stay noindex where the taxonomy already says so. This inventory does not add routes.
+This branch’s `dist/` contains **97 HTML routes**: 36 static Astro pages, 49 guide pages, and **12 category pages**. `artifacts/visalang-deployed-routes.json` lists every built URL in `builtRoutes`, with the robots meta from this build. Redirects are listed separately in `redirects`. A redirect is not one of the 97 HTML files. Astro’s preview server does not apply `vercel.json`; `scripts/preview-with-redirects.mjs` does.
+
+The 15 research guides and 8 held German telc/TestDaF guides remain in the collection and outside primary discovery. This inventory does not add, delete, or restore those pages.
+
+## Category routes
+
+`categoryRoutes` in the JSON records, for each of the 12 category URLs, the production HTTP status, `capturedAt`, response headers, production robots meta, this build’s robots meta, and whether `src/data/guide-taxonomy.ts` sets `noindex: true`.
+
+Spain and France do **not** set `noindex: true` on the taxonomy object. Their built and live pages still render `noindex,follow` because the category page indexes only when at least one guide is in primary discovery, and those categories have none. The same render gate, not a taxonomy flag, noindexes `/guides/category/germany-telc/` and `/guides/category/germany-testdaf/`. UK, Canada, Italy, Finland, Netherlands, and Portugal do set `noindex: true`. Germany A1 and Germany B1 render indexable category pages.
+
+`liveProduction15plus2` records the same HTTP status, `capturedAt`, headers, and robots meta for the 15 guides and 2 product pages. On 2026-11-14 each returned 200 and `noindex,follow`. That capture is production, not this pull request.

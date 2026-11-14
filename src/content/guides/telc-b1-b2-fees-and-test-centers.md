@@ -5,7 +5,7 @@ category: "germany-telc"
 slug: "telc-b1-b2-fees-and-test-centers"
 publishedDate: "2026-06-30"
 updatedDate: "2026-11-14"
-sourceReviewedAt: "2026-11-14"
+sourceReviewedAt: "2026-08-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "starter-overview"
@@ -129,3 +129,5 @@ Create the exact-product record, shortlist centres through the current telc find
 - [telc: Rules and Regulations for telc Examinations](https://www.telc.net/fileadmin/user_upload/pdfs/AGB_Pruefungsordnung/10000311_9994-P00-150011.pdf)
 - [telc: Zertifikat Deutsch / telc Deutsch B1](https://www.telc.net/en/language-examinations/certificate-exams/german/certificate-german-telc-german-b1/)
 - [telc: telc Deutsch B2](https://www.telc.net/en/language-examinations/certificate-exams/german/telc-german-b2/)
+
+The source-review date above is the earlier full check. The 2026-11-14 wording is an edit. It does not mean DAAD, Make it in Germany, unread Goethe HTML, or an unpacked telc mock was freshly verified.

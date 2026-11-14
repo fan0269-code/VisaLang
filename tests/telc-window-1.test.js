@@ -6,8 +6,8 @@ const { frontmatterField } = require('./frontmatter-field.js');
 const slug = 'telc-vs-goethe-for-german-visa';
 const source = fs.readFileSync(`src/content/guides/${slug}.md`, 'utf8');
 
-assert.equal(frontmatterField(source, 'updatedDate'), '2026-08-14', 'the guide records the current editorial update');
-assert.equal(frontmatterField(source, 'sourceReviewedAt'), '2026-08-14', 'the guide records the current official-source check');
+assert.equal(frontmatterField(source, 'updatedDate'), '2026-11-14', 'the guide records the 2026-11-14 editorial edit');
+assert.equal(frontmatterField(source, 'sourceReviewedAt'), '2026-08-14', 'the earlier full source check stays 2026-08-14');
 assert.equal(frontmatterField(source, 'sourceReviewStatus'), 'reviewed', 'the guide closes the bounded source-review gap');
 assert.equal(frontmatterField(source, 'reviewedByRole'), 'source-review', 'the guide records the controlled source-review role');
 assert.equal(frontmatterField(source, 'contentStatus'), 'starter-overview', 'the first slice does not promote content maturity');
@@ -30,16 +30,20 @@ assert.match(source, /selected official or authorised centre/i, 'the guide names
 assert.match(source, /cannot decide|does not decide|cannot establish|does not establish/i, 'the guide separates exam-owner facts from acceptance decisions');
 assert.match(source, /Only if.*exact Goethe A1 and telc A1 products.*candidate proofs.*same family-reunion route/is, 'the A1 handoff requires exact same-route product confirmation');
 assert.match(source, /Otherwise, stop and return to the responsible authority/is, 'the guide stops instead of routing from a level-only confirmation');
-for (const heading of ['Exam Overview', 'Eligibility', 'Fees', 'Dates', 'Test Format', 'Locations / Online', 'Required Documents', 'Passing Score', 'Retake Policy', 'Prep Path', 'Best Courses', 'Practice Test', 'Career Outcome', 'Related Exams', 'FAQ', 'Last Updated']) {
-  assert.match(source, new RegExp(`^## ${heading.replace('/', '\\/')}$`, 'm'), `the guide includes the workflow section: ${heading}`);
+for (const heading of ['Exam Overview', 'Eligibility', 'Fees', 'Dates', 'Test Format', 'Locations / Online', 'Required Documents', 'Passing Score', 'Retake Policy', 'Prep Path', 'Best Courses', 'Practice Test', 'Career Outcome', 'Related Exams']) {
+  assert.doesNotMatch(source, new RegExp(`^## ${heading.replace('/', '\\/')}$`, 'm'), `the isolated comparison no longer keeps an empty product heading: ${heading}`);
 }
+assert.match(source, /^## Blank product fields stay blank$/m, 'the isolated comparison states that product fields stay blank');
+assert.match(source, /oldest passed module/, 'the isolated comparison uses the certificate FAQ age limit');
+assert.match(source, /^## FAQ$/m, 'the guide keeps a short FAQ');
+assert.match(source, /^## Last Updated$/m, 'the guide keeps its update note');
 
 assert.doesNotMatch(source, /many embassies|frequently used for|better choice|historically the most common|reasonable fee/i, 'the guide removes unsupported prevalence and ranking claims');
 assert.doesNotMatch(source, /(?:€|EUR|\$)\s?\d+|\b\d+\s?(?:hours?|days?|weeks?)\b|always accepted|universally accepted|guaranteed|easier|harder|faster|cheaper/i, 'the guide avoids fixed dynamic facts, guarantees, and unsupported rankings');
 
 execFileSync('npm', ['run', 'build'], { stdio: 'pipe' });
 const html = fs.readFileSync(`dist/guides/${slug}/index.html`, 'utf8');
-assert.match(html, /Official sources last checked: <time datetime="2026-08-14">2026-08-14<\/time>/, 'the generated guide renders its bounded source-review date');
+assert.match(html, /Official sources last checked: <time datetime="2026-08-14">2026-08-14<\/time>/, 'the generated guide still shows the 2026-08-14 source check');
 assert.doesNotMatch(html, /Official verification pending/, 'the reviewed guide does not render a conflicting pending state');
 assert.match(html, /Source-reviewed verification responsibilities for this guide/, 'the generated guide renders the bounded authority and source responsibilities');
 assert.match(html, /Final decision authority:<\/strong> Responsible German mission, embassy or consulate and any competent receiving immigration authority/, 'the generated guide renders the responsible authority boundary');
@@ -51,8 +55,8 @@ console.log('FAN-34 telc first-slice contract passed');
 const formatSlug = 'telc-b1-b2-exam-format-and-preparation';
 const formatSource = fs.readFileSync(`src/content/guides/${formatSlug}.md`, 'utf8');
 
-assert.equal(frontmatterField(formatSource, 'updatedDate'), '2026-11-14', 'the format guide records its substantive editorial update');
-assert.equal(frontmatterField(formatSource, 'sourceReviewedAt'), '2026-11-14', 'the format guide records the exact-product source check');
+assert.equal(frontmatterField(formatSource, 'updatedDate'), '2026-11-14', 'the format guide records the 2026-11-14 editorial edit');
+assert.equal(frontmatterField(formatSource, 'sourceReviewedAt'), '2026-08-14', 'the format guide keeps the 2026-08-14 source check because the mock archive was not unpacked');
 assert.equal(frontmatterField(formatSource, 'sourceReviewStatus'), 'reviewed', 'the format guide closes its bounded source gap');
 assert.equal(frontmatterField(formatSource, 'reviewedByRole'), 'source-review', 'the format guide records the controlled review role');
 assert.equal(frontmatterField(formatSource, 'contentStatus'), 'starter-overview', 'the format slice does not promote content maturity');
@@ -74,7 +78,7 @@ assert.doesNotMatch(formatSource, /real exam questions|copied test items|exam du
 assert.doesNotMatch(formatSource, /(?:€|EUR|\$)\s?\d+|(?:result|certificate|pass|acceptance) is guaranteed|guarantees? (?:a |the )?(?:result|certificate|pass|acceptance)|universally accepted|same day or within a short window/i, 'the guide avoids fixed local facts and positive guarantees');
 
 const formatHtml = fs.readFileSync(`dist/guides/${formatSlug}/index.html`, 'utf8');
-assert.match(formatHtml, /Official sources last checked: <time datetime="2026-11-14">2026-11-14<\/time>/, 'the generated format guide renders its bounded source-review date');
+assert.match(formatHtml, /Official sources last checked: <time datetime="2026-08-14">2026-08-14<\/time>/, 'the generated format guide still shows the 2026-08-14 source check');
 assert.doesNotMatch(formatHtml, /Official verification pending/, 'the reviewed format guide does not render a conflicting pending state');
 assert.match(formatHtml, />Starter overview<\//, 'the format guide remains visibly outside mature states');
 

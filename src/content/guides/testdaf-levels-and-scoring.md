@@ -5,7 +5,7 @@ category: "germany-testdaf"
 slug: "testdaf-levels-and-scoring"
 publishedDate: "2026-06-30"
 updatedDate: "2026-11-14"
-sourceReviewedAt: "2026-11-14"
+sourceReviewedAt: "2026-07-23"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "starter-overview"
@@ -77,3 +77,5 @@ Keep the programme requirement and the score explanation separate:
 - DAAD requirements overview — not reopened on 2026-11-14. No new claim.
 
 Scope note, 2026-11-14: the digital 0–20 bands, the 0–80 total, and the separate paper-based page were read in the audit snapshots. That is not a completed programme review. The template still says official verification pending because this page has no single programme authority URL. The page stays out of primary discovery. Do not average the components into an admissions score, and do not apply the digital bands to a paper result.
+
+The source-review date above is the earlier full check. The 2026-11-14 wording is an edit. It does not mean DAAD, Make it in Germany, unread Goethe HTML, or an unpacked telc mock was freshly verified.

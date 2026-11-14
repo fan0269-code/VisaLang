@@ -5,7 +5,7 @@ category: "germany-telc"
 slug: "telc-b1-b2-germany-work-nursing"
 publishedDate: "2026-06-30"
 updatedDate: "2026-11-14"
-sourceReviewedAt: "2026-11-14"
+sourceReviewedAt: "2026-08-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "starter-overview"
@@ -108,3 +108,5 @@ Create the four-row authority record. Start with the Recognition Finder if the p
 - [Make it in Germany: work visa for qualified professionals](https://www.make-it-in-germany.com/en/visa-residence/types/work-qualified-professionals)
 - [telc: telc Deutsch B1·B2 Pflege](https://www.telc.net/en/language-examinations/certificate-exams/german/telc-german-b1-b2-nursing/)
 - [telc: language examinations support and FAQ](https://www.telc.net/en/language-examinations/language-examinations-support-faq/)
+
+The source-review date above is the earlier full check. The 2026-11-14 wording is an edit. It does not mean DAAD, Make it in Germany, unread Goethe HTML, or an unpacked telc mock was freshly verified.

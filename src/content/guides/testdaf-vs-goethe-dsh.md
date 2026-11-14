@@ -5,7 +5,7 @@ category: "germany-testdaf"
 slug: "testdaf-vs-goethe-dsh"
 publishedDate: "2026-06-30"
 updatedDate: "2026-11-14"
-sourceReviewedAt: "2026-11-14"
+sourceReviewedAt: "2026-07-23"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "starter-overview"
@@ -91,3 +91,5 @@ Save the programme's accepted-proof wording first. Then open the matching TestDa
 - Goethe-Zertifikat C1 — not re-read from a current regulation in this correction. No C1 module fact is stated above.
 
 Scope note, 2026-11-14: digital TestDaF’s four parts were read. DSH still depends on the university you have not selected. The pending template line stays, and this page stays out of primary discovery.
+
+The source-review date above is the earlier full check. The 2026-11-14 wording is an edit. It does not mean DAAD, Make it in Germany, unread Goethe HTML, or an unpacked telc mock was freshly verified.

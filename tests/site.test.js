@@ -3,7 +3,6 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 require('./route-tools.test.js');
-require('./adsense-runtime-boundary.test.js');
 require('./commercial-pages.test.js');
 require('./adsense-risk-exposure.test.js');
 require('./germany-a1-cluster.test.js');
@@ -18,6 +17,7 @@ require('./italy-window-b.test.js');
 require('./canada-window-b.test.js');
 require('./netherlands-window-b.test.js');
 require('./telc-window-1.test.js');
+require('./adsense-runtime-boundary.test.js');
 require('./telc-fees-centres.test.js');
 require('./telc-work-nursing.test.js');
 require('./fan-43-germany-b1-recheck.test.js');
@@ -203,7 +203,8 @@ assert.ok(src.homeHero.includes('home-route-spotlight') && !src.home.includes('r
 assert.ok(src.home.includes("label: 'Use Route Finder'") && src.home.includes("label: 'Browse guides'"), 'homepage has consistent primary and secondary action labels');
 assert.ok(src.home.includes('<RouteSelector'), 'homepage uses the shared purpose selector');
 assert.ok(src.zhHome.includes('<RouteSelector locale="zh-CN"') && src.zhHome.includes('bodyClass="home-view"'), 'Chinese homepage shares the route selector and home design scope');
-assert.ok(src.zhHome.includes('publishedCategoryCount') && !src.zhHome.includes('guideCategories.length'), 'Chinese homepage reports only dynamically published route categories');
+assert.ok(!src.zhHome.includes('共 {totalGuideCount}') && !src.zhHome.includes('{publishedCategoryCount} 个已发布路线分类'), 'Chinese homepage does not present the guide count as maturity');
+assert.ok(src.zhHome.includes('2026-11-14') && src.zhHome.includes('篇数不是质量证明'), 'Chinese homepage records the 2026-11-14 correction instead of a count');
 assert.ok(src.zhHome.includes('<GuideStatusBadge status={zhUpdated[0].contentStatus} locale="zh-CN"'), 'Chinese homepage localizes its guide status badge');
 assert.ok(!src.home.includes('heroPreload') && !src.zhHome.includes('heroPreload') && !src.home.includes('home-route-verification') && !src.zhHome.includes('home-route-verification'), 'both homepages render the shared verification slip without the retired desk photograph');
 assert.ok(src.css.includes('--od-seal') && src.css.includes('--od-bg: #141415') && !src.css.includes('translateY(-2px)') && !src.css.includes('text-transform: uppercase'), 'UI polish keeps one seal accent, graphite dark surfaces, quiet type, and no card lift');

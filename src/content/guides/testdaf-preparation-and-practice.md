@@ -5,7 +5,7 @@ category: "germany-testdaf"
 slug: "testdaf-preparation-and-practice"
 publishedDate: "2026-06-30"
 updatedDate: "2026-11-14"
-sourceReviewedAt: "2026-11-14"
+sourceReviewedAt: "2026-07-23"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "starter-overview"
@@ -78,3 +78,5 @@ Before changing an exam plan, return to the decision sequence:
 - [TestDaF: digital scoring](https://www.testdaf.de/de/teilnehmende/der-digitale-testdaf/auswertung-des-digitalen-testdaf/)
 
 Scope note, 2026-11-14: the digital preparation URL is an official entry. The practice loop on this page is editorial advice, not a tested course and not a required number of weeks. The sample exercises were not completed. The template’s pending line means there is still no programme authority URL. The page stays isolated.
+
+The source-review date above is the earlier full check. The 2026-11-14 wording is an edit. It does not mean DAAD, Make it in Germany, unread Goethe HTML, or an unpacked telc mock was freshly verified.

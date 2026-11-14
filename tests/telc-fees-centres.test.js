@@ -5,8 +5,8 @@ const { frontmatterField } = require('./frontmatter-field.js');
 const feesSlug = 'telc-b1-b2-fees-and-test-centers';
 const feesSource = fs.readFileSync(`src/content/guides/${feesSlug}.md`, 'utf8');
 
-assert.equal(frontmatterField(feesSource, 'updatedDate'), '2026-11-14', 'the fees guide records its substantive editorial update');
-assert.equal(frontmatterField(feesSource, 'sourceReviewedAt'), '2026-11-14', 'the fees guide records the current centre and fee source check');
+assert.equal(frontmatterField(feesSource, 'updatedDate'), '2026-11-14', 'the fees guide records the 2026-11-14 editorial edit');
+assert.equal(frontmatterField(feesSource, 'sourceReviewedAt'), '2026-08-14', 'the fees guide keeps the 2026-08-14 source check');
 assert.equal(frontmatterField(feesSource, 'sourceReviewStatus'), 'reviewed', 'the fees guide closes its bounded source gap');
 assert.equal(frontmatterField(feesSource, 'reviewedByRole'), 'source-review', 'the fees guide records the controlled review role');
 assert.equal(frontmatterField(feesSource, 'contentStatus'), 'starter-overview', 'the fees slice does not promote content maturity');

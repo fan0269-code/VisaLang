@@ -5,7 +5,7 @@ category: "germany-testdaf"
 slug: "testdaf-germany-university-admissions"
 publishedDate: "2026-06-30"
 updatedDate: "2026-11-14"
-sourceReviewedAt: "2026-11-14"
+sourceReviewedAt: "2026-07-23"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "starter-overview"
@@ -91,3 +91,5 @@ After you have saved the programme requirement, continue in this order:
 - [TestDaF: proof of German skills for study](https://www.testdaf.de/de/hochschulen/der-testdaf-und-hochschulen/nachweis-der-deutschkenntnisse-fuer-das-studium/)
 
 Last updated: 2026-07-23. Source review completed for the bounded statements above; the target programme's current requirements still require a programme-specific check.
+
+The source-review date above is the earlier full check. The 2026-11-14 wording is an edit. It does not mean DAAD, Make it in Germany, unread Goethe HTML, or an unpacked telc mock was freshly verified.

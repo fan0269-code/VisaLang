@@ -9,8 +9,8 @@ const field = (name) => {
   return value.replace(/^["']|["']$/g, '');
 };
 
-assert.equal(field('updatedDate'), '2026-11-14', 'the work and nursing guide records its substantive editorial update');
-assert.equal(field('sourceReviewedAt'), '2026-11-14', 'the work and nursing guide records the current authority and product checks');
+assert.equal(field('updatedDate'), '2026-11-14', 'the work and nursing guide records the 2026-11-14 editorial edit');
+assert.equal(field('sourceReviewedAt'), '2026-08-14', 'the work and nursing guide keeps the 2026-08-14 source check because Make it in Germany was not re-read');
 assert.equal(field('sourceReviewStatus'), 'reviewed', 'the work and nursing guide closes its bounded source gap');
 assert.equal(field('reviewedByRole'), 'source-review', 'the work and nursing guide records the controlled source-review role');
 assert.equal(field('contentStatus'), 'starter-overview', 'the work and nursing slice does not promote content maturity');
@@ -35,7 +35,7 @@ assert.doesNotMatch(source, /guarantees? (?:recognition|a visa|a residence permi
 
 execFileSync('npm', ['run', 'build'], { stdio: 'pipe' });
 const html = fs.readFileSync(`dist/guides/${slug}/index.html`, 'utf8');
-assert.match(html, /Official sources last checked: <time datetime="2026-11-14">2026-11-14<\/time>/, 'the generated work and nursing guide renders its bounded source-review date');
+assert.match(html, /Official sources last checked: <time datetime="2026-08-14">2026-08-14<\/time>/, 'the generated work and nursing guide still shows the 2026-08-14 source check');
 assert.doesNotMatch(html, /Official verification pending/, 'the reviewed work and nursing guide does not render a conflicting pending state');
 assert.match(html, />Starter overview<\//, 'the work and nursing guide remains visibly outside mature states');
 

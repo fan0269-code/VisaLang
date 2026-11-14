@@ -21,7 +21,12 @@ for (const file of toolPages) {
   assert.doesNotMatch(source, /adsbygoogle|pagead|doubleclick|data-ad-slot/i, `${file} has no ad slot`);
 }
 
-if (fs.existsSync('dist/tools/route-finder/index.html')) {
+const builtTool = 'dist/tools/route-finder/index.html';
+assert.ok(
+  fs.existsSync(builtTool),
+  'Built HTML ad scan did not run because dist/tools/route-finder/index.html is absent. A missing build is not evidence that ads are absent.',
+);
+{
   const roots = ['dist/tools', 'dist/pricing', 'dist/partners', 'dist/route-review', 'dist/404.html'];
   const files = [];
   const walk = (target) => {

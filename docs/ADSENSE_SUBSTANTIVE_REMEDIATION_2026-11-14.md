@@ -4,6 +4,8 @@ Date: 2026-11-14. This file records what changed in this pull request. It is not
 
 Source reads are the 2026-11-14 audit snapshots named below. A blocked source was narrowed, not filled in.
 
+`updatedDate` is the day the wording changed. `sourceReviewedAt` is the last check of the sources that page relies on. TestDaF pages keep `sourceReviewedAt: 2026-07-23` because DAAD and the Goethe C1 regulation were not re-read. telc nursing, format, fees, and telc-vs-Goethe keep `sourceReviewedAt: 2026-08-14` because Make it in Germany was a challenge page and the telc mock archive was not unpacked. Their `updatedDate` is 2026-11-14 only where the wording was narrowed. Germany A1 and B1 pages that quote the statute, BGBl, the certificate FAQ, the German BAMF overview, or the opened exam PDFs keep `sourceReviewedAt: 2026-11-14`. That date is those snapshots. It is not a claim that unread Goethe HTML or an adult sample was opened.
+
 ## V-LEGAL
 
 | URL | Original locator | Actual change | Source read and limit | Structure | Result |
@@ -12,7 +14,7 @@ Source reads are the 2026-11-14 audit snapshots named below. A blocked source wa
 | `/guides/germany-b1-citizenship-language-proof/` | “after three years where the special integration… Only the nationality authority can say whether that sentence is yours.” Decision step 2 offered that path | That choice and the avoidance sentence are gone. Other provisions stay with the authority | Same StAG, BGBl, German BAMF, English BAMF limit as the hub | Self-canonical guide | In this PR only |
 | `/content-update-log/` | 2026-11-11 entry used the 30 June 2025 English page as the residence anchor | Old entry kept. New 2026-11-14 entry states the statute wins, the English page is historical, and the work is not deployed | Same legal snapshots | Indexed log, ads off | In this PR only |
 | `/guides/germany-b1-leben-in-deutschland-and-language-proof/` | Called the 30 June 2025 English page the newer residence description | Residence anchor is the current statute and the German overview. 15/33 and 17/33 stay tied to orientation vs naturalisation knowledge | `sources/c108be7afe1491aa.txt` lines 69–73; StAG snapshot | Guide remains a separate language/knowledge page | In this PR only |
-| `/guides/goethe-b1-vs-telc-b1/` | “special integration may make naturalisation possible after three years” | That sentence is now an explicit “do not choose” conflict. Product comparison remains | StAG, BGBl, final-exam page for 15/33 and 17/33; telc B1 and B1 rules not used to swap modules | Guide | In this PR only |
+| `/guides/goethe-b1-vs-telc-b1/` | “special integration may make naturalisation possible after three years” | That current-option sentence is now “do not choose” the English three-year sentence, and it does not treat every three-year path as abolished. The existing comparison table already says DTZ, Goethe B1, and telc B1 are different products and that a module rule is not a statement that the authority accepts a single module. The page was not lengthened beyond that correction | StAG, BGBl, German BAMF overview as conflict against the English page. telc and Goethe product HTML were not used to add scores | Guide | In this PR only |
 | `/guides/germany-b1-settlement-citizenship-timeline/` | Source list offered three years where special integration is shown | Timeline does not calculate residence and does not offer that option. Goethe notice rules stay non-countdown facts | StAG and Exam Guidelines §§4.7, 13, 15 from `sources/ec79a5b1cf7f2847.txt` | Guide | In this PR only |
 | `/guides/germany-b1-settlement-citizenship-checklist/` | Checkbox for the three-year special-integration possibility | Checkbox now records the five-year section 10 line and a separate row only if the authority names another provision | StAG and AufenthG §9 snapshot | Guide | In this PR only |
 
@@ -20,7 +22,7 @@ Source reads are the 2026-11-14 audit snapshots named below. A blocked source wa
 
 | URL | Original locator | Actual change | Source read and limit | Structure | Result |
 | --- | --- | --- | --- | --- | --- |
-| `/germany-family-reunion-a1/` | Official-links guide was a step in the route list. Certificate age was not the certificate FAQ | Retired links slug removed from the route list. New “Which source owns the question” table. Age points at the certificate FAQ, not the spouse FAQ’s silence | BAMF leaflet boundary, A1 rules, telc A1 product page, certificate FAQ line 15 of `sources/9f6eb9fdef4802f2.txt` | hreflang to the Chinese hub unchanged. Practice boundary points at the study plan | In this PR only |
+| `/germany-family-reunion-a1/` | Official-links guide was a step in the route list. Certificate age was not the certificate FAQ | Retired links slug removed from the route list. `#source-duties` is a four-row table: spouse file to the BAMF leaflet and the mission; Goethe Start Deutsch 1 to the opened A1 rules and Exam Guidelines, with product HTML marked not reopened; telc to its product page; practice to the study plan rather than a second resource page. Age points at the certificate FAQ, not the spouse FAQ’s silence | BAMF leaflet boundary, A1 rules, telc A1 product page, certificate FAQ line 15 of `sources/9f6eb9fdef4802f2.txt` | hreflang to the Chinese hub unchanged | In this PR only |
 | `/guides/german-family-reunion-language-requirement/` | “The central Foreign Office FAQ still states no nationwide within one year rule.” | Replaced with the certificate FAQ’s in-der-Regel one-year guidance and oldest-passed-module rule, plus the spouse FAQ’s silence and §30’s limited scope | Certificate FAQ; spouse FAQ `sources/46b998f40cf30b87.txt` lines 2–4; §30 snapshot | Guide | In this PR only |
 | `/guides/german-a1-family-reunion-faq/` | Heading “Does the certificate have to be less than a year old?” denied any central one-year rule | Answer now states the certificate FAQ rule, denies automatic expiry, and denies using the spouse FAQ’s silence as a contradiction | Same two AA snapshots and BAMF leaflet imprint 03/2023 | Guide, English only | In this PR only |
 | `/zh/germany-family-reunion-a1/` | “BAMF 说明和外交部中央问答都没有写出全国统一的一年内。” | Chinese age paragraph now separates the certificate FAQ, the spouse FAQ, and the mission | Same AA snapshots | Chinese hub hreflang unchanged | In this PR only |
@@ -82,7 +84,7 @@ Source reads are the 2026-11-14 audit snapshots named below. A blocked source wa
 | `/about/` | 17/13-style status counts read as quality | Counts stay computed. Prose says they are not a quality score and points at the 15+2 inventory | In this PR only. No operator identity added |
 | `/pricing/` | noindex commercial shell also sat in the About menu | Removed from the primary About menu. Footer link and noindex remain. No price or form added | In this PR only |
 | `/partners/` | Same | Removed from the primary About menu. noindex remains | In this PR only |
-| `/zh/` | Chinese home already labels B1 as English | Left as the Chinese A1 entry with English labels on English tools. No Chinese B1 page | Unchanged task besides shared data dates |
+| `/zh/` | Visible lede used the guide count as if it were coverage quality | The count sentence is gone. The lede now records the 2026-11-14 certificate-age correction, the English booking merge, and that B1 stays English. It says a count is not a quality proof | Certificate FAQ snapshot already used on the Chinese guides. No new source claimed | Chinese homepage source. Not deployed |
 | `/guides/category/germany-a1/` | Cards included pages that are now redirects | Collection-driven cards drop the three retired A1 slugs. noindex not applied to this developed category | In this PR only |
 | `/route-review/` | noindex shell linked as if it were a next step on the B1 hub | Page unchanged and still noindex. Hub sentence now says it is not accepting submissions | Isolation kept |
 | `/guides/category/germany-b1/` | Would have kept a difficulty card | Difficulty guide removed from the collection, so the card and ItemList entry go with it | In this PR only |
@@ -92,7 +94,7 @@ Source reads are the 2026-11-14 audit snapshots named below. A blocked source wa
 | URL | Original locator | Actual change | Source limit | Result |
 | --- | --- | --- | --- | --- |
 | `/guides/telc-b1-b2-germany-work-nursing/` | Make it in Germany job-offer and licence sentences as current | Those sentences marked unread because the 2026-11-14 fetch was a challenge page. Four-owner table kept. noindex kept | Recognition Finder and telc nursing product remain the read sources. Portal not read | In this PR only. Still isolated |
-| `/guides/telc-vs-goethe-for-german-visa/` | Existing exact-product stop conditions | Left in place. The page already stops when the route is unknown. noindex kept. Date not moved because this pass did not reopen it | A1 certificate FAQ not copied into a new visa rule | Isolation unchanged |
+| `/guides/telc-vs-goethe-for-german-visa/` | Headings Exam Overview through Related Exams repeated a generic product template with no product-specific value | Those headings were removed. The page now says those fields stay blank. It adds only the certificate FAQ sentence: as a rule, exam date not older than one year, repeated modules use the oldest passed module, and that is not automatic expiry or a rule for every visa | Certificate FAQ `sources/9f6eb9fdef4802f2.txt` line 15. No fee, seat, or score added. noindex kept | In this PR only. Still isolated |
 | `/guides/telc-b1-b2-exam-format-and-preparation/` | “current FAQ gives 4–6 weeks” and mock 75/25, 135/45 | Those current claims removed. Product timings kept. FAQ 7-day and 14-day meanings narrowed | telc B1/B2 product tables; FAQ `sources/6e07ce671cb89341.txt`. Mock ZIP not unpacked | In this PR only. Still noindex |
 | `/guides/telc-b1-b2-fees-and-test-centers/` | “current central regulations” without the file id | Names PDF `10000311_9994-P00-150011` and the FAQ’s 7-day and 14-day limits. No named seat | FAQ and the rules PDF boundary. Finder not searched | In this PR only. Still noindex |
 | `/guides/testdaf-germany-university-admissions/` | DAAD listed as if current, beside a pending template | DAAD marked not reopened. Scope note says the pending template is the missing programme URL, not a denial of the TDN 4 framework | TestDaF university page and uni-assist. DAAD timed out | In this PR only. Still isolated |
@@ -122,6 +124,25 @@ Static HTML is not treated as an interaction pass. `tests/route-tools.test.js` c
 ## Ads.txt
 
 Public `https://visalang.org/ads.txt` was 200 `text/plain` with `pub-3018617123550799`. The dashboard was not opened, so “dashboard not found” was not “fixed” by editing the file or enabling ads.
+
+## Runtime browser evidence
+
+Recorded in `artifacts/runtime-browser/report.json` and `artifacts/runtime-browser/README.md`. Chrome opened the local preview of this branch. Ad requests: 0. JavaScript-off tool runs are `blocked-without-javascript`, not passed interactions. No email was sent. The ICS file is a local download.
+
+## Preserve rows checked against the current text
+
+| URL | Sentence checked | Why it stays |
+| --- | --- | --- |
+| `/routes/` | “Route Finder fully configures only Germany family-reunion A1. The Germany B1 settlement and citizenship hub is a developed guide path” | B1 is not presented as an automated Route Finder result. No country matrix was added |
+| `/zh/` | The old count sentence is removed. The new lede names the certificate FAQ correction and the booking merge, and it keeps B1 labelled as English |
+| `/guides/category/germany-telc/` | H1 “telc Deutsch guides”, status starter, `noindex` | No new category prose and no primary-nav link |
+| `/guides/category/germany-testdaf/` | H1 “TestDaF guides”, status starter, `noindex` | Same isolation |
+| `/editorial-policy/` | H1 “Editorial Policy”, last updated 2026-11-07, `noindex`, ads off | No merged-URL error and no three-year claim. Date not moved because the policy text did not change |
+| `/privacy-policy/` | H1 “Privacy Policy”, last updated 2026-11-07, `noindex` | Still says the advertising runtime is off. No new monitoring claim |
+| `/cookie-policy/` | H1 “Cookie Policy”, last updated 2026-11-07, `noindex` | Same off-state. No new cookie was added |
+| `/terms/` | H1 “Terms & Disclaimer”, last updated 2026-11-07, `noindex` | Existing disclaimer kept. No new shell page |
+| `/affiliate-disclosure/` | H1 “Affiliate Disclosure”, last updated 2026-11-07, `noindex` | No new commercial relationship |
+| `/contact/` | H1 “Contact VisaLang”. The page says it cannot assess an individual outcome | No form was submitted and no mailbox test was claimed |
 
 ## What this file does not claim
 

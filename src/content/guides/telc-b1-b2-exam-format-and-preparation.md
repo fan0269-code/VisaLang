@@ -5,7 +5,7 @@ category: "germany-telc"
 slug: "telc-b1-b2-exam-format-and-preparation"
 publishedDate: "2026-06-30"
 updatedDate: "2026-11-14"
-sourceReviewedAt: "2026-11-14"
+sourceReviewedAt: "2026-08-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "starter-overview"
@@ -143,3 +143,5 @@ Create the product record, download the current official mock from that exact pr
 - [telc: B2 official mock package](https://www.telc.net/fileadmin/user_upload/mock_exams/Deutsch/telc_deutsch_b2.zip)
 - [telc: B2 preparation tips](https://www.telc.net/fileadmin/user_upload/pdfs/Handbuch_und_Tipps_fuer_Pruefungsvorbereitung/Deutsch_B2_tipps_zur_Pruefungsvorbereitung.pdf)
 - [telc: language examinations support and FAQ](https://www.telc.net/en/language-examinations/language-examinations-support-faq/)
+
+The source-review date above is the earlier full check. The 2026-11-14 wording is an edit. It does not mean DAAD, Make it in Germany, unread Goethe HTML, or an unpacked telc mock was freshly verified.
