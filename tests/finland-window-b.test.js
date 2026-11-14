@@ -18,13 +18,15 @@ assert.ok(!fs.existsSync(retiredPath), 'the duplicate Finland comparison source 
 const primary = read(primaryPath);
 assert.equal(field(primary, 'contentStatus'), 'verification-pending', 'the consolidated guide remains verification-pending');
 assert.equal(field(primary, 'sourceReviewStatus'), 'reviewed', 'the controlled source-review state is preserved');
-assert.equal(field(primary, 'sourceReviewedAt'), '2026-07-29', 'the guide records the current official-source recheck');
+assert.equal(field(primary, 'sourceReviewedAt'), '2026-07-29', 'the guide keeps the earlier source-review date');
+assert.equal(field(primary, 'updatedDate'), '2026-11-14', 'the 2026-11-14 change is the edit date');
 assert.equal(field(primary, 'nextGuideSlug'), '', 'the consolidated Finland guide is terminal');
 assert.equal(field(primary, 'noindex'), 'true', 'the still-pending Finland guide declares noindex');
 assert.equal(field(primary, 'adsEligible'), 'false', 'the still-pending Finland guide is not advertising-eligible');
 assert.match(primary, /Migri.*(?:decides|final authority)|final authority.*Migri/is, 'the guide identifies Migri as the final authority');
 assert.match(primary, /YKI.*(?:one|several).*evidence|one.*evidence.*YKI/is, 'the guide does not present YKI as the only evidence path');
-assert.match(primary, /oral.*written|speaking.*writing|listening.*writing|reading.*speaking/is, 'the guide records the current YKI subtest-combination check');
+assert.match(primary, /combination page was not re-read|was not readable/i, 'the guide says the YKI combination page was not re-read');
+assert.doesNotMatch(primary, /speaking plus writing|listening comprehension plus writing|reading comprehension plus speaking/i, 'the guide does not repeat an unread pairing list');
 assert.match(primary, /evidence record|verification record|save.*record/is, 'the guide gives the reader a reusable verification record');
 assert.match(primary, /Common mistakes/i, 'the guide includes Finland-specific common mistakes');
 assert.match(primary, /Next action/i, 'the guide ends with a concrete next action');

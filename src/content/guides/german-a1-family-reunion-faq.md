@@ -5,8 +5,8 @@ description: "Short answers on whether A1 may apply, exemptions, and certificate
 category: "germany-a1"
 slug: "german-a1-family-reunion-faq"
 publishedDate: "2026-07-02"
-updatedDate: "2026-11-11"
-sourceReviewedAt: "2026-11-11"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "complete-route"
@@ -51,7 +51,7 @@ The BAMF leaflet says that if the personal interview shows you undoubtedly have 
 
 ## Does the certificate have to be less than a year old?
 
-The BAMF leaflet opened on 2026-11-11 does not state a nationwide maximum age for the certificate. The central Foreign Office FAQ still states no “within one year” rule. Treat age, “must be recent”, and similar rules as **needs-verify** on the mission page that will receive your file. Do not copy a limit from another country or from a forum.
+The Federal Foreign Office certificate FAQ, Welche Sprachzertifikate werden im Visumsverfahren akzeptiert, read from the 2026-11-14 snapshot, says that as a rule (in der Regel) the exam date should not be more than one year old. If individual modules were repeated, the date of the oldest passed module applies. That “as a rule” guidance is not a statute that the certificate expires automatically, and the mission that receives the file can still give a case instruction. The shorter spouse-language FAQ does not state an age rule. Its silence does not cancel the certificate FAQ. The BAMF spousal leaflet (imprint 03/2023) also does not state a nationwide maximum age. Do not turn either silence into “the Foreign Office has no one-year guidance,” and do not turn the certificate FAQ into a hard nationwide expiry. Record what your mission writes about certificate age. Do not copy a limit from another country or from a forum.
 
 ## Where do exam-day papers end and visa papers begin?
 

@@ -93,6 +93,7 @@ export function calculateTimeline(input) {
   const retakeBufferDays = Number(input.retakeBufferDays || 0);
   const translationDays = Number(input.translationDays || 0);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(target)) return null;
+  if (![resultWaitDays, retakeBufferDays, translationDays].every((value) => Number.isFinite(value) && value >= 0)) return null;
 
   const [year, month, day] = target.split('-').map(Number);
   const targetDate = new Date(0);

@@ -39,6 +39,7 @@ assert.deepEqual(
   { targetDate: '2026-12-31', latestTestDate: '2026-12-03', cautiousTestDate: '2026-11-05', totalPlanningDays: 56 }
 );
 assert.equal(routeTools.calculateTimeline({ targetDate: 'not-a-date' }), null);
+assert.equal(routeTools.calculateTimeline({ targetDate: '2026-12-31', resultWaitDays: -1, retakeBufferDays: 0, translationDays: 0 }), null, 'A negative buffer must not invent a later date');
 assert.equal(routeTools.calculateTimeline({ targetDate: '2026-02-30' }), null, 'Invalid calendar dates should be rejected');
 assert.deepEqual(
   routeTools.calculateTimeline({ targetDate: '0099-12-31', resultWaitDays: 0, retakeBufferDays: 0, translationDays: 0 }),

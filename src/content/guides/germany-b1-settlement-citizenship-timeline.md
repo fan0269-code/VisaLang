@@ -5,8 +5,8 @@ description: "Order a settlement or naturalisation file from confirmed steps onl
 category: "germany-b1"
 slug: "germany-b1-settlement-citizenship-timeline"
 publishedDate: "2026-07-11"
-updatedDate: "2026-11-10"
-sourceReviewedAt: "2026-11-10"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "core-route"
@@ -35,9 +35,9 @@ Confirm the route before you date anything. Settlement starts on [Germany settle
 
 ## Statute boundaries rechecked on 2026-11-10
 
-Residence Act section 9 and Nationality Act section 10 still contain residence-duration, language, and civic-knowledge conditions, plus exceptions and other routes. Those texts do not give this page a processing time, an exam-result turnaround, or a personal eligibility result. Section 10 (1) states five years of lawful habitual residence, and former section 10 (3) is repealed. BAMF’s naturalisation page dated 30 June 2025 describes a three-year possibility where the special integration on that page is shown. This timeline does not calculate either period for you.
+The five-year section 10 (1) line, the limit that BGBl. 2025 I No. 256 deletes subsection 3 only, and the instruction not to choose the English three-year sentence are on the [B1 hub](/germany-b1-settlement-citizenship/). Language evidence and civic-knowledge evidence stay separate. Settlement under Residence Act (AufenthG) section 9 is a different procedure from naturalisation under the Nationality Act. This page does not decide either procedure and does not copy fees.
 
-Do not copy the older “usually eight years / seven with the integration-course certificate” sentences from BAMF’s final-examination page. They conflict with the current statute and with the 30 June 2025 naturalisation page.
+Those texts do not give this page a processing time. This timeline does not calculate the five-year condition or any other residence period. Do not copy the older “usually eight years / seven with the integration-course certificate” sentences from BAMF’s final-examination page.
 
 The federal naturalisation portal describes a step order and also publishes fee and timing figures. Read any figure on the portal if you need the portal’s own wording, and ask the competent authority which statement applies to your file. This page does not repeat those figures.
 
@@ -119,7 +119,8 @@ Opened or rechecked on 2026-11-10.
 - [Nationality Act §10](https://www.gesetze-im-internet.de/stag/__10.html) — five years in subsection 1; former subsection 3 repealed; language and knowledge are separate. Not a processing calendar.
 - [BAMF-NAvI: foreigners authorities](https://bamf-navi.bamf.de/en/Themen/Behoerden/?typ=ABH) — find a foreigners authority. Not a decision.
 - [BAMF: settling in Germany](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Migrathek/Niederlassen/niederlassen-node.html) — dated 1 March 2024. Language level depends on the path.
-- [BAMF: naturalisation](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html) — dated 30 June 2025. Five years, or three years where that page’s special integration is shown. Fee figures are not copied here.
+- [Nationality Act section 10](https://www.gesetze-im-internet.de/stag/__10.html) — defines the five-year condition this page does not calculate. Subsections (3) and (3a) are weggefallen.
+- [BAMF naturalisation, English](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html) — Date 30/06/2025. Not a current three-year option.
 - [BAMF: the final examination](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse/Abschlusspruefung/abschlusspruefung-node.html) — DTZ and Life in Germany as separate evidence. Do not copy the residence-year sentences.
 - [telc: Zertifikat Deutsch / telc Deutsch B1 (English)](https://www.telc.net/en/language-examinations/certificate-exams/german/certificate-german-telc-german-b1/) — exam-owner product page used as the exam-side entry. Not an acceptance decision and not a result calendar.
 - [telc: find an examination centre](https://www.telc.net/en/language-examinations/find-a-telc-examination-centre/) — locator only.

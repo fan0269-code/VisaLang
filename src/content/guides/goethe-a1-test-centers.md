@@ -5,8 +5,8 @@ description: "How to verify an official Goethe A1 or telc A1 exam centre, confir
 category: "germany-a1"
 slug: "goethe-a1-test-centers"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-19"
-sourceReviewedAt: "2026-07-19"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "complete-route"
@@ -33,7 +33,7 @@ An official centre is a Goethe-Institut or exam partner shown or confirmed throu
 
 Goethe says its German examinations are offered through Goethe-Instituts and exam partners. Use the official provider's route, then check the selected local centre's own exam listing. Do not rely on a copied address, an old directory, or a course advert.
 
-As a bounded China example, the official [Goethe-Institut Beijing examination and registration page](https://www.goethe.de/ins/cn/zh/spr/prf/anm.html) publishes its own current exam products, dates, prices, forms, and contact route. Those details support checks for the Beijing institute only and must not be carried over to another city or centre.
+A centre is confirmed only through the exam owner’s current route and then by that centre’s own page or reply. The Goethe-Institut Beijing registration HTML was not opened for this correction. This page does not state that page’s products, dates, prices, forms, or learner categories. An opened examination regulation proves how exams are administered. It does not prove that a named centre is on the current list or has a seat.
 
 ## Verify the exact examination
 
@@ -81,7 +81,7 @@ Use [Goethe A1 vs telc A1](/guides/goethe-a1-vs-telc-a1/) before choosing a prov
 ## Official sources
 
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [Goethe-Institut Beijing: examination dates and registration](https://www.goethe.de/ins/cn/zh/spr/prf/anm.html)
+- Goethe-Institut Beijing registration HTML — not opened on 2026-11-14. Do not treat a link as a verified price or date list.
 - [telc: find an examination centre](https://www.telc.net/en/language-examinations/find-a-telc-examination-centre/)
 
 ## A1 route FAQ

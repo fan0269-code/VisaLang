@@ -40,6 +40,7 @@ import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
     const input = Object.fromEntries(new FormData(form).entries());
     const plan = calculateTimeline(input);
     if (!plan || !summary || !resultPanel) {
+      if (resultPanel) resultPanel.hidden = true;
       return;
     }
     controller.persist();

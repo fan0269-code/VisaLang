@@ -17,7 +17,7 @@ function classifyHeading(heading: string): SectionKind {
   if (/^who\b|who this|who needs|who should/.test(value)) return 'who';
   if (/common (mistakes|ways)|mistakes|lose money/.test(value)) return 'commonMistakes';
   if (/next action|next step|what to do next|decision tools and next steps/.test(value)) return 'nextAction';
-  if (/^official sources?$|^official links?( and practice resources)?$/.test(value)) return 'officialSources';
+  if (/^official sources?\b|^official links?\b/.test(value)) return 'officialSources';
   return 'detailed';
 }
 

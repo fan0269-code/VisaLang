@@ -5,14 +5,14 @@ description: "Separate German A1 exam-day papers from the visa file. Tick only w
 category: "germany-a1"
 slug: "german-a1-documents-checklist"
 publishedDate: "2026-06-30"
-updatedDate: "2026-11-10"
-sourceReviewedAt: "2026-11-10"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "complete-route"
 primaryIntent: "Separate exam-day materials from the visa-file materials for a Germany A1 route"
 decisionStage: "submission-review"
-nextGuideSlug: "goethe-a1-official-links-practice-resources"
+nextGuideSlug: "goethe-a1-30-day-study-plan"
 comparisonScope: "same-route"
 audienceScope: "Germany family-reunion applicants separating local exam documents from the language proof and document form required for their visa file."
 finalDecisionAuthorityType: "Responsible German mission for visa documents and selected test centre for booking and test-day documents"
@@ -24,7 +24,7 @@ readingTime: "10"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-supportingGuideSlugs: ["goethe-a1-booking-mistakes", "goethe-a1-test-centers"]
+supportingGuideSlugs: ["goethe-a1-pre-booking-checklist", "goethe-a1-test-centers"]
 ---
 
 ## Who this page is for
@@ -107,7 +107,7 @@ No. Those pages are samples of mission instructions. The list that matters is th
 
 ### Does a telc or Goethe certificate expire on a date printed on it?
 
-telc’s regulations say the certificate does not state a validity period, and that the institution asking for the certificate decides whether an older one still serves that purpose. Goethe’s verify page checks whether a Goethe certificate is authentic. Neither source is your mission’s acceptance decision, and neither source creates a nationwide one-year rule.
+telc’s regulations say the certificate does not state a validity period, and that the institution asking for the certificate decides whether an older one still serves that purpose. Goethe’s verify page checks whether a Goethe certificate is authentic. Neither source is your mission’s acceptance decision. The Federal Foreign Office certificate FAQ, Welche Sprachzertifikate werden im Visumsverfahren akzeptiert, read from the 2026-11-14 snapshot, says that as a rule (in der Regel) the exam date should not be more than one year old. If individual modules were repeated, the date of the oldest passed module applies. That “as a rule” guidance is not a statute that the certificate expires automatically, and the mission that receives the file can still give a case instruction. The shorter spouse-language FAQ does not state an age rule. Its silence does not cancel the certificate FAQ. The BAMF spousal leaflet (imprint 03/2023) also does not state a nationwide maximum age. Do not turn either silence into “the Foreign Office has no one-year guidance,” and do not turn the certificate FAQ into a hard nationwide expiry.
 
 ### Which ID do I carry on exam day?
 
@@ -130,7 +130,8 @@ Finish the [requirement guide](/guides/german-family-reunion-language-requiremen
 
 Opened or rechecked on 2026-11-10.
 
-- [Federal Foreign Office: spouse language-skills FAQ](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682) — basic German; points to BAMF and the mission. No certificate list and no one-year rule.
+- [Federal Foreign Office: spouse language-skills FAQ](https://www.auswaertiges-amt.de/en/visa-service/buergerservice/faq/01a-deutschkenntnisse-606682) — basic German; points to BAMF and the mission. This short FAQ has no age rule.
+- [Federal Foreign Office: which language certificates](https://www.auswaertiges-amt.de/de/service/fragenkatalog-node/2238204-2238204) — as a rule, exam date not older than one year; repeated modules use the oldest passed module. Not automatic expiry.
 - [Federal Foreign Office: visa service](https://www.auswaertiges-amt.de/en/visa-service) — central entrance, not a document list.
 - [Residence Act §30](https://www.gesetze-im-internet.de/aufenthg_2004/__30.html) — simple-German condition and statutory exceptions for one spouse route. No document inventory.
 - [BAMF leaflet (English PDF)](https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11) — named certificates and the mission’s recognition sentence.

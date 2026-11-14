@@ -4,7 +4,7 @@ description: "Start with Spain's residence-nationality procedure, then confirm w
 category: "spain"
 slug: "dele-a2-ccse-spanish-citizenship"
 publishedDate: "2026-07-01"
-updatedDate: "2026-07-19"
+updatedDate: "2026-11-14"
 sourceReviewedAt: "2026-07-19"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
@@ -41,7 +41,7 @@ Save the authority response or current procedure page before booking.
 
 ## What the reviewed sources can confirm
 
-The Ministry pages confirm the residence-nationality application route and the existence of a separate Cervantes-test dispensation process. The current Cervantes nationality page describes DELE A2 or higher and CCSE as tests it administers in certain nationality cases; the direct DELE A2 and CCSE pages describe those products. This supports a Ministry-first verification sequence, not a universal two-test rule.
+The Ministry residence page opened on 2026-11-14 names a residence-nationality route and a separate request for dispensation from Instituto Cervantes tests. The Cervantes nationality URL opened the same day returned a DELE and CCSE maintenance notice about dates, not a statement that a nationality file accepts DELE A2 or CCSE. This page does not copy those dates and does not treat that notice as proof of which exam applies. The sequence stays Ministry-first, and it is not a universal two-test rule.
 
 After the Ministry procedure confirms the proof applicable to your case, use the Instituto Cervantes links to verify the current product, authorised registration route, dates, fees, ID rules, result process, and retake terms. Exam-owner information does not establish citizenship eligibility or the proof required for an individual application.
 

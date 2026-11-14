@@ -4,7 +4,7 @@ description: "Verify the Spanish citizenship procedure and accepted language evi
 category: "spain"
 slug: "dele-levels-spanish-citizenship"
 publishedDate: "2026-07-01"
-updatedDate: "2026-07-19"
+updatedDate: "2026-11-14"
 sourceReviewedAt: "2026-07-19"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
@@ -40,9 +40,7 @@ Record the authority page and the date checked before choosing a level or paying
 
 ## What the reviewed sources can confirm
 
-The Ministry procedure confirms the residence-nationality route, and its electronic office provides a separate path for requesting dispensation from Instituto Cervantes tests. The current Cervantes nationality page describes DELE A2 or higher and CCSE as tests it administers in certain nationality cases. Its DELE A2 page describes the A2 product and format. Together, these sources support the verification sequence; they do not establish your applicant category, accepted evidence, or individual dispensation result.
-
-Use the DELE and SIELE links below to check their current products and registration information only after the Ministry procedure has confirmed which proof applies. SIELE is included as a question to verify, not as an accepted citizenship certificate claim.
+The residence procedure, the separate dispensation path, and the limit that not every applicant takes both exams are on the [DELE A2 and CCSE requirement page](/guides/dele-a2-ccse-spanish-citizenship/). This page does not repeat that sequence. A DELE A2 page describes a product. A SIELE link is a question to verify, not evidence that a citizenship file accepts SIELE.
 
 ## Official sources
 

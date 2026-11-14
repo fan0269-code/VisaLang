@@ -1,0 +1,10 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//VisaLang//Reminder Planner//EN
+BEGIN:VEVENT
+UID:1794625833597@visalang.org
+DTSTART;VALUE=DATE:20261220
+SUMMARY:Confirm the language requirement
+DESCRIPTION:Route or authority: Germany family reunion / local mission\, example only. Recheck: https://www.auswaertiges-amt.de/de/service/fragenkatalog-node/2238204-2238204.
+END:VEVENT
+END:VCALENDAR

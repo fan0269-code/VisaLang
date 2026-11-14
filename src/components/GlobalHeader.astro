@@ -52,8 +52,6 @@ const currentPath = Astro.url.pathname;
                 <summary aria-label={isZh ? '打开关于菜单' : 'Open About menu'}></summary>
                 <div class="nav-menu__panel">
                   <a href="/about/" aria-current={navigationCurrent(currentPath, 'about-item', '/about/')}>{isZh ? '关于（英文）' : labels.about}</a>
-                  <a href="/pricing/" aria-current={navigationCurrent(currentPath, 'about-item', '/pricing/')}>{isZh ? '价格与服务状态（英文）' : 'Pricing'}</a>
-                  <a href="/partners/" aria-current={navigationCurrent(currentPath, 'about-item', '/partners/')}>{isZh ? '合作伙伴（英文）' : 'Partners'}</a>
                 </div>
               </details>
             </div>

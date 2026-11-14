@@ -4,7 +4,7 @@ description: "How to verify whether a target German university programme accepts
 category: "germany-testdaf"
 slug: "testdaf-germany-university-admissions"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-23"
+updatedDate: "2026-11-14"
 sourceReviewedAt: "2026-07-23"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
@@ -74,6 +74,8 @@ The [TestDaF university information page](https://www.testdaf.de/de/hochschulen/
 3. If the page is unclear, ask the university's International Office before registering for TestDaF.
 4. After the programme requirement is confirmed, use the [official TestDaF site](https://www.testdaf.de/de/) for examination information and the selected official test centre for its local registration terms.
 
+Scope note, 2026-11-14: the TestDaF university page supports the TDN 4 framework and the statement that programmes can differ. uni-assist’s language-certificate page supports its own general list and the statement that schools and programmes differ. Neither is an offer of admission. DAAD was not reopened. The template still says official verification pending because there is no single programme URL on this page. The page stays out of primary discovery.
+
 ## Continue your TestDaF decision route
 
 After you have saved the programme requirement, continue in this order:
@@ -85,7 +87,9 @@ After you have saved the programme requirement, continue in this order:
 ## Official sources
 
 - [uni-assist: Language certificates](https://www.uni-assist.de/en/how-to-apply/assemble-your-documents/language-certificates/)
-- [DAAD: Requirements overview](https://www.daad.de/en/studying-in-germany/requirements/overview/)
+- DAAD requirements overview — not reopened on 2026-11-14 (the fetch timed out). No new DAAD sentence is added. The link is not a current reading.
 - [TestDaF: proof of German skills for study](https://www.testdaf.de/de/hochschulen/der-testdaf-und-hochschulen/nachweis-der-deutschkenntnisse-fuer-das-studium/)
 
 Last updated: 2026-07-23. Source review completed for the bounded statements above; the target programme's current requirements still require a programme-specific check.
+
+The source-review date above is the earlier full check. The 2026-11-14 wording is an edit. It does not mean DAAD, Make it in Germany, unread Goethe HTML, or an unpacked telc mock was freshly verified.

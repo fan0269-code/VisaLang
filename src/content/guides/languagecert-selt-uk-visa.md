@@ -4,7 +4,7 @@ description: "Provider-choice LanguageCert SELT guide for checking a UK route re
 category: "uk"
 slug: "languagecert-selt-uk-visa"
 publishedDate: "2026-07-01"
-updatedDate: "2026-07-29"
+updatedDate: "2026-11-14"
 contentStatus: "verification-pending"
 decisionStage: "choice"
 comparisonScope: "same-route"
@@ -43,15 +43,15 @@ Use this checklist before paying or relying on a booking:
 
 - Reopen the Home Office or GOV.UK instruction for your confirmed route.
 - Record the required CEFR level, skills, approved provider wording, product name, and approved-location rule.
-- Match that wording to the exact LanguageCert SELT product currently listed for UK use.
+- Match that wording to the exact LanguageCert SELT product currently listed for UK use. The GOV.UK page read on 2026-11-14 says that from 6 July 2025 the LANGUAGECERT ESOL SELT 4-skills test was replaced by Academic SELT and General SELT. An older 4-skills result that remains valid is not the same fact as a new booking of the replaced test.
 - Check the LanguageCert product page for candidate identity rules, booking terms, resit or cancellation terms, and local execution details.
 - Save the route instruction, approved-list entry, and provider booking terms together so you can recheck them before submission.
 
-## Why this page does not replace the IELTS UKVI page
+## Why this provider page does not replace the Home Office record
 
-The IELTS UKVI page answers the earlier requirement-stage question: what does the UK route require before any provider is chosen. This LanguageCert page answers the later provider-choice question: whether one LanguageCert SELT product still matches the Home Office requirement and the product details you are about to use.
+This page checks one LanguageCert SELT product against the Home Office requirement. The IELTS page checks IELTS products. IELTS is not a required earlier step. Neither provider page replaces the GOV.UK record.
 
-If the route requirement changes or is unclear, do not use this provider page instead of the deciding authority. If the route requirement is clear, use this page to compare LanguageCert against that same requirement rather than assuming the brand alone is enough.
+If the route requirement changes or is unclear, do not use this provider page instead of the deciding authority. If the route requirement is clear, compare the named LanguageCert product against that same requirement rather than assuming the brand alone is enough.
 
 ## Common mistakes
 
@@ -63,7 +63,7 @@ If the route requirement changes or is unclear, do not use this provider page in
 
 ## Next action
 
-If your Home Office or GOV.UK route requirement is already confirmed, compare the exact LanguageCert SELT product and approved location against that requirement before booking. If the requirement is not confirmed, go back to the route-first IELTS UKVI guide or the official GOV.UK route page first.
+If your Home Office or GOV.UK route requirement is already confirmed, compare the exact LanguageCert SELT product and approved location against that requirement before booking. If the requirement is not confirmed, open the official GOV.UK SELT page before choosing a provider.
 
 ## Official sources
 

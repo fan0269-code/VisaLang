@@ -1,0 +1,38 @@
+
+> test
+> node tests/site.test.js
+
+route tool rules passed
+commercial page rules passed
+AdSense risk-exposure rules passed
+Germany A1 cluster rules passed
+FAN-42 Germany A1 requirement review contract passed
+FAN-73 guide trust and interaction contract passed
+FAN-75 CSS cascade assertions passed.
+Germany B1 cluster rules passed
+Germany TestDaF cluster rules passed
+P0 five-country source status and route rules passed
+Finland window B consolidation rules passed
+Italy window B remediation rules passed
+Canada window B remediation rules passed
+Netherlands window B remediation rules passed
+FAN-34 telc first-slice contract passed
+FAN-37 telc format and preparation contract passed
+ad runtime boundary checks passed
+FAN-38 telc fees and test centres contract passed
+FAN-39 telc work and nursing contract passed
+FAN-43 Germany B1 source recheck contract passed
+guide sources, related links, compliance, app data, dual-stack removal, and deployment checks passed
+source-review rendered HTML states passed
+deployment configuration rules passed
+vercel hosting rules passed
+FAN-254 dependency audit contract passed
+FAN-270 SEO metadata rules passed
+FAN-273 404 recovery contract passed
+2026-11-07 site audit rules passed
+site UI, route, guide, tool, SEO, accessibility, and migration checks passed
+(node:14464) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/src/data/source-review.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+EXIT:0

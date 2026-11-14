@@ -18,7 +18,7 @@ const field = (source, name) => {
   return value.replace(/^["']|["']$/g, '');
 };
 
-assert.equal(germanyA1Guides.length, 17, 'Germany A1 cluster should retain its 16 guides and add only the missing writing intent');
+assert.equal(germanyA1Guides.length, 14, 'Germany A1 cluster keeps 14 guides after the three English merges');
 assert.ok(germanyA1Guides.includes('goethe-a1-writing-practice.md'), 'Germany A1 cluster should cover the unique writing-practice intent');
 
 const requiredHubSteps = [
@@ -45,7 +45,6 @@ const requiredRouteGuideOrder = [
   'goethe-a1-pre-booking-checklist',
   'german-a1-exam-booking-timeline',
   'german-a1-documents-checklist',
-  'goethe-a1-official-links-practice-resources',
   'goethe-a1-30-day-study-plan',
 ];
 let previousRouteGuideIndex = -1;
@@ -135,23 +134,7 @@ const depthRemediatedOn20261021 = new Set([
 for (const file of germanyA1Guides) {
   const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
   assert.ok(source.includes('contentStatus: "complete-route"'), `${file} retains the complete-route baseline`);
-  const expectedUpdateDate = p0RefreshedOn20261111.has(file)
-    ? '2026-11-11'
-    : p1RewrittenOn20261110.has(file)
-    ? '2026-11-10'
-    : p0RewrittenOn20261108.has(file)
-    ? '2026-11-08'
-    : sourceRecheckedOn20261107.has(file) || aeoCopyOn20261107.has(file)
-    ? '2026-11-07'
-    : depthRemediatedOn20261021.has(file)
-    ? '2026-10-21'
-    : sourceReviewedOnJuly22.has(file)
-    ? '2026-07-22'
-    : sourceReviewedOnJuly19.has(file)
-      ? '2026-07-19'
-    : auditedA1Guides.has(file) || routeRelationshipUpdatedGuides.has(file)
-      ? '2026-07-18'
-      : '2026-07-11';
+  const expectedUpdateDate = '2026-11-14';
   assert.ok(source.includes(`updatedDate: "${expectedUpdateDate}"`), `${file} should show its expected update date`);
 }
 
@@ -161,10 +144,7 @@ const supportGuideExpectations = {
   'goethe-a1-listening-practice.md': { stage: 'local-execution', next: 'goethe-a1-speaking-topics' },
   'goethe-a1-speaking-topics.md': { stage: 'local-execution', next: 'goethe-a1-30-day-study-plan' },
   'goethe-a1-writing-practice.md': { stage: 'local-execution', next: 'goethe-a1-30-day-study-plan' },
-  'goethe-a1-study-plan-working-adults.md': { stage: 'local-execution', next: 'goethe-a1-30-day-study-plan' },
-  'goethe-a1-official-links-practice-resources.md': { stage: 'local-execution', next: 'goethe-a1-30-day-study-plan' },
   'goethe-a1-30-day-study-plan.md': { stage: 'local-execution', next: '' },
-  'goethe-a1-booking-mistakes.md': { stage: 'local-execution', next: 'german-a1-documents-checklist' },
   'goethe-a1-pre-booking-checklist.md': { stage: 'local-execution', next: 'german-a1-exam-booking-timeline' },
 };
 
@@ -172,9 +152,7 @@ for (const [file, expected] of Object.entries(supportGuideExpectations)) {
   const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
   const body = source.split(/^---\s*$/m).slice(2).join('---');
   assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${file} records the completed source review`);
-  const expectedReviewDate = file === 'goethe-a1-germany-family-reunion.md' || file === 'german-a1-family-reunion-faq.md'
-    ? '2026-11-11'
-    : '2026-07-22';
+  const expectedReviewDate = '2026-11-14';
   assert.equal(field(source, 'sourceReviewedAt'), expectedReviewDate, `${file} records the actual source-review date`);
   assert.equal(field(source, 'reviewedByRole'), 'source-review', `${file} records the controlled reviewer role`);
   assert.equal(field(source, 'decisionStage'), expected.stage, `${file} uses the agreed decision stage`);
@@ -222,15 +200,21 @@ assert.ok(zhHub.indexOf('/zh/guides/goethe-a1-test-centers/') < zhHub.indexOf('/
 assert.ok(zhHub.indexOf('/zh/guides/german-a1-exam-booking-timeline/') < zhHub.indexOf('/zh/guides/goethe-a1-30-day-study-plan/'), 'Chinese hub places the study plan after the booking timeline');
 assert.match(zhHub, /goethe-a1-retake-policy[^\n]*英文指南|英文指南[^\n]*goethe-a1-retake-policy/, 'Chinese hub labels the retake branch as an English guide');
 assert.equal((zhData.match(/sourceReviewStatus: 'reviewed'/g) || []).length, 8, 'all eight Chinese Germany A1 records expose the completed independent review');
-assert.equal((zhData.match(/sourceReviewedAt: '2026-11-11'/g) || []).length, 5, 'the five aligned Chinese records use the 2026-11-11 source check');
-assert.equal((zhData.match(/sourceReviewedAt: '2026-07-19'/g) || []).length, 3, 'the three thin Chinese records keep their earlier review date');
+assert.equal((zhData.match(/sourceReviewedAt: '2026-11-14'/g) || []).length, 8, 'all eight Chinese records use the 2026-11-14 source check');
 assert.equal((zhData.match(/reviewedByRole: 'translation-review'/g) || []).length, 8, 'all eight Chinese records expose the source and translation review role');
-assert.equal((zhData.match(/updatedDate: '2026-11-11'/g) || []).length, 5, 'the five aligned Chinese records record the 2026-11-11 update');
-assert.equal((zhData.match(/updatedDate: '2026-07-19'/g) || []).length, 3, 'the three thin Chinese records keep their earlier update date');
+assert.equal((zhData.match(/updatedDate: '2026-11-14'/g) || []).length, 8, 'all eight Chinese records record the 2026-11-14 update');
 assert.doesNotMatch(zhGuideSources, /读者问题与搜索意图|官方来源核验表|发布前人工核验清单|哪个更稳|更稳通常/, 'public Chinese guides exclude internal editorial language and unsupported stability framing');
 
 for (const href of hubNextStepLinks) {
   assert.ok(hub.includes(href), `Germany A1 hub should link to ${href}`);
 }
+
+const a1Listening = fs.readFileSync(path.join(guideDirectory, 'goethe-a1-listening-practice.md'), 'utf8');
+assert.match(a1Listening, /Der Termin ist am 3\. Mai um 14\.30 Uhr/, 'A1 listening drill uses an original German sentence');
+assert.match(a1Listening, /Uhrzeit 14\.30/, 'A1 listening drill states the time answer');
+const a1Writing = fs.readFileSync(path.join(guideDirectory, 'goethe-a1-writing-practice.md'), 'utf8');
+assert.match(a1Writing, /Meldebescheinigung/, 'A1 writing revision names the document the prompt asked for');
+assert.match(a1Writing, /Ich heiße Lea Hoffmann/, 'A1 writing revision includes the name field');
+assert.doesNotMatch(a1Writing, /Ich bitte um einen Termin/, 'A1 writing revision does not replace the document task with an appointment');
 
 console.log('Germany A1 cluster rules passed');

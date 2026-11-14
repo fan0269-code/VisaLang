@@ -1,0 +1,607 @@
+{
+  "origin": "http://127.0.0.1:4173",
+  "generatedAt": "2026-11-14T03:10:39.460Z",
+  "disclaimer": "Observations of the local preview of this branch. Not production. A status of observed means the browser showed that state. It is not an advertising approval or a legal conclusion. blocked-without-javascript means the interactive result could not run.",
+  "requestCounts": {
+    "desktop": 94,
+    "mobile": 14,
+    "noJs": 28
+  },
+  "adRequestTotal": 0,
+  "records": [
+    {
+      "id": "route-finder-invalid-empty",
+      "url": "http://127.0.0.1:4173/tools/route-finder/",
+      "dom": {
+        "h1": "Route Finder",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Decision route\n\nRoute Finder\n\nAnswer six planning questions to get a safe starting route. Germany family reunion A1 is the only fully configured route.\n\nRoute Finder\nChecklist\nTimeline\nCompare exams\nReminders\n1\nUnderstand the scope\n2\nEnter verified facts\n3\nReview and export\n\nShareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter passport numbers, visa or application numbers, payment details, document contents, or other sensit"
+      },
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/route-finder-invalid-empty.png",
+      "resultHidden": "",
+      "error": "Fix 6 field errors\nCountry is required.\nPurpose is required.\nApplication location is required.\nCurrent language level is required.\nExisting certificate is required.\nTarget submission date is required.",
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "route-finder-normal-a1",
+      "url": "http://127.0.0.1:4173/tools/route-finder/?country=germany&purpose=family-reunion&level=Beginner+%2F+A0&certificate=none",
+      "dom": {
+        "h1": "Route Finder",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Decision route\n\nRoute Finder\n\nAnswer six planning questions to get a safe starting route. Germany family reunion A1 is the only fully configured route.\n\nRoute Finder\nChecklist\nTimeline\nCompare exams\nReminders\n1\nUnderstand the scope\n2\nEnter verified facts\n3\nReview and export\n\nShareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter passport numbers, visa or application numbers, payment details, document contents, or other sensit"
+      },
+      "screenshot": "artifacts/runtime-browser/route-finder-normal-a1.png",
+      "result": "Configured route\n\nGermany family reunion: A1 verification route\n\nConfirm whether language proof is required in your individual case, whether an exemption applies, and which exact certificate is accepted before booking.\n\nVerify the requirement or exemption with the German mission or competent authority for your application location.\nConfirm the exact accepted A1 certificate before comparing providers, fees, or dates.\nUse the checklist and timeline below to organise a booking and submission plan.\n\nGermany A1 family reunion guide / Open Checklist / Open Timeline\n\nApplication location recorded: German mission, example only. Target submission date: 2026-12-18.",
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "route-finder-unknown-country",
+      "url": "http://127.0.0.1:4173/tools/route-finder/?country=other&purpose=other&level=Beginner+%2F+A0&certificate=none",
+      "dom": {
+        "h1": "Route Finder",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Decision route\n\nRoute Finder\n\nAnswer six planning questions to get a safe starting route. Germany family reunion A1 is the only fully configured route.\n\nRoute Finder\nChecklist\nTimeline\nCompare exams\nReminders\n1\nUnderstand the scope\n2\nEnter verified facts\n3\nReview and export\n\nShareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter passport numbers, visa or application numbers, payment details, document contents, or other sensit"
+      },
+      "screenshot": "artifacts/runtime-browser/route-finder-unknown-country.png",
+      "result": "Coming soon\n\nOfficial verification required\n\nAsk the authority, university, employer, training provider, regulator, or other organisation receiving your application which language proof it requires and accepts.\n\nVisaLang will not generate a route result for this selection. Use the receiving organisation as the official starting point.\n\nWho to contact\nThe authority or institution receiving the application\nThe official exam owner or authorised local centre\n\nNo country-specific official entry can be selected from “Another country”. Start with that country’s government or the institution receiving the application.\n\nQuestions to ask\nWhich language proof and level apply to this exact route?\nIs an exemption or alternative proof relevant to my case?\nWhich certificate, document format, and current submission instructions are accepted?\n\nApplication location recorded: German mission, example only. Target submission date: 2026-12-18.",
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "exam-comparison-invalid-same",
+      "url": "http://127.0.0.1:4173/tools/exam-comparison/",
+      "dom": {
+        "h1": "Exam Comparison",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Planning aid, not an acceptance decision\n\nExam Comparison\n\nCompare configured verification questions for two A1 exam options. This tool does not rank providers or decide which certificate an authority will accept.\n\nRoute Finder\nChecklist\nTimeline\nCompare exams\nReminders\n1\nUnderstand the scope\n2\nEnter verified facts\n3\nReview and export\n\nShareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter passport numbers, visa or applicatio"
+      },
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/exam-comparison-invalid-same.png",
+      "error": "Fix 1 field error\nChoose two different exams.",
+      "resultHidden": "",
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "exam-comparison-normal",
+      "url": "http://127.0.0.1:4173/tools/exam-comparison/?first=goethe-a1&second=telc-a1",
+      "dom": {
+        "h1": "Exam Comparison",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Planning aid, not an acceptance decision\n\nExam Comparison\n\nCompare configured verification questions for two A1 exam options. This tool does not rank providers or decide which certificate an authority will accept.\n\nRoute Finder\nChecklist\nTimeline\nCompare exams\nReminders\n1\nUnderstand the scope\n2\nEnter verified facts\n3\nReview and export\n\nShareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter passport numbers, visa or applicatio"
+      },
+      "screenshot": "artifacts/runtime-browser/exam-comparison-normal.png",
+      "result": "Goethe-Zertifikat A1 and telc Deutsch A1\n\nThis is a structured official-check list, not a recommendation or a statement of acceptance.\n\nConfigured dimension\tGoethe-Zertifikat A1\ttelc Deutsch A1\nExact certificate and level\tCheck the exact adult A1 certificate name against the receiving authority’s instructions.\nAcceptance for your case\tPlease verify with the German mission or competent authority handling your application.\nFees\tPlease verify with the official centre.\nResult timing\tPlease verify with the official centre.\nCentre coverage and dates\tPlease verify with the official centre.\nID, cancellation, and certificate delivery\tPlease verify with the official centre and its current booking terms.\nOfficial exam page\tGoethe-Zertifikat A1\ttelc Deutsch A1",
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "checklist-invalid-empty",
+      "url": "http://127.0.0.1:4173/tools/checklist-generator/",
+      "dom": {
+        "h1": "Requirement Checklist",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Organise evidence\n\nRequirement Checklist\n\nCreate a working checklist with clear priority, completion status, and the next official check. It is not an authority document list.\n\nRoute Finder\nChecklist\nTimeline\nCompare exams\nReminders\n1\nUnderstand the scope\n2\nEnter verified facts\n3\nReview and export\n\nShareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter passport numbers, visa or application numbers, payment details, document c"
+      },
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/checklist-invalid-empty.png",
+      "error": "Fix 1 field error\nRoute is required.",
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "checklist-unknown-b1",
+      "url": "http://127.0.0.1:4173/tools/checklist-generator/?route=germany-b1",
+      "dom": {
+        "h1": "Requirement Checklist",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Organise evidence\n\nRequirement Checklist\n\nCreate a working checklist with clear priority, completion status, and the next official check. It is not an authority document list.\n\nRoute Finder\nChecklist\nTimeline\nCompare exams\nReminders\n1\nUnderstand the scope\n2\nEnter verified facts\n3\nReview and export\n\nShareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter passport numbers, visa or application numbers, payment details, document c"
+      },
+      "screenshot": "artifacts/runtime-browser/checklist-unknown-b1.png",
+      "result": "Checklist coming soon\n\nThis route is not configured. VisaLang will not generate a checklist that could look like an official or complete result.\n\nIdentify the organisation receiving your proof and use its current instructions before choosing an exam.\n\nOfficial starting point: German Federal Foreign Office — find the responsible official authority\n\nWhich language proof and level apply to this exact route?\nIs an exemption or alternative proof relevant to my case?\nWhich certificate, document format, and current submission instructions are accepted?",
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "checklist-normal-a1",
+      "url": "http://127.0.0.1:4173/tools/checklist-generator/?route=germany-family-reunion-a1",
+      "dom": {
+        "h1": "Requirement Checklist",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Organise evidence\n\nRequirement Checklist\n\nCreate a working checklist with clear priority, completion status, and the next official check. It is not an authority document list.\n\nRoute Finder\nChecklist\nTimeline\nCompare exams\nReminders\n1\nUnderstand the scope\n2\nEnter verified facts\n3\nReview and export\n\nShareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter passport numbers, visa or application numbers, payment details, document c"
+      },
+      "screenshot": "artifacts/runtime-browser/checklist-normal-a1.png",
+      "result": "Germany family reunion A1 checklist\n\nMark each item when you have completed your own official check.\n\nFirst: Confirm the exact language-proof requirement or any exemption with the receiving German mission or authority.\nBefore booking: Confirm the accepted adult A1 certificate name, local test-centre status, ID rules, fee, date, result process, and cancellation terms.\nBefore submission: Check the certificate delivery format, translation or certification needs, and the receiving authority’s document instructions.\n\nCompletion status: 0 of 3 marked complete.",
+      "prechecked": 0,
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "timeline-invalid-empty",
+      "url": "http://127.0.0.1:4173/tools/timeline-calculator/",
+      "dom": {
+        "h1": "Timeline Planner",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Plan backwards\n\nTimeline Planner\n\nBuild backwards from your target date using only the buffers you enter. This planning estimate does not claim real centre dates or result timing.\n\nRoute Finder\nChecklist\nTimeline\nCompare exams\nReminders\n1\nUnderstand the scope\n2\nEnter verified facts\n3\nReview and export\n\nShareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter passport numbers, visa or application numbers, payment details, docume"
+      },
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/timeline-invalid-empty.png",
+      "error": "Fix 5 field errors\nTarget submission date is required.\nExam type is required.\nResult waiting time (days) is required.\nRetake buffer (days) is required.\nTranslation / certification time (days) is required.",
+      "resultHidden": "",
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "timeline-negative-buffer",
+      "url": "http://127.0.0.1:4173/tools/timeline-calculator/",
+      "dom": {
+        "h1": "Timeline Planner",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Plan backwards\n\nTimeline Planner\n\nBuild backwards from your target date using only the buffers you enter. This planning estimate does not claim real centre dates or result timing.\n\nRoute Finder\nChecklist\nTimeline\nCompare exams\nReminders\n1\nUnderstand the scope\n2\nEnter verified facts\n3\nReview and export\n\nShareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter passport numbers, visa or application numbers, payment details, docume"
+      },
+      "screenshot": "artifacts/runtime-browser/timeline-negative-buffer.png",
+      "error": "Fix 1 field error\nResult waiting time (days) must be 0 or greater.",
+      "resultHidden": "",
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "timeline-normal",
+      "url": "http://127.0.0.1:4173/tools/timeline-calculator/?targetDate=2026-12-31&examType=Goethe-Zertifikat+A1&resultWaitDays=10&retakeBufferDays=5&translationDays=2",
+      "dom": {
+        "h1": "Timeline Planner",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Plan backwards\n\nTimeline Planner\n\nBuild backwards from your target date using only the buffers you enter. This planning estimate does not claim real centre dates or result timing.\n\nRoute Finder\nChecklist\nTimeline\nCompare exams\nReminders\n1\nUnderstand the scope\n2\nEnter verified facts\n3\nReview and export\n\nShareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter passport numbers, visa or application numbers, payment details, docume"
+      },
+      "screenshot": "artifacts/runtime-browser/timeline-normal.png",
+      "result": "Your planning estimate\n\nFor Goethe-Zertifikat A1, these dates are calculated only from the 17 days you entered.\n\nTarget submission\n2026-12-31\nLatest test date without retake buffer\n2026-12-19\nCautious test date with your retake buffer\n2026-12-14\n\nPlanning estimate: confirm actual booking availability, result timing, retake rules, and document handling with the official centre and receiving authority.",
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "reminders-invalid-empty",
+      "url": "http://127.0.0.1:4173/tools/email-reminders/",
+      "dom": {
+        "h1": "Reminder Planner",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Local planning only\n\nReminder Planner\n\nCreate a reminder plan for your own calendar, local storage, notes, or printer. No email service is connected.\n\nRoute Finder\nChecklist\nTimeline\nCompare exams\nReminders\n1\nUnderstand the scope\n2\nEnter verified facts\n3\nReview and export\n\nShareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter passport numbers, visa or application numbers, payment details, document contents, or other sensitiv"
+      },
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/reminders-invalid-empty.png",
+      "error": "Fix 3 field errors\nReminder topic is required.\nReminder date is required.\nRoute or authority is required.",
+      "resultHidden": "",
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "reminders-invalid-url",
+      "url": "http://127.0.0.1:4173/tools/email-reminders/",
+      "dom": {
+        "h1": "Reminder Planner",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Local planning only\n\nReminder Planner\n\nCreate a reminder plan for your own calendar, local storage, notes, or printer. No email service is connected.\n\nRoute Finder\nChecklist\nTimeline\nCompare exams\nReminders\n1\nUnderstand the scope\n2\nEnter verified facts\n3\nReview and export\n\nShareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter passport numbers, visa or application numbers, payment details, document contents, or other sensitiv"
+      },
+      "screenshot": "artifacts/runtime-browser/reminders-invalid-url.png",
+      "error": "Fix 4 field errors\nReminder topic is required.\nReminder date is required.\nRoute or authority is required.\nEnter a valid official source to recheck.",
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "reminders-local-plan-no-send",
+      "url": "http://127.0.0.1:4173/tools/email-reminders/?topic=Confirm+the+language+requirement&date=2026-12-20&route=Germany+family+reunion+%2F+local+mission%2C+example+only&source=https%3A%2F%2Fwww.auswaertiges-amt.de%2Fde%2Fservice%2Ffragenkatalog-node%2F2238204-2238204",
+      "dom": {
+        "h1": "Reminder Planner",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Local planning only\n\nReminder Planner\n\nCreate a reminder plan for your own calendar, local storage, notes, or printer. No email service is connected.\n\nRoute Finder\nChecklist\nTimeline\nCompare exams\nReminders\n1\nUnderstand the scope\n2\nEnter verified facts\n3\nReview and export\n\nShareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter passport numbers, visa or application numbers, payment details, document contents, or other sensitiv"
+      },
+      "screenshot": "artifacts/runtime-browser/reminders-local-plan.png",
+      "result": "Confirm the language requirement\n\nReminder date: 2026-12-20\n\nRoute or authority: Germany family reunion / local mission, example only\n\nOfficial source to recheck: https://www.auswaertiges-amt.de/de/service/fragenkatalog-node/2238204-2238204",
+      "ics": "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//VisaLang//Reminder Planner//EN\r\nBEGIN:VEVENT\r\nUID:1794625833597@visalang.org\r\nDTSTART;VALUE=DATE:20261220\r\nSUMMARY:Confirm the language requirement\r\nDESCRIPTION:Route or authority: Germany family reunion / local mission\\, example only. Recheck: https://www.auswaertiges-amt.de/de/service/fragenkatalog-node/2238204-2238204.\r\nEND:VEVENT\r\nEND:VCALENDAR",
+      "mailto": false,
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "search-normal",
+      "url": "http://127.0.0.1:4173/guides/?q=family+reunion",
+      "dom": {
+        "h1": "Find the guide for your next decision.",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Task library\n\nFind the guide for your next decision.\n\nThis primary library contains source-reviewed complete and core route guides. A recorded review is not a claim that every fact was rechecked today, and it is not an advertising approval. Merged URLs are not listed again. Germany A1 family reunion and Germany B1 settlement or citizenship are the developed routes.\n\nSearch guides\nPurpose\nAll purpose options\nFamily reunion\nWork\nCountry\nAll country options\nGermany\nMore filters\nActive filters\nSearc"
+      },
+      "screenshot": "artifacts/runtime-browser/search-normal.png",
+      "visibleCards": 14,
+      "emptyVisible": false,
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "search-unknown",
+      "url": "http://127.0.0.1:4173/guides/?q=zzzz-not-a-guide",
+      "dom": {
+        "h1": "Find the guide for your next decision.",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Task library\n\nFind the guide for your next decision.\n\nThis primary library contains source-reviewed complete and core route guides. A recorded review is not a claim that every fact was rechecked today, and it is not an advertising approval. Merged URLs are not listed again. Germany A1 family reunion and Germany B1 settlement or citizenship are the developed routes.\n\nSearch guides\nPurpose\nAll purpose options\nFamily reunion\nWork\nCountry\nAll country options\nGermany\nMore filters\nActive filters\nSearc"
+      },
+      "screenshot": "artifacts/runtime-browser/search-unknown.png",
+      "visibleCards": 0,
+      "emptyVisible": true,
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "search-invalid-markup",
+      "url": "http://127.0.0.1:4173/guides/?q=%3Cimg+src%3Dx+onerror%3Dalert%281%29%3E",
+      "dom": {
+        "h1": "Find the guide for your next decision.",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Task library\n\nFind the guide for your next decision.\n\nThis primary library contains source-reviewed complete and core route guides. A recorded review is not a claim that every fact was rechecked today, and it is not an advertising approval. Merged URLs are not listed again. Germany A1 family reunion and Germany B1 settlement or citizenship are the developed routes.\n\nSearch guides\nPurpose\nAll purpose options\nFamily reunion\nWork\nCountry\nAll country options\nGermany\nMore filters\nActive filters\nSearc"
+      },
+      "screenshot": "artifacts/runtime-browser/search-invalid-markup.png",
+      "visibleCards": 0,
+      "emptyVisible": true,
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "missing-route-404",
+      "url": "http://127.0.0.1:4173/this-page-is-absent/",
+      "dom": {
+        "h1": "This page has moved off route.",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "404\n\nThis page has moved off route.\n\nThe address may be old or mistyped. Search the reviewed guide library, or restart from the decision you need to make.\n\nSearch the reviewed guide library\nTry a country, route, exam, level, or task.\nSearch guides\nChoose another starting point\nUse Route Finder\nIdentify the authority and proof questions to verify first.\nBrowse all reviewed guides\nFilter the primary library by purpose, country, route, exam, level, or language.\nReturn to the homepage\nRestart from V"
+      },
+      "screenshot": "artifacts/runtime-browser/missing-route-404.png",
+      "http": 404,
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "not-found-search-normal",
+      "url": "http://127.0.0.1:4173/guides/?q=family+reunion",
+      "dom": {
+        "h1": "Find the guide for your next decision.",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Task library\n\nFind the guide for your next decision.\n\nThis primary library contains source-reviewed complete and core route guides. A recorded review is not a claim that every fact was rechecked today, and it is not an advertising approval. Merged URLs are not listed again. Germany A1 family reunion and Germany B1 settlement or citizenship are the developed routes.\n\nSearch guides\nPurpose\nAll purpose options\nFamily reunion\nWork\nCountry\nAll country options\nGermany\nMore filters\nActive filters\nSearc"
+      },
+      "screenshot": "artifacts/runtime-browser/not-found-search-normal.png",
+      "visibleCards": 14,
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "pricing",
+      "url": "http://127.0.0.1:4173/pricing/",
+      "dom": {
+        "h1": "Choose the level of help you need",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Offers and access\n\nAvailable\nChoose the level of help you need\n\nStart with free, self-serve planning. Paid packs and human review remain marked as coming soon or not currently offered until delivery operations are real.\n\nCurrent product status is shown above.\nNo checkout, payment collection, file delivery, email confirmation, or human-review acceptance is active on these pages.\nWhat is available today\n\nFree Tools are available now. They help you organise questions, check a route, compare officia"
+      },
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/pricing.png",
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "partners",
+      "url": "http://127.0.0.1:4173/partners/",
+      "dom": {
+        "h1": "Partner with clear boundaries",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Partners and B2B\n\nContact only\nPartner with clear boundaries\n\nVisaLang may consider transparent partnerships that help readers find relevant support. A commercial relationship never makes a provider official, required, or preferred over an official source.\n\nCurrent product status is shown above.\nNo checkout, payment collection, file delivery, email confirmation, or human-review acceptance is active on these pages.\nPartnership categories we may consider\nOriginal language tutoring and preparation "
+      },
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/partners.png",
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "route-review",
+      "url": "http://127.0.0.1:4173/route-review/",
+      "dom": {
+        "h1": "Informational Route Review",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Proposed human service\n\nNot currently offered\nInformational Route Review\n\nA Route Review is proposed as a human, informational reading of the route questions you have already identified. It is not currently accepting submissions and it will never decide an application or replace an official or legal assessment.\n\nCurrent product status is shown above.\nNo checkout, payment collection, file delivery, email confirmation, or human-review acceptance is active on these pages.\nWhat an informational revi"
+      },
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/route-review.png",
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "b1-hub",
+      "url": "http://127.0.0.1:4173/germany-b1-settlement-citizenship/",
+      "dom": {
+        "h1": "Germany B1 for settlement permits and citizenship",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Germany · B1 · settlement and citizenship\n\nGermany B1 for settlement permits and citizenship\n\nStart with the authority and legal route that apply to your application. This hub helps you separate language proof from the wider file, compare only relevant exam products, and keep local dates and terms tied to current official sources.\n\nFamily reunion is a separate procedure. Use the Germany A1 family-reunion hub for that path. A Chinese A1 topic exists for family reunion only; this B1 hub is English"
+      },
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/b1-hub.png",
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "a1-faq",
+      "url": "http://127.0.0.1:4173/guides/german-a1-family-reunion-faq/",
+      "dom": {
+        "h1": "German A1 family reunion FAQ: language proof questions",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Home\n/\nGermany A1\n/\nGerman A1 family reunion FAQ: language proof questions\n\nGermany family reunion\n\nRoute structure complete\nCountry: Germany\nRoute: Germany A1\nGerman A1 family reunion FAQ: language proof questions\nDirect answer\n\nShort answers on whether A1 may apply, exemptions, and certificates, plus the official page to open next. Not a decision for your file.\n\nResponsibility: The final decision sits with Competent German mission abroad and the responsible foreigners authority; VisaLang helps"
+      },
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/a1-faq.png",
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "fees",
+      "url": "http://127.0.0.1:4173/guides/goethe-a1-fees-by-country/",
+      "dom": {
+        "h1": "Goethe A1 exam fees: check your local price",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Home\n/\nGermany A1\n/\nGoethe A1 exam fees: check your local price\n\nGermany family reunion\n\nRoute structure complete\nCountry: Germany\nRoute: Germany A1\nGoethe A1 exam fees: check your local price\nDirect answer\n\nHow to record and compare the current local Goethe A1 exam fee and terms before payment.\n\nResponsibility: The final decision sits with Selected official or authorised test centre; VisaLang helps you follow the verification path.\n\nUpdated\n2026-11-14\nSource review\nOfficial sources last checked"
+      },
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/fees.png",
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "study-plan",
+      "url": "http://127.0.0.1:4173/guides/goethe-a1-30-day-study-plan/",
+      "dom": {
+        "h1": "30-day Goethe A1 study plan for family reunion",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Home\n/\nGermany A1\n/\n30-day Goethe A1 study plan for family reunion\n\nGermany family reunion\n\nRoute structure complete\nCountry: Germany\nRoute: Germany A1\n30-day Goethe A1 study plan for family reunion\nDirect answer\n\nAn adjustable Goethe A1 plan: 30-day and eight-week views mapped to the 2025 administration rules, with original drills and no pass promise.\n\nResponsibility: The final decision sits with Goethe-Institut for exam format and an authorised local centre for local administration; VisaLang h"
+      },
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/study-plan.png",
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "merge-redirect-booking",
+      "url": "http://127.0.0.1:4173/guides/goethe-a1-pre-booking-checklist/",
+      "dom": {
+        "h1": "Goethe A1 pre-booking checklist: verify before paying",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Home\n/\nGermany A1\n/\nGoethe A1 pre-booking checklist: verify before paying\n\nGermany family reunion\n\nRoute structure complete\nCountry: Germany\nRoute: Germany A1\nGoethe A1 pre-booking checklist: verify before paying\nDirect answer\n\nA practical Goethe A1 pre-booking checklist for the requirement, exact exam, official centre, timing, documents, fee, and local terms.\n\nResponsibility: The final decision sits with Receiving German authority for proof acceptance; Goethe-Institut and authorised local centr"
+      },
+      "http": 200,
+      "redirectChain": [
+        {
+          "url": "http://127.0.0.1:4173/guides/goethe-a1-booking-mistakes/",
+          "method": "GET"
+        },
+        {
+          "url": "http://127.0.0.1:4173/guides/goethe-a1-pre-booking-checklist/",
+          "method": "GET"
+        }
+      ],
+      "screenshot": "artifacts/runtime-browser/merge-redirect-booking.png",
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "reminders-mobile",
+      "url": "http://127.0.0.1:4173/tools/email-reminders/?topic=Check+an+official+test+centre&date=2026-12-21&route=Example+mission+only",
+      "dom": {
+        "h1": "Reminder Planner",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Local planning only\n\nReminder Planner\n\nCreate a reminder plan for your own calendar, local storage, notes, or printer. No email service is connected.\n\nRoute Finder\nChecklist\nTimeline\nCompare exams\nReminders\n1\nUnderstand the scope\n2\nEnter verified facts\n3\nReview and export\n\nShareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter passport numbers, visa or application numbers, payment details, document contents, or other sensitiv"
+      },
+      "screenshot": "artifacts/runtime-browser/reminders-mobile.png",
+      "result": "Check an official test centre\n\nReminder date: 2026-12-21\n\nRoute or authority: Example mission only\n\nOfficial source: add the responsible authority or provider page before acting.",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "route-finder-mobile",
+      "url": "http://127.0.0.1:4173/tools/route-finder/",
+      "dom": {
+        "h1": "Route Finder",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Decision route\n\nRoute Finder\n\nAnswer six planning questions to get a safe starting route. Germany family reunion A1 is the only fully configured route.\n\nRoute Finder\nChecklist\nTimeline\nCompare exams\nReminders\n1\nUnderstand the scope\n2\nEnter verified facts\n3\nReview and export\n\nShareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter passport numbers, visa or application numbers, payment details, document contents, or other sensit"
+      },
+      "screenshot": "artifacts/runtime-browser/route-finder-mobile.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "adRequests": [],
+      "status": "observed"
+    },
+    {
+      "id": "route-finder-no-js",
+      "url": "http://127.0.0.1:4173/tools/route-finder/",
+      "dom": {
+        "h1": "Route Finder",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Decision route\n\nRoute Finder\n\nAnswer six planning questions to get a safe starting route. Germany family reunion A1 is the only fully configured route.\n\nRoute Finder\nChecklist\nTimeline\nCompare exams\nReminders\n1\nUnderstand the scope\n2\nEnter verified facts\n3\nReview and export\n\nShareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter passport numbers, visa or application numbers, payment details, document contents, or other sensit"
+      },
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/route-finder-no-js.png",
+      "javascript": false,
+      "noscript": 0,
+      "adRequests": [],
+      "status": "blocked-without-javascript",
+      "note": "Client tools and guide filtering do not run without JavaScript. No result was invented and no message was sent."
+    },
+    {
+      "id": "reminders-no-js",
+      "url": "http://127.0.0.1:4173/tools/email-reminders/",
+      "dom": {
+        "h1": "Reminder Planner",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Local planning only\n\nReminder Planner\n\nCreate a reminder plan for your own calendar, local storage, notes, or printer. No email service is connected.\n\nRoute Finder\nChecklist\nTimeline\nCompare exams\nReminders\n1\nUnderstand the scope\n2\nEnter verified facts\n3\nReview and export\n\nShareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter passport numbers, visa or application numbers, payment details, document contents, or other sensitiv"
+      },
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/reminders-no-js.png",
+      "javascript": false,
+      "noscript": 0,
+      "adRequests": [],
+      "status": "blocked-without-javascript",
+      "note": "Client tools and guide filtering do not run without JavaScript. No result was invented and no message was sent."
+    },
+    {
+      "id": "timeline-no-js",
+      "url": "http://127.0.0.1:4173/tools/timeline-calculator/",
+      "dom": {
+        "h1": "Timeline Planner",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Plan backwards\n\nTimeline Planner\n\nBuild backwards from your target date using only the buffers you enter. This planning estimate does not claim real centre dates or result timing.\n\nRoute Finder\nChecklist\nTimeline\nCompare exams\nReminders\n1\nUnderstand the scope\n2\nEnter verified facts\n3\nReview and export\n\nShareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter passport numbers, visa or application numbers, payment details, docume"
+      },
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/timeline-no-js.png",
+      "javascript": false,
+      "noscript": 0,
+      "adRequests": [],
+      "status": "blocked-without-javascript",
+      "note": "Client tools and guide filtering do not run without JavaScript. No result was invented and no message was sent."
+    },
+    {
+      "id": "checklist-no-js",
+      "url": "http://127.0.0.1:4173/tools/checklist-generator/",
+      "dom": {
+        "h1": "Requirement Checklist",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Organise evidence\n\nRequirement Checklist\n\nCreate a working checklist with clear priority, completion status, and the next official check. It is not an authority document list.\n\nRoute Finder\nChecklist\nTimeline\nCompare exams\nReminders\n1\nUnderstand the scope\n2\nEnter verified facts\n3\nReview and export\n\nShareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter passport numbers, visa or application numbers, payment details, document c"
+      },
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/checklist-no-js.png",
+      "javascript": false,
+      "noscript": 0,
+      "adRequests": [],
+      "status": "blocked-without-javascript",
+      "note": "Client tools and guide filtering do not run without JavaScript. No result was invented and no message was sent."
+    },
+    {
+      "id": "comparison-no-js",
+      "url": "http://127.0.0.1:4173/tools/exam-comparison/",
+      "dom": {
+        "h1": "Exam Comparison",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Planning aid, not an acceptance decision\n\nExam Comparison\n\nCompare configured verification questions for two A1 exam options. This tool does not rank providers or decide which certificate an authority will accept.\n\nRoute Finder\nChecklist\nTimeline\nCompare exams\nReminders\n1\nUnderstand the scope\n2\nEnter verified facts\n3\nReview and export\n\nShareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter passport numbers, visa or applicatio"
+      },
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/comparison-no-js.png",
+      "javascript": false,
+      "noscript": 0,
+      "adRequests": [],
+      "status": "blocked-without-javascript",
+      "note": "Client tools and guide filtering do not run without JavaScript. No result was invented and no message was sent."
+    },
+    {
+      "id": "guides-no-js",
+      "url": "http://127.0.0.1:4173/guides/",
+      "dom": {
+        "h1": "Find the guide for your next decision.",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "Task library\n\nFind the guide for your next decision.\n\nThis primary library contains source-reviewed complete and core route guides. A recorded review is not a claim that every fact was rechecked today, and it is not an advertising approval. Merged URLs are not listed again. Germany A1 family reunion and Germany B1 settlement or citizenship are the developed routes.\n\nSearch guides\nPurpose\nAll purpose options\nFamily reunion\nWork\nCountry\nAll country options\nGermany\nMore filters\n\nClear all\nRoute str"
+      },
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/guides-no-js.png",
+      "javascript": false,
+      "noscript": 0,
+      "adRequests": [],
+      "status": "blocked-without-javascript",
+      "note": "Client tools and guide filtering do not run without JavaScript. No result was invented and no message was sent."
+    },
+    {
+      "id": "404-no-js",
+      "url": "http://127.0.0.1:4173/this-page-is-absent/",
+      "dom": {
+        "h1": "This page has moved off route.",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "bodyHasAdText": false,
+        "visible": "404\n\nThis page has moved off route.\n\nThe address may be old or mistyped. Search the reviewed guide library, or restart from the decision you need to make.\n\nSearch the reviewed guide library\nTry a country, route, exam, level, or task.\nSearch guides\n\nSearch filtering needs JavaScript. You can still browse all reviewed guides.\n\nChoose another starting point\nUse Route Finder\nIdentify the authority and proof questions to verify first.\nBrowse all reviewed guides\nFilter the primary library by purpose, "
+      },
+      "http": 404,
+      "screenshot": "artifacts/runtime-browser/404-no-js.png",
+      "javascript": false,
+      "noscript": 1,
+      "adRequests": [],
+      "status": "blocked-without-javascript",
+      "note": "Client tools and guide filtering do not run without JavaScript. No result was invented and no message was sent."
+    }
+  ]
+}

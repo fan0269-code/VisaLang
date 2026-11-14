@@ -65,24 +65,8 @@ const p0RewrittenOn20261108 = new Set([
 for (const slug of auditedGermanyA1Slugs) {
   const source = bySlug.get(slug)?.source || '';
   assert.equal(field(source, 'contentStatus'), 'complete-route', `${slug} keeps content maturity independent from source review`);
-  const expectedReviewDate = p0RefreshedOn20261111.has(slug)
-    ? '2026-11-11'
-    : p1RewrittenOn20261110.has(slug)
-    ? '2026-11-10'
-    : p0RewrittenOn20261108.has(slug)
-    ? '2026-11-08'
-    : sourceRecheckedOn20261107.has(slug)
-    ? '2026-11-07'
-    : depthRemediatedA1Slugs.has(slug)
-    ? '2026-10-21'
-    : newlyReviewedLocalSourceSlugs.has(slug) ? '2026-07-19' : '2026-07-18';
-  const expectedUpdateDate = p0RefreshedOn20261111.has(slug)
-    ? '2026-11-11'
-    : p1RewrittenOn20261110.has(slug)
-    ? '2026-11-10'
-    : p0RewrittenOn20261108.has(slug)
-    ? '2026-11-08'
-    : aeoCopyOn20261107.has(slug) ? '2026-11-07' : expectedReviewDate;
+  const expectedReviewDate = '2026-11-14';
+  const expectedUpdateDate = '2026-11-14';
   assert.equal(field(source, 'updatedDate'), expectedUpdateDate, `${slug} records the substantive visible update`);
   for (const fieldName of ['audienceScope', 'finalDecisionAuthorityType', 'primaryOfficialAuthorityUrl', 'examOwnerUrl', 'localExecutionPrompt']) {
     assert.ok(field(source, fieldName), `${slug} records ${fieldName}`);
@@ -103,7 +87,6 @@ const germanyA1MainRoute = [
   'goethe-a1-pre-booking-checklist',
   'german-a1-exam-booking-timeline',
   'german-a1-documents-checklist',
-  'goethe-a1-official-links-practice-resources',
   'goethe-a1-30-day-study-plan',
 ];
 for (let index = 0; index < germanyA1MainRoute.length - 1; index += 1) {
@@ -174,7 +157,7 @@ for (const [slug, expected] of Object.entries(germanyB1CoreRoute)) {
 }
 
 const germanyB1Entries = entries.filter(({ source }) => field(source, 'category') === 'germany-b1');
-assert.equal(germanyB1Entries.length, 13, 'Germany B1 route graph retains exactly 13 guides');
+assert.equal(germanyB1Entries.length, 12, 'Germany B1 route graph retains 12 guides after the difficulty-page merge');
 for (const { file, source } of germanyB1Entries) {
   const slug = field(source, 'slug');
   const nextGuideSlug = field(source, 'nextGuideSlug');
@@ -210,12 +193,8 @@ const supportReviewRouteExpectations = {
   'goethe-a1-listening-practice': ['germany-a1', 'local-execution', 'goethe-a1-speaking-topics'],
   'goethe-a1-speaking-topics': ['germany-a1', 'local-execution', 'goethe-a1-30-day-study-plan'],
   'goethe-a1-writing-practice': ['germany-a1', 'local-execution', 'goethe-a1-30-day-study-plan'],
-  'goethe-a1-study-plan-working-adults': ['germany-a1', 'local-execution', 'goethe-a1-30-day-study-plan'],
-  'goethe-a1-official-links-practice-resources': ['germany-a1', 'local-execution', 'goethe-a1-30-day-study-plan'],
   'goethe-a1-30-day-study-plan': ['germany-a1', 'local-execution', ''],
-  'goethe-a1-booking-mistakes': ['germany-a1', 'local-execution', 'german-a1-documents-checklist'],
   'goethe-a1-pre-booking-checklist': ['germany-a1', 'local-execution', 'german-a1-exam-booking-timeline'],
-  'goethe-b1-difficulty-analysis': ['germany-b1', 'local-execution', 'goethe-b1-study-plan'],
   'goethe-b1-listening-deep-dive': ['germany-b1', 'local-execution', 'goethe-b1-mock-exam-routine'],
   'goethe-b1-mock-exam-routine': ['germany-b1', 'local-execution', 'goethe-b1-study-plan'],
   'goethe-b1-speaking-topics': ['germany-b1', 'local-execution', 'goethe-b1-mock-exam-routine'],
@@ -288,6 +267,22 @@ const pendingCtaBranch = statusDomain.slice(statusDomain.indexOf("if (status ===
 assert.doesNotMatch(pendingCtaBranch, /Route Finder|checklist/i, 'verification-pending CTA branch cannot expose individual-decision tools');
 
 const highRiskCategories = new Set(['portugal', 'spain', 'uk', 'canada', 'italy', 'france', 'finland', 'netherlands']);
+const taxonomySource = fs.readFileSync('src/data/guide-taxonomy.ts', 'utf8');
+for (const slug of ['spain', 'france']) {
+  assert.match(taxonomySource, new RegExp(`slug: '${slug}'[\\s\\S]{0,220}noindex: true`), `${slug} category isolation is a taxonomy flag, not only an empty guide set`);
+}
+const categoryIndexEligible = (guideCount, noindexFlag) => guideCount > 0 && noindexFlag !== true;
+assert.equal(categoryIndexEligible(2, true), false, 'a Spain or France category with future primary-discovery guides stays noindex');
+const routeInventory = JSON.parse(fs.readFileSync('artifacts/visalang-deployed-routes.json', 'utf8'));
+for (const slug of ['spain', 'france']) {
+  const row = routeInventory.categoryRoutes.find((item) => item.path === `/guides/category/${slug}/`);
+  assert.equal(row.taxonomyNoindexFlag, true, `${slug} inventory flag matches the current taxonomy`);
+  assert.equal(row.inventoryCodeReading.taxonomyNoindexFlag, false, `${slug} keeps the earlier code reading instead of rewriting it`);
+  assert.equal(row.liveProduction.capturedAt, '2026-11-14T03:08:14.605877+00:00', `${slug} production snapshot time is unchanged`);
+  assert.equal(row.liveProduction.robotsMeta, 'noindex,follow', `${slug} production robots snapshot is unchanged`);
+}
+assert.match(routeInventory.note, /not proof that every unlinked main route was found|Not exhausted|unknown/i, 'the route inventory does not claim unknown routes are exhausted');
+assert.equal(categoryIndexEligible(0, false), false, 'an empty category without the flag is also noindex today; that is not the Spain/France guard');
 const highRiskEntries = entries.filter(({ source }) => highRiskCategories.has(field(source, 'category')));
 assert.equal(highRiskEntries.length, 15, 'the high-risk collection reflects the consolidated Finland guide');
 for (const { file, source } of highRiskEntries) {
@@ -325,12 +320,14 @@ const finlandGuide = bySlug.get('yki-finnish-citizenship')?.source || '';
 const finlandBody = bodyOnly(finlandGuide);
 assert.equal(field(finlandGuide, 'contentStatus'), 'verification-pending', 'the consolidated Finland guide remains pending');
 assert.equal(field(finlandGuide, 'sourceReviewStatus'), 'reviewed', 'the Finland source review status remains controlled');
-assert.equal(field(finlandGuide, 'sourceReviewedAt'), '2026-07-29', 'the Finland guide records the current source recheck');
+assert.equal(field(finlandGuide, 'sourceReviewedAt'), '2026-07-29', 'the Finland source-review date stays the earlier check; 2026-11-14 is the edit');
+assert.equal(field(finlandGuide, 'updatedDate'), '2026-11-14', 'the Finland edit date is separate from the source-review date');
 assert.equal(field(finlandGuide, 'nextGuideSlug'), '', 'the consolidated Finland guide is terminal');
 assert.ok(!bySlug.has('yki-vs-other-finland-options'), 'the duplicate Finland comparison entry is removed');
 assert.match(finlandBody, /Migri.*(?:final authority|decides)|final authority.*Migri/is, 'the Finland guide keeps Migri as final authority');
 assert.match(finlandBody, /YKI.*(?:one|several).*evidence|one.*evidence.*YKI/is, 'the Finland guide presents YKI as one evidence path');
-assert.match(finlandBody, /oral.*written|speaking.*writing|listening.*writing|reading.*speaking/is, 'the Finland guide records the subtest-combination check');
+assert.match(finlandBody, /was not readable|was not re-read/i, 'the Finland guide says the combination page was not re-read');
+assert.doesNotMatch(finlandBody, /speaking plus writing|listening comprehension plus writing|reading comprehension plus speaking/i, 'the Finland guide does not repeat an unread pairing list');
 assert.match(finlandBody, /evidence-path record|verification record/i, 'the Finland guide provides an evidence record');
 assert.match(finlandBody, /Common mistakes/i, 'the Finland guide includes common mistakes');
 assert.match(finlandBody, /Next action/i, 'the Finland guide includes a next action');
@@ -344,8 +341,10 @@ assert.equal(field(ukRequirement, 'contentStatus'), 'verification-pending', 'IEL
 assert.equal(field(ukChoice, 'contentStatus'), 'verification-pending', 'LanguageCert SELT remains pending after window B-1 content work');
 assert.equal(field(ukRequirement, 'sourceReviewStatus'), 'reviewed', 'IELTS UKVI source review status is not downgraded or promoted');
 assert.equal(field(ukChoice, 'sourceReviewStatus'), 'reviewed', 'LanguageCert SELT source review status is not downgraded or promoted');
-assert.equal(field(ukRequirement, 'sourceReviewedAt'), '2026-07-21', 'IELTS UKVI keeps the real source-review date');
-assert.equal(field(ukChoice, 'sourceReviewedAt'), '2026-07-21', 'LanguageCert SELT keeps the real source-review date');
+assert.equal(field(ukRequirement, 'sourceReviewedAt'), '2026-07-21', 'IELTS UKVI keeps the earlier source-review date');
+assert.equal(field(ukRequirement, 'updatedDate'), '2026-11-14', 'IELTS UKVI records the 2026-11-14 edit separately');
+assert.equal(field(ukChoice, 'sourceReviewedAt'), '2026-07-21', 'LanguageCert SELT keeps the earlier source-review date');
+assert.equal(field(ukChoice, 'updatedDate'), '2026-11-14', 'LanguageCert SELT records the 2026-11-14 edit separately');
 assert.notEqual(field(ukRequirement, 'primaryIntent'), field(ukChoice, 'primaryIntent'), 'UK pages record distinct primary intents');
 assert.notEqual(field(ukRequirement, 'audienceScope'), field(ukChoice, 'audienceScope'), 'UK pages record distinct audience scopes');
 assert.notEqual(field(ukRequirement, 'localExecutionPrompt'), field(ukChoice, 'localExecutionPrompt'), 'UK pages record distinct local execution prompts');
@@ -408,13 +407,14 @@ for (const [slug, unsafePattern] of Object.entries(blockedClaims)) {
 
 const newlyReviewedDecisionAuthorityPages = {
   'delf-b1-b2-french-work-study': { authority: /sorbonne-universite\.fr/, scope: /Sorbonne Faculty of Arts and Humanities admissions/i, eyebrow: /Sorbonne admissions/i },
-  'tcf-irn-french-residence': { authority: /immigration\.interieur\.gouv\.fr/, scope: /French nationality procedure/i, eyebrow: /Nationality procedure/i },
+  'tcf-irn-french-residence': { authority: /service-public\.gouv\.fr\/particuliers\/vosdroits\/F11926/, scope: /French nationality procedure/i, eyebrow: /Nationality procedure/i },
   'staatsexamen-nt2-for-work-and-higher-education': { authority: /uva\.nl/, scope: /UvA Dutch-taught bachelor's admissions/i, eyebrow: /UvA admissions/i },
 };
 for (const [slug, { authority, scope, eyebrow }] of Object.entries(newlyReviewedDecisionAuthorityPages)) {
   const source = bySlug.get(slug)?.source || '';
   assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${slug} records the completed page-specific source review`);
-  assert.equal(field(source, 'sourceReviewedAt'), '2026-07-19', `${slug} records the current source-review date`);
+  assert.equal(field(source, 'sourceReviewedAt'), '2026-07-19', `${slug} keeps the earlier source-review date`);
+  assert.equal(field(source, 'updatedDate'), '2026-11-14', `${slug} records the 2026-11-14 edit separately`);
   assert.equal(field(source, 'reviewedByRole'), 'source-review', `${slug} records the controlled reviewer role`);
   assert.equal(field(source, 'contentStatus'), 'verification-pending', `${slug} remains pending for reader-specific acceptance and execution`);
   assert.match(field(source, 'primaryOfficialAuthorityUrl'), authority, `${slug} records a named final-decision authority or receiving institution`);
@@ -432,7 +432,9 @@ const dutchIntegration = bySlug.get('dutch-inburgering-a2-b1-for-integration-and
 assert.match(franceStudy, /Sorbonne University/i, 'the DELF page names the reviewed receiving institution');
 assert.match(franceStudy, /Faculty of Arts and Humanities/i, 'the DELF page limits the institution example to the reviewed faculty scope');
 assert.match(franceResidence, /1 January 2026/i, 'the TCF IRN page dates the current French procedure rule');
-assert.match(franceResidence, /B2/i, 'the TCF IRN page records the current nationality-procedure language level from the Ministry source');
+assert.match(franceResidence, /B2/i, 'the TCF IRN page records B2 from the Service-Public page that was read');
+assert.match(franceResidence, /not re-read|not readable/i, 'the TCF IRN page does not treat the unread Ministry URL as a current reading');
+assert.doesNotMatch(franceResidence, /inconsistent/i, 'the TCF IRN page does not claim current FEI materials contradict each other');
 assert.match(dutchStudy, /University of Amsterdam/i, 'the NT2 page names the reviewed receiving university');
 assert.match(dutchStudy, /Dutch-taught bachelor/i, 'the NT2 page limits the acceptance example to the reviewed programme scope');
 assert.equal(field(dutchIntegration, 'nextGuideSlug'), '', 'the separate Dutch integration route no longer loops into the work/study route');

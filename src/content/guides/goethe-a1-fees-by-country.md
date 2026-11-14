@@ -4,8 +4,8 @@ description: "How to record and compare the current local Goethe A1 exam fee and
 category: "germany-a1"
 slug: "goethe-a1-fees-by-country"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-19"
-sourceReviewedAt: "2026-07-19"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "complete-route"
@@ -23,7 +23,7 @@ readingTime: "7"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-supportingGuideSlugs: ["goethe-a1-test-centers", "goethe-a1-booking-mistakes", "german-a1-exam-booking-timeline"]
+supportingGuideSlugs: ["goethe-a1-test-centers", "goethe-a1-pre-booking-checklist", "german-a1-exam-booking-timeline"]
 ---
 
 ## The useful answer is not one number
@@ -34,7 +34,7 @@ For an adult Goethe route, check that the listing says **Goethe-Zertifikat A1: S
 
 ## Why one global price does not work
 
-Official Goethe pages publish different local price tables for Germany and for the Beijing institute. The Beijing page also distinguishes locally defined learner categories. These first-party examples show why a price from one location or category must not be copied into another booking.
+Goethe Exam Guidelines section 6.1, Stand 1 September 2025, place the fee on the applicable local fee schedule, shown on the registration form or by the exam centre. That rule is why a price from one location must not be copied to another. The Goethe-Institut Beijing registration HTML was not opened for this correction, so this page does not describe its current prices, learner categories, dates, or forms.
 
 Do not assume a course, preparation package, administration service, or booking helper includes the official examination fee. Ask what the quoted amount covers and verify the exam charge with the official or authorised centre that will take the booking.
 
@@ -69,7 +69,7 @@ Find the official centre first in [Goethe A1 test centers](/guides/goethe-a1-tes
 ## Official sources
 
 - [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [Goethe-Institut Beijing: 2026 examination prices and registration](https://www.goethe.de/ins/cn/zh/spr/prf/anm.html)
+- Goethe-Institut Beijing registration HTML — not opened on 2026-11-14. Not cited as a verified price table.
 - [Goethe-Institut Germany: 2026 examination prices](https://www.goethe.de/ins/de/zh/prf/pre.html)
 
 ## A1 route FAQ

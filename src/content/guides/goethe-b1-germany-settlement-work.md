@@ -5,8 +5,8 @@ description: "Ask your foreigners authority which settlement route applies befor
 category: "germany-b1"
 slug: "goethe-b1-germany-settlement-work"
 publishedDate: "2026-06-30"
-updatedDate: "2026-11-11"
-sourceReviewedAt: "2026-11-11"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "core-route"
@@ -49,6 +49,8 @@ On those pages, checked on 2026-11-11:
 So “B1” is a label BAMF attaches to some routes on that page. It is not a label you can assign to yourself. The competent local foreigners authority applies the provision. Find that office through [BAMF-NAvI](https://bamf-navi.bamf.de/en/Themen/Behoerden/?typ=ABH) (English authorities view, opened 2026-11-11), then use the authority’s own page. NAvI is a locator. It is not a national list of accepted B1 formats.
 
 Residence Act section 9 was opened on 2026-11-11. In the general settlement-permit case that section describes, sufficient German (no. 7) and basic knowledge of the legal and social order (no. 8) are separate conditions, alongside residence, livelihood, and the other conditions in that subsection. The statute treats a successfully completed integration course as one way those two conditions are shown, and it also describes cases where one or both can be set aside. That is not proof that section 9 is your route, and it is not proof that every foreigners authority accepts every B1 brand. Ask the authority which provision it is using.
+
+Residence Act section 18c, read from the 2026-11-14 snapshot, is a different settlement provision for skilled workers. Subsection (1) includes holding a listed residence title for three years and “ausreichende Kenntnisse der deutschen Sprache”, plus the contribution and employment conditions in that subsection. Subsection (2) is the EU Blue Card case: 27 months with “einfache Kenntnisse”, shortened to 21 months where “ausreichende Kenntnisse” are shown, together with the other conditions that subsection names. Those clocks are not Nationality Act section 10, and a B1 brand does not prove the title, job, or contributions. This page does not calculate them. Goethe B1 module structure lives on the comparison and study-plan pages, not here.
 
 ## Decision tree
 

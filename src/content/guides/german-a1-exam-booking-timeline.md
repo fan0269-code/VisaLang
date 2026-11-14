@@ -5,8 +5,8 @@ description: "Plan a German A1 booking only from dates your centre or mission ha
 category: "germany-a1"
 slug: "german-a1-exam-booking-timeline"
 publishedDate: "2026-07-08"
-updatedDate: "2026-11-10"
-sourceReviewedAt: "2026-11-10"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "complete-route"
@@ -41,7 +41,7 @@ Stop when a step is **unknown**. An unknown date is a blank, not a guess.
 2. **Has your mission named the certificate?** If the words are missing, ask the mission. Compare only named products in [Goethe A1 vs telc A1](/guides/goethe-a1-vs-telc-a1/).
 3. **Has the selected centre confirmed a seat for that exact product name?** Record the date, the centre URL or message, and the day you checked it. A different city’s calendar stays out of the plan.
 4. **Has that centre confirmed how it publishes the result and how it issues or hands over the certificate?** If it has not, write **unknown**. Do not convert a regulation sentence into a number of days after the exam.
-5. **Has the mission confirmed the document deadline or appointment rule for your file?** If it has not, write **unknown**. Do not invent a nationwide “file the certificate within one year” rule. The Federal Foreign Office spouse-language FAQ does not state that rule.
+5. **Has the mission confirmed the document deadline or appointment rule for your file?** If it has not, write **unknown**. The Federal Foreign Office certificate FAQ, Welche Sprachzertifikate werden im Visumsverfahren akzeptiert, read from the 2026-11-14 snapshot, says that as a rule (in der Regel) the exam date should not be more than one year old. If individual modules were repeated, the date of the oldest passed module applies. That “as a rule” guidance is not a statute that the certificate expires automatically, and the mission that receives the file can still give a case instruction. The shorter spouse-language FAQ does not state an age rule. Its silence does not cancel the certificate FAQ. The BAMF spousal leaflet (imprint 03/2023) also does not state a nationwide maximum age. Do not turn either silence into “the Foreign Office has no one-year guidance,” and do not turn the certificate FAQ into a hard nationwide expiry.
 6. **Only then** place a backup seat, and only after the same centre explains its next-seat process. A hoped-for retake date is **unknown** until the centre confirms it.
 
 ## What the opened sources support
@@ -107,6 +107,20 @@ No. telc’s FAQ says telc does not publish the exam fee because the centre sets
 ### What if I still do not know whether A1 applies?
 
 Do not pay for a seat. Use the [requirement guide](/guides/german-family-reunion-language-requirement/) and the [family-reunion FAQ](/guides/german-a1-family-reunion-faq/) first. This timeline starts after that answer is saved.
+
+## A worked dependency, with invented dates labelled as such
+
+This sketch uses dates you did not receive from any office. It shows order only.
+
+| Step | Example you type | If this cell is blank |
+| --- | --- | --- |
+| Mission appointment you already hold | 2026-12-18, labelled “reader example” | Stop. Do not invent an appointment. |
+| Certificate in hand | unknown | You cannot count backwards to a booking day. |
+| Centre sitting the centre confirmed | unknown | The five-day clock-time notice in Exam Guidelines section 4.7 is not a substitute sitting. |
+| Written and oral on different days | unknown | The A1 rules’ “in der Regel” 14-day limit is when the two parts are held. It is not a result day. |
+
+If any required cell is unknown, the plan stops at that cell. It does not borrow a duration from another person’s file.
+
 
 ## Common mistakes
 

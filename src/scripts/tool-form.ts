@@ -5,9 +5,13 @@ interface ToolFormOptions {
   customError?: (field: ToolField, form: HTMLFormElement) => string | undefined;
 }
 
-const fieldLabel = (field: ToolField) => field.closest('label')?.querySelector(':scope > span')?.textContent?.trim()
-  || field.closest('label')?.firstChild?.textContent?.trim()
-  || field.name;
+const fieldLabel = (field: ToolField) => {
+  const label = field.closest('label');
+  const named = label?.querySelector(':scope > span:not(.tool-field-error)')?.textContent?.trim();
+  if (named) return named;
+  const text = [...(label?.childNodes || [])].find((node) => node.nodeType === Node.TEXT_NODE && node.textContent?.trim());
+  return text?.textContent?.trim() || field.name;
+};
 
 export function setupToolForm(form: HTMLFormElement, options: ToolFormOptions) {
   const fields = [...form.querySelectorAll<ToolField>('input, select, textarea')].filter((field) => field.name);

@@ -4,7 +4,7 @@ description: "Confirm the Express Entry programme, accepted French test and curr
 category: "canada"
 slug: "tef-canada-immigration"
 publishedDate: "2026-07-01"
-updatedDate: "2026-07-30"
+updatedDate: "2026-11-14"
 contentStatus: "verification-pending"
 decisionStage: "requirement"
 nextGuideSlug: "tcf-canada-vs-tef"
@@ -56,12 +56,6 @@ If this record does not establish the programme and accepted product, stop befor
 IRCC controls Express Entry acceptance, programme language requirements, result-validity rules and the conversion used in the profile. Do not convert a TEF score from memory or with an unofficial table.
 
 Le français des affaires, part of CCI Paris Île-de-France, owns TEF Canada product information. Its current candidate pages describe the four compulsory abilities and route candidates to official centres and registration conditions. The product owner and selected official centre can confirm the product and local execution; they do not decide Express Entry eligibility, points or application outcome.
-
-## Why the comparison page is a separate task
-
-This is the **programme-first requirement check**. It identifies the IRCC programme, accepted French-test options and official conversion path.
-
-The [TEF Canada and TCF Canada comparison](/guides/tcf-canada-vs-tef/) starts later. It helps compare two product and centre workflows after the IRCC requirement record is complete. It does not replace the IRCC programme decision.
 
 ## Common mistakes
 

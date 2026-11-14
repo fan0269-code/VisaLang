@@ -4,7 +4,7 @@ description: "Confirm the citizenship basis and current Italian-language evidenc
 category: "italy"
 slug: "cils-b1-cittadinanza-for-italian-citizenship"
 publishedDate: "2026-07-01"
-updatedDate: "2026-07-30"
+updatedDate: "2026-11-14"
 contentStatus: "verification-pending"
 decisionStage: "requirement"
 nextGuideSlug: "cils-vs-celi-vs-plida-for-italian-citizenship"
@@ -32,9 +32,9 @@ supportingGuideSlugs: []
 
 This page answers the question that comes before exam selection: **what current Italian-language evidence does the authority handling your citizenship application ask you to provide?**
 
-The Ministry of the Interior application page currently identifies evidence of Italian knowledge at no lower than CEFR B1 and records exemptions within the procedure it describes. The Foreign Ministry citizenship page separately explains the evidence and competent consular process for applicants in its stated scope. These pages are the starting point, but the competent Prefettura or responsible consulate remains the final authority for the instruction applied to an individual file.
+The Ministry of the Interior application page opened on 2026-11-14 identifies Italian-language evidence at no lower than CEFR B1 and records exemptions inside the online procedure it describes. That page does not decide every descent, marriage, or residence file. The Foreign Ministry URL returned a challenge page on the same day, so it is not current evidence of a consular evidence list. The Italian Interior Ministry page is one starting point. The competent Prefettura or responsible consulate remains the final authority for the instruction applied to an individual file.
 
-Do not begin by assuming that CILS is mandatory. The current authority pages also describe other certification bodies, qualifying study evidence and exemptions. Record which provision the competent authority says applies before paying for any exam.
+Do not begin by assuming that CILS is mandatory. The Interior application page that was opened names Italian-language evidence at B1 and the exemptions written on that page. It does not name CILS, CELI, or PLIDA. The Foreign Ministry URL was a challenge page and was not read as a list of certification bodies. Record which provision the competent office says applies before paying for any exam.
 
 ## Build an authority record
 
@@ -80,5 +80,5 @@ Continue to the certificate comparison only when that record shows why CILS, CEL
 ## Official sources
 
 - [Italian Ministry of the Interior — submit a citizenship application](https://libertaciviliimmigrazione.dlci.interno.gov.it/cittadinanza-invia-la-tua-domanda)
-- [Italian Foreign Ministry — citizenship procedures and language evidence](https://www.esteri.it/it/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/)
+- [Italian Foreign Ministry URL — challenge page on 2026-11-14, not a current evidence list](https://www.esteri.it/it/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/)
 - [CILS — CILS UNO-B1 product page](https://cils.unistrasi.it/1/79/73/Livello-CILS-UNO-B1.htm)
