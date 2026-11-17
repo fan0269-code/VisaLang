@@ -13,7 +13,8 @@ import { examComparisonOptions } from '../../data/route-tools';
           <label>Second exam<select name="second" required><option value="">Select an exam</option>{examComparisonOptions.map((exam) => <option value={exam.id}>{exam.label}</option>)}</select></label>
         </div>
         <div class="tool-error-summary" id="comparison-error" data-error-summary role="alert" tabindex="-1" hidden></div>
-        <button class="primary-action" type="submit">Compare verification questions</button>
+        <button class="primary-action" type="submit" disabled data-tool-submit>Compare verification questions</button>
+        <noscript><p id="comparison-no-js">JavaScript is off, so this form does not send your answers. The button stays disabled. Continue with the <a href="/guides/goethe-a1-vs-telc-a1/">Goethe A1 and telc A1 guide</a>.</p></noscript>
       </form>
       <section id="comparison-result" class="tool-result" hidden aria-live="polite" tabindex="-1">
         <div id="comparison-summary"></div>
