@@ -1,0 +1,16 @@
+{
+  "inputCommit": "06f7f6236e580c1a13c86b12290fc5a75fb72046",
+  "inputTree": "1ee9de640e4a79fa06d210a334b8f968baf4b502",
+  "note": "Browser observations in artifacts/runtime-browser/bound-06f7f62 were taken from a build of this commit. Evidence files are not build inputs. Earlier 36, 21, and 41 runs are not coverage of this commit.",
+  "sourceBlobs": {
+    "src/content/guides/goethe-a1-writing-practice.md": "91d453dc3bc02fbad2a31e5c4442ac6f7c059403",
+    "src/content/guides/german-a1-documents-checklist.md": "6e6fae36ea61fe2497a63ea362515b7bfb51b6f7",
+    "src/content/guides/german-a1-exam-booking-timeline.md": "a4dec680c1854415e3e78fcb1dee2312218639e2",
+    "src/content/guides/german-a1-family-reunion-faq.md": "878ed2528f8b4290294f27ef5581fc49ef637ef0",
+    "src/content/guides/goethe-a1-germany-family-reunion.md": "c0427e420cd3472529ade2f186e30301bdf2c9a8",
+    "src/content/guides/german-family-reunion-language-requirement.md": "8d88825c5e90a709a31b57b67c26dc0b1e33e332",
+    "src/scripts/tool-form.ts": "d87062ab6fe663a32aab21e5ee694db533114a27",
+    "src/pages/tools/route-finder.astro": "abcd14016cec79fd919b09b6b42b79bc19e06a01",
+    "src/pages/tools/email-reminders.astro": "8683f3e732482324591bcfa0a1115e53ceb4167b"
+  }
+}
