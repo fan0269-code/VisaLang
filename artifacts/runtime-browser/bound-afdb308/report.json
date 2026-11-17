@@ -1,0 +1,99 @@
+{
+  "inputCommit": "afdb308821cabfe7c3fcaf5fc09f2e0112119397",
+  "generatedAt": "2026-11-17T10:35:54.267Z",
+  "origin": "http://127.0.0.1:4173",
+  "notProduction": true,
+  "scope": "No-JavaScript click and Enter on Exam Comparison, Requirement Checklist, and Timeline Planner only. Does not replace bound-06f7f62 or earlier runs.",
+  "har": {
+    "comparison": {
+      "entries": 4,
+      "posts": 0,
+      "ads": 0,
+      "hosts": [
+        "127.0.0.1:4173",
+        "visalang.org"
+      ],
+      "methods": [
+        "GET"
+      ]
+    },
+    "checklist": {
+      "entries": 4,
+      "posts": 0,
+      "ads": 0,
+      "hosts": [
+        "127.0.0.1:4173",
+        "visalang.org"
+      ],
+      "methods": [
+        "GET"
+      ]
+    },
+    "timeline": {
+      "entries": 4,
+      "posts": 0,
+      "ads": 0,
+      "hosts": [
+        "127.0.0.1:4173",
+        "visalang.org"
+      ],
+      "methods": [
+        "GET"
+      ]
+    }
+  },
+  "records": [
+    {
+      "id": "comparison-no-js",
+      "http": 200,
+      "urlBefore": "http://127.0.0.1:4173/tools/exam-comparison/",
+      "urlAfter": "http://127.0.0.1:4173/tools/exam-comparison/",
+      "urlUnchanged": true,
+      "buttonDisabled": true,
+      "limitation": "JavaScript is off, so this form does not send your answers. The button stays disabled. Continue with the Goethe A1 and telc A1 guide.",
+      "requestsAfterAction": [
+        {
+          "url": "https://visalang.org/favicon.svg",
+          "method": "GET",
+          "at": 1794911752527
+        }
+      ],
+      "screenshot": "artifacts/runtime-browser/bound-afdb308/comparison-no-js.png"
+    },
+    {
+      "id": "checklist-no-js",
+      "http": 200,
+      "urlBefore": "http://127.0.0.1:4173/tools/checklist-generator/",
+      "urlAfter": "http://127.0.0.1:4173/tools/checklist-generator/",
+      "urlUnchanged": true,
+      "buttonDisabled": true,
+      "limitation": "JavaScript is off, so this form does not send your answers. The button stays disabled. Continue with the Germany A1 guide.",
+      "requestsAfterAction": [
+        {
+          "url": "https://visalang.org/favicon.svg",
+          "method": "GET",
+          "at": 1794911753157
+        }
+      ],
+      "screenshot": "artifacts/runtime-browser/bound-afdb308/checklist-no-js.png"
+    },
+    {
+      "id": "timeline-no-js",
+      "http": 200,
+      "urlBefore": "http://127.0.0.1:4173/tools/timeline-calculator/",
+      "urlAfter": "http://127.0.0.1:4173/tools/timeline-calculator/",
+      "urlUnchanged": true,
+      "buttonDisabled": true,
+      "limitation": "JavaScript is off, so this form does not send your answers. The button stays disabled. Continue with the German A1 booking timeline.",
+      "requestsAfterAction": [
+        {
+          "url": "https://visalang.org/favicon.svg",
+          "method": "GET",
+          "at": 1794911753735
+        }
+      ],
+      "screenshot": "artifacts/runtime-browser/bound-afdb308/timeline-no-js.png"
+    }
+  ],
+  "afterActionRequests": "Each record lists one GET of https://visalang.org/favicon.svg after the action marker. That is the page-load favicon, not a form navigation. The tool URL has no query string and did not change."
+}
