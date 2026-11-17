@@ -39,7 +39,7 @@ for (const [country, [requirementSlug, choiceSlug]] of Object.entries(routePairs
 const finland = read('yki-finnish-citizenship');
 assert.equal(field(finland, 'contentStatus'), 'verification-pending', 'the consolidated Finland guide remains verification-pending');
 assert.equal(field(finland, 'sourceReviewStatus'), 'reviewed', 'the Finland guide records the controlled source review');
-assert.equal(field(finland, 'sourceReviewedAt'), '2026-07-29', 'the Finland guide records the current official-source recheck');
+assert.equal(field(finland, 'sourceReviewedAt'), '2026-07-29', 'the Finland guide keeps the earlier source-review date');
 assert.equal(field(finland, 'reviewedByRole'), 'source-review', 'the Finland guide keeps the controlled reviewer role');
 assert.equal(field(finland, 'decisionStage'), 'requirement', 'the Finland guide starts with the evidence requirement');
 assert.equal(field(finland, 'nextGuideSlug'), '', 'the consolidated Finland guide is terminal');

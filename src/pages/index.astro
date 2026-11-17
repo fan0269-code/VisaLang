@@ -41,21 +41,19 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'WebSite', name: sit
     <hr class="rule" />
 
     <section class="section" aria-labelledby="stage-title">
-      <h2 class="section-title" id="stage-title">Make the decision in four checks</h2>
+      <h2 class="section-title" id="stage-title">Choose the Germany path</h2>
       <div class="lane-grid">
         <ol class="stage-list">
-          <li class="stage-card"><div><h3>Identify the receiving organisation</h3><p>Start with the authority, institution, employer, regulator, or exam body that will receive your proof.</p><a href="/tools/route-finder/">Choose a purpose</a></div></li>
-          <li class="stage-card"><div><h3>Confirm the proof level</h3><p>Check the source that receives your file before treating any A1, B1, B2, or other level as suitable.</p><a href="/guides/">Browse level guides</a></div></li>
-          <li class="stage-card"><div><h3>Compare accepted exams</h3><p>The same level can map to different certificates. Acceptance depends on the receiving organisation.</p><a href="/tools/exam-comparison/">Compare exams</a></div></li>
-          <li class="stage-card"><div><h3>Verify before acting</h3><p>Recheck centre status, dates, fees, ID rules, result timing, and submission requirements before payment.</p><a href="/tools/checklist-generator/">Build a checklist</a></div></li>
+          <li class="stage-card"><div><h3>Family reunion A1</h3><p>Ask whether the mission wants language proof before you compare Goethe and telc.</p><a href="/germany-family-reunion-a1/">Open the A1 hub</a></div></li>
+          <li class="stage-card"><div><h3>Settlement or citizenship B1</h3><p>Keep the residence file and the language file apart. This hub is English.</p><a href="/germany-b1-settlement-citizenship/">Open the B1 hub</a></div></li>
         </ol>
         <aside class="sidebar-panel">
-          <h3>The receiving organisation makes the decision.</h3>
-          <p>Use its current instructions to confirm the required level, accepted proof, document format, deadline, and any individual exception.</p>
+          <h3>This page does not decide the file.</h3>
+          <p>Route Finder configures Germany family-reunion A1 only. Every other purpose stays an official check.</p>
           <ul class="check-list">
-            <li>Check the authority or institution receiving the file.</li>
-            <li>Check the official exam owner or authorised centre.</li>
-            <li>Recheck changing terms before booking or submission.</li>
+            <li>The mission or authority names the proof.</li>
+            <li>The exam owner and the centre name the sitting.</li>
+            <li>A guide count is not a quality score.</li>
           </ul>
         </aside>
       </div>
@@ -91,7 +89,7 @@ const jsonLD = { '@context': 'https://schema.org', '@type': 'WebSite', name: sit
     </section>
 
     <section class="section" aria-labelledby="updated-title">
-      <div class="section-header"><h2 id="updated-title">Recently updated</h2><p>{totalGuideCount} English and Chinese guides across {publishedCategoryCount} developed route categories.</p></div>
+      <div class="section-header"><h2 id="updated-title">Recently updated</h2><p>14 November 2026 correction: section 10 no longer offers the old special-integration three-year route; certificate age follows the Foreign Office “as a rule” guidance; four overlapping A1/B1 pages now redirect. The library size is not a maturity score.</p></div>
       <div class="latest-layout">
         {updated[0] && <a class="latest-feature" href={`/guides/${updated[0].data.slug}/`}><GuideStatusBadge status={updated[0].status} /><h3>{updated[0].data.title}</h3><p>{updated[0].data.description}</p><span class="last-checked">Updated {updated[0].data.updatedDate}</span></a>}
         <div class="latest-list">{updated.slice(1).map((guide) => <a class="latest-item" href={`/guides/${guide.data.slug}/`}><div><h3>{guide.data.title}</h3><p>{guide.data.description}</p></div><span class="last-checked">Updated {guide.data.updatedDate}</span></a>)}</div>

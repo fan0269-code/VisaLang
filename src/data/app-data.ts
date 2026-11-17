@@ -128,5 +128,4 @@ export const guideCatalog = [
   { slug: 'goethe-a1-retake-policy', title: 'Goethe A1 retake policy', category: 'germany-a1' },
   { slug: 'german-a1-documents-checklist', title: 'German A1 documents checklist', category: 'germany-a1' },
   { slug: 'german-family-reunion-language-requirement', title: 'German family reunion language requirement', category: 'germany-a1' },
-  { slug: 'goethe-a1-official-links-practice-resources', title: 'Goethe A1 official links and practice resources', category: 'germany-a1' },
 ];

@@ -1,0 +1,547 @@
+{
+  "inputCommit": "9ac20a563b99e508c18da1d139ee421dd5ef5e94",
+  "inputTreeNote": "Observed from a build of git commit 9ac20a563b99e508c18da1d139ee421dd5ef5e94. Evidence files are not inputs to that commit.",
+  "generatedAt": "2026-11-14T03:59:14.173Z",
+  "origin": "http://127.0.0.1:4173",
+  "notProduction": true,
+  "doesNotReplace": {
+    "report36": {
+      "file": "artifacts/runtime-browser/report.json",
+      "generatedAt": "2026-11-14T03:10:39.460Z",
+      "head": "830ca4143ada7abf8b9909bb997e70085895b7cf"
+    },
+    "supplement21": {
+      "file": "artifacts/runtime-browser/supplement-rerun/report.json",
+      "generatedAt": "2026-11-14T03:36:28.441Z"
+    }
+  },
+  "har": {
+    "desktop": {
+      "entries": 137,
+      "posts": 0,
+      "ads": 0,
+      "hosts": {
+        "127.0.0.1:4173": 102,
+        "visalang.org": 35
+      }
+    },
+    "mobile": {
+      "entries": 7,
+      "posts": 0,
+      "ads": 0,
+      "hosts": {
+        "127.0.0.1:4173": 6,
+        "visalang.org": 1
+      }
+    },
+    "noJs": {
+      "entries": 12,
+      "posts": 0,
+      "ads": 0,
+      "hosts": {
+        "127.0.0.1:4173": 9,
+        "visalang.org": 3
+      }
+    }
+  },
+  "records": [
+    {
+      "id": "route-finder-invalid-empty",
+      "http": 200,
+      "error": "Fix 6 field errors\nCountry is required.\nPurpose is required.\nApplication location is required.\nCurrent language level is required.\nExisting certificate is required.\nTarget submission date is required.",
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/route-finder-invalid-empty.png",
+      "dom": {
+        "h1": "Route Finder",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Decision route Route Finder Answer six planning questions to get a safe starting route. Germany family reunion A1 is the only fully configured route. Route Finder Checklist Timeline Compare exams Reminders 1 Understand the scope 2 Enter verified facts 3 Review and export Shareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter pa"
+      }
+    },
+    {
+      "id": "route-finder-normal-a1",
+      "result": "Configured route\n\nGermany family reunion: A1 verification route\n\nConfirm whether language proof is required in your individual case, whether an exemption applies, and which exact certificate is accepted before booking.\n\nVerify the requirement or exemption with the German mission or competent authority for your application location.\nConfirm the exact accepted A1 certificate before comparing providers, fees, or dates.\nUse the checklist and timeline below to organise a booking and submission plan.\n\nGermany A1 family reunion guide / Open Checklist / Open Timeline\n\nApplication location recorded: German mission, example only. Target submission date: 2026-12-18.",
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/route-finder-normal-a1.png",
+      "dom": {
+        "h1": "Route Finder",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Decision route Route Finder Answer six planning questions to get a safe starting route. Germany family reunion A1 is the only fully configured route. Route Finder Checklist Timeline Compare exams Reminders 1 Understand the scope 2 Enter verified facts 3 Review and export Shareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter pa"
+      }
+    },
+    {
+      "id": "route-finder-unknown",
+      "result": "Coming soon\n\nOfficial verification required\n\nAsk the authority, university, employer, training provider, regulator, or other organisation receiving your application which language proof it requires and accepts.\n\nVisaLang will not generate a route result for this selection. Use the receiving organisation as the official starting point.\n\nWho to contact\nThe authority or institution receiving the application\nThe official exam owner or authorised local centre\n\nNo country-specific official entry can be selected from “Another country”. Start with that country’s government or the institution receiving the application.\n\nQuestions to ask\nWhich language proof and level apply to this exact route?\nIs an exemption or alternative proof relevant to my case?\nWhich certificate, document format, and current submission instructions are accepted?\n\nApplication location recorded: German mission, example only. Target submission date: 2026-12-18.",
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/route-finder-unknown.png",
+      "dom": {
+        "h1": "Route Finder",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Decision route Route Finder Answer six planning questions to get a safe starting route. Germany family reunion A1 is the only fully configured route. Route Finder Checklist Timeline Compare exams Reminders 1 Understand the scope 2 Enter verified facts 3 Review and export Shareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter pa"
+      }
+    },
+    {
+      "id": "comparison-invalid-same",
+      "http": 200,
+      "error": "Fix 1 field error\nChoose two different exams.",
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/comparison-invalid-same.png",
+      "dom": {
+        "h1": "Exam Comparison",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Planning aid, not an acceptance decision Exam Comparison Compare configured verification questions for two A1 exam options. This tool does not rank providers or decide which certificate an authority will accept. Route Finder Checklist Timeline Compare exams Reminders 1 Understand the scope 2 Enter verified facts 3 Review and export Shareable recovery: this tool stores only the visible planning fie"
+      }
+    },
+    {
+      "id": "comparison-normal",
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/comparison-normal.png",
+      "dom": {
+        "h1": "Exam Comparison",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Planning aid, not an acceptance decision Exam Comparison Compare configured verification questions for two A1 exam options. This tool does not rank providers or decide which certificate an authority will accept. Route Finder Checklist Timeline Compare exams Reminders 1 Understand the scope 2 Enter verified facts 3 Review and export Shareable recovery: this tool stores only the visible planning fie"
+      }
+    },
+    {
+      "id": "checklist-invalid-empty",
+      "http": 200,
+      "error": "Fix 1 field error\nRoute is required.",
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/checklist-invalid-empty.png",
+      "dom": {
+        "h1": "Requirement Checklist",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Organise evidence Requirement Checklist Create a working checklist with clear priority, completion status, and the next official check. It is not an authority document list. Route Finder Checklist Timeline Compare exams Reminders 1 Understand the scope 2 Enter verified facts 3 Review and export Shareable recovery: this tool stores only the visible planning fields in the page URL after a successful"
+      }
+    },
+    {
+      "id": "checklist-unknown-b1",
+      "result": "Checklist coming soon\n\nThis route is not configured. VisaLang will not generate a checklist that could look like an official or complete result.\n\nIdentify the organisation receiving your proof and use its current instructions before choosing an exam.\n\nOfficial starting point: German Federal Foreign Office — find the responsible official authority\n\nWhich language proof and level apply to this exact route?\nIs an exemption or alternative proof relevant to my case?\nWhich certificate, document format, and current submission instructions are accepted?",
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/checklist-unknown-b1.png",
+      "dom": {
+        "h1": "Requirement Checklist",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Organise evidence Requirement Checklist Create a working checklist with clear priority, completion status, and the next official check. It is not an authority document list. Route Finder Checklist Timeline Compare exams Reminders 1 Understand the scope 2 Enter verified facts 3 Review and export Shareable recovery: this tool stores only the visible planning fields in the page URL after a successful"
+      }
+    },
+    {
+      "id": "checklist-normal-a1",
+      "prechecked": 0,
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/checklist-normal-a1.png",
+      "dom": {
+        "h1": "Requirement Checklist",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Organise evidence Requirement Checklist Create a working checklist with clear priority, completion status, and the next official check. It is not an authority document list. Route Finder Checklist Timeline Compare exams Reminders 1 Understand the scope 2 Enter verified facts 3 Review and export Shareable recovery: this tool stores only the visible planning fields in the page URL after a successful"
+      }
+    },
+    {
+      "id": "timeline-invalid-empty",
+      "http": 200,
+      "error": "Fix 5 field errors\nTarget submission date is required.\nExam type is required.\nResult waiting time (days) is required.\nRetake buffer (days) is required.\nTranslation / certification time (days) is required.",
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/timeline-invalid-empty.png",
+      "dom": {
+        "h1": "Timeline Planner",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Plan backwards Timeline Planner Build backwards from your target date using only the buffers you enter. This planning estimate does not claim real centre dates or result timing. Route Finder Checklist Timeline Compare exams Reminders 1 Understand the scope 2 Enter verified facts 3 Review and export Shareable recovery: this tool stores only the visible planning fields in the page URL after a succes"
+      }
+    },
+    {
+      "id": "timeline-negative-buffer",
+      "error": "Fix 1 field error\nResult waiting time (days) must be 0 or greater.",
+      "resultHidden": "",
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/timeline-negative-buffer.png",
+      "dom": {
+        "h1": "Timeline Planner",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Plan backwards Timeline Planner Build backwards from your target date using only the buffers you enter. This planning estimate does not claim real centre dates or result timing. Route Finder Checklist Timeline Compare exams Reminders 1 Understand the scope 2 Enter verified facts 3 Review and export Shareable recovery: this tool stores only the visible planning fields in the page URL after a succes"
+      }
+    },
+    {
+      "id": "timeline-normal",
+      "result": "Your planning estimate\n\nFor Goethe-Zertifikat A1, these dates are calculated only from the 17 days you entered.\n\nTarget submission\n2026-12-31\nLatest test date without retake buffer\n2026-12-19\nCautious test date with your retake buffer\n2026-12-14\n\nPlanning estimate: confirm actual booking availability, result timing, retake rules, and document handling with the official centre and receiving authority.",
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/timeline-normal.png",
+      "dom": {
+        "h1": "Timeline Planner",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Plan backwards Timeline Planner Build backwards from your target date using only the buffers you enter. This planning estimate does not claim real centre dates or result timing. Route Finder Checklist Timeline Compare exams Reminders 1 Understand the scope 2 Enter verified facts 3 Review and export Shareable recovery: this tool stores only the visible planning fields in the page URL after a succes"
+      }
+    },
+    {
+      "id": "reminders-invalid-empty",
+      "http": 200,
+      "error": "Fix 3 field errors\nReminder topic is required.\nReminder date is required.\nRoute or authority is required.",
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/reminders-invalid-empty.png",
+      "dom": {
+        "h1": "Reminder Planner",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Local planning only Reminder Planner Create a reminder plan for your own calendar, local storage, notes, or printer. No email service is connected. Route Finder Checklist Timeline Compare exams Reminders 1 Understand the scope 2 Enter verified facts 3 Review and export Shareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter pass"
+      }
+    },
+    {
+      "id": "reminders-invalid-url",
+      "error": "Fix 4 field errors\nReminder topic is required.\nReminder date is required.\nRoute or authority is required.\nEnter a valid official source to recheck.",
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/reminders-invalid-url.png",
+      "dom": {
+        "h1": "Reminder Planner",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Local planning only Reminder Planner Create a reminder plan for your own calendar, local storage, notes, or printer. No email service is connected. Route Finder Checklist Timeline Compare exams Reminders 1 Understand the scope 2 Enter verified facts 3 Review and export Shareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter pass"
+      }
+    },
+    {
+      "id": "reminders-local-no-send",
+      "result": "Confirm the language requirement\n\nReminder date: 2026-12-20\n\nRoute or authority: Germany family reunion / local mission, example only\n\nOfficial source to recheck: https://www.auswaertiges-amt.de/de/service/fragenkatalog-node/2238204-2238204",
+      "ics": "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//VisaLang//Reminder Planner//EN\r\nBEGIN:VEVENT\r\nUID:1794628752163@visalang.org\r\nDTSTART;VALUE=DATE:20261220\r\nSUMMARY:Confirm the language requirement\r\nDESCRIPTION:Route or authority: Germany family reun",
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/reminders-local-no-send.png",
+      "dom": {
+        "h1": "Reminder Planner",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Local planning only Reminder Planner Create a reminder plan for your own calendar, local storage, notes, or printer. No email service is connected. Route Finder Checklist Timeline Compare exams Reminders 1 Understand the scope 2 Enter verified facts 3 Review and export Shareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter pass"
+      }
+    },
+    {
+      "id": "a1-hub",
+      "route": "/germany-family-reunion-a1/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/a1-hub.png",
+      "dom": {
+        "h1": "Germany A1 family reunion route",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Home / Routes / Germany A1 family reunion Germany / Family reunion Germany A1 family reunion route Start with whether A1 applies. The mission decides. Exams, booking, and documents come after that answer. Check whether A1 appliesSee the full route Route content updated: 2026-11-14 Official sources last checked: 2026-11-11 14 supporting guides Quick answer For many spouse applications from abroad, "
+      }
+    },
+    {
+      "id": "b1-hub",
+      "route": "/germany-b1-settlement-citizenship/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/b1-hub.png",
+      "dom": {
+        "h1": "Germany B1 for settlement permits and citizenship",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Germany · B1 · settlement and citizenship Germany B1 for settlement permits and citizenship Start with the authority and legal route that apply to your application. This hub helps you separate language proof from the wider file, compare only relevant exam products, and keep local dates and terms tied to current official sources. Family reunion is a separate procedure. Use the Germany A1 family-reu"
+      }
+    },
+    {
+      "id": "b1-study-plan",
+      "route": "/guides/goethe-b1-study-plan/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/b1-study-plan.png",
+      "dom": {
+        "h1": "Goethe B1 study plan for working adults",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Home / Germany B1+ / Goethe B1 study plan for working adults Germany B1 · study planning Core route structure Country: Germany Route: Germany B1+ Goethe B1 study plan for working adults Direct answer Goethe B1 study plan mapped to the 2025 module rules, with a self-check and an eight-week view. No pass rate and no unread sample. Responsibility: The final decision sits with Goethe-Institut for exam"
+      }
+    },
+    {
+      "id": "a1-listening",
+      "route": "/guides/goethe-a1-listening-practice/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/a1-listening.png",
+      "dom": {
+        "h1": "Goethe A1 listening practice: a safe daily routine",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Home / Germany A1 / Goethe A1 listening practice: a safe daily routine Germany family reunion Route structure complete Country: Germany Route: Germany A1 Goethe A1 listening practice: a safe daily routine Direct answer A Goethe A1 listening drill for times and dates, mapped to the 2025 rules, with a reason for each miss. Responsibility: The final decision sits with Goethe-Institut for exam format "
+      }
+    },
+    {
+      "id": "a1-writing",
+      "route": "/guides/goethe-a1-writing-practice/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/a1-writing.png",
+      "dom": {
+        "h1": "Goethe A1 writing practice: short forms and messages",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Home / Germany A1 / Goethe A1 writing practice: short forms and messages Germany family reunion Route structure complete Country: Germany Route: Germany A1 Goethe A1 writing practice: short forms and messages Direct answer An original Goethe A1 form-and-message drill, with one wrong draft, a revision, and the reason. Not an official score. Responsibility: The final decision sits with Goethe-Instit"
+      }
+    },
+    {
+      "id": "b1-listening",
+      "route": "/guides/goethe-b1-listening-deep-dive/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/b1-listening.png",
+      "dom": {
+        "h1": "Goethe B1 listening deep dive",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Home / Germany B1+ / Goethe B1 listening deep dive Germany B1+ Core route structure Country: Germany Route: Germany B1+ Goethe B1 listening deep dive Direct answer A Goethe B1 listening correction for a changed day and time, tied to the 2025 module rules and not to an unread sample. Responsibility: The final decision sits with Goethe-Institut for exam format and an authorised local centre for loca"
+      }
+    },
+    {
+      "id": "b1-citizenship",
+      "route": "/guides/germany-b1-citizenship-language-proof/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/b1-citizenship.png",
+      "dom": {
+        "h1": "German citizenship B1: language proof is not the whole file",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Home / Germany B1+ / German citizenship B1: language proof is not the whole file Germany B1 · citizenship planning Core route structure Country: Germany Route: Germany B1+ German citizenship B1: language proof is not the whole file Direct answer Naturalisation treats language and civic knowledge as separate evidence. A B1 result is not a grant of citizenship. Responsibility: The final decision sit"
+      }
+    },
+    {
+      "id": "pre-booking",
+      "route": "/guides/goethe-a1-pre-booking-checklist/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/pre-booking.png",
+      "dom": {
+        "h1": "Goethe A1 pre-booking checklist: verify before paying",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Home / Germany A1 / Goethe A1 pre-booking checklist: verify before paying Germany family reunion Route structure complete Country: Germany Route: Germany A1 Goethe A1 pre-booking checklist: verify before paying Direct answer A practical Goethe A1 pre-booking checklist for the requirement, exact exam, official centre, timing, documents, fee, and local terms. Responsibility: The final decision sits "
+      }
+    },
+    {
+      "id": "cat-germany-a1",
+      "route": "/guides/category/germany-a1/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/cat-germany-a1.png",
+      "dom": {
+        "h1": "Germany A1 guides",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Guide category Germany A1 guides Route structure complete 14 guides currently available in primary discovery for Family reunion language proof. This is the site’s most complete decision route. Begin with the requirement check, then move through accepted proof, provider choice, official centres, fees, documents, study, and retake timing. Before booking, verify the current requirement with the autho"
+      }
+    },
+    {
+      "id": "cat-germany-b1",
+      "route": "/guides/category/germany-b1/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/cat-germany-b1.png",
+      "dom": {
+        "h1": "Germany B1+ guides",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Guide category Germany B1+ guides Core route structure 12 guides currently available in primary discovery for Settlement, work, citizenship. This is a core route for settlement and citizenship planning. Use it to keep language proof, civic knowledge, and wider eligibility evidence separate before checking the competent authority. Before booking, verify the current requirement with the authority or"
+      }
+    },
+    {
+      "id": "cat-germany-telc",
+      "route": "/guides/category/germany-telc/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/cat-germany-telc.png",
+      "dom": {
+        "h1": "telc Deutsch guides",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "excerpt": "Guide category telc Deutsch guides Starter overview 0 guides currently available in primary discovery for Work & nursing registration. Use this category to identify the receiving authority, exact exam family, and official verification step for Work & nursing registration. Guides remain outside primary discovery until their source and content status meet the publication gate. 4 guides are withheld "
+      }
+    },
+    {
+      "id": "cat-germany-testdaf",
+      "route": "/guides/category/germany-testdaf/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/cat-germany-testdaf.png",
+      "dom": {
+        "h1": "TestDaF guides",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "excerpt": "Guide category TestDaF guides Starter overview 0 guides currently available in primary discovery for University admissions. Use this category to identify the receiving authority, exact exam family, and official verification step for University admissions. Guides remain outside primary discovery until their source and content status meet the publication gate. 4 guides are withheld from primary disc"
+      }
+    },
+    {
+      "id": "cat-uk",
+      "route": "/guides/category/uk/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/cat-uk.png",
+      "dom": {
+        "h1": "United Kingdom guides",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "excerpt": "Guide category United Kingdom guides Verification pending 0 guides currently available in primary discovery for UK visa & citizenship English. Use this category to identify the receiving authority, exact exam family, and official verification step for UK visa & citizenship English. Guides remain outside primary discovery until their source and content status meet the publication gate. 2 guides are"
+      }
+    },
+    {
+      "id": "cat-canada",
+      "route": "/guides/category/canada/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/cat-canada.png",
+      "dom": {
+        "h1": "Canada guides",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "excerpt": "Guide category Canada guides Verification pending 0 guides currently available in primary discovery for Express Entry French-language testing. Use this category to identify the receiving authority, exact exam family, and official verification step for Express Entry French-language testing. Guides remain outside primary discovery until their source and content status meet the publication gate. 2 gu"
+      }
+    },
+    {
+      "id": "cat-italy",
+      "route": "/guides/category/italy/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/cat-italy.png",
+      "dom": {
+        "h1": "Italy guides",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "excerpt": "Guide category Italy guides Verification pending 0 guides currently available in primary discovery for CILS/CELI/PLIDA citizenship. Use this category to identify the receiving authority, exact exam family, and official verification step for CILS/CELI/PLIDA citizenship. Guides remain outside primary discovery until their source and content status meet the publication gate. 2 guides are withheld fro"
+      }
+    },
+    {
+      "id": "cat-finland",
+      "route": "/guides/category/finland/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/cat-finland.png",
+      "dom": {
+        "h1": "Finland guides",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "excerpt": "Guide category Finland guides Verification pending 0 guides currently available in primary discovery for Citizenship language evidence. Use this category to identify the receiving authority, exact exam family, and official verification step for Citizenship language evidence. Guides remain outside primary discovery until their source and content status meet the publication gate. 1 guide is withheld"
+      }
+    },
+    {
+      "id": "cat-netherlands",
+      "route": "/guides/category/netherlands/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/cat-netherlands.png",
+      "dom": {
+        "h1": "Netherlands guides",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "excerpt": "Guide category Netherlands guides Verification pending 0 guides currently available in primary discovery for Inburgering and named UvA/NT2 tasks. Use this category to identify the receiving authority, exact exam family, and official verification step for Inburgering and named UvA/NT2 tasks. Guides remain outside primary discovery until their source and content status meet the publication gate. 2 g"
+      }
+    },
+    {
+      "id": "missing-route-404",
+      "route": "/this-page-is-absent/",
+      "http": 404,
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/missing-route-404.png",
+      "dom": {
+        "h1": "This page has moved off route.",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "excerpt": "404 This page has moved off route. The address may be old or mistyped. Search the reviewed guide library, or restart from the decision you need to make. Search the reviewed guide library Try a country, route, exam, level, or task. Search guides Choose another starting point Use Route Finder Identify the authority and proof questions to verify first. Browse all reviewed guides Filter the primary li"
+      }
+    },
+    {
+      "id": "direct-404-html",
+      "route": "/404.html",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/direct-404-html.png",
+      "dom": {
+        "h1": "This page has moved off route.",
+        "robots": "noindex,follow",
+        "adNodes": 0,
+        "excerpt": "404 This page has moved off route. The address may be old or mistyped. Search the reviewed guide library, or restart from the decision you need to make. Search the reviewed guide library Try a country, route, exam, level, or task. Search guides Choose another starting point Use Route Finder Identify the authority and proof questions to verify first. Browse all reviewed guides Filter the primary li"
+      }
+    },
+    {
+      "id": "merge-goethe-a1-booking-mistakes",
+      "http": 200,
+      "finalUrl": "http://127.0.0.1:4173/guides/goethe-a1-pre-booking-checklist/",
+      "documentRequests": [
+        "http://127.0.0.1:4173/guides/goethe-a1-booking-mistakes/",
+        "http://127.0.0.1:4173/guides/goethe-a1-pre-booking-checklist/"
+      ],
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/merge-goethe-a1-booking-mistakes.png",
+      "dom": {
+        "h1": "Goethe A1 pre-booking checklist: verify before paying",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Home / Germany A1 / Goethe A1 pre-booking checklist: verify before paying Germany family reunion Route structure complete Country: Germany Route: Germany A1 Goethe A1 pre-booking checklist: verify before paying Direct answer A practical Goethe A1 pre-booking checklist for the requirement, exact exam, official centre, timing, documents, fee, and local terms. Responsibility: The final decision sits "
+      }
+    },
+    {
+      "id": "merge-goethe-a1-official-links-practice-resources",
+      "http": 200,
+      "finalUrl": "http://127.0.0.1:4173/germany-family-reunion-a1/",
+      "documentRequests": [
+        "http://127.0.0.1:4173/guides/goethe-a1-official-links-practice-resources/",
+        "http://127.0.0.1:4173/germany-family-reunion-a1/"
+      ],
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/merge-goethe-a1-official-links-practice-resources.png",
+      "dom": {
+        "h1": "Germany A1 family reunion route",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Home / Routes / Germany A1 family reunion Germany / Family reunion Germany A1 family reunion route Start with whether A1 applies. The mission decides. Exams, booking, and documents come after that answer. Check whether A1 appliesSee the full route Route content updated: 2026-11-14 Official sources last checked: 2026-11-11 14 supporting guides Quick answer For many spouse applications from abroad, "
+      }
+    },
+    {
+      "id": "merge-goethe-a1-study-plan-working-adults",
+      "http": 200,
+      "finalUrl": "http://127.0.0.1:4173/guides/goethe-a1-30-day-study-plan/",
+      "documentRequests": [
+        "http://127.0.0.1:4173/guides/goethe-a1-study-plan-working-adults/",
+        "http://127.0.0.1:4173/guides/goethe-a1-30-day-study-plan/"
+      ],
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/merge-goethe-a1-study-plan-working-adults.png",
+      "dom": {
+        "h1": "30-day Goethe A1 study plan for family reunion",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Home / Germany A1 / 30-day Goethe A1 study plan for family reunion Germany family reunion Route structure complete Country: Germany Route: Germany A1 30-day Goethe A1 study plan for family reunion Direct answer An adjustable Goethe A1 plan: 30-day and eight-week views mapped to the 2025 administration rules, with original drills and no pass promise. Responsibility: The final decision sits with Goe"
+      }
+    },
+    {
+      "id": "merge-goethe-b1-difficulty-analysis",
+      "http": 200,
+      "finalUrl": "http://127.0.0.1:4173/guides/goethe-b1-study-plan/",
+      "documentRequests": [
+        "http://127.0.0.1:4173/guides/goethe-b1-difficulty-analysis/",
+        "http://127.0.0.1:4173/guides/goethe-b1-study-plan/"
+      ],
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/merge-goethe-b1-difficulty-analysis.png",
+      "dom": {
+        "h1": "Goethe B1 study plan for working adults",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Home / Germany B1+ / Goethe B1 study plan for working adults Germany B1 · study planning Core route structure Country: Germany Route: Germany B1+ Goethe B1 study plan for working adults Direct answer Goethe B1 study plan mapped to the 2025 module rules, with a self-check and an eight-week view. No pass rate and no unread sample. Responsibility: The final decision sits with Goethe-Institut for exam"
+      }
+    },
+    {
+      "id": "route-finder-mobile",
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/route-finder-mobile.png",
+      "dom": {
+        "h1": "Route Finder",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Decision route Route Finder Answer six planning questions to get a safe starting route. Germany family reunion A1 is the only fully configured route. Route Finder Checklist Timeline Compare exams Reminders 1 Understand the scope 2 Enter verified facts 3 Review and export Shareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter pa"
+      }
+    },
+    {
+      "id": "route-finder-no-js",
+      "http": 200,
+      "status": "blocked-without-javascript",
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/route-finder-no-js.png",
+      "dom": {
+        "h1": "Route Finder",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Decision route Route Finder Answer six planning questions to get a safe starting route. Germany family reunion A1 is the only fully configured route. Route Finder Checklist Timeline Compare exams Reminders 1 Understand the scope 2 Enter verified facts 3 Review and export Shareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter pa"
+      }
+    },
+    {
+      "id": "reminders-no-js",
+      "http": 200,
+      "status": "blocked-without-javascript",
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/reminders-no-js.png",
+      "dom": {
+        "h1": "Reminder Planner",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Local planning only Reminder Planner Create a reminder plan for your own calendar, local storage, notes, or printer. No email service is connected. Route Finder Checklist Timeline Compare exams Reminders 1 Understand the scope 2 Enter verified facts 3 Review and export Shareable recovery: this tool stores only the visible planning fields in the page URL after a successful result. Do not enter pass"
+      }
+    },
+    {
+      "id": "guides-no-js",
+      "http": 200,
+      "status": "blocked-without-javascript",
+      "screenshot": "artifacts/runtime-browser/bound-9ac20a5/guides-no-js.png",
+      "dom": {
+        "h1": "Find the guide for your next decision.",
+        "robots": "index,follow,max-image-preview:large",
+        "adNodes": 0,
+        "excerpt": "Task library Find the guide for your next decision. This primary library contains source-reviewed complete and core route guides. A recorded review is not a claim that every fact was rechecked today, and it is not an advertising approval. Merged URLs are not listed again. Germany A1 family reunion and Germany B1 settlement or citizenship are the developed routes. Search guides Purpose All purpose "
+      }
+    }
+  ]
+}

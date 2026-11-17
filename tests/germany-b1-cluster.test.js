@@ -13,7 +13,7 @@ const field = (source, name) => {
 };
 const markdownBody = (source) => source.split(/^---\s*$/m).slice(2).join('---');
 
-assert.equal(germanyB1Guides.length, 13, 'Germany B1 cluster should retain the existing 13 guide pages');
+assert.equal(germanyB1Guides.length, 12, 'Germany B1 cluster keeps 12 guides after the difficulty-page merge');
 
 const requiredCoreGuides = [
   'goethe-b1-germany-settlement-work.md',
@@ -30,7 +30,6 @@ for (const file of requiredCoreGuides) {
 }
 
 const preparationSupportGuides = [
-  'goethe-b1-difficulty-analysis.md',
   'goethe-b1-listening-deep-dive.md',
   'goethe-b1-mock-exam-routine.md',
   'goethe-b1-speaking-topics.md',
@@ -88,17 +87,7 @@ const p0RewrittenB1On20261108 = new Set([
 for (const file of requiredCoreGuides) {
   const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
   assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${file} records the completed source review`);
-  const expectedReviewDate = p0RefreshedB1On20261111.has(file)
-    ? '2026-11-11'
-    : p1RewrittenB1On20261110.has(file)
-    ? '2026-11-10'
-    : p0RewrittenB1On20261108.has(file)
-    ? '2026-11-08'
-    : depthRemediatedB1Core.has(file)
-    ? '2026-10-21'
-    : recheckedB1On20261107.has(file)
-      ? '2026-11-07'
-      : '2026-07-19';
+  const expectedReviewDate = '2026-11-14';
   assert.equal(field(source, 'sourceReviewedAt'), expectedReviewDate, `${file} records the actual source-review date`);
   assert.equal(field(source, 'reviewedByRole'), 'source-review', `${file} records the source-review role`);
   assert.doesNotMatch(markdownBody(source), /Official verification pending/i, `${file} does not contradict reviewed metadata in public copy`);
@@ -106,7 +95,6 @@ for (const file of requiredCoreGuides) {
 }
 
 const preparationSupportExpectations = {
-  'goethe-b1-difficulty-analysis.md': 'goethe-b1-study-plan',
   'goethe-b1-listening-deep-dive.md': 'goethe-b1-mock-exam-routine',
   'goethe-b1-mock-exam-routine.md': 'goethe-b1-study-plan',
   'goethe-b1-speaking-topics.md': 'goethe-b1-mock-exam-routine',
@@ -114,9 +102,9 @@ const preparationSupportExpectations = {
 };
 for (const [file, nextGuideSlug] of Object.entries(preparationSupportExpectations)) {
   const source = fs.readFileSync(path.join(guideDirectory, file), 'utf8');
-  assert.equal(field(source, 'updatedDate'), '2026-07-22', `${file} records its substantive visible update`);
+  assert.equal(field(source, 'updatedDate'), '2026-11-14', `${file} records its substantive visible update`);
   assert.equal(field(source, 'sourceReviewStatus'), 'reviewed', `${file} records the completed source review`);
-  assert.equal(field(source, 'sourceReviewedAt'), '2026-07-22', `${file} records the actual source-review date`);
+  assert.equal(field(source, 'sourceReviewedAt'), '2026-11-14', `${file} records the actual source-review date`);
   assert.equal(field(source, 'reviewedByRole'), 'source-review', `${file} records the controlled reviewer role`);
   assert.equal(field(source, 'decisionStage'), 'local-execution', `${file} remains a preparation execution page`);
   assert.equal(field(source, 'nextGuideSlug'), nextGuideSlug, `${file} uses the agreed primary next step`);
@@ -140,5 +128,15 @@ for (const [, href] of hub.matchAll(/href=["'](\/[^"']*)["']/g)) {
   assert.ok(pathname.endsWith('/'), `B1 hub internal link uses a trailing slash: ${href}`);
   assert.ok(!pathname.endsWith('.html'), `B1 hub internal link avoids legacy HTML: ${href}`);
 }
+
+const studyPlan = fs.readFileSync(path.join(guideDirectory, 'goethe-b1-study-plan.md'), 'utf8');
+assert.match(studyPlan, /break of at least 15 minutes/, 'B1 study plan records the section 2 break');
+assert.match(studyPlan, /165 minutes is net testing time/, 'B1 study plan treats 165 minutes as net testing time');
+assert.doesNotMatch(studyPlan, /165 minutes with no breaks/, 'B1 study plan does not describe 165 minutes as an unbroken sitting');
+const listening = fs.readFileSync(path.join(guideDirectory, 'goethe-b1-listening-deep-dive.md'), 'utf8');
+assert.match(listening, /Passt Donnerstag um 18 Uhr noch/, 'B1 listening drill has an original German prompt');
+assert.match(listening, /Answer: Freitag/, 'B1 listening drill states the day that was kept');
+const citizenship = fs.readFileSync(path.join(guideDirectory, 'germany-b1-citizenship-language-proof.md'), 'utf8');
+assert.match(citizenship, /AufenthG\) section 9 is a different procedure from naturalisation/, 'citizenship page separates settlement section 9 from naturalisation');
 
 console.log('Germany B1 cluster rules passed');

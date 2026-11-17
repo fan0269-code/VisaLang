@@ -60,8 +60,8 @@ for (const file of testDaFGuides) {
   const expected = routeExpectations[slug];
   assert.ok(expected, `${file} should have a controlled TestDaF route expectation`);
   assert.ok(source.includes('contentStatus: "starter-overview"'), `${file} must remain starter-overview`);
-  assert.ok(source.includes('updatedDate: "2026-07-23"'), `${file} should record its completed P3 source-review update date`);
-  assert.ok(source.includes('sourceReviewedAt: "2026-07-23"'), `${file} should record its P3 source-review date`);
+  assert.ok(source.includes('updatedDate: "2026-11-14"'), `${file} records the 2026-11-14 editorial edit`);
+  assert.ok(source.includes('sourceReviewedAt: "2026-07-23"'), `${file} keeps the 2026-07-23 source check; DAAD and unread Goethe C1 were not freshly verified`);
   assert.ok(source.includes('sourceReviewStatus: "reviewed"'), `${file} should record the bounded P3 review`);
   assert.ok(source.includes('reviewedByRole: "source-review"'), `${file} should identify the P3 review role`);
   assert.ok(field(source, 'localExecutionPrompt'), `${file} should retain an actionable official verification step`);

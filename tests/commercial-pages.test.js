@@ -32,8 +32,16 @@ const pages = {
 
 for (const [name, page] of Object.entries(pages)) {
   assert.ok(page.includes('CommercialBoundary'), `${name} needs the official-verification and disclaimer boundary`);
-  assert.ok(page.includes('IntentCTA'), `${name} needs an explicit real contact or request-access CTA`);
   assert.ok(!/payment successful|email sent|review accepted/i.test(page), `${name} must not claim a false completion state`);
+}
+for (const [name, page] of Object.entries(pages)) {
+  if (name === 'familyPack' || name === 'practicePack') {
+    assert.ok(!page.includes('IntentCTA'), `${name} does not offer an updates CTA`);
+    assert.doesNotMatch(page, /Get product updates|Get updates|future availability/i, `${name} does not promise a future availability notification`);
+    assert.ok(page.includes('/tools/route-finder/'), `${name} points at an existing free tool`);
+  } else {
+    assert.ok(page.includes('IntentCTA'), `${name} needs an explicit real contact or request-access CTA`);
+  }
 }
 for (const phrase of ['Who it is for', 'Proposed contents', 'What it would not include', 'How it would be used']) {
   assert.ok(pages.familyPack.includes(phrase), `Family Reunion Pack needs: ${phrase}`);

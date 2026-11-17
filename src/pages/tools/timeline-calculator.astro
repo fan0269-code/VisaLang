@@ -16,7 +16,8 @@ import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
         </div>
         <p id="timeline-input-help">Enter only values you confirmed for your own centre and document process. No default timing is assumed.</p>
         <div class="tool-error-summary" id="timeline-error" data-error-summary role="alert" tabindex="-1" hidden></div>
-        <button class="primary-action" type="submit">Calculate planning dates</button>
+        <button class="primary-action" type="submit" disabled data-tool-submit>Calculate planning dates</button>
+        <noscript><p id="timeline-no-js">JavaScript is off, so this form does not send your answers. The button stays disabled. Continue with the <a href="/guides/german-a1-exam-booking-timeline/">German A1 booking timeline</a>.</p></noscript>
       </form>
       <section id="timeline-result" class="tool-result" hidden aria-live="polite" tabindex="-1">
         <div id="timeline-summary"></div>
@@ -40,6 +41,7 @@ import ToolResultSupport from '../../components/tools/ToolResultSupport.astro';
     const input = Object.fromEntries(new FormData(form).entries());
     const plan = calculateTimeline(input);
     if (!plan || !summary || !resultPanel) {
+      if (resultPanel) resultPanel.hidden = true;
       return;
     }
     controller.persist();

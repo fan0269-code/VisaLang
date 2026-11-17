@@ -1,18 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HomeHero from '../../components/HomeHero.astro';
-import { getCollection } from 'astro:content';
 import { zhGermanyA1Guides } from '../../data/zh-germany-a1';
 import RouteSelector from '../../components/RouteSelector.astro';
 import GuideStatusBadge from '../../components/GuideStatusBadge.astro';
-import { isGuidePrimaryDiscoveryEligible, resolveGuideContentStatus } from '../../data/source-review';
 
-const guides = await getCollection('guides');
-const publishedGuides = guides
-  .map((guide) => ({ ...guide, status: resolveGuideContentStatus(guide.data) }))
-  .filter((guide) => isGuidePrimaryDiscoveryEligible(guide.status, guide.data.sourceReviewStatus) && guide.data.noindex !== true);
-const totalGuideCount = publishedGuides.length + zhGermanyA1Guides.length;
-const publishedCategoryCount = new Set(publishedGuides.map((guide) => guide.data.category)).size;
 const zhUpdated = [...zhGermanyA1Guides].sort((a, b) => b.updatedDate.localeCompare(a.updatedDate)).slice(0, 3);
 
 const jsonLD = {
@@ -108,7 +100,7 @@ const jsonLD = {
     </section>
 
     <section class="section" id="zh-guides" aria-labelledby="zh-guides-title">
-      <div class="section-header"><h2 id="zh-guides-title">最近更新的中文指南</h2><p>当前中英文主资料库共 {totalGuideCount} 篇指南，覆盖 {publishedCategoryCount} 个已发布路线分类。</p></div>
+      <div class="section-header"><h2 id="zh-guides-title">最近更新的中文指南</h2><p>2026-11-14 的中文更正只涉及德国配偶团聚 A1：外交部证书问答写的是通常（in der Regel）考试日期不应超过一年，重考模块以最早已通过模块的日期为准。这不是证书自动失效，也不能用配偶短问答没写年限来否定它。英文旧报名页已并入<a href="/guides/goethe-a1-pre-booking-checklist/">支付前清单（英文）</a>；<a href="/zh/guides/goethe-a1-booking-mistakes/">中文报名页</a>仍在。定居与入籍 B1 仍只有英文枢纽。篇数不是质量证明。更正记录见<a href="/content-update-log/">更新日志（英文）</a>。</p></div>
       <div class="latest-layout">
         {zhUpdated[0] && <a class="latest-feature" href={zhUpdated[0].href}><GuideStatusBadge status={zhUpdated[0].contentStatus} locale="zh-CN" /><h3>{zhUpdated[0].title}</h3><p>{zhUpdated[0].description}</p><span class="last-checked">更新于 {zhUpdated[0].updatedDate}</span></a>}
         <div class="latest-list">{zhUpdated.slice(1).map((guide) => <a class="latest-item" href={guide.href}><div><h3>{guide.title}</h3><p>{guide.description}</p></div><span class="last-checked">更新于 {guide.updatedDate}</span></a>)}</div>

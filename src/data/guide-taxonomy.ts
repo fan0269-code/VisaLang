@@ -6,11 +6,11 @@ export const guideCategories = [
   { name: 'United Kingdom', slug: 'uk', country: 'United Kingdom', route: 'UK visa and citizenship', exam: 'IELTS UKVI / SELT', level: 'Route-specific', desc: 'UK visa & citizenship English', popular: false, adsEligible: false, noindex: true },
   { name: 'Canada', slug: 'canada', country: 'Canada', route: 'Express Entry', exam: 'TEF Canada / TCF Canada', level: 'Programme-specific', desc: 'Express Entry French-language testing', popular: false, adsEligible: false, noindex: true },
   { name: 'Italy', slug: 'italy', country: 'Italy', route: 'Citizenship', exam: 'CILS / CELI / PLIDA', level: 'B1', desc: 'CILS/CELI/PLIDA citizenship', popular: false, adsEligible: false, noindex: true },
-  { name: 'Spain', slug: 'spain', country: 'Spain', route: 'Citizenship', exam: 'DELE / CCSE', level: 'A2', desc: 'DELE & CCSE citizenship', popular: false, adsEligible: false },
-  { name: 'France', slug: 'france', country: 'France', route: 'Residence, work, study', exam: 'DELF / TCF IRN', level: 'B1/B2', desc: 'DELF/DALF work & study', popular: false, adsEligible: false },
+  { name: 'Spain', slug: 'spain', country: 'Spain', route: 'Citizenship', exam: 'DELE / CCSE', level: 'A2', desc: 'Isolated DELE and CCSE checks', popular: false, adsEligible: false, noindex: true },
+  { name: 'France', slug: 'france', country: 'France', route: 'Isolated checks', exam: 'DELF / TCF IRN', level: 'Procedure-specific', desc: 'Isolated faculty and nationality notes', popular: false, adsEligible: false, noindex: true },
   { name: 'Finland', slug: 'finland', country: 'Finland', route: 'Citizenship', exam: 'YKI', level: 'Route-specific', desc: 'Citizenship language evidence', popular: false, adsEligible: false, noindex: true },
   { name: 'Netherlands', slug: 'netherlands', country: 'Netherlands', route: 'Integration and named study admissions', exam: 'Inburgering / NT2', level: 'Procedure-specific', desc: 'Inburgering and named UvA/NT2 tasks', popular: false, adsEligible: false, noindex: true },
-  { name: 'Portugal', slug: 'portugal', country: 'Portugal', route: 'Residence and citizenship', exam: 'CIPLE / Portuguese proof', level: 'A2', desc: 'CIPLE A2 & Golden Visa', popular: false, adsEligible: false, noindex: true },
+  { name: 'Portugal', slug: 'portugal', country: 'Portugal', route: 'Nationality and CIPLE, kept separate', exam: 'CIPLE / Portuguese proof', level: 'A2', desc: 'Isolated nationality overview and CIPLE check', popular: false, adsEligible: false, noindex: true },
 ];
 
 export const guideCategoryMap = Object.fromEntries(guideCategories.map((category) => [category.slug, category]));

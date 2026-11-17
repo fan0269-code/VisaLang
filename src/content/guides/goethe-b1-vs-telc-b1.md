@@ -5,8 +5,8 @@ description: "Ask the authority that receives the file whether DTZ, Goethe B1, o
 category: "germany-b1"
 slug: "goethe-b1-vs-telc-b1"
 publishedDate: "2026-06-30"
-updatedDate: "2026-11-10"
-sourceReviewedAt: "2026-11-10"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "core-route"
@@ -58,7 +58,7 @@ A line that says “CEFR B1” is a level label. It is not a list of accepted br
 
 BAMF’s final-examination page describes Life in Germany as a separate sitting from the DTZ. It says the orientation-course pass is at least 15 of 33, and that proof of the naturalisation knowledge condition in Nationality Act section 10 (1) sentence 1 no. 7 follows the naturalisation-test ordinance at at least 17 of 33. Those two figures are not interchangeable, and neither figure is a B1 score.
 
-The same BAMF page still contains an older residence sentence (“usually eight years”, “seven” with the integration-course certificate, citing a former section 10 (3)). Do not copy it. Section 10 (3) of the Nationality Act is repealed. Section 10 (1) now states five years. BAMF’s naturalisation page dated 30 June 2025 says special integration may make naturalisation possible after three years. The nationality authority applies those conditions. This comparison does not.
+The same BAMF final-examination page still contains an older residence sentence (“usually eight years”, “seven” with the integration-course certificate). Do not copy it. The five-year section 10 (1) line, the limit that BGBl. 2025 I No. 256 deletes subsection 3 only, and the instruction not to choose the English three-year sentence are on the [B1 hub](/germany-b1-settlement-citizenship/). Language evidence and civic-knowledge evidence stay separate. Settlement under Residence Act (AufenthG) section 9 is a different procedure from naturalisation under the Nationality Act. This page does not decide either procedure and does not copy fees. This comparison does not apply those residence conditions.
 
 The federal naturalisation portal lists example language documents, including a BAMF language-course certificate and the DTZ certificate, and it says the list is only a selection. It lists the naturalisation test, and Life in Germany, under knowledge of the legal system and society. Example documents are not your authority’s decision.
 
@@ -134,6 +134,7 @@ Opened or rechecked on 2026-11-10.
 - [Residence Act §9](https://www.gesetze-im-internet.de/aufenthg_2004/__9.html) — language and basic knowledge are separate settlement conditions; a completed integration course can evidence both.
 - [Nationality Act §10](https://www.gesetze-im-internet.de/stag/__10.html) — five years in subsection 1; former subsection 3 repealed; language and knowledge are separate; B1 is one way to meet the language condition; the naturalisation test is the usual knowledge proof.
 - [BAMF: settling in Germany](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Migrathek/Niederlassen/niederlassen-node.html) — dated 1 March 2024. Language level depends on the path.
-- [BAMF: naturalisation](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html) — dated 30 June 2025. Five years, or three with the special integration that page describes. Fee figures on that page are not copied here.
+- [Nationality Act section 10](https://www.gesetze-im-internet.de/stag/__10.html) — five years; (3) and (3a) weggefallen; language and knowledge stay apart.
+- [BAMF naturalisation, English](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html) — Date 30/06/2025, historical conflict, not a product choice.
 
 Goethe-Zertifikat B1 product HTML, not opened on 2026-11-10 (curl 403 / fetch 500), stays **needs-verify**: [gzb1.html](https://www.goethe.de/ins/de/en/prf/prf/gzb1.html), [gzb1.cfm](https://www.goethe.de/ins/de/en/prf/gzb1.cfm). Do not quote marketing sentences from either page. No separate telc DTZ product page was available.

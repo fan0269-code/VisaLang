@@ -1,11 +1,11 @@
 ---
 title: "Goethe B1 mock exam routine"
-description: "A mock-exam routine for the Goethe-Zertifikat B1: official sample papers, timed simulation, error-log template, and weak-module repair loop."
+description: "A Goethe B1 mock log: official material if you opened it, module timings from the 2025 rules, and no invented score."
 category: "germany-b1"
 slug: "goethe-b1-mock-exam-routine"
 publishedDate: "2026-07-04"
-updatedDate: "2026-07-22"
-sourceReviewedAt: "2026-07-22"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "core-route"
@@ -23,81 +23,32 @@ readingTime: "7"
 featured: false
 eyebrow: "Germany B1+"
 route: "germany-b1"
-supportingGuideSlugs: ["goethe-b1-difficulty-analysis", "goethe-b1-listening-deep-dive"]
+supportingGuideSlugs: ["goethe-b1-listening-deep-dive", "goethe-b1-writing-assessment"]
 ---
+## Who this routine is for
 
-## Direct practice answer
+Use it only to run a mock and log errors after the [study plan](/guides/goethe-b1-study-plan/) has already set the weeks. The competent authority decides proof acceptance. A mock log is not an eligibility result. This page does not add another four-week study calendar. Current adult sample papers were not reopened. If you do not have the official mock in front of you, do not invent a score.
 
-A mock exam is useful only if it changes your next week of study. Do not just complete papers and count the score. Simulate the timing, log mistakes by module, repair the weakest pattern, and retest.
+## What belongs to the exam owner and what belongs to the centre
 
-Use official sample materials first. Unverified practice sets can teach the wrong format.
+The B1 administration rules describe the modules, timings, and the 60-point module pass. The centre decides the sitting, the room, identification, and the local timetable. If the centre’s instruction is about when to arrive or which ID to carry, follow the centre. If a local sheet changes the module tasks or the pass mark, treat that as a conflict and ask the exam owner which document is current. Do not silently prefer the local sheet on format.
 
-## Who this is for
+## Run and log
 
-### Best for
+1. Choose material from the exam owner’s own page. Record the URL and the date. If that page does not load, write “not opened” and stop the mock.
+2. Time the modules you will actually sit, using the durations in the rules: reading 65, listening about 40, writing 60, speaking about 15 in a pair after 15 minutes of preparation.
+3. Log each miss as module, what you wrote, and what the prompt required. Leave the score blank unless the material you opened states the key.
+4. Repair one miss with an original prompt, then repeat only that module’s shape.
 
-- Learners in the final four to six weeks before Goethe B1.
-- Candidates who have studied content but do not know their exam-day weak point.
-- Working adults who need a realistic weekly routine.
+## Common mistakes
 
-### Skip if
-
-- You have not learned the basic B1 task formats.
-- You want leaked exam papers or copied real tasks.
-- You are still deciding whether Goethe B1 is accepted for your route.
-
-## Official sample papers
-
-Start from the official Goethe B1 page and official practice materials. Save the source URL and the date you checked it. If your local test center gives different instructions, follow the local official instructions.
-
-## A four-week mock schedule
-
-| Week | Main task | Repair focus |
-| --- | --- | --- |
-| Week 1 | One untimed format review. | Learn task instructions and scoring expectations. |
-| Week 2 | One timed half mock. | Identify the weakest module and top three error patterns. |
-| Week 3 | One full timed mock. | Repair the weakest module with targeted drills. |
-| Week 4 | Final full mock plus light review. | Reduce careless errors and confirm exam logistics. |
-
-## Error-log template
-
-Copy this structure after every mock:
-
-- Date and material source.
-- Module and task number.
-- Mistake type.
-- Why the wrong answer looked attractive.
-- Correct rule, phrase, or strategy.
-- Retest date.
-
-The mistake type matters. "I did badly" is not actionable. "I missed corrected times in listening announcements" is actionable.
-
-## Weak-module repair loop
-
-1. Pick one module only.
-2. Find the top repeated mistake.
-3. Practise that pattern for three short sessions.
-4. Retest with a timed task.
-5. Keep or change the repair focus based on evidence.
-
-This loop prevents random studying in the final weeks.
-
-## Common mock mistakes
-
-- Using unofficial materials before checking official format.
-- Taking long breaks between modules and calling it a full mock.
-- Reviewing only the score, not the reason for mistakes.
-- Ignoring ID, arrival time, result timing, and local center instructions.
-
-## Goethe B1 vs telc B1 mock approach
-
-Mock routines must match the exact exam you will take. If you switch between Goethe and telc materials, label them clearly. Similar CEFR level does not mean identical task experience.
-
-## Official sources
-
-- [Goethe-Zertifikat B1](https://www.goethe.de/ins/de/en/prf/prf/gzb1.html)
-- [Official Goethe B1 exam training](https://www.goethe.de/en/spr/prf/ueb/pb1.html)
+- A second eight-week plan that repeats the study plan.
+- A homemade score when the sample was not opened.
 
 ## Next action
 
-Carry the repeated errors into the [Goethe B1 study plan](/guides/goethe-b1-study-plan/). A practice score does not establish proof acceptance or an individual residence or citizenship result; verify those questions with the receiving authority.
+Put the log back on the study plan’s self-check. Book only through the [fees and booking](/guides/goethe-b1-fees-and-booking/) page’s record.
+
+## Official sources
+
+- [B1 administration rules (PDF)](https://www.goethe.de/pro/relaunch/prf/de/Durchfuehrungsbestimmungen_B1.pdf) — Stand 1 September 2025. Adult sample papers were not reopened, so no point on a current sample is claimed.

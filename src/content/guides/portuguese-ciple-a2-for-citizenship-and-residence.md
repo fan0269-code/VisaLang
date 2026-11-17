@@ -4,7 +4,7 @@ description: "Verify CIPLE as an exam product only after the applicable Portugue
 category: "portugal"
 slug: "portuguese-ciple-a2-for-citizenship-and-residence"
 publishedDate: "2026-07-01"
-updatedDate: "2026-07-29"
+updatedDate: "2026-11-14"
 contentStatus: "verification-pending"
 decisionStage: "choice"
 comparisonScope: "same-route"
@@ -37,7 +37,7 @@ Keep these decisions with the authority that owns them:
 
 | Decision | Final source to check |
 |---|---|
-| Which nationality profile applies | Justiça nationality guide and the responsible nationality authority |
+| Which nationality profile applies | The nationality overview that was read. The older guide URL did not return the guide, so the profile list is unresolved |
 | What language evidence that profile accepts | The current procedure document list or a response from the responsible nationality channel |
 | What CIPLE is and how the product is structured | CAPLE |
 | Which centre, registration conditions, session and fee apply now | CAPLE and the selected authorised exam centre |
@@ -81,6 +81,6 @@ If the record supports investigating CIPLE, open the current CAPLE product page,
 ## Official sources
 
 - [Portuguese Justice portal — Portuguese nationality](https://justica.gov.pt/Registos/Nacionalidade/Nacionalidade-portuguesa)
-- [Portuguese Justice guide — How to obtain Portuguese nationality](https://justica.gov.pt/Guias/como-obter-nacionalidade-portuguesa)
+- [Older Justiça guide URL — 2026-11-14 fetch ended on an error page, not a profile selector](https://justica.gov.pt/Guias/como-obter-nacionalidade-portuguesa)
 - [CAPLE — CIPLE](https://caple.letras.ulisboa.pt/exame/2/ciple)
 - [CAPLE — Exams and registration entry points](https://caple.letras.ulisboa.pt/exames)

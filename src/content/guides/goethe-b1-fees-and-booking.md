@@ -1,12 +1,12 @@
 ---
 title: "Goethe B1 fees and booking: verify the selected centre before paying"
 seoTitle: "Goethe B1 fees and booking"
-description: "Verify the exact Goethe B1 product, current centre fee and booking terms after the receiving authority confirms possible proof."
+description: "A Goethe B1 booking record tied to the 2025 fee, notice, and module rules. No copied price and no visa decision."
 category: "germany-b1"
 slug: "goethe-b1-fees-and-booking"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-19"
-sourceReviewedAt: "2026-07-19"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "core-route"
@@ -20,51 +20,45 @@ primaryOfficialAuthorityUrl: "https://www.goethe.de/ins/de/en/prf/ort.html"
 examOwnerUrl: "https://www.goethe.de/ins/de/en/prf/prf/gzb1.html"
 localExecutionPrompt: "Ask the selected official or authorised centre to confirm the exact B1 product, current fee scope, date, registration, ID, cancellation and result process before payment."
 author: "VisaLang Editorial team"
-readingTime: "5"
+readingTime: "8"
 featured: false
 eyebrow: "Germany B1 · booking"
 route: "germany-b1"
 supportingGuideSlugs: ["goethe-b1-vs-telc-b1", "goethe-b1-study-plan"]
 ---
+## Who this record is for
 
-## Acceptance comes before price
+Use it to book Goethe-Zertifikat B1, or one of its modules, after the authority has named a language document. A booking record is not proof acceptance and not an eligibility result. It does not repeat the settlement or citizenship route. Those decisions stay on the [settlement guide](/guides/goethe-b1-germany-settlement-work/) and the [citizenship guide](/guides/germany-b1-citizenship-language-proof/).
 
-A Goethe fee or available seat does not establish proof acceptance or eligibility for your route. Save the authority's accepted-proof instruction first. Then identify the exact product and selected official or authorised centre.
+## What the Exam Guidelines support
 
-This page does not publish a fixed fee. The applicable amount and terms are the ones the selected centre currently publishes or confirms for your exact product and booking date.
+Stand 1 September 2025:
 
-## Build a dated booking record
+- Section 6.1: the fee follows the local fee schedule and is shown on the registration form or by the centre. This page copies no price.
+- Section 4.7: the clock time is sent about five days before the exam. That is not a certificate date.
+- Section 13: the centre notifies results. An early individual release is not available.
+- Section 15: modular exams named there may repeat a single module, and the centre may set the period. There is no entitlement to a particular date.
+- The B1 rules: four modules, which can be taken separately or together. Confirm whether your centre’s form is one module or all four. A module pass at 60 of 100 is an exam fact, not acceptance by the authority.
 
-Ask the centre to confirm:
+## One dated record
 
-- Exact exam product, adult or youth version, and whether you are booking the full exam or modules.
-- Location, exam date, current seat status and registration deadline.
-- Fee, currency, what the fee covers, payment deadline and payment method.
-- Identification, cancellation, rescheduling, withdrawal and refund terms.
-- Accessibility arrangements, result process and certificate collection or delivery.
-
-Save the centre name, official URL or written reply and date checked. A central product page or centre finder does not prove the current local answer.
-
-## Keep authority and centre roles separate
-
-The receiving authority decides whether your proof fits the application. Goethe defines its exam product. The selected centre controls the current local transaction and exam-day instructions. Confirmation from one does not replace the others.
-
-If the centre page and a written reply conflict, pause before payment and ask the centre to resolve the discrepancy in writing.
+| Field | Centre’s words | Date you checked | Stop |
+| --- | --- | --- | --- |
+| Exact module or full exam |  |  | The form does not match the authority’s wording |
+| Fee and what it includes |  |  | The figure is from another city |
+| Cancellation and resit |  |  | You are assuming a refund |
+| ID and result handover |  |  | You have converted the five-day notice into a result day |
 
 ## Common mistakes
 
-- Booking the cheapest or earliest seat before confirming acceptance.
-- Using a national or global fee as the price for another centre.
-- Assuming all centres offer every product or module on every date.
-- Treating an estimated result period as a guaranteed delivery date.
+- Pasting a route essay into a booking record.
+- Treating a B1 brand as proof the settlement or citizenship file is complete.
 
 ## Next action
 
-After recording the centre's current terms, place those dates in the [B1 evidence timeline](/guides/germany-b1-settlement-citizenship-timeline/). Revisit the [exam comparison](/guides/goethe-b1-vs-telc-b1/) or adapt the [study plan](/guides/goethe-b1-study-plan/) if the available product or date changes.
+If the table has a blank, ask the centre and do not pay. If it is complete, the [study plan](/guides/goethe-b1-study-plan/) is the preparation page.
 
 ## Official sources
 
-- [Goethe-Institut: Goethe-Zertifikat B1](https://www.goethe.de/ins/de/en/prf/prf/gzb1.html)
-- [Goethe-Institut: testing locations in Germany](https://www.goethe.de/ins/de/en/prf/ort.html)
-- [Goethe-Institut: current Germany exam-fee page](https://www.goethe.de/ins/de/en/prf/pre.html)
-- [Goethe-Institut: further B1 information and centre contact](https://www.goethe.de/ins/de/en/prf/prf/gzb1/inf.html)
+- [Exam Guidelines (PDF)](https://www.goethe.de/pro/relaunch/prf/de/Pruefungsordnung.pdf) — sections 4.7, 6, 13, and 15.
+- [B1 administration rules (PDF)](https://www.goethe.de/pro/relaunch/prf/de/Durchfuehrungsbestimmungen_B1.pdf) — four modules, Stand 1 September 2025.

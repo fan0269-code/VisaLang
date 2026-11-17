@@ -54,7 +54,7 @@ export const translatedPaths: Record<string, string> = {
   '/guides/goethe-a1-germany-family-reunion/': '/zh/guides/goethe-a1-germany-family-reunion/',
   '/guides/goethe-a1-vs-telc-a1/': '/zh/guides/goethe-a1-vs-telc-a1/',
   '/guides/goethe-a1-test-centers/': '/zh/guides/goethe-a1-test-centers/',
-  '/guides/goethe-a1-booking-mistakes/': '/zh/guides/goethe-a1-booking-mistakes/',
+  '/guides/goethe-a1-pre-booking-checklist/': '/zh/guides/goethe-a1-booking-mistakes/',
   '/guides/german-a1-exam-booking-timeline/': '/zh/guides/german-a1-exam-booking-timeline/',
   '/guides/german-a1-documents-checklist/': '/zh/guides/german-a1-documents-checklist/',
   '/guides/goethe-a1-30-day-study-plan/': '/zh/guides/goethe-a1-30-day-study-plan/',

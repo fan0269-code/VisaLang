@@ -4,7 +4,7 @@ description: "Use the reviewed University of Amsterdam Dutch-taught bachelor's a
 category: "netherlands"
 slug: "staatsexamen-nt2-for-work-and-higher-education"
 publishedDate: "2026-07-01"
-updatedDate: "2026-07-19"
+updatedDate: "2026-11-14"
 sourceReviewedAt: "2026-07-19"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
@@ -27,7 +27,7 @@ supportingGuideSlugs: ["dutch-inburgering-a2-b1-for-integration-and-citizenship"
 
 ## Start with the named receiver
 
-The reviewed University of Amsterdam page covers international applicants to Dutch-taught bachelor's programmes. Within that page's scope, applicants without one of its listed alternative proofs must take Staatsexamen NT2 Programme II. This only applies to the reviewed UvA admissions scope and does not establish admission, another institution's requirement, or a work rule.
+The University of Amsterdam page read on 2026-11-14 covers international applicants to Dutch-taught bachelor's programmes. Under “Proving your Dutch language proficiency” it lists four certificates: Staatsexamen NT2 Programme II, CNaVT Educatief Startbekwaam (STRT), CNaVT Educatief Professioneel (EDUP), and the ITNA B2 test, with or without a C1 writing assignment. NT2-II is one of those test options. It is not the only test on that list. A separate “Exemptions” list names diplomas that can stand in for a language-test certificate. Those diplomas are not the same thing as the other tests. This page does not copy the deadline dates, and it does not decide admission, another institution’s requirement, or a work rule.
 
 ## What the exam owner confirms
 
@@ -35,7 +35,7 @@ DUO and Staatsexamens NT2 describe Programme I as B1 and Programme II as B2. Bot
 
 ## Admission is a separate decision
 
-The official exam site says schools and universities set their own requirements and that an NT2 diploma does not automatically confer admission. UvA also lists alternative evidence within the reviewed page, so NT2-II is not the only path for every applicant in that bounded scope.
+The exam-owner page says schools and universities set their own requirements and that an NT2 diploma does not automatically confer admission. On the UvA page, the other named tests and the diploma exemptions are different lines. Do not read a missing diploma exemption as a rule that the applicant must take NT2-II.
 
 ## Keep work and professional routes outside this page
 

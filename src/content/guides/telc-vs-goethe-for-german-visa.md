@@ -4,7 +4,7 @@ description: "Compare an exact telc and Goethe exam only after the responsible G
 category: "germany-telc"
 slug: "telc-vs-goethe-for-german-visa"
 publishedDate: "2026-06-30"
-updatedDate: "2026-08-14"
+updatedDate: "2026-11-14"
 sourceReviewedAt: "2026-08-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
@@ -53,61 +53,9 @@ An exam owner can explain its own products. It cannot decide that a certificate 
 
 The Federal Foreign Office visa page is a process entry point, not a universal list of accepted certificates. Follow it to the mission responsible for your application and use that mission's current route instructions.
 
-## Exam Overview
+## Blank product fields stay blank
 
-Goethe-Institut and telc each maintain multiple German exam products and levels. Use the exam owner's current page to identify the complete product name, level, candidate group, delivery format and component structure; a brand name or level alone is not a complete exam choice.
-
-## Eligibility
-
-The responsible German mission or competent receiving authority decides whether language proof applies to the exact route and which evidence may be used. The exam owner decides who may register for its product under its rules. Keep those two eligibility questions separate.
-
-## Fees
-
-Do not transfer a fee from another centre, country, candidate group or date. Obtain the current total price, currency, included services and payment terms from the selected official or authorised centre before paying.
-
-## Dates
-
-Use only a currently bookable date supplied by the selected centre for the exact product. A provider catalogue or centre finder does not prove a seat, registration deadline, result date or certificate-delivery date.
-
-## Test Format
-
-Read the current exam-owner product page and regulations for the exact product. Do not assume that two exams at the same CEFR level have the same components, module rules, delivery format or result document.
-
-## Locations / Online
-
-Verify the centre through Goethe-Institut or telc, then confirm that it currently offers the exact product. Do not interpret an online information page, digital exam label or preparation course as a remotely invigilated certificate exam.
-
-## Required Documents
-
-Maintain separate lists for registration, test day and the visa file. The selected centre controls its registration and test-day identification instructions; the responsible authority controls the documents and proof format submitted with the application.
-
-## Passing Score
-
-Use the exam owner's current regulations to understand how the exact product reports a result. Ask the receiving authority whether it requires a full certificate, particular modules or another result format; a provider pass result does not by itself establish visa acceptance.
-
-## Retake Policy
-
-Confirm repeat and rebooking rules with the exam owner and selected centre. Separately check any visa or submission timing with the responsible authority; neither VisaLang nor the centre can guarantee that another sitting will fit an application timeline.
-
-## Prep Path
-
-Prepare only after the route, exact product and current format are confirmed. Base the plan on the exam owner's current syllabus, regulations and official training material, then adapt the schedule to locally confirmed dates.
-
-## Best Courses
-
-This guide does not rank courses. If using a course, verify that it prepares for the exact current product and format; a course provider cannot confirm certificate acceptance or guarantee an exam result.
-
-## Practice Test
-
-Start with current official practice material linked by Goethe-Institut or telc for the exact product. Do not treat third-party questions, a practice score or a course-completion record as accepted visa proof.
-
-## Career Outcome
-
-An exam certificate does not guarantee a job, professional recognition, a licence, a visa or another administrative outcome. For a regulated profession, obtain the exact language-proof instruction from the competent recognition or licensing authority for the profession and place.
-
-## Related Exams
-
-Consider another exam only if the same receiving authority confirms that its exact product and result format remain candidate proof for the same route. A same-level label or another guide's example is not enough.
+This isolated page does not publish a fee, a seat, a pass mark, a course ranking, a practice score, or a career outcome. Those fields stay blank until the exam owner or the selected official or authorised centre writes them for the exact product. A same-level label is not a reason to import them from the public A1 comparison. The Foreign Office certificate FAQ, linked below, says that as a rule the exam date should not be more than one year old, and a repeated module uses the date of the oldest passed module. That sentence is not a statute that the certificate expires, and it is not a rule for every visa category.
 
 ## Build a product comparison record
 
@@ -152,7 +100,7 @@ No. Compare complete product names, modules or components, result documents and 
 
 ## Last Updated
 
-Editorial and official-source review: **2026-08-14**. Recheck the responsible authority, exam owner and selected centre before acting because route and local-execution information can change.
+Editorial correction: **2026-11-14**. The earlier 2026-08-14 review remains the date of the acceptance-record structure. This pass removed the generic product-fact headings and added only the certificate-FAQ age sentence from the snapshot read that day. Recheck the responsible authority, exam owner and selected centre before acting. The page stays outside primary discovery.
 
 ## Next action
 
@@ -168,3 +116,5 @@ Only if the responsible authority has confirmed that the exact Goethe A1 and tel
 - [telc certificate exams](https://www.telc.net/en/language-examinations/certificate-exams/)
 - [telc examination-centre finder](https://www.telc.net/en/language-examinations/find-a-telc-examination-centre/)
 - [telc exam FAQ](https://www.telc.net/en/language-examinations/language-examinations-support-faq/)
+
+The source-review date above is the earlier full check. The 2026-11-14 wording is an edit. It does not mean DAAD, Make it in Germany, unread Goethe HTML, or an unpacked telc mock was freshly verified.

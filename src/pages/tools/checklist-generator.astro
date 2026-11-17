@@ -10,7 +10,8 @@ import { routeRegistry } from '../../data/route-tools';
         <div class="tool-form-heading"><h2>Choose a route</h2><p>Only Germany family reunion A1 has a configured route checklist. Other selections remain a safe verification checklist.</p></div>
         <label class="tool-field-single">Route<select name="route" required><option value="">Select your route</option>{routeRegistry.map((route) => <option value={route.id}>{route.shortTitle}{route.availability === 'configured' ? ' — configured' : ' — verify first'}</option>)}</select></label>
         <div class="tool-error-summary" id="checklist-error" data-error-summary role="alert" tabindex="-1" hidden></div>
-        <button class="primary-action" type="submit">Build my checklist</button>
+        <button class="primary-action" type="submit" disabled data-tool-submit>Build my checklist</button>
+        <noscript><p id="checklist-no-js">JavaScript is off, so this form does not send your answers. The button stays disabled. Continue with the <a href="/germany-family-reunion-a1/">Germany A1 guide</a>.</p></noscript>
       </form>
 
       <section id="checklist-result" class="tool-result" hidden aria-live="polite" tabindex="-1">

@@ -1,11 +1,11 @@
 ---
 title: "Goethe B1 speaking topics"
-description: "A Goethe-Zertifikat B1 speaking routine based on the current official module description, adult training material, partner practice, and self-recording."
+description: "An original German B1 speaking round with a repair, mapped to the 2025 pair-exam timing. Not a real exam card."
 category: "germany-b1"
 slug: "goethe-b1-speaking-topics"
 publishedDate: "2026-07-04"
-updatedDate: "2026-07-22"
-sourceReviewedAt: "2026-07-22"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "core-route"
@@ -19,91 +19,31 @@ primaryOfficialAuthorityUrl: "https://www.goethe.de/ins/de/en/prf/prf/gzb1/inf.h
 examOwnerUrl: "https://www.goethe.de/ins/de/en/prf/prf/gzb1.html"
 localExecutionPrompt: "Use current Goethe B1 adult speaking training and confirm any centre-specific format, partner arrangement, date, ID and test-day instruction with the authorised local centre."
 author: "VisaLang Editorial team"
-readingTime: "7"
+readingTime: "6"
 featured: false
 eyebrow: "Germany B1+"
 route: "germany-b1"
-supportingGuideSlugs: ["goethe-b1-difficulty-analysis", "goethe-b1-study-plan"]
+supportingGuideSlugs: ["goethe-b1-study-plan", "goethe-b1-listening-deep-dive"]
 ---
+## Who this page is for
 
-## Direct practice answer
+Use it for the speaking module after the [study plan](/guides/goethe-b1-study-plan/) self-check. The competent authority decides proof acceptance. This round is not an eligibility result. The B1 rules describe speaking parts 1–3, generally a pair exam of about 15 minutes, or about 10 minutes alone, after 15 minutes of preparation. Part 2 has a choice of tasks in the materials description. Adult sample cards were not reopened, so nothing here is calibrated to a current card.
 
-Goethe B1 speaking rewards clear, connected, understandable German. You do not need perfect sentences. You do need to answer the task, keep speaking, react to your partner, and repair mistakes without freezing.
+## Original German round
 
-Use original practice prompts and official format information. Do not memorise leaked topics or copied real exam answers.
+After a silent 15-minute preparation you time yourself, Partner A says: “Ich finde, die Bibliothek sollte sonntags öffnen.” Partner B must give one reason for or against, then ask “Und wenn sonntags niemand kommt?” Partner A repairs the point in one sentence. 
 
-## Who this is for
+A usable repair sounds like: “Dann können wir nur den Vormittag öffnen.” An unusable turn is an English frame such as “What do you think about this?” with no German. Write the German you said and one sentence, in Chinese or English, explaining where the partner would have lost the proposal.
 
-### Best for
+## Common mistakes
 
-- Learners who can write simple German but freeze when speaking.
-- Candidates preparing for the paired or interactive parts of B1.
-- Students who need a repeatable self-recording routine.
-
-### Skip if
-
-- You have not confirmed the official speaking format.
-- You want real copied exam prompts.
-- You need one-to-one pronunciation diagnosis.
-
-## Speaking practice areas
-
-| Part | What to practise | Risk |
-| --- | --- | --- |
-| Joint planning (Part 1) | Make suggestions, respond to your partner, and reach a workable plan together. | Delivering a monologue instead of planning with the partner. |
-| Topic presentation (Part 2) | Organise the assigned topic, state an opinion, and give reasons or examples. | Memorising a speech that does not answer the assigned task. |
-| Feedback and questions (Part 3) | Respond to the partner's presentation and ask or answer a relevant question. | Giving generic feedback that does not engage with the presentation. |
-
-Always verify the current format on the official Goethe page and with your test center.
-
-## Original topic bank with sample frames
-
-Use these as original practice themes, not real exam questions:
-
-- Work and study: "In my experience...", "One advantage is...", "A problem can be..."
-- Health and daily life: "For many people...", "I would recommend...", "It depends on..."
-- Housing and city life: "In a small town...", "Public transport helps because..."
-- Media and technology: "I use it mainly for...", "The risk is..."
-- Travel and culture: "I prefer...", "It is important to prepare..."
-
-## Paired-interview phrase bank
-
-- Asking: "What do you think about this?"
-- Agreeing: "I agree with you because..."
-- Disagreeing politely: "I see it differently because..."
-- Repairing: "Sorry, can I say that again?"
-- Buying time: "Let me think for a moment."
-- Moving forward: "So our next step is..."
-
-These phrases are useful because they keep the conversation alive when vocabulary is limited.
-
-## Self-recording routine
-
-1. Choose one original topic.
-2. Speak for one minute without stopping.
-3. Listen once for meaning.
-4. Listen again for grammar and word gaps.
-5. Repeat the same topic and make it clearer.
-
-Keep the first and second recording. Improvement becomes visible only when you compare them.
-
-## Common speaking mistakes
-
-- Memorising one answer and forcing it onto any topic.
-- Speaking too fast and losing clarity.
-- Giving examples without an opinion.
-- Forgetting to ask or react in partner tasks.
-- Stopping completely after one grammar mistake.
-
-## Goethe B1 vs telc B1 speaking
-
-The best choice is the accepted and available exam for your route. Compare official sample formats and local booking rules before choosing. Do not choose based only on which speaking test sounds easier online.
-
-## Official sources
-
-- [Goethe-Zertifikat B1 further information](https://www.goethe.de/ins/de/en/prf/prf/gzb1/inf.html)
-- [Official Goethe B1 exam training](https://www.goethe.de/en/spr/prf/ueb/pb1.html)
+- An English phrase bank offered as speaking practice.
+- Calling the topic a real exam question or a prediction.
 
 ## Next action
 
-Test the routine in the [Goethe B1 mock-exam routine](/guides/goethe-b1-mock-exam-routine/). Keep proof acceptance and local administration separate from speaking practice and confirm them with the receiving authority and authorised centre.
+Record one round. Note the repair sentence you will change. Return to the study plan rather than a new topic list.
+
+## Official sources
+
+- [B1 administration rules (PDF)](https://www.goethe.de/pro/relaunch/prf/de/Durchfuehrungsbestimmungen_B1.pdf) — Stand 1 September 2025. Adult sample papers were not reopened, so no point on a current sample is claimed.

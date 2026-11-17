@@ -77,6 +77,18 @@
     { "source": "/guides/portuguese-language-for-golden-visa-and-citizenshi/", "destination": "/guides/portuguese-language-for-golden-visa-and-citizenship/", "statusCode": 301 },
     { "source": "/guides/yki-vs-other-finland-options/", "destination": "/guides/yki-finnish-citizenship/", "statusCode": 301 },
     { "source": "/guides/yki-vs-other-finland-options.html", "destination": "/guides/yki-finnish-citizenship/", "statusCode": 301 },
+    { "source": "/guides/goethe-a1-booking-mistakes", "destination": "/guides/goethe-a1-pre-booking-checklist/", "statusCode": 301 },
+    { "source": "/guides/goethe-a1-booking-mistakes/", "destination": "/guides/goethe-a1-pre-booking-checklist/", "statusCode": 301 },
+    { "source": "/guides/goethe-a1-booking-mistakes.html", "destination": "/guides/goethe-a1-pre-booking-checklist/", "statusCode": 301 },
+    { "source": "/guides/goethe-a1-official-links-practice-resources", "destination": "/germany-family-reunion-a1/", "statusCode": 301 },
+    { "source": "/guides/goethe-a1-official-links-practice-resources/", "destination": "/germany-family-reunion-a1/", "statusCode": 301 },
+    { "source": "/guides/goethe-a1-official-links-practice-resources.html", "destination": "/germany-family-reunion-a1/", "statusCode": 301 },
+    { "source": "/guides/goethe-a1-study-plan-working-adults", "destination": "/guides/goethe-a1-30-day-study-plan/", "statusCode": 301 },
+    { "source": "/guides/goethe-a1-study-plan-working-adults/", "destination": "/guides/goethe-a1-30-day-study-plan/", "statusCode": 301 },
+    { "source": "/guides/goethe-a1-study-plan-working-adults.html", "destination": "/guides/goethe-a1-30-day-study-plan/", "statusCode": 301 },
+    { "source": "/guides/goethe-b1-difficulty-analysis", "destination": "/guides/goethe-b1-study-plan/", "statusCode": 301 },
+    { "source": "/guides/goethe-b1-difficulty-analysis/", "destination": "/guides/goethe-b1-study-plan/", "statusCode": 301 },
+    { "source": "/guides/goethe-b1-difficulty-analysis.html", "destination": "/guides/goethe-b1-study-plan/", "statusCode": 301 },
     { "source": "/guides/:slug.html", "destination": "/guides/:slug/", "statusCode": 301 },
     { "source": "/zh/guides/:slug.html", "destination": "/zh/guides/:slug/", "statusCode": 301 }
   ]

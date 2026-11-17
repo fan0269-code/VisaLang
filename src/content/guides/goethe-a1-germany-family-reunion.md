@@ -5,8 +5,8 @@ description: "The mission decides whether Goethe Start Deutsch 1 counts for your
 category: "germany-a1"
 slug: "goethe-a1-germany-family-reunion"
 publishedDate: "2026-06-30"
-updatedDate: "2026-11-11"
-sourceReviewedAt: "2026-11-11"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "complete-route"
@@ -77,7 +77,7 @@ Goethe product, overview, and centre HTML returned HTTP 403 on 2026-11-11. They 
 These items are unknown until the office that owns them answers:
 
 - Whether your mission accepts Goethe Start Deutsch 1 for your relationship and age category.
-- Certificate age, “must be recent”, originals, copies, or translations. The BAMF leaflet opened on 2026-11-11 does not state a nationwide maximum age. The central Foreign Office FAQ does not state a one-year rule.
+- Certificate age, originals, copies, or translations. As a rule (in der Regel), the exam date should not be more than one year old, and a repeated module uses the oldest passed module. That is not automatic expiry, and the spouse FAQ’s silence does not cancel it. The full limit is on the [requirement guide](/guides/german-family-reunion-language-requirement/).
 - How your mission runs the interview sentence in the leaflet: if the interview shows you undoubtedly have the basic command, no separate certificate is needed. That is not a waiver you can award yourself.
 - The fee, the next seat, and the day the certificate will be in your hands.
 

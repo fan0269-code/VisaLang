@@ -5,8 +5,8 @@ description: "A B1 or DTZ result does not prove civic knowledge, and Leben in De
 category: "germany-b1"
 slug: "germany-b1-leben-in-deutschland-and-language-proof"
 publishedDate: "2026-07-11"
-updatedDate: "2026-11-11"
-sourceReviewedAt: "2026-11-11"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "core-route"
@@ -35,7 +35,7 @@ For the citizenship language slot, use [German citizenship B1 language proof](/g
 
 ## Two tests, two questions
 
-BAMF’s integration-course final-examination page (German and English, opened 2026-11-11) says the final test has two parts: the language test **Deutsch-Test für Zuwanderer (DTZ)** and the test **Leben in Deutschland**. The English page still contains an older residence sentence (“usually eight years”, and seven years with the integration-course certificate). Do not copy it. Nationality Act section 10 (1), opened the same day, states five years of lawful ordinary residence, and former subsections 3 and 3a are repealed. BAMF’s naturalisation page dated 30 June 2025 is the newer residence description. This page does not calculate either period.
+BAMF’s integration-course final-examination page says the final test has two parts: the language test **Deutsch-Test für Zuwanderer (DTZ)** and the test **Leben in Deutschland**. The orientation-course pass on that page is at least 15 of 33. Where the page discusses the naturalisation knowledge condition, it points to at least 17 of 33 under the naturalisation-test ordinance. Those figures are not interchangeable and neither is a B1 score. The English page still contains an older residence sentence (“usually eight years”, and seven years with the integration-course certificate). Do not copy it. The five-year section 10 (1) line, the limit that BGBl. 2025 I No. 256 deletes subsection 3 only, and the instruction not to choose the English three-year sentence are on the [B1 hub](/germany-b1-settlement-citizenship/). Language evidence and civic-knowledge evidence stay separate. Settlement under Residence Act (AufenthG) section 9 is a different procedure from naturalisation under the Nationality Act. This page does not decide either procedure and does not copy fees. This page does not calculate residence.
 
 **DTZ is language.** To receive the integration-course certificate, BAMF says you must first show an overall **B1** result on the DTZ. The same page says the DTZ certificate can show overall **B1 or A2**. A result below A2 is a score notice, not that certificate. BAMF describes a written part and an oral part. Those format details belong to the DTZ. They are not a visa processing time, and this page does not add one.
 
@@ -68,7 +68,7 @@ The federal naturalisation portal (English procedure page, opened 2026-11-11) ag
 - **“15 correct is enough for naturalisation knowledge.”** BAMF’s examination page states 15 of 33 for the orientation-course pass and 17 of 33 for the naturalisation-knowledge proof it cites. Your authority confirms which figure and which document it wants.
 - **“The integration-course certificate finishes the residence or citizenship file.”** BAMF describes when it issues that certificate. The foreigners authority or the nationality authority still decides the application. Settlement routes do not all use the same language label; see the [settlement page](/guides/goethe-b1-germany-settlement-work/).
 - **“One exam covers both columns.”** Nothing opened for this page says a single sitting replaces both language and civic knowledge for every route.
-- **“Seven years, or eight.”** Those sentences are still on the English final-examination page. They are not the current residence rule. Use section 10 and the 30 June 2025 naturalisation page, then ask the nationality authority.
+- **“Seven years, or eight,” or the English naturalisation page’s three-year special-integration sentence.** Those are not the current section 10 rule. Use the current statute and the German overview dated 9 November 2026. Ask the nationality authority only about a provision it actually names.
 
 ## What to ask locally
 

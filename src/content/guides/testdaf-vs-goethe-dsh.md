@@ -4,7 +4,7 @@ description: "A programme-first framework for comparing TestDaF, Goethe certific
 category: "germany-testdaf"
 slug: "testdaf-vs-goethe-dsh"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-23"
+updatedDate: "2026-11-14"
 sourceReviewedAt: "2026-07-23"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
@@ -45,7 +45,7 @@ These provider pages can explain their own examinations. They do not establish a
 
 ## Provider facts that are safe to compare
 
-For the digital TestDaF, the [official test-structure page](https://www.testdaf.de/de/teilnehmende/der-digitale-testdaf/aufbau-des-digitalen-testdaf/) describes four test parts: reading, listening, writing, and speaking. For Goethe-Zertifikat C1, the [Goethe-Institut examinations page](https://www.goethe.de/en/spr/prf.html) describes a C1 certificate with listening, reading, writing, and speaking modules that may be taken and certified individually or together.
+For the digital TestDaF, the [official test-structure page](https://www.testdaf.de/de/teilnehmende/der-digitale-testdaf/aufbau-des-digitalen-testdaf/) describes four test parts: reading, listening, writing, and speaking. Goethe-Zertifikat C1 module wording was not re-read from a current Goethe regulation in this correction, so this page does not describe C1 modules or say they can be certified separately. Do not copy that structure from the B1 rules. DSH remains a university exam: open the programme that would set it.
 
 These are descriptions of the providers' products. They do not show that a particular programme accepts TestDaF, Goethe C1, a DSH, or any specified result.
 
@@ -88,6 +88,8 @@ Save the programme's accepted-proof wording first. Then open the matching TestDa
 
 - [TestDaF official information](https://www.testdaf.de/de/)
 - [TestDaF: digital test structure](https://www.testdaf.de/de/teilnehmende/der-digitale-testdaf/aufbau-des-digitalen-testdaf/)
-- [Goethe-Institut: German examinations](https://www.goethe.de/en/spr/prf.html)
+- Goethe-Zertifikat C1 — not re-read from a current regulation in this correction. No C1 module fact is stated above.
 
-Last source review: 2026-07-23. The review covers only the cited provider facts and the programme-first verification workflow; the target programme, selected centre, and DSH university remain reader-specific.
+Scope note, 2026-11-14: digital TestDaF’s four parts were read. DSH still depends on the university you have not selected. The pending template line stays, and this page stays out of primary discovery.
+
+The source-review date above is the earlier full check. The 2026-11-14 wording is an edit. It does not mean DAAD, Make it in Germany, unread Goethe HTML, or an unpacked telc mock was freshly verified.

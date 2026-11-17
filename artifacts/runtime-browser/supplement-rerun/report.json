@@ -1,0 +1,273 @@
+{
+  "generatedAt": "2026-11-14T03:36:28.441Z",
+  "origin": "http://127.0.0.1:4173",
+  "note": "New local preview run after the source-date correction. It does not replace artifacts/runtime-browser/report.json from 2026-11-14T03:10:39.460Z, and it is not the earlier 11-URL JSON. Not production.",
+  "preservesEarlierRun": {
+    "file": "artifacts/runtime-browser/report.json",
+    "generatedAt": "2026-11-14T03:10:39.460Z",
+    "head": "830ca4143ada7abf8b9909bb997e70085895b7cf",
+    "observations": 36
+  },
+  "har": "artifacts/runtime-browser/supplement-rerun/supplement-rerun.har",
+  "requestCount": 84,
+  "postCount": 0,
+  "adRequestCount": 0,
+  "hosts": {
+    "127.0.0.1:4173": 63,
+    "visalang.org": 21
+  },
+  "records": [
+    {
+      "route": "/guides/staatsexamen-nt2-for-work-and-higher-education/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/supplement-rerun/guides-staatsexamen-nt2-for-work-and-higher-education.png",
+      "dom": {
+        "h1": "Staatsexamen NT2-II for UvA Dutch-taught bachelor admissions",
+        "robots": "noindex,follow",
+        "canonical": "https://visalang.org/guides/staatsexamen-nt2-for-work-and-higher-education/",
+        "adNodes": 0,
+        "textExcerpt": "Home\n/\nNetherlands\n/\nStaatsexamen NT2-II for UvA Dutch-taught bachelor admissions\n\nNetherlands · UvA admissions\n\nVerification pending\nCountry: Netherlands\nRoute: Netherlands\nStaatsexamen NT2-II for UvA Dutch-taught bachelor admissions\nDirect answer\n\nUse the reviewed University of Amsterdam Dutch-taught bachelor's admissions page and official NT2 product facts, then verify your exact programme.\n\nResponsibility: The final decision sits with University of Amsterdam Dutch-taught bachelor admissions; VisaLang helps you follow the verification path.\n\nUpdated\n2026-11-14\nSource review\nOfficial sources last checked:\n2026-07-19\nWritten by\nVisaLang Editorial team\nReviewed by role\nSource review\nReading "
+      }
+    },
+    {
+      "route": "/guides/portuguese-language-for-golden-visa-and-citizenship/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/supplement-rerun/guides-portuguese-language-for-golden-visa-and-citizenship.png",
+      "dom": {
+        "h1": "Portuguese Nationality Language Proof After a Residence Route",
+        "robots": "noindex,follow",
+        "canonical": "https://visalang.org/guides/portuguese-language-for-golden-visa-and-citizenship/",
+        "adNodes": 0,
+        "textExcerpt": "Home\n/\nPortugal\n/\nPortuguese Nationality Language Proof After a Residence Route\n\nPortugal · Citizenship\n\nVerification pending\nCountry: Portugal\nRoute: Portugal\nPortuguese Nationality Language Proof After a Residence Route\nDirect answer\n\nA nationality-profile requirement check for former or current Portuguese residence-route holders before choosing CIPLE or another language-proof path.\n\nResponsibility: The final decision sits with Portuguese nationality authority; VisaLang helps you follow the verification path.\n\nUpdated\n2026-11-14\nSource review\nOfficial sources last checked:\n2026-07-29\nWritten by\nVisaLang Editorial team\nReviewed by role\nSource review\nReading time\n7 min\nWho decides this?\n\nFin"
+      }
+    },
+    {
+      "route": "/guides/portuguese-ciple-a2-for-citizenship-and-residence/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/supplement-rerun/guides-portuguese-ciple-a2-for-citizenship-and-residence.png",
+      "dom": {
+        "h1": "CIPLE A2 Product Check for Portuguese Nationality",
+        "robots": "noindex,follow",
+        "canonical": "https://visalang.org/guides/portuguese-ciple-a2-for-citizenship-and-residence/",
+        "adNodes": 0,
+        "textExcerpt": "Home\n/\nPortugal\n/\nCIPLE A2 Product Check for Portuguese Nationality\n\nPortugal · Citizenship\n\nVerification pending\nCountry: Portugal\nRoute: Portugal\nCIPLE A2 Product Check for Portuguese Nationality\nDirect answer\n\nVerify CIPLE as an exam product only after the applicable Portuguese nationality procedure identifies the language evidence you need.\n\nResponsibility: The final decision sits with Portuguese nationality authority; VisaLang helps you follow the verification path.\n\nUpdated\n2026-11-14\nSource review\nOfficial sources last checked:\n2026-07-29\nWritten by\nVisaLang Editorial team\nReviewed by role\nSource review\nReading time\n7 min\nWho decides this?\n\nFinal decision authority: Portuguese nationa"
+      }
+    },
+    {
+      "route": "/guides/tcf-irn-french-residence/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/supplement-rerun/guides-tcf-irn-french-residence.png",
+      "dom": {
+        "h1": "TCF IRN for French nationality procedures: verify the procedure",
+        "robots": "noindex,follow",
+        "canonical": "https://visalang.org/guides/tcf-irn-french-residence/",
+        "adNodes": 0,
+        "textExcerpt": "Home\n/\nFrance\n/\nTCF IRN for French nationality procedures: verify the procedure\n\nFrance · Nationality procedure\n\nVerification pending\nCountry: France\nRoute: France\nTCF IRN for French nationality procedures: verify the procedure\nDirect answer\n\nStart from the Service-Public nationality page that was read, then verify whether TCF IRN fits that procedure.\n\nResponsibility: The final decision sits with Nationality procedure on the Service-Public page that was read; the Ministry URL was not re-opened; VisaLang helps you follow the verification path.\n\nUpdated\n2026-11-14\nSource review\nOfficial sources last checked:\n2026-07-19\nWritten by\nVisaLang Editorial team\nReviewed by role\nSource review\nReading t"
+      }
+    },
+    {
+      "route": "/guides/delf-b1-b2-french-work-study/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/supplement-rerun/guides-delf-b1-b2-french-work-study.png",
+      "dom": {
+        "h1": "DELF B1/B2 for Sorbonne arts admissions: verify your programme",
+        "robots": "noindex,follow",
+        "canonical": "https://visalang.org/guides/delf-b1-b2-french-work-study/",
+        "adNodes": 0,
+        "textExcerpt": "Home\n/\nFrance\n/\nDELF B1/B2 for Sorbonne arts admissions: verify your programme\n\nFrance · Sorbonne admissions\n\nVerification pending\nCountry: France\nRoute: France\nDELF B1/B2 for Sorbonne arts admissions: verify your programme\nDirect answer\n\nUse the reviewed Sorbonne Faculty of Arts and Humanities admissions page and official DELF facts, then verify your exact programme before choosing a level.\n\nResponsibility: The final decision sits with Sorbonne University Faculty of Arts and Humanities admissions; VisaLang helps you follow the verification path.\n\nUpdated\n2026-11-14\nSource review\nOfficial sources last checked:\n2026-07-19\nWritten by\nVisaLang Editorial team\nReviewed by role\nSource review\nReadi"
+      }
+    },
+    {
+      "route": "/guides/yki-finnish-citizenship/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/supplement-rerun/guides-yki-finnish-citizenship.png",
+      "dom": {
+        "h1": "Finnish Citizenship Language Proof: YKI and Other Evidence",
+        "robots": "noindex,follow",
+        "canonical": "https://visalang.org/guides/yki-finnish-citizenship/",
+        "adNodes": 0,
+        "textExcerpt": "Home\n/\nFinland\n/\nFinnish Citizenship Language Proof: YKI and Other Evidence\n\nFinland · Citizenship\n\nVerification pending\nCountry: Finland\nRoute: Finland\nFinnish Citizenship Language Proof: YKI and Other Evidence\nDirect answer\n\nA Migri-first check of YKI and other listed language evidence before choosing a Finnish citizenship proof route.\n\nResponsibility: The final decision sits with Finnish immigration and citizenship authority; VisaLang helps you follow the verification path.\n\nUpdated\n2026-11-14\nSource review\nOfficial sources last checked:\n2026-07-29\nWritten by\nVisaLang Editorial team\nReviewed by role\nSource review\nReading time\n8 min\nWho decides this?\n\nFinal decision authority: Finnish immi"
+      }
+    },
+    {
+      "route": "/guides/dutch-inburgering-a2-b1-for-integration-and-citizenship/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/supplement-rerun/guides-dutch-inburgering-a2-b1-for-integration-and-citizenship.png",
+      "dom": {
+        "h1": "Dutch Inburgering: Check the Procedure and Personal Route First",
+        "robots": "noindex,follow",
+        "canonical": "https://visalang.org/guides/dutch-inburgering-a2-b1-for-integration-and-citizenship/",
+        "adNodes": 0,
+        "textExcerpt": "Home\n/\nNetherlands\n/\nDutch Inburgering: Check the Procedure and Personal Route First\n\nNetherlands · Integration\n\nVerification pending\nCountry: Netherlands\nRoute: Netherlands\nDutch Inburgering: Check the Procedure and Personal Route First\nDirect answer\n\nSeparate a named IND residence or naturalisation procedure from the civic-integration obligation, then verify the personal route with the responsible authority.\n\nResponsibility: The final decision sits with IND for named residence requirements and naturalisation decisions; the municipality for naturalisation intake and evidence review; VisaLang helps you follow the verification path.\n\nUpdated\n2026-11-14\nSource review\nOfficial sources last chec"
+      }
+    },
+    {
+      "route": "/guides/cils-b1-cittadinanza-for-italian-citizenship/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/supplement-rerun/guides-cils-b1-cittadinanza-for-italian-citizenship.png",
+      "dom": {
+        "h1": "Italian Citizenship Language Requirement Before Choosing CILS",
+        "robots": "noindex,follow",
+        "canonical": "https://visalang.org/guides/cils-b1-cittadinanza-for-italian-citizenship/",
+        "adNodes": 0,
+        "textExcerpt": "Home\n/\nItaly\n/\nItalian Citizenship Language Requirement Before Choosing CILS\n\nItaly · Citizenship\n\nVerification pending\nCountry: Italy\nRoute: Italy\nItalian Citizenship Language Requirement Before Choosing CILS\nDirect answer\n\nConfirm the citizenship basis and current Italian-language evidence requirement before treating CILS B1 Cittadinanza as a certificate option.\n\nResponsibility: The final decision sits with Italian Ministry of the Interior through the competent Prefettura or responsible consulate; VisaLang helps you follow the verification path.\n\nUpdated\n2026-11-14\nSource review\nOfficial sources last checked:\n2026-07-30\nWritten by\nVisaLang Editorial team\nReviewed by role\nSource review\nRead"
+      }
+    },
+    {
+      "route": "/guides/cils-vs-celi-vs-plida-for-italian-citizenship/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/supplement-rerun/guides-cils-vs-celi-vs-plida-for-italian-citizenship.png",
+      "dom": {
+        "h1": "CILS vs CELI vs PLIDA After an Italian Citizenship Requirement Check",
+        "robots": "noindex,follow",
+        "canonical": "https://visalang.org/guides/cils-vs-celi-vs-plida-for-italian-citizenship/",
+        "adNodes": 0,
+        "textExcerpt": "Home\n/\nItaly\n/\nCILS vs CELI vs PLIDA After an Italian Citizenship Requirement Check\n\nItaly · Citizenship\n\nVerification pending\nCountry: Italy\nRoute: Italy\nCILS vs CELI vs PLIDA After an Italian Citizenship Requirement Check\nDirect answer\n\nCompare CILS, CELI and PLIDA as certificate products only after the competent Italian authority confirms the language evidence relevant to your citizenship basis.\n\nResponsibility: The final decision sits with Italian Ministry of the Interior through the competent Prefettura or responsible consulate; VisaLang helps you follow the verification path.\n\nUpdated\n2026-11-14\nSource review\nOfficial sources last checked:\n2026-07-30\nWritten by\nVisaLang Editorial team\n"
+      }
+    },
+    {
+      "route": "/guides/ielts-ukvi-uk-visa/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/supplement-rerun/guides-ielts-ukvi-uk-visa.png",
+      "dom": {
+        "h1": "IELTS UKVI for UK Visa and Immigration",
+        "robots": "noindex,follow",
+        "canonical": "https://visalang.org/guides/ielts-ukvi-uk-visa/",
+        "adNodes": 0,
+        "textExcerpt": "Home\n/\nUnited Kingdom\n/\nIELTS UKVI for UK Visa and Immigration\n\nUK · Visa\n\nVerification pending\nCountry: United Kingdom\nRoute: United Kingdom\nIELTS UKVI for UK Visa and Immigration\nDirect answer\n\nRoute-first IELTS UKVI guide for checking UK visa or citizenship SELT requirements before choosing a test provider.\n\nResponsibility: The final decision sits with UK immigration authority; VisaLang helps you follow the verification path.\n\nUpdated\n2026-11-14\nSource review\nOfficial sources last checked:\n2026-07-21\nWritten by\nVisaLang Editorial team\nReviewed by role\nSource review\nReading time\n5 min\nWho decides this?\n\nFinal decision authority: UK immigration authority\n\nOpen the official authority source\n"
+      }
+    },
+    {
+      "route": "/guides/languagecert-selt-uk-visa/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/supplement-rerun/guides-languagecert-selt-uk-visa.png",
+      "dom": {
+        "h1": "LanguageCert SELT for UK Visa",
+        "robots": "noindex,follow",
+        "canonical": "https://visalang.org/guides/languagecert-selt-uk-visa/",
+        "adNodes": 0,
+        "textExcerpt": "Home\n/\nUnited Kingdom\n/\nLanguageCert SELT for UK Visa\n\nUK · Visa\n\nVerification pending\nCountry: United Kingdom\nRoute: United Kingdom\nLanguageCert SELT for UK Visa\nDirect answer\n\nProvider-choice LanguageCert SELT guide for checking a UK route requirement against the current Home Office SELT list and product details.\n\nResponsibility: The final decision sits with UK immigration authority; VisaLang helps you follow the verification path.\n\nUpdated\n2026-11-14\nSource review\nOfficial sources last checked:\n2026-07-21\nWritten by\nVisaLang Editorial team\nReviewed by role\nSource review\nReading time\n5 min\nWho decides this?\n\nFinal decision authority: UK immigration authority\n\nOpen the official authority so"
+      }
+    },
+    {
+      "route": "/guides/dele-a2-ccse-spanish-citizenship/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/supplement-rerun/guides-dele-a2-ccse-spanish-citizenship.png",
+      "dom": {
+        "h1": "DELE A2 and CCSE for Spanish citizenship: confirm what applies",
+        "robots": "noindex,follow",
+        "canonical": "https://visalang.org/guides/dele-a2-ccse-spanish-citizenship/",
+        "adNodes": 0,
+        "textExcerpt": "Home\n/\nSpain\n/\nDELE A2 and CCSE for Spanish citizenship: confirm what applies\n\nSpain · Citizenship\n\nVerification pending\nCountry: Spain\nRoute: Spain\nDELE A2 and CCSE for Spanish citizenship: confirm what applies\nDirect answer\n\nStart with Spain's residence-nationality procedure, then confirm whether DELE A2, CCSE, an alternative, or a dispensation applies.\n\nResponsibility: The final decision sits with Spanish citizenship authority; VisaLang helps you follow the verification path.\n\nUpdated\n2026-11-14\nSource review\nOfficial sources last checked:\n2026-07-19\nWritten by\nVisaLang Editorial team\nReviewed by role\nSource review\nReading time\n5 min\nWho decides this?\n\nFinal decision authority: Spanish ci"
+      }
+    },
+    {
+      "route": "/guides/dele-levels-spanish-citizenship/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/supplement-rerun/guides-dele-levels-spanish-citizenship.png",
+      "dom": {
+        "h1": "DELE levels and Spanish citizenship: verify the accepted proof first",
+        "robots": "noindex,follow",
+        "canonical": "https://visalang.org/guides/dele-levels-spanish-citizenship/",
+        "adNodes": 0,
+        "textExcerpt": "Home\n/\nSpain\n/\nDELE levels and Spanish citizenship: verify the accepted proof first\n\nSpain · Citizenship\n\nVerification pending\nCountry: Spain\nRoute: Spain\nDELE levels and Spanish citizenship: verify the accepted proof first\nDirect answer\n\nVerify the Spanish citizenship procedure and accepted language evidence before choosing a DELE level, SIELE, or another proof route.\n\nResponsibility: The final decision sits with Spanish citizenship authority; VisaLang helps you follow the verification path.\n\nUpdated\n2026-11-14\nSource review\nOfficial sources last checked:\n2026-07-19\nWritten by\nVisaLang Editorial team\nReviewed by role\nSource review\nReading time\n5 min\nWho decides this?\n\nFinal decision authori"
+      }
+    },
+    {
+      "route": "/guides/tef-canada-immigration/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/supplement-rerun/guides-tef-canada-immigration.png",
+      "dom": {
+        "h1": "TEF Canada for Express Entry: Check the IRCC Requirement First",
+        "robots": "noindex,follow",
+        "canonical": "https://visalang.org/guides/tef-canada-immigration/",
+        "adNodes": 0,
+        "textExcerpt": "Home\n/\nCanada\n/\nTEF Canada for Express Entry: Check the IRCC Requirement First\n\nCanada · Express Entry\n\nVerification pending\nCountry: Canada\nRoute: Canada\nTEF Canada for Express Entry: Check the IRCC Requirement First\nDirect answer\n\nConfirm the Express Entry programme, accepted French test and current IRCC score-conversion instructions before choosing TEF Canada or TCF Canada.\n\nResponsibility: The final decision sits with Immigration, Refugees and Citizenship Canada (IRCC) for the exact Express Entry programme; VisaLang helps you follow the verification path.\n\nUpdated\n2026-07-30\nSource review\nOfficial sources last checked:\n2026-07-30\nWritten by\nVisaLang Editorial team\nReviewed by role\nSource"
+      }
+    },
+    {
+      "route": "/guides/tcf-canada-vs-tef/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/supplement-rerun/guides-tcf-canada-vs-tef.png",
+      "dom": {
+        "h1": "TEF Canada vs TCF Canada After an Express Entry Requirement Check",
+        "robots": "noindex,follow",
+        "canonical": "https://visalang.org/guides/tcf-canada-vs-tef/",
+        "adNodes": 0,
+        "textExcerpt": "Home\n/\nCanada\n/\nTEF Canada vs TCF Canada After an Express Entry Requirement Check\n\nCanada · Express Entry\n\nVerification pending\nCountry: Canada\nRoute: Canada\nTEF Canada vs TCF Canada After an Express Entry Requirement Check\nDirect answer\n\nCompare TEF Canada and TCF Canada as test products only after confirming the exact Express Entry programme and current IRCC conversion instructions.\n\nResponsibility: The final decision sits with Immigration, Refugees and Citizenship Canada (IRCC) for the exact Express Entry programme; VisaLang helps you follow the verification path.\n\nUpdated\n2026-07-30\nSource review\nOfficial sources last checked:\n2026-07-30\nWritten by\nVisaLang Editorial team\nReviewed by rol"
+      }
+    },
+    {
+      "route": "/products/a1-practice-pack/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/supplement-rerun/products-a1-practice-pack.png",
+      "dom": {
+        "h1": "A1 Practice Pack",
+        "robots": "noindex,follow",
+        "canonical": "https://visalang.org/products/a1-practice-pack/",
+        "adNodes": 0,
+        "textExcerpt": "Proposed practice pack\n\nComing soon\nA1 Practice Pack\n\nThis is not yet a purchasable product. It describes a proposed original-practice companion for learners who have already verified the right certificate and need a simple practice routine.\n\nCurrent product status is shown above.\nNo checkout, payment collection, file delivery, email confirmation, or human-review acceptance is active on these pages.\nWho it is for\n\nAdults preparing for an A1 exam who want structured original practice after confirming with the receiving authority which exact certificate is relevant to their own route.\n\nProposed contents\nOriginal, clearly labelled practice prompts and self-check routines.\nShort listening, speak"
+      }
+    },
+    {
+      "route": "/products/a1-family-reunion-pack/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/supplement-rerun/products-a1-family-reunion-pack.png",
+      "dom": {
+        "h1": "A1 Family Reunion Pack",
+        "robots": "noindex,follow",
+        "canonical": "https://visalang.org/products/a1-family-reunion-pack/",
+        "adNodes": 0,
+        "textExcerpt": "Proposed planning pack\n\nComing soon\nA1 Family Reunion Pack\n\nThis is not yet a purchasable product. It describes a proposed planning pack for readers who want a structured way to track an A1 family-reunion decision without treating a guide as an official decision.\n\nCurrent product status is shown above.\nNo checkout, payment collection, file delivery, email confirmation, or human-review acceptance is active on these pages.\nWho it is for\n\nReaders preparing for a Germany family-reunion language-proof decision who need to organise official questions, certificate checks, local-centre research, documents, and a personal timeline before booking.\n\nProposed contents\nA route-planning checklist for reco"
+      }
+    },
+    {
+      "route": "/guides/category/spain/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/supplement-rerun/guides-category-spain.png",
+      "dom": {
+        "h1": "Spain guides",
+        "robots": "noindex,follow",
+        "canonical": "https://visalang.org/guides/category/spain/",
+        "adNodes": 0,
+        "textExcerpt": "Guide category\n\nSpain guides\n\nVerification pending\n\n0 guides currently available in primary discovery for Isolated DELE and CCSE checks. Use this category to identify the receiving authority, exact exam family, and official verification step for Isolated DELE and CCSE checks. Guides remain outside primary discovery until their source and content status meet the publication gate.\n\n2 guides are withheld from primary discovery while source or content verification remains incomplete.\n\nBefore booking, verify the current requirement with the authority or institution receiving your proof; then verify the exact test, authorised centre, fee, date, ID rule, and result process with official sources.\n\nB"
+      }
+    },
+    {
+      "route": "/guides/category/france/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/supplement-rerun/guides-category-france.png",
+      "dom": {
+        "h1": "France guides",
+        "robots": "noindex,follow",
+        "canonical": "https://visalang.org/guides/category/france/",
+        "adNodes": 0,
+        "textExcerpt": "Guide category\n\nFrance guides\n\nVerification pending\n\n0 guides currently available in primary discovery for Isolated faculty and nationality notes. Use this category to identify the receiving authority, exact exam family, and official verification step for Isolated faculty and nationality notes. Guides remain outside primary discovery until their source and content status meet the publication gate.\n\n2 guides are withheld from primary discovery while source or content verification remains incomplete.\n\nBefore booking, verify the current requirement with the authority or institution receiving your proof; then verify the exact test, authorised centre, fee, date, ID rule, and result process with o"
+      }
+    },
+    {
+      "route": "/guides/category/portugal/",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/supplement-rerun/guides-category-portugal.png",
+      "dom": {
+        "h1": "Portugal guides",
+        "robots": "noindex,follow",
+        "canonical": "https://visalang.org/guides/category/portugal/",
+        "adNodes": 0,
+        "textExcerpt": "Guide category\n\nPortugal guides\n\nVerification pending\n\n0 guides currently available in primary discovery for Isolated nationality overview and CIPLE check. Use this category to identify the receiving authority, exact exam family, and official verification step for Isolated nationality overview and CIPLE check. Guides remain outside primary discovery until their source and content status meet the publication gate.\n\n2 guides are withheld from primary discovery while source or content verification remains incomplete.\n\nBefore booking, verify the current requirement with the authority or institution receiving your proof; then verify the exact test, authorised centre, fee, date, ID rule, and resul"
+      }
+    },
+    {
+      "route": "/404.html",
+      "http": 200,
+      "screenshot": "artifacts/runtime-browser/supplement-rerun/404-html.png",
+      "dom": {
+        "h1": "This page has moved off route.",
+        "robots": "noindex,follow",
+        "canonical": "https://visalang.org/404/",
+        "adNodes": 0,
+        "textExcerpt": "404\n\nThis page has moved off route.\n\nThe address may be old or mistyped. Search the reviewed guide library, or restart from the decision you need to make.\n\nSearch the reviewed guide library\nTry a country, route, exam, level, or task.\nSearch guides\nChoose another starting point\nUse Route Finder\nIdentify the authority and proof questions to verify first.\nBrowse all reviewed guides\nFilter the primary library by purpose, country, route, exam, level, or language.\nReturn to the homepage\nRestart from VisaLang’s available routes and planning tools."
+      }
+    }
+  ]
+}

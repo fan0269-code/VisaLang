@@ -1,0 +1,119 @@
+{
+  "inputCommit": "06f7f6236e580c1a13c86b12290fc5a75fb72046",
+  "generatedAt": "2026-11-17T10:14:18.357Z",
+  "origin": "http://127.0.0.1:4173",
+  "notProduction": true,
+  "doesNotReplaceEarlierRuns": [
+    "artifacts/runtime-browser/report.json",
+    "artifacts/runtime-browser/supplement-rerun/report.json",
+    "artifacts/runtime-browser/bound-9ac20a5/report.json"
+  ],
+  "har": {
+    "routeNoJs": {
+      "entries": 4,
+      "posts": 0,
+      "ads": 0,
+      "hosts": [
+        "127.0.0.1:4173",
+        "visalang.org"
+      ]
+    },
+    "remindersNoJs": {
+      "entries": 4,
+      "posts": 0,
+      "ads": 0,
+      "hosts": [
+        "127.0.0.1:4173",
+        "visalang.org"
+      ]
+    },
+    "desktop": {
+      "entries": 17,
+      "posts": 0,
+      "ads": 0,
+      "hosts": [
+        "127.0.0.1:4173",
+        "visalang.org"
+      ]
+    },
+    "mobile": {
+      "entries": 8,
+      "posts": 0,
+      "ads": 0,
+      "hosts": [
+        "127.0.0.1:4173",
+        "visalang.org"
+      ]
+    }
+  },
+  "records": [
+    {
+      "id": "route-finder-no-js",
+      "http": 200,
+      "urlBefore": "http://127.0.0.1:4173/tools/route-finder/",
+      "urlAfter": "http://127.0.0.1:4173/tools/route-finder/",
+      "urlUnchanged": true,
+      "buttonDisabled": true,
+      "limitation": "JavaScript is off, so this form does not send your answers. The button stays disabled. Continue with the Germany A1 guide.",
+      "requestsAfterAction": [],
+      "externalAfterAction": [],
+      "screenshot": "artifacts/runtime-browser/bound-06f7f62/route-finder-no-js.png"
+    },
+    {
+      "id": "reminders-no-js",
+      "http": 200,
+      "urlBefore": "http://127.0.0.1:4173/tools/email-reminders/",
+      "urlAfter": "http://127.0.0.1:4173/tools/email-reminders/",
+      "urlUnchanged": true,
+      "buttonDisabled": true,
+      "limitation": "JavaScript is off, so this form does not send a reminder or your answers. The button stays disabled. Continue with the Germany A1 guide.",
+      "requestsAfterAction": [],
+      "externalAfterAction": [],
+      "screenshot": "artifacts/runtime-browser/bound-06f7f62/reminders-no-js.png"
+    },
+    {
+      "id": "route-finder-normal",
+      "url": "http://127.0.0.1:4173/tools/route-finder/?country=germany&purpose=family-reunion&level=Beginner+%2F+A0&certificate=none",
+      "buttonEnabledWithJs": true,
+      "result": "Configured route\n\nGermany family reunion: A1 verification route\n\nConfirm whether language proof is required in your individual case, whether an exemption applies, and which exact certificate is accepted before booking.\n\nVerify the requirement or exemption with the German mission or competent authority for your application location.\nConfirm the exact accepted A1 certificate before comparing providers, fees, or dates.\nUse the checklist and timeline below to organise a booking and submission plan.\n\nGermany A1 family reunion guide / Open Checklist / Open Timeline\n\nApplication location recorded: Example mission only. Target submission date: 2026-12-18.",
+      "screenshot": "artifacts/runtime-browser/bound-06f7f62/route-finder-normal.png"
+    },
+    {
+      "id": "route-finder-url-restore",
+      "url": "http://127.0.0.1:4173/tools/route-finder/?country=germany&purpose=family-reunion&level=Beginner+%2F+A0&certificate=none",
+      "restored": {
+        "country": "germany",
+        "purpose": "family-reunion",
+        "level": "Beginner / A0",
+        "certificate": "none"
+      },
+      "screenshot": "artifacts/runtime-browser/bound-06f7f62/route-finder-url-restore.png"
+    },
+    {
+      "id": "route-finder-restart",
+      "url": "http://127.0.0.1:4173/tools/route-finder/",
+      "resultHidden": "",
+      "country": "",
+      "screenshot": "artifacts/runtime-browser/bound-06f7f62/route-finder-restart.png"
+    },
+    {
+      "id": "route-finder-markup",
+      "dialogs": 0,
+      "renderedText": "Configured route\n\nGermany family reunion: A1 verification route\n\nConfirm whether language proof is required in your individual case, whether an exemption applies, and which exact certificate is accepted before booking.\n\nVerify the requirement or exemption with the German mission or competent authority for your application location.\nConfirm the exact accepted A1 certificate before comparing providers, fees, or dates.\nUse the checklist and timeline below to organise a booking and submission plan.\n\nGermany A1 family reunion guide / Open Checklist / Open Timeline\n\nApplication location recorded: <img src=x onerror=alert(1)>. Target submission date: 2026-12-18.",
+      "containsLiteralMarkup": true,
+      "screenshot": "artifacts/runtime-browser/bound-06f7f62/route-finder-markup.png"
+    },
+    {
+      "id": "route-finder-mobile-result",
+      "url": "http://127.0.0.1:4173/tools/route-finder/?country=germany&purpose=family-reunion&level=Beginner+%2F+A0&certificate=none",
+      "result": "Configured route\n\nGermany family reunion: A1 verification route\n\nConfirm whether language proof is required in your individual case, whether an exemption applies, and which exact certificate is accepted before booking.\n\nVerify the requirement or exemption with the German mission or competent authority for your application location.\nConfirm the exact accepted A1 certificate before comparing providers, fees, or dates.\nUse the checklist and timeline below to organise a booking and submission plan.\n\nGermany A1 family reunion guide / Open Checklist / Open Timeline\n\nApplication location recorded: Example mission only. Target submission date: 2026-12-18.",
+      "resultBox": {
+        "x": 16,
+        "y": 1703.78125,
+        "width": 358,
+        "height": 1539.953125
+      },
+      "screenshot": "artifacts/runtime-browser/bound-06f7f62/route-finder-mobile-result.png"
+    }
+  ]
+}

@@ -1,8 +1,6 @@
 ---
 import CommercialPageShell from '../../components/products/CommercialPageShell.astro';
 import CommercialBoundary from '../../components/products/CommercialBoundary.astro';
-import IntentCTA from '../../components/products/IntentCTA.astro';
-import { commercialLinks } from '../../data/commercial-offers';
 ---
 
 <CommercialPageShell
@@ -37,6 +35,6 @@ import { commercialLinks } from '../../data/commercial-offers';
   <h2>Availability and price</h2>
   <p>The price, delivery format, support channel, refund terms, and launch date have not been confirmed. This page cannot take payment or deliver a pack.</p>
 
-  <IntentCTA href={commercialLinks.contact} title="Get product updates" description="The pack is not available to buy. Contact the team only if you want a future availability update." label="Get updates" />
+  <p>The pack is not available. This page does not collect an update request, and it does not start email, a waiting list, or payment. The existing free check is the <a href="/tools/route-finder/">route finder</a>.</p>
   <CommercialBoundary includeLegalBoundary={true} />
 </CommercialPageShell>

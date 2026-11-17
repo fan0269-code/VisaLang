@@ -1,11 +1,11 @@
 ---
 title: "Goethe A1 speaking topics: safe practice plan"
-description: "What Goethe A1 speaking assesses, which everyday practice areas to use, and how to train without relying on leaked questions."
+description: "An original Goethe A1 speaking round: spell a name, clarify a time, and make one request. Not a predicted exam card."
 category: "germany-a1"
 slug: "goethe-a1-speaking-topics"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-22"
-sourceReviewedAt: "2026-07-22"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "complete-route"
@@ -19,56 +19,37 @@ primaryOfficialAuthorityUrl: "https://www.goethe.de/en/spr/prf/ueb/pa1.html"
 examOwnerUrl: "https://www.goethe.de/en/spr/prf.html"
 localExecutionPrompt: "Use the current Goethe A1 adult speaking training and confirm any centre-specific format, partner arrangement, date and test-day instruction with the authorised local centre."
 author: "VisaLang Editorial team"
-readingTime: "9"
+readingTime: "6"
 featured: true
 eyebrow: "Germany family reunion"
 route: "germany-a1"
 supportingGuideSlugs: ["goethe-a1-listening-practice", "goethe-a1-retake-policy"]
 ---
+## Who this drill is for
 
-## Practise abilities, not predicted questions
+Use it when the [study plan](/guides/goethe-a1-30-day-study-plan/) says speaking stopped after one sentence. The A1 rules describe speaking parts 1–3, a group of at most four, 15 minutes, and no preparation time. Themes below are original prompts, not predicted cards.
 
-Goethe describes A1 as basic communication with familiar words and simple sentences, including simple interaction, introductions and basic personal questions. VisaLang adds spelling and simple-request drills below as original practice for adaptable everyday exchanges; they are not presented as an official task list.
+## One original round
 
-This is not a list of guaranteed exam questions. VisaLang does not publish leaked materials, copied real exam answers, or claims that a topic will appear.
+Partner A asks, in German: “Wie heißen Sie?” Partner B answers with a name and spells it. Partner A then says a time that is hard to hear. Partner B must ask “Wie bitte?” and repeat the time. Partner B then makes one request: “Ich brauche einen Termin.”
 
-## Useful practice areas
+Feedback dimensions, not a score:
 
-Use everyday areas to create your own short prompts: name, age, country, city, family, work, language, hobbies, food, shopping, appointments, travel, address, phone number, time, and dates.
+- Was the spelled name the same name as the first answer?
+- Did the clarification happen before the request?
+- Would a partner who does not share your first language have got the time?
 
-The goal is not a polished speech. It is to understand a short question, give a clear basic answer, and ask for simple information when needed. Keep the German simple enough that you can control it under time pressure.
-
-## A practical speaking routine
-
-Start with a brief self-introduction using only details you can pronounce and spell reliably. Then run question-and-answer drills, spelling practice for names and addresses, and short role-plays such as asking for an appointment or an item.
-
-Add timed speaking and recording. Listen back for unclear numbers, time words, pronunciation that hides meaning, and answers that are too long. Correct one recurring issue at a time.
-
-## A ten-minute daily drill
-
-Spend two minutes introducing yourself, two minutes spelling details and numbers, three minutes answering short questions, and three minutes making one simple request. Record the final minute twice a week.
-
-The drill should feel manageable enough to repeat. Stop adding new scripts when your basic answers are not yet clear, short, and responsive.
+If you only have an English phrase bank, you have not done this drill. Write the German lines you actually said.
 
 ## Common mistakes
 
-- Memorising a long introduction but freezing on a simple follow-up question.
-- Not being able to spell a name, city, email, or phone number aloud.
-- Leaving numbers, dates, and times until the last week.
-- Giving a complex answer when a short correct answer would work.
-- Depending on unofficial question banks instead of building adaptable basic skills.
-
-## Seven-day speaking reset
-
-Day 1: introduce yourself and spell personal details. Day 2: practise numbers, dates, time, and phone numbers. Day 3: ask and answer simple personal questions. Day 4: make and respond to basic requests. Day 5: record two short role-plays. Day 6: combine the skills under a timer. Day 7: repeat only the points that still break down.
-
-Use official sample material to check the current format, but do not mistake sample prompts for predictions.
+- Collecting topic nouns (food, hobbies, travel) without a turn that asks, clarifies, and requests.
+- Calling the prompts real exam questions.
 
 ## Next action
 
-Put the routine into the [30-day Goethe A1 study plan](/guides/goethe-a1-30-day-study-plan/), pair it with [Goethe A1 listening practice](/guides/goethe-a1-listening-practice/), and use [Goethe A1 retake policy](/guides/goethe-a1-retake-policy/) if you are rebuilding after an unsuccessful result.
+Record the round once. Note the one line you will change next time. Then return to the study plan.
 
 ## Official sources
 
-- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [Official Goethe A1 exam training](https://www.goethe.de/en/spr/prf/ueb/pa1.html)
+- [A1 administration rules (PDF)](https://www.goethe.de/pro/relaunch/prf/de/Durchfuehrungsbestimmungen_A1_Start_Deutsch_1.pdf) — Stand 1 September 2025. Adult sample HTML was not reopened.

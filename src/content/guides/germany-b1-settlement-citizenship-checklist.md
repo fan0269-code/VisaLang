@@ -5,8 +5,8 @@ description: "Recheck settlement and naturalisation evidence before you submit. 
 category: "germany-b1"
 slug: "germany-b1-settlement-citizenship-checklist"
 publishedDate: "2026-07-11"
-updatedDate: "2026-11-10"
-sourceReviewedAt: "2026-11-10"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "core-route"
@@ -54,7 +54,7 @@ Residence Act section 9 is one settlement-permit provision, not every open-ended
 
 The competent nationality authority applies this route. The federal portal says to ask the town, district, or foreigners authority which office that is.
 
-Nationality Act section 10 (1) states five years of lawful habitual residence, plus the other conditions in that subsection. Former subsection 3 is repealed. Do not plan from an older “eight years, or seven with a course certificate” sentence. BAMF’s naturalisation page dated 30 June 2025 says naturalisation is possible after three years where the special integration that page describes is shown. Only the nationality authority can say whether that sentence is yours.
+The five-year section 10 (1) line, the limit that BGBl. 2025 I No. 256 deletes subsection 3 only, and the instruction not to choose the English three-year sentence are on the [B1 hub](/germany-b1-settlement-citizenship/). Language evidence and civic-knowledge evidence stay separate. Settlement under Residence Act (AufenthG) section 9 is a different procedure from naturalisation under the Nationality Act. This page does not decide either procedure and does not copy fees.
 
 Section 10 (1) no. 6 is sufficient German. Section 10 (4) says a CEFR B1 examination meets that condition, and it also states further cases. Do not apply an exception yourself. Section 10 (1) no. 7 is knowledge of the legal and social order and of living conditions. Section 10 (5) says this is as a rule shown by a successful naturalisation test. The federal portal also treats Life in Germany as knowledge proof in the way that page describes. A B1 or DTZ result is not that item.
 
@@ -62,7 +62,8 @@ The portal’s language examples — a BAMF language-course certificate, a DTZ c
 
 <ul class="tool-checklist">
   <li><label><input type="checkbox" /> The nationality authority has named the route, and you have saved its current instruction with the date.</label></li>
-  <li><label><input type="checkbox" /> The five-year condition, or the three-year special-integration possibility, is marked confirmed or unresolved by that authority. You have not calculated it yourself.</label></li>
+  <li><label><input type="checkbox" /> For a section 10 file, the five-year condition in the current statute is the residence line you record. You have not calculated it, and you have not asked the authority to apply the repealed special-integration subsection.</label></li>
+  <li><label><input type="checkbox" /> If the authority names a different provision, including discretionary naturalisation, that provision is written in its own row. It is not filled by the old section 10 (3) sentence.</label></li>
   <li><label><input type="checkbox" /> Language proof is a separate ticked item, using a document the authority named.</label></li>
   <li><label><input type="checkbox" /> Civic knowledge is a separate ticked item. The naturalisation test or Life in Germany is not filed as the B1 line.</label></li>
   <li><label><input type="checkbox" /> Identity, residence history, livelihood, and the declarations the authority asks for are on its list, or still unresolved.</label></li>
@@ -82,7 +83,7 @@ Use this note inside whichever bundle the authority confirmed. Leave a cell blan
 | Source URL and date |  |  |
 | Still unresolved |  |  |
 
-BAMF’s final-examination page separates the DTZ (written and oral; overall A2 or B1) from Life in Germany, which is held on another day. It states 15 of 33 for the orientation-course pass and 17 of 33 where it discusses naturalisation knowledge. Do not copy that page’s older residence-year sentences. The statute and the 30 June 2025 naturalisation page govern those years.
+BAMF’s final-examination page separates the DTZ from Life in Germany. It states at least 15 of 33 for the orientation-course pass and at least 17 of 33 where the naturalisation-test ordinance is used for the knowledge condition. Do not copy that page’s older residence-year sentences. Residence for section 10 follows the current statute and the German BAMF overview, not the English page dated 30 June 2025.
 
 Which B1 or DTZ format a city accepts is unresolved until that city says so. Compare products only after the quote exists, in [DTZ, Goethe B1, and telc B1](/guides/goethe-b1-vs-telc-b1/).
 
@@ -131,7 +132,10 @@ Opened or rechecked on 2026-11-10.
 - [einbuergerung.de (German)](https://www.einbuergerung.de/ablauf.php) — the German procedure page.
 - [BAMF-NAvI: foreigners authorities](https://bamf-navi.bamf.de/en/Themen/Behoerden/?typ=ABH) — a locator. If it fails, use the town or district contact.
 - [BAMF: settling in Germany](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Migrathek/Niederlassen/niederlassen-node.html) — dated 1 March 2024. Language level depends on the path. [German pair](https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Migrathek/Niederlassen/niederlassen-node.html).
-- [BAMF: naturalisation](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html) — dated 30 June 2025. Five years, or three years with the special integration that page describes. Language and civic knowledge are separate. Fee figures are not copied here.
+- [Nationality Act section 10](https://www.gesetze-im-internet.de/stag/__10.html) — five years in (1); (3) and (3a) weggefallen.
+- [BGBl. 2025 I No. 256](https://www.recht.bund.de/bgbl/1/2025/256/regelungstext.pdf?__blob=publicationFile) — deletes subsection 3, not 3a.
+- [BAMF Einbürgerung, German](https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html) — Datum 09.11.2026.
+- [BAMF naturalisation, English](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html) — Date 30/06/2025, historical conflict only.
 - [BAMF: the final examination](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse/Abschlusspruefung/abschlusspruefung-node.html) — DTZ and Life in Germany; 15/33 and 17/33. Do not copy the residence-year sentences on that page.
 
 Which B1 or DTZ format the local authority accepts remains unresolved until that authority says so.

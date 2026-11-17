@@ -1,0 +1,1488 @@
+{
+  "generated": "2026-11-14",
+  "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+  "baseCommit": "cd4fa98e634954f28d292025fa1f3a325f96068f",
+  "note": "Three separate layers: liveProduction is the preserved public snapshot; thisHead and taxonomyNoindexFlag follow the current source and dist; neither layer exhausts unknown unlinked routes. A 200 production response is not a corrected page.",
+  "counts": {
+    "builtHtmlRoutes": 97,
+    "guideMarkdown": 49,
+    "categoryRoutes": 12,
+    "nonGermanResearchGuides": 15,
+    "productPages": 2
+  },
+  "builtRoutes": [
+    {
+      "url": "/404.html",
+      "file": "404.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/about/",
+      "file": "about/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/affiliate-disclosure/",
+      "file": "affiliate-disclosure/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/contact/",
+      "file": "contact/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/content-update-log/",
+      "file": "content-update-log/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/cookie-policy/",
+      "file": "cookie-policy/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/editorial-policy/",
+      "file": "editorial-policy/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/exams/",
+      "file": "exams/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/germany-b1-settlement-citizenship/",
+      "file": "germany-b1-settlement-citizenship/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/germany-family-reunion-a1/",
+      "file": "germany-family-reunion-a1/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/",
+      "file": "guides/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/category/canada/",
+      "file": "guides/category/canada/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/category/finland/",
+      "file": "guides/category/finland/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/category/france/",
+      "file": "guides/category/france/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/category/germany-a1/",
+      "file": "guides/category/germany-a1/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/category/germany-b1/",
+      "file": "guides/category/germany-b1/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/category/germany-telc/",
+      "file": "guides/category/germany-telc/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/category/germany-testdaf/",
+      "file": "guides/category/germany-testdaf/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/category/italy/",
+      "file": "guides/category/italy/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/category/netherlands/",
+      "file": "guides/category/netherlands/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/category/portugal/",
+      "file": "guides/category/portugal/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/category/spain/",
+      "file": "guides/category/spain/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/category/uk/",
+      "file": "guides/category/uk/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/cils-b1-cittadinanza-for-italian-citizenship/",
+      "file": "guides/cils-b1-cittadinanza-for-italian-citizenship/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/cils-vs-celi-vs-plida-for-italian-citizenship/",
+      "file": "guides/cils-vs-celi-vs-plida-for-italian-citizenship/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/dele-a2-ccse-spanish-citizenship/",
+      "file": "guides/dele-a2-ccse-spanish-citizenship/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/dele-levels-spanish-citizenship/",
+      "file": "guides/dele-levels-spanish-citizenship/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/delf-b1-b2-french-work-study/",
+      "file": "guides/delf-b1-b2-french-work-study/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/dutch-inburgering-a2-b1-for-integration-and-citizenship/",
+      "file": "guides/dutch-inburgering-a2-b1-for-integration-and-citizenship/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/german-a1-documents-checklist/",
+      "file": "guides/german-a1-documents-checklist/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/german-a1-exam-booking-timeline/",
+      "file": "guides/german-a1-exam-booking-timeline/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/german-a1-family-reunion-faq/",
+      "file": "guides/german-a1-family-reunion-faq/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/german-family-reunion-language-requirement/",
+      "file": "guides/german-family-reunion-language-requirement/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/germany-b1-citizenship-language-proof/",
+      "file": "guides/germany-b1-citizenship-language-proof/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/germany-b1-leben-in-deutschland-and-language-proof/",
+      "file": "guides/germany-b1-leben-in-deutschland-and-language-proof/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/germany-b1-settlement-citizenship-checklist/",
+      "file": "guides/germany-b1-settlement-citizenship-checklist/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/germany-b1-settlement-citizenship-timeline/",
+      "file": "guides/germany-b1-settlement-citizenship-timeline/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/goethe-a1-30-day-study-plan/",
+      "file": "guides/goethe-a1-30-day-study-plan/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/goethe-a1-fees-by-country/",
+      "file": "guides/goethe-a1-fees-by-country/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/goethe-a1-germany-family-reunion/",
+      "file": "guides/goethe-a1-germany-family-reunion/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/goethe-a1-listening-practice/",
+      "file": "guides/goethe-a1-listening-practice/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/goethe-a1-pre-booking-checklist/",
+      "file": "guides/goethe-a1-pre-booking-checklist/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/goethe-a1-retake-policy/",
+      "file": "guides/goethe-a1-retake-policy/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/goethe-a1-speaking-topics/",
+      "file": "guides/goethe-a1-speaking-topics/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/goethe-a1-test-centers/",
+      "file": "guides/goethe-a1-test-centers/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/goethe-a1-vs-telc-a1/",
+      "file": "guides/goethe-a1-vs-telc-a1/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/goethe-a1-writing-practice/",
+      "file": "guides/goethe-a1-writing-practice/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/goethe-b1-fees-and-booking/",
+      "file": "guides/goethe-b1-fees-and-booking/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/goethe-b1-germany-settlement-work/",
+      "file": "guides/goethe-b1-germany-settlement-work/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/goethe-b1-listening-deep-dive/",
+      "file": "guides/goethe-b1-listening-deep-dive/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/goethe-b1-mock-exam-routine/",
+      "file": "guides/goethe-b1-mock-exam-routine/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/goethe-b1-speaking-topics/",
+      "file": "guides/goethe-b1-speaking-topics/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/goethe-b1-study-plan/",
+      "file": "guides/goethe-b1-study-plan/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/goethe-b1-vs-telc-b1/",
+      "file": "guides/goethe-b1-vs-telc-b1/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/goethe-b1-writing-assessment/",
+      "file": "guides/goethe-b1-writing-assessment/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/guides/ielts-ukvi-uk-visa/",
+      "file": "guides/ielts-ukvi-uk-visa/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/languagecert-selt-uk-visa/",
+      "file": "guides/languagecert-selt-uk-visa/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/portuguese-ciple-a2-for-citizenship-and-residence/",
+      "file": "guides/portuguese-ciple-a2-for-citizenship-and-residence/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/portuguese-language-for-golden-visa-and-citizenship/",
+      "file": "guides/portuguese-language-for-golden-visa-and-citizenship/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/staatsexamen-nt2-for-work-and-higher-education/",
+      "file": "guides/staatsexamen-nt2-for-work-and-higher-education/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/tcf-canada-vs-tef/",
+      "file": "guides/tcf-canada-vs-tef/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/tcf-irn-french-residence/",
+      "file": "guides/tcf-irn-french-residence/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/tef-canada-immigration/",
+      "file": "guides/tef-canada-immigration/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/telc-b1-b2-exam-format-and-preparation/",
+      "file": "guides/telc-b1-b2-exam-format-and-preparation/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/telc-b1-b2-fees-and-test-centers/",
+      "file": "guides/telc-b1-b2-fees-and-test-centers/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/telc-b1-b2-germany-work-nursing/",
+      "file": "guides/telc-b1-b2-germany-work-nursing/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/telc-vs-goethe-for-german-visa/",
+      "file": "guides/telc-vs-goethe-for-german-visa/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/testdaf-germany-university-admissions/",
+      "file": "guides/testdaf-germany-university-admissions/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/testdaf-levels-and-scoring/",
+      "file": "guides/testdaf-levels-and-scoring/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/testdaf-preparation-and-practice/",
+      "file": "guides/testdaf-preparation-and-practice/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/testdaf-vs-goethe-dsh/",
+      "file": "guides/testdaf-vs-goethe-dsh/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/guides/yki-finnish-citizenship/",
+      "file": "guides/yki-finnish-citizenship/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/index.html",
+      "file": "index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/partners/",
+      "file": "partners/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/pricing/",
+      "file": "pricing/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/privacy-policy/",
+      "file": "privacy-policy/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/products/a1-family-reunion-pack/",
+      "file": "products/a1-family-reunion-pack/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/products/a1-practice-pack/",
+      "file": "products/a1-practice-pack/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/route-review/",
+      "file": "route-review/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/routes/",
+      "file": "routes/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/terms/",
+      "file": "terms/index.html",
+      "robotsMetaThisBuild": "noindex,follow"
+    },
+    {
+      "url": "/tools/",
+      "file": "tools/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/tools/checklist-generator/",
+      "file": "tools/checklist-generator/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/tools/email-reminders/",
+      "file": "tools/email-reminders/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/tools/exam-comparison/",
+      "file": "tools/exam-comparison/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/tools/route-finder/",
+      "file": "tools/route-finder/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/tools/timeline-calculator/",
+      "file": "tools/timeline-calculator/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/zh/",
+      "file": "zh/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/zh/germany-family-reunion-a1/",
+      "file": "zh/germany-family-reunion-a1/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/zh/guides/german-a1-documents-checklist/",
+      "file": "zh/guides/german-a1-documents-checklist/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/zh/guides/german-a1-exam-booking-timeline/",
+      "file": "zh/guides/german-a1-exam-booking-timeline/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/zh/guides/german-family-reunion-language-requirement/",
+      "file": "zh/guides/german-family-reunion-language-requirement/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/zh/guides/goethe-a1-30-day-study-plan/",
+      "file": "zh/guides/goethe-a1-30-day-study-plan/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/zh/guides/goethe-a1-booking-mistakes/",
+      "file": "zh/guides/goethe-a1-booking-mistakes/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/zh/guides/goethe-a1-germany-family-reunion/",
+      "file": "zh/guides/goethe-a1-germany-family-reunion/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/zh/guides/goethe-a1-test-centers/",
+      "file": "zh/guides/goethe-a1-test-centers/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    },
+    {
+      "url": "/zh/guides/goethe-a1-vs-telc-a1/",
+      "file": "zh/guides/goethe-a1-vs-telc-a1/index.html",
+      "robotsMetaThisBuild": "index,follow,max-image-preview:large"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://visalang.org/$1",
+      "statusCode": 301,
+      "hostCondition": [
+        {
+          "type": "host",
+          "value": "www.visalang.org"
+        }
+      ]
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/germany-family-reunion-a1.html",
+      "destination": "/germany-family-reunion-a1/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/do-i-need-german-a1.html",
+      "destination": "/tools/route-finder/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/about.html",
+      "destination": "/about/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/contact/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/privacy-policy.html",
+      "destination": "/privacy-policy/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/terms.html",
+      "destination": "/terms/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/cookie-policy.html",
+      "destination": "/cookie-policy/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/editorial-policy.html",
+      "destination": "/editorial-policy/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/affiliate-disclosure.html",
+      "destination": "/affiliate-disclosure/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/zh/index.html",
+      "destination": "/zh/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/zh/germany-family-reunion-a1.html",
+      "destination": "/zh/germany-family-reunion-a1/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/guides/dutch-inburgering-a2-b1-for-integration-and-citize/",
+      "destination": "/guides/dutch-inburgering-a2-b1-for-integration-and-citizenship/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/guides/portuguese-language-for-golden-visa-and-citizenshi/",
+      "destination": "/guides/portuguese-language-for-golden-visa-and-citizenship/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/guides/yki-vs-other-finland-options/",
+      "destination": "/guides/yki-finnish-citizenship/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/guides/yki-vs-other-finland-options.html",
+      "destination": "/guides/yki-finnish-citizenship/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/guides/goethe-a1-booking-mistakes",
+      "destination": "/guides/goethe-a1-pre-booking-checklist/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/guides/goethe-a1-booking-mistakes/",
+      "destination": "/guides/goethe-a1-pre-booking-checklist/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/guides/goethe-a1-booking-mistakes.html",
+      "destination": "/guides/goethe-a1-pre-booking-checklist/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/guides/goethe-a1-official-links-practice-resources",
+      "destination": "/germany-family-reunion-a1/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/guides/goethe-a1-official-links-practice-resources/",
+      "destination": "/germany-family-reunion-a1/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/guides/goethe-a1-official-links-practice-resources.html",
+      "destination": "/germany-family-reunion-a1/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/guides/goethe-a1-study-plan-working-adults",
+      "destination": "/guides/goethe-a1-30-day-study-plan/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/guides/goethe-a1-study-plan-working-adults/",
+      "destination": "/guides/goethe-a1-30-day-study-plan/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/guides/goethe-a1-study-plan-working-adults.html",
+      "destination": "/guides/goethe-a1-30-day-study-plan/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/guides/goethe-b1-difficulty-analysis",
+      "destination": "/guides/goethe-b1-study-plan/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/guides/goethe-b1-difficulty-analysis/",
+      "destination": "/guides/goethe-b1-study-plan/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/guides/goethe-b1-difficulty-analysis.html",
+      "destination": "/guides/goethe-b1-study-plan/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/guides/:slug.html",
+      "destination": "/guides/:slug/",
+      "statusCode": 301,
+      "hostCondition": null
+    },
+    {
+      "source": "/zh/guides/:slug.html",
+      "destination": "/zh/guides/:slug/",
+      "statusCode": 301,
+      "hostCondition": null
+    }
+  ],
+  "liveProduction15plus2": [
+    {
+      "url": "https://visalang.org/guides/ielts-ukvi-uk-visa/",
+      "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+      "status": 200,
+      "finalUrl": "https://visalang.org/guides/ielts-ukvi-uk-visa/",
+      "contentType": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "cache": "HIT",
+      "robotsMeta": "noindex,follow",
+      "canonical": "https://visalang.org/guides/ielts-ukvi-uk-visa/",
+      "title": "IELTS UKVI for UK Visa and Immigration | VisaLang",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "Vercel",
+        "Date": "Sat, 14 Nov 2026 03:08:14 GMT",
+        "X-Vercel-Cache": "HIT",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/languagecert-selt-uk-visa/",
+      "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+      "status": 200,
+      "finalUrl": "https://visalang.org/guides/languagecert-selt-uk-visa/",
+      "contentType": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "cache": "HIT",
+      "robotsMeta": "noindex,follow",
+      "canonical": "https://visalang.org/guides/languagecert-selt-uk-visa/",
+      "title": "LanguageCert SELT for UK Visa | VisaLang",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "Vercel",
+        "Date": "Sat, 14 Nov 2026 03:08:14 GMT",
+        "X-Vercel-Cache": "HIT",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/tef-canada-immigration/",
+      "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+      "status": 200,
+      "finalUrl": "https://visalang.org/guides/tef-canada-immigration/",
+      "contentType": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "cache": "HIT",
+      "robotsMeta": "noindex,follow",
+      "canonical": "https://visalang.org/guides/tef-canada-immigration/",
+      "title": "TEF Canada for Express Entry: Check the IRCC Requirement First | VisaLang",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "Vercel",
+        "Date": "Sat, 14 Nov 2026 03:08:14 GMT",
+        "X-Vercel-Cache": "HIT",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/tcf-canada-vs-tef/",
+      "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+      "status": 200,
+      "finalUrl": "https://visalang.org/guides/tcf-canada-vs-tef/",
+      "contentType": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "cache": "HIT",
+      "robotsMeta": "noindex,follow",
+      "canonical": "https://visalang.org/guides/tcf-canada-vs-tef/",
+      "title": "TEF Canada vs TCF Canada After an Express Entry Requirement Check | VisaLang",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "Vercel",
+        "Date": "Sat, 14 Nov 2026 03:08:14 GMT",
+        "X-Vercel-Cache": "HIT",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/tcf-irn-french-residence/",
+      "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+      "status": 200,
+      "finalUrl": "https://visalang.org/guides/tcf-irn-french-residence/",
+      "contentType": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "cache": "HIT",
+      "robotsMeta": "noindex,follow",
+      "canonical": "https://visalang.org/guides/tcf-irn-french-residence/",
+      "title": "TCF IRN for French nationality procedures: verify the procedure | VisaLang",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "Vercel",
+        "Date": "Sat, 14 Nov 2026 03:08:14 GMT",
+        "X-Vercel-Cache": "HIT",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/delf-b1-b2-french-work-study/",
+      "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+      "status": 200,
+      "finalUrl": "https://visalang.org/guides/delf-b1-b2-french-work-study/",
+      "contentType": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "cache": "HIT",
+      "robotsMeta": "noindex,follow",
+      "canonical": "https://visalang.org/guides/delf-b1-b2-french-work-study/",
+      "title": "DELF B1/B2 for Sorbonne arts admissions: verify your programme | VisaLang",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "Vercel",
+        "Date": "Sat, 14 Nov 2026 03:08:14 GMT",
+        "X-Vercel-Cache": "HIT",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/cils-b1-cittadinanza-for-italian-citizenship/",
+      "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+      "status": 200,
+      "finalUrl": "https://visalang.org/guides/cils-b1-cittadinanza-for-italian-citizenship/",
+      "contentType": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "cache": "HIT",
+      "robotsMeta": "noindex,follow",
+      "canonical": "https://visalang.org/guides/cils-b1-cittadinanza-for-italian-citizenship/",
+      "title": "Italian Citizenship Language Requirement Before Choosing CILS | VisaLang",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "Vercel",
+        "Date": "Sat, 14 Nov 2026 03:08:15 GMT",
+        "X-Vercel-Cache": "HIT",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/cils-vs-celi-vs-plida-for-italian-citizenship/",
+      "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+      "status": 200,
+      "finalUrl": "https://visalang.org/guides/cils-vs-celi-vs-plida-for-italian-citizenship/",
+      "contentType": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "cache": "HIT",
+      "robotsMeta": "noindex,follow",
+      "canonical": "https://visalang.org/guides/cils-vs-celi-vs-plida-for-italian-citizenship/",
+      "title": "CILS vs CELI vs PLIDA After an Italian Citizenship Requirement Check | VisaLang",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "Vercel",
+        "Date": "Sat, 14 Nov 2026 03:08:15 GMT",
+        "X-Vercel-Cache": "HIT",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/dele-a2-ccse-spanish-citizenship/",
+      "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+      "status": 200,
+      "finalUrl": "https://visalang.org/guides/dele-a2-ccse-spanish-citizenship/",
+      "contentType": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "cache": "HIT",
+      "robotsMeta": "noindex,follow",
+      "canonical": "https://visalang.org/guides/dele-a2-ccse-spanish-citizenship/",
+      "title": "DELE A2 and CCSE for Spanish citizenship: confirm what applies | VisaLang",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "Vercel",
+        "Date": "Sat, 14 Nov 2026 03:08:15 GMT",
+        "X-Vercel-Cache": "HIT",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/dele-levels-spanish-citizenship/",
+      "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+      "status": 200,
+      "finalUrl": "https://visalang.org/guides/dele-levels-spanish-citizenship/",
+      "contentType": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "cache": "HIT",
+      "robotsMeta": "noindex,follow",
+      "canonical": "https://visalang.org/guides/dele-levels-spanish-citizenship/",
+      "title": "DELE levels and Spanish citizenship: verify the accepted proof first | VisaLang",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "Vercel",
+        "Date": "Sat, 14 Nov 2026 03:08:15 GMT",
+        "X-Vercel-Cache": "HIT",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/portuguese-ciple-a2-for-citizenship-and-residence/",
+      "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+      "status": 200,
+      "finalUrl": "https://visalang.org/guides/portuguese-ciple-a2-for-citizenship-and-residence/",
+      "contentType": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "cache": "HIT",
+      "robotsMeta": "noindex,follow",
+      "canonical": "https://visalang.org/guides/portuguese-ciple-a2-for-citizenship-and-residence/",
+      "title": "CIPLE A2 Product Check for Portuguese Nationality | VisaLang",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "Vercel",
+        "Date": "Sat, 14 Nov 2026 03:08:15 GMT",
+        "X-Vercel-Cache": "HIT",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/portuguese-language-for-golden-visa-and-citizenship/",
+      "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+      "status": 200,
+      "finalUrl": "https://visalang.org/guides/portuguese-language-for-golden-visa-and-citizenship/",
+      "contentType": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "cache": "HIT",
+      "robotsMeta": "noindex,follow",
+      "canonical": "https://visalang.org/guides/portuguese-language-for-golden-visa-and-citizenship/",
+      "title": "Portuguese Nationality Language Proof After a Residence Route | VisaLang",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "Vercel",
+        "Date": "Sat, 14 Nov 2026 03:08:15 GMT",
+        "X-Vercel-Cache": "HIT",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/dutch-inburgering-a2-b1-for-integration-and-citizenship/",
+      "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+      "status": 200,
+      "finalUrl": "https://visalang.org/guides/dutch-inburgering-a2-b1-for-integration-and-citizenship/",
+      "contentType": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "cache": "HIT",
+      "robotsMeta": "noindex,follow",
+      "canonical": "https://visalang.org/guides/dutch-inburgering-a2-b1-for-integration-and-citizenship/",
+      "title": "Dutch Inburgering: Check the Procedure and Personal Route First | VisaLang",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "Vercel",
+        "Date": "Sat, 14 Nov 2026 03:08:15 GMT",
+        "X-Vercel-Cache": "HIT",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/staatsexamen-nt2-for-work-and-higher-education/",
+      "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+      "status": 200,
+      "finalUrl": "https://visalang.org/guides/staatsexamen-nt2-for-work-and-higher-education/",
+      "contentType": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "cache": "HIT",
+      "robotsMeta": "noindex,follow",
+      "canonical": "https://visalang.org/guides/staatsexamen-nt2-for-work-and-higher-education/",
+      "title": "Staatsexamen NT2-II for UvA Dutch-taught bachelor admissions | VisaLang",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "Vercel",
+        "Date": "Sat, 14 Nov 2026 03:08:15 GMT",
+        "X-Vercel-Cache": "HIT",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/yki-finnish-citizenship/",
+      "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+      "status": 200,
+      "finalUrl": "https://visalang.org/guides/yki-finnish-citizenship/",
+      "contentType": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "cache": "HIT",
+      "robotsMeta": "noindex,follow",
+      "canonical": "https://visalang.org/guides/yki-finnish-citizenship/",
+      "title": "Finnish Citizenship Language Proof: YKI and Other Evidence | VisaLang",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "Vercel",
+        "Date": "Sat, 14 Nov 2026 03:08:15 GMT",
+        "X-Vercel-Cache": "HIT",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      }
+    },
+    {
+      "url": "https://visalang.org/products/a1-family-reunion-pack/",
+      "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+      "status": 200,
+      "finalUrl": "https://visalang.org/products/a1-family-reunion-pack/",
+      "contentType": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "cache": "HIT",
+      "robotsMeta": "noindex,follow",
+      "canonical": "https://visalang.org/products/a1-family-reunion-pack/",
+      "title": "A1 Family Reunion Pack | VisaLang",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "Vercel",
+        "Date": "Sat, 14 Nov 2026 03:08:15 GMT",
+        "X-Vercel-Cache": "HIT",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      }
+    },
+    {
+      "url": "https://visalang.org/products/a1-practice-pack/",
+      "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+      "status": 200,
+      "finalUrl": "https://visalang.org/products/a1-practice-pack/",
+      "contentType": "text/html; charset=utf-8",
+      "server": "Vercel",
+      "cache": "HIT",
+      "robotsMeta": "noindex,follow",
+      "canonical": "https://visalang.org/products/a1-practice-pack/",
+      "title": "A1 Practice Pack | VisaLang",
+      "headers": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "Vercel",
+        "Date": "Sat, 14 Nov 2026 03:08:15 GMT",
+        "X-Vercel-Cache": "HIT",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+      }
+    }
+  ],
+  "categoryRoutes": [
+    {
+      "url": "https://visalang.org/guides/category/germany-a1/",
+      "path": "/guides/category/germany-a1/",
+      "taxonomyNoindexFlag": false,
+      "renderedRobotsThisBuild": "index,follow,max-image-preview:large",
+      "noindexReason": "this head has no taxonomy noindex flag; the built page is indexable because primary-discovery guides exist",
+      "liveProduction": {
+        "url": "https://visalang.org/guides/category/germany-a1/",
+        "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+        "status": 200,
+        "finalUrl": "https://visalang.org/guides/category/germany-a1/",
+        "contentType": "text/html; charset=utf-8",
+        "server": "Vercel",
+        "cache": "MISS",
+        "robotsMeta": "index,follow,max-image-preview:large",
+        "canonical": "https://visalang.org/guides/category/germany-a1/",
+        "title": "Germany A1 guides | VisaLang",
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Server": "Vercel",
+          "Date": "Sat, 14 Nov 2026 03:08:15 GMT",
+          "X-Vercel-Cache": "MISS",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+        }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": false,
+        "renderedRobotsThisBuild": "index,follow,max-image-preview:large",
+        "noindexReason": "taxonomy object has no noindex flag; the built page is indexable because primary-discovery guides exist"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": false,
+        "renderedRobotsThisBuild": "index,follow,max-image-preview:large",
+        "noindexReason": "this head has no taxonomy noindex flag; the built page is indexable because primary-discovery guides exist"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/category/germany-b1/",
+      "path": "/guides/category/germany-b1/",
+      "taxonomyNoindexFlag": false,
+      "renderedRobotsThisBuild": "index,follow,max-image-preview:large",
+      "noindexReason": "this head has no taxonomy noindex flag; the built page is indexable because primary-discovery guides exist",
+      "liveProduction": {
+        "url": "https://visalang.org/guides/category/germany-b1/",
+        "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+        "status": 200,
+        "finalUrl": "https://visalang.org/guides/category/germany-b1/",
+        "contentType": "text/html; charset=utf-8",
+        "server": "Vercel",
+        "cache": "MISS",
+        "robotsMeta": "index,follow,max-image-preview:large",
+        "canonical": "https://visalang.org/guides/category/germany-b1/",
+        "title": "Germany B1+ guides | VisaLang",
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Server": "Vercel",
+          "Date": "Sat, 14 Nov 2026 03:08:15 GMT",
+          "X-Vercel-Cache": "MISS",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+        }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": false,
+        "renderedRobotsThisBuild": "index,follow,max-image-preview:large",
+        "noindexReason": "taxonomy object has no noindex flag; the built page is indexable because primary-discovery guides exist"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": false,
+        "renderedRobotsThisBuild": "index,follow,max-image-preview:large",
+        "noindexReason": "this head has no taxonomy noindex flag; the built page is indexable because primary-discovery guides exist"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/category/germany-telc/",
+      "path": "/guides/category/germany-telc/",
+      "taxonomyNoindexFlag": false,
+      "renderedRobotsThisBuild": "noindex,follow",
+      "noindexReason": "this head has no taxonomy noindex flag; the built page is noindex because the primary-discovery guide count is 0",
+      "liveProduction": {
+        "url": "https://visalang.org/guides/category/germany-telc/",
+        "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+        "status": 200,
+        "finalUrl": "https://visalang.org/guides/category/germany-telc/",
+        "contentType": "text/html; charset=utf-8",
+        "server": "Vercel",
+        "cache": "MISS",
+        "robotsMeta": "noindex,follow",
+        "canonical": "https://visalang.org/guides/category/germany-telc/",
+        "title": "telc Deutsch guides | VisaLang",
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Server": "Vercel",
+          "Date": "Sat, 14 Nov 2026 03:08:16 GMT",
+          "X-Vercel-Cache": "MISS",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+        }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": false,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "taxonomy object has no noindex flag; the category page sets noindex because its primary-discovery guide count is 0"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": false,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "this head has no taxonomy noindex flag; the built page is noindex because the primary-discovery guide count is 0"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/category/germany-testdaf/",
+      "path": "/guides/category/germany-testdaf/",
+      "taxonomyNoindexFlag": false,
+      "renderedRobotsThisBuild": "noindex,follow",
+      "noindexReason": "this head has no taxonomy noindex flag; the built page is noindex because the primary-discovery guide count is 0",
+      "liveProduction": {
+        "url": "https://visalang.org/guides/category/germany-testdaf/",
+        "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+        "status": 200,
+        "finalUrl": "https://visalang.org/guides/category/germany-testdaf/",
+        "contentType": "text/html; charset=utf-8",
+        "server": "Vercel",
+        "cache": "MISS",
+        "robotsMeta": "noindex,follow",
+        "canonical": "https://visalang.org/guides/category/germany-testdaf/",
+        "title": "TestDaF guides | VisaLang",
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Server": "Vercel",
+          "Date": "Sat, 14 Nov 2026 03:08:16 GMT",
+          "X-Vercel-Cache": "MISS",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+        }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": false,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "taxonomy object has no noindex flag; the category page sets noindex because its primary-discovery guide count is 0"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": false,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "this head has no taxonomy noindex flag; the built page is noindex because the primary-discovery guide count is 0"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/category/uk/",
+      "path": "/guides/category/uk/",
+      "taxonomyNoindexFlag": true,
+      "renderedRobotsThisBuild": "noindex,follow",
+      "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow",
+      "liveProduction": {
+        "url": "https://visalang.org/guides/category/uk/",
+        "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+        "status": 200,
+        "finalUrl": "https://visalang.org/guides/category/uk/",
+        "contentType": "text/html; charset=utf-8",
+        "server": "Vercel",
+        "cache": "MISS",
+        "robotsMeta": "noindex,follow",
+        "canonical": "https://visalang.org/guides/category/uk/",
+        "title": "United Kingdom guides | VisaLang",
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Server": "Vercel",
+          "Date": "Sat, 14 Nov 2026 03:08:16 GMT",
+          "X-Vercel-Cache": "MISS",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+        }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "taxonomy object sets noindex: true; the built page renders noindex,follow"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/category/canada/",
+      "path": "/guides/category/canada/",
+      "taxonomyNoindexFlag": true,
+      "renderedRobotsThisBuild": "noindex,follow",
+      "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow",
+      "liveProduction": {
+        "url": "https://visalang.org/guides/category/canada/",
+        "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+        "status": 200,
+        "finalUrl": "https://visalang.org/guides/category/canada/",
+        "contentType": "text/html; charset=utf-8",
+        "server": "Vercel",
+        "cache": "MISS",
+        "robotsMeta": "noindex,follow",
+        "canonical": "https://visalang.org/guides/category/canada/",
+        "title": "Canada guides | VisaLang",
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Server": "Vercel",
+          "Date": "Sat, 14 Nov 2026 03:08:16 GMT",
+          "X-Vercel-Cache": "MISS",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+        }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "taxonomy object sets noindex: true; the built page renders noindex,follow"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/category/italy/",
+      "path": "/guides/category/italy/",
+      "taxonomyNoindexFlag": true,
+      "renderedRobotsThisBuild": "noindex,follow",
+      "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow",
+      "liveProduction": {
+        "url": "https://visalang.org/guides/category/italy/",
+        "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+        "status": 200,
+        "finalUrl": "https://visalang.org/guides/category/italy/",
+        "contentType": "text/html; charset=utf-8",
+        "server": "Vercel",
+        "cache": "MISS",
+        "robotsMeta": "noindex,follow",
+        "canonical": "https://visalang.org/guides/category/italy/",
+        "title": "Italy guides | VisaLang",
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Server": "Vercel",
+          "Date": "Sat, 14 Nov 2026 03:08:16 GMT",
+          "X-Vercel-Cache": "MISS",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+        }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "taxonomy object sets noindex: true; the built page renders noindex,follow"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/category/spain/",
+      "path": "/guides/category/spain/",
+      "taxonomyNoindexFlag": true,
+      "renderedRobotsThisBuild": "noindex,follow",
+      "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow",
+      "liveProduction": {
+        "url": "https://visalang.org/guides/category/spain/",
+        "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+        "status": 200,
+        "finalUrl": "https://visalang.org/guides/category/spain/",
+        "contentType": "text/html; charset=utf-8",
+        "server": "Vercel",
+        "cache": "MISS",
+        "robotsMeta": "noindex,follow",
+        "canonical": "https://visalang.org/guides/category/spain/",
+        "title": "Spain guides | VisaLang",
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Server": "Vercel",
+          "Date": "Sat, 14 Nov 2026 03:08:16 GMT",
+          "X-Vercel-Cache": "MISS",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+        }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": false,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "taxonomy object has no noindex flag; the category page sets noindex because its primary-discovery guide count is 0"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/category/france/",
+      "path": "/guides/category/france/",
+      "taxonomyNoindexFlag": true,
+      "renderedRobotsThisBuild": "noindex,follow",
+      "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow",
+      "liveProduction": {
+        "url": "https://visalang.org/guides/category/france/",
+        "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+        "status": 200,
+        "finalUrl": "https://visalang.org/guides/category/france/",
+        "contentType": "text/html; charset=utf-8",
+        "server": "Vercel",
+        "cache": "MISS",
+        "robotsMeta": "noindex,follow",
+        "canonical": "https://visalang.org/guides/category/france/",
+        "title": "France guides | VisaLang",
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Server": "Vercel",
+          "Date": "Sat, 14 Nov 2026 03:08:17 GMT",
+          "X-Vercel-Cache": "MISS",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+        }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": false,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "taxonomy object has no noindex flag; the category page sets noindex because its primary-discovery guide count is 0"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/category/finland/",
+      "path": "/guides/category/finland/",
+      "taxonomyNoindexFlag": true,
+      "renderedRobotsThisBuild": "noindex,follow",
+      "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow",
+      "liveProduction": {
+        "url": "https://visalang.org/guides/category/finland/",
+        "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+        "status": 200,
+        "finalUrl": "https://visalang.org/guides/category/finland/",
+        "contentType": "text/html; charset=utf-8",
+        "server": "Vercel",
+        "cache": "MISS",
+        "robotsMeta": "noindex,follow",
+        "canonical": "https://visalang.org/guides/category/finland/",
+        "title": "Finland guides | VisaLang",
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Server": "Vercel",
+          "Date": "Sat, 14 Nov 2026 03:08:17 GMT",
+          "X-Vercel-Cache": "MISS",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+        }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "taxonomy object sets noindex: true; the built page renders noindex,follow"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/category/netherlands/",
+      "path": "/guides/category/netherlands/",
+      "taxonomyNoindexFlag": true,
+      "renderedRobotsThisBuild": "noindex,follow",
+      "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow",
+      "liveProduction": {
+        "url": "https://visalang.org/guides/category/netherlands/",
+        "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+        "status": 200,
+        "finalUrl": "https://visalang.org/guides/category/netherlands/",
+        "contentType": "text/html; charset=utf-8",
+        "server": "Vercel",
+        "cache": "MISS",
+        "robotsMeta": "noindex,follow",
+        "canonical": "https://visalang.org/guides/category/netherlands/",
+        "title": "Netherlands guides | VisaLang",
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Server": "Vercel",
+          "Date": "Sat, 14 Nov 2026 03:08:17 GMT",
+          "X-Vercel-Cache": "MISS",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+        }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "taxonomy object sets noindex: true; the built page renders noindex,follow"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow"
+      }
+    },
+    {
+      "url": "https://visalang.org/guides/category/portugal/",
+      "path": "/guides/category/portugal/",
+      "taxonomyNoindexFlag": true,
+      "renderedRobotsThisBuild": "noindex,follow",
+      "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow",
+      "liveProduction": {
+        "url": "https://visalang.org/guides/category/portugal/",
+        "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+        "status": 200,
+        "finalUrl": "https://visalang.org/guides/category/portugal/",
+        "contentType": "text/html; charset=utf-8",
+        "server": "Vercel",
+        "cache": "MISS",
+        "robotsMeta": "noindex,follow",
+        "canonical": "https://visalang.org/guides/category/portugal/",
+        "title": "Portugal guides | VisaLang",
+        "headers": {
+          "Content-Type": "text/html; charset=utf-8",
+          "Server": "Vercel",
+          "Date": "Sat, 14 Nov 2026 03:08:17 GMT",
+          "X-Vercel-Cache": "MISS",
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+        }
+      },
+      "inventoryCodeReading": {
+        "capturedWith": "2026-11-14T03:08:14.605877+00:00",
+        "note": "Code reading from the inventory pass before this head set the Spain and France flags. Not rewritten.",
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "taxonomy object sets noindex: true; the built page renders noindex,follow"
+      },
+      "thisHead": {
+        "taxonomyNoindexFlag": true,
+        "renderedRobotsThisBuild": "noindex,follow",
+        "noindexReason": "this head sets noindex: true on the taxonomy object; the built page renders noindex,follow"
+      }
+    }
+  ],
+  "layers": {
+    "productionSnapshot": {
+      "capturedAt": "2026-11-14T03:08:14.605877+00:00",
+      "note": "Public HTTPS capture of visalang.org. Not this head, not a rebuilt dist, and not proof that every unlinked main route was found."
+    },
+    "thisHeadBuild": {
+      "rebuiltAt": "2026-11-14T03:35:07.530742+00:00",
+      "builtHtmlRoutes": 97,
+      "note": "Robots and taxonomy flags in thisHead and taxonomyNoindexFlag are read from the current source and dist. They are not the 11:07 production snapshot."
+    },
+    "unknownOrphans": "Not exhausted. A closed set of linked HTML URLs does not prove that every unlinked main route is absent."
+  }
+}

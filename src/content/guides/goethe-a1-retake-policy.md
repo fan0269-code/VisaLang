@@ -4,8 +4,8 @@ description: "What to do after an unsuccessful Goethe A1 result: use the result 
 category: "germany-a1"
 slug: "goethe-a1-retake-policy"
 publishedDate: "2026-06-30"
-updatedDate: "2026-07-19"
-sourceReviewedAt: "2026-07-19"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "complete-route"
@@ -28,7 +28,7 @@ supportingGuideSlugs: ["goethe-a1-speaking-topics", "goethe-a1-listening-practic
 
 ## Start with the result, not the next booking
 
-An unsuccessful A1 result is useful information, not a verdict on whether you can complete the route. First read your score report. The [Goethe A1 results page](https://www.goethe.de/en/spr/prf/pes/pas1.html) explains the exam-level pass-or-fail result context for Goethe-Zertifikat A1: Start Deutsch 1.
+An unsuccessful A1 result is information about that sitting, not a decision on your visa file. Start Deutsch 1 is non-modular. The A1 administration rules, Stand 1 September 2025, section 7, say the exam may be repeated only as a whole. Exam Guidelines section 15 says those examinations may be repeated as a whole as often as desired, and that the centre may set a period for a resit when it communicates the result. There is no legal entitlement to a particular date. Section 6.3 says the exam is passed at 60 or more of 100 points, with all sections taken. The Goethe results HTML was not opened for this correction, so it is not cited as a verified explanation of your score report. Read the report the centre actually gave you.
 
 Goethe's official [German examinations FAQ](https://www.goethe.de/ins/de/en/prf/ogf.html) says an examination as a whole can be retaken as often as needed. That provider-level rule does not guarantee a local seat, date, fee, or booking route, and it does not make a partial A1 retake available. Ask the responsible local centre how to make the next full-exam booking before choosing another date.
 
@@ -44,7 +44,7 @@ Goethe's official [German examinations FAQ](https://www.goethe.de/ins/de/en/prf/
 
 Separate the problem before starting another study cycle. Listening may need more timed exposure; speaking may need simple question-and-answer practice; reading may need faster sign and notice recognition; writing may need form and short-message control.
 
-Common causes are underprepared speaking, difficulty following short listening items, unfamiliar writing formats, test-day nerves, too little timed practice, or assuming A1 is automatically easy. The right response is targeted practice, not a larger pile of materials.
+There is no pass-rate or “common cause” statistic on this page. Use the report as a self-check: numbers or times missed in listening, an incomplete form, a writing answer that skipped the prompt, or a speaking turn that stopped after one sentence. Those are possible gaps for your paper, not a description of other candidates. The centre owns the next sitting, fee, and identification. The mission owns whether it still wants this certificate. A retake rule is not permission to file.
 
 ## Choose a recovery approach
 
@@ -77,7 +77,7 @@ Repair the weakest skill with [Goethe A1 speaking topics](/guides/goethe-a1-spea
 
 ### Can this page confirm that I can retake?
 
-No. It separates the questions you need to ask; the official centre and the German mission or authority decide their current document instructions.
+No. The exam owner’s rules say whether Start Deutsch 1 is retaken as a whole and that the centre may set the next period. They do not decide whether the mission will accept the certificate. The mission does not set the exam’s retake rule.
 
 ### What if local instructions conflict?
 

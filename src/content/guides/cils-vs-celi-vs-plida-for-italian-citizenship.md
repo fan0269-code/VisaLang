@@ -4,7 +4,7 @@ description: "Compare CILS, CELI and PLIDA as certificate products only after th
 category: "italy"
 slug: "cils-vs-celi-vs-plida-for-italian-citizenship"
 publishedDate: "2026-07-01"
-updatedDate: "2026-07-30"
+updatedDate: "2026-11-14"
 contentStatus: "verification-pending"
 decisionStage: "choice"
 comparisonScope: "same-route"
@@ -16,7 +16,7 @@ adsEligible: false
 primaryIntent: "CILS, CELI and PLIDA certificate comparison after a citizenship requirement check"
 audienceScope: "Readers whose competent Italian authority instruction gives them a reason to compare CILS, CELI and PLIDA"
 finalDecisionAuthorityType: "Italian Ministry of the Interior through the competent Prefettura or responsible consulate"
-primaryOfficialAuthorityUrl: "https://www.esteri.it/it/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/"
+primaryOfficialAuthorityUrl: "https://libertaciviliimmigrazione.dlci.interno.gov.it/cittadinanza-invia-la-tua-domanda"
 examOwnerUrl: "https://cils.unistrasi.it/1/79/73/Livello-CILS-UNO-B1.htm"
 localExecutionPrompt: "Keep the competent authority's evidence instruction separate from product details, then compare the exact CILS, CELI and PLIDA options using each owner and selected authorised centre."
 author: "VisaLang Editorial team"
@@ -31,9 +31,9 @@ supportingGuideSlugs: ["cils-b1-cittadinanza-for-italian-citizenship"]
 
 Use this page only after your authority record identifies a citizenship procedure and gives you a reason to compare certificate options.
 
-The current Foreign Ministry page lists the owners of CILS, CELI and PLIDA among the admitted certification bodies within its stated procedure. It also lists other bodies and qualifying evidence. This comparison is therefore not a complete list of every possible evidence path, and it does not turn one provider into the default choice.
+The Foreign Ministry URL returned a challenge page on 2026-11-14, so this comparison does not say that page currently lists CILS, CELI, and PLIDA as admitted bodies. Product pages can describe the certificates. They do not prove that an Italian citizenship file accepts them. The requirement page remains the place for the authority record.
 
-The Italian Ministry of the Interior, competent Prefettura or responsible consulate remains the final decision source. CILS, CELI and PLIDA owners control their products; selected authorised centres control current local execution.
+The Italian Interior Ministry page that was opened does not replace a consular list. The competent Prefettura or responsible consulate remains the final authority. CILS, CELI and PLIDA owners control their products; selected authorised centres control current local execution.
 
 ## Keep four decisions separate
 
@@ -91,7 +91,7 @@ Before paying, send unresolved evidence questions to the competent Prefettura or
 ## Official sources
 
 - [Italian Ministry of the Interior — submit a citizenship application](https://libertaciviliimmigrazione.dlci.interno.gov.it/cittadinanza-invia-la-tua-domanda)
-- [Italian Foreign Ministry — citizenship procedures and admitted certification bodies](https://www.esteri.it/it/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/)
+- [Italian Foreign Ministry URL — challenge page on 2026-11-14, not a current admitted-body list](https://www.esteri.it/it/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/)
 - [CILS — CILS UNO-B1 product page](https://cils.unistrasi.it/1/79/73/Livello-CILS-UNO-B1.htm)
 - [CELI — current exam entry points and local-terms boundary](https://cvcl.unistrapg.it/pagine/calendario-esami-celi-e-dils-pg-000)
 - [PLIDA — adult certification, centres and owner rules](https://plida.dante.global/)

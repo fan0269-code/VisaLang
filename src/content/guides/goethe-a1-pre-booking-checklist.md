@@ -5,8 +5,8 @@ description: "A practical Goethe A1 pre-booking checklist for the requirement, e
 category: "germany-a1"
 slug: "goethe-a1-pre-booking-checklist"
 publishedDate: "2026-07-02"
-updatedDate: "2026-07-22"
-sourceReviewedAt: "2026-07-22"
+updatedDate: "2026-11-14"
+sourceReviewedAt: "2026-11-14"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
 contentStatus: "complete-route"
@@ -20,85 +20,47 @@ primaryOfficialAuthorityUrl: "https://www.bamf.de/SharedDocs/Anlagen/DE/Migratio
 examOwnerUrl: "https://www.goethe.de/en/spr/prf.html"
 localExecutionPrompt: "Confirm proof acceptance with the competent authority and save the selected centre's current date, fee, ID, payment, cancellation, rescheduling, result and certificate instructions before paying."
 author: "VisaLang Editorial team"
-readingTime: "8"
+readingTime: "9"
 featured: false
 eyebrow: "Germany family reunion"
 route: "germany-a1"
-supportingGuideSlugs: ["goethe-a1-booking-mistakes", "german-a1-documents-checklist"]
+supportingGuideSlugs: ["german-a1-documents-checklist", "goethe-a1-test-centers"]
 ---
-Before you pay for a Goethe A1 exam, work through this checklist. It cannot decide your visa case, but it can stop you from paying before the route, centre, and local rules are clear.
+## Who this checklist is for
 
-## Step 1: Verify the language requirement
+Use this page in the hour before you pay for Goethe-Zertifikat A1: Start Deutsch 1, and again if you have already paid and the confirmation does not match what you thought you bought. It does not decide a visa. Visa-file papers stay on the [documents checklist](/guides/german-a1-documents-checklist/).
 
-- [ ] Confirm with the responsible German mission or authority whether your visa category requires A1 German.
-- [ ] Ask whether Goethe-Zertifikat A1: Start Deutsch 1 is accepted for your specific case.
-- [ ] Ask whether an exception may apply to your personal circumstances.
-- [ ] Document who you spoke to, when, and what they said. Save emails or notes.
+## Stop if one of these rows is blank
 
-## Step 2: Confirm the right exam
+Each row needs four notes: who confirmed it, the words they used, the date, and the stop rule. A blank row means do not pay.
 
-- [ ] Confirm you are booking the adult version: Goethe-Zertifikat A1: Start Deutsch 1 — not Fit in Deutsch 1 (for young learners).
-- [ ] Check the official exam description and confirm what proof the responsible authority expects for your case.
-- [ ] If you already have a higher-level German certificate, ask whether it satisfies the A1 requirement.
+| Item | Who can confirm it | Your note (quote, date) | Stop if |
+| --- | --- | --- | --- |
+| The mission still wants language proof for this category | The mission that will receive the file |  | The category is still unknown |
+| The certificate name matches Goethe-Zertifikat A1: Start Deutsch 1 | That mission’s current instruction, compared with the exam name on the centre form |  | The form says a course, Fit in Deutsch, or only “A1” |
+| The centre is on the exam owner’s route for that product | Goethe’s examination route, then the centre’s own page |  | You only have a school advert or a forwarded address |
+| Fee, payment deadline, cancellation, and rescheduling | The selected centre’s current terms. Exam Guidelines section 6.1 puts the fee on the local schedule |  | You are copying a price from another city. The Beijing registration HTML was not opened |
+| Identification the centre will accept | The centre |  | The booking name and the ID you will carry do not match |
+| Result and certificate handover | The centre. Guidelines section 13 says the centre notifies results and an early individual release is not available. Section 14 says the certificate form follows the centre |  | You have turned “about five days” (section 4.7, the clock time) into a certificate date |
 
-## Step 3: Choose your test centre
+## If you already paid
 
-- [ ] Verify the centre through Goethe's official examination route or local centre page.
-- [ ] Check whether the centre offers the exact exam on a date that works with your route timeline.
-- [ ] Check the location: can you practically get there on exam day?
-- [ ] Note the contact information for the centre in case you need to reach them.
+Read the confirmation and the local terms before you ask for anything. Contact the centre through the channel printed on those terms. State the exact mismatch: wrong product name, wrong ID, wrong date, or a term you did not see. Ask which options exist. Exam Guidelines sections 6.2 and 6.3 are the central refund provisions the centre applies with its own terms. Do not assume a transfer, a refund, a correction, or a new seat until the centre confirms it in writing. Save that reply next to the receipt.
 
-## Step 4: Understand the costs
+A paid booking still does not prove the mission will accept the certificate. If the mission’s name and the confirmation’s name differ, pause and ask the mission before you travel to the sitting.
 
-- [ ] Confirm the exact exam fee at your chosen centre. Fees vary by country and centre.
-- [ ] Ask whether the fee is refundable if you need to cancel or reschedule.
-- [ ] Ask about the transfer or rescheduling policy: deadlines, fees, and availability.
-- [ ] Check whether there are additional administrative fees.
-- [ ] Budget for travel, accommodation, and materials in addition to the exam fee.
+## Common mistakes
 
-## Step 5: Prepare your documents
+- Treating “most people book the wrong exam” as a fact. This page has no frequency count. The examples above are checks, not statistics.
+- Filling a blank fee from a forum or from a centre you will not use.
+- Using this list as the visa document list.
 
-- [ ] The exact identification document the test centre currently requires, including its validity rule.
-- [ ] Any additional identification or supporting document in the centre's current instructions.
-- [ ] Confirmation of registration or booking reference.
-- [ ] Payment receipt.
-- [ ] Check the centre instructions for what to bring and what is prohibited.
+## Next action
 
-## Step 6: Plan your preparation
-
-- [ ] Assess your current German level honestly. Can you comfortably handle A1-level reading, writing, listening, and speaking?
-- [ ] Identify how much time you can study per day and choose a study plan that fits.
-- [ ] Download the official Goethe A1 practice materials.
-- [ ] If self-study is not enough, research A1 German courses in your area or online.
-- [ ] Use official practice material to understand the current exam format before relying on a study schedule.
-
-## Step 7: Book with confidence
-
-- [ ] All steps above are checked.
-- [ ] You have documented your visa language requirement from the official authority.
-- [ ] You have chosen an official test centre with a suitable date.
-- [ ] You understand the cost and the refund or transfer policy.
-- [ ] Your ID is valid and ready.
-- [ ] You have a realistic preparation plan.
-
-## Stop if one of these is missing
-
-Do not pay while the accepted certificate, exact exam name, official centre status, local terms, or timeline is still unknown. Resolve the missing item with the responsible authority or official centre first.
-
-## Keep one booking record
-
-Save the official requirement source, centre page, fee, date, payment deadline, cancellation rule, booking confirmation, and ID instruction together. Record the date you checked each item so an old screenshot does not quietly become your plan.
-
-## After booking
-
-- [ ] Save your booking confirmation and receipt.
-- [ ] Note the exam date, time, and location in your calendar.
-- [ ] Plan your travel to the test centre.
-- [ ] Start your preparation plan.
-- [ ] If anything changes, read the local terms and contact the official test centre through its published channel.
+If a row is blank, go back to the [requirement guide](/guides/german-family-reunion-language-requirement/) or [test centres](/guides/goethe-a1-test-centers/). If the rows are filled, use the [timeline](/guides/german-a1-exam-booking-timeline/) only with dates you already hold.
 
 ## Official sources
 
-- [Goethe-Institut German examinations](https://www.goethe.de/en/spr/prf.html)
-- [Goethe-Zertifikat A1: Start Deutsch 1 terms and conditions](https://www.goethe.de/pro/relaunch/prf/en/Durchfuehrungsbestimmungen_A1_Start_Deutsch_1.pdf)
-- [Federal Foreign Office: Visas for Germany](https://www.auswaertiges-amt.de/en/visa-service/215870-215870)
+- [BAMF spousal leaflet (PDF)](https://www.bamf.de/SharedDocs/Anlagen/DE/MigrationAufenthalt/Ehegattennachzug/ehegattennachzug-en.pdf?__blob=publicationFile&v=11) — imprint 03/2023. Named certificates and the mission’s recognition sentence.
+- [A1 administration rules (PDF)](https://www.goethe.de/pro/relaunch/prf/de/Durchfuehrungsbestimmungen_A1_Start_Deutsch_1.pdf) — Stand 1 September 2025. Non-modular exam. Not a price list.
+- [Exam Guidelines (PDF)](https://www.goethe.de/pro/relaunch/prf/de/Pruefungsordnung.pdf) — sections 4.7, 6, 13, 14, and 15, Stand 1 September 2025.
