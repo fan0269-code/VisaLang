@@ -77,7 +77,7 @@ Goethe product, overview, and centre HTML returned HTTP 403 on 2026-11-11. They 
 These items are unknown until the office that owns them answers:
 
 - Whether your mission accepts Goethe Start Deutsch 1 for your relationship and age category.
-- Certificate age, originals, copies, or translations. The Federal Foreign Office certificate FAQ, Welche Sprachzertifikate werden im Visumsverfahren akzeptiert, read from the 2026-11-14 snapshot, says that as a rule (in der Regel) the exam date should not be more than one year old. If individual modules were repeated, the date of the oldest passed module applies. That “as a rule” guidance is not a statute that the certificate expires automatically, and the mission that receives the file can still give a case instruction. The shorter spouse-language FAQ does not state an age rule. Its silence does not cancel the certificate FAQ. The BAMF spousal leaflet (imprint 03/2023) also does not state a nationwide maximum age. Do not turn either silence into “the Foreign Office has no one-year guidance,” and do not turn the certificate FAQ into a hard nationwide expiry.
+- Certificate age, originals, copies, or translations. As a rule (in der Regel), the exam date should not be more than one year old, and a repeated module uses the oldest passed module. That is not automatic expiry, and the spouse FAQ’s silence does not cancel it. The full limit is on the [requirement guide](/guides/german-family-reunion-language-requirement/).
 - How your mission runs the interview sentence in the leaflet: if the interview shows you undoubtedly have the basic command, no separate certificate is needed. That is not a waiver you can award yourself.
 - The fee, the next seat, and the day the certificate will be in your hands.
 

@@ -14,6 +14,7 @@ const fieldLabel = (field: ToolField) => {
 };
 
 export function setupToolForm(form: HTMLFormElement, options: ToolFormOptions) {
+  form.querySelectorAll<HTMLButtonElement>('[data-tool-submit]').forEach((button) => { button.disabled = false; });
   const fields = [...form.querySelectorAll<ToolField>('input, select, textarea')].filter((field) => field.name);
   const summary = form.querySelector<HTMLElement>('[data-error-summary]');
   const steps = [...document.querySelectorAll<HTMLElement>('[data-tool-step]')];

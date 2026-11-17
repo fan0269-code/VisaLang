@@ -36,7 +36,7 @@ Prompt: write your name, your city, a date, and one sentence asking for a docume
 
 Revision: „Ich heiße Lea Hoffmann. Ich wohne in Berlin. Ich bitte um die Meldebescheinigung am 3. Mai.“
 
-The revision matches the prompt: name Lea Hoffmann, city Berlin, date 3. Mai, document Meldebescheinigung. The first draft had none of those four fields, and it asked for an appointment instead of the document. That reason is yours to check. It is not an official mark. The rules say writing is graded at the centre by two graders against the criteria in the exam booklet. This page does not reproduce those criteria and does not estimate a score. The name is fictional.
+The revision matches the prompt: name Lea Hoffmann, city Berlin, date 3. Mai, document Meldebescheinigung. The first draft names Berlin but omits the preposition in. It gives no name, date or requested document, and it asks for an appointment instead of the document. That reason is yours to check. It is not an official mark. The rules say writing is graded at the centre by two graders against the criteria in the exam booklet. This page does not reproduce those criteria and does not estimate a score. The name is fictional.
 
 ## Common mistakes
 

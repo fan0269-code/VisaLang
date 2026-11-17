@@ -14,7 +14,8 @@ import ToolResultPanel from '../../components/ToolResultPanel.astro';
         <label>Official source to recheck<input name="source" type="url" placeholder="https://" /></label>
       </div>
       <div class="tool-error-summary" id="reminder-error" data-error-summary role="alert" tabindex="-1" hidden></div>
-      <button class="button button--primary" type="submit">Create reminder plan</button>
+      <button class="button button--primary" type="submit" disabled data-tool-submit>Create reminder plan</button>
+      <noscript><p id="reminder-no-js">JavaScript is off, so this form does not send a reminder or your answers. The button stays disabled. Continue with the <a href="/germany-family-reunion-a1/">Germany A1 guide</a>.</p></noscript>
     </form>
     <ToolResultPanel id="reminder-result" title="Your reminder plan"><div id="reminder-summary"></div><div class="button-row"><button class="button button--primary" type="button" data-download-ics>Download ICS</button></div><ToolResultSupport resultId="reminder-summary" /></ToolResultPanel>
   </div>

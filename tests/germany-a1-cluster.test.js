@@ -216,5 +216,6 @@ const a1Writing = fs.readFileSync(path.join(guideDirectory, 'goethe-a1-writing-p
 assert.match(a1Writing, /Meldebescheinigung/, 'A1 writing revision names the document the prompt asked for');
 assert.match(a1Writing, /Ich heiße Lea Hoffmann/, 'A1 writing revision includes the name field');
 assert.doesNotMatch(a1Writing, /Ich bitte um einen Termin/, 'A1 writing revision does not replace the document task with an appointment');
+assert.match(a1Writing, /The first draft names Berlin but omits the preposition in\./, 'A1 writing feedback keeps the city that the draft already names');
 
 console.log('Germany A1 cluster rules passed');
