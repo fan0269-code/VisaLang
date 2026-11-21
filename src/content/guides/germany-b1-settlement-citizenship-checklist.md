@@ -83,7 +83,7 @@ Use this note inside whichever bundle the authority confirmed. Leave a cell blan
 | Source URL and date |  |  |
 | Still unresolved |  |  |
 
-BAMF’s final-examination page separates the DTZ from Life in Germany. It states at least 15 of 33 for the orientation-course pass and at least 17 of 33 where the naturalisation-test ordinance is used for the knowledge condition. Do not copy that page’s older residence-year sentences. Residence for section 10 follows the current statute and the German BAMF overview, not the English page dated 30 June 2025.
+BAMF’s final-examination page separates the DTZ from Life in Germany. It states at least 15 of 33 for the orientation-course pass and at least 17 of 33 where the naturalisation-test ordinance is used for the knowledge condition. Do not copy the older residence-year wording, and do not use the repealed section 10 (3). The German and English final-examination pages are not the same current text. Curl opened the German page on 2026-11-21 (HTTP 200, Datum 16.11.2026); the eight-year / seven-year residence sentence is not in that German text. A researcher WebFetch the same day, about 20:28–20:30 Asia/Shanghai, still read “after only seven years … The usual requirement is eight years” on the English page, with a citation of Nationality Act section 10 subsection (3). No English-page body was saved. Curl did not open the English page, and this note is not a later re-check of it. Residence for section 10 follows the current statute and the German BAMF overview, not the English page dated 30 June 2025.
 
 Which B1 or DTZ format a city accepts is unresolved until that city says so. Compare products only after the quote exists, in [DTZ, Goethe B1, and telc B1](/guides/goethe-b1-vs-telc-b1/).
 
@@ -113,7 +113,7 @@ Leave it unresolved and ask the authority before you submit. An empty box is not
 
 - Treating B1 as the whole settlement or naturalisation file.
 - Putting a language certificate in the civic-knowledge slot.
-- Using the repealed section 10 (3) residence wording that still appears on the BAMF final-examination page.
+- Using repealed section 10 (3), or copying the old residence years. The German final-examination page (curl, 2026-11-21, Datum 16.11.2026) does not contain the eight-year / seven-year sentence. A researcher WebFetch the same day (about 20:28–20:30 Asia/Shanghai) still read that wording, and a citation of section 10 subsection (3), on the English page. No English body was saved, curl did not open the English page, and this is not a later re-check.
 - Assuming every settlement path asks for B1.
 - Reusing another city’s checklist or an old form.
 - Copying a federal fee or a processing-time sentence into the file as if this guide had confirmed it.
@@ -134,8 +134,9 @@ Opened or rechecked on 2026-11-10.
 - [BAMF: settling in Germany](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Migrathek/Niederlassen/niederlassen-node.html) — dated 1 March 2024. Language level depends on the path. [German pair](https://www.bamf.de/DE/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Migrathek/Niederlassen/niederlassen-node.html).
 - [Nationality Act section 10](https://www.gesetze-im-internet.de/stag/__10.html) — five years in (1); (3) and (3a) weggefallen.
 - [BGBl. 2025 I No. 256](https://www.recht.bund.de/bgbl/1/2025/256/regelungstext.pdf?__blob=publicationFile) — deletes subsection 3, not 3a.
-- [BAMF Einbürgerung, German](https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html) — Datum 09.11.2026.
+- [BAMF Einbürgerung, German](https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html) — Datum 16.11.2026. Opened with WebFetch on 2026-11-21; curl did not succeed that day.
 - [BAMF naturalisation, English](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html) — Date 30/06/2025, historical conflict only.
-- [BAMF: the final examination](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse/Abschlusspruefung/abschlusspruefung-node.html) — DTZ and Life in Germany; 15/33 and 17/33. Do not copy the residence-year sentences on that page.
+- [BAMF: the final examination (English)](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse/Abschlusspruefung/abschlusspruefung-node.html) — DTZ and Life in Germany; 15/33 and 17/33. A researcher WebFetch on 2026-11-21 (about 20:28–20:30 Asia/Shanghai) still read the older residence-year sentence (“after only seven years … The usual requirement is eight years”) and a citation of Nationality Act section 10 subsection (3). No English body was saved. Curl did not open this page, and this note is not a later re-check. Do not copy that wording, and do not use repealed section 10 (3).
+- [BAMF: the final examination (German)](https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse/Abschlusspruefung/abschlusspruefung-node.html) — Datum 16.11.2026. Curl returned HTTP 200 on 2026-11-21. The eight-year / seven-year residence sentence is not in that German text.
 
 Which B1 or DTZ format the local authority accepts remains unresolved until that authority says so.
