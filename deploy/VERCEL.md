@@ -21,7 +21,7 @@ The Astro preset's default build command is `astro build`. That skips `postbuild
 | Build | `npm run build` |
 | Output | `dist` |
 | Node.js | `22.x` (`package.json` `engines.node`) |
-| Trailing slash | on (`trailingSlash: true`) |
+| Trailing slash | explicit 308s after the 301 list (`trailingSlash` omitted) |
 | Clean URLs | off |
 
 `npm run build` cleans the Astro cache, runs `astro build`, then `node scripts/enrich-sitemap-lastmod.js`.
@@ -30,7 +30,18 @@ Node must be 22.12 or newer. Vercel only selects a major line from `engines.node
 
 The site is static. Do not install `@astrojs/vercel` unless a later change needs on-demand rendering. That adapter is not required for `dist/` and is not part of this setup.
 
-`trailingSlash: true` sends a path without a slash, such as `/about`, to `/about/` with status 308. Paths that already have a file extension are left to the explicit 301 rules. `cleanUrls` stays false so Vercel does not strip `.html` on its own.
+Astro still emits directory URLs (`trailingSlash: 'always'` in `astro.config.mjs`). That setting shapes the dev server and the built files. On a static deployment, Vercel decides the public slash redirect.
+
+`vercel.json` omits `trailingSlash`. Vercel’s route compiler inserts a `trailingSlash: true` 308 before every entry in `redirects`, so an unsuffixed path answers 308 before a more specific 301 in that list. With the flag omitted, the 301s and the slash rules share one list and the earlier rule wins.
+
+The last two redirects are `statusCode` 308 and repeat the platform slash rules:
+
+- an extensionless path without a trailing slash redirects to the same path with a slash, except `/.well-known` and its children
+- a path with a file extension and a trailing slash redirects to the same path without the slash
+
+`/disclaimer` and `/privacy` are earlier 301s, so their first response is already 301. The same is true for any other unsuffixed source listed above those 308s, including the legacy guide renames that name both forms. A path with no earlier rule, such as `/about` or `/guides/some-guide`, still 308s to its slashed form. `.html` sources stay on their explicit 301s because the add-slash rule does not match a file extension. `cleanUrls` stays false so Vercel does not strip `.html` on its own.
+
+`www.visalang.org` stays the first redirect and keeps the path. The primary-domain alias still sends `www` to the apex before deployment routes. Inside `vercel.json`, that host 301 is now ahead of slash normalization.
 
 ## Redirects and headers
 
@@ -38,7 +49,7 @@ Vercel does not apply `public/_redirects` or `public/_headers`. Those files stay
 
 `vercel.json` is the Vercel copy:
 
-- Each 301 in `public/_redirects` is a `statusCode: 301` redirect. `permanent: true` would send 308, so it is not used.
+- Each 301 in `public/_redirects` is a `statusCode: 301` redirect. `permanent: true` would send 308, so it is not used. The two slash-normalization rules are not copied into `public/_redirects`; they are `statusCode: 308` entries at the end of `vercel.json` `redirects`, which is what keeps them behind the 301s.
 - `www.visalang.org` is a host 301 to `https://visalang.org` with the same path. It is the first redirect, matching the old Nginx host canonicalisation.
 - The Netlify-style `/* /404.html 404` line is not copied as a redirect. A catch-all redirect would shadow real pages. Astro writes `dist/404.html` from `src/pages/404.astro`, and Vercel uses that file for unknown paths.
 - Security headers match `public/_headers`: `nosniff`, `SAMEORIGIN`, `strict-origin-when-cross-origin`, a closed camera/microphone/geolocation policy, and HSTS for one year including subdomains.

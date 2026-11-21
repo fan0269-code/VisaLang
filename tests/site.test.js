@@ -25,6 +25,7 @@ require('./content-integrity.test.js');
 require('./source-review-render.test.js');
 require('./deploy.test.js');
 require('./vercel-hosting.test.js');
+require('./legal-redirect-first-hop.test.js');
 require('./fan-254-dependency-audit.test.js');
 require('./fan-270-seo.test.js');
 require('./fan-273-404-recovery.test.js');

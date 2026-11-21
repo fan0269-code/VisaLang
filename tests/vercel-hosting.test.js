@@ -18,7 +18,11 @@ assert.equal(config.installCommand, 'npm ci', 'Vercel installs the lockfile');
 assert.equal(config.buildCommand, 'npm run build', 'Vercel runs the Astro build and sitemap lastmod postbuild');
 assert.equal(config.outputDirectory, 'dist', 'Vercel publishes the Astro dist output');
 assert.equal(config.cleanUrls, false, 'explicit legacy .html redirects stay in charge of extension URLs');
-assert.equal(config.trailingSlash, true, 'Vercel matches Astro trailingSlash always');
+assert.equal(
+  Object.hasOwn(config, 'trailingSlash'),
+  false,
+  'trailingSlash is omitted so Vercel does not prepend its 308 ahead of redirects',
+);
 assert.equal(packageJson.engines.node, '22.x', 'Vercel stays on Node 22 rather than an open range that selects a newer major');
 assert.doesNotMatch(JSON.stringify(packageJson), /@astrojs\/vercel/, 'static hosting does not add the Vercel SSR adapter');
 assert.match(astroConfig, /site:\s*'https:\/\/visalang\.org'/, 'production site URL stays on the apex');

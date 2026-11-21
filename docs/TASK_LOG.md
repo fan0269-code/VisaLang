@@ -2,6 +2,12 @@
 
 Updated: 2026-11-21
 
+## Unsuffixed legal paths, one hop — 2026-11-21
+
+- Scope: repository only. Production still 308s `/disclaimer` to `/disclaimer/` and `/privacy` to `/privacy/` before the 301, because Vercel compiles `trailingSlash: true` into routes that run before `redirects`. Listing the same 301 again does not change that order.
+- `trailingSlash` is removed from `vercel.json`. The same slash behavior is two `statusCode` 308 rules at the end of `redirects`: add a slash on an extensionless path (except `/.well-known` and its children), and remove a trailing slash from a path that has a file extension. `/disclaimer`, `/disclaimer/`, `/privacy`, and `/privacy/` stay earlier 301s to `/terms/` and `/privacy-policy/`.
+- Astro `trailingSlash: 'always'` and `cleanUrls: false` stay. Advertising runtime stays false. This entry does not enable ads, start an AdSense application, merge, or authorise deployment. A passing unit test simulates the compiler order; it is not a production measurement.
+
 ## Residual copy and short legal paths — 2026-11-21
 
 - Scope: repository only. Removed the stale “Not deployed.” sentence from the last paragraph of `/germany-b1-settlement-citizenship/`. The surrounding sentences stay, including “This B1 hub has no Chinese mirror.” This was leftover copy, not a claim that the site is offline.

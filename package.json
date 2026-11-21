@@ -20,5 +20,8 @@
   },
   "overrides": {
     "@astrojs/prism": "4.1.0"
+  },
+  "devDependencies": {
+    "path-to-regexp": "6.1.0"
   }
 }
