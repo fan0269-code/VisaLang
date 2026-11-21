@@ -1,6 +1,12 @@
 # VisaLang Task Log
 
-Updated: 2026-11-14
+Updated: 2026-11-21
+
+## Residual copy and short legal paths — 2026-11-21
+
+- Scope: repository only. Removed the stale “Not deployed.” sentence from the last paragraph of `/germany-b1-settlement-citizenship/`. The surrounding sentences stay, including “This B1 hub has no Chinese mirror.” This was leftover copy, not a claim that the site is offline.
+- `/disclaimer` and `/disclaimer/` are 301s to `/terms/`. `/privacy` and `/privacy/` are 301s to `/privacy-policy/`. Both forms are listed so the unsuffixed path does not stop on the platform trailing-slash redirect first. `/terms/` and `/privacy-policy/` were not rewritten. No pages were added at the short paths.
+- Advertising runtime stays false. This entry does not enable ads, start an AdSense application, or authorise deployment.
 
 ## AdSense substantive correction — 2026-11-14
 
