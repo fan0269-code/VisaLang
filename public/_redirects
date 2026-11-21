@@ -1,5 +1,7 @@
 # Vercel applies these 301s from vercel.json. This file stays for the launch check and non-Vercel adapters.
 # The /* 404 line is not a Vercel redirect; dist/404.html is the unknown-path page.
+# Slash normalization on Vercel is the two statusCode 308 rules at the end of vercel.json redirects.
+# This file is not a Vercel routing phase and cannot run before the platform trailing-slash 308.
 /index.html / 301
 /germany-family-reunion-a1.html /germany-family-reunion-a1/ 301
 /do-i-need-german-a1.html /tools/route-finder/ 301
