@@ -115,6 +115,8 @@ for (const [file, nextGuideSlug] of Object.entries(preparationSupportExpectation
   assert.doesNotMatch(body, /TL;DR verdict|Continue your B1 decision route|Revision history|Official verification pending|Proposed B1 practice pack/i, `${file} removes internal or repeated template copy`);
 }
 
+assert.match(hub, /This B1 hub has no Chinese mirror\./, 'B1 hub still says it has no Chinese mirror');
+assert.doesNotMatch(hub, /Not deployed\./, 'B1 hub drops the stale Not deployed sentence');
 assert.equal((hub.match(/<h1(?:\s|>)/g) || []).length, 1, 'B1 hub source declares exactly one H1');
 assert.equal((hub.match(/<ArticleTOC(?:\s|\/>)/g) || []).length, 1, 'B1 hub source uses exactly one ArticleTOC');
 assert.ok(hub.includes("canonicalURL=\"https://visalang.org/germany-b1-settlement-citizenship/\""), 'B1 hub keeps its self-canonical URL');

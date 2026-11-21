@@ -32,6 +32,23 @@ assert.deepEqual(wwwRedirect.has, [{ type: 'host', value: 'www.visalang.org' }])
 assert.equal(wwwRedirect.destination, 'https://visalang.org/$1');
 assert.equal(wwwRedirect.statusCode, 301);
 
+const shortLegalRedirects = [
+  ['/disclaimer', '/terms/'],
+  ['/disclaimer/', '/terms/'],
+  ['/privacy', '/privacy-policy/'],
+  ['/privacy/', '/privacy-policy/'],
+];
+for (const [source, destination] of shortLegalRedirects) {
+  assert.ok(
+    redirectLines.includes(`${source} ${destination} 301`),
+    `public/_redirects sends ${source} to ${destination} in one 301`,
+  );
+  assert.ok(
+    staticRedirects.some((rule) => rule.source === source && rule.destination === destination && rule.statusCode === 301 && !rule.permanent),
+    `vercel.json sends ${source} to ${destination} as a 301 without a 308 permanent flag`,
+  );
+}
+
 for (const line of redirectLines) {
   const [source, destination, code] = line.split(/\s+/);
   if (code === '404') {
