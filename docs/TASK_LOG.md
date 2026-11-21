@@ -2,6 +2,16 @@
 
 Updated: 2026-11-21
 
+## BAMF final-examination language split and checklist Datum — 2026-11-21
+
+- Scope: repository copy only. New branch from `2b18be4fe112610cabe4ce73d3eb2964503c714a`. Not stacked on PR #17 or #18, and not a continuation of any earlier review gate. Not merged and not deployed.
+- German BAMF final-examination page: curl HTTP 200 on 2026-11-21, Datum 16.11.2026. The eight-year / seven-year residence sentence is not in that German text. Occurrences of “acht” inside words such as Abschlusstest and Zuwanderer are not that sentence.
+- English BAMF final-examination page: a researcher WebFetch on 2026-11-21, about 20:28–20:30 Asia/Shanghai, still read “after only seven years … The usual requirement is eight years” and a citation of Nationality Act section 10 subsection (3). No English body was saved. Curl did not open the English page. This entry is not a later re-check of it.
+- Pages: `/guides/goethe-b1-vs-telc-b1/`, `/guides/germany-b1-settlement-citizenship-timeline/`, `/guides/germany-b1-settlement-citizenship-checklist/`. The narrowing instruction stays: do not copy the old residence years, and do not use repealed section 10 (3). 15/33, 17/33, and the DTZ versus Leben in Deutschland split were not changed.
+- `/guides/germany-b1-leben-in-deutschland-and-language-proof/` already named the English page. The same WebFetch limit was added. It was not rewritten into an undifferentiated claim.
+- Checklist only: BAMF Einbürgerung, German, is Datum 16.11.2026. Opened with WebFetch on 2026-11-21; curl did not succeed that day. Five-year and B1 wording was not rewritten. Fees and processing times were not copied. Goethe HTML, Make it in Germany HTML, the English naturalisation page, and the English settlement page were not marked verified from this pass.
+- Advertising runtime stays false. This entry does not enable ads and does not start an AdSense application.
+
 ## Unsuffixed legal paths, one hop — 2026-11-21
 
 - Scope: repository only. Production still 308s `/disclaimer` to `/disclaimer/` and `/privacy` to `/privacy/` before the 301, because Vercel compiles `trailingSlash: true` into routes that run before `redirects`. Listing the same 301 again does not change that order.

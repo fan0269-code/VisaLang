@@ -37,7 +37,7 @@ Confirm the route before you date anything. Settlement starts on [Germany settle
 
 The five-year section 10 (1) line, the limit that BGBl. 2025 I No. 256 deletes subsection 3 only, and the instruction not to choose the English three-year sentence are on the [B1 hub](/germany-b1-settlement-citizenship/). Language evidence and civic-knowledge evidence stay separate. Settlement under Residence Act (AufenthG) section 9 is a different procedure from naturalisation under the Nationality Act. This page does not decide either procedure and does not copy fees.
 
-Those texts do not give this page a processing time. This timeline does not calculate the five-year condition or any other residence period. Do not copy the older “usually eight years / seven with the integration-course certificate” sentences from BAMF’s final-examination page.
+Those texts do not give this page a processing time. This timeline does not calculate the five-year condition or any other residence period. Do not copy the older “usually eight years / seven with the integration-course certificate” residence wording, and do not use the repealed section 10 (3). The German and English final-examination pages are not the same current text. Curl opened the German page on 2026-11-21 (HTTP 200, Datum 16.11.2026); that residence-year sentence is not in the German text. A researcher WebFetch the same day, about 20:28–20:30 Asia/Shanghai, still read “after only seven years … The usual requirement is eight years” on the English page, with a citation of Nationality Act section 10 subsection (3). No English-page body was saved. Curl did not open the English page, and this note is not a later re-check of it.
 
 The federal naturalisation portal describes a step order and also publishes fee and timing figures. Read any figure on the portal if you need the portal’s own wording, and ask the competent authority which statement applies to your file. This page does not repeat those figures.
 
@@ -103,7 +103,7 @@ Use the contact details your town, district, or foreigners authority publishes. 
 - Treating a general result estimate as a certificate date.
 - Assuming a failed attempt can be repeated on a date you have not been offered.
 - Using this sequence as a residence-duration calculation.
-- Copying the final-examination page’s outdated residence years.
+- Copying outdated eight-year or seven-year residence wording, or using repealed section 10 (3). The German final-examination page (curl, 2026-11-21, Datum 16.11.2026) does not contain that sentence. The English page still showed it on a researcher WebFetch the same day (about 20:28–20:30 Asia/Shanghai); no English body was saved, curl did not open it, and this is not a later re-check.
 - Treating Goethe’s B1 product HTML as opened. It was not reachable here and stays **needs-verify**.
 
 ## Next action
@@ -121,7 +121,8 @@ Opened or rechecked on 2026-11-10.
 - [BAMF: settling in Germany](https://www.bamf.de/EN/Themen/MigrationAufenthalt/ZuwandererDrittstaaten/Migrathek/Niederlassen/niederlassen-node.html) — dated 1 March 2024. Language level depends on the path.
 - [Nationality Act section 10](https://www.gesetze-im-internet.de/stag/__10.html) — defines the five-year condition this page does not calculate. Subsections (3) and (3a) are weggefallen.
 - [BAMF naturalisation, English](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html) — Date 30/06/2025. Not a current three-year option.
-- [BAMF: the final examination](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse/Abschlusspruefung/abschlusspruefung-node.html) — DTZ and Life in Germany as separate evidence. Do not copy the residence-year sentences.
+- [BAMF: the final examination (English)](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse/Abschlusspruefung/abschlusspruefung-node.html) — DTZ and Life in Germany as separate evidence. A researcher WebFetch on 2026-11-21 (about 20:28–20:30 Asia/Shanghai) still read the older residence-year sentence and a citation of Nationality Act section 10 subsection (3). No English body was saved. Curl did not open this page, and this note is not a later re-check. Do not copy that wording, and do not use repealed section 10 (3).
+- [BAMF: the final examination (German)](https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Integrationskurse/Abschlusspruefung/abschlusspruefung-node.html) — Datum 16.11.2026. Curl returned HTTP 200 on 2026-11-21. The older eight-year / seven-year residence sentence is not in that German text.
 - [telc: Zertifikat Deutsch / telc Deutsch B1 (English)](https://www.telc.net/en/language-examinations/certificate-exams/german/certificate-german-telc-german-b1/) — exam-owner product page used as the exam-side entry. Not an acceptance decision and not a result calendar.
 - [telc: find an examination centre](https://www.telc.net/en/language-examinations/find-a-telc-examination-centre/) — locator only.
 - [telc exam regulations (PDF, from 15 April 2025)](https://www.telc.net/fileadmin/user_upload/pdfs/AGB_Pruefungsordnung/9994-P00-150010.pdf) — evaluation starts after a complete file; the centre hands over the notice within two weeks of receiving it.
