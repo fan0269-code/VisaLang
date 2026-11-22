@@ -12,6 +12,10 @@ Updated: 2026-11-21
 - Checklist only: BAMF Einbürgerung, German, is Datum 16.11.2026. Opened with WebFetch on 2026-11-21; curl did not succeed that day. Five-year and B1 wording was not rewritten. Fees and processing times were not copied. Goethe HTML, Make it in Germany HTML, the English naturalisation page, and the English settlement page were not marked verified from this pass.
 - Advertising runtime stays false. This entry does not enable ads and does not start an AdSense application.
 
+## A1 retake 60-point attribution — 2026-11-21
+
+- Scope: `/guides/goethe-a1-retake-policy/` only, plus this log and the content update log. The 60-point sentence now cites the A1 administration rules, Stand 1 September 2025, section 6.3, rather than Exam Guidelines. The 60-point and all-sections-taken fact stays. Administration rules section 7 and Exam Guidelines section 15 stay. The Goethe results HTML stays uncited as a verified score-report explanation. Advertising runtime stays false. This entry does not enable ads, merge, or authorise deployment, and it does not inherit review gates from PR #17, #18, or #19.
+
 ## Unsuffixed legal paths, one hop — 2026-11-21
 
 - Scope: repository only. Production still 308s `/disclaimer` to `/disclaimer/` and `/privacy` to `/privacy/` before the 301, because Vercel compiles `trailingSlash: true` into routes that run before `redirects`. Listing the same 301 again does not change that order.
