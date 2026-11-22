@@ -9,6 +9,14 @@ Updated: 2026-11-22
 - Sede page `https://sede.mjusticia.gob.es/es/tramites/nacionalidad-espanola`: WebFetch on 2026-11-22; curl still did not succeed. Used only as an electronic-procedures entry: online residence-nationality filing, AutoFirma, a two-month completion window, and a request for dispensation from Instituto Cervantes tests. Form 790 and fee amounts were not copied. No 2027 exam-session overview was added. The page does not say every applicant must take both exams.
 - Dates: `updatedDate` is 2026-11-22 for this wording change. `sourceReviewedAt` stays 2026-07-19. `contentStatus` stays `verification-pending`. The Cervantes nationality maintenance notice stays dated 2026-11-14. The two procedure links in “Start with” stay on the two URLs above.
 
+## German Einbürgerung heading Datum — 2026-11-22
+
+- Scope: point revision only. New branch from `3fb230d6ed6053a1eda1893f488b35b5697d2898`. Not stacked on PR #21 or any other open pull request. Not merged and not deployed. Does not inherit the review gates of PR #17, #18, #19, or #20.
+- The German BAMF Einbürgerung overview heading is Datum 16 November 2026 on the quick answer of `/germany-b1-settlement-citizenship/`, and Datum 16.11.2026 on that page’s official-sources list and on the source table of `/guides/germany-b1-citizenship-language-proof/`. The common-error line on `/guides/germany-b1-leben-in-deutschland-and-language-proof/` uses 16 November 2026. Opened with WebFetch on 2026-11-21; curl did not succeed that day. This entry does not record a new opening and does not say curl has succeeded.
+- On the Leben in Deutschland source table, the final-examination line no longer says that chain was opened only on 2026-11-11. It uses the method limit already recorded on 2026-11-21: German page Datum 16.11.2026, curl HTTP 200 that day, and the eight-year / seven-year residence sentence is not in that German text. The English page stays a researcher WebFetch the same day, about 20:28–20:30 Asia/Shanghai. No English body was saved. Curl did not open the English page. This is not a later re-check of it. Legal claims in that page’s body were not rewritten.
+- Five-year and B1 wording was not rewritten. Fees and processing times were not copied. Goethe HTML, Make it in Germany HTML, the English naturalisation page, and the English settlement page were not marked verified.
+- Advertising runtime stays false. This entry does not enable ads and does not start an AdSense application.
+
 ## BAMF final-examination language split and checklist Datum — 2026-11-21
 
 - Scope: repository copy only. New branch from `2b18be4fe112610cabe4ce73d3eb2964503c714a`. Not stacked on PR #17 or #18, and not a continuation of any earlier review gate. Not merged and not deployed.
