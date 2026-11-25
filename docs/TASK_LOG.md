@@ -1,6 +1,13 @@
 # VisaLang Task Log
 
-Updated: 2026-11-21
+Updated: 2026-11-22
+
+## DELE A2 residence and sede attribution — 2026-11-22
+
+- Scope: repository only. One sentence on `/guides/dele-a2-ccse-spanish-citizenship/` (claim V-ES-SEDE-1). The Ministry residence page is no longer said to name a Cervantes-test dispensation request. `/guides/dele-levels-spanish-citizenship/` was not edited. Advertising runtime stays false. This entry does not enable ads, merge, or authorise deployment.
+- Residence page `https://www.mjusticia.gob.es/es/ciudadania/tramites/nacionalidad-residencia`: limited WebFetch on 2026-11-21 and 2026-11-22; curl timed out both times. The readable intro supports lawful, continuous residence in Spain for the statutory period immediately before the application, plus good conduct and integration. Remaining blocks were not rendered because JavaScript was required. They are not written as a verified full procedure or as exam rules.
+- Sede page `https://sede.mjusticia.gob.es/es/tramites/nacionalidad-espanola`: WebFetch on 2026-11-22; curl still did not succeed. Used only as an electronic-procedures entry: online residence-nationality filing, AutoFirma, a two-month completion window, and a request for dispensation from Instituto Cervantes tests. Form 790 and fee amounts were not copied. No 2027 exam-session overview was added. The page does not say every applicant must take both exams.
+- Dates: `updatedDate` is 2026-11-22 for this wording change. `sourceReviewedAt` stays 2026-07-19. `contentStatus` stays `verification-pending`. The Cervantes nationality maintenance notice stays dated 2026-11-14. The two procedure links in “Start with” stay on the two URLs above.
 
 ## BAMF final-examination language split and checklist Datum — 2026-11-21
 

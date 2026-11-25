@@ -462,6 +462,23 @@ assert.ok(!arrayField(spainRequirement, 'supportingGuideSlugs').includes('dele-l
 assert.equal(field(spainChoice, 'decisionStage'), 'choice', 'Spain certificate page remains a choice step');
 assert.equal(field(spainChoice, 'nextGuideSlug'), '', 'Spain certificate-choice page terminates instead of looping to the requirement page');
 assert.ok(arrayField(spainChoice, 'supportingGuideSlugs').includes('dele-a2-ccse-spanish-citizenship'), 'Spain certificate choice keeps the requirement page as supporting context');
+assert.equal(field(spainRequirement, 'updatedDate'), '2026-11-22', 'the DELE A2 wording change is dated separately from the earlier source review');
+assert.equal(field(spainRequirement, 'sourceReviewedAt'), '2026-07-19', 'the DELE A2 header source-review date stays the earlier check');
+assert.equal(field(spainRequirement, 'contentStatus'), 'verification-pending', 'the DELE A2 page stays verification pending after the sede split');
+assert.doesNotMatch(spainRequirement, /residence page opened on 2026-11-14 names a residence-nationality route and a separate request for dispensation/i, 'V-ES-SEDE-1 no longer attributes the Cervantes dispensation request to the residence page');
+assert.match(spainRequirement, /limited-opened by WebFetch on 2026-11-21 and 2026-11-22/, 'the residence page records both limited WebFetch dates');
+assert.match(spainRequirement, /curl timed out both times/, 'the residence page records that curl timed out');
+assert.match(spainRequirement, /lawful, continuous residence in Spain for the statutory period immediately before the application, plus good conduct and integration/, 'the residence sentence stays inside the readable intro');
+assert.match(spainRequirement, /JavaScript was required/, 'unrendered residence blocks are marked unread');
+assert.match(spainRequirement, /does not treat them as a verified full procedure or as exam rules/, 'unread residence blocks are not a verified procedure or exam rules');
+assert.match(spainRequirement, /https:\/\/sede\.mjusticia\.gob\.es\/es\/tramites\/nacionalidad-espanola/, 'the dispensation request stays on the sede procedures URL');
+assert.match(spainRequirement, /opened by WebFetch on 2026-11-22/, 'the sede page records the WebFetch date');
+assert.match(spainRequirement, /curl still did not succeed/, 'the sede page records that curl did not succeed');
+assert.match(spainRequirement, /\[Spanish Ministry of Justice residence-nationality procedure\]\(https:\/\/www\.mjusticia\.gob\.es\/es\/ciudadania\/tramites\/nacionalidad-residencia\)/, 'Start with keeps the residence procedure on the residence URL');
+assert.match(spainRequirement, /\[Cervantes-test dispensation procedure\]\(https:\/\/sede\.mjusticia\.gob\.es\/es\/tramites\/nacionalidad-espanola\)/, 'Start with keeps the dispensation procedure on the sede URL');
+assert.doesNotMatch(spainRequirement, /790|€|EUR\s?\d|formulario/i, 'the DELE A2 page does not copy form 790 or a fee amount');
+assert.doesNotMatch(spainRequirement, /2027/, 'the DELE A2 page does not copy a 2027 exam-session overview');
+assert.doesNotMatch(spainChoice, /residence page opened on 2026-11-14 names a residence-nationality route and a separate request for dispensation/i, 'the DELE levels page does not repeat the mis-attributed residence sentence');
 
 const spainPilotAudit = fs.readFileSync('docs/SPAIN_CONTENT_SOURCE_PILOT_2026-07-16.md', 'utf8');
 assert.match(spainPilotAudit, /AGENT_REREVIEW_COMPLETED_WITH_APPLICANT_BOUNDARY/, 'Spain pilot records the agent pre-review disposition');

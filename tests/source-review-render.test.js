@@ -211,6 +211,11 @@ try {
   assert.ok(spainA2CcseHtml.includes('Spanish citizenship authority'), 'the second Spain page renders the deciding-authority boundary');
   assert.ok(spainA2CcseHtml.includes('Save the current Ministry instruction before comparing or booking a DELE or CCSE product.'), 'the Spain requirement page renders its authority-first next action');
   assert.ok(spainA2CcseHtml.includes('<small>Next guide</small><strong>DELE levels and Spanish citizenship: verify the accepted proof first</strong>'), 'the Spain requirement page continues to the certificate-choice page');
+  assert.ok(!spainA2CcseHtml.includes('The Ministry residence page opened on 2026-11-14 names a residence-nationality route and a separate request for dispensation from Instituto Cervantes tests.'), 'the rendered DELE A2 page no longer attributes the dispensation request to the residence page');
+  assert.ok(spainA2CcseHtml.includes('limited-opened by WebFetch on 2026-11-21 and 2026-11-22'), 'the rendered DELE A2 page records the limited residence-page opening');
+  assert.ok(spainA2CcseHtml.includes('href="https://www.mjusticia.gob.es/es/ciudadania/tramites/nacionalidad-residencia"') && spainA2CcseHtml.includes('href="https://sede.mjusticia.gob.es/es/tramites/nacionalidad-espanola"'), 'the rendered DELE A2 page keeps the residence and sede URLs separate');
+  assert.ok(spainA2CcseHtml.includes('a request for dispensation from Instituto Cervantes tests'), 'the rendered DELE A2 page places the dispensation request on the sede entry');
+  assert.ok(!spainA2CcseHtml.includes('formulario 790') && !spainA2CcseHtml.includes('790 026'), 'the rendered DELE A2 page does not copy form 790');
 
   const newlyReviewedP0Pages = [
     {

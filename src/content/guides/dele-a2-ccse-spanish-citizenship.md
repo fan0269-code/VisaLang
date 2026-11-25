@@ -4,7 +4,7 @@ description: "Start with Spain's residence-nationality procedure, then confirm w
 category: "spain"
 slug: "dele-a2-ccse-spanish-citizenship"
 publishedDate: "2026-07-01"
-updatedDate: "2026-11-14"
+updatedDate: "2026-11-22"
 sourceReviewedAt: "2026-07-19"
 sourceReviewStatus: "reviewed"
 reviewedByRole: "source-review"
@@ -41,7 +41,7 @@ Save the authority response or current procedure page before booking.
 
 ## What the reviewed sources can confirm
 
-The Ministry residence page opened on 2026-11-14 names a residence-nationality route and a separate request for dispensation from Instituto Cervantes tests. The Cervantes nationality URL opened the same day returned a DELE and CCSE maintenance notice about dates, not a statement that a nationality file accepts DELE A2 or CCSE. This page does not copy those dates and does not treat that notice as proof of which exam applies. The sequence stays Ministry-first, and it is not a universal two-test rule.
+The [Ministry residence page](https://www.mjusticia.gob.es/es/ciudadania/tramites/nacionalidad-residencia) was only limited-opened by WebFetch on 2026-11-21 and 2026-11-22, and curl timed out both times. Its readable intro says nationality by residence requires lawful, continuous residence in Spain for the statutory period immediately before the application, plus good conduct and integration. Remaining blocks on that page were not rendered because JavaScript was required, so this guide does not treat them as a verified full procedure or as exam rules. Cervantes-test dispensation requests and electronic filing are on the separate [Ministry electronic-procedures page](https://sede.mjusticia.gob.es/es/tramites/nacionalidad-espanola). That page was opened by WebFetch on 2026-11-22, and curl still did not succeed. It is an electronic-procedures entry for online residence-nationality filing, AutoFirma, a two-month completion window, and a request for dispensation from Instituto Cervantes tests. It is not a full procedure manual or exam-product text. The Cervantes nationality URL opened on 2026-11-14 returned a DELE and CCSE maintenance notice about dates, not a statement that a nationality file accepts DELE A2 or CCSE. This page does not copy those dates and does not treat that notice as proof of which exam applies. The sequence stays Ministry-first, and it is not a universal two-test rule.
 
 After the Ministry procedure confirms the proof applicable to your case, use the Instituto Cervantes links to verify the current product, authorised registration route, dates, fees, ID rules, result process, and retake terms. Exam-owner information does not establish citizenship eligibility or the proof required for an individual application.
 
