@@ -103,7 +103,7 @@ When the authority has named the language documents, use the [exam comparison](/
 - [Nationality Act §10](https://www.gesetze-im-internet.de/stag/__10.html) — five years in subsection 1; subsections 3 and 3a repealed; no. 6 language and no. 7 knowledge are separate; subsection 4 is the B1 route with further cases; subsection 5 is the naturalisation test as a rule. Opened 2026-11-11.
 - [Nationality Act section 10](https://www.gesetze-im-internet.de/stag/__10.html) — current text: five years in (1); (3) and (3a) weggefallen; no. 6 and no. 7 are separate.
 - [BGBl. 2025 I No. 256](https://www.recht.bund.de/bgbl/1/2025/256/regelungstext.pdf?__blob=publicationFile) — Article 1 deletes subsection 3 only.
-- [BAMF Einbürgerung, German](https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html) — Datum 09.11.2026. Five years, B1, naturalisation test.
+- [BAMF Einbürgerung, German](https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html) — Datum 16.11.2026. Opened with WebFetch on 2026-11-21; curl did not succeed that day. Five years, B1, naturalisation test.
 - [BAMF naturalisation, English](https://www.bamf.de/EN/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html) — Date 30/06/2025. Historical conflict. Do not choose the three-year sentence.
 - [BAMF: Einbürgerung](https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/Einbuergerung/einbuergerung-node.html) — where to ask which authority is competent. Opened 2026-11-11.
 - [einbuergerung.de: how naturalisation proceeds (English)](https://www.einbuergerung.de/ablauf.php?l=en) — step order only. Fee and duration figures on that page are not copied here.
